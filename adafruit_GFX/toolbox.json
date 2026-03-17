@@ -1,6 +1,6 @@
 {
   "kind": "category",
-  "name": "彩色显示屏",
+  "name": "Adafruit GFX",
   "icon": "iconfont icon-oled12864",
   "contents": [
     {
