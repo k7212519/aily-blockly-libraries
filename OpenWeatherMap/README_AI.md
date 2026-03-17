@@ -1,325 +1,137 @@
-# OpenWeatherMap Blockly库 - AI使用指南
+# OpenWeatherMap
 
-## 库概述
+访问 OpenWeatherMap API 获取天气数据，支持当前天气、5天预报、空气质量和地理编码。
 
-OpenWeatherMap库用于访问OpenWeatherMap API获取天气数据。支持当前天气、5天预报、空气质量和地理编码功能。
+## Library Info
+- **Name**: @aily-project/lib-openweathermap
+- **Version**: 1.0.0
 
-**变量类型**: `OpenWeatherMap`
+## Block Definitions
 
-## 块类型详解
+### Initialization & Configuration
 
-### 初始化块（VAR使用field_input）
-| 块类型 | 说明 |
-|--------|------|
-| `owm_init` | 初始化天气服务，创建OpenWeatherMap变量 |
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `owm_init` | Statement | VAR(field_input), API_KEY(input_value) | `owm_init("weather", text("your-api-key"))` | `weather.begin(apiKey);` |
+| `owm_set_units` | Statement | VAR(field_variable), UNITS(dropdown) | `owm_set_units($weather, OWM_UNITS_METRIC)` | `weather.setUnits(OWM_UNITS_METRIC);` |
+| `owm_set_language` | Statement | VAR(field_variable), LANG(dropdown) | `owm_set_language($weather, zh_cn)` | `weather.setLanguage("zh_cn");` |
+| `owm_set_debug` | Statement | VAR(field_variable), DEBUG(dropdown) | `owm_set_debug($weather, true)` | `weather.setDebug(true);` |
 
-### 配置块（VAR使用field_variable）
-| 块类型 | 说明 |
-|--------|------|
-| `owm_set_units` | 设置单位系统 |
-| `owm_set_language` | 设置返回语言 |
-| `owm_set_debug` | 设置调试模式 |
+### Current Weather
 
-### 数据请求块（语句块）
-| 块类型 | 说明 |
-|--------|------|
-| `owm_get_weather_by_city` | 通过城市请求天气 |
-| `owm_get_weather_by_coords` | 通过坐标请求天气 |
-| `owm_get_forecast` | 通过坐标请求预报 |
-| `owm_get_forecast_by_city` | 通过城市请求预报 |
-| `owm_get_air_pollution` | 请求空气质量 |
-| `owm_get_coords_by_city` | 查询城市坐标 |
-| `owm_get_coords_by_zip` | 查询邮编坐标 |
-| `owm_get_location_by_coords` | 反向查询位置 |
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `owm_get_weather_by_city` | Statement | VAR(field_variable), CITY(input_value), COUNTRY(input_value) | `owm_get_weather_by_city($weather, text("Shanghai"), text("CN"))` | `result = weather.getCurrentWeatherByCity(...);` |
+| `owm_get_weather_by_coords` | Statement | VAR(field_variable), LAT(input_value), LON(input_value) | `owm_get_weather_by_coords($weather, math_number(31.23), math_number(121.47))` | `result = weather.getCurrentWeather(...);` |
+| `owm_request_success` | Value(Boolean) | VAR(field_variable) | `owm_request_success($weather)` | `_owm_result_weather` |
+| `owm_weather_data` | Value | VAR(field_variable), DATA(dropdown) | `owm_weather_data($weather, temp)` | `_owm_weather_weather.main.temp` |
 
-### 请求状态块（值块，返回Boolean）
-| 块类型 | 说明 |
-|--------|------|
-| `owm_request_success` | 天气请求是否成功 |
-| `owm_forecast_request_success` | 预报请求是否成功 |
-| `owm_air_pollution_request_success` | 空气质量请求是否成功 |
-| `owm_geo_request_success` | 地理编码请求是否成功 |
+### Forecast
 
-### 数据读取块（值块）
-| 块类型 | 说明 |
-|--------|------|
-| `owm_weather_data` | 读取当前天气数据 |
-| `owm_forecast_count` | 预报时间点数量 |
-| `owm_forecast_data` | 读取预报数据 |
-| `owm_air_pollution_data` | 读取空气质量数据 |
-| `owm_geo_data` | 读取位置数据 |
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `owm_get_forecast` | Statement | VAR(field_variable), LAT(input_value), LON(input_value), COUNT(input_value) | `owm_get_forecast($weather, math_number(31.23), math_number(121.47), math_number(8))` | `result = weather.getForecast(...);` |
+| `owm_get_forecast_by_city` | Statement | VAR(field_variable), CITY(input_value), COUNTRY(input_value), COUNT(input_value) | `owm_get_forecast_by_city($weather, text("Shanghai"), text("CN"), math_number(8))` | `result = weather.getForecastByCity(...);` |
+| `owm_forecast_request_success` | Value(Boolean) | VAR(field_variable) | `owm_forecast_request_success($weather)` | `_owm_forecast_result_weather` |
+| `owm_forecast_count` | Value(Number) | VAR(field_variable) | `owm_forecast_count($weather)` | `_owm_forecast_weather.cnt` |
+| `owm_forecast_data` | Value | VAR(field_variable), INDEX(input_value), DATA(dropdown) | `owm_forecast_data($weather, math_number(0), temp)` | `_owm_forecast_weather.items[0].main.temp` |
 
-### 工具块（值块）
-| 块类型 | 说明 |
-|--------|------|
-| `owm_aqi_description` | 空气质量指数描述 |
-| `owm_get_icon_url` | 天气图标URL |
-| `owm_get_last_error` | 最后错误信息 |
-| `owm_get_http_code` | 最后HTTP代码 |
+### Air Pollution
 
-## .abi文件格式
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `owm_get_air_pollution` | Statement | VAR(field_variable), LAT(input_value), LON(input_value) | `owm_get_air_pollution($weather, math_number(31.23), math_number(121.47))` | `result = weather.getAirPollution(...);` |
+| `owm_air_pollution_request_success` | Value(Boolean) | VAR(field_variable) | `owm_air_pollution_request_success($weather)` | `_owm_air_result_weather` |
+| `owm_air_pollution_data` | Value(Number) | VAR(field_variable), DATA(dropdown) | `owm_air_pollution_data($weather, aqi)` | `_owm_air_weather.aqi` |
+| `owm_aqi_description` | Value(String) | AQI(input_value) | `owm_aqi_description(math_number(3))` | `OpenWeatherMap::getAQIDescription(3)` |
 
-### 初始化块（使用field_input）
-```json
-{
-  "type": "owm_init",
-  "id": "init_id",
-  "fields": {
-    "VAR": "weather"
-  },
-  "inputs": {
-    "API_KEY": {
-      "shadow": {
-        "type": "text",
-        "id": "api_shadow",
-        "fields": {"TEXT": "your-api-key"}
-      }
-    }
-  },
-  "next": {"block": {...}}
-}
+### Geocoding
+
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `owm_get_coords_by_city` | Statement | VAR(field_variable), CITY(input_value), COUNTRY(input_value) | `owm_get_coords_by_city($weather, text("Shanghai"), text("CN"))` | `result = (weather.getCoordinatesByName(...) > 0);` |
+| `owm_get_coords_by_zip` | Statement | VAR(field_variable), ZIP(input_value), COUNTRY(input_value) | `owm_get_coords_by_zip($weather, text("200000"), text("CN"))` | `result = weather.getCoordinatesByZip(...);` |
+| `owm_get_location_by_coords` | Statement | VAR(field_variable), LAT(input_value), LON(input_value) | `owm_get_location_by_coords($weather, math_number(31.23), math_number(121.47))` | `result = (weather.getLocationByCoordinates(...) > 0);` |
+| `owm_geo_request_success` | Value(Boolean) | VAR(field_variable) | `owm_geo_request_success($weather)` | `_owm_geo_result_weather` |
+| `owm_geo_data` | Value | VAR(field_variable), DATA(dropdown) | `owm_geo_data($weather, name)` | `_owm_geo_weather.name` |
+
+### Utilities
+
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `owm_get_icon_url` | Value(String) | ICON(input_value) | `owm_get_icon_url(text("01d"))` | `weather.getIconURL("01d", buf, 64)` |
+| `owm_get_last_error` | Value(String) | VAR(field_variable) | `owm_get_last_error($weather)` | `weather.getLastError()` |
+| `owm_get_http_code` | Value(Number) | VAR(field_variable) | `owm_get_http_code($weather)` | `weather.getLastHttpCode()` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| UNITS | OWM_UNITS_METRIC, OWM_UNITS_IMPERIAL, OWM_UNITS_STANDARD | Unit system (Celsius/Fahrenheit/Kelvin) |
+| LANG | zh_cn, en, ja, kr, de, fr, es, ru | Language for weather description |
+| DEBUG | true, false | Debug output toggle |
+| Weather DATA | name, country, weather_main, weather_description, weather_icon, temp, feels_like, temp_min, temp_max, humidity, pressure, wind_speed, wind_deg, clouds, visibility, sunrise, sunset | Current weather data fields |
+| Forecast DATA | dt_txt, weather_main, weather_description, temp, feels_like, temp_min, temp_max, humidity, pressure, wind_speed, clouds, pop, rain_3h, snow_3h | Forecast data fields |
+| Air DATA | aqi, co, no, no2, o3, so2, pm2_5, pm10, nh3 | Air pollution data fields |
+| Geo DATA | name, country, state, lat, lon | Geocoding data fields |
+
+## ABS Examples
+
+### Get Current Weather by City
+```
+arduino_setup()
+    serial_begin(Serial, 115200)
+    esp32_wifi_begin(text("YourSSID"), text("YourPass"))
+    owm_init("weather", text("your-api-key"))
+    owm_set_units($weather, OWM_UNITS_METRIC)
+    owm_set_language($weather, zh_cn)
+
+arduino_loop()
+    owm_get_weather_by_city($weather, text("Shanghai"), text("CN"))
+    controls_if()
+        @IF0: owm_request_success($weather)
+        @DO0:
+            serial_print(Serial, text("Temperature: "))
+            serial_println(Serial, owm_weather_data($weather, temp))
+            serial_print(Serial, text("Humidity: "))
+            serial_println(Serial, owm_weather_data($weather, humidity))
+            serial_print(Serial, text("Weather: "))
+            serial_println(Serial, owm_weather_data($weather, weather_description))
+    time_delay(math_number(60000))
 ```
 
-### 配置块（使用field_variable）
-```json
-{
-  "type": "owm_set_units",
-  "id": "units_id",
-  "fields": {
-    "VAR": {"id": "weather_var_id"},
-    "UNITS": "OWM_UNITS_METRIC"
-  },
-  "next": {"block": {...}}
-}
+### Get Forecast and Air Quality
+```
+arduino_setup()
+    serial_begin(Serial, 115200)
+    esp32_wifi_begin(text("YourSSID"), text("YourPass"))
+    owm_init("weather", text("your-api-key"))
+    owm_set_units($weather, OWM_UNITS_METRIC)
+
+arduino_loop()
+    owm_get_forecast($weather, math_number(31.23), math_number(121.47), math_number(5))
+    controls_if()
+        @IF0: owm_forecast_request_success($weather)
+        @DO0:
+            controls_for($i, math_number(0), owm_forecast_count($weather), math_number(1))
+                serial_print(Serial, owm_forecast_data($weather, variables_get($i), dt_txt))
+                serial_print(Serial, text(" "))
+                serial_println(Serial, owm_forecast_data($weather, variables_get($i), temp))
+    owm_get_air_pollution($weather, math_number(31.23), math_number(121.47))
+    controls_if()
+        @IF0: owm_air_pollution_request_success($weather)
+        @DO0:
+            serial_print(Serial, text("AQI: "))
+            serial_println(Serial, owm_air_pollution_data($weather, aqi))
+            serial_println(Serial, owm_aqi_description(owm_air_pollution_data($weather, aqi)))
+    time_delay(math_number(300000))
 ```
 
-### 请求块（语句块，不是值块）
-```json
-{
-  "type": "owm_get_weather_by_city",
-  "id": "get_id",
-  "fields": {
-    "VAR": {"id": "weather_var_id"}
-  },
-  "inputs": {
-    "CITY": {
-      "shadow": {
-        "type": "text",
-        "id": "city_shadow",
-        "fields": {"TEXT": "Shanghai"}
-      }
-    },
-    "COUNTRY": {
-      "shadow": {
-        "type": "text",
-        "id": "country_shadow",
-        "fields": {"TEXT": "CN"}
-      }
-    }
-  },
-  "next": {"block": {...}}
-}
-```
+## Notes
 
-### 请求成功判断（用于条件）
-```json
-{
-  "type": "controls_if",
-  "id": "if_id",
-  "inputs": {
-    "IF0": {
-      "block": {
-        "type": "owm_request_success",
-        "id": "success_id",
-        "fields": {
-          "VAR": {"id": "weather_var_id"}
-        }
-      }
-    },
-    "DO0": {
-      "block": {...}
-    }
-  }
-}
-```
-
-### 数据读取块
-```json
-{
-  "type": "owm_weather_data",
-  "id": "data_id",
-  "fields": {
-    "VAR": {"id": "weather_var_id"},
-    "DATA": "temp"
-  }
-}
-```
-
-## 下拉选项值
-
-### UNITS 单位
-- `OWM_UNITS_METRIC` - 公制
-- `OWM_UNITS_IMPERIAL` - 英制
-- `OWM_UNITS_STANDARD` - 标准
-
-### LANG 语言
-- `zh_cn`, `en`, `ja`, `kr`, `de`, `fr`, `es`, `ru`
-
-### DEBUG 调试
-- `true`, `false`
-
-### 天气DATA选项
-- `name`, `country`, `weather_main`, `weather_description`, `weather_icon`
-- `temp`, `feels_like`, `temp_min`, `temp_max`
-- `humidity`, `pressure`, `wind_speed`, `wind_deg`, `clouds`, `visibility`
-- `sunrise`, `sunset`
-
-### 预报DATA选项
-- `dt_txt`, `weather_main`, `weather_description`
-- `temp`, `feels_like`, `temp_min`, `temp_max`
-- `humidity`, `pressure`, `wind_speed`, `clouds`
-- `pop`, `rain_3h`, `snow_3h`
-
-### 空气质量DATA选项
-- `aqi`, `co`, `no`, `no2`, `o3`, `so2`, `pm2_5`, `pm10`, `nh3`
-
-### 位置DATA选项
-- `name`, `country`, `state`, `lat`, `lon`
-
-## 变量注册规则
-
-### variables数组
-```json
-{
-  "variables": [
-    {"name": "weather", "type": "OpenWeatherMap", "id": "weather_var_id"}
-  ]
-}
-```
-
-### 重要区别
-- **初始化块**: `"VAR": "weather"` (字符串，field_input)
-- **其他块**: `"VAR": {"id": "weather_var_id"}` (对象引用，field_variable)
-
-## 使用流程
-
-1. **初始化** → `owm_init` 创建天气服务对象
-2. **配置** → `owm_set_units`, `owm_set_language` 设置参数（可选）
-3. **请求数据** → `owm_get_weather_by_city` 等发起请求（语句块）
-4. **判断成功** → `owm_request_success` 等判断请求是否成功（值块，返回Boolean）
-5. **读取数据** → `owm_weather_data` 等读取具体值（值块）
-
-## 前置条件
-
-- 必须先连接WiFi
-- 需要有效的OpenWeatherMap API密钥
-- 必须先初始化后才能使用其他块
-
-## 完整示例
-
-```json
-{
-  "blocks": {
-    "languageVersion": 0,
-    "blocks": [
-      {
-        "type": "arduino_setup",
-        "id": "setup_id",
-        "inputs": {
-          "ARDUINO_SETUP": {
-            "block": {
-              "type": "serial_begin",
-              "id": "serial_id",
-              "fields": {"SERIAL": "Serial", "SPEED": "115200"},
-              "next": {
-                "block": {
-                  "type": "esp32_wifi_begin",
-                  "id": "wifi_id",
-                  "inputs": {
-                    "SSID": {"shadow": {"type": "text", "id": "ssid_shadow", "fields": {"TEXT": "YourSSID"}}},
-                    "PASSWORD": {"shadow": {"type": "text", "id": "pass_shadow", "fields": {"TEXT": "YourPass"}}}
-                  },
-                  "next": {
-                    "block": {
-                      "type": "owm_init",
-                      "id": "owm_init_id",
-                      "fields": {"VAR": "weather"},
-                      "inputs": {
-                        "API_KEY": {"shadow": {"type": "text", "id": "api_shadow", "fields": {"TEXT": "your-api-key"}}}
-                      },
-                      "next": {
-                        "block": {
-                          "type": "owm_set_units",
-                          "id": "units_id",
-                          "fields": {
-                            "VAR": {"id": "weather_var_id"},
-                            "UNITS": "OWM_UNITS_METRIC"
-                          },
-                          "next": {
-                            "block": {
-                              "type": "owm_get_weather_by_city",
-                              "id": "get_weather_id",
-                              "fields": {"VAR": {"id": "weather_var_id"}},
-                              "inputs": {
-                                "CITY": {"shadow": {"type": "text", "id": "city_shadow", "fields": {"TEXT": "Shanghai"}}},
-                                "COUNTRY": {"shadow": {"type": "text", "id": "country_shadow", "fields": {"TEXT": "CN"}}}
-                              },
-                              "next": {
-                                "block": {
-                                  "type": "controls_if",
-                                  "id": "if_success_id",
-                                  "inputs": {
-                                    "IF0": {
-                                      "block": {
-                                        "type": "owm_request_success",
-                                        "id": "success_id",
-                                        "fields": {"VAR": {"id": "weather_var_id"}}
-                                      }
-                                    },
-                                    "DO0": {
-                                      "block": {
-                                        "type": "serial_println",
-                                        "id": "print_id",
-                                        "inputs": {
-                                          "VAR": {
-                                            "block": {
-                                              "type": "owm_weather_data",
-                                              "id": "temp_data_id",
-                                              "fields": {
-                                                "VAR": {"id": "weather_var_id"},
-                                                "DATA": "temp"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    ]
-  },
-  "variables": [
-    {"name": "weather", "type": "OpenWeatherMap", "id": "weather_var_id"}
-  ]
-}
-```
-
-## 关键规则
-
-1. **请求块是语句块**: `owm_get_weather_by_city`等请求块是语句块，通过`next`连接，不是值块
-2. **判断成功用值块**: `owm_request_success`等是值块，用于if条件判断
-3. **每类数据独立**: 天气/预报/空气质量/地理编码各有独立的请求成功判断块
-4. **先请求后读取**: 必须先执行请求块，判断成功后，才能读取数据
+1. **Prerequisites**: WiFi must be connected before using this library. A valid OpenWeatherMap API key is required.
+2. **Initialization**: `owm_init` must be called in `arduino_setup()` before any other blocks.
+3. **Variable**: `owm_init("weather", ...)` creates variable `$weather`; reference it later with `$weather`.
+4. **Request flow**: Always call a request block first, then check success with the corresponding `*_request_success` block before reading data.
+5. **Rate limiting**: Free API keys have limited requests. Use appropriate delays (e.g. 60s+) between requests.
+6. **Forecast index**: Forecast data indices start from 0. Each point represents a 3-hour interval, max 40 points (5 days).
