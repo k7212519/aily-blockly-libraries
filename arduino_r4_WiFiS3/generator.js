@@ -8,18 +8,13 @@ Arduino.forBlock['wifis3_begin'] = function(block, generator) {
 
   // 添加必要库
   generator.addLibrary('WiFiS3', '#include <WiFiS3.h>');
-  
-  // 确保Serial初始化（用于调试输出）
-  ensureSerialBegin('Serial', generator);
 
   // 生成代码
   let code = 'int wifi_status = WiFi.begin(' + ssid + ', ' + pass + ');\n';
   code += 'while (wifi_status != WL_CONNECTED) {\n';
-  code += '  Serial.println("Connecting to WiFi...");\n';
   code += '  delay(1000);\n';
   code += '  wifi_status = WiFi.status();\n';
   code += '}\n';
-  code += 'Serial.println("WiFi Connected!");\n';
 
   return code;
 };
@@ -28,15 +23,12 @@ Arduino.forBlock['wifis3_begin_open'] = function(block, generator) {
   const ssid = generator.valueToCode(block, 'SSID', generator.ORDER_ATOMIC) || '""';
 
   generator.addLibrary('WiFiS3', '#include <WiFiS3.h>');
-  ensureSerialBegin('Serial', generator);
 
   let code = 'int wifi_status = WiFi.begin(' + ssid + ');\n';
   code += 'while (wifi_status != WL_CONNECTED) {\n';
-  code += '  Serial.println("Connecting to WiFi...");\n';
   code += '  delay(1000);\n';
   code += '  wifi_status = WiFi.status();\n';
   code += '}\n';
-  code += 'Serial.println("WiFi Connected!");\n';
 
   return code;
 };
@@ -47,14 +39,8 @@ Arduino.forBlock['wifis3_begin_ap'] = function(block, generator) {
   const channel = generator.valueToCode(block, 'CHANNEL', generator.ORDER_ATOMIC) || '1';
 
   generator.addLibrary('WiFiS3', '#include <WiFiS3.h>');
-  ensureSerialBegin('Serial', generator);
 
-  let code = 'uint8_t ap_status = WiFi.beginAP(' + ssid + ', ' + pass + ', ' + channel + ');\n';
-  code += 'if (ap_status == 1) {\n';
-  code += '  Serial.println("WiFi AP Started!");\n';
-  code += '} else {\n';
-  code += '  Serial.println("WiFi AP Failed!");\n';
-  code += '}\n';
+  let code = 'WiFi.beginAP(' + ssid + ', ' + pass + ', ' + channel + ');\n';
 
   return code;
 };
@@ -173,14 +159,8 @@ Arduino.forBlock['wifis3_set_hostname'] = function(block, generator) {
 
 Arduino.forBlock['wifis3_scan_networks'] = function(block, generator) {
   generator.addLibrary('WiFiS3', '#include <WiFiS3.h>');
-  ensureSerialBegin('Serial', generator);
-  
-  let code = 'Serial.println("Scanning WiFi networks...");\n';
-  code += 'int networksFound = WiFi.scanNetworks();\n';
-  code += 'Serial.print("Networks found: ");\n';
-  code += 'Serial.println(networksFound);\n';
-  
-  return code;
+
+  return 'WiFi.scanNetworks();\n';
 };
 
 Arduino.forBlock['wifis3_ssid_by_index'] = function(block, generator) {
@@ -224,26 +204,10 @@ Arduino.forBlock['wifis3_wait_for_connection'] = function(block, generator) {
   
   let code = 'unsigned long startTime = millis();\n';
   code += 'while (WiFi.status() != WL_CONNECTED && (millis() - startTime) < ' + timeout + ') {\n';
-  code += '  Serial.println("Waiting for WiFi connection...");\n';
   code += '  delay(500);\n';
   code += '}\n';
-  code += 'if (WiFi.status() == WL_CONNECTED) {\n';
-  code += '  Serial.println("WiFi connected!");\n';
-  code += '} else {\n';
-  code += '  Serial.println("WiFi connection timeout!");\n';
-  code += '}\n';
-  
+
   return code;
 };
 
-// ============ 辅助函数 ============
 
-/**
- * 确保Serial.begin被调用
- */
-function ensureSerialBegin(port, generator) {
-  if (!generator._serialInitialized) {
-    generator._serialInitialized = true;
-    generator.addSetupBegin('Serial.begin(9600);', 'serial_begin');
-  }
-}

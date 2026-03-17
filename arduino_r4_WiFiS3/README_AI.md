@@ -1,203 +1,106 @@
-# Arduino WiFiS3 库 Blockly化
+# Arduino WiFiS3
 
-Arduino UNO R4 WiFi 的 WiFiS3 库的 Blockly 转换，提供直观的 WiFi 连接、网络查询和网络操作块。
+Arduino UNO R4 WiFi 的 WiFiS3 库 Blockly 封装，提供 WiFi 连接、网络查询、网络扫描和配置功能。
 
-## 库信息
-- **库名**: @aily-project/arduino-r4-wifis3
-- **版本**: 0.0.1
-- **兼容**: renesas_uno (Arduino UNO R4 WiFi)
-- **API来源**: Arduino WiFiS3.h
+## Library Info
+- **Name**: @aily-project/lib-r4-wifis3
+- **Version**: 1.0.0
 
-## 块定义核心表格
+## Block Definitions
 
-| 块类型 | 连接 | 字段/输入 | .abi格式 | 生成代码 |
-|--------|------|----------|----------|----------|
-| `wifis3_begin` | 语句块 | SSID(input), PASS(input) | `"inputs":{"SSID":{"shadow":{"type":"text"...` | `WiFi.begin(ssid, pass);` |
-| `wifis3_begin_open` | 语句块 | SSID(input) | `"inputs":{"SSID":{"shadow":...` | `WiFi.begin(ssid);` |
-| `wifis3_begin_ap` | 语句块 | SSID(input), PASS(input), CHANNEL(input) | 同上 | `WiFi.beginAP(ssid, pass, ch);` |
-| `wifis3_disconnect` | 语句块 | 无 | `"type":"wifis3_disconnect"` | `WiFi.disconnect();` |
-| `wifis3_wait_for_connection` | 语句块 | TIMEOUT(input) | `"inputs":{"TIMEOUT":...` | 等待连接循环 |
-| `wifis3_status` | 值块 | 无 | `"type":"wifis3_status"` | `WiFi.status()` |
-| `wifis3_is_connected` | 值块 | 无 | `"type":"wifis3_is_connected"` | `(WiFi.status() == WL_CONNECTED)` |
-| `wifis3_local_ip` | 值块 | 无 | `"type":"wifis3_local_ip"` | `ipToString(WiFi.localIP())` |
-| `wifis3_mac_address` | 值块 | 无 | `"type":"wifis3_mac_address"` | `macToString()` |
-| `wifis3_gateway_ip` | 值块 | 无 | `"type":"wifis3_gateway_ip"` | `ipToString(WiFi.gatewayIP())` |
-| `wifis3_subnet_mask` | 值块 | 无 | `"type":"wifis3_subnet_mask"` | `ipToString(WiFi.subnetMask())` |
-| `wifis3_dns_ip` | 值块 | DNS_INDEX(dropdown) | `"fields":{"DNS_INDEX":"0"}` | `ipToString(WiFi.dnsIP(index))` |
-| `wifis3_set_dns` | 语句块 | DNS1(input), DNS2(input) | `"inputs":{"DNS1":...` | `WiFi.setDNS(dns1, dns2);` |
-| `wifis3_config_ip` | 语句块 | IP(input), GW(input), SUBNET(input) | 同上 | `WiFi.config(ip, gw, subnet);` |
-| `wifis3_set_hostname` | 语句块 | HOSTNAME(input) | `"inputs":{"HOSTNAME":...` | `WiFi.setHostname(name);` |
-| `wifis3_scan_networks` | 语句块 | 无 | `"type":"wifis3_scan_networks"` | `WiFi.scanNetworks();` |
-| `wifis3_scanned_networks_count` | 值块 | 无 | `"type":"wifis3_scanned_networks_count"` | `WiFi.scanNetworks()` |
-| `wifis3_ssid_by_index` | 值块 | INDEX(input) | `"inputs":{"INDEX":...` | `WiFi.SSID(index)` |
-| `wifis3_rssi_by_index` | 值块 | INDEX(input) | `"inputs":{"INDEX":...` | `WiFi.RSSI(index)` |
-| `wifis3_ping` | 值块 | HOST(input), TTL(input), COUNT(input) | 同上 | `WiFi.ping(host, ttl, count)` |
-| `wifis3_firmware_version` | 值块 | 无 | `"type":"wifis3_firmware_version"` | `WiFi.firmwareVersion()` |
+| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+|------------|------------|--------------------------|------------|----------------|
+| `wifis3_begin` | Statement | SSID(input_value), PASS(input_value) | `wifis3_begin(text("ssid"), text("pass"))` | `WiFi.begin(ssid, pass); while(...) {}` |
+| `wifis3_begin_open` | Statement | SSID(input_value) | `wifis3_begin_open(text("ssid"))` | `WiFi.begin(ssid); while(...) {}` |
+| `wifis3_begin_ap` | Statement | SSID(input_value), PASS(input_value), CHANNEL(input_value) | `wifis3_begin_ap(text("MyAP"), text("pass"), math_number(1))` | `WiFi.beginAP(ssid, pass, ch);` |
+| `wifis3_disconnect` | Statement | (none) | `wifis3_disconnect()` | `WiFi.disconnect();` |
+| `wifis3_wait_for_connection` | Statement | TIMEOUT(input_value) | `wifis3_wait_for_connection(math_number(30000))` | wait loop with timeout |
+| `wifis3_status` | Value | (none) | `wifis3_status()` | `WiFi.status()` |
+| `wifis3_is_connected` | Value | (none) | `wifis3_is_connected()` | `(WiFi.status() == WL_CONNECTED)` |
+| `wifis3_local_ip` | Value | (none) | `wifis3_local_ip()` | `ipToString(WiFi.localIP())` |
+| `wifis3_mac_address` | Value | (none) | `wifis3_mac_address()` | `macToString()` |
+| `wifis3_gateway_ip` | Value | (none) | `wifis3_gateway_ip()` | `ipToString(WiFi.gatewayIP())` |
+| `wifis3_subnet_mask` | Value | (none) | `wifis3_subnet_mask()` | `ipToString(WiFi.subnetMask())` |
+| `wifis3_dns_ip` | Value | DNS_INDEX(field_dropdown) | `wifis3_dns_ip(0)` | `ipToString(WiFi.dnsIP(0))` |
+| `wifis3_set_dns` | Statement | DNS1(input_value), DNS2(input_value) | `wifis3_set_dns(text("8.8.8.8"), text("8.8.4.4"))` | `WiFi.setDNS(dns1, dns2);` |
+| `wifis3_config_ip` | Statement | IP(input_value), GW(input_value), SUBNET(input_value) | `wifis3_config_ip(text("192.168.1.100"), text("192.168.1.1"), text("255.255.255.0"))` | `WiFi.config(ip, gw, subnet);` |
+| `wifis3_set_hostname` | Statement | HOSTNAME(input_value) | `wifis3_set_hostname(text("arduino"))` | `WiFi.setHostname(name);` |
+| `wifis3_scan_networks` | Statement | (none) | `wifis3_scan_networks()` | `WiFi.scanNetworks();` |
+| `wifis3_scanned_networks_count` | Value | (none) | `wifis3_scanned_networks_count()` | `WiFi.scanNetworks()` |
+| `wifis3_ssid_by_index` | Value | INDEX(input_value) | `wifis3_ssid_by_index(math_number(0))` | `WiFi.SSID(index)` |
+| `wifis3_rssi_by_index` | Value | INDEX(input_value) | `wifis3_rssi_by_index(math_number(0))` | `WiFi.RSSI(index)` |
+| `wifis3_ping` | Value | HOST(input_value), TTL(input_value), COUNT(input_value) | `wifis3_ping(text("8.8.8.8"), math_number(128), math_number(1))` | `WiFi.ping(host, ttl, count)` |
+| `wifis3_firmware_version` | Value | (none) | `wifis3_firmware_version()` | `WiFi.firmwareVersion()` |
 
-## 字段类型映射
+## Parameter Options
 
-| 类型 | .abi格式 | 说明 |
-|------|----------|------|
-| input_value | `"inputs": {"NAME": {"shadow": {"type": "text", ...}}}` | 值输入连接，必须配置影子块 |
-| field_dropdown | `"fields": {"DNS_INDEX": "0"}` | 下拉选择，使用选项值 |
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| DNS_INDEX | 0, 1 | 0 = Primary DNS, 1 = Secondary DNS |
 
-## 连接规则
+## ABS Examples
 
-- **语句块**: 有previousStatement/nextStatement，通过`next`字段连接
-  - 连接到主程序流程中
-  - 可包含内部输入块通过`inputs`连接
-  
-- **值块**: 有output，连接到其他块的`inputs`
-  - 返回值供其他块使用
-  - 不能有`next`字段
-  
-- **全局对象**: WiFi是Arduino内置全局对象，无需创建
-  - 所有块直接调用WiFi的方法
-  - 自动添加`#include <WiFiS3.h>`库
+### Connect to WiFi and print IP
+```
+arduino_setup()
+    wifis3_begin(text("MyNetwork"), text("password123"))
+    wifis3_wait_for_connection(math_number(30000))
+    serial_println(Serial, wifis3_local_ip())
 
-### 动态选项处理
-DNS_INDEX下拉列表中的选项来自board.json配置，但这里直接使用固定选项：
-- 主DNS: "0"
-- 备用DNS: "1"
-
-## 使用示例
-
-### WiFi连接完整流程
-```json
-{
-  "blocks": [
-    {
-      "type": "arduino_setup",
-      "id": "setup_id",
-      "inputs": {
-        "ARDUINO_SETUP": {
-          "block": {
-            "type": "wifis3_begin",
-            "id": "wifi_begin_id",
-            "inputs": {
-              "SSID": {
-                "shadow": {
-                  "type": "text",
-                  "id": "ssid_shadow",
-                  "fields": {"TEXT": "MyNetwork"}
-                }
-              },
-              "PASS": {
-                "shadow": {
-                  "type": "text",
-                  "id": "pass_shadow",
-                  "fields": {"TEXT": "password123"}
-                }
-              }
-            },
-            "next": {
-              "block": {
-                "type": "wifis3_wait_for_connection",
-                "id": "wait_id",
-                "inputs": {
-                  "TIMEOUT": {
-                    "shadow": {
-                      "type": "math_number",
-                      "id": "timeout_shadow",
-                      "fields": {"NUM": 30000}
-                    }
-                  }
-                },
-                "next": {
-                  "block": {
-                    "type": "serial_println",
-                    "id": "println_id",
-                    "fields": {"SERIAL": "Serial"},
-                    "inputs": {
-                      "VAR": {
-                        "block": {
-                          "type": "wifis3_local_ip",
-                          "id": "get_ip_id"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "arduino_loop",
-      "id": "loop_id",
-      "inputs": {
-        "ARDUINO_LOOP": {
-          "block": {
-            "type": "controls_if",
-            "id": "if_id",
-            "inputs": {
-              "IF0": {
-                "block": {
-                  "type": "wifis3_is_connected",
-                  "id": "check_connected_id"
-                }
-              },
-              "DO0": {
-                "block": {
-                  "type": "serial_println",
-                  "id": "print_status",
-                  "fields": {"SERIAL": "Serial"},
-                  "inputs": {
-                    "VAR": {
-                      "shadow": {
-                        "type": "text",
-                        "fields": {"TEXT": "WiFi Connected"}
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  ],
-  "variables": []
-}
+arduino_loop()
+    time_delay(math_number(1000))
 ```
 
-### 网络扫描示例
-```json
-{
-  "type": "wifis3_scan_networks",
-  "id": "scan_id",
-  "next": {
-    "block": {
-      "type": "controls_repeat_ext",
-      "id": "repeat_id",
-      "inputs": {
-        "TIMES": {
-          "block": {
-            "type": "wifis3_scanned_networks_count",
-            "id": "count_id"
-          }
-        },
-        "DO": {
-          "block": {
-            "type": "serial_println",
-            "id": "print_ssid",
-            "fields": {"SERIAL": "Serial"},
-            "inputs": {
-              "VAR": {
-                "block": {
-                  "type": "wifis3_ssid_by_index",
-                  "id": "get_ssid",
-                  "inputs": {
-                    "INDEX": {
-                      "block": {
-                        "type": "variables_get",
-                        "id": "var_i",
-                        "fields": {"VAR": {"id": "count_var"}}
-                      }
-                    }
+### Start WiFi AP
+```
+arduino_setup()
+    wifis3_begin_ap(text("MyDevice"), text("12345678"), math_number(1))
+    serial_println(Serial, wifis3_local_ip())
+```
+
+### Check connection and reconnect
+```
+arduino_setup()
+    serial_begin(Serial, 9600)
+    wifis3_begin(text("MyNetwork"), text("pass"))
+    wifis3_wait_for_connection(math_number(30000))
+
+arduino_loop()
+    controls_if()
+        @IF0: wifis3_is_connected()
+        @DO0:
+            serial_println(Serial, text("Connected"))
+        @ELSE:
+            serial_println(Serial, text("Disconnected"))
+            wifis3_begin(text("MyNetwork"), text("pass"))
+    time_delay(math_number(5000))
+```
+
+### Scan and list networks
+```
+arduino_setup()
+    serial_begin(Serial, 9600)
+    wifis3_scan_networks()
+    controls_for($i, math_number(0), wifis3_scanned_networks_count(), math_number(1))
+        serial_println(Serial, wifis3_ssid_by_index(variables_get($i)))
+```
+
+### Configure static IP
+```
+arduino_setup()
+    wifis3_config_ip(text("192.168.1.100"), text("192.168.1.1"), text("255.255.255.0"))
+    wifis3_set_dns(text("8.8.8.8"), text("8.8.4.4"))
+    wifis3_begin(text("MyNetwork"), text("pass"))
+    wifis3_wait_for_connection(math_number(30000))
+```
+
+## Notes
+
+1. **Global object**: WiFi is an Arduino built-in global object; no initialization block needed — all blocks call WiFi methods directly
+2. **Auto include**: All blocks automatically add `#include <WiFiS3.h>`
+3. **wifis3_begin auto-waits**: `wifis3_begin` and `wifis3_begin_open` include a built-in retry loop until connected
+4. **IP as String**: `wifis3_local_ip`, `wifis3_gateway_ip`, `wifis3_subnet_mask` return String via helper function `ipToString()`
+5. **Static IP before connect**: Call `wifis3_config_ip` before `wifis3_begin` for static IP configuration
                   }
                 }
               }
