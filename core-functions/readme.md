@@ -7,7 +7,7 @@ Arduino 自定义函数库，提供函数定义、调用和参数管理功能。
 | 字段 | 值 |
 |------|-----|
 | 包名 | @aily-project/lib-core-functions |
-| 版本 | 0.0.1 |
+| 版本 | 1.0.1 |
 | 作者 | aily Project |
 
 ## 说明
