@@ -2,12 +2,17 @@
   {
     "type": "md40_init",
     "icon": "iconfont icon-motor",
-    "message0": "初始化MD40电机驱动 %1 I2C地址 %2",
+    "message0": "初始化MD40电机驱动 %1 使用I2C %2 I2C地址 %3",
     "args0": [
       {
         "type": "field_input",
         "name": "VAR",
         "text": "md40"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "I2C_PORT",
+        "options": "${board.i2c}"
       },
       {
         "type": "field_dropdown",
