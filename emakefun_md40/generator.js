@@ -29,6 +29,7 @@ Arduino.forBlock['md40_init'] = function(block, generator) {
   }
 
   const varName = block.getFieldValue('VAR') || 'md40';
+  const i2cPort = block.getFieldValue('I2C_PORT') || 'Wire';
   const i2cAddr = block.getFieldValue('I2C_ADDR') || '0x16';
 
   // 添加库引用
@@ -40,11 +41,11 @@ Arduino.forBlock['md40_init'] = function(block, generator) {
   }
 
   // 声明全局对象
-  generator.addVariable(varName, 'em::Md40 ' + varName + '(' + i2cAddr + ', Wire);');
+  generator.addVariable(varName, 'em::Md40 ' + varName + '(' + i2cAddr + ', ' + i2cPort + ');');
 
   // 初始化Wire和MD40
-  generator.addSetupBegin('Wire_begin', 'Wire.begin();');
-  generator.addSetupBegin(varName + '_init', varName + '.Init();');
+  generator.addSetup(`wire_${i2cPort}_begin`, i2cPort + '.begin();');
+  generator.addSetup(varName + '_init', varName + '.Init();');
 
   return '';
 };

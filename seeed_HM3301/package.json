@@ -1,0 +1,20 @@
+{
+  "name": "@aily-project/lib-seeed-hm3301",
+  "nickname": "HM3301 PM2.5传感器",
+  "author": "Seeed Studio",
+  "description": "HM3301激光粉尘传感器，I2C通讯，可检测PM1.0、PM2.5、PM10颗粒物浓度",
+  "version": "1.0.0",
+  "compatibility": {
+    "core": [],
+    "voltage": [3.3, 5]
+  },
+  "keywords": [
+    "aily", "blockly", "hm3301", "pm2.5", "pm10", "pm1.0",
+    "dust", "sensor", "i2c", "seeed", "air quality",
+    "hm3301_init", "hm3301_read"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "url": "https://github.com/Seeed-Studio/Seeed_PM2_5_sensor_HM3301"
+}

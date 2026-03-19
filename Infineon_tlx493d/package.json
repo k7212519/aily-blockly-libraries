@@ -1,0 +1,34 @@
+{
+  "name": "@aily-project/lib-infineon-tlx493d",
+  "nickname": "TLx493D 3D磁传感器",
+  "author": "ailyProject",
+  "description": "Infineon XENSIV TLx493D 3D磁传感器库，通过I2C接口读取三轴磁场和温度数据，支持多种传感器型号。",
+  "version": "0.0.1",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "arduino:megaavr",
+      "arduino:samd",
+      "esp32:esp32",
+      "rp2040:rp2040"
+    ],
+    "voltage": [3.3, 5]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "tlx493d",
+    "magnetic",
+    "sensor",
+    "3d",
+    "infineon",
+    "xensiv",
+    "磁传感器"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "url": "https://github.com/Infineon/arduino-xensiv-3d-magnetic-sensor-tlx493d"
+}

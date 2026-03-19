@@ -1,0 +1,32 @@
+{
+  "name": "@aily-project/lib-seeed-spa06",
+  "nickname": "SPA06气压温度传感器",
+  "author": "ailyProject",
+  "description": "用于读取Grove SPA06(SPL07-003)气压温度传感器的数据，包括气压、温度和海拔高度",
+  "version": "0.0.1",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "esp32:esp32",
+      "arduino:samd",
+      "arduino:megaavr",
+      "renesas_uno:unor4wifi",
+      "rp2040:rp2040"
+    ],
+    "voltage": [3.3, 5]
+  },
+  "keywords": [
+    "aily",
+    "SPA06",
+    "SPL07-003",
+    "气压",
+    "温度",
+    "海拔",
+    "传感器",
+    "I2C"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "url": "https://github.com/Seeed-Studio/Seeed_Arduino_SPA06"
+}

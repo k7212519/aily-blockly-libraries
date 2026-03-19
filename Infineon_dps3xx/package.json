@@ -1,0 +1,30 @@
+{
+    "name": "@aily-project/lib-dps3xx",
+    "nickname": "DPS3xx气压温度传感器",
+    "author": "aily-project",
+    "description": "用于Infineon DPS3xx高精度气压温度传感器，通过I2C接口实现气压(300-1200hPa)和温度(-40~85°C)的高精度测量，适用于Arduino、ESP32等开发板",
+    "version": "0.0.1",
+    "compatibility": {
+        "core": [
+            "arduino:avr",
+            "esp32:esp32",
+            "esp32:esp32c3",
+            "esp32:esp32s3"
+        ],
+        "voltage": [3.3, 5]
+    },
+    "keywords": [
+        "aily",
+        "blockly",
+        "传感器",
+        "气压",
+        "温度",
+        "DPS3xx",
+        "DPS310",
+        "DPS368",
+        "Infineon"
+    ],
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {}
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@aily-project/lib-infineon-tlx5012",
+  "nickname": "TLx5012B磁性角度传感器",
+  "author": "ailyProject",
+  "description": "Infineon TLx5012B磁性角度传感器控制库，适用于Arduino、ESP32等开发板。使用SPI接口读取360°角度、角速度、旋转圈数和温度，适用于电机控制、机器人等应用。",
+  "version": "0.0.1",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "esp32:esp32",
+      "esp32:esp32s3"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "TLx5012B",
+    "TLE5012B",
+    "angle sensor",
+    "角度传感器",
+    "magnetic sensor",
+    "SPI",
+    "Infineon"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "url": "https://github.com/Infineon/arduino-xensiv-angle-sensor-tlx5012"
+}
