@@ -138,18 +138,129 @@ function sanitizeName(name) {
   return name;
 }
 
+function _nextFuncParamVarId(block) {
+  block._nextParamVarSeq = (block._nextParamVarSeq || 0) + 1;
+  return block.id + '::PARAM::' + block._nextParamVarSeq;
+}
+
+function ensureFunctionVariableMetadata(block) {
+  if (!block.funcVarId_) {
+    block.funcVarId_ = block.id + '::FUNC';
+  }
+  if (!block.paramVarIds_) {
+    block.paramVarIds_ = [];
+  }
+  if (typeof block._nextParamVarSeq !== 'number') {
+    block._nextParamVarSeq = 0;
+  }
+  var params = block.params_ || [];
+  for (var i = 0; i < params.length; i++) {
+    if (!block.paramVarIds_[i]) {
+      block.paramVarIds_[i] = _nextFuncParamVarId(block);
+    }
+  }
+  if (block.paramVarIds_.length > params.length) {
+    block.paramVarIds_.length = params.length;
+  }
+}
+
+function ensureVariableWithId(workspace, varName, varType, varId) {
+  if (!workspace || !varName) return null;
+  var byId = varId && workspace.getVariableById ? workspace.getVariableById(varId) : null;
+  if (byId) {
+    if (byId.name !== varName && workspace.renameVariableById) {
+      workspace.renameVariableById(byId.getId(), varName);
+      byId = workspace.getVariableById(varId);
+    }
+    return byId;
+  }
+  var byName = workspace.getVariable(varName, varType);
+  if (byName) {
+    return byName;
+  }
+  return workspace.createVariable(varName, varType !== undefined ? varType : '', varId);
+}
+
+function getFunctionSignature(params, returnType) {
+  return JSON.stringify({
+    params: (params || []).map(function(p) { return { type: p.type, name: p.name }; }),
+    returnType: returnType || 'void'
+  });
+}
+
+function attachFunctionParamNameMonitor(block, index, paramField) {
+  if (!paramField || paramField.__funcParamMonitor__) return;
+  paramField.__funcParamMonitor__ = true;
+  block['_paramLastName' + index] = paramField.getValue()
+    || (block.params_ && block.params_[index] && block.params_[index].name)
+    || ('param' + index);
+
+  var origParamFinish = paramField.onFinishEditing_;
+  paramField.onFinishEditing_ = function(newName) {
+    if (typeof origParamFinish === 'function') origParamFinish.call(this, newName);
+    if (!block.workspace || block.workspace.isFlyout) return;
+    var oldName = block['_paramLastName' + index];
+    var cleanName = (newName || '').trim() || 'param' + index;
+    if (cleanName !== oldName) {
+      block.params_[index].name = cleanName;
+      renameVariableInBlockly(block, oldName, cleanName, undefined);
+      block['_paramLastName' + index] = cleanName;
+      var curFuncName = block._funcLastName || block.getFieldValue('FUNC_NAME') || 'myFunction';
+      registerFunction(curFuncName, block.params_ || [], block.getFieldValue('RETURN_TYPE') || 'void', block.funcVarId_, block.paramVarIds_);
+      scheduleSyncFunctionCallsToToolbox();
+    }
+  };
+}
+
+function scheduleFunctionDefinitionSync(block) {
+  if (!block) return;
+  if (block._functionDefSyncTimer) clearTimeout(block._functionDefSyncTimer);
+  block._functionDefSyncTimer = setTimeout(function() {
+    block._functionDefSyncTimer = null;
+    if (!block.workspace || block.workspace.isFlyout || !block.updateFunctionRegistry_) return;
+    block.updateFunctionRegistry_();
+    scheduleSyncFunctionCallsToToolbox();
+  }, 0);
+}
+
+function cleanupOrphanFunctionVariables(workspace) {
+  if (!workspace || typeof workspace.getAllVariables !== 'function') return;
+  var defs = workspace.getBlocksByType('custom_function_def', false);
+  var validFuncVarIds = new Set();
+  for (var i = 0; i < defs.length; i++) {
+    ensureFunctionVariableMetadata(defs[i]);
+    if (defs[i].funcVarId_) {
+      validFuncVarIds.add(defs[i].funcVarId_);
+    }
+  }
+  var allVariables = workspace.getAllVariables();
+  for (var vi = 0; vi < allVariables.length; vi++) {
+    var variable = allVariables[vi];
+    if (variable.type === 'FUNC' && !validFuncVarIds.has(variable.getId())) {
+      workspace.deleteVariableById(variable.getId());
+    }
+  }
+}
+
 // ==================== ② Registry ====================
 
-function registerFunction(funcName, params, returnType) {
+function registerFunction(funcName, params, returnType, variableId, paramVarIds) {
   if (typeof window === 'undefined' || !funcName) return;
+  var oldDef = window.customFunctionRegistry[funcName];
+  var oldSignature = oldDef ? getFunctionSignature(oldDef.params, oldDef.returnType) : null;
   // 深拷贝参数列表
   window.customFunctionRegistry[funcName] = {
     name: funcName,
     params: (params || []).map(function(p) { return { type: p.type, name: p.name }; }),
-    returnType: returnType || 'void'
+    returnType: returnType || 'void',
+    variableId: variableId || null,
+    paramVarIds: (paramVarIds || []).slice()
   };
+  var newSignature = getFunctionSignature(window.customFunctionRegistry[funcName].params, window.customFunctionRegistry[funcName].returnType);
   // 同步更新已有调用块的标签
-  syncCallBlocksParams(funcName);
+  if (oldSignature !== newSignature) {
+    syncCallBlocksParams(funcName);
+  }
 }
 
 function unregisterFunction(funcName) {
@@ -172,12 +283,23 @@ function syncCallBlocksParams(funcName) {
   if (!workspace) return;
   var funcDef = window.customFunctionRegistry ? window.customFunctionRegistry[funcName] : null;
   var newCount = (funcDef && funcDef.params) ? funcDef.params.length : 0;
+  var nextSignature = funcDef
+    ? getFunctionSignature(funcDef.params, funcDef.returnType)
+    : 'NO_FUNC';
   var blocks = workspace.getBlocksByType('custom_function_call', false)
     .concat(workspace.getBlocksByType('custom_function_call_return', false));
   for (var i = 0; i < blocks.length; i++) {
     var block = blocks[i];
     var selected = getCallBlockFuncName(block);
     if (selected === funcName && block.updateShape_) {
+      if (block._resolvedFuncName === funcName && block._resolvedFuncSignature === nextSignature) {
+        continue;
+      }
+      block._savedParams = funcDef && funcDef.params
+        ? funcDef.params.map(function(p) { return { type: p.type, name: p.name }; })
+        : [];
+      block._resolvedFuncName = funcName;
+      block._resolvedFuncSignature = nextSignature;
       block.updateShape_(newCount);
     }
   }
@@ -296,13 +418,8 @@ function syncFunctionCallsToToolbox() {
         ? fdef.params.map(function(p) { return { type: p.type, name: p.name }; })
         : [];
 
-      // FieldVariable 需要通过变量 ID 引用（与变量库 addVariableToToolbox 模式一致）
-      var funcVar = workspace.getVariable(fname, 'FUNC');
-      if (!funcVar) {
-        // 确保 FUNC 变量存在
-        registerVariableToBlockly(fname, 'FUNC');
-        funcVar = workspace.getVariable(fname, 'FUNC');
-      }
+      // FieldVariable 通过稳定变量 ID 引用函数名
+      var funcVar = ensureVariableWithId(workspace, fname, 'FUNC', fdef.variableId);
       var funcNameRef = funcVar
         ? { id: funcVar.getId(), name: fname, type: 'FUNC' }
         : { name: fname, type: 'FUNC' };
@@ -356,10 +473,14 @@ var functionParamsMutator = {
   },
 
   saveExtraState: function() {
+    ensureFunctionVariableMetadata(this);
     return {
       paramCount: (this.params_ || []).length,
       returnType: this.getFieldValue('RETURN_TYPE') || 'void',
-      params: (this.params_ || []).map(function(p) { return { type: p.type, name: p.name }; })
+      params: (this.params_ || []).map(function(p) { return { type: p.type, name: p.name }; }),
+      funcVarId: this.funcVarId_,
+      paramVarIds: (this.paramVarIds_ || []).slice(),
+      nextParamVarSeq: this._nextParamVarSeq || 0
     };
   },
 
@@ -375,17 +496,22 @@ var functionParamsMutator = {
         this.params_.push({ type: 'int', name: 'param' + i });
       }
     }
+    this.funcVarId_ = state.funcVarId || (this.id + '::FUNC');
+    this.paramVarIds_ = (state.paramVarIds || []).slice();
+    this._nextParamVarSeq = typeof state.nextParamVarSeq === 'number' ? state.nextParamVarSeq : 0;
+    ensureFunctionVariableMetadata(this);
+    this._funcLastName = this.getFieldValue('FUNC_NAME') || this._funcLastName || 'myFunction';
     this.paramCount_ = this.params_.length;
     this.updateShape_();
     if (state.returnType) this.updateReturnInput_(state.returnType);
 
     // 加载阶段创建变量（但不刷新工具箱，FINISHED_LOADING 负责）
     if (this.workspace && !this.workspace.isFlyout) {
+      var funcName = this._funcLastName;
+      ensureVariableWithId(this.workspace, funcName, 'FUNC', this.funcVarId_);
       for (var pi = 0; pi < this.params_.length; pi++) {
         var pn = this.params_[pi].name;
-        if (pn && !this.workspace.getVariable(pn)) {
-          this.workspace.createVariable(pn, '');
-        }
+        ensureVariableWithId(this.workspace, pn, '', this.paramVarIds_[pi]);
       }
     }
   },
@@ -416,14 +542,19 @@ var functionParamsMutator = {
     var input = this.appendDummyInput('PARAM' + index);
     var typeDropdown = new Blockly.FieldDropdown(getParamTypeOptions, function(newValue) {
       block.params_[index].type = newValue;
-      block.updateFunctionRegistry_();
+      if (!block._suppressParamTypeSync_) {
+        scheduleFunctionDefinitionSync(block);
+      }
     });
+    this._suppressParamTypeSync_ = true;
     typeDropdown.setValue(param.type || 'int');
+    this._suppressParamTypeSync_ = false;
     var nameField = new Blockly.FieldTextInput(param.name || 'param' + index);
     input.appendField('  ')
       .appendField(typeDropdown, 'PARAM_TYPE' + index)
       .appendField(nameField, 'PARAM_NAME' + index)
       .appendField(createMinusField(index), 'MINUS' + index);
+    attachFunctionParamNameMonitor(this, index, nameField);
     // 保持 PARAM 在 STACK 之前
     var stackIndex = this.inputList.findIndex(function(inp) { return inp.name === 'STACK'; });
     if (stackIndex > 0) {
@@ -433,13 +564,15 @@ var functionParamsMutator = {
   },
 
   plus: function() {
+    ensureFunctionVariableMetadata(this);
     var newParam = { type: 'int', name: 'param' + this.paramCount_ };
     this.params_.push(newParam);
+    this.paramVarIds_.push(_nextFuncParamVarId(this));
     this.addParamInput_(this.params_.length - 1, newParam);
     this.paramCount_++;
     // 使用 registerVariableToBlockly（与 lib-dht 一致）
     if (this.workspace && newParam.name) {
-      registerVariableToBlockly(newParam.name, undefined);
+      ensureVariableWithId(this.workspace, newParam.name, '', this.paramVarIds_[this.params_.length - 1]);
       // 延迟添加到变量工具箱，避免与函数工具箱同步冲突
       var self = this;
       var pName = newParam.name;
@@ -449,24 +582,26 @@ var functionParamsMutator = {
         }
       }, 100);
     }
-    this.updateFunctionRegistry_();
-    scheduleSyncFunctionCallsToToolbox();
+    scheduleFunctionDefinitionSync(this);
   },
 
   minus: function(index) {
     if (this.params_.length <= 0) return;
     var deleted = this.params_[index];
     this.params_.splice(index, 1);
+    if (this.paramVarIds_) this.paramVarIds_.splice(index, 1);
     this.paramCount_ = this.params_.length;
     this.updateShape_();
-    this.updateFunctionRegistry_();
-    scheduleSyncFunctionCallsToToolbox();
+    scheduleFunctionDefinitionSync(this);
   },
 
   // 从字段读取最新值并注册到 registry
   updateFunctionRegistry_: function() {
     if (!this.workspace || this.workspace.isFlyout) return;
-    var funcName = this.getFieldValue('FUNC_NAME') || 'myFunction';
+    ensureFunctionVariableMetadata(this);
+    // 只使用已提交的函数名，避免 TextInput 编辑过程中的中间值注册成幽灵变量。
+    // _funcLastName 在 BLOCK_CREATE / FINISHED_LOADING / onFinishEditing_ 中维护。
+    var funcName = this._funcLastName || this.getFieldValue('FUNC_NAME') || 'myFunction';
     var returnType = this.getFieldValue('RETURN_TYPE') || 'void';
     // 同步参数字段值到 params_ 数组
     var params = this.params_ || [];
@@ -476,7 +611,7 @@ var functionParamsMutator = {
       var tf = this.getField('PARAM_TYPE' + i);
       if (tf) { var t = tf.getValue(); if (t) params[i].type = t; }
     }
-    registerFunction(funcName, params, returnType);
+    registerFunction(funcName, params, returnType, this.funcVarId_, this.paramVarIds_);
   }
 };
 
@@ -499,8 +634,7 @@ var functionParamsHelper = function() {
       if (typeof origValidator === 'function') origValidator.call(this, newValue);
       setTimeout(function() {
         block.updateReturnInput_(block.getFieldValue('RETURN_TYPE') || 'void');
-        block.updateFunctionRegistry_();
-        scheduleSyncFunctionCallsToToolbox();
+        scheduleFunctionDefinitionSync(block);
       }, 0);
       return newValue;
     });
@@ -605,12 +739,20 @@ var functionCallSyncMutator = {
     var funcName = getCallBlockFuncName(this);
     var funcDef = window.customFunctionRegistry
       ? window.customFunctionRegistry[funcName] : null;
+    var nextSignature = funcDef
+      ? getFunctionSignature(funcDef.params, funcDef.returnType)
+      : 'NO_FUNC';
     if (funcDef && funcDef.params) {
       this._savedParams = funcDef.params.map(function(p) { return { type: p.type, name: p.name }; });
       this.extraCount_ = funcDef.params.length;
     } else {
       this.extraCount_ = 0;
     }
+    if (this._resolvedFuncName === funcName && this._resolvedFuncSignature === nextSignature) {
+      return;
+    }
+    this._resolvedFuncName = funcName;
+    this._resolvedFuncSignature = nextSignature;
     this.updateShape_();
   }
 };
@@ -626,11 +768,13 @@ var functionCallSyncHelper = function() {
   // FieldVariable 变量选择变化时同步参数
   funcField.setValidator(function(newValue) {
     if (block.workspace && block.workspace.isFlyout) return newValue;
+    var currentValue = typeof funcField.getValue === 'function' ? funcField.getValue() : null;
     if (!block.hasInitialized_) {
       block.hasInitialized_ = true;
       setTimeout(function() { if (block.updateShape_) block.updateShape_(); }, 0);
       return newValue;
     }
+    if (currentValue === newValue) return newValue;
     setTimeout(function() { if (block.updateFromRegistry_) block.updateFromRegistry_(); }, 0);
     return newValue;
   });
@@ -733,13 +877,14 @@ if (typeof Blockly !== 'undefined') {
             var curName = block.getFieldValue('FUNC_NAME') || 'myFunction';
             var unique = generateUniqueFunctionName(workspace, curName, block.id);
             if (unique !== curName) block.getField('FUNC_NAME').setValue(unique);
+            ensureFunctionVariableMetadata(block);
             block._funcLastName = block.getFieldValue('FUNC_NAME') || 'myFunction';
             if (block.updateFunctionRegistry_) {
               block.updateFunctionRegistry_();
               scheduleSyncFunctionCallsToToolbox();
             }
             // 注册函数名为 FUNC 类型变量（与 lib-dht 的 DHT 类型一致）
-            registerVariableToBlockly(block._funcLastName, 'FUNC');
+            ensureVariableWithId(workspace, block._funcLastName, 'FUNC', block.funcVarId_);
             var createFn = block._funcLastName;
             setTimeout(function() {
               if (typeof addVariableToToolbox === 'function') {
@@ -767,16 +912,16 @@ if (typeof Blockly !== 'undefined') {
           var defs = workspace.getBlocksByType('custom_function_def', false);
           for (var di = 0; di < defs.length; di++) {
             var defBlock = defs[di];
+            ensureFunctionVariableMetadata(defBlock);
+            defBlock._funcLastName = defBlock.getFieldValue('FUNC_NAME') || 'myFunction';
             if (defBlock.updateFunctionRegistry_) defBlock.updateFunctionRegistry_();
             // 注册函数名为 FUNC 类型变量（与 lib-dht 的 DHT 类型一致）
-            var fn = defBlock.getFieldValue('FUNC_NAME');
-            if (fn) registerVariableToBlockly(fn, 'FUNC');
+            var fn = defBlock._funcLastName;
+            if (fn) ensureVariableWithId(workspace, fn, 'FUNC', defBlock.funcVarId_);
             // 注册参数变量
             var params = defBlock.params_ || [];
             for (var pi = 0; pi < params.length; pi++) {
-              if (params[pi].name && !workspace.getVariable(params[pi].name)) {
-                workspace.createVariable(params[pi].name, '');
-              }
+              ensureVariableWithId(workspace, params[pi].name, '', defBlock.paramVarIds_ && defBlock.paramVarIds_[pi]);
             }
           }
 
@@ -789,6 +934,9 @@ if (typeof Blockly !== 'undefined') {
             if (callBlock.updateFromRegistry_) callBlock.updateFromRegistry_();
             if (callBlock.render) callBlock.render();
           }
+
+          // 清理加载期 FieldVariable 自动补出来的孤儿 FUNC 变量。
+          cleanupOrphanFunctionVariables(workspace);
 
           // 同步工具箱
           syncFunctionCallsToToolbox();
@@ -825,13 +973,14 @@ Arduino.forBlock['custom_function_def'] = function(block) {
   var monitorKey = '_funcMonitor_' + block.id;
   if (!block[monitorKey]) {
     block[monitorKey] = true;
+    ensureFunctionVariableMetadata(block);
     block._funcLastName = block.getFieldValue('FUNC_NAME') || 'myFunction';
 
     // 初次注册（函数名注册为变量 + registry，与 lib-dht 一致）
     if (block.workspace && !block.workspace.isFlyout) {
       block.updateFunctionRegistry_();
       scheduleSyncFunctionCallsToToolbox();
-      registerVariableToBlockly(block._funcLastName, 'FUNC');
+      ensureVariableWithId(block.workspace, block._funcLastName, 'FUNC', block.funcVarId_);
       var initFuncName = block._funcLastName;
       var selfBlock = block;
       setTimeout(function() {
@@ -865,7 +1014,7 @@ Arduino.forBlock['custom_function_def'] = function(block) {
             var ptf = block.getField('PARAM_TYPE' + pi2);
             if (ptf) { var pt = ptf.getValue(); if (pt) curParams[pi2].type = pt; }
           }
-          registerFunction(cleanName, curParams, block.getFieldValue('RETURN_TYPE') || 'void');
+          registerFunction(cleanName, curParams, block.getFieldValue('RETURN_TYPE') || 'void', block.funcVarId_, block.paramVarIds_);
           // 2. renameVariableInBlockly 自动同步所有 FieldVariable 引用（与 lib-dht 一致）
           renameVariableInBlockly(block, oldName, cleanName, 'FUNC');
           scheduleSyncFunctionCallsToToolbox();
@@ -874,39 +1023,9 @@ Arduino.forBlock['custom_function_def'] = function(block) {
     }
   }
 
-  // 参数名 onFinishEditing_：每次代码生成时检查（参数字段会被 updateShape_ 重建）
-  var params = block.params_ || [];
-  for (var pi = 0; pi < params.length; pi++) {
-    (function(index) {
-      var paramField = block.getField('PARAM_NAME' + index);
-      if (paramField && !paramField.__funcParamMonitor__) {
-        paramField.__funcParamMonitor__ = true;
-        block['_paramLastName' + index] = paramField.getValue() || params[index].name || 'param' + index;
-
-        var origParamFinish = paramField.onFinishEditing_;
-        paramField.onFinishEditing_ = function(newName) {
-          if (typeof origParamFinish === 'function') origParamFinish.call(this, newName);
-          if (!block.workspace || block.workspace.isFlyout) return;
-          var oldName = block['_paramLastName' + index];
-          var cleanName = (newName || '').trim() || 'param' + index;
-          if (cleanName !== oldName) {
-            block.params_[index].name = cleanName;
-            // 使用 renameVariableInBlockly（与 lib-dht 一致）
-            renameVariableInBlockly(block, oldName, cleanName, undefined);
-            block['_paramLastName' + index] = cleanName;
-            // 注意：onFinishEditing_ 在 setValue() 之前触发，
-            // getFieldValue('PARAM_NAME'+index) 仍返回旧值。
-            // 直接用 _funcLastName + 已更新的 params_ 注册，避免 updateFunctionRegistry_ 覆盖。
-            var curFuncName = block._funcLastName || block.getFieldValue('FUNC_NAME') || 'myFunction';
-            registerFunction(curFuncName, block.params_ || [], block.getFieldValue('RETURN_TYPE') || 'void');
-          }
-        };
-      }
-    })(pi);
-  }
-
   // ──── 代码生成 ────
-  var originalName = block.getFieldValue('FUNC_NAME') || 'myFunction';
+  var params = block.params_ || [];
+  var originalName = block._funcLastName || block.getFieldValue('FUNC_NAME') || 'myFunction';
   var funcName = sanitizeName(originalName);
   var returnType = block.getFieldValue('RETURN_TYPE') || 'void';
 
