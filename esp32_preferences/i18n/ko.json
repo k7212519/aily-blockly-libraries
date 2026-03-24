@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "Preferences存储",
+  "esp32_preferences_begin": {
+    "message0": "打开存储空间 命名空间 %1 只读 %2",
+    "tooltip": "打开NVS存储空间，指定命名空间和读写模式",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "否",
+            "false"
+          ],
+          [
+            "是",
+            "true"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_preferences_end": {
+    "message0": "关闭存储空间",
+    "tooltip": "关闭NVS存储空间"
+  },
+  "esp32_preferences_clear": {
+    "message0": "清除当前命名空间所有数据",
+    "tooltip": "清除当前命名空间下的所有键值对"
+  },
+  "esp32_preferences_remove": {
+    "message0": "删除键 %1",
+    "tooltip": "删除指定键的数据"
+  },
+  "esp32_preferences_put_int": {
+    "message0": "存储整数 键 %1 值 %2",
+    "tooltip": "存储一个整数值"
+  },
+  "esp32_preferences_put_float": {
+    "message0": "存储浮点数 键 %1 值 %2",
+    "tooltip": "存储一个浮点数值"
+  },
+  "esp32_preferences_put_bool": {
+    "message0": "存储布尔值 键 %1 值 %2",
+    "tooltip": "存储一个布尔值"
+  },
+  "esp32_preferences_put_string": {
+    "message0": "存储字符串 键 %1 值 %2",
+    "tooltip": "存储一个字符串值"
+  },
+  "esp32_preferences_get_int": {
+    "message0": "读取整数 键 %1 默认值 %2",
+    "tooltip": "读取一个整数值，不存在则返回默认值"
+  },
+  "esp32_preferences_get_float": {
+    "message0": "读取浮点数 键 %1 默认值 %2",
+    "tooltip": "读取一个浮点数值，不存在则返回默认值"
+  },
+  "esp32_preferences_get_bool": {
+    "message0": "读取布尔值 键 %1 默认值 %2",
+    "tooltip": "读取一个布尔值，不存在则返回默认值"
+  },
+  "esp32_preferences_get_string": {
+    "message0": "读取字符串 键 %1 默认值 %2",
+    "tooltip": "读取一个字符串值，不存在则返回默认值"
+  },
+  "esp32_preferences_is_key": {
+    "message0": "键 %1 是否存在",
+    "tooltip": "检查指定键是否存在"
+  },
+  "esp32_preferences_free_entries": {
+    "message0": "剩余可用存储条目数",
+    "tooltip": "获取剩余可用的存储条目数量"
+  }
+}

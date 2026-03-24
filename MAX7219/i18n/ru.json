@@ -1,0 +1,66 @@
+{
+  "toolbox_name": "MAX7219",
+  "max7219_begin": {
+    "message0": "MAX7219 初始化",
+    "tooltip": "初始化MAX7219显示屏"
+  },
+  "max7219_set_brightness": {
+    "message0": "设置MAX7219亮度为 %1",
+    "tooltip": "设置显示屏亮度 (0-15)"
+  },
+  "max7219_display_char": {
+    "message0": "在位 %1 显示字符 %2, 小数点 %3",
+    "tooltip": "在指定位置显示指定字符",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "点亮",
+            "1"
+          ],
+          [
+            "不点亮",
+            "0"
+          ]
+        ]
+      }
+    ]
+  },
+  "max7219_clear": {
+    "message0": "清空MAX7219显示屏",
+    "tooltip": "清空显示屏"
+  },
+  "max7219_display_test_start": {
+    "message0": "开始MAX7219显示测试模式",
+    "tooltip": "进入显示测试模式"
+  },
+  "max7219_display_test_stop": {
+    "message0": "停止MAX7219显示测试模式",
+    "tooltip": "退出显示测试模式"
+  },
+  "max7219_display_text": {
+    "message0": "显示文本 %1, 对齐方式 %2",
+    "tooltip": "在显示屏上显示文本",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "左",
+            "0"
+          ],
+          [
+            "中",
+            "1"
+          ],
+          [
+            "右",
+            "2"
+          ]
+        ]
+      }
+    ]
+  }
+}
