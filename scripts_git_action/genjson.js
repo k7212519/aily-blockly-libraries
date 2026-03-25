@@ -16,6 +16,11 @@ const defaultKeysToExtract = [
   'url'
 ];
 
+// 多语言字段后缀
+const i18nSuffixes = ['zh_cn', 'en', 'zh_hk', 'ja', 'ko', 'de', 'fr', 'es', 'pt', 'ru', 'ar'];
+// 需要提取多语言版本的字段前缀
+const i18nPrefixes = ['nickname', 'description'];
+
 // 根据配置过滤package.json对象
 function filterPackageJson(packageJson, keysToExtract) {
   const filteredJson = {};
@@ -34,6 +39,16 @@ function filterPackageJson(packageJson, keysToExtract) {
       }
     }
   });
+
+  // 提取多语言字段（如 nickname_en, description_zh_cn 等）
+  for (const prefix of i18nPrefixes) {
+    for (const suffix of i18nSuffixes) {
+      const key = `${prefix}_${suffix}`;
+      if (packageJson.hasOwnProperty(key)) {
+        filteredJson[key] = packageJson[key];
+      }
+    }
+  }
 
   return filteredJson;
 }
