@@ -1,54 +1,58 @@
 {
-    "name": "@aily-project/lib-seekfree_b1_controller",
-    "nickname": "逐飞麦轮车控制",
-    "nickname_zh_cn": "逐飞麦轮车控制",
-    "nickname_en": "Flying wheel car control",
-    "nickname_zh_hk": "逐飛麥輪車控制",
-    "nickname_ja": "フライングホイールカー制御",
-    "nickname_ko": "플라잉 휠 자동차 제어",
-    "nickname_de": "Steuerung eines fliegenden Radautos",
-    "nickname_fr": "Contrôle de voiture à roue volante",
-    "nickname_es": "Control del coche con ruedas voladoras.",
-    "nickname_pt": "Controle de carro com roda voadora",
-    "nickname_ru": "Управление автомобилем с летающим колесом",
-    "nickname_ar": "التحكم في السيارة بالعجلة الطائرة",
-    "author": "逐飞科技",
-    "description": "支持控制麦轮车前进、后退、左移、右移、左右旋转、设定行进速度、设定行进距离，也支持输入坐标自动进行目标跟踪。支持按键输入操作、支持蜂鸣器与LED控制、支持灰度传感器数据读取、支持机械臂控制、支持六轴传感器数据读取、支持OpenART mini视觉识别设备通信",
-    "description_zh_cn": "支持控制麦轮车前进、后退、左移、右移、左右旋转、设定行进速度、设定行进距离，也支持输入坐标自动进行目标跟踪。支持按键输入操作、支持蜂鸣器与LED控制、支持灰度传感器数据读取、支持机械臂控制、支持六轴传感器数据读取、支持OpenART mini视觉识别设备通信",
-    "description_en": "It supports controlling the wheel car to move forward, backward, move left, move right, rotate left and right, set the traveling speed, and set the traveling distance. It also supports inputting coordinates for automatic target tracking. Supports key input operations, supports buzzer and LED control, supports grayscale sensor data reading, supports robotic arm control, supports six-axis sensor data reading, and supports OpenART mini visual recognition device communication",
-    "description_zh_hk": "支援控制麥輪車前進、後退、左移、右移、左右旋轉、設定行進速度、設定行進距離，也支援輸入座標自動進行目標追蹤。 支援按鍵輸入操作、支援蜂鳴器與LED控制、支援灰階感測器資料讀取、支援機械手臂控制、支援六軸感測器資料讀取、支援OpenART mini視覺辨識設備通信",
-    "description_ja": "ホイールカーの前進、後進、左移動、右移動、左右回転、走行速度の設定、走行距離の設定をサポートします。自動ターゲット追跡のための座標の入力もサポートしています。 キー入力操作のサポート、ブザーおよび LED 制御のサポート、グレースケール センサー データの読み取りのサポート、ロボット アーム制御のサポート、6 軸センサー データの読み取りのサポート、OpenART mini 視覚認識デバイス通信のサポート",
-    "description_ko": "휠카 제어를 지원하여 전진, 후진, 왼쪽 이동, 오른쪽 이동, 왼쪽 및 오른쪽 회전, 이동 속도 설정, 이동 거리 설정을 지원합니다. 자동 표적 추적을 위한 좌표 입력도 지원합니다. 키 입력 작업 지원, 부저 및 LED 제어 지원, 그레이스케일 센서 데이터 읽기 지원, 로봇 팔 제어 지원, 6축 센서 데이터 읽기 지원, OpenART 미니 시각 인식 장치 통신 지원",
-    "description_de": "Es unterstützt die Steuerung des Radwagens zum Vorwärts- und Rückwärtsfahren, zum Bewegen nach links, zum Bewegen nach rechts, zum Drehen nach links und rechts sowie zum Festlegen der Fahrgeschwindigkeit und der Fahrstrecke. Es unterstützt auch die Eingabe von Koordinaten zur automatischen Zielverfolgung. Unterstützt wichtige Eingabevorgänge, unterstützt die Summer- und LED-Steuerung, unterstützt das Lesen von Graustufen-Sensordaten, unterstützt die Roboterarmsteuerung, unterstützt das Lesen von sechsachsigen Sensordaten und unterstützt die Kommunikation mit OpenART Mini-visuellen Erkennungsgeräten",
-    "description_fr": "Il prend en charge le contrôle de la voiture à roues pour avancer, reculer, se déplacer à gauche, se déplacer à droite, tourner à gauche et à droite, définir la vitesse de déplacement et définir la distance de déplacement. Il prend également en charge la saisie de coordonnées pour le suivi automatique de la cible. Prend en charge les opérations d'entrée clés, prend en charge le contrôle du buzzer et des LED, prend en charge la lecture des données du capteur en niveaux de gris, prend en charge le contrôle du bras robotique, prend en charge la lecture des données du capteur à six axes et prend en charge la communication du mini dispositif de reconnaissance visuelle OpenART",
-    "description_es": "支持控制麦轮车前进、后退、左移、右移、左右旋转、设定行进速度、设定行进距离，也支持输入坐标自动进行目标跟踪。支持按键输入操作、支持蜂鸣器与LED控制、支持灰度传感器数据读取、支持机械臂控制、支持六轴传感器数据读取、支持OpenART mini视觉识别设备通信",
-    "description_pt": "Ele suporta o controle do carro com rodas para avançar, retroceder, mover para a esquerda, mover para a direita, girar para a esquerda e para a direita, definir a velocidade de deslocamento e definir a distância de deslocamento. Ele também suporta a inserção de coordenadas para rastreamento automático de alvos. Suporta operações de entrada de teclas, suporta controle de campainha e LED, suporta leitura de dados de sensores em escala de cinza, suporta controle de braço robótico, suporta leitura de dados de sensores de seis eixos e suporta comunicação de dispositivo de reconhecimento visual mini OpenART",
-    "description_ru": "Он поддерживает управление колесной машиной для движения вперед, назад, влево, вправо, поворот влево и вправо, установку скорости движения и пройденного расстояния. Он также поддерживает ввод координат для автоматического сопровождения цели. Поддерживает ключевые операции ввода, поддерживает управление зуммером и светодиодами, поддерживает считывание данных датчика в оттенках серого, поддерживает управление роботизированным манипулятором, поддерживает считывание данных шестиосного датчика и поддерживает связь с мини-устройством визуального распознавания OpenART.",
-    "description_ar": "وهو يدعم التحكم في السيارة ذات العجلات للتحرك للأمام والخلف والتحرك لليسار والتحرك لليمين والتدوير لليسار واليمين وضبط سرعة السفر وضبط مسافة السفر. كما أنه يدعم إدخال الإحداثيات لتتبع الهدف تلقائيًا. يدعم عمليات الإدخال الرئيسية، ويدعم التحكم في الجرس وLED، ويدعم قراءة بيانات المستشعر بتدرج الرمادي، ويدعم التحكم في الذراع الآلي، ويدعم قراءة بيانات المستشعر بستة محاور، ويدعم اتصال جهاز التعرف البصري المصغر OpenART",
-    "version": "0.0.1",
-    "compatibility": {
-        "core": [
-            "esp32:esp32c3"
-        ],
-        "voltage": [
-            5
-        ]
-    },
-    "keywords": [
-        "aily",
-        "blockly",
-        "seekfree",
-        "driver",
-        "robot",
-        "move",
-        "key",
-        "beep",
-        "led",
-        "imu",
-        "turn",
-        "OpenART mini"
-    ],
-    "scripts": {},
-    "dependencies": {},
-    "devDependencies": {}
+     "name": "@aily-project/lib-seekfree_b1_controller",
+     "nickname": "逐飞麦轮车控制",
+     "nickname_zh_cn": "逐飞麦轮车控制",
+     "nickname_en": "Flying wheel car control",
+     "nickname_zh_hk": "逐飛麥輪車控制",
+     "nickname_ja": "フライングホイールカー制御",
+     "nickname_ko": "플라잉 휠 자동차 제어",
+     "nickname_de": "Steuerung eines fliegenden Radautos",
+     "nickname_fr": "Contrôle de voiture à roue volante",
+     "nickname_es": "Control del coche con ruedas voladoras.",
+     "nickname_pt": "Controle de carro com roda voadora",
+     "nickname_ru": "Управление автомобилем с летающим колесом",
+     "nickname_ar": "التحكم في السيارة بالعجلة الطائرة",
+     "author": "逐飞科技",
+     "description": "支持控制麦轮车前进、后退、左移、右移、左右旋转、设定行进速度、设定行进距离，也支持输入坐标自动进行目标跟踪。支持按键输入操作、支持蜂鸣器与LED控制、支持灰度传感器数据读取、支持机械臂控制、支持六轴传感器数据读取、支持OpenART mini视觉识别设备通信",
+     "description_zh_cn": "支持控制麦轮车前进、后退、左移、右移、左右旋转、设定行进速度、设定行进距离，也支持输入坐标自动进行目标跟踪。支持按键输入操作、支持蜂鸣器与LED控制、支持灰度传感器数据读取、支持机械臂控制、支持六轴传感器数据读取、支持OpenART mini视觉识别设备通信",
+     "description_en": "It supports controlling the wheel car to move forward, backward, move left, move right, rotate left and right, set the traveling speed, and set the traveling distance. It also supports inputting coordinates for automatic target tracking. Supports key input operations, supports buzzer and LED control, supports grayscale sensor data reading, supports robotic arm control, supports six-axis sensor data reading, and supports OpenART mini visual recognition device communication",
+     "description_zh_hk": "支援控制麥輪車前進、後退、左移、右移、左右旋轉、設定行進速度、設定行進距離，也支援輸入座標自動進行目標追蹤。 支援按鍵輸入操作、支援蜂鳴器與LED控制、支援灰階感測器資料讀取、支援機械手臂控制、支援六軸感測器資料讀取、支援OpenART mini視覺辨識設備通信",
+     "description_ja": "ホイールカーの前進、後進、左移動、右移動、左右回転、走行速度の設定、走行距離の設定をサポートします。自動ターゲット追跡のための座標の入力もサポートしています。 キー入力操作のサポート、ブザーおよび LED 制御のサポート、グレースケール センサー データの読み取りのサポート、ロボット アーム制御のサポート、6 軸センサー データの読み取りのサポート、OpenART mini 視覚認識デバイス通信のサポート",
+     "description_ko": "휠카 제어를 지원하여 전진, 후진, 왼쪽 이동, 오른쪽 이동, 왼쪽 및 오른쪽 회전, 이동 속도 설정, 이동 거리 설정을 지원합니다. 자동 표적 추적을 위한 좌표 입력도 지원합니다. 키 입력 작업 지원, 부저 및 LED 제어 지원, 그레이스케일 센서 데이터 읽기 지원, 로봇 팔 제어 지원, 6축 센서 데이터 읽기 지원, OpenART 미니 시각 인식 장치 통신 지원",
+     "description_de": "Es unterstützt die Steuerung des Radwagens zum Vorwärts- und Rückwärtsfahren, zum Bewegen nach links, zum Bewegen nach rechts, zum Drehen nach links und rechts sowie zum Festlegen der Fahrgeschwindigkeit und der Fahrstrecke. Es unterstützt auch die Eingabe von Koordinaten zur automatischen Zielverfolgung. Unterstützt wichtige Eingabevorgänge, unterstützt die Summer- und LED-Steuerung, unterstützt das Lesen von Graustufen-Sensordaten, unterstützt die Roboterarmsteuerung, unterstützt das Lesen von sechsachsigen Sensordaten und unterstützt die Kommunikation mit OpenART Mini-visuellen Erkennungsgeräten",
+     "description_fr": "Il prend en charge le contrôle de la voiture à roues pour avancer, reculer, se déplacer à gauche, se déplacer à droite, tourner à gauche et à droite, définir la vitesse de déplacement et définir la distance de déplacement. Il prend également en charge la saisie de coordonnées pour le suivi automatique de la cible. Prend en charge les opérations d'entrée clés, prend en charge le contrôle du buzzer et des LED, prend en charge la lecture des données du capteur en niveaux de gris, prend en charge le contrôle du bras robotique, prend en charge la lecture des données du capteur à six axes et prend en charge la communication du mini dispositif de reconnaissance visuelle OpenART",
+     "description_es": "支持控制麦轮车前进、后退、左移、右移、左右旋转、设定行进速度、设定行进距离，也支持输入坐标自动进行目标跟踪。支持按键输入操作、支持蜂鸣器与LED控制、支持灰度传感器数据读取、支持机械臂控制、支持六轴传感器数据读取、支持OpenART mini视觉识别设备通信",
+     "description_pt": "Ele suporta o controle do carro com rodas para avançar, retroceder, mover para a esquerda, mover para a direita, girar para a esquerda e para a direita, definir a velocidade de deslocamento e definir a distância de deslocamento. Ele também suporta a inserção de coordenadas para rastreamento automático de alvos. Suporta operações de entrada de teclas, suporta controle de campainha e LED, suporta leitura de dados de sensores em escala de cinza, suporta controle de braço robótico, suporta leitura de dados de sensores de seis eixos e suporta comunicação de dispositivo de reconhecimento visual mini OpenART",
+     "description_ru": "Он поддерживает управление колесной машиной для движения вперед, назад, влево, вправо, поворот влево и вправо, установку скорости движения и пройденного расстояния. Он также поддерживает ввод координат для автоматического сопровождения цели. Поддерживает ключевые операции ввода, поддерживает управление зуммером и светодиодами, поддерживает считывание данных датчика в оттенках серого, поддерживает управление роботизированным манипулятором, поддерживает считывание данных шестиосного датчика и поддерживает связь с мини-устройством визуального распознавания OpenART.",
+     "description_ar": "وهو يدعم التحكم في السيارة ذات العجلات للتحرك للأمام والخلف والتحرك لليسار والتحرك لليمين والتدوير لليسار واليمين وضبط سرعة السفر وضبط مسافة السفر. كما أنه يدعم إدخال الإحداثيات لتتبع الهدف تلقائيًا. يدعم عمليات الإدخال الرئيسية، ويدعم التحكم في الجرس وLED، ويدعم قراءة بيانات المستشعر بتدرج الرمادي، ويدعم التحكم في الذراع الآلي، ويدعم قراءة بيانات المستشعر بستة محاور، ويدعم اتصال جهاز التعرف البصري المصغر OpenART",
+     "version": "0.0.1",
+     "compatibility": {
+          "core": [
+               "esp32:esp32c3"
+          ],
+          "voltage": [
+               5
+          ]
+     },
+     "keywords": [
+          "aily",
+          "blockly",
+          "seekfree",
+          "driver",
+          "robot",
+          "move",
+          "key",
+          "beep",
+          "led",
+          "imu",
+          "turn",
+          "OpenART mini"
+     ],
+     "scripts": {},
+     "dependencies": {},
+     "devDependencies": {},
+     "tags": [
+          "robot",
+          "motor"
+     ]
 }
