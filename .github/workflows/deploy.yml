@@ -662,7 +662,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: 22
-          source: "libraries.json, libraries-index.json"
+          source: "libraries.json, libraries-index.json, tags.json"
           target: ${{ secrets.TARGET }}
           timeout: 600s
           command_timeout: 300s
@@ -672,6 +672,7 @@ jobs:
           mkdir -p r2_json
           cp libraries.json r2_json/
           cp libraries-index.json r2_json/
+          cp tags.json r2_json/
 
       - name: Upload to R2
         uses: jakejarvis/s3-sync-action@master
