@@ -56,7 +56,7 @@
    "tested": true,
    "tester": "openjumper",
    "tags": [
-      "ai",
+      "ai*",
       "speech"
    ]
 }

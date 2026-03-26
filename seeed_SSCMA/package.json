@@ -94,7 +94,7 @@
    "url": "https://github.com/Seeed-Studio/Seeed_Arduino_SSCMA",
    "tags": [
       "camera",
-      "ai",
+      "ai*",
       "sensor"
    ]
 }

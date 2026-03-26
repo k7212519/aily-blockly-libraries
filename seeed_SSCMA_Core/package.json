@@ -69,6 +69,6 @@
    "url": "https://github.com/seeed-studio/Seeed_Arduino_SSCMACore",
    "tags": [
       "camera",
-      "ai"
+      "ai*"
    ]
 }

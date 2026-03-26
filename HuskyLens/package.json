@@ -62,7 +62,7 @@
      "tester": "",
      "tags": [
           "camera",
-          "ai",
+          "ai*",
           "sensor"
      ]
 }

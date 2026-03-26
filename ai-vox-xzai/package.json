@@ -56,7 +56,7 @@
    "tester": "笨笨熊",
    "tested": true,
    "tags": [
-      "ai",
+      "ai*",
       "speech"
    ]
 }
