@@ -56,7 +56,7 @@
      "tested": true,
      "example": "@aily-project/example-ai-vox",
      "tags": [
-          "ai",
+          "ai*",
           "speech"
      ]
 }

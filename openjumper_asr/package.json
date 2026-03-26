@@ -46,6 +46,6 @@
      "devDependencies": {},
      "tags": [
           "speech",
-          "ai"
+          "ai*"
      ]
 }

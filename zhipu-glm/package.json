@@ -72,7 +72,7 @@
    "tested": false,
    "tester": "",
    "tags": [
-      "ai",
+      "ai*",
       "network"
    ]
 }
