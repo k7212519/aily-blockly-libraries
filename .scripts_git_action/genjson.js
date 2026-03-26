@@ -13,7 +13,8 @@ const defaultKeysToExtract = [
   'tested',
   'icon',
   'example',
-  'url'
+  'url',
+  'tags'
 ];
 
 // 多语言字段后缀
