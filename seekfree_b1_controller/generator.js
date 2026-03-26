@@ -1,22 +1,18 @@
 Arduino.forBlock['four_driver_init'] = function (block, generator) {
     // 添加必要的库引用和对象创建
     generator.addLibrary('#include "seekfree_can.h"', '#include "seekfree_can.h"');
-    generator.addLibrary('#include "seekfree_expansion_ch422.h"', '#include "seekfree_expansion_ch422.h"');
-    generator.addLibrary('#include "seekfree_imu660ma.h"', '#include "seekfree_imu660ma.h"');
     generator.addLibrary('#include "seekfree_four_driver.h"', '#include "seekfree_four_driver.h"');
+    generator.addLibrary('#include "seekfree_key_gpio.h"', '#include "seekfree_key_gpio.h"');
 	
-    generator.addObject('CH422 ch422', 'CH422 ch422;');
     generator.addObject('ESP32C3_CAN esp32c3_can', 'ESP32C3_CAN esp32c3_can;');
-    generator.addObject('IMU660MA imu660ma', 'IMU660MA imu660ma;');
     generator.addObject('FOUR_DRIVER four_driver', 'FOUR_DRIVER four_driver;');
 	
 	ensureSerialBegin("Serial", generator);
 	
 	const power_index = block.getFieldValue('power_index');
 	// 添加初始化代码到setup部分
-	generator.addSetup('ch422.begin()', 'ch422.begin();');
     generator.addSetup('esp32c3_can.begin()', 'esp32c3_can.begin();');
-    generator.addSetup('four_driver.begin(' + power_index + ')', 'four_driver.begin(' + power_index + ');');
+    generator.addSetup('four_driver.begin()', 'four_driver.begin();');
 	
     return '';
 };
@@ -28,26 +24,34 @@ Arduino.forBlock['four_driver_set_speed'] = function (block, generator) {
 	var speed4 = generator.valueToCode(block, 'speed4', generator.ORDER_ATOMIC) || '0';
 	
     // 生成函数调用代码
-	var code = 'four_driver.set_speed(1, 2, ' + speed1 + ');\n four_driver.set_speed(1, 3, ' + speed2 + ');\n four_driver.set_speed(1, 0, ' + speed3 + ');\n four_driver.set_speed(1, 1, ' + speed4 + ');\n four_driver.set_speed_ready(1);\n';
+	var code = 'four_driver.set_speed(1, 0, ' + speed1 + ');\n four_driver.set_speed(1, 1, ' + speed2 + ');\n four_driver.set_speed(1, 2, ' + speed3 + ');\n four_driver.set_speed(1, 3, ' + speed4 + ');\n';// four_driver.set_speed_ready(1);\n
     return code;
 };
 
 Arduino.forBlock['four_driver_move'] = function (block, generator) {
     const direction = block.getFieldValue('DIRECTION');
-    const distance = block.getFieldValue('DISTANCE');
-    const speed = block.getFieldValue('SPEED');
+	var speed = generator.valueToCode(block, 'SPEED', Arduino.ORDER_ATOMIC);
+    var distance = generator.valueToCode(block, 'DISTANCE', Arduino.ORDER_ATOMIC);
 
     // 生成函数调用代码
     return `four_driver.move(${direction}, ${speed}, ${distance});\n`;
 };
 
-Arduino.forBlock['four_driver_turn'] = function (block, generator) {
-	const direction = block.getFieldValue('DIRECTION');
-    const angle = block.getFieldValue('ANGLE');
-    const speed = block.getFieldValue('SPEED');
+Arduino.forBlock['four_driver_keep_move'] = function (block, generator) {
+    const direction = block.getFieldValue('DIRECTION');
+	var speed = generator.valueToCode(block, 'SPEED', Arduino.ORDER_ATOMIC);
 
     // 生成函数调用代码
-    return `four_driver.turn(${angle} * ${direction}, ${speed});\n`;
+    return `four_driver.keep_move(${direction}, ${speed});\n`;
+};
+
+Arduino.forBlock['four_driver_turn'] = function (block, generator) {
+	const direction = block.getFieldValue('DIRECTION');
+	var angle = generator.valueToCode(block, 'ANGLE', Arduino.ORDER_ATOMIC);
+    var speed = generator.valueToCode(block, 'SPEED', Arduino.ORDER_ATOMIC);
+	
+	// 生成函数调用代码
+	return `four_driver.turn(${direction} * ${angle} * 10, ${speed});\n`;
 };
 
 Arduino.forBlock['four_driver_track'] = function (block, generator) {
@@ -61,85 +65,74 @@ Arduino.forBlock['four_driver_track'] = function (block, generator) {
     return [code, Arduino.ORDER_FUNCTION_CALL];
 };
 
-Arduino.forBlock['imu660ma_init'] = function (block, generator) {
-    generator.addLibrary('#include "seekfree_can.h"', '#include "seekfree_can.h"');
-    generator.addLibrary('#include "seekfree_imu660ma.h"', '#include "seekfree_imu660ma.h"');
-    generator.addObject('IMU660MA imu660ma', 'IMU660MA imu660ma;');
+Arduino.forBlock['four_driver_calibration_gyro'] = function (block, generator) {
 	
-	const power_index = block.getFieldValue('power_index');
-	
-    generator.addSetup('imu660ma.begin(' + power_index + ')', 'imu660ma.begin(' + power_index + ');');
+	var code = 'four_driver.calibration_gyro();\n';
+	return code;
+};
+
+Arduino.forBlock['four_driver_calibration_head'] = function (block, generator) {
+	var angle = generator.valueToCode(block, 'ANGLE', Arduino.ORDER_ATOMIC);
+	return `four_driver.calibration_head(${angle});\n`;
+};
+
+Arduino.forBlock['beep_begin'] = function (block, generator) {
+    // 添加初始化代码到setup部分
+    generator.addSetup('pinMode(21, OUTPUT)', 'pinMode(21, OUTPUT);');
+    generator.addSetup('digitalWrite(21, HIGH)', 'digitalWrite(21, HIGH);');
 
     return '';
 };
 
-Arduino.forBlock['imu660ma_calibration_acc'] = function (block, generator) {
-    return 'imu660ma.calibration_acc();\n';
+Arduino.forBlock['beep_set'] = function (block, generator) {
+    // 添加初始化代码到setup部分
+	var state = block.getFieldValue('STATE');
+	
+	return `digitalWrite(21, ${state});\n`;
 };
 
-Arduino.forBlock['imu660ma_calibration_gyro'] = function (block, generator) {
-    return 'imu660ma.calibration_gyro();\n';
+
+Arduino.forBlock['led_begin'] = function (block, generator) {
+    // 添加初始化代码到setup部分
+    generator.addSetup('pinMode(35, OUTPUT)', 'pinMode(35, OUTPUT);');
+    generator.addSetup('pinMode(36, OUTPUT)', 'pinMode(36, OUTPUT);');
+    generator.addSetup('pinMode(37, OUTPUT)', 'pinMode(37, OUTPUT);');
+    generator.addSetup('digitalWrite(35, LOW)', 'digitalWrite(35, HIGH);');
+    generator.addSetup('digitalWrite(36, LOW)', 'digitalWrite(36, HIGH);');
+    generator.addSetup('digitalWrite(37, LOW)', 'digitalWrite(37, HIGH);');
+
+    return '';
 };
 
-Arduino.forBlock['imu660ma_calibration_yaw'] = function (block, generator) {
-	var yaw = generator.valueToCode(block, 'yaw', generator.ORDER_ATOMIC) || '0';
-    return 'imu660ma.calibration_yaw(' + yaw + ');\n';
+Arduino.forBlock['led_set'] = function (block, generator) {
+    // 添加初始化代码到setup部分
+	
+	var pin = block.getFieldValue('PIN');
+	var state = block.getFieldValue('STATE');
+	
+	return `digitalWrite(${pin}, ${state});\n`;
 };
 
-Arduino.forBlock['imu660ma_get_acc'] = function (block, generator) {
-    var axis = block.getFieldValue('AXIS');
+Arduino.forBlock['key_gpio_begin'] = function (block, generator) {
+    // 添加ADC按键库引用
+    generator.addLibrary('#include "seekfree_key_gpio.h"', '#include "seekfree_key_gpio.h"');
+    // 创建ADC按键对象
+    generator.addObject('KEY_GPIO key_gpio', 'KEY_GPIO key_gpio;');
+    // 添加初始化代码到setup部分
+    generator.addSetup('key_gpio.begin()', 'key_gpio.begin();');
 
-    generator.addVariable('int16_t acc_x_data', 'int16_t acc_x_data');
-    generator.addVariable('int16_t acc_y_data', 'int16_t acc_y_data');
-    generator.addVariable('int16_t acc_z_data', 'int16_t acc_z_data');
-
-    var code = '';
-    if (axis === 'X') {
-        code = '(imu660ma.get_acc(acc_x_data, acc_y_data, acc_z_data) == 0 ? acc_x_data : 0)';
-    } else if (axis === 'Y') {
-        code = '(imu660ma.get_acc(acc_x_data, acc_y_data, acc_z_data) == 0 ? acc_y_data : 0)';
-    } else {
-        code = '(imu660ma.get_acc(acc_x_data, acc_y_data, acc_z_data) == 0 ? acc_z_data : 0)';
-    }
-
-    return [code, Arduino.ORDER_CONDITIONAL];
+    return '';
 };
 
-Arduino.forBlock['imu660ma_get_gyro'] = function (block, generator) {
-    var axis = block.getFieldValue('AXIS');
+Arduino.forBlock['key_gpio_read'] = function (block, generator) {
+    var key_id = block.getFieldValue('KEY_ID');
+	var state = block.getFieldValue('STATE');
+	
+    // 添加ADC按键库引用和对象（如果尚未添加）
+    generator.addLibrary('#include "seekfree_key_gpio.h"', '#include "seekfree_key_gpio.h"');
+    generator.addObject('KEY_GPIO key_gpio', 'KEY_GPIO key_gpio;');
 
-    generator.addVariable('int16_t gyro_x_data', 'int16_t gyro_x_data');
-    generator.addVariable('int16_t gyro_y_data', 'int16_t gyro_y_data');
-    generator.addVariable('int16_t gyro_z_data', 'int16_t gyro_z_data');
-
-    var code = '';
-    if (axis === 'X') {
-        code = '(imu660ma.get_gyro(gyro_x_data, gyro_y_data, gyro_z_data) == 0 ? gyro_x_data : 0)';
-    } else if (axis === 'Y') {
-        code = '(imu660ma.get_gyro(gyro_x_data, gyro_y_data, gyro_z_data) == 0 ? gyro_y_data : 0)';
-    } else {
-        code = '(imu660ma.get_gyro(gyro_x_data, gyro_y_data, gyro_z_data) == 0 ? gyro_z_data : 0)';
-    }
-
-    return [code, Arduino.ORDER_CONDITIONAL];
-};
-
-Arduino.forBlock['imu660ma_get_angle'] = function (block, generator) {
-    var angle = block.getFieldValue('ANGLE');
-
-    var code = '';
-    if (angle === 'PITCH') {
-        generator.addVariable('float pitch_data', 'float pitch_data;');
-        code = '(imu660ma.get_pitch(pitch_data) == 0 ? pitch_data : 0)';
-    } else if (angle === 'ROLL') {
-        generator.addVariable('float roll_data', 'float roll_data;');
-        code = '(imu660ma.get_roll(roll_data) == 0 ? roll_data : 0)';
-    } else {
-        generator.addVariable('float yaw_data', 'float yaw_data;');
-        code = '(imu660ma.get_yaw(yaw_data) == 0 ? yaw_data : 0)';
-    }
-
-    return [code, Arduino.ORDER_CONDITIONAL];
+	return ['key_gpio.read_state(' + key_id + ', ' + state + ')', Arduino.ORDER_FUNCTION_CALL];
 };
 
 Arduino.forBlock['photoelectricity_init'] = function (block, generator) {
@@ -222,50 +215,6 @@ Arduino.forBlock['photoelectricity_get_white_num'] = function (block, generator)
     return [code, Arduino.ORDER_CONDITIONAL];
 };
 
-Arduino.forBlock['ch422_set_beep'] = function (block, generator) {
-    var state = block.getFieldValue('STATE');
-
-    // 添加CH422库引用和对象（如果尚未添加）
-    generator.addLibrary('#include "seekfree_expansion_ch422.h"', '#include "seekfree_expansion_ch422.h"');
-    generator.addObject('CH422 ch422', 'CH422 ch422;');
-
-    var code = 'ch422.set_beep(' + state + ');\n';
-    return code;
-};
-
-Arduino.forBlock['ch422_set_led'] = function (block, generator) {
-    var color = block.getFieldValue('COLOR');
-    var state = block.getFieldValue('STATE');
-
-    // 添加CH422库引用和对象（如果尚未添加）
-    generator.addLibrary('#include "seekfree_expansion_ch422.h"', '#include "seekfree_expansion_ch422.h"');
-    generator.addObject('CH422 ch422', 'CH422 ch422;');
-
-    var code = 'ch422.set_' + color + '_led(' + state + ');\n';
-    return code;
-};
-
-Arduino.forBlock['key4_adc1_begin'] = function (block, generator) {
-    // 添加ADC按键库引用
-    generator.addLibrary('#include "seekfree_key4_adc1.h"', '#include "seekfree_key4_adc1.h"');
-    // 创建ADC按键对象
-    generator.addObject('KEY4_ADC1 key4_adc1', 'KEY4_ADC1 key4_adc1;');
-    // 添加初始化代码到setup部分
-    generator.addSetup('key4_adc1.begin()', 'key4_adc1.begin();');
-
-    return '';
-};
-
-Arduino.forBlock['key4_adc1_read'] = function (block, generator) {
-    var key_id = block.getFieldValue('KEY_ID');
-	var state = block.getFieldValue('STATE');
-	
-    // 添加ADC按键库引用和对象（如果尚未添加）
-    generator.addLibrary('#include "seekfree_key4_adc1.h"', '#include "seekfree_key4_adc1.h"');
-    generator.addObject('KEY4_ADC1 key4_adc1', 'KEY4_ADC1 key4_adc1;');
-
-	return ['key4_adc1.read_state(' + key_id + ', ' + state + ')', Arduino.ORDER_FUNCTION_CALL];
-};
 
 Arduino.forBlock['openart_mini_begin'] = function (block, generator) {
     // 添加ADC按键库引用
@@ -278,15 +227,30 @@ Arduino.forBlock['openart_mini_begin'] = function (block, generator) {
     return '';
 };
 
-Arduino.forBlock['openart_mini_detection_object'] = function (block, generator) {
-    var shape = block.getFieldValue('SHAPE');
-	var rgb_value = block.getFieldValue('VALUE');
+Arduino.forBlock['openart_mini_detection_object_easy'] = function (block, generator) {
+	var type = block.getFieldValue('VALUE');
 	
     // 添加ADC按键库引用和对象（如果尚未添加）
     generator.addLibrary('#include "seekfree_openart_mini.h"', '#include "seekfree_openart_mini.h"');
     generator.addObject('OPENART_MINI openart_mini', 'OPENART_MINI openart_mini;');
 	
-	var code = 'openart_mini.detection_object(' + shape + ', ' + rgb_value + ');\n';
+	var code = 'openart_mini.detection_object_easy(' + type + ');\n';
+	return code;
+};
+
+Arduino.forBlock['openart_mini_detection_object'] = function (block, generator) {
+	var l_min = block.getFieldValue('L_MIN');
+	var l_max = block.getFieldValue('L_MAX');
+	var a_min = block.getFieldValue('A_MIN');
+	var a_max = block.getFieldValue('A_MAX');
+	var b_min = block.getFieldValue('B_MIN');
+	var b_max = block.getFieldValue('B_MAX');
+	
+    // 添加ADC按键库引用和对象（如果尚未添加）
+    generator.addLibrary('#include "seekfree_openart_mini.h"', '#include "seekfree_openart_mini.h"');
+    generator.addObject('OPENART_MINI openart_mini', 'OPENART_MINI openart_mini;');
+	
+	var code = 'openart_mini.detection_object_easy(' + l_min + ', ' + l_max + ', ' + a_min + ', ' + a_max + ', ' + b_min + ', ' + b_max + ');\n';
 	return code;
 };
 
@@ -337,4 +301,46 @@ Arduino.forBlock['openart_mini_get_coord_y'] = function (block, generator) {
 
 	return ['openart_mini.get_coord_y(' + type + ')', Arduino.ORDER_FUNCTION_CALL];
 };
+Arduino.forBlock['robotic_arm_init'] = function (block, generator) {
+    // 添加必要的库引用和对象创建
+    generator.addLibrary('#include "seekfree_can.h"', '#include "seekfree_can.h"');
+    generator.addLibrary('#include "seekfree_robotic_arm.h"', '#include "seekfree_robotic_arm.h"');
+	
+    generator.addObject('ESP32C3_CAN esp32c3_can', 'ESP32C3_CAN esp32c3_can;');
+    generator.addObject('DOUBLE_ROBOTIC_ARM robot_arm', 'DOUBLE_ROBOTIC_ARM robot_arm;');
+	
+	ensureSerialBegin("Serial", generator);
+	
+	const power_index = block.getFieldValue('power_index');
+	// 添加初始化代码到setup部分
+    generator.addSetup('esp32c3_can.begin()', 'esp32c3_can.begin();');
+    generator.addSetup('robot_arm.begin()', 'robot_arm.begin();');
+	
+    return '';
+};
+Arduino.forBlock['robotic_arm_set_servo_motor_angle'] = function (block, generator) {
+    const channel = block.getFieldValue('channel');
+	var angle = generator.valueToCode(block, 'angle', Arduino.ORDER_ATOMIC);
 
+    // 生成函数调用代码
+    return `robot_arm.set_servo_motor_angle(1, ${channel}, ${angle} * 10);\n`;
+};
+
+Arduino.forBlock['robotic_arm_set_servo_motor_offset_angle'] = function (block, generator) {
+    const channel = block.getFieldValue('channel');
+	var angle = generator.valueToCode(block, 'angle', Arduino.ORDER_ATOMIC);
+
+    // 生成函数调用代码
+    return `robot_arm.set_servo_motor_offset_angle(1, ${channel}, ${angle} * 10);\n`;
+};
+
+Arduino.forBlock['robotic_arm_get_servo_motor_angle'] = function (block, generator) {
+    var channel = block.getFieldValue('channel');
+
+    generator.addVariable('uint16_t angle', 'uint16_t angle');
+
+    var code = '';
+	code = '(robot_arm.get_servo_motor_angle(1, channel, angle) == 0 ? angle / 10.0f : 0)';
+
+    return [code, Arduino.ORDER_CONDITIONAL];
+};
