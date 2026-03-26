@@ -8,7 +8,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 
 // Libraries/folders to skip
-const SKIP = new Set(['node_modules', 'scripts', 'scripts_git_action', '.docs_ai', '.git', '.github', '.vscode']);
+const SKIP = new Set(['node_modules', 'scripts', '.scripts_git_action', '.docs_ai', '.git', '.github', '.vscode']);
 
 function readJSON(filePath) {
   try {
