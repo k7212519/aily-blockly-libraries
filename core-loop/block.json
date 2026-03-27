@@ -217,10 +217,6 @@
     "previousStatement": null,
     "nextStatement": null,
     "style": "loop_blocks",
-    "helpUrl": "%{BKY_CONTROLS_WHILEUNTIL_HELPURL}",
-    "extensions": [
-      "controls_whileUntil_tooltip"
-    ],
     "icon": "fa-regular fa-arrows-repeat"
   }
 ]
