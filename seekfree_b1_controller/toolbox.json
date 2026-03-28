@@ -1,7 +1,6 @@
 {
     "kind": "category",
     "name": "逐飞麦轮车控制",
-    "icon": "fa-light fa-tire",
     "colour": "#4CAF50",
     "contents": [
         {
@@ -48,7 +47,39 @@
         },
         {
             "kind": "block",
-            "type": "four_driver_move"
+            "type": "four_driver_move",
+			"inputs": {
+				"DISTANCE": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 0
+						}
+					}
+				},
+				"SPEED": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 0
+						}
+					}
+				}
+			}
+        },
+        {
+            "kind": "block",
+            "type": "four_driver_keep_move",
+			"inputs": {
+				"SPEED": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 0
+						}
+					}
+				}
+			}
         },
         {
             "kind": "block",
@@ -93,24 +124,16 @@
 					}
 				}
 			}
-        },
-        {
+        },		
+		{
             "kind": "block",
-            "type": "imu660ma_init"
-        },
-        {
+            "type": "four_driver_calibration_gyro"
+        },	
+		{
             "kind": "block",
-            "type": "imu660ma_calibration_acc"
-        },
-        {
-            "kind": "block",
-            "type": "imu660ma_calibration_gyro"
-        },
-        {
-            "kind": "block",
-            "type": "imu660ma_calibration_yaw",
+            "type": "four_driver_calibration_head",
 			"inputs": {
-				"yaw": {
+				"ANGLE": {
 					"shadow": {
 						"type": "math_number",
 						"fields": {
@@ -120,19 +143,31 @@
 				}
 			}
         },
-        {
+		{
             "kind": "block",
-            "type": "imu660ma_get_acc"
+            "type": "beep_begin"
+        },		
+		{
+            "kind": "block",
+            "type": "beep_set"
+        },		
+		{
+            "kind": "block",
+            "type": "led_begin"
+        },		
+		{
+            "kind": "block",
+            "type": "led_set"
+        },		
+		{
+            "kind": "block",
+            "type": "key_gpio_begin"
         },
         {
             "kind": "block",
-            "type": "imu660ma_get_gyro"
+            "type": "key_gpio_read"
         },
-        {
-            "kind": "block",
-            "type": "imu660ma_get_angle"
-        },
-		        {
+		{
             "kind": "block",
             "type": "photoelectricity_init"
         },
@@ -166,27 +201,65 @@
         },
         {
             "kind": "block",
-            "type": "ch422_set_beep"
-        },
-        {
-            "kind": "block",
-            "type": "ch422_set_led"
-        },
-		{
-            "kind": "block",
-            "type": "key4_adc1_begin"
-        },
-        {
-            "kind": "block",
-            "type": "key4_adc1_read"
-        },
-        {
-            "kind": "block",
             "type": "openart_mini_begin"
         },
         {
             "kind": "block",
-            "type": "openart_mini_detection_object"
+            "type": "openart_mini_detection_object_easy"
+        },
+        {
+            "kind": "block",
+            "type": "openart_mini_detection_object",
+			"inputs": {
+				"L_MIN": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 39
+						}
+					}
+				},
+				"L_MAX": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 84
+						}
+					}
+				},
+				"A_MIN": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": -24
+						}
+					}
+				},
+				"A_MAX": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 41
+						}
+					}
+				},
+				"B_MIN": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 43
+						}
+					}
+				},
+				"B_MAX": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 82
+						}
+					}
+				}
+			}
         },
         {
             "kind": "block",
@@ -207,6 +280,42 @@
         {
             "kind": "block",
             "type": "openart_mini_get_coord_y"
+        },
+        {
+            "kind": "block",
+            "type": "robotic_arm_init"
+        },
+        {
+            "kind": "block",
+            "type": "robotic_arm_set_servo_motor_angle",
+			"inputs": {
+				"angle": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 0
+						}
+					}
+				}
+			}
+        },
+        {
+            "kind": "block",
+            "type": "robotic_arm_set_servo_motor_offset_angle",
+			"inputs": {
+				"angle": {
+					"shadow": {
+						"type": "math_number",
+						"fields": {
+						  "NUM": 0
+						}
+					}
+				}
+			}
+        },
+        {
+            "kind": "block",
+            "type": "robotic_arm_get_servo_motor_angle"
         }
     ]
 }
