@@ -8,7 +8,7 @@
 |------|------|
 | 包名 | @aily-project/lib-seeed-dopplerradar |
 | 版本 | 0.0.1 |
-| 作者 | Seeed Studio |
+| 作者 | SeeedStudio |
 | 来源 | https://github.com/Seeed-Studio/Seeed_Arduino_DopplerRadar |
 | 许可证 | MIT |
 

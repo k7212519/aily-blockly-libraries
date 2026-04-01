@@ -10373,7 +10373,7 @@
     "nickname": "HM3301 PM2.5传感器",
     "version": "1.0.0",
     "description": "HM3301激光粉尘传感器，I2C通讯，可检测PM1.0、PM2.5、PM10颗粒物浓度",
-    "author": "Seeed Studio",
+    "author": "SeeedStudio",
     "compatibility": {
       "core": [],
       "voltage": [

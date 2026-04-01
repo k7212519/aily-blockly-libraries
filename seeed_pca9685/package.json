@@ -12,7 +12,7 @@
   "nickname_pt": "Seeed PCA9685 Servo/PWM Driver",
   "nickname_ru": "Seeed PCA9685 Сервопривод/ШИМ",
   "nickname_ar": "Seeed PCA9685 مؤازر/PWM",
-  "author": "Seeed Studio",
+  "author": "SeeedStudio",
   "description": "Seeed PCA9685 I2C 16通道PWM/舵机驱动库",
   "description_zh_cn": "Seeed PCA9685 I2C 16通道PWM/舵机驱动库，支持PWM输出和舵机角度控制",
   "description_en": "Seeed PCA9685 I2C 16-channel PWM/servo driver library with PWM output and servo angle control",

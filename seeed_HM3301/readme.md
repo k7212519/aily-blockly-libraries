@@ -8,7 +8,7 @@ HM3301激光粉尘传感器的Aily Blockly图形化库，可检测空气中PM1.0
 |------|-----|
 | Package | @aily-project/lib-seeed-hm3301 |
 | Version | 1.0.0 |
-| Author | Seeed Studio |
+| Author | SeeedStudio |
 | Source | https://github.com/Seeed-Studio/Seeed_PM2_5_sensor_HM3301 |
 | License | MIT |
 

@@ -12,7 +12,7 @@
    "nickname_pt": "Sensor HM3301 PM2.5",
    "nickname_ru": "Датчик HM3301 PM2,5",
    "nickname_ar": "مستشعر HM3301 PM2.5",
-   "author": "Seeed Studio",
+   "author": "SeeedStudio",
    "description": "HM3301激光粉尘传感器，I2C通讯，可检测PM1.0、PM2.5、PM10颗粒物浓度",
    "description_zh_cn": "HM3301激光粉尘传感器，I2C通讯，可检测PM1.0、PM2.5、PM10颗粒物浓度",
    "description_en": "HM3301 laser dust sensor, I2C communication, can detect PM1.0, PM2.5, PM10 particle concentration",

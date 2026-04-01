@@ -12,7 +12,7 @@
   "nickname_pt": "Sensor de radar Doppler",
   "nickname_ru": "Датчик доплеровского радара",
   "nickname_ar": "مستشعر رادار دوبلر",
-  "author": "ailyProject",
+  "author": "SeeedStudio",
   "description": "Seeed BGT24LTR11多普勒雷达传感器控制库，用于检测目标运动状态（接近/远离）和速度。通过串口通信，支持目标检测模式和I/Q ADC模式，可配置检测阈值和速度范围。",
   "description_zh_cn": "Seeed BGT24LTR11多普勒雷达传感器控制库，用于检测目标运动状态（接近/远离）和速度。通过串口通信，支持目标检测模式和I/Q ADC模式，可配置检测阈值和速度范围。",
   "description_en": "Seeed BGT24LTR11 Doppler radar sensor control library for detecting target motion state (approaching/leaving) and speed. Communicates via serial port, supports target detection mode and I/Q ADC mode, with configurable detection threshold and speed range.",

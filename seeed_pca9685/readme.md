@@ -8,7 +8,7 @@ Grove 16通道舵机/PWM驱动器（PCA9685）的Blockly积木库。
 |-------|-------|
 | Package | @aily-project/lib-seeed-pca9685 |
 | Version | 1.0.0 |
-| Author | Seeed Studio |
+| Author | SeeedStudio |
 | Source | https://github.com/Seeed-Studio/Seeed_PCA9685 |
 | License | MIT |
 
@@ -18,7 +18,7 @@ Arduino UNO, Arduino Mega, Arduino Nano, ESP32, ESP8266, Arduino UNO R4 WiFi, Ra
 
 ## Description
 
-基于Seeed Studio的PCA9685库，提供16通道PWM输出和舵机角度控制功能。支持通过I2C接口控制最多16路PWM输出或舵机，默认I2C地址为0x7f，PWM频率范围24Hz~1526Hz。
+基于SeeedStudio的PCA9685库，提供16通道PWM输出和舵机角度控制功能。支持通过I2C接口控制最多16路PWM输出或舵机，默认I2C地址为0x7f，PWM频率范围24Hz~1526Hz。
 
 ## Quick Start
 
