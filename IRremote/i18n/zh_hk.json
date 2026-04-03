@@ -1,28 +1,33 @@
 {
-  "toolbox_name": "红外遥控",
+  "toolbox_name": "紅外遙控",
+  "toolbox_categories": [
+    "接收",
+    "發送",
+    "進階"
+  ],
   "irremote_library_config": {
-    "message0": "红外库配置 缓冲区长度 %1 启用通用解码 %2 保留特殊协议 %3",
-    "tooltip": "通过编译期宏配置RAW_BUFFER_LENGTH以及是否保留通用/特殊协议解析"
+    "message0": "紅外庫配置 緩衝區長度 %1 啟用通用解碼 %2 保留特殊協議 %3",
+    "tooltip": "透過編譯期巨集配置RAW_BUFFER_LENGTH以及是否保留通用/特殊協議解析"
   },
   "irremote_receiver_begin": {
-    "message0": "初始化红外接收 引脚 %1",
-    "tooltip": "调用IrReceiver.begin设置接收引脚与LED反馈参数，需在setup中执行一次"
+    "message0": "初始化紅外接收 引腳 %1 LED回饋 %2",
+    "tooltip": "初始化紅外接收器，開啟LED回饋後板載LED會在接收訊號時閃爍，便於除錯"
   },
   "irremote_sender_begin": {
-    "message0": "初始化红外发送 引脚 %1",
-    "tooltip": "调用IrSender.begin设置发射引脚与可选LED反馈"
+    "message0": "初始化紅外發送 引腳 %1",
+    "tooltip": "初始化紅外發射器，設定發射引腳"
   },
   "irremote_on_receive": {
-    "message0": "当红外接收成功时 %1",
-    "tooltip": "生成 if (IrReceiver.decode()) { ... IrReceiver.resume(); } 结构，需放在loop中"
+    "message0": "當紅外接收成功時 忽略重複幀 %1 %2",
+    "tooltip": "當收到紅外訊號時執行內部程式碼，勾選忽略重複幀可防止遙控器按一次觸發多次"
   },
   "irremote_receiver_available": {
-    "message0": "红外接收有新数据",
-    "tooltip": "返回IrReceiver.available()状态"
+    "message0": "紅外接收有新資料",
+    "tooltip": "檢查是否有新的紅外資料可讀"
   },
   "irremote_get_value": {
-    "message0": "红外数据 %1",
-    "tooltip": "读取IrReceiver.decodedIRData中的数值字段",
+    "message0": "紅外資料 %1",
+    "tooltip": "讀取紅外接收資料的指定欄位",
     "args0": [
       {
         "options": [
@@ -39,15 +44,15 @@
             "EXTRA"
           ],
           [
-            "原始码",
+            "原始碼",
             "RAW"
           ],
           [
-            "位数",
+            "位元數",
             "BITS"
           ],
           [
-            "标志位",
+            "標誌位",
             "FLAGS"
           ]
         ]
@@ -55,17 +60,17 @@
     ]
   },
   "irremote_get_protocol": {
-    "message0": "红外协议 %1",
-    "tooltip": "返回协议名称或decode_type_t枚举值",
+    "message0": "紅外協議 %1",
+    "tooltip": "傳回接收到的紅外協議名稱或列舉值",
     "args0": [
       {
         "options": [
           [
-            "名称",
+            "名稱",
             "NAME"
           ],
           [
-            "枚举值",
+            "列舉值",
             "ID"
           ]
         ]
@@ -73,33 +78,33 @@
     ]
   },
   "irremote_check_flag": {
-    "message0": "红外标志 %1",
-    "tooltip": "检查IrReceiver.decodedIRData.flags对应标志位",
+    "message0": "紅外標誌 %1",
+    "tooltip": "檢查紅外接收資料的標誌位狀態",
     "args0": [
       {
         "options": [
           [
-            "重复帧",
+            "重複幀",
             "REPEAT"
           ],
           [
-            "自动重复",
+            "自動重複",
             "AUTO_REPEAT"
           ],
           [
-            "奇偶校验失败",
+            "奇偶校驗失敗",
             "PARITY"
           ],
           [
-            "切换位",
+            "切換位",
             "TOGGLE"
           ],
           [
-            "不同重发协议",
+            "不同重發協議",
             "DIFF_REPEAT"
           ],
           [
-            "包含附加信息",
+            "包含附加資訊",
             "EXTRA_INFO"
           ]
         ]
@@ -107,8 +112,8 @@
     ]
   },
   "irremote_is_preset_key": {
-    "message0": "按下预置按键%1",
-    "tooltip": "匹配预置遥控器按键命令，无需手动比较命令值",
+    "message0": "按下預置按鍵 %1",
+    "tooltip": "配對Arduino套件NEC迷你遙控器的預置按鍵",
     "args0": [
       {
         "options": [
@@ -193,16 +198,16 @@
     ]
   },
   "irremote_get_preset_name": {
-    "message0": "获取预置按键名称",
-    "tooltip": "返回预置遥控器按键的名称，若未匹配返回空字符串"
+    "message0": "取得預置按鍵名稱",
+    "tooltip": "傳回預置遙控器按鍵的名稱，若未配對則傳回空字串"
   },
   "irremote_resume": {
-    "message0": "红外接收准备下一帧",
-    "tooltip": "调用IrReceiver.resume()手动准备下一次接收"
+    "message0": "紅外接收準備下一幀",
+    "tooltip": "手動準備下一次接收，僅在不使用\"當紅外接收成功時\"積木時需要"
   },
   "irremote_send_command": {
-    "message0": "红外发送 协议 %1 地址 %2 命令 %3 重复 %4",
-    "tooltip": "调用IrSender.write按指定协议发送地址与命令，可配置重复次数",
+    "message0": "紅外發送 協議 %1 地址 %2 命令 %3 重複 %4",
+    "tooltip": "按指定協議發送紅外訊號，可配置地址、命令和重複次數",
     "args0": [
       {
         "options": [
@@ -300,5 +305,43 @@
       null,
       null
     ]
+  },
+  "irremote_print_result": {
+    "message0": "串口列印紅外結果 格式 %1",
+    "tooltip": "在串口列印紅外接收結果，摘要顯示協議/地址/命令，發送代碼顯示如何回放該訊號",
+    "args0": [
+      {
+        "options": [
+          [
+            "摘要",
+            "SHORT"
+          ],
+          [
+            "發送代碼",
+            "SEND_USAGE"
+          ],
+          [
+            "原始時序",
+            "RAW"
+          ]
+        ]
+      }
+    ]
+  },
+  "irremote_command_equals": {
+    "message0": "紅外命令值等於 %1",
+    "tooltip": "判斷當前接收到的紅外命令值是否等於指定值，適用於任何遙控器"
+  },
+  "irremote_send_nec": {
+    "message0": "紅外發送NEC 地址 %1 命令 %2 重複 %3",
+    "tooltip": "使用NEC協議發送紅外訊號，NEC是最常用的紅外協議"
+  },
+  "irremote_send_raw": {
+    "message0": "紅外發送Raw 資料 %1 頻率(kHz) %2",
+    "tooltip": "發送原始紅外時序資料，用於回放未知協議的訊號，資料格式為逗號分隔的微秒值"
+  },
+  "irremote_send_pronto": {
+    "message0": "紅外發送Pronto碼 %1 重複 %2",
+    "tooltip": "使用Pronto格式發送紅外訊號，Pronto碼可從網上紅外碼資料庫取得"
   }
 }
