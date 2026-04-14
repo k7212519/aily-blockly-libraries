@@ -1,63 +1,49 @@
 {
-  "toolbox_name": "SHT3x温湿度",
+  "toolbox_name": "SHT3x Temp. y Humedad",
   "sht31_init": {
-    "message0": "初始化SHT3x传感器 地址%1",
-    "tooltip": "初始化SHT3x温湿度传感器，选择I2C地址",
+    "message0": "Inicializar SHT3x %1 sensor dirección I2C %2 bus I2C %3",
+    "tooltip": "Inicializar el sensor de temperatura y humedad SHT3x con dirección I2C",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "0x44 (默认)",
-            "0x44"
-          ],
-          [
-            "0x45 (备用)",
-            "0x45"
-          ]
+          ["0x44 (predeterminado)", "0x44"],
+          ["0x45 (alternativo)", "0x45"]
         ]
-      }
+      },
+      null
     ]
   },
   "sht31_heater_control": {
-    "message0": "SHT3x加热器%1",
-    "tooltip": "控制SHT3x传感器内置加热器的开启/关闭",
+    "message0": "%1 calentador %2",
+    "tooltip": "Controlar el calentador integrado del sensor SHT3x",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "开启",
-            "true"
-          ],
-          [
-            "关闭",
-            "false"
-          ]
+          ["Encender", "true"],
+          ["Apagar", "false"]
         ]
       }
     ]
   },
   "sht31_is_heater_enabled": {
-    "message0": "SHT3x加热器是否开启",
-    "tooltip": "检查SHT3x传感器加热器是否处于开启状态"
+    "message0": "%1 calentador activado",
+    "tooltip": "Verificar si el calentador del sensor SHT3x está activado"
   },
   "sht31_reset": {
-    "message0": "SHT3x软件复位",
-    "tooltip": "对SHT3x传感器执行软件复位"
+    "message0": "%1 reinicio por software",
+    "tooltip": "Realizar un reinicio por software del sensor SHT3x"
   },
   "sht31_simple_read": {
-    "message0": "SHT3x传感器读取%1",
-    "tooltip": "简化版读取SHT3x传感器数据，自动初始化",
+    "message0": "%1 leer %2",
+    "tooltip": "Leer datos de temperatura o humedad del sensor SHT3x",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "温度(°C)",
-            "temperature"
-          ],
-          [
-            "湿度(%)",
-            "humidity"
-          ]
+          ["Temperatura(°C)", "temperature"],
+          ["Humedad(%)", "humidity"]
         ]
       }
     ]
