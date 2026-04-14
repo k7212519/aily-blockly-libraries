@@ -1,63 +1,49 @@
 {
-  "toolbox_name": "SHT3x温湿度",
+  "toolbox_name": "SHT3x 온습도",
   "sht31_init": {
-    "message0": "初始化SHT3x传感器 地址%1",
-    "tooltip": "初始化SHT3x温湿度传感器，选择I2C地址",
+    "message0": "SHT3x %1 센서 초기화 I2C주소 %2 I2C버스 %3",
+    "tooltip": "SHT3x 온습도 센서를 초기화하고 I2C 주소를 선택",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "0x44 (默认)",
-            "0x44"
-          ],
-          [
-            "0x45 (备用)",
-            "0x45"
-          ]
+          ["0x44 (기본)", "0x44"],
+          ["0x45 (대체)", "0x45"]
         ]
-      }
+      },
+      null
     ]
   },
   "sht31_heater_control": {
-    "message0": "SHT3x加热器%1",
-    "tooltip": "控制SHT3x传感器内置加热器的开启/关闭",
+    "message0": "%1 히터 %2",
+    "tooltip": "SHT3x 센서 내장 히터 켜기/끄기 제어",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "开启",
-            "true"
-          ],
-          [
-            "关闭",
-            "false"
-          ]
+          ["켜기", "true"],
+          ["끄기", "false"]
         ]
       }
     ]
   },
   "sht31_is_heater_enabled": {
-    "message0": "SHT3x加热器是否开启",
-    "tooltip": "检查SHT3x传感器加热器是否处于开启状态"
+    "message0": "%1 히터 활성화 여부",
+    "tooltip": "SHT3x 센서의 히터가 활성화되어 있는지 확인"
   },
   "sht31_reset": {
-    "message0": "SHT3x软件复位",
-    "tooltip": "对SHT3x传感器执行软件复位"
+    "message0": "%1 소프트 리셋",
+    "tooltip": "SHT3x 센서 소프트 리셋 실행"
   },
   "sht31_simple_read": {
-    "message0": "SHT3x传感器读取%1",
-    "tooltip": "简化版读取SHT3x传感器数据，自动初始化",
+    "message0": "%1 읽기 %2",
+    "tooltip": "SHT3x 센서에서 온도 또는 습도 데이터 읽기",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "温度(°C)",
-            "temperature"
-          ],
-          [
-            "湿度(%)",
-            "humidity"
-          ]
+          ["온도(°C)", "temperature"],
+          ["습도(%)", "humidity"]
         ]
       }
     ]
