@@ -1,0 +1,309 @@
+{
+    "toolbox_name":  "nRF54 BLE",
+    "toolbox_categories":  [
+                               "Modo r谩pido",
+                               "Inicializaci贸n",
+                               "Publicidad",
+                               "Conexi贸n",
+                               "Servicio GATT",
+                               "Puente NUS",
+                               "Escaneo",
+                               "Energ铆a"
+                           ],
+    "nrf54_ble_init":  {
+                           "message0":  "Inicializar BLE potencia TX(dBm) %1",
+                           "tooltip":  "Inicializar la radio BLE nRF54 y configurar la potencia de transmisi贸n",
+                           "args0":  [
+                                         {
+                                             "options":  [
+                                                             [
+                                                                 "+8",
+                                                                 "8"
+                                                             ],
+                                                             [
+                                                                 "+4",
+                                                                 "4"
+                                                             ],
+                                                             [
+                                                                 "0",
+                                                                 "0"
+                                                             ],
+                                                             [
+                                                                 "-4",
+                                                                 "-4"
+                                                             ],
+                                                             [
+                                                                 "-8 (default)",
+                                                                 "-8"
+                                                             ],
+                                                             [
+                                                                 "-12",
+                                                                 "-12"
+                                                             ],
+                                                             [
+                                                                 "-16",
+                                                                 "-16"
+                                                             ],
+                                                             [
+                                                                 "-20",
+                                                                 "-20"
+                                                             ],
+                                                             [
+                                                                 "-40",
+                                                                 "-40"
+                                                             ]
+                                                         ]
+                                         }
+                                     ]
+                       },
+    "nrf54_ble_end":  {
+                          "message0":  "Detener BLE",
+                          "tooltip":  "Detener la radio BLE"
+                      },
+    "nrf54_ble_set_name":  {
+                               "message0":  "Configurar nombre de publicidad BLE %1",
+                               "tooltip":  "Configurar el nombre del dispositivo de publicidad BLE"
+                           },
+    "nrf54_ble_set_address":  {
+                                  "message0":  "Configurar direcci贸n BLE %1 tipo %2",
+                                  "tooltip":  "Configurar la direcci贸n del dispositivo BLE",
+                                  "args0":  [
+                                                null,
+                                                {
+                                                    "options":  [
+                                                                    [
+                                                                        "Random Static",
+                                                                        "kRandomStatic"
+                                                                    ],
+                                                                    [
+                                                                        "Public",
+                                                                        "kPublic"
+                                                                    ]
+                                                                ]
+                                                }
+                                            ]
+                              },
+    "nrf54_ble_get_address":  {
+                                  "message0":  "Obtener direcci贸n BLE",
+                                  "tooltip":  "Obtener la cadena de direcci贸n BLE actual"
+                              },
+    "nrf54_ble_set_tx_power":  {
+                                   "message0":  "Configurar potencia TX(dBm) %1",
+                                   "tooltip":  "Configurar la potencia de transmisi贸n BLE"
+                               },
+    "nrf54_ble_set_adv_type":  {
+                                   "message0":  "Configurar tipo de publicidad %1",
+                                   "tooltip":  "Configurar el tipo PDU de publicidad BLE",
+                                   "args0":  [
+                                                 {
+                                                     "options":  [
+                                                                     [
+                                                                         "Connectable Scannable (ADV_IND)",
+                                                                         "kAdvInd"
+                                                                     ],
+                                                                     [
+                                                                         "Non-connectable Non-scannable (ADV_NONCONN_IND)",
+                                                                         "kAdvNonConnInd"
+                                                                     ],
+                                                                     [
+                                                                         "Non-connectable Scannable (ADV_SCAN_IND)",
+                                                                         "kAdvScanInd"
+                                                                     ]
+                                                                 ]
+                                                 }
+                                             ]
+                               },
+    "nrf54_ble_set_adv_data_raw":  {
+                                       "message0":  "Configurar datos de publicidad Flags %1 incluir nombre %2",
+                                       "tooltip":  "Construir autom谩ticamente los datos de publicidad"
+                                   },
+    "nrf54_ble_set_scan_response_name":  {
+                                             "message0":  "Configurar nombre de respuesta de escaneo %1",
+                                             "tooltip":  "Configurar el nombre en la respuesta de escaneo BLE"
+                                         },
+    "nrf54_ble_advertise_once":  {
+                                     "message0":  "Enviar un evento de publicidad",
+                                     "tooltip":  "Enviar un evento de publicidad en tres canales"
+                                 },
+    "nrf54_ble_advertise_connectable":  {
+                                            "message0":  "Enviar publicidad conectable y escuchar",
+                                            "tooltip":  "Enviar publicidad conectable y esperar conexiones"
+                                        },
+    "nrf54_ble_is_connected":  {
+                                   "message0":  "驴BLE conectado?",
+                                   "tooltip":  "Verificar si la conexi贸n BLE est谩 establecida"
+                               },
+    "nrf54_ble_disconnect":  {
+                                 "message0":  "Desconectar BLE",
+                                 "tooltip":  "Desconectar la conexi贸n BLE actual"
+                             },
+    "nrf54_ble_poll_event":  {
+                                 "message0":  "Esperar evento de conexi贸n",
+                                 "tooltip":  "Esperar y procesar un evento de conexi贸n BLE"
+                             },
+    "nrf54_ble_on_connected":  {
+                                   "message0":  "Al conectar BLE %1 %2",
+                                   "tooltip":  "Ejecutar cuando el dispositivo BLE se conecta"
+                               },
+    "nrf54_ble_on_disconnected":  {
+                                      "message0":  "Al desconectar BLE %1 %2",
+                                      "tooltip":  "Ejecutar cuando el dispositivo BLE se desconecta"
+                                  },
+    "nrf54_ble_set_gatt_device_name":  {
+                                           "message0":  "Configurar nombre GATT %1",
+                                           "tooltip":  "Configurar el nombre est谩ndar GATT"
+                                       },
+    "nrf54_ble_set_gatt_battery":  {
+                                       "message0":  "Configurar nivel de bater铆a GATT %1 %%",
+                                       "tooltip":  "Configurar el nivel de bater铆a est谩ndar GATT"
+                                   },
+    "nrf54_ble_clear_gatt":  {
+                                 "message0":  "Borrar tabla GATT personalizada",
+                                 "tooltip":  "Borrar la tabla de servicios GATT personalizados"
+                             },
+    "nrf54_ble_add_service_16":  {
+                                     "message0":  "Agregar servicio GATT %1 UUID(16 bits) %2",
+                                     "tooltip":  "Agregar un servicio GATT UUID de 16 bits"
+                                 },
+    "nrf54_ble_add_service_128":  {
+                                      "message0":  "Agregar servicio GATT(128 bits) %1 UUID %2",
+                                      "tooltip":  "Agregar un servicio GATT UUID de 128 bits"
+                                  },
+    "nrf54_ble_add_characteristic":  {
+                                         "message0":  "En servicio %1 agregar caracter铆stica %2 UUID(16 bits) %3 propiedades %4",
+                                         "tooltip":  "Agregar una caracter铆stica bajo el servicio especificado",
+                                         "args0":  [
+                                                       null,
+                                                       null,
+                                                       null,
+                                                       {
+                                                           "options":  [
+                                                                           [
+                                                                               "Read",
+                                                                               "READ"
+                                                                           ],
+                                                                           [
+                                                                               "Write (with response)",
+                                                                               "WRITE"
+                                                                           ],
+                                                                           [
+                                                                               "Write (no response)",
+                                                                               "WRITE_NR"
+                                                                           ],
+                                                                           [
+                                                                               "Notify",
+                                                                               "NOTIFY"
+                                                                           ],
+                                                                           [
+                                                                               "Indicate",
+                                                                               "INDICATE"
+                                                                           ],
+                                                                           [
+                                                                               "Read+Notify",
+                                                                               "READ_NOTIFY"
+                                                                           ],
+                                                                           [
+                                                                               "Read+Write",
+                                                                               "READ_WRITE"
+                                                                           ],
+                                                                           [
+                                                                               "Read+Write+Notify",
+                                                                               "READ_WRITE_NOTIFY"
+                                                                           ]
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "nrf54_ble_set_char_value":  {
+                                     "message0":  "Configurar valor de caracter铆stica %1 datos %2",
+                                     "tooltip":  "Configurar los datos de la caracter铆stica"
+                                 },
+    "nrf54_ble_notify_char":  {
+                                  "message0":  "Notificar caracter铆stica %1",
+                                  "tooltip":  "Enviar una notificaci贸n de cambio al central conectado"
+                              },
+    "nrf54_ble_is_cccd_enabled":  {
+                                      "message0":  "驴Caracter铆stica %1 notificaciones activadas?",
+                                      "tooltip":  "Verificar si el central ha activado las notificaciones"
+                                  },
+    "nrf54_ble_on_char_write":  {
+                                    "message0":  "Cuando la caracter铆stica %1 es escrita %2 %3",
+                                    "tooltip":  "Ejecutar cuando la caracter铆stica es escrita por el central"
+                                },
+    "nrf54_ble_char_write_value":  {
+                                       "message0":  "Datos escritos (cadena)",
+                                       "tooltip":  "Obtener los 煤ltimos datos escritos"
+                                   },
+    "nrf54_ble_nus_init":  {
+                               "message0":  "Inicializar servicio BLE Nordic UART nombre %1",
+                               "tooltip":  "Inicializar BLE y el servicio NUS"
+                           },
+    "nrf54_ble_nus_available":  {
+                                    "message0":  "NUS bytes disponibles",
+                                    "tooltip":  "Devolver el n煤mero de bytes disponibles en el b煤fer NUS"
+                                },
+    "nrf54_ble_nus_read_string":  {
+                                      "message0":  "NUS leer cadena",
+                                      "tooltip":  "Leer datos del b煤fer de recepci贸n NUS"
+                                  },
+    "nrf54_ble_nus_write":  {
+                                "message0":  "NUS enviar %1",
+                                "tooltip":  "Enviar datos a trav茅s de NUS"
+                            },
+    "nrf54_ble_nus_println":  {
+                                  "message0":  "NUS enviar l铆nea %1",
+                                  "tooltip":  "Enviar datos con salto de l铆nea a trav茅s de NUS"
+                              },
+    "nrf54_ble_nus_connected":  {
+                                    "message0":  "驴NUS conectado?",
+                                    "tooltip":  "Verificar si la conexi贸n NUS est谩 establecida"
+                                },
+    "nrf54_ble_nus_service":  {
+                                  "message0":  "Procesamiento del bucle NUS",
+                                  "tooltip":  "Llamar en loop para procesar NUS"
+                              },
+    "nrf54_ble_scan_passive":  {
+                                   "message0":  "Escaneo pasivo BLE (sin transmisi贸n)",
+                                   "tooltip":  "Escanear pasivamente las publicidades BLE cercanas"
+                               },
+    "nrf54_ble_scan_active":  {
+                                  "message0":  "Escaneo activo BLE",
+                                  "tooltip":  "Escanear activamente los dispositivos BLE cercanos"
+                              },
+    "nrf54_ble_scan_get_address":  {
+                                       "message0":  "Resultado de escaneo direcci贸n del dispositivo",
+                                       "tooltip":  "Obtener la direcci贸n del dispositivo escaneado"
+                                   },
+    "nrf54_ble_scan_get_rssi":  {
+                                    "message0":  "Resultado de escaneo RSSI",
+                                    "tooltip":  "Obtener la intensidad de se帽al del dispositivo escaneado"
+                                },
+    "nrf54_ble_scan_get_name":  {
+                                    "message0":  "Resultado de escaneo nombre del dispositivo",
+                                    "tooltip":  "Analizar el nombre del dispositivo"
+                                },
+    "nrf54_ble_peripheral_quick":  {
+                                       "message0":  "Perif茅rico BLE r谩pido nombre %1 %2 cuando datos recibidos %3",
+                                       "tooltip":  "Inicializaci贸n en un clic del perif茅rico BLE NUS"
+                                   },
+    "nrf54_ble_peripheral_received_data":  {
+                                               "message0":  "Datos BLE recibidos",
+                                               "tooltip":  "Obtener los datos recibidos por BLE"
+                                           },
+    "nrf54_ble_peripheral_send":  {
+                                      "message0":  "BLE enviar %1",
+                                      "tooltip":  "Enviar datos por BLE"
+                                  },
+    "nrf54_ble_peripheral_connected":  {
+                                           "message0":  "驴Perif茅rico BLE conectado?",
+                                           "tooltip":  "Verificar si el perif茅rico BLE est谩 conectado"
+                                       },
+    "nrf54_ble_power_low_power_mode":  {
+                                           "message0":  "Configurar modo de bajo consumo",
+                                           "tooltip":  "Poner la CPU en modo de bajo consumo"
+                                       },
+    "nrf54_ble_battery_percent":  {
+                                      "message0":  "Nivel de bater铆a (%)",
+                                      "tooltip":  "Obtener el porcentaje de bater铆a"
+                                  }
+}
