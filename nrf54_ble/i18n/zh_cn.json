@@ -1,5 +1,5 @@
 {
-  "toolbox_name": "nRF54 蓝牙",
+  "toolbox_name": "蓝牙BLE",
   "toolbox_categories": [
     "快速模式",
     "初始化",

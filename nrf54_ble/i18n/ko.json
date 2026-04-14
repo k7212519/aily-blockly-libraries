@@ -1,5 +1,5 @@
 {
-    "toolbox_name":  "nRF54 BLE",
+    "toolbox_name":  "블루투스 BLE",
     "toolbox_categories":  [
                                "Quick Mode",
                                "Initialize",

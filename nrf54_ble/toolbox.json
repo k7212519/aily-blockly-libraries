@@ -1,6 +1,6 @@
 {
   "kind": "category",
-  "name": "nRF54 BLE",
+  "name": "蓝牙BLE",
   "icon": "fa-light fa-bluetooth",
   "colour": "#2196F3",
   "contents": [
