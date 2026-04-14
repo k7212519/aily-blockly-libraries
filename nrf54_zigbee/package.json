@@ -25,7 +25,7 @@
     "description_pt": "Biblioteca Zigbee Home Automation para nRF54L15, suportando funções de dispositivo final e roteador, incluindo luz On/Off, luz dimmerizável, luz colorida, sensor de temperatura e sensor de umidade, com comissionamento seguro, relatórios de atributos e persistência de estado.",
     "description_ru": "Библиотека Zigbee Home Automation для nRF54L15, поддерживающая роли конечного устройства и маршрутизатора, включая On/Off свет, диммируемый свет, цветной свет, датчик температуры и датчик влажности, с безопасным вводом в эксплуатацию, отчетами атрибутов и сохранением состояния.",
     "description_ar": "مكتبة Zigbee Home Automation لـ nRF54L15، تدعم أدوار الجهاز النهائي والموجه مع أنواع أجهزة متعددة بما في ذلك مصباح On/Off ومصباح قابل للتعتيم ومصباح ملون ومستشعر درجة الحرارة ومستشعر الرطوبة، مع تشغيل آمن وتقارير السمات واستمرار الحالة.",
-    "version": "0.1.0",
+    "version": "0.6.7",
     "compatibility": {
         "core": [
             "nrf54l15clean:nrf54l15clean"
