@@ -1,6 +1,6 @@
-# SHT3x温湿度传感器
+# SHT3x Temperature & Humidity Sensor
 
-SHT30/SHT31/SHT35温湿度传感器控制库，I2C通讯，包含温度、湿度读取及加热器控制功能
+SHT30/SHT31/SHT35 temperature and humidity sensor library, I2C communication, includes temperature/humidity reading and heater control
 
 ## Library Info
 - **Name**: @aily-project/lib-adafruit-sht3x
@@ -10,34 +10,89 @@ SHT30/SHT31/SHT35温湿度传感器控制库，I2C通讯，包含温度、湿度
 
 | Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `sht31_init` | Statement | ADDRESS(dropdown) | `sht31_init(0x44)` | `` |
-| `sht31_heater_control` | Statement | STATE(dropdown) | `sht31_heater_control(true)` | `sht31.heater(...);\n` |
-| `sht31_is_heater_enabled` | Value | (none) | `sht31_is_heater_enabled()` | `sht31.isHeaterEnabled()` |
-| `sht31_reset` | Statement | (none) | `sht31_reset()` | `sht31.reset();\n` |
-| `sht31_simple_read` | Value | TYPE(dropdown) | `sht31_simple_read(temperature)` | `sht31.readTemperature()` |
+| `sht31_init` | Statement | VAR(field_input), ADDRESS(dropdown), WIRE(dropdown) | `sht31_init("sht31", "0x44", "Wire")` | `Adafruit_SHT31 sht31; Wire.begin(); sht31.begin(0x44);` |
+| `sht31_heater_control` | Statement | VAR(field_variable), STATE(dropdown) | `sht31_heater_control($sht31, "true")` | `sht31.heater(true);` |
+| `sht31_is_heater_enabled` | Value | VAR(field_variable) | `sht31_is_heater_enabled($sht31)` | `sht31.isHeaterEnabled()` |
+| `sht31_reset` | Statement | VAR(field_variable) | `sht31_reset($sht31)` | `sht31.reset();` |
+| `sht31_simple_read` | Value | VAR(field_variable), TYPE(dropdown) | `sht31_simple_read($sht31, "temperature")` | `sht31.readTemperature()` |
 
 ## Parameter Options
 
 | Parameter | Values | Description |
 |-----------|--------|-------------|
-| ADDRESS | 0x44, 0x45 | 0x44 (默认) / 0x45 (备用) |
-| STATE | true, false | 开启 / 关闭 |
-| TYPE | temperature, humidity | 温度(°C) / 湿度(%) |
+| ADDRESS | 0x44, 0x45 | 0x44 (default) / 0x45 (alternate, ADDR pin HIGH) |
+| WIRE | Wire, Wire1 | I2C bus (from board.json i2c field) |
+| STATE | true, false | Enable / Disable heater |
+| TYPE | temperature, humidity | Temperature(°C) / Humidity(%) |
 
 ## ABS Examples
 
-### Basic Usage
+### Basic Temperature & Humidity Reading
 ```
 arduino_setup()
-    sht31_init(0x44)
+    sht31_init("sht31", "0x44", "Wire")
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, sht31_is_heater_enabled())
-    time_delay(math_number(1000))
+    serial_print(Serial, text("Temperature: "))
+    serial_println(Serial, sht31_simple_read($sht31, "temperature"))
+    serial_print(Serial, text("Humidity: "))
+    serial_println(Serial, sht31_simple_read($sht31, "humidity"))
+    time_delay(math_number(2000))
 ```
 
-## Notes
+### Heater Control & Status Check
+```
+arduino_setup()
+    sht31_init("sht31", "0x44", "Wire")
+    serial_begin(Serial, 9600)
 
-1. **Initialization**: Place init/setup blocks inside `arduino_setup()`
+arduino_loop()
+    sht31_heater_control($sht31, "true")
+    serial_print(Serial, text("Heater enabled: "))
+    serial_println(Serial, sht31_is_heater_enabled($sht31))
+    time_delay(math_number(5000))
+    sht31_heater_control($sht31, "false")
+    time_delay(math_number(5000))
+```
+
+### Sensor Reset
+```
+arduino_setup()
+    sht31_init("sht31", "0x44", "Wire")
+    serial_begin(Serial, 9600)
+
+arduino_loop()
+    controls_if()
+        @IF0: logic_compare(sht31_simple_read($sht31, "temperature"), GT, math_number(50))
+        @DO0:
+            serial_println(Serial, text("High temp! Resetting sensor..."))
+            sht31_reset($sht31)
+            time_delay(math_number(1000))
+    
+    serial_println(Serial, sht31_simple_read($sht31, "temperature"))
+    time_delay(math_number(2000))
+```
+
+### Dual Sensor (Multiple Instances)
+```
+arduino_setup()
+    sht31_init("sht31", "0x44", "Wire")
+    sht31_init("sht31_2", "0x45", "Wire")
+    serial_begin(Serial, 9600)
+
+arduino_loop()
+    serial_print(Serial, text("Sensor1 Temp: "))
+    serial_println(Serial, sht31_simple_read($sht31, "temperature"))
+    serial_print(Serial, text("Sensor2 Temp: "))
+    serial_println(Serial, sht31_simple_read($sht31_2, "temperature"))
+    time_delay(math_number(2000))
+```
+
+## Important Notes
+
+1. **Initialization**: Place `sht31_init` inside `arduino_setup()`
 2. **Parameter Order**: Follows `block.json` args0 order
+3. **Variable Types**: `sht31_init` creates variable with `field_input`, other blocks reference it with `field_variable` (type: Adafruit_SHT31)
+4. **Multi-instance**: Supports multiple sensors with different variable names and I2C addresses
+5. **Heater**: Built-in heater removes condensation; readings may shift ~+3°C when enabled
