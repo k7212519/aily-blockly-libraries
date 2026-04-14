@@ -38,7 +38,7 @@ function _getFuncExtI18n(extName) {
 }
 function _getBlocklyMsgI18n() { return _getFuncExtI18n('blockly_msg'); }
 function _getCallI18n() { return _getFuncExtI18n('custom_function_call_advance'); }
-function _getCallRetI18n() { return _getFuncExtI18n('custom_function_call_return'); }
+function _getCallRetI18n() { return _getFuncExtI18n('custom_function_call_return_advance'); }
 function _getParamsMutI18n() { return _getFuncExtI18n('function_params_mutator'); }
 
 function _applyBlocklyMsgI18n() {
@@ -312,7 +312,7 @@ function syncCallBlocksParams(funcName) {
     ? getFunctionSignature(funcDef.params, funcDef.returnType)
     : 'NO_FUNC';
   var blocks = workspace.getBlocksByType('custom_function_call_advance', false)
-    .concat(workspace.getBlocksByType('custom_function_call_return', false));
+    .concat(workspace.getBlocksByType('custom_function_call_return_advance', false));
   for (var i = 0; i < blocks.length; i++) {
     var block = blocks[i];
     var selected = getCallBlockFuncName(block);
@@ -365,6 +365,12 @@ function scheduleSyncFunctionCallsToToolbox() {
 
 function syncFunctionCallsToToolbox() {
   if (_syncToolboxInProgress) return;
+  // 如果用户正在编辑字段（如 FieldTextInput），延迟同步以避免 updateToolbox 导致失焦
+  if (Blockly.WidgetDiv && typeof Blockly.WidgetDiv.isVisible === 'function' && Blockly.WidgetDiv.isVisible()) {
+    _lastSyncedToolboxKey = null;
+    scheduleSyncFunctionCallsToToolbox();
+    return;
+  }
   var workspace = Blockly.getMainWorkspace();
   if (!workspace) return;
   var toolboxDef = workspace.options.languageTree;
@@ -408,7 +414,7 @@ function syncFunctionCallsToToolbox() {
     var pInfo = fd.params ? fd.params.map(function(p) { return p.name + ':' + p.type; }) : [];
     expected.push({ t: 'custom_function_call_advance', f: fn, p: pc, i: pInfo });
     if (fd.returnType && fd.returnType !== 'void') {
-      expected.push({ t: 'custom_function_call_return', f: fn, p: pc, i: pInfo });
+      expected.push({ t: 'custom_function_call_return_advance', f: fn, p: pc, i: pInfo });
     }
   }
   var newKey = JSON.stringify(expected);
@@ -417,7 +423,7 @@ function syncFunctionCallsToToolbox() {
 
   // 移除旧的动态调用块
   funcCategory.contents = funcCategory.contents.filter(function(item) {
-    return item.type !== 'custom_function_call_advance' && item.type !== 'custom_function_call_return';
+    return item.type !== 'custom_function_call_advance' && item.type !== 'custom_function_call_return_advance';
   });
 
   if (funcNames.length > 0) {
@@ -455,7 +461,7 @@ function syncFunctionCallsToToolbox() {
       });
       if (fdef.returnType && fdef.returnType !== 'void') {
         callBlocks.push({
-          kind: 'block', type: 'custom_function_call_return',
+          kind: 'block', type: 'custom_function_call_return_advance',
           fields: { FUNC_NAME: funcNameRef },
           extraState: { extraCount: paramCount, params: paramsCopy }
         });
@@ -847,7 +853,7 @@ Blockly.Blocks['custom_function_call_advance'] = {
   }
 };
 
-Blockly.Blocks['custom_function_call_return'] = {
+Blockly.Blocks['custom_function_call_return_advance'] = {
   init: function() {
     var cri = _getCallRetI18n();
     var ci = _getCallI18n();
@@ -870,7 +876,7 @@ Blockly.Blocks['custom_function_call_return'] = {
 if (typeof window !== 'undefined') {
   window.__ailyBlockDefinitionsMap = window.__ailyBlockDefinitionsMap || new Map();
   window.__ailyBlockDefinitionsMap.set('custom_function_call_advance', 'fa-light fa-function');
-  window.__ailyBlockDefinitionsMap.set('custom_function_call_return', 'fa-light fa-function');
+  window.__ailyBlockDefinitionsMap.set('custom_function_call_return_advance', 'fa-light fa-function');
 }
 
 } // 结束防止重复加载的 if-else 块（⑦ 事件监听器需要每次重新绑定到新 workspace）
@@ -912,7 +918,7 @@ function _initFunctionLibOnLoad(workspace) {
 
   // === Phase 2: 按函数名称重新绑定调用块（不依赖可能损坏的 funcVarId） ===
   var calls = workspace.getBlocksByType('custom_function_call_advance', false)
-    .concat(workspace.getBlocksByType('custom_function_call_return', false));
+    .concat(workspace.getBlocksByType('custom_function_call_return_advance', false));
   for (var ci2 = 0; ci2 < calls.length; ci2++) {
     var callBlock = calls[ci2];
     callBlock.hasInitialized_ = true;
@@ -1003,7 +1009,14 @@ if (typeof window !== 'undefined' && window.__customFunctionChangeListener__) {
             var curName = block.getFieldValue('FUNC_NAME') || 'myFunction';
             var unique = generateUniqueFunctionName(workspace, curName, block.id);
             if (unique !== curName) block.getField('FUNC_NAME').setValue(unique);
-            ensureFunctionVariableMetadata(block);
+            // 复制/粘贴时 loadExtraState 会继承旧块的 funcVarId_/paramVarIds_,
+            // 必须重置为基于新块 ID 的值，否则 ensureVariableWithId 会按旧 ID
+            // 找到原变量并重命名，导致原函数名从下拉列表中消失。
+            block.funcVarId_ = block.id + '::FUNC';
+            block._nextParamVarSeq = 0;
+            block.paramVarIds_ = (block.params_ || []).map(function() {
+              return _nextFuncParamVarId(block);
+            });
             block._funcLastName = block.getFieldValue('FUNC_NAME') || 'myFunction';
             if (block.updateFunctionRegistry_) {
               block.updateFunctionRegistry_();
@@ -1011,9 +1024,14 @@ if (typeof window !== 'undefined' && window.__customFunctionChangeListener__) {
             }
             // 注册函数名为 FUNC 类型变量（与 lib-dht 的 DHT 类型一致）
             ensureVariableWithId(workspace, block._funcLastName, 'FUNC', block.funcVarId_);
+            // 为参数创建新变量（使用新 paramVarIds，不会覆盖已有参数变量）
+            var params = block.params_ || [];
+            for (var pi = 0; pi < params.length; pi++) {
+              ensureVariableWithId(workspace, params[pi].name, '', block.paramVarIds_[pi]);
+            }
           }
 
-          if (block.type === 'custom_function_call_advance' || block.type === 'custom_function_call_return') {
+          if (block.type === 'custom_function_call_advance' || block.type === 'custom_function_call_return_advance') {
             rebindCallBlockFuncField(block);
             var fn = getCallBlockFuncName(block);
             if (fn && block.updateFromRegistry_) {
@@ -1147,7 +1165,7 @@ Arduino.forBlock['custom_function_call_advance'] = function(block) {
 };
 
 // 函数调用（有返回值）
-Arduino.forBlock['custom_function_call_return'] = function(block) {
+Arduino.forBlock['custom_function_call_return_advance'] = function(block) {
   var originalName = getCallBlockFuncName(block) || 'myFunction';
   if (!originalName) return ['0 /* 未选择函数 */', Arduino.ORDER_ATOMIC];
   var funcName = sanitizeName(originalName);
