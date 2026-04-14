@@ -35,10 +35,7 @@
     },
     {
       "kind": "block",
-      "type": "ht16k33_set_brightness",
-      "inputs": {
-        "LEVEL": {"shadow": {"type": "math_number", "fields": {"NUM": "7"}}}
-      }
+      "type": "ht16k33_set_brightness"
     },
     {
       "kind": "block",

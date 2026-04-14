@@ -82,7 +82,7 @@ Arduino.forBlock['ht16k33_display'] = function(block, generator) {
 Arduino.forBlock['ht16k33_set_brightness'] = function(block, generator) {
   const varField = block.getField('VAR');
   const varName = varField ? varField.getText() : 'matrix';
-  const level = generator.valueToCode(block, 'LEVEL', generator.ORDER_ATOMIC) || '7';
+  var level = block.getFieldValue('LEVEL');
   return varName + '.setBrightness(' + level + ');\n';
 };
 

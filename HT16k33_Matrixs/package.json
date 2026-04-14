@@ -49,9 +49,13 @@
     "ht16k33_set_pixel",
     "ht16k33_effect"
   ],
-  "tags": [
-    "display",
-    "i2c"
-  ],
-  "tested": true
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {},
+    "tested": true,
+    "tester": "OpenJumper",
+    "tags": [
+        "sensor",
+        "i2c"
+    ]
 }

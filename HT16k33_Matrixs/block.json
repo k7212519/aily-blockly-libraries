@@ -118,9 +118,11 @@
         "defaultType": "HT16K33Matrix"
       },
       {
-        "type": "input_value",
+        "type": "field_number",
         "name": "LEVEL",
-        "check": "Number"
+        "value": 7,
+        "min": 0,
+        "max": 15
       }
     ],
     "previousStatement": null,
