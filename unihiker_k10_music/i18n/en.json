@@ -1,0 +1,56 @@
+{
+  "toolbox_name": "K10 Music",
+  "k10_music_play_builtin": {
+    "message0": "play built-in music %1",
+    "tooltip": "Play K10 built-in music",
+    "args0": [
+      {
+        "options": [
+          [
+            "Happy Birthday",
+            "birthday"
+          ],
+          [
+            "Twinkle Star",
+            "littlestar"
+          ],
+          [
+            "Jingle Bells",
+            "jinglebells"
+          ],
+          [
+            "Ode to Joy",
+            "odeTojoy"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_music_play_tone": {
+    "message0": "play tone frequency %1 duration(ms) %2",
+    "tooltip": "Play tone with specified frequency and duration"
+  },
+  "k10_music_record": {
+    "message0": "record %1 filename %2",
+    "tooltip": "Record and save to TF card",
+    "args0": [
+      {
+        "options": [
+          [
+            "Start",
+            "start"
+          ],
+          [
+            "Stop",
+            "stop"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_music_play_tf": {
+    "message0": "play TF card audio filename %1",
+    "tooltip": "Play audio file from TF card"
+  }
+}

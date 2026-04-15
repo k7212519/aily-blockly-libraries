@@ -1,0 +1,174 @@
+{
+  "toolbox_name": "K10 Kamera & KI",
+  "k10_camera_init": {
+    "message0": "Kamera initialisieren",
+    "tooltip": "K10 Kamera initialisieren"
+  },
+  "k10_camera_show": {
+    "message0": "Kamerabild anzeigen",
+    "tooltip": "Kamera-Livebild auf dem Bildschirm anzeigen"
+  },
+  "k10_photo_save": {
+    "message0": "Foto auf TF-Karte speichern Dateiname %1",
+    "tooltip": "Foto aufnehmen und auf TF-Karte speichern"
+  },
+  "k10_ai_init": {
+    "message0": "KI initialisieren Modus %1",
+    "tooltip": "KI-Vision initialisieren",
+    "args0": [
+      {
+        "options": [
+          [
+            "Gesichtserkennung",
+            "DETECTION_FACE"
+          ],
+          [
+            "Katzenerkennung",
+            "DETECTION_CAT"
+          ],
+          [
+            "Bewegungserkennung",
+            "DETECTION_MOTION"
+          ],
+          [
+            "QR-Code-Scan",
+            "DETECTION_QRCODE"
+          ],
+          [
+            "Gesichts-ID",
+            "RECOGNITION_FACE"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_switch_mode": {
+    "message0": "KI-Modus wechseln %1",
+    "tooltip": "KI-Erkennungsmodus wechseln",
+    "args0": [
+      {
+        "options": [
+          [
+            "Gesichtserkennung",
+            "DETECTION_FACE"
+          ],
+          [
+            "Katzenerkennung",
+            "DETECTION_CAT"
+          ],
+          [
+            "Bewegungserkennung",
+            "DETECTION_MOTION"
+          ],
+          [
+            "QR-Code-Scan",
+            "DETECTION_QRCODE"
+          ],
+          [
+            "Gesichts-ID",
+            "RECOGNITION_FACE"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_is_detected": {
+    "message0": "KI hat Ziel erkannt",
+    "tooltip": "Ob KI ein Ziel erkannt hat"
+  },
+  "k10_ai_get_face_data": {
+    "message0": "Gesicht %1 Daten lesen",
+    "tooltip": "Gesichtserkennungsdaten lesen",
+    "args0": [
+      {
+        "options": [
+          [
+            "X-Koord.",
+            "x"
+          ],
+          [
+            "Y-Koord.",
+            "y"
+          ],
+          [
+            "Breite",
+            "w"
+          ],
+          [
+            "Höhe",
+            "h"
+          ],
+          [
+            "Konfidenz",
+            "confidence"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_cat_data": {
+    "message0": "Katzengesicht %1 Daten lesen",
+    "tooltip": "Katzengesicht-Erkennungsdaten lesen",
+    "args0": [
+      {
+        "options": [
+          [
+            "X-Koord.",
+            "x"
+          ],
+          [
+            "Y-Koord.",
+            "y"
+          ],
+          [
+            "Breite",
+            "w"
+          ],
+          [
+            "Höhe",
+            "h"
+          ],
+          [
+            "Konfidenz",
+            "confidence"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_qrcode": {
+    "message0": "QR-Code-Inhalt lesen",
+    "tooltip": "Von KI erkannten QR-Code-Inhalt lesen"
+  },
+  "k10_ai_set_motion_threshold": {
+    "message0": "Bewegungserkennungsschwelle setzen %1",
+    "tooltip": "Empfindlichkeitsschwelle der Bewegungserkennung setzen"
+  },
+  "k10_ai_face_recognized": {
+    "message0": "Gesicht wurde erkannt",
+    "tooltip": "Ob ein Gesicht erkannt wurde"
+  },
+  "k10_ai_get_face_id": {
+    "message0": "Erkannte Gesichts-ID lesen",
+    "tooltip": "Erkannte Gesichts-ID lesen"
+  },
+  "k10_ai_face_cmd": {
+    "message0": "Gesichts-ID %1 ID %2",
+    "tooltip": "Gesicht hinzufügen oder löschen",
+    "args0": [
+      {
+        "options": [
+          [
+            "Gesicht hinzufügen",
+            "add"
+          ],
+          [
+            "Gesicht löschen",
+            "delete"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

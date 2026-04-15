@@ -1,0 +1,56 @@
+{
+  "toolbox_name": "K10音樂",
+  "k10_music_play_builtin": {
+    "message0": "播放內置音樂 %1",
+    "tooltip": "播放K10內置音樂",
+    "args0": [
+      {
+        "options": [
+          [
+            "生日快樂",
+            "birthday"
+          ],
+          [
+            "小星星",
+            "littlestar"
+          ],
+          [
+            "鈴兒響叮噹",
+            "jinglebells"
+          ],
+          [
+            "歡樂頌",
+            "odeTojoy"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_music_play_tone": {
+    "message0": "播放音調 頻率 %1 時長(ms) %2",
+    "tooltip": "播放指定頻率和時長的音調"
+  },
+  "k10_music_record": {
+    "message0": "錄音 %1 檔案名 %2",
+    "tooltip": "錄音並儲存到TF卡",
+    "args0": [
+      {
+        "options": [
+          [
+            "開始",
+            "start"
+          ],
+          [
+            "停止",
+            "stop"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_music_play_tf": {
+    "message0": "播放TF卡音頻 檔案名 %1",
+    "tooltip": "播放TF卡上的音頻檔案"
+  }
+}

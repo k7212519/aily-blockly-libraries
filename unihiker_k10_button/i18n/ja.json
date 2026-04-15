@@ -1,0 +1,51 @@
+{
+  "toolbox_name": "K10ボタン",
+  "k10_button_pressed": {
+    "message0": "K10ボタン %1 が押された",
+    "tooltip": "K10ボタンが押されているか確認",
+    "args0": [
+      {
+        "options": [
+          [
+            "A",
+            "BtnA"
+          ],
+          [
+            "B",
+            "BtnB"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_button_callback": {
+    "message0": "K10ボタン %1 が %2 されたとき",
+    "tooltip": "K10ボタンが押されたまたは離されたとき実行",
+    "args0": [
+      {
+        "options": [
+          [
+            "A",
+            "BtnA"
+          ],
+          [
+            "B",
+            "BtnB"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "押された",
+            "pressed"
+          ],
+          [
+            "離された",
+            "released"
+          ]
+        ]
+      }
+    ]
+  }
+}

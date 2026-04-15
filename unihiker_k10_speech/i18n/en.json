@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10 Speech",
+  "k10_asr_init": {
+    "message0": "init speech recognition",
+    "tooltip": "Initialize K10 speech recognition"
+  },
+  "k10_asr_add_command": {
+    "message0": "add voice command ID %1 keyword %2",
+    "tooltip": "Add speech recognition command word"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "voice assistant is awake",
+    "tooltip": "Check if voice assistant has been woken up"
+  },
+  "k10_asr_is_detected": {
+    "message0": "voice command detected ID %1",
+    "tooltip": "Check if voice command with specified ID is detected"
+  },
+  "k10_asr_speak": {
+    "message0": "speak %1",
+    "tooltip": "Use TTS to speak text"
+  },
+  "k10_asr_set_speed": {
+    "message0": "set speech speed %1",
+    "tooltip": "Set TTS speech speed",
+    "args0": [
+      {
+        "options": [
+          [
+            "Very slow",
+            "1"
+          ],
+          [
+            "Slow",
+            "3"
+          ],
+          [
+            "Normal",
+            "5"
+          ],
+          [
+            "Fast",
+            "7"
+          ],
+          [
+            "Very fast",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

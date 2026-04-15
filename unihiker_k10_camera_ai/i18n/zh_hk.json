@@ -1,0 +1,174 @@
+{
+  "toolbox_name": "K10攝像頭與AI",
+  "k10_camera_init": {
+    "message0": "初始化攝像頭",
+    "tooltip": "初始化K10攝像頭"
+  },
+  "k10_camera_show": {
+    "message0": "顯示攝像頭畫面",
+    "tooltip": "在螢幕上顯示攝像頭即時畫面"
+  },
+  "k10_photo_save": {
+    "message0": "拍照儲存到TF卡 檔案名 %1",
+    "tooltip": "拍照並儲存到TF卡"
+  },
+  "k10_ai_init": {
+    "message0": "初始化AI功能 模式 %1",
+    "tooltip": "初始化AI視覺功能",
+    "args0": [
+      {
+        "options": [
+          [
+            "人臉檢測",
+            "DETECTION_FACE"
+          ],
+          [
+            "貓臉檢測",
+            "DETECTION_CAT"
+          ],
+          [
+            "運動檢測",
+            "DETECTION_MOTION"
+          ],
+          [
+            "二維碼識別",
+            "DETECTION_QRCODE"
+          ],
+          [
+            "人臉識別",
+            "RECOGNITION_FACE"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_switch_mode": {
+    "message0": "切換AI模式 %1",
+    "tooltip": "切換AI檢測模式",
+    "args0": [
+      {
+        "options": [
+          [
+            "人臉檢測",
+            "DETECTION_FACE"
+          ],
+          [
+            "貓臉檢測",
+            "DETECTION_CAT"
+          ],
+          [
+            "運動檢測",
+            "DETECTION_MOTION"
+          ],
+          [
+            "二維碼識別",
+            "DETECTION_QRCODE"
+          ],
+          [
+            "人臉識別",
+            "RECOGNITION_FACE"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_is_detected": {
+    "message0": "AI檢測到目標",
+    "tooltip": "返回AI是否檢測到目標"
+  },
+  "k10_ai_get_face_data": {
+    "message0": "獲取人臉 %1 數據",
+    "tooltip": "獲取人臉檢測數據",
+    "args0": [
+      {
+        "options": [
+          [
+            "X坐標",
+            "x"
+          ],
+          [
+            "Y坐標",
+            "y"
+          ],
+          [
+            "寬度",
+            "w"
+          ],
+          [
+            "高度",
+            "h"
+          ],
+          [
+            "置信度",
+            "confidence"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_cat_data": {
+    "message0": "獲取貓臉 %1 數據",
+    "tooltip": "獲取貓臉檢測數據",
+    "args0": [
+      {
+        "options": [
+          [
+            "X坐標",
+            "x"
+          ],
+          [
+            "Y坐標",
+            "y"
+          ],
+          [
+            "寬度",
+            "w"
+          ],
+          [
+            "高度",
+            "h"
+          ],
+          [
+            "置信度",
+            "confidence"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_qrcode": {
+    "message0": "獲取二維碼內容",
+    "tooltip": "獲取AI識別到的二維碼內容"
+  },
+  "k10_ai_set_motion_threshold": {
+    "message0": "設置運動檢測閾值 %1",
+    "tooltip": "設置運動檢測的靈敏度閾值"
+  },
+  "k10_ai_face_recognized": {
+    "message0": "人臉已被識別",
+    "tooltip": "返回人臉是否已被識別（人臉識別模式）"
+  },
+  "k10_ai_get_face_id": {
+    "message0": "獲取識別到的人臉ID",
+    "tooltip": "獲取識別到的人臉ID"
+  },
+  "k10_ai_face_cmd": {
+    "message0": "人臉識別 %1 ID %2",
+    "tooltip": "錄入或刪除人臉",
+    "args0": [
+      {
+        "options": [
+          [
+            "錄入人臉",
+            "add"
+          ],
+          [
+            "刪除人臉",
+            "delete"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}
