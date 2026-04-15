@@ -1,0 +1,28 @@
+// Helper: convert #RRGGBB to 0xRRGGBB
+function colorToHex(color) {
+  if (color && color.startsWith('#')) {
+    return '0x' + color.substring(1).toUpperCase();
+  }
+  return color;
+}
+
+function ensureK10(generator) {
+  generator.addLibrary('unihiker_k10', '#include "unihiker_k10.h"');
+  generator.addVariable('k10', 'UNIHIKER_K10 k10;');
+  generator.addSetupBegin('k10_begin', 'k10.begin();');
+}
+
+// ========== 设置亮度 ==========
+Arduino.forBlock['k10_rgb_brightness'] = function(block, generator) {
+  var brightness = block.getFieldValue('BRIGHTNESS');
+  ensureK10(generator);
+  return 'k10.rgb->brightness(round(' + brightness + '));\n';
+};
+
+// ========== 设置颜色 ==========
+Arduino.forBlock['k10_rgb_write'] = function(block, generator) {
+  var index = block.getFieldValue('INDEX');
+  var color = colorToHex(block.getFieldValue('COLOR'));
+  ensureK10(generator);
+  return 'k10.rgb->write(' + index + ', ' + color + ');\n';
+};

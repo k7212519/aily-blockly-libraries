@@ -1,0 +1,207 @@
+[
+  {
+    "type": "k10_camera_init",
+    "message0": "初始化摄像头",
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "初始化K10摄像头",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_camera_show",
+    "message0": "显示摄像头画面",
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "在屏幕上显示摄像头实时画面",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_photo_save",
+    "message0": "拍照保存到TF卡 文件名 %1",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "FILENAME",
+        "check": "String"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "拍照并保存到TF卡",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_init",
+    "message0": "初始化AI功能 模式 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          ["人脸检测", "DETECTION_FACE"],
+          ["猫脸检测", "DETECTION_CAT"],
+          ["运动检测", "DETECTION_MOTION"],
+          ["二维码识别", "DETECTION_QRCODE"],
+          ["人脸识别", "RECOGNITION_FACE"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "初始化AI视觉功能",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_switch_mode",
+    "message0": "切换AI模式 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          ["人脸检测", "DETECTION_FACE"],
+          ["猫脸检测", "DETECTION_CAT"],
+          ["运动检测", "DETECTION_MOTION"],
+          ["二维码识别", "DETECTION_QRCODE"],
+          ["人脸识别", "RECOGNITION_FACE"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "切换AI检测模式",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_is_detected",
+    "message0": "AI检测到目标",
+    "inputsInline": true,
+    "output": "Boolean",
+    "colour": "#E91E63",
+    "tooltip": "返回AI是否检测到目标",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_get_face_data",
+    "message0": "获取人脸 %1 数据",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "DATA",
+        "options": [
+          ["X坐标", "x"],
+          ["Y坐标", "y"],
+          ["宽度", "w"],
+          ["高度", "h"],
+          ["置信度", "confidence"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#E91E63",
+    "tooltip": "获取人脸检测数据",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_get_cat_data",
+    "message0": "获取猫脸 %1 数据",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "DATA",
+        "options": [
+          ["X坐标", "x"],
+          ["Y坐标", "y"],
+          ["宽度", "w"],
+          ["高度", "h"],
+          ["置信度", "confidence"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#E91E63",
+    "tooltip": "获取猫脸检测数据",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_get_qrcode",
+    "message0": "获取二维码内容",
+    "inputsInline": true,
+    "output": "String",
+    "colour": "#E91E63",
+    "tooltip": "获取AI识别到的二维码内容",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_set_motion_threshold",
+    "message0": "设置运动检测阈值 %1",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "THRESHOLD",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "设置运动检测的灵敏度阈值",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_face_recognized",
+    "message0": "人脸已被识别",
+    "inputsInline": true,
+    "output": "Boolean",
+    "colour": "#E91E63",
+    "tooltip": "返回人脸是否已被识别（人脸识别模式）",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_get_face_id",
+    "message0": "获取识别到的人脸ID",
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#E91E63",
+    "tooltip": "获取识别到的人脸ID",
+    "icon": "fa-light fa-camera"
+  },
+  {
+    "type": "k10_ai_face_cmd",
+    "message0": "人脸识别 %1 ID %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CMD",
+        "options": [
+          ["录入人脸", "add"],
+          ["删除人脸", "delete"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "ID",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "tooltip": "录入或删除人脸",
+    "icon": "fa-light fa-camera"
+  }
+]

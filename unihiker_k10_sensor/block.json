@@ -1,0 +1,41 @@
+[
+  {
+    "type": "k10_get_accelerometer",
+    "message0": "获取加速度计 %1 轴数据",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "AXIS",
+        "options": [
+          ["X", "x"],
+          ["Y", "y"],
+          ["Z", "z"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#9C27B0",
+    "tooltip": "获取K10板载加速度计的轴数据",
+    "icon": "fa-light fa-gauge-high"
+  },
+  {
+    "type": "k10_get_strength",
+    "message0": "获取 %1 值",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "TYPE",
+        "options": [
+          ["光线强度", "light"],
+          ["声音强度", "sound"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#9C27B0",
+    "tooltip": "获取K10板载传感器的值",
+    "icon": "fa-light fa-gauge-high"
+  }
+]
