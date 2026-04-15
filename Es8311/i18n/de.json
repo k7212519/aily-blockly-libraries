@@ -1,0 +1,93 @@
+{
+  "toolbox_name": "ES8311 Audio",
+  "es8311_init": {
+    "message0": "ES8311 Audio-Codec initialisieren %1 I2C %2 Adresse %3",
+    "tooltip": "ES8311 I2C-Kommunikation initialisieren, I2C-Bus und Geräteadresse konfigurieren",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["0x18 (Standard)", "0x18"],
+          ["0x30", "0x30"]
+        ]
+      }
+    ]
+  },
+  "es8311_i2s_config": {
+    "message0": "ES8311 %1 I2S konfigurieren MCK %2 BCK %3 WS %4 DOUT %5 DIN %6 Aufnahmedauer(s) %7",
+    "tooltip": "ES8311 I2S-Audio-Pins und Aufnahmedauer konfigurieren"
+  },
+  "es8311_record": {
+    "message0": "ES8311 %1 Aufnahme starten",
+    "tooltip": "Aufnahme starten, Dauer wird im Init-Block festgelegt"
+  },
+  "es8311_play": {
+    "message0": "ES8311 %1 Wiedergabe starten",
+    "tooltip": "Aufgenommenes Audio wiedergeben"
+  },
+  "es8311_has_recording": {
+    "message0": "ES8311 %1 hat Aufnahme",
+    "tooltip": "Prüfen, ob Audio aufgenommen wurde"
+  },
+  "es8311_set_volume": {
+    "message0": "ES8311 %1 Lautstärke setzen %2",
+    "tooltip": "ES8311 Ausgabelautstärke setzen (0~100)"
+  },
+  "es8311_set_mic_gain": {
+    "message0": "ES8311 %1 Mikrofonverstärkung setzen %2",
+    "tooltip": "ES8311 Mikrofon-Analogverstärkung setzen (0~42dB, 6dB-Schritte)"
+  },
+  "es8311_stop": {
+    "message0": "ES8311 %1 Aufnahme/Wiedergabe stoppen",
+    "tooltip": "Aktuelle Aufnahme oder Wiedergabe stoppen, I2S DMA-Puffer leeren"
+  },
+  "es8311_sound_detected": {
+    "message0": "ES8311 %1 Ton erkannt Schwellenwert %2",
+    "tooltip": "Erkennen, ob Umgebungsgeräusch den Schwellenwert (0~100) überschreitet, gibt true zurück"
+  },
+  "es8311_mute": {
+    "message0": "ES8311 %1 %2",
+    "tooltip": "ES8311 Stummschaltung steuern",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["Stummschaltung aufheben", "0"],
+          ["Ausgang stumm", "1"],
+          ["Mikrofon stumm", "2"],
+          ["Alles stumm", "3"]
+        ]
+      }
+    ]
+  },
+  "es8311_play_tone": {
+    "message0": "ES8311 %1 Ton abspielen Frequenz %2 Hz Dauer %3 ms",
+    "tooltip": "Sinuswellenton mit angegebener Frequenz erzeugen und abspielen"
+  },
+  "es8311_alc_enable": {
+    "message0": "ES8311 %1 Automatische Verstärkung %2",
+    "tooltip": "ES8311 Automatische Pegelregelung (ALC) aktivieren/deaktivieren",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["Aktivieren", "true"],
+          ["Deaktivieren", "false"]
+        ]
+      }
+    ]
+  },
+  "es8311_record_slot": {
+    "message0": "ES8311 %1 in Slot %2 aufnehmen",
+    "tooltip": "In angegebenen Slot (0~3) aufnehmen, jeder Slot speichert unabhängig"
+  },
+  "es8311_play_slot": {
+    "message0": "ES8311 %1 Slot %2 abspielen",
+    "tooltip": "Aufnahme des angegebenen Slots abspielen"
+  },
+  "es8311_play_loop": {
+    "message0": "ES8311 %1 Schleifenwiedergabe",
+    "tooltip": "Aufgenommenes Audio in Schleife wiedergeben bis gestoppt"
+  }
+}
