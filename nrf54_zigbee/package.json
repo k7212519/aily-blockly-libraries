@@ -12,7 +12,7 @@
     "nickname_pt": "nRF54 Zigbee Casa Inteligente",
     "nickname_ru": "nRF54 Zigbee Умный дом",
     "nickname_ar": "nRF54 Zigbee المنزل الذكي",
-    "author": "xiao_nrf54l15",
+    "author": "lolren",
     "description": "基于nRF54L15的Zigbee Home Automation库，支持终端设备和路由器角色，包括On/Off灯、调光灯、彩色灯、温度传感器、湿度传感器等设备类型，支持安全入网、属性报告和状态持久化。",
     "description_zh_cn": "基于nRF54L15的Zigbee Home Automation库，支持终端设备和路由器角色，包括On/Off灯、调光灯、彩色灯、温度传感器、湿度传感器等设备类型，支持安全入网、属性报告和状态持久化。",
     "description_en": "Zigbee Home Automation library for nRF54L15, supporting End Device and Router roles with On/Off Light, Dimmable Light, Color Light, Temperature Sensor, Humidity Sensor device types, featuring secure commissioning, attribute reporting, and state persistence.",

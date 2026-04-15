@@ -12,7 +12,7 @@
     "nickname_pt": "nRF54 Gerenciamento de Baixo Consumo",
     "nickname_ru": "nRF54 Управление энергосбережением",
     "nickname_ar": "nRF54 إدارة الطاقة المنخفضة",
-    "author": "xiao_nrf54l15",
+    "author": "lolren",
     "description": "基于nRF54L15的低功耗管理库，支持System OFF定时/按钮唤醒、WFI空闲休眠、CPU频率调节、低功耗比较器(LPCOMP)模拟唤醒、看门狗定时器，以及复位/唤醒源检测和GPREGRET保持寄存器。",
     "description_zh_cn": "基于nRF54L15的低功耗管理库，支持System OFF定时/按钮唤醒、WFI空闲休眠、CPU频率调节、低功耗比较器(LPCOMP)模拟唤醒、看门狗定时器，以及复位/唤醒源检测和GPREGRET保持寄存器。",
     "description_en": "Low power management library for nRF54L15, supporting System OFF with timed/button wake, WFI idle sleep, CPU frequency scaling, Low Power Comparator (LPCOMP) analog wake, watchdog timer, reset/wake source detection and GPREGRET retained registers.",
