@@ -1,0 +1,178 @@
+[
+  {
+    "type": "es8311_init",
+    "message0": "初始化 ES8311 %1 I2C %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "es8311"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "WIRE",
+        "options": "${board.i2c}"
+      }
+    ],
+    "message1": "SDA %1 SCL %2 MCLK %3 BCLK %4 LRCK %5",
+    "args1": [
+      {
+        "type": "input_value",
+        "name": "SDA",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "SCL",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "MCLK",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "BCLK",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "LRCK",
+        "check": ["Number"]
+      }
+    ],
+    "message2": "DIN(DAC输入) %1 DOUT(ADC输出) %2 采样率 %3 录音 %4 秒",
+    "args2": [
+      {
+        "type": "input_value",
+        "name": "DIN",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "DOUT",
+        "check": ["Number"]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SAMPLE_RATE",
+        "options": [
+          ["16000 Hz", "16000"],
+          ["22050 Hz", "22050"],
+          ["44100 Hz", "44100"],
+          ["48000 Hz", "48000"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RECORD_SECONDS",
+        "check": ["Number"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FF6B35",
+    "tooltip": "初始化ES8311音频编解码器，配置I2C和I2S引脚，分配录音缓冲区"
+  },
+  {
+    "type": "es8311_record",
+    "message0": "ES8311 %1 录音",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": ["ES8311"],
+        "defaultType": "ES8311"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FF6B35",
+    "tooltip": "通过ES8311录制音频到内存缓冲区"
+  },
+  {
+    "type": "es8311_play",
+    "message0": "ES8311 %1 播放录音",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": ["ES8311"],
+        "defaultType": "ES8311"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FF6B35",
+    "tooltip": "通过ES8311播放内存缓冲区中的录音"
+  },
+  {
+    "type": "es8311_set_volume",
+    "message0": "ES8311 %1 设置音量 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": ["ES8311"],
+        "defaultType": "ES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "VOLUME",
+        "check": ["Number"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FF6B35",
+    "tooltip": "设置ES8311 DAC输出音量（0-255，默认191）"
+  },
+  {
+    "type": "es8311_set_mic_gain",
+    "message0": "ES8311 %1 设置麦克风增益 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": ["ES8311"],
+        "defaultType": "ES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "GAIN",
+        "check": ["Number"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FF6B35",
+    "tooltip": "设置ES8311麦克风增益步进（0-8）"
+  },
+  {
+    "type": "es8311_save_wav",
+    "message0": "ES8311 %1 保存WAV 路径 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": ["ES8311"],
+        "defaultType": "ES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "PATH",
+        "check": ["String"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FF6B35",
+    "tooltip": "将录音保存为WAV文件（自动选择SPIFFS或SD）"
+  }
+]

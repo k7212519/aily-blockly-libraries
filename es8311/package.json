@@ -1,0 +1,15 @@
+{
+  "name": "@aily-project/lib-es8311",
+  "nickname": "ES8311 音频编解码",
+  "nickname_zh_cn": "ES8311 音频编解码",
+  "nickname_en": "ES8311 Audio Codec",
+  "description": "ES8311 I2S音频编解码器驱动，支持录音、播放、音量调节",
+  "version": "1.0.0",
+  "compatibility": {
+    "core": ["esp32:esp32"],
+    "voltage": [3.3]
+  },
+  "keywords": ["aily", "blockly", "es8311", "audio", "codec", "i2s", "record", "play"],
+  "tested": false,
+  "url": ""
+}

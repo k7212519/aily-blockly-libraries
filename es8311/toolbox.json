@@ -1,0 +1,69 @@
+{
+  "kind": "category",
+  "name": "ES8311 音频编解码",
+  "name_zh_cn": "ES8311 音频编解码",
+  "name_en": "ES8311 Audio Codec",
+  "icon": "iconfont icon-voice",
+  "colour": "#FF6B35",
+  "contents": [
+    {
+      "kind": "label",
+      "text": "初始化"
+    },
+    {
+      "kind": "block",
+      "type": "es8311_init",
+      "inputs": {
+        "SDA": {"shadow": {"type": "math_number", "fields": {"NUM": "41"}}},
+        "SCL": {"shadow": {"type": "math_number", "fields": {"NUM": "42"}}},
+        "MCLK": {"shadow": {"type": "math_number", "fields": {"NUM": "46"}}},
+        "BCLK": {"shadow": {"type": "math_number", "fields": {"NUM": "39"}}},
+        "LRCK": {"shadow": {"type": "math_number", "fields": {"NUM": "2"}}},
+        "DIN": {"shadow": {"type": "math_number", "fields": {"NUM": "38"}}},
+        "DOUT": {"shadow": {"type": "math_number", "fields": {"NUM": "40"}}},
+        "RECORD_SECONDS": {"shadow": {"type": "math_number", "fields": {"NUM": "3"}}}
+      }
+    },
+    {
+      "kind": "label",
+      "text": "录放操作"
+    },
+    {
+      "kind": "block",
+      "type": "es8311_record"
+    },
+    {
+      "kind": "block",
+      "type": "es8311_play"
+    },
+    {
+      "kind": "label",
+      "text": "参数调节"
+    },
+    {
+      "kind": "block",
+      "type": "es8311_set_volume",
+      "inputs": {
+        "VOLUME": {"shadow": {"type": "math_number", "fields": {"NUM": "191"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "es8311_set_mic_gain",
+      "inputs": {
+        "GAIN": {"shadow": {"type": "math_number", "fields": {"NUM": "4"}}}
+      }
+    },
+    {
+      "kind": "label",
+      "text": "文件操作"
+    },
+    {
+      "kind": "block",
+      "type": "es8311_save_wav",
+      "inputs": {
+        "PATH": {"shadow": {"type": "text", "fields": {"TEXT": "/rec_001.wav"}}}
+      }
+    }
+  ]
+}
