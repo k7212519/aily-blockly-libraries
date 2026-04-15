@@ -7,6 +7,7 @@
     {
       "kind": "category",
       "name": "快速模式",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -53,6 +54,7 @@
     {
       "kind": "category",
       "name": "初始化",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -111,6 +113,7 @@
     {
       "kind": "category",
       "name": "广播",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -155,6 +158,7 @@
     {
       "kind": "category",
       "name": "连接",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -189,6 +193,7 @@
     {
       "kind": "category",
       "name": "GATT服务",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -311,6 +316,7 @@
     {
       "kind": "category",
       "name": "NUS透传",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -379,6 +385,7 @@
     {
       "kind": "category",
       "name": "扫描",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "label",
@@ -413,6 +420,7 @@
     {
       "kind": "category",
       "name": "电源",
+      "icon": "fa-light fa-bluetooth",
       "contents": [
         {
           "kind": "block",
