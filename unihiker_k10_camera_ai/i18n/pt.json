@@ -20,23 +20,23 @@
         "options": [
           [
             "Detecção facial",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Detecção gato",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Detecção movimento",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "Leitura QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Reconhecimento facial",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "Detecção facial",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Detecção gato",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Detecção movimento",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "Leitura QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Reconhecimento facial",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "IA detectou alvo",
-    "tooltip": "Retorna se a IA detectou um alvo"
+    "message0": "AI detectou %1",
+    "tooltip": "Retorna se a IA detectou um alvo",
+    "args0": [
+      {
+        "options": [
+          [
+            "Rosto",
+            "Face"
+          ],
+          [
+            "Gato",
+            "Cat"
+          ],
+          [
+            "Movimento",
+            "Move"
+          ],
+          [
+            "Código QR",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "obter dados do rosto %1",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "Coord X",
-            "x"
+            "Centro X",
+            "CenterX"
           ],
           [
-            "Coord Y",
-            "y"
+            "Centro Y",
+            "CenterY"
           ],
           [
             "Largura",
-            "w"
+            "Length"
           ],
           [
             "Altura",
-            "h"
-          ],
-          [
-            "Confiança",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "Coord X",
-            "x"
+            "Centro X",
+            "CenterX"
           ],
           [
-            "Coord Y",
-            "y"
+            "Centro Y",
+            "CenterY"
           ],
           [
             "Largura",
-            "w"
+            "Length"
           ],
           [
             "Altura",
-            "h"
-          ],
-          [
-            "Confiança",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "Adicionar rosto",
-            "add"
+            "ENROLL"
           ],
           [
             "Remover rosto",
-            "delete"
+            "DELETE"
           ]
         ]
       },

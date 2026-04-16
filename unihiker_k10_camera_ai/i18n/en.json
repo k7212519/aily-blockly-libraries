@@ -20,23 +20,23 @@
         "options": [
           [
             "Face detection",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Cat detection",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Motion detection",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "QR code scan",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Face recognition",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "Face detection",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Cat detection",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Motion detection",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "QR code scan",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Face recognition",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "AI detected target",
-    "tooltip": "Return whether AI detected a target"
+    "message0": "AI detected %1",
+    "tooltip": "Return whether AI detected a target",
+    "args0": [
+      {
+        "options": [
+          [
+            "Face",
+            "Face"
+          ],
+          [
+            "Cat",
+            "Cat"
+          ],
+          [
+            "Motion",
+            "Move"
+          ],
+          [
+            "QR code",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "get face %1 data",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "X coord",
-            "x"
+            "Center X",
+            "CenterX"
           ],
           [
-            "Y coord",
-            "y"
+            "Center Y",
+            "CenterY"
           ],
           [
             "Width",
-            "w"
+            "Length"
           ],
           [
             "Height",
-            "h"
-          ],
-          [
-            "Confidence",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "X coord",
-            "x"
+            "Center X",
+            "CenterX"
           ],
           [
-            "Y coord",
-            "y"
+            "Center Y",
+            "CenterY"
           ],
           [
             "Width",
-            "w"
+            "Length"
           ],
           [
             "Height",
-            "h"
-          ],
-          [
-            "Confidence",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "Add face",
-            "add"
+            "ENROLL"
           ],
           [
             "Delete face",
-            "delete"
+            "DELETE"
           ]
         ]
       },

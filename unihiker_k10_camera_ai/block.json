@@ -44,11 +44,11 @@
         "type": "field_dropdown",
         "name": "MODE",
         "options": [
-          ["人脸检测", "DETECTION_FACE"],
-          ["猫脸检测", "DETECTION_CAT"],
-          ["运动检测", "DETECTION_MOTION"],
-          ["二维码识别", "DETECTION_QRCODE"],
-          ["人脸识别", "RECOGNITION_FACE"]
+          ["人脸检测", "Face"],
+          ["猫脸检测", "Cat"],
+          ["运动检测", "Move"],
+          ["二维码识别", "Code"],
+          ["人脸识别", "Face"]
         ]
       }
     ],
@@ -67,11 +67,11 @@
         "type": "field_dropdown",
         "name": "MODE",
         "options": [
-          ["人脸检测", "DETECTION_FACE"],
-          ["猫脸检测", "DETECTION_CAT"],
-          ["运动检测", "DETECTION_MOTION"],
-          ["二维码识别", "DETECTION_QRCODE"],
-          ["人脸识别", "RECOGNITION_FACE"]
+          ["人脸检测", "Face"],
+          ["猫脸检测", "Cat"],
+          ["运动检测", "Move"],
+          ["二维码识别", "Code"],
+          ["人脸识别", "Face"]
         ]
       }
     ],
@@ -84,7 +84,19 @@
   },
   {
     "type": "k10_ai_is_detected",
-    "message0": "AI检测到目标",
+    "message0": "AI检测到 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "TYPE",
+        "options": [
+          ["人脸", "Face"],
+          ["猫脸", "Cat"],
+          ["运动", "Move"],
+          ["二维码", "Code"]
+        ]
+      }
+    ],
     "inputsInline": true,
     "output": "Boolean",
     "colour": "#E91E63",
@@ -99,11 +111,10 @@
         "type": "field_dropdown",
         "name": "DATA",
         "options": [
-          ["X坐标", "x"],
-          ["Y坐标", "y"],
-          ["宽度", "w"],
-          ["高度", "h"],
-          ["置信度", "confidence"]
+          ["中心X坐标", "CenterX"],
+          ["中心Y坐标", "CenterY"],
+          ["宽度", "Length"],
+          ["高度", "Width"]
         ]
       }
     ],
@@ -121,11 +132,10 @@
         "type": "field_dropdown",
         "name": "DATA",
         "options": [
-          ["X坐标", "x"],
-          ["Y坐标", "y"],
-          ["宽度", "w"],
-          ["高度", "h"],
-          ["置信度", "confidence"]
+          ["中心X坐标", "CenterX"],
+          ["中心Y坐标", "CenterY"],
+          ["宽度", "Length"],
+          ["高度", "Width"]
         ]
       }
     ],
@@ -187,8 +197,8 @@
         "type": "field_dropdown",
         "name": "CMD",
         "options": [
-          ["录入人脸", "add"],
-          ["删除人脸", "delete"]
+          ["录入人脸", "ENROLL"],
+          ["删除人脸", "DELETE"]
         ]
       },
       {

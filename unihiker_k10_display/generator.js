@@ -3,7 +3,7 @@ function colorToHex(color) {
   if (color && color.startsWith('#')) {
     return '0x' + color.substring(1).toUpperCase();
   }
-  return color;
+  return color || '0xFFFFFF';
 }
 
 // Ensure k10 object and screen are initialized

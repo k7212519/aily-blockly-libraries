@@ -20,23 +20,23 @@
         "options": [
           [
             "顔検出",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "猫顔検出",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "動体検出",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "QRコード認識",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "顔認識",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "顔検出",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "猫顔検出",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "動体検出",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "QRコード認識",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "顔認識",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "AIがターゲットを検出",
-    "tooltip": "AIがターゲットを検出したか返す"
+    "message0": "AI検出 %1",
+    "tooltip": "AIがターゲットを検出したか返す",
+    "args0": [
+      {
+        "options": [
+          [
+            "顔",
+            "Face"
+          ],
+          [
+            "猫顔",
+            "Cat"
+          ],
+          [
+            "動き",
+            "Move"
+          ],
+          [
+            "QRコード",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "顔の %1 データを取得",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "X座標",
-            "x"
+            "中心X座標",
+            "CenterX"
           ],
           [
-            "Y座標",
-            "y"
+            "中心Y座標",
+            "CenterY"
           ],
           [
             "幅",
-            "w"
+            "Length"
           ],
           [
             "高さ",
-            "h"
-          ],
-          [
-            "信頼度",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "X座標",
-            "x"
+            "中心X座標",
+            "CenterX"
           ],
           [
-            "Y座標",
-            "y"
+            "中心Y座標",
+            "CenterY"
           ],
           [
             "幅",
-            "w"
+            "Length"
           ],
           [
             "高さ",
-            "h"
-          ],
-          [
-            "信頼度",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "顔を登録",
-            "add"
+            "ENROLL"
           ],
           [
             "顔を削除",
-            "delete"
+            "DELETE"
           ]
         ]
       },

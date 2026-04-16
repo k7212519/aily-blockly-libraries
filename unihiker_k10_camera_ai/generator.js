@@ -35,7 +35,7 @@ Arduino.forBlock['k10_camera_show'] = function(block, generator) {
 
 // ========== 拍照保存 ==========
 Arduino.forBlock['k10_photo_save'] = function(block, generator) {
-  var path = generator.valueToCode(block, 'PATH', generator.ORDER_ATOMIC) || '"S:/photo.bmp"';
+  var path = generator.valueToCode(block, 'FILENAME', generator.ORDER_ATOMIC) || '"S:/photo.bmp"';
   ensureK10(generator);
   generator.addSetupBegin('k10_initSDFile', 'k10.initSDFile();');
   return 'k10.photoSaveToTFCard(' + path + ');\n';
@@ -50,9 +50,9 @@ Arduino.forBlock['k10_ai_init'] = function(block, generator) {
   generator.addSetupBegin('k10_initBgCamera', 'k10.initBgCamerImage();');
   generator.addSetupBegin('k10_setBgCamera_off', 'k10.setBgCamerImage(false);');
   generator.addSetupBegin('k10_creatCanvas_cam', 'k10.creatCanvas();');
-  generator.addSetupEnd('ai_switchNoMode', 'ai.switchAiMode(ai.NoMode);');
+  generator.addSetupEnd('ai_switchNoMode', 'ai.switchAiMode(AIRecognition::NoMode);');
   generator.addSetupEnd('k10_setBgCamera_on', 'k10.setBgCamerImage(true);');
-  generator.addSetupEnd('ai_switchMode', 'ai.switchAiMode(ai.' + mode + ');');
+  generator.addSetupEnd('ai_switchMode', 'ai.switchAiMode(AIRecognition::' + mode + ');');
   return '';
 };
 
@@ -60,7 +60,7 @@ Arduino.forBlock['k10_ai_init'] = function(block, generator) {
 Arduino.forBlock['k10_ai_switch_mode'] = function(block, generator) {
   var mode = block.getFieldValue('MODE');
   ensureAI(generator);
-  return 'ai.switchAiMode(ai.' + mode + ');\n';
+  return 'ai.switchAiMode(AIRecognition::' + mode + ');\n';
 };
 
 // ========== 检测到内容 ==========
@@ -72,14 +72,14 @@ Arduino.forBlock['k10_ai_is_detected'] = function(block, generator) {
 
 // ========== 获取人脸数据 ==========
 Arduino.forBlock['k10_ai_get_face_data'] = function(block, generator) {
-  var param = block.getFieldValue('PARAM');
+  var param = block.getFieldValue('DATA');
   ensureAI(generator);
   return ['ai.getFaceData(AIRecognition::' + param + ')', generator.ORDER_ATOMIC];
 };
 
 // ========== 获取猫狗脸数据 ==========
 Arduino.forBlock['k10_ai_get_cat_data'] = function(block, generator) {
-  var param = block.getFieldValue('PARAM');
+  var param = block.getFieldValue('DATA');
   ensureAI(generator);
   return ['ai.getCatData(AIRecognition::' + param + ')', generator.ORDER_ATOMIC];
 };
@@ -112,6 +112,7 @@ Arduino.forBlock['k10_ai_get_face_id'] = function(block, generator) {
 // ========== 人脸录入/识别命令 ==========
 Arduino.forBlock['k10_ai_face_cmd'] = function(block, generator) {
   var cmd = block.getFieldValue('CMD');
+  var id = generator.valueToCode(block, 'ID', generator.ORDER_ATOMIC) || '0';
   ensureAI(generator);
-  return 'ai.sendFaceCmd(' + cmd + ');\n';
+  return 'ai.sendFaceCmd(' + cmd + ', ' + id + ');\n';
 };

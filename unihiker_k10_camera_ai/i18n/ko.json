@@ -20,23 +20,23 @@
         "options": [
           [
             "얼굴 감지",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "고양이 감지",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "모션 감지",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "QR코드 인식",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "얼굴 인식",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "얼굴 감지",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "고양이 감지",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "모션 감지",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "QR코드 인식",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "얼굴 인식",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "AI가 대상 감지",
-    "tooltip": "AI가 대상을 감지했는지 반환"
+    "message0": "AI 감지 %1",
+    "tooltip": "AI가 대상을 감지했는지 반환",
+    "args0": [
+      {
+        "options": [
+          [
+            "얼굴",
+            "Face"
+          ],
+          [
+            "고양이",
+            "Cat"
+          ],
+          [
+            "움직임",
+            "Move"
+          ],
+          [
+            "QR코드",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "얼굴 %1 데이터 가져오기",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "X좌표",
-            "x"
+            "중심 X좌표",
+            "CenterX"
           ],
           [
-            "Y좌표",
-            "y"
+            "중심 Y좌표",
+            "CenterY"
           ],
           [
             "너비",
-            "w"
+            "Length"
           ],
           [
             "높이",
-            "h"
-          ],
-          [
-            "신뢰도",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "X좌표",
-            "x"
+            "중심 X좌표",
+            "CenterX"
           ],
           [
-            "Y좌표",
-            "y"
+            "중심 Y좌표",
+            "CenterY"
           ],
           [
             "너비",
-            "w"
+            "Length"
           ],
           [
             "높이",
-            "h"
-          ],
-          [
-            "신뢰도",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "얼굴 등록",
-            "add"
+            "ENROLL"
           ],
           [
             "얼굴 삭제",
-            "delete"
+            "DELETE"
           ]
         ]
       },

@@ -20,23 +20,23 @@
         "options": [
           [
             "人臉檢測",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "貓臉檢測",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "運動檢測",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "二維碼識別",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "人臉識別",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "人臉檢測",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "貓臉檢測",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "運動檢測",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "二維碼識別",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "人臉識別",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "AI檢測到目標",
-    "tooltip": "返回AI是否檢測到目標"
+    "message0": "AI檢測到 %1",
+    "tooltip": "返回AI是否檢測到目標",
+    "args0": [
+      {
+        "options": [
+          [
+            "人臉",
+            "Face"
+          ],
+          [
+            "貓臉",
+            "Cat"
+          ],
+          [
+            "運動",
+            "Move"
+          ],
+          [
+            "二維碼",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "獲取人臉 %1 數據",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "X坐標",
-            "x"
+            "中心X坐標",
+            "CenterX"
           ],
           [
-            "Y坐標",
-            "y"
+            "中心Y坐標",
+            "CenterY"
           ],
           [
             "寬度",
-            "w"
+            "Length"
           ],
           [
             "高度",
-            "h"
-          ],
-          [
-            "置信度",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "X坐標",
-            "x"
+            "中心X坐標",
+            "CenterX"
           ],
           [
-            "Y坐標",
-            "y"
+            "中心Y坐標",
+            "CenterY"
           ],
           [
             "寬度",
-            "w"
+            "Length"
           ],
           [
             "高度",
-            "h"
-          ],
-          [
-            "置信度",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "錄入人臉",
-            "add"
+            "ENROLL"
           ],
           [
             "刪除人臉",
-            "delete"
+            "DELETE"
           ]
         ]
       },

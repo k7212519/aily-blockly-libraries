@@ -20,23 +20,23 @@
         "options": [
           [
             "Обнаружение лица",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Обнаружение кота",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Обнаружение движения",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "Сканирование QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Распознавание лица",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "Обнаружение лица",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Обнаружение кота",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Обнаружение движения",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "Сканирование QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Распознавание лица",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "ИИ обнаружил цель",
-    "tooltip": "Вернуть обнаружил ли ИИ цель"
+    "message0": "AI обнаружил %1",
+    "tooltip": "Вернуть обнаружил ли ИИ цель",
+    "args0": [
+      {
+        "options": [
+          [
+            "Лицо",
+            "Face"
+          ],
+          [
+            "Кот",
+            "Cat"
+          ],
+          [
+            "Движение",
+            "Move"
+          ],
+          [
+            "QR-код",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "получить данные лица %1",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "X коорд.",
-            "x"
+            "Центр X",
+            "CenterX"
           ],
           [
-            "Y коорд.",
-            "y"
+            "Центр Y",
+            "CenterY"
           ],
           [
             "Ширина",
-            "w"
+            "Length"
           ],
           [
             "Высота",
-            "h"
-          ],
-          [
-            "Уверенность",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "X коорд.",
-            "x"
+            "Центр X",
+            "CenterX"
           ],
           [
-            "Y коорд.",
-            "y"
+            "Центр Y",
+            "CenterY"
           ],
           [
             "Ширина",
-            "w"
+            "Length"
           ],
           [
             "Высота",
-            "h"
-          ],
-          [
-            "Уверенность",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "Добавить лицо",
-            "add"
+            "ENROLL"
           ],
           [
             "Удалить лицо",
-            "delete"
+            "DELETE"
           ]
         ]
       },

@@ -26,7 +26,7 @@
     "message0": "设置屏幕背景颜色 %1",
     "args0": [
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "COLOR",
         "colour": "#ffffff"
       }
@@ -53,7 +53,7 @@
         "check": "Number"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "COLOR",
         "colour": "#0000ff"
       }
@@ -90,7 +90,7 @@
         "check": "Number"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "COLOR",
         "colour": "#ff0000"
       }
@@ -141,12 +141,12 @@
         "check": "Number"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "BORDER_COLOR",
         "colour": "#ffcc33"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "FILL_COLOR",
         "colour": "#ffcc33"
       },
@@ -188,12 +188,12 @@
         "check": "Number"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "BORDER_COLOR",
         "colour": "#ff0000"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "FILL_COLOR",
         "colour": "#ffffff"
       },
@@ -229,7 +229,7 @@
         ]
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "COLOR",
         "colour": "#0000ff"
       }
@@ -261,7 +261,7 @@
         "check": "Number"
       },
       {
-        "type": "field_colour",
+        "type": "field_colour_hsv_sliders",
         "name": "COLOR",
         "colour": "#0000ff"
       },
@@ -395,3 +395,4 @@
     "icon": "fa-light fa-display"
   }
 ]
+

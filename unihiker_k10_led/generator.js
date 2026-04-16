@@ -22,7 +22,9 @@ Arduino.forBlock['k10_rgb_brightness'] = function(block, generator) {
 // ========== 设置颜色 ==========
 Arduino.forBlock['k10_rgb_write'] = function(block, generator) {
   var index = block.getFieldValue('INDEX');
-  var color = colorToHex(block.getFieldValue('COLOR'));
+  var r = generator.valueToCode(block, 'R', generator.ORDER_ATOMIC) || '0';
+  var g = generator.valueToCode(block, 'G', generator.ORDER_ATOMIC) || '0';
+  var b = generator.valueToCode(block, 'B', generator.ORDER_ATOMIC) || '0';
   ensureK10(generator);
-  return 'k10.rgb->write(' + index + ', ' + color + ');\n';
+  return 'k10.rgb->write(' + index + ', ' + r + ', ' + g + ', ' + b + ');\n';
 };

@@ -20,23 +20,23 @@
         "options": [
           [
             "كشف الوجه",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "كشف القطط",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "كشف الحركة",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "مسح QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "التعرف على الوجه",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "كشف الوجه",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "كشف القطط",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "كشف الحركة",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "مسح QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "التعرف على الوجه",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "الذكاء الاصطناعي اكتشف هدفاً",
-    "tooltip": "إرجاع ما إذا كان الذكاء الاصطناعي اكتشف هدفاً"
+    "message0": "AI كشف %1",
+    "tooltip": "إرجاع ما إذا كان الذكاء الاصطناعي اكتشف هدفاً",
+    "args0": [
+      {
+        "options": [
+          [
+            "وجه",
+            "Face"
+          ],
+          [
+            "وجه قطة",
+            "Cat"
+          ],
+          [
+            "حركة",
+            "Move"
+          ],
+          [
+            "رمز QR",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "الحصول على بيانات الوجه %1",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "إحداثي X",
-            "x"
+            "إحداثي X المركز",
+            "CenterX"
           ],
           [
-            "إحداثي Y",
-            "y"
+            "إحداثي Y المركز",
+            "CenterY"
           ],
           [
             "العرض",
-            "w"
+            "Length"
           ],
           [
             "الارتفاع",
-            "h"
-          ],
-          [
-            "الثقة",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "إحداثي X",
-            "x"
+            "إحداثي X المركز",
+            "CenterX"
           ],
           [
-            "إحداثي Y",
-            "y"
+            "إحداثي Y المركز",
+            "CenterY"
           ],
           [
             "العرض",
-            "w"
+            "Length"
           ],
           [
             "الارتفاع",
-            "h"
-          ],
-          [
-            "الثقة",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "إضافة وجه",
-            "add"
+            "ENROLL"
           ],
           [
             "حذف وجه",
-            "delete"
+            "DELETE"
           ]
         ]
       },

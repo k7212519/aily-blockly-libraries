@@ -20,23 +20,23 @@
         "options": [
           [
             "Detección facial",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Detección gato",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Detección movimiento",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "Escaneo QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Reconocimiento facial",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
@@ -50,31 +50,53 @@
         "options": [
           [
             "Detección facial",
-            "DETECTION_FACE"
+            "Face"
           ],
           [
             "Detección gato",
-            "DETECTION_CAT"
+            "Cat"
           ],
           [
             "Detección movimiento",
-            "DETECTION_MOTION"
+            "Move"
           ],
           [
             "Escaneo QR",
-            "DETECTION_QRCODE"
+            "Code"
           ],
           [
             "Reconocimiento facial",
-            "RECOGNITION_FACE"
+            "Face"
           ]
         ]
       }
     ]
   },
   "k10_ai_is_detected": {
-    "message0": "IA detectó objetivo",
-    "tooltip": "Retorna si la IA detectó un objetivo"
+    "message0": "AI detectó %1",
+    "tooltip": "Retorna si la IA detectó un objetivo",
+    "args0": [
+      {
+        "options": [
+          [
+            "Rostro",
+            "Face"
+          ],
+          [
+            "Gato",
+            "Cat"
+          ],
+          [
+            "Movimiento",
+            "Move"
+          ],
+          [
+            "Código QR",
+            "Code"
+          ]
+        ]
+      }
+    ]
   },
   "k10_ai_get_face_data": {
     "message0": "obtener datos de cara %1",
@@ -83,24 +105,20 @@
       {
         "options": [
           [
-            "Coord X",
-            "x"
+            "Centro X",
+            "CenterX"
           ],
           [
-            "Coord Y",
-            "y"
+            "Centro Y",
+            "CenterY"
           ],
           [
             "Ancho",
-            "w"
+            "Length"
           ],
           [
             "Alto",
-            "h"
-          ],
-          [
-            "Confianza",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -113,24 +131,20 @@
       {
         "options": [
           [
-            "Coord X",
-            "x"
+            "Centro X",
+            "CenterX"
           ],
           [
-            "Coord Y",
-            "y"
+            "Centro Y",
+            "CenterY"
           ],
           [
             "Ancho",
-            "w"
+            "Length"
           ],
           [
             "Alto",
-            "h"
-          ],
-          [
-            "Confianza",
-            "confidence"
+            "Width"
           ]
         ]
       }
@@ -160,11 +174,11 @@
         "options": [
           [
             "Agregar cara",
-            "add"
+            "ENROLL"
           ],
           [
             "Eliminar cara",
-            "delete"
+            "DELETE"
           ]
         ]
       },
