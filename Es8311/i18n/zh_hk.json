@@ -1,0 +1,93 @@
+{
+  "toolbox_name": "ES8311音頻",
+  "es8311_init": {
+    "message0": "初始化 ES8311 音頻編解碼器 %1 I2C %2 地址 %3",
+    "tooltip": "初始化 ES8311 I2C 通訊，配置 I2C 總線和裝置地址",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["0x18 (預設)", "0x18"],
+          ["0x30", "0x30"]
+        ]
+      }
+    ]
+  },
+  "es8311_i2s_config": {
+    "message0": "ES8311 %1 配置 I2S MCK %2 BCK %3 WS %4 DOUT %5 DIN %6 錄音時長(秒) %7",
+    "tooltip": "配置 ES8311 I2S 音頻引腳和錄音時長"
+  },
+  "es8311_record": {
+    "message0": "ES8311 %1 開始錄音",
+    "tooltip": "開始錄音，時長由初始化塊設置"
+  },
+  "es8311_play": {
+    "message0": "ES8311 %1 開始播放",
+    "tooltip": "播放已錄製的音頻"
+  },
+  "es8311_has_recording": {
+    "message0": "ES8311 %1 是否有錄音",
+    "tooltip": "檢查是否已錄製音頻"
+  },
+  "es8311_set_volume": {
+    "message0": "ES8311 %1 設置音量 %2",
+    "tooltip": "設置 ES8311 輸出音量（0~100）"
+  },
+  "es8311_set_mic_gain": {
+    "message0": "ES8311 %1 設置麥克風增益 %2",
+    "tooltip": "設置 ES8311 麥克風模擬增益（0~42dB，步進6dB）"
+  },
+  "es8311_stop": {
+    "message0": "ES8311 %1 停止錄音/播放",
+    "tooltip": "停止當前錄音或播放，清零 I2S DMA 緩衝區"
+  },
+  "es8311_sound_detected": {
+    "message0": "ES8311 %1 檢測到聲音 閾值 %2",
+    "tooltip": "檢測當前環境聲音是否超過閾值（0~100），超過返回 true"
+  },
+  "es8311_mute": {
+    "message0": "ES8311 %1 %2",
+    "tooltip": "控制 ES8311 靜音狀態",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["取消靜音", "0"],
+          ["輸出靜音", "1"],
+          ["麥克風靜音", "2"],
+          ["全部靜音", "3"]
+        ]
+      }
+    ]
+  },
+  "es8311_play_tone": {
+    "message0": "ES8311 %1 播放提示音 頻率 %2 Hz 持續 %3 ms",
+    "tooltip": "生成指定頻率的正弦波提示音並播放"
+  },
+  "es8311_alc_enable": {
+    "message0": "ES8311 %1 自動增益控制 %2",
+    "tooltip": "開啟或關閉 ES8311 自動增益控制（ALC）",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["開啟", "true"],
+          ["關閉", "false"]
+        ]
+      }
+    ]
+  },
+  "es8311_record_slot": {
+    "message0": "ES8311 %1 錄音到槽位 %2",
+    "tooltip": "錄音到指定槽位（0~3），每個槽位獨立存儲"
+  },
+  "es8311_play_slot": {
+    "message0": "ES8311 %1 播放槽位 %2",
+    "tooltip": "播放指定槽位的錄音"
+  },
+  "es8311_play_loop": {
+    "message0": "ES8311 %1 循環播放錄音",
+    "tooltip": "循環播放已錄製的音頻，直到調用停止"
+  }
+}

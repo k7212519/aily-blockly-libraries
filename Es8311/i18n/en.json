@@ -1,0 +1,93 @@
+{
+  "toolbox_name": "ES8311 Audio",
+  "es8311_init": {
+    "message0": "Initialize ES8311 audio codec %1 I2C %2 address %3",
+    "tooltip": "Initialize ES8311 I2C communication, configure I2C bus and device address",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["0x18 (default)", "0x18"],
+          ["0x30", "0x30"]
+        ]
+      }
+    ]
+  },
+  "es8311_i2s_config": {
+    "message0": "ES8311 %1 configure I2S MCK %2 BCK %3 WS %4 DOUT %5 DIN %6 duration(s) %7",
+    "tooltip": "Configure ES8311 I2S audio pins and recording duration"
+  },
+  "es8311_record": {
+    "message0": "ES8311 %1 start recording",
+    "tooltip": "Start recording, duration set by init block"
+  },
+  "es8311_play": {
+    "message0": "ES8311 %1 start playback",
+    "tooltip": "Play recorded audio"
+  },
+  "es8311_has_recording": {
+    "message0": "ES8311 %1 has recording",
+    "tooltip": "Check if audio has been recorded"
+  },
+  "es8311_set_volume": {
+    "message0": "ES8311 %1 set volume %2",
+    "tooltip": "Set ES8311 output volume (0~100)"
+  },
+  "es8311_set_mic_gain": {
+    "message0": "ES8311 %1 set mic gain %2",
+    "tooltip": "Set ES8311 microphone analog gain (0~42dB, step 6dB)"
+  },
+  "es8311_stop": {
+    "message0": "ES8311 %1 stop record/play",
+    "tooltip": "Stop current recording or playback, clear I2S DMA buffer"
+  },
+  "es8311_sound_detected": {
+    "message0": "ES8311 %1 sound detected threshold %2",
+    "tooltip": "Detect if ambient sound exceeds threshold (0~100), returns true if exceeded"
+  },
+  "es8311_mute": {
+    "message0": "ES8311 %1 %2",
+    "tooltip": "Control ES8311 mute state",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["Unmute", "0"],
+          ["Mute output", "1"],
+          ["Mute mic", "2"],
+          ["Mute all", "3"]
+        ]
+      }
+    ]
+  },
+  "es8311_play_tone": {
+    "message0": "ES8311 %1 play tone freq %2 Hz duration %3 ms",
+    "tooltip": "Generate and play a sine wave tone at specified frequency"
+  },
+  "es8311_alc_enable": {
+    "message0": "ES8311 %1 auto gain control %2",
+    "tooltip": "Enable or disable ES8311 Automatic Level Control (ALC)",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["Enable", "true"],
+          ["Disable", "false"]
+        ]
+      }
+    ]
+  },
+  "es8311_record_slot": {
+    "message0": "ES8311 %1 record to slot %2",
+    "tooltip": "Record to specified slot (0~3), each slot stores independently"
+  },
+  "es8311_play_slot": {
+    "message0": "ES8311 %1 play slot %2",
+    "tooltip": "Play recording from specified slot"
+  },
+  "es8311_play_loop": {
+    "message0": "ES8311 %1 loop playback",
+    "tooltip": "Loop play recorded audio until stopped"
+  }
+}

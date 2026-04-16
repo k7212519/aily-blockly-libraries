@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10音声",
+  "k10_asr_init": {
+    "message0": "音声認識を初期化",
+    "tooltip": "K10音声認識機能を初期化"
+  },
+  "k10_asr_add_command": {
+    "message0": "音声コマンド追加 ID %1 キーワード %2",
+    "tooltip": "音声認識コマンドワードを追加"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "音声アシスタントが起動",
+    "tooltip": "音声アシスタントが起動したか確認"
+  },
+  "k10_asr_is_detected": {
+    "message0": "音声コマンド検出 ID %1",
+    "tooltip": "指定IDの音声コマンドが検出されたか確認"
+  },
+  "k10_asr_speak": {
+    "message0": "音声再生 %1",
+    "tooltip": "TTSでテキストを読み上げ"
+  },
+  "k10_asr_set_speed": {
+    "message0": "音声速度を設定 %1",
+    "tooltip": "TTS音声速度を設定",
+    "args0": [
+      {
+        "options": [
+          [
+            "とても遅い",
+            "1"
+          ],
+          [
+            "遅い",
+            "3"
+          ],
+          [
+            "普通",
+            "5"
+          ],
+          [
+            "速い",
+            "7"
+          ],
+          [
+            "とても速い",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

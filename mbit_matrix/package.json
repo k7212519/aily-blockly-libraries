@@ -6,7 +6,7 @@
   "description": "Control the 5x5 LED matrix on BBC micro:bit",
   "description_zh_cn": "控制 BBC micro:bit 上的 5x5 LED 点阵屏",
   "version": "1.0.0",
-  "author": "Adafruit Industries",
+  "author": "Adafruit",
   "license": "MIT",
   "compatibility": {
     "core": [

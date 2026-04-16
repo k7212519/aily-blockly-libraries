@@ -1,0 +1,134 @@
+{
+  "toolbox_name": "K10ディスプレイ",
+  "k10_init_screen": {
+    "message0": "K10スクリーン初期化 方向 %1",
+    "tooltip": "UNIHIKER K10スクリーンを初期化しキャンバスを作成",
+    "args0": [
+      {
+        "options": [
+          [
+            "正方向",
+            "2"
+          ],
+          [
+            "逆方向",
+            "0"
+          ],
+          [
+            "左横画面",
+            "1"
+          ],
+          [
+            "右横画面",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_set_background": {
+    "message0": "スクリーン背景色を設定 %1",
+    "tooltip": "スクリーン背景色を設定"
+  },
+  "k10_draw_point": {
+    "message0": "点を描く X %1 Y %2 色 %3",
+    "tooltip": "スクリーンに点を描く"
+  },
+  "k10_draw_line": {
+    "message0": "線を描く 始点X %1 Y %2 終点X %3 Y %4 色 %5",
+    "tooltip": "スクリーンに線を描く"
+  },
+  "k10_set_line_width": {
+    "message0": "線幅を設定 %1",
+    "tooltip": "描画の線幅を設定"
+  },
+  "k10_draw_circle": {
+    "message0": "円を描く 中心X %1 Y %2 半径 %3 枠色 %4 塗り色 %5 塗りつぶし %6",
+    "tooltip": "スクリーンに円を描く"
+  },
+  "k10_draw_rectangle": {
+    "message0": "四角形を描く X %1 Y %2 幅 %3 高さ %4 枠色 %5 塗り色 %6 塗りつぶし %7",
+    "tooltip": "スクリーンに四角形を描く"
+  },
+  "k10_draw_text_simple": {
+    "message0": "テキスト表示 %1 サイズ %2 色 %3",
+    "tooltip": "スクリーンにテキストを表示（簡易版、自動配置）",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "小",
+            "1"
+          ],
+          [
+            "中",
+            "2"
+          ],
+          [
+            "大",
+            "3"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_text": {
+    "message0": "テキスト表示 %1 X %2 Y %3 色 %4 フォント %5 一行の文字数 %6",
+    "tooltip": "指定位置にテキストを表示",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "フォント16",
+            "eCNAndENFont16"
+          ],
+          [
+            "フォント24",
+            "eCNAndENFont24"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_bitmap": {
+    "message0": "内蔵画像を表示 X %1 Y %2 幅 %3 高さ %4",
+    "tooltip": "内蔵画像を表示"
+  },
+  "k10_draw_image": {
+    "message0": "TFカード画像を表示 パス %1 X %2 Y %3",
+    "tooltip": "TFカードから画像を読み込み表示"
+  },
+  "k10_draw_qrcode": {
+    "message0": "QRコードを表示 内容 %1",
+    "tooltip": "スクリーンにQRコードを表示"
+  },
+  "k10_update_canvas": {
+    "message0": "キャンバスを更新",
+    "tooltip": "キャンバス表示を更新"
+  },
+  "k10_clear_canvas": {
+    "message0": "キャンバスをクリア %1",
+    "tooltip": "キャンバスをクリア",
+    "args0": [
+      {
+        "options": [
+          [
+            "すべてクリア",
+            "0"
+          ],
+          [
+            "テキスト層クリア",
+            "1"
+          ]
+        ]
+      }
+    ]
+  }
+}

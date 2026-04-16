@@ -1,0 +1,134 @@
+{
+  "toolbox_name": "K10 Display",
+  "k10_init_screen": {
+    "message0": "init K10 screen direction %1",
+    "tooltip": "Initialize UNIHIKER K10 screen and create canvas",
+    "args0": [
+      {
+        "options": [
+          [
+            "Forward",
+            "2"
+          ],
+          [
+            "Reverse",
+            "0"
+          ],
+          [
+            "Left landscape",
+            "1"
+          ],
+          [
+            "Right landscape",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_set_background": {
+    "message0": "set screen background color %1",
+    "tooltip": "Set screen background color"
+  },
+  "k10_draw_point": {
+    "message0": "draw point X %1 Y %2 color %3",
+    "tooltip": "Draw a point on screen"
+  },
+  "k10_draw_line": {
+    "message0": "draw line from X %1 Y %2 to X %3 Y %4 color %5",
+    "tooltip": "Draw a line on screen"
+  },
+  "k10_set_line_width": {
+    "message0": "set line width %1",
+    "tooltip": "Set line width for drawing"
+  },
+  "k10_draw_circle": {
+    "message0": "draw circle center X %1 Y %2 radius %3 border color %4 fill color %5 fill %6",
+    "tooltip": "Draw a circle on screen"
+  },
+  "k10_draw_rectangle": {
+    "message0": "draw rectangle X %1 Y %2 width %3 height %4 border color %5 fill color %6 fill %7",
+    "tooltip": "Draw a rectangle on screen"
+  },
+  "k10_draw_text_simple": {
+    "message0": "show text %1 size %2 color %3",
+    "tooltip": "Show text on screen (simple, auto layout)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Small",
+            "1"
+          ],
+          [
+            "Medium",
+            "2"
+          ],
+          [
+            "Large",
+            "3"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_text": {
+    "message0": "show text %1 X %2 Y %3 color %4 font %5 chars per line %6",
+    "tooltip": "Show text at specified position",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Font 16",
+            "eCNAndENFont16"
+          ],
+          [
+            "Font 24",
+            "eCNAndENFont24"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_bitmap": {
+    "message0": "show built-in image X %1 Y %2 width %3 height %4",
+    "tooltip": "Show built-in image"
+  },
+  "k10_draw_image": {
+    "message0": "show TF card image path %1 X %2 Y %3",
+    "tooltip": "Load and show image from TF card"
+  },
+  "k10_draw_qrcode": {
+    "message0": "show QR code content %1",
+    "tooltip": "Show QR code on screen"
+  },
+  "k10_update_canvas": {
+    "message0": "refresh canvas",
+    "tooltip": "Refresh canvas display"
+  },
+  "k10_clear_canvas": {
+    "message0": "clear canvas %1",
+    "tooltip": "Clear canvas",
+    "args0": [
+      {
+        "options": [
+          [
+            "Clear all",
+            "0"
+          ],
+          [
+            "Clear text layer",
+            "1"
+          ]
+        ]
+      }
+    ]
+  }
+}

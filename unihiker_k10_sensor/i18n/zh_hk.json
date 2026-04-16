@@ -1,0 +1,43 @@
+{
+  "toolbox_name": "K10感測器",
+  "k10_get_accelerometer": {
+    "message0": "獲取加速度計 %1 軸數據",
+    "tooltip": "獲取K10板載加速度計的軸數據",
+    "args0": [
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ],
+          [
+            "Z",
+            "z"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_get_strength": {
+    "message0": "獲取 %1 值",
+    "tooltip": "獲取K10板載感測器的值",
+    "args0": [
+      {
+        "options": [
+          [
+            "光線強度",
+            "light"
+          ],
+          [
+            "聲音強度",
+            "sound"
+          ]
+        ]
+      }
+    ]
+  }
+}

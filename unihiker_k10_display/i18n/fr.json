@@ -1,0 +1,134 @@
+{
+  "toolbox_name": "K10 Affichage",
+  "k10_init_screen": {
+    "message0": "initialiser écran K10 direction %1",
+    "tooltip": "Initialiser l'écran UNIHIKER K10 et créer le canevas",
+    "args0": [
+      {
+        "options": [
+          [
+            "Normal",
+            "2"
+          ],
+          [
+            "Inversé",
+            "0"
+          ],
+          [
+            "Paysage gauche",
+            "1"
+          ],
+          [
+            "Paysage droit",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_set_background": {
+    "message0": "définir couleur de fond %1",
+    "tooltip": "Définir la couleur de fond de l'écran"
+  },
+  "k10_draw_point": {
+    "message0": "dessiner point X %1 Y %2 couleur %3",
+    "tooltip": "Dessiner un point sur l'écran"
+  },
+  "k10_draw_line": {
+    "message0": "dessiner ligne de X %1 Y %2 à X %3 Y %4 couleur %5",
+    "tooltip": "Dessiner une ligne sur l'écran"
+  },
+  "k10_set_line_width": {
+    "message0": "définir épaisseur de ligne %1",
+    "tooltip": "Définir l'épaisseur de ligne"
+  },
+  "k10_draw_circle": {
+    "message0": "dessiner cercle centre X %1 Y %2 rayon %3 couleur bordure %4 couleur remplissage %5 remplir %6",
+    "tooltip": "Dessiner un cercle sur l'écran"
+  },
+  "k10_draw_rectangle": {
+    "message0": "dessiner rectangle X %1 Y %2 largeur %3 hauteur %4 couleur bordure %5 couleur remplissage %6 remplir %7",
+    "tooltip": "Dessiner un rectangle sur l'écran"
+  },
+  "k10_draw_text_simple": {
+    "message0": "afficher texte %1 taille %2 couleur %3",
+    "tooltip": "Afficher du texte sur l'écran (simple, disposition auto)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Petit",
+            "1"
+          ],
+          [
+            "Moyen",
+            "2"
+          ],
+          [
+            "Grand",
+            "3"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_text": {
+    "message0": "afficher texte %1 X %2 Y %3 couleur %4 police %5 caractères par ligne %6",
+    "tooltip": "Afficher du texte à la position spécifiée",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Police 16",
+            "eCNAndENFont16"
+          ],
+          [
+            "Police 24",
+            "eCNAndENFont24"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_bitmap": {
+    "message0": "afficher image intégrée X %1 Y %2 largeur %3 hauteur %4",
+    "tooltip": "Afficher une image intégrée"
+  },
+  "k10_draw_image": {
+    "message0": "afficher image carte TF chemin %1 X %2 Y %3",
+    "tooltip": "Charger et afficher une image de la carte TF"
+  },
+  "k10_draw_qrcode": {
+    "message0": "afficher QR code contenu %1",
+    "tooltip": "Afficher un QR code sur l'écran"
+  },
+  "k10_update_canvas": {
+    "message0": "rafraîchir le canevas",
+    "tooltip": "Rafraîchir l'affichage du canevas"
+  },
+  "k10_clear_canvas": {
+    "message0": "effacer le canevas %1",
+    "tooltip": "Effacer le canevas",
+    "args0": [
+      {
+        "options": [
+          [
+            "Tout effacer",
+            "0"
+          ],
+          [
+            "Effacer couche texte",
+            "1"
+          ]
+        ]
+      }
+    ]
+  }
+}

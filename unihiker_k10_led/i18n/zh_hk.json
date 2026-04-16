@@ -1,0 +1,36 @@
+{
+  "toolbox_name": "K10 RGB燈",
+  "k10_rgb_brightness": {
+    "message0": "設定RGB燈亮度 %1",
+    "tooltip": "設定K10板載RGB燈的亮度"
+  },
+  "k10_rgb_write": {
+    "message0": "設定RGB燈 編號 %1 紅 %2 綠 %3 藍 %4",
+    "tooltip": "設定K10板載RGB燈的顏色",
+    "args0": [
+      {
+        "options": [
+          [
+            "全部",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "2",
+            "1"
+          ],
+          [
+            "3",
+            "2"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  }
+}

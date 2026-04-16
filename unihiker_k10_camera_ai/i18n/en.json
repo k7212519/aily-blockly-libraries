@@ -1,0 +1,188 @@
+{
+  "toolbox_name": "K10 Camera & AI",
+  "k10_camera_init": {
+    "message0": "init camera",
+    "tooltip": "Initialize K10 camera"
+  },
+  "k10_camera_show": {
+    "message0": "show camera view",
+    "tooltip": "Show camera live view on screen"
+  },
+  "k10_photo_save": {
+    "message0": "save photo to TF card filename %1",
+    "tooltip": "Take photo and save to TF card"
+  },
+  "k10_ai_init": {
+    "message0": "init AI mode %1",
+    "tooltip": "Initialize AI vision",
+    "args0": [
+      {
+        "options": [
+          [
+            "Face detection",
+            "Face"
+          ],
+          [
+            "Cat detection",
+            "Cat"
+          ],
+          [
+            "Motion detection",
+            "Move"
+          ],
+          [
+            "QR code scan",
+            "Code"
+          ],
+          [
+            "Face recognition",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_switch_mode": {
+    "message0": "switch AI mode %1",
+    "tooltip": "Switch AI detection mode",
+    "args0": [
+      {
+        "options": [
+          [
+            "Face detection",
+            "Face"
+          ],
+          [
+            "Cat detection",
+            "Cat"
+          ],
+          [
+            "Motion detection",
+            "Move"
+          ],
+          [
+            "QR code scan",
+            "Code"
+          ],
+          [
+            "Face recognition",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_is_detected": {
+    "message0": "AI detected %1",
+    "tooltip": "Return whether AI detected a target",
+    "args0": [
+      {
+        "options": [
+          [
+            "Face",
+            "Face"
+          ],
+          [
+            "Cat",
+            "Cat"
+          ],
+          [
+            "Motion",
+            "Move"
+          ],
+          [
+            "QR code",
+            "Code"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_face_data": {
+    "message0": "get face %1 data",
+    "tooltip": "Get face detection data",
+    "args0": [
+      {
+        "options": [
+          [
+            "Center X",
+            "CenterX"
+          ],
+          [
+            "Center Y",
+            "CenterY"
+          ],
+          [
+            "Width",
+            "Length"
+          ],
+          [
+            "Height",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_cat_data": {
+    "message0": "get cat face %1 data",
+    "tooltip": "Get cat face detection data",
+    "args0": [
+      {
+        "options": [
+          [
+            "Center X",
+            "CenterX"
+          ],
+          [
+            "Center Y",
+            "CenterY"
+          ],
+          [
+            "Width",
+            "Length"
+          ],
+          [
+            "Height",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_qrcode": {
+    "message0": "get QR code content",
+    "tooltip": "Get QR code content detected by AI"
+  },
+  "k10_ai_set_motion_threshold": {
+    "message0": "set motion detection threshold %1",
+    "tooltip": "Set motion detection sensitivity threshold"
+  },
+  "k10_ai_face_recognized": {
+    "message0": "face recognized",
+    "tooltip": "Return whether a face has been recognized"
+  },
+  "k10_ai_get_face_id": {
+    "message0": "get recognized face ID",
+    "tooltip": "Get recognized face ID"
+  },
+  "k10_ai_face_cmd": {
+    "message0": "face recognition %1 ID %2",
+    "tooltip": "Add or delete face",
+    "args0": [
+      {
+        "options": [
+          [
+            "Add face",
+            "ENROLL"
+          ],
+          [
+            "Delete face",
+            "DELETE"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

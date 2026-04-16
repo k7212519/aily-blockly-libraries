@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10 Parole",
+  "k10_asr_init": {
+    "message0": "initialiser reconnaissance vocale",
+    "tooltip": "Initialiser la reconnaissance vocale K10"
+  },
+  "k10_asr_add_command": {
+    "message0": "ajouter commande vocale ID %1 mot-clé %2",
+    "tooltip": "Ajouter un mot de commande de reconnaissance vocale"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "assistant vocal activé",
+    "tooltip": "Vérifier si l'assistant vocal est activé"
+  },
+  "k10_asr_is_detected": {
+    "message0": "commande vocale détectée ID %1",
+    "tooltip": "Vérifier si la commande vocale avec l'ID spécifié est détectée"
+  },
+  "k10_asr_speak": {
+    "message0": "parler %1",
+    "tooltip": "Utiliser TTS pour prononcer du texte"
+  },
+  "k10_asr_set_speed": {
+    "message0": "définir vitesse de parole %1",
+    "tooltip": "Définir la vitesse de parole TTS",
+    "args0": [
+      {
+        "options": [
+          [
+            "Très lent",
+            "1"
+          ],
+          [
+            "Lent",
+            "3"
+          ],
+          [
+            "Normal",
+            "5"
+          ],
+          [
+            "Rapide",
+            "7"
+          ],
+          [
+            "Très rapide",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

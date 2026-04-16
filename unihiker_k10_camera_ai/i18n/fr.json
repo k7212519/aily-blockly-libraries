@@ -1,0 +1,188 @@
+{
+  "toolbox_name": "K10 Caméra & IA",
+  "k10_camera_init": {
+    "message0": "initialiser la caméra",
+    "tooltip": "Initialiser la caméra K10"
+  },
+  "k10_camera_show": {
+    "message0": "afficher la vue caméra",
+    "tooltip": "Afficher la vue en direct de la caméra"
+  },
+  "k10_photo_save": {
+    "message0": "enregistrer photo sur carte TF nom %1",
+    "tooltip": "Prendre une photo et l'enregistrer sur la carte TF"
+  },
+  "k10_ai_init": {
+    "message0": "initialiser IA mode %1",
+    "tooltip": "Initialiser la vision IA",
+    "args0": [
+      {
+        "options": [
+          [
+            "Détection visage",
+            "Face"
+          ],
+          [
+            "Détection chat",
+            "Cat"
+          ],
+          [
+            "Détection mouvement",
+            "Move"
+          ],
+          [
+            "Scan QR code",
+            "Code"
+          ],
+          [
+            "Reconnaissance faciale",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_switch_mode": {
+    "message0": "changer mode IA %1",
+    "tooltip": "Changer le mode de détection IA",
+    "args0": [
+      {
+        "options": [
+          [
+            "Détection visage",
+            "Face"
+          ],
+          [
+            "Détection chat",
+            "Cat"
+          ],
+          [
+            "Détection mouvement",
+            "Move"
+          ],
+          [
+            "Scan QR code",
+            "Code"
+          ],
+          [
+            "Reconnaissance faciale",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_is_detected": {
+    "message0": "AI détecté %1",
+    "tooltip": "Retourne si l'IA a détecté une cible",
+    "args0": [
+      {
+        "options": [
+          [
+            "Visage",
+            "Face"
+          ],
+          [
+            "Chat",
+            "Cat"
+          ],
+          [
+            "Mouvement",
+            "Move"
+          ],
+          [
+            "Code QR",
+            "Code"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_face_data": {
+    "message0": "obtenir données visage %1",
+    "tooltip": "Obtenir les données de détection de visage",
+    "args0": [
+      {
+        "options": [
+          [
+            "Centre X",
+            "CenterX"
+          ],
+          [
+            "Centre Y",
+            "CenterY"
+          ],
+          [
+            "Largeur",
+            "Length"
+          ],
+          [
+            "Hauteur",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_cat_data": {
+    "message0": "obtenir données visage chat %1",
+    "tooltip": "Obtenir les données de détection de visage de chat",
+    "args0": [
+      {
+        "options": [
+          [
+            "Centre X",
+            "CenterX"
+          ],
+          [
+            "Centre Y",
+            "CenterY"
+          ],
+          [
+            "Largeur",
+            "Length"
+          ],
+          [
+            "Hauteur",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_qrcode": {
+    "message0": "obtenir contenu QR code",
+    "tooltip": "Obtenir le contenu du QR code détecté par l'IA"
+  },
+  "k10_ai_set_motion_threshold": {
+    "message0": "définir seuil détection mouvement %1",
+    "tooltip": "Définir le seuil de sensibilité de détection de mouvement"
+  },
+  "k10_ai_face_recognized": {
+    "message0": "visage reconnu",
+    "tooltip": "Retourne si un visage a été reconnu"
+  },
+  "k10_ai_get_face_id": {
+    "message0": "obtenir ID visage reconnu",
+    "tooltip": "Obtenir l'ID du visage reconnu"
+  },
+  "k10_ai_face_cmd": {
+    "message0": "reconnaissance faciale %1 ID %2",
+    "tooltip": "Ajouter ou supprimer un visage",
+    "args0": [
+      {
+        "options": [
+          [
+            "Ajouter visage",
+            "ENROLL"
+          ],
+          [
+            "Supprimer visage",
+            "DELETE"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

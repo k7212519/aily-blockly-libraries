@@ -1,0 +1,134 @@
+{
+  "toolbox_name": "K10 Anzeige",
+  "k10_init_screen": {
+    "message0": "K10-Bildschirm initialisieren Richtung %1",
+    "tooltip": "UNIHIKER K10 Bildschirm initialisieren und Leinwand erstellen",
+    "args0": [
+      {
+        "options": [
+          [
+            "Vorwärts",
+            "2"
+          ],
+          [
+            "Rückwärts",
+            "0"
+          ],
+          [
+            "Links Querformat",
+            "1"
+          ],
+          [
+            "Rechts Querformat",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_set_background": {
+    "message0": "Hintergrundfarbe setzen %1",
+    "tooltip": "Bildschirm-Hintergrundfarbe setzen"
+  },
+  "k10_draw_point": {
+    "message0": "Punkt zeichnen X %1 Y %2 Farbe %3",
+    "tooltip": "Punkt auf dem Bildschirm zeichnen"
+  },
+  "k10_draw_line": {
+    "message0": "Linie zeichnen von X %1 Y %2 nach X %3 Y %4 Farbe %5",
+    "tooltip": "Linie auf dem Bildschirm zeichnen"
+  },
+  "k10_set_line_width": {
+    "message0": "Linienbreite setzen %1",
+    "tooltip": "Linienbreite zum Zeichnen setzen"
+  },
+  "k10_draw_circle": {
+    "message0": "Kreis zeichnen Mitte X %1 Y %2 Radius %3 Randfarbe %4 Füllfarbe %5 Füllen %6",
+    "tooltip": "Kreis auf dem Bildschirm zeichnen"
+  },
+  "k10_draw_rectangle": {
+    "message0": "Rechteck zeichnen X %1 Y %2 Breite %3 Höhe %4 Randfarbe %5 Füllfarbe %6 Füllen %7",
+    "tooltip": "Rechteck auf dem Bildschirm zeichnen"
+  },
+  "k10_draw_text_simple": {
+    "message0": "Text anzeigen %1 Größe %2 Farbe %3",
+    "tooltip": "Text auf dem Bildschirm anzeigen (einfach, auto Layout)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Klein",
+            "1"
+          ],
+          [
+            "Mittel",
+            "2"
+          ],
+          [
+            "Groß",
+            "3"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_text": {
+    "message0": "Text anzeigen %1 X %2 Y %3 Farbe %4 Schrift %5 Zeichen pro Zeile %6",
+    "tooltip": "Text an bestimmter Position anzeigen",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Schrift 16",
+            "eCNAndENFont16"
+          ],
+          [
+            "Schrift 24",
+            "eCNAndENFont24"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_bitmap": {
+    "message0": "Integriertes Bild anzeigen X %1 Y %2 Breite %3 Höhe %4",
+    "tooltip": "Integriertes Bild anzeigen"
+  },
+  "k10_draw_image": {
+    "message0": "TF-Karten-Bild anzeigen Pfad %1 X %2 Y %3",
+    "tooltip": "Bild von TF-Karte laden und anzeigen"
+  },
+  "k10_draw_qrcode": {
+    "message0": "QR-Code anzeigen Inhalt %1",
+    "tooltip": "QR-Code auf dem Bildschirm anzeigen"
+  },
+  "k10_update_canvas": {
+    "message0": "Leinwand aktualisieren",
+    "tooltip": "Leinwand-Anzeige aktualisieren"
+  },
+  "k10_clear_canvas": {
+    "message0": "Leinwand löschen %1",
+    "tooltip": "Leinwand löschen",
+    "args0": [
+      {
+        "options": [
+          [
+            "Alles löschen",
+            "0"
+          ],
+          [
+            "Textebene löschen",
+            "1"
+          ]
+        ]
+      }
+    ]
+  }
+}
