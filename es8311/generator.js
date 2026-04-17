@@ -1,15 +1,506 @@
 /**
- * ES8311 Audio Codec Library - Blockly Code Generator
- * Supports: Init, Record, Play, Volume, Mic Gain, Save WAV
+ * ES8311 Audio Codec Library Generator
+ * ESP32 I2S audio record/playback with optional Qwen Omni cloud audio chat.
  */
+'use strict';
 
-// ==================== ES8311 Init ====================
+function ensureEs8311QwenState(generator) {
+  generator.addVariable('es8311_qwen_api_key', 'String es8311_qwen_api_key = "";');
+  generator.addVariable('es8311_qwen_base_url', 'String es8311_qwen_base_url = "";');
+  generator.addVariable('es8311_qwen_last_text', 'String es8311_qwen_last_text = "";');
+  generator.addVariable('es8311_qwen_last_success', 'bool es8311_qwen_last_success = false;');
+  generator.addVariable('es8311_qwen_last_error', 'String es8311_qwen_last_error = "";');
+  generator.addVariable('es8311_qwen_stop_requested', 'bool es8311_qwen_stop_requested = false;');
+}
+
+function ensureEs8311QwenSupport(generator) {
+  ensureEs8311QwenState(generator);
+
+  generator.addLibrary('WiFiClientSecure', '#include <WiFiClientSecure.h>');
+  generator.addLibrary('ArduinoJson', '#include <ArduinoJson.h>');
+  generator.addLibrary('mbedtls_base64', '#include <mbedtls/base64.h>');
+  generator.addLibrary('driver_i2s', '#include "driver/i2s.h"');
+  generator.addLibrary('ES8311Audio', '#include <ES8311Audio.h>');
+
+  generator.addFunction('es8311_qwen_json_escape', String.raw`
+String es8311_qwen_json_escape(String input) {
+  input.replace("\\", "\\\\");
+  input.replace("\"", "\\\"");
+  input.replace("\n", "\\n");
+  input.replace("\r", "\\r");
+  input.replace("\t", "\\t");
+  return input;
+}`);
+
+  generator.addFunction('es8311_qwen_parse_base_url', String.raw`
+bool es8311_qwen_parse_base_url(String baseUrl, String &host, uint16_t &port, String &basePath) {
+  host = "";
+  port = 443;
+  basePath = "";
+
+  if (!baseUrl.startsWith("https://")) {
+    return false;
+  }
+
+  baseUrl = baseUrl.substring(8);
+  int slashIndex = baseUrl.indexOf('/');
+  String hostPort = slashIndex >= 0 ? baseUrl.substring(0, slashIndex) : baseUrl;
+  basePath = slashIndex >= 0 ? baseUrl.substring(slashIndex) : "";
+
+  int colonIndex = hostPort.indexOf(':');
+  if (colonIndex >= 0) {
+    host = hostPort.substring(0, colonIndex);
+    port = (uint16_t)hostPort.substring(colonIndex + 1).toInt();
+  } else {
+    host = hostPort;
+  }
+
+  return host.length() > 0 && port > 0;
+}`);
+
+  generator.addFunction('es8311_qwen_base64_encoded_length', String.raw`
+size_t es8311_qwen_base64_encoded_length(size_t inputLength) {
+  return ((inputLength + 2) / 3) * 4;
+}`);
+
+  generator.addFunction('es8311_qwen_base64_emit_block', String.raw`
+void es8311_qwen_base64_emit_block(Client &out, const uint8_t* data, size_t len, char* outBuf, size_t &outPos) {
+  static const char* table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  uint32_t block = 0;
+  block |= ((uint32_t)data[0]) << 16;
+  if (len > 1) block |= ((uint32_t)data[1]) << 8;
+  if (len > 2) block |= (uint32_t)data[2];
+
+  if (outPos + 4 > 384) {
+    out.write((const uint8_t*)outBuf, outPos);
+    outPos = 0;
+  }
+
+  outBuf[outPos++] = table[(block >> 18) & 0x3F];
+  outBuf[outPos++] = table[(block >> 12) & 0x3F];
+  outBuf[outPos++] = len > 1 ? table[(block >> 6) & 0x3F] : '=';
+  outBuf[outPos++] = len > 2 ? table[block & 0x3F] : '=';
+}`);
+
+  generator.addFunction('es8311_qwen_base64_stream_write', String.raw`
+void es8311_qwen_base64_stream_write(Client &out, const uint8_t* data, size_t len, uint8_t* tail, size_t &tailLen) {
+  char outBuf[384];
+  size_t outPos = 0;
+
+  if (tailLen > 0) {
+    while (tailLen < 3 && len > 0) {
+      tail[tailLen++] = *data++;
+      len--;
+    }
+    if (tailLen == 3) {
+      es8311_qwen_base64_emit_block(out, tail, 3, outBuf, outPos);
+      tailLen = 0;
+    }
+  }
+
+  while (len >= 3) {
+    es8311_qwen_base64_emit_block(out, data, 3, outBuf, outPos);
+    data += 3;
+    len -= 3;
+  }
+
+  while (len > 0) {
+    tail[tailLen++] = *data++;
+    len--;
+  }
+
+  if (outPos > 0) {
+    out.write((const uint8_t*)outBuf, outPos);
+  }
+}`);
+
+  generator.addFunction('es8311_qwen_base64_stream_flush', String.raw`
+void es8311_qwen_base64_stream_flush(Client &out, uint8_t* tail, size_t tailLen) {
+  if (tailLen == 0) return;
+
+  char outBuf[4];
+  size_t outPos = 0;
+  es8311_qwen_base64_emit_block(out, tail, tailLen, outBuf, outPos);
+  if (outPos > 0) {
+    out.write((const uint8_t*)outBuf, outPos);
+  }
+}`);
+
+  generator.addFunction('es8311_qwen_write_u16_le', String.raw`
+void es8311_qwen_write_u16_le(uint8_t* dest, uint16_t value) {
+  dest[0] = (uint8_t)(value & 0xFF);
+  dest[1] = (uint8_t)((value >> 8) & 0xFF);
+}`);
+
+  generator.addFunction('es8311_qwen_write_u32_le', String.raw`
+void es8311_qwen_write_u32_le(uint8_t* dest, uint32_t value) {
+  dest[0] = (uint8_t)(value & 0xFF);
+  dest[1] = (uint8_t)((value >> 8) & 0xFF);
+  dest[2] = (uint8_t)((value >> 16) & 0xFF);
+  dest[3] = (uint8_t)((value >> 24) & 0xFF);
+}`);
+
+  generator.addFunction('es8311_qwen_build_wav_header', String.raw`
+void es8311_qwen_build_wav_header(uint8_t* header, uint32_t dataSize, uint32_t sampleRate) {
+  memset(header, 0, 44);
+  memcpy(header, "RIFF", 4);
+  es8311_qwen_write_u32_le(header + 4, dataSize + 36);
+  memcpy(header + 8, "WAVE", 4);
+  memcpy(header + 12, "fmt ", 4);
+  es8311_qwen_write_u32_le(header + 16, 16);
+  es8311_qwen_write_u16_le(header + 20, 1);
+  es8311_qwen_write_u16_le(header + 22, 1);
+  es8311_qwen_write_u32_le(header + 24, sampleRate);
+  es8311_qwen_write_u32_le(header + 28, sampleRate * 2);
+  es8311_qwen_write_u16_le(header + 32, 2);
+  es8311_qwen_write_u16_le(header + 34, 16);
+  memcpy(header + 36, "data", 4);
+  es8311_qwen_write_u32_le(header + 40, dataSize);
+}`);
+
+  generator.addFunction('es8311_qwen_write_wav_as_base64', String.raw`
+bool es8311_qwen_write_wav_as_base64(Client &out, ES8311Audio &audio) {
+  int16_t* pcmBuffer = audio.getBuffer();
+  size_t pcmBytes = audio.getBufferSize();
+  if (pcmBuffer == nullptr || pcmBytes == 0) {
+    return false;
+  }
+
+  uint8_t wavHeader[44];
+  uint8_t tail[3] = {0, 0, 0};
+  size_t tailLen = 0;
+  const uint8_t* pcmBytesPtr = (const uint8_t*)pcmBuffer;
+  size_t remaining = pcmBytes;
+
+  es8311_qwen_build_wav_header(wavHeader, (uint32_t)pcmBytes, 16000);
+  es8311_qwen_base64_stream_write(out, wavHeader, sizeof(wavHeader), tail, tailLen);
+
+  while (remaining > 0) {
+    size_t chunk = remaining > 2048 ? 2048 : remaining;
+    es8311_qwen_base64_stream_write(out, pcmBytesPtr, chunk, tail, tailLen);
+    pcmBytesPtr += chunk;
+    remaining -= chunk;
+  }
+
+  es8311_qwen_base64_stream_flush(out, tail, tailLen);
+  return true;
+}`);
+
+  generator.addFunction('es8311_qwen_write_i2s_all', String.raw`
+bool es8311_qwen_write_i2s_all(const uint8_t* data, size_t len) {
+  size_t offset = 0;
+  while (offset < len) {
+    size_t sent = 0;
+    esp_err_t err = i2s_write(I2S_NUM_0, data + offset, len - offset, &sent, portMAX_DELAY);
+    if (err != ESP_OK) {
+      return false;
+    }
+    if (sent == 0) {
+      continue;
+    }
+    offset += sent;
+  }
+  return true;
+}`);
+
+  generator.addFunction('es8311_qwen_play_audio_chunk', String.raw`
+bool es8311_qwen_play_audio_chunk(const char* base64Data) {
+  static uint8_t* decodedBuffer = nullptr;
+  static size_t decodedCapacity = 0;
+  static int16_t leftoverSamples[2] = {0, 0};
+  static size_t leftoverCount = 0;
+  static int16_t* mergedBuffer = nullptr;
+  static size_t mergedCapacity = 0;
+  static int16_t* downsampledBuffer = nullptr;
+  static size_t downsampledCapacity = 0;
+
+  if (base64Data == nullptr || base64Data[0] == '\0') {
+    return true;
+  }
+
+  size_t inputLength = strlen(base64Data);
+  size_t requiredLength = ((inputLength + 3) / 4) * 3 + 4;
+  if (requiredLength > decodedCapacity) {
+    uint8_t* newBuffer = (uint8_t*)realloc(decodedBuffer, requiredLength);
+    if (newBuffer == nullptr) {
+      return false;
+    }
+    decodedBuffer = newBuffer;
+    decodedCapacity = requiredLength;
+  }
+
+  size_t outputLength = 0;
+  int decodeResult = mbedtls_base64_decode(
+    decodedBuffer,
+    decodedCapacity,
+    &outputLength,
+    (const unsigned char*)base64Data,
+    inputLength
+  );
+
+  if (decodeResult != 0 || outputLength == 0) {
+    return false;
+  }
+
+  size_t inputSampleCount = outputLength / sizeof(int16_t);
+  if (inputSampleCount == 0) {
+    return true;
+  }
+
+  size_t mergedCount = leftoverCount + inputSampleCount;
+  if (mergedCount > mergedCapacity) {
+    int16_t* newMerged = (int16_t*)realloc(mergedBuffer, mergedCount * sizeof(int16_t));
+    if (newMerged == nullptr) {
+      return false;
+    }
+    mergedBuffer = newMerged;
+    mergedCapacity = mergedCount;
+  }
+
+  for (size_t i = 0; i < leftoverCount; ++i) {
+    mergedBuffer[i] = leftoverSamples[i];
+  }
+  memcpy(mergedBuffer + leftoverCount, decodedBuffer, inputSampleCount * sizeof(int16_t));
+
+  size_t estimatedOutputCount = (mergedCount / 3) * 2 + 2;
+  if (estimatedOutputCount > downsampledCapacity) {
+    int16_t* newDownsampled = (int16_t*)realloc(downsampledBuffer, estimatedOutputCount * sizeof(int16_t));
+    if (newDownsampled == nullptr) {
+      return false;
+    }
+    downsampledBuffer = newDownsampled;
+    downsampledCapacity = estimatedOutputCount;
+  }
+
+  size_t outCount = 0;
+  size_t index = 0;
+  while (index + 2 < mergedCount) {
+    downsampledBuffer[outCount++] = mergedBuffer[index];
+    downsampledBuffer[outCount++] = (int16_t)(((int32_t)mergedBuffer[index + 1] + (int32_t)mergedBuffer[index + 2]) / 2);
+    index += 3;
+  }
+
+  leftoverCount = mergedCount - index;
+  for (size_t i = 0; i < leftoverCount; ++i) {
+    leftoverSamples[i] = mergedBuffer[index + i];
+  }
+
+  if (outCount == 0) {
+    return true;
+  }
+
+  return es8311_qwen_write_i2s_all((const uint8_t*)downsampledBuffer, outCount * sizeof(int16_t));
+}`);
+
+  generator.addFunction('es8311_qwen_restore_local_i2s', String.raw`
+void es8311_qwen_restore_local_i2s() {
+  i2s_set_clk(I2S_NUM_0, 16000, I2S_BITS_PER_SAMPLE_16BIT, I2S_CHANNEL_MONO);
+  i2s_zero_dma_buffer(I2S_NUM_0);
+}`);
+
+  generator.addFunction('es8311_qwen_audio_chat_request', String.raw`
+String es8311_qwen_audio_chat_request(ES8311Audio &audio, String model, String prompt) {
+  es8311_qwen_last_success = false;
+  es8311_qwen_last_error = "";
+  es8311_qwen_last_text = "";
+  es8311_qwen_stop_requested = false;
+
+  if (es8311_qwen_api_key.length() == 0) {
+    es8311_qwen_last_error = "Missing API key";
+    return "";
+  }
+
+  if (es8311_qwen_base_url.length() == 0) {
+    es8311_qwen_last_error = "Missing base URL";
+    return "";
+  }
+
+  if (audio.getBuffer() == nullptr || audio.getBufferSize() == 0) {
+    es8311_qwen_last_error = "No recording";
+    return "";
+  }
+
+  String host = "";
+  String basePath = "";
+  uint16_t port = 443;
+  if (!es8311_qwen_parse_base_url(es8311_qwen_base_url, host, port, basePath)) {
+    es8311_qwen_last_error = "Invalid base URL";
+    return "";
+  }
+
+  String path = basePath;
+  if (path.endsWith("/")) {
+    path.remove(path.length() - 1);
+  }
+  path += "/chat/completions";
+  if (!path.startsWith("/")) {
+    path = "/" + path;
+  }
+
+  size_t pcmBytes = audio.getBufferSize();
+  size_t totalWavBytes = 44 + pcmBytes;
+  size_t base64Length = es8311_qwen_base64_encoded_length(totalWavBytes);
+  String safePrompt = es8311_qwen_json_escape(prompt);
+
+  String jsonPrefix = "{\"model\":\"" + model + "\",\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"input_audio\",\"input_audio\":{\"data\":\"data:;base64,";
+  String jsonSuffix = "\",\"format\":\"wav\"}},{\"type\":\"text\",\"text\":\"" + safePrompt + "\"}]}],\"modalities\":[\"text\",\"audio\"],\"audio\":{\"voice\":\"Tina\",\"format\":\"wav\"},\"stream\":true,\"stream_options\":{\"include_usage\":true}}";
+  size_t contentLength = (size_t)jsonPrefix.length() + base64Length + (size_t)jsonSuffix.length();
+
+  WiFiClientSecure client;
+  client.setInsecure();
+  client.setTimeout(60000);
+
+  if (!client.connect(host.c_str(), port)) {
+    es8311_qwen_last_error = "Connect failed";
+    return "";
+  }
+
+  client.print("POST ");
+  client.print(path);
+  client.print(" HTTP/1.1\r\n");
+  client.print("Host: ");
+  client.print(host);
+  client.print("\r\n");
+  client.print("User-Agent: Aily-ES8311\r\n");
+  client.print("Connection: close\r\n");
+  client.print("Accept: text/event-stream\r\n");
+  client.print("Cache-Control: no-cache\r\n");
+  client.print("Content-Type: application/json\r\n");
+  client.print("Authorization: Bearer ");
+  client.print(es8311_qwen_api_key);
+  client.print("\r\n");
+  client.print("Content-Length: ");
+  client.print(String(contentLength));
+  client.print("\r\n\r\n");
+
+  client.print(jsonPrefix);
+  if (!es8311_qwen_write_wav_as_base64(client, audio)) {
+    client.stop();
+    es8311_qwen_last_error = "WAV encode failed";
+    return "";
+  }
+  client.print(jsonSuffix);
+
+  String statusLine = client.readStringUntil('\n');
+  statusLine.trim();
+  int httpCode = 0;
+  int firstSpace = statusLine.indexOf(' ');
+  if (firstSpace >= 0) {
+    int secondSpace = statusLine.indexOf(' ', firstSpace + 1);
+    if (secondSpace > firstSpace) {
+      httpCode = statusLine.substring(firstSpace + 1, secondSpace).toInt();
+    }
+  }
+
+  while (client.connected()) {
+    String headerLine = client.readStringUntil('\n');
+    if (headerLine == "\r" || headerLine.length() == 0) {
+      break;
+    }
+  }
+
+  if (httpCode != 200) {
+    String errorBody = client.readString();
+    errorBody.trim();
+    if (errorBody.length() > 120) {
+      errorBody = errorBody.substring(0, 120);
+    }
+    client.stop();
+    es8311_qwen_last_error = errorBody.length() > 0 ? "HTTP " + String(httpCode) + ": " + errorBody : "HTTP " + String(httpCode);
+    es8311_qwen_restore_local_i2s();
+    return "";
+  }
+
+  bool gotResponseChunk = false;
+  String lineBuffer = "";
+  unsigned long lastDataMs = millis();
+
+  while (client.connected() || client.available()) {
+    if (es8311_qwen_stop_requested) {
+      client.stop();
+      es8311_qwen_last_error = "Stopped";
+      es8311_qwen_restore_local_i2s();
+      return "";
+    }
+
+    if (client.available()) {
+      char ch = (char)client.read();
+      lineBuffer += ch;
+
+      if (ch == '\n') {
+        String line = lineBuffer;
+        lineBuffer = "";
+        line.trim();
+
+        if (line.startsWith("data:")) {
+          String data = line.substring(5);
+          data.trim();
+
+          if (data == "[DONE]") {
+            break;
+          }
+
+          JsonDocument doc;
+          DeserializationError error = deserializeJson(doc, data);
+          if (!error) {
+            JsonArray choices = doc["choices"].as<JsonArray>();
+            if (!choices.isNull() && choices.size() > 0) {
+              JsonObject delta = choices[0]["delta"].as<JsonObject>();
+              const char* content = delta["content"];
+              const char* audioData = delta["audio"]["data"];
+
+              if (content != nullptr && content[0] != '\0') {
+                es8311_qwen_last_text += String(content);
+                Serial.print(content);
+                gotResponseChunk = true;
+              }
+
+              if (audioData != nullptr && audioData[0] != '\0') {
+                if (!es8311_qwen_play_audio_chunk(audioData)) {
+                  client.stop();
+                  es8311_qwen_last_error = "Audio decode failed";
+                  es8311_qwen_restore_local_i2s();
+                  return "";
+                }
+                gotResponseChunk = true;
+              }
+            }
+          }
+        }
+      }
+
+      lastDataMs = millis();
+    } else {
+      if (!client.connected()) {
+        break;
+      }
+      if (millis() - lastDataMs > 65000) {
+        break;
+      }
+      delay(1);
+    }
+  }
+
+  client.stop();
+  es8311_qwen_restore_local_i2s();
+
+  if (!gotResponseChunk) {
+    es8311_qwen_last_error = "Empty response";
+    return "";
+  }
+
+  es8311_qwen_last_success = true;
+  es8311_qwen_last_error = "";
+  return es8311_qwen_last_text;
+}`);
+}
+
 Arduino.forBlock['es8311_init'] = function(block, generator) {
-  // Variable rename listener
-  if (!block._es8311VarMonitorAttached) {
-    block._es8311VarMonitorAttached = true;
-    block._es8311VarLastName = block.getFieldValue('VAR') || 'es8311';
-    registerVariableToBlockly(block._es8311VarLastName, 'ES8311');
+  const es8311Type = 'ES8311';
+
+  if (!block._varMonitorAttached) {
+    block._varMonitorAttached = true;
+    block._varLastName = block.getFieldValue('VAR') || 'audio';
     const varField = block.getField('VAR');
     if (varField) {
       const originalFinishEditing = varField.onFinishEditing_;
@@ -18,364 +509,167 @@ Arduino.forBlock['es8311_init'] = function(block, generator) {
           originalFinishEditing.call(this, newName);
         }
         const workspace = block.workspace || (typeof Blockly !== 'undefined' && Blockly.getMainWorkspace && Blockly.getMainWorkspace());
-        const oldName = block._es8311VarLastName;
+        const oldName = block._varLastName;
         if (workspace && newName && newName !== oldName) {
-          renameVariableInBlockly(block, oldName, newName, 'ES8311');
-          block._es8311VarLastName = newName;
+          renameVariableInBlockly(block, oldName, newName, es8311Type);
+          block._varLastName = newName;
         }
       };
     }
   }
 
-  const varName = block.getFieldValue('VAR') || 'es8311';
+  const varName = block.getFieldValue('VAR') || 'audio';
   const wire = block.getFieldValue('WIRE') || 'Wire';
-  const sampleRate = block.getFieldValue('SAMPLE_RATE') || '16000';
+  const address = block.getFieldValue('ADDRESS') || '0x18';
 
-  const sda = generator.valueToCode(block, 'SDA', generator.ORDER_ATOMIC) || '41';
-  const scl = generator.valueToCode(block, 'SCL', generator.ORDER_ATOMIC) || '42';
-  const mclk = generator.valueToCode(block, 'MCLK', generator.ORDER_ATOMIC) || '46';
-  const bclk = generator.valueToCode(block, 'BCLK', generator.ORDER_ATOMIC) || '39';
-  const lrck = generator.valueToCode(block, 'LRCK', generator.ORDER_ATOMIC) || '2';
-  const din = generator.valueToCode(block, 'DIN', generator.ORDER_ATOMIC) || '38';
-  const dout = generator.valueToCode(block, 'DOUT', generator.ORDER_ATOMIC) || '40';
-  const recordSeconds = generator.valueToCode(block, 'RECORD_SECONDS', generator.ORDER_ATOMIC) || '3';
-
-  // Libraries
   generator.addLibrary('Wire', '#include <Wire.h>');
-  generator.addLibrary('driver_i2s', '#include "driver/i2s.h"');
-  generator.addLibrary('FS', '#include <FS.h>');
-  generator.addLibrary('SPIFFS', '#include <SPIFFS.h>');
-  generator.addLibrary('SD', '#include <SD.h>');
-  ensureSerialBegin('Serial', generator, 115200);
+  generator.addLibrary('ES8311Audio', '#include <ES8311Audio.h>');
 
-  // Global variables
-  generator.addObject('es8311_addr_' + varName, 'uint8_t ' + varName + '_addr = 0x18;');
-  generator.addObject('es8311_buf_' + varName, 'int16_t* ' + varName + '_audioBuf = nullptr;');
-  generator.addObject('es8311_samples_' + varName, 'size_t ' + varName + '_audioSamples = ' + sampleRate + ' * ' + recordSeconds + ';');
-  generator.addObject('es8311_has_rec_' + varName, 'bool ' + varName + '_hasRecording = false;');
+  registerVariableToBlockly(varName, es8311Type);
+  generator.addObject(varName, 'ES8311Audio ' + varName + ';');
+  generator.addSetup('wire_' + wire + '_begin', wire + '.begin();');
+  ensureSerialBegin('Serial', generator);
 
-  // Register helper: es8311 write register
-  const esWriteRegFunc = 'bool ' + varName + '_writeReg(uint8_t reg, uint8_t val) {\n' +
-    '  ' + wire + '.beginTransmission(' + varName + '_addr);\n' +
-    '  ' + wire + '.write(reg);\n' +
-    '  ' + wire + '.write(val);\n' +
-    '  return (' + wire + '.endTransmission() == 0);\n' +
-    '}\n';
-  generator.addFunction(varName + '_writeReg', esWriteRegFunc, true);
+  return varName + '.beginI2C(' + wire + ', ' + address + ');\n';
+};
 
-  // Register helper: es8311 read register
-  const esReadRegFunc = 'bool ' + varName + '_readReg(uint8_t reg, uint8_t &val) {\n' +
-    '  ' + wire + '.beginTransmission(' + varName + '_addr);\n' +
-    '  ' + wire + '.write(reg);\n' +
-    '  if (' + wire + '.endTransmission(false) != 0) return false;\n' +
-    '  if (' + wire + '.requestFrom((int)' + varName + '_addr, 1) != 1) return false;\n' +
-    '  val = ' + wire + '.read();\n' +
-    '  return true;\n' +
-    '}\n';
-  generator.addFunction(varName + '_readReg', esReadRegFunc, true);
+Arduino.forBlock['es8311_i2s_config'] = function(block, generator) {
+  const varName = block.getFieldValue('VAR') || 'audio';
+  const mck = block.getFieldValue('MCK') || '46';
+  const bck = block.getFieldValue('BCK') || '39';
+  const ws = block.getFieldValue('WS') || '2';
+  const dout = block.getFieldValue('DOUT') || '38';
+  const din = block.getFieldValue('DIN') || '40';
+  const duration = generator.valueToCode(block, 'DURATION', generator.ORDER_ATOMIC) || '5';
 
-  // Register helper: init ES8311 registers
-  const initRegsFunc = 'bool ' + varName + '_initRegs() {\n' +
-    '  delay(20);\n' +
-    '  if (!' + varName + '_writeReg(0x44, 0x08)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x44, 0x08)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x01, 0x30)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x02, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x03, 0x10)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x16, 0x24)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x04, 0x10)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x05, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x0B, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x0C, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x10, 0x1F)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x11, 0x7F)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x00, 0x80)) return false;\n' +
-    '  uint8_t reg00 = 0;\n' +
-    '  if (!' + varName + '_readReg(0x00, reg00)) return false;\n' +
-    '  reg00 &= 0xBF;\n' +
-    '  if (!' + varName + '_writeReg(0x00, reg00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x01, 0x3F)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x09, 0x0C)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x0A, 0x0C)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x17, 0xBF)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x0E, 0x02)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x12, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x14, 0x1A)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x0D, 0x01)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x15, 0x40)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x37, 0x08)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x45, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x44, 0x58)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x31, 0x00)) return false;\n' +
-    '  if (!' + varName + '_writeReg(0x32, 0xBF)) return false;\n' +
-    '  return true;\n' +
-    '}\n';
-  generator.addFunction(varName + '_initRegs', initRegsFunc, true);
+  generator.addLibrary('ES8311Audio', '#include <ES8311Audio.h>');
 
-  // Register helper: init I2S
-  const initI2SFunc = 'bool ' + varName + '_initI2S() {\n' +
-    '  i2s_driver_uninstall(I2S_NUM_0);\n' +
-    '  i2s_config_t cfg = {};\n' +
-    '  cfg.mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_TX | I2S_MODE_RX);\n' +
-    '  cfg.sample_rate = ' + sampleRate + ';\n' +
-    '  cfg.bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT;\n' +
-    '  cfg.channel_format = I2S_CHANNEL_FMT_ONLY_LEFT;\n' +
-    '  cfg.communication_format = I2S_COMM_FORMAT_STAND_I2S;\n' +
-    '  cfg.intr_alloc_flags = ESP_INTR_FLAG_LEVEL1;\n' +
-    '  cfg.dma_buf_count = 8;\n' +
-    '  cfg.dma_buf_len = 256;\n' +
-    '  cfg.use_apll = false;\n' +
-    '  cfg.tx_desc_auto_clear = true;\n' +
-    '  cfg.fixed_mclk = ' + sampleRate + ' * 256;\n' +
-    '  if (i2s_driver_install(I2S_NUM_0, &cfg, 0, nullptr) != ESP_OK) return false;\n' +
-    '  i2s_pin_config_t pins = {};\n' +
-    '  pins.mck_io_num = ' + mclk + ';\n' +
-    '  pins.bck_io_num = ' + bclk + ';\n' +
-    '  pins.ws_io_num = ' + lrck + ';\n' +
-    '  pins.data_out_num = ' + din + ';\n' +
-    '  pins.data_in_num = ' + dout + ';\n' +
-    '  if (i2s_set_pin(I2S_NUM_0, &pins) != ESP_OK) return false;\n' +
-    '  if (i2s_set_clk(I2S_NUM_0, ' + sampleRate + ', I2S_BITS_PER_SAMPLE_16BIT, I2S_CHANNEL_MONO) != ESP_OK) return false;\n' +
-    '  i2s_zero_dma_buffer(I2S_NUM_0);\n' +
-    '  return true;\n' +
-    '}\n';
-  generator.addFunction(varName + '_initI2S', initI2SFunc, true);
+  return varName + '.beginI2S(' + mck + ', ' + bck + ', ' + ws + ', ' + dout + ', ' + din + ', ' + duration + ');\n';
+};
 
-  // Register helper: record
-  const recordFunc = 'bool ' + varName + '_record() {\n' +
-    '  const size_t totalBytes = ' + varName + '_audioSamples * sizeof(int16_t);\n' +
-    '  size_t offset = 0;\n' +
-    '  Serial.printf("[REC] start, bytes=%u\\n", (unsigned)totalBytes);\n' +
-    '  while (offset < totalBytes) {\n' +
-    '    size_t want = totalBytes - offset;\n' +
-    '    if (want > 2048) want = 2048;\n' +
-    '    size_t got = 0;\n' +
-    '    esp_err_t err = i2s_read(I2S_NUM_0, (uint8_t*)' + varName + '_audioBuf + offset, want, &got, portMAX_DELAY);\n' +
-    '    if (err != ESP_OK) {\n' +
-    '      Serial.printf("[REC] i2s_read error=%d\\n", (int)err);\n' +
-    '      return false;\n' +
-    '    }\n' +
-    '    if (got == 0) continue;\n' +
-    '    offset += got;\n' +
-    '  }\n' +
-    '  ' + varName + '_hasRecording = true;\n' +
-    '  Serial.println("[REC] done");\n' +
-    '  return true;\n' +
-    '}\n';
-  generator.addFunction(varName + '_record', recordFunc, true);
+Arduino.forBlock['es8311_record'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  return varName + '.record();\n';
+};
 
-  // Register helper: play
-  const playFunc = 'bool ' + varName + '_play() {\n' +
-    '  if (!' + varName + '_hasRecording) {\n' +
-    '    Serial.println("[PLAY] no recording yet");\n' +
-    '    return false;\n' +
-    '  }\n' +
-    '  const size_t totalBytes = ' + varName + '_audioSamples * sizeof(int16_t);\n' +
-    '  size_t offset = 0;\n' +
-    '  Serial.printf("[PLAY] start, bytes=%u\\n", (unsigned)totalBytes);\n' +
-    '  while (offset < totalBytes) {\n' +
-    '    size_t want = totalBytes - offset;\n' +
-    '    if (want > 2048) want = 2048;\n' +
-    '    size_t sent = 0;\n' +
-    '    esp_err_t err = i2s_write(I2S_NUM_0, (uint8_t*)' + varName + '_audioBuf + offset, want, &sent, portMAX_DELAY);\n' +
-    '    if (err != ESP_OK) {\n' +
-    '      Serial.printf("[PLAY] i2s_write error=%d\\n", (int)err);\n' +
-    '      return false;\n' +
-    '    }\n' +
-    '    offset += sent;\n' +
-    '  }\n' +
-    '  Serial.println("[PLAY] done");\n' +
-    '  return true;\n' +
-    '}\n';
-  generator.addFunction(varName + '_play', playFunc, true);
+Arduino.forBlock['es8311_play'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  return varName + '.play();\n';
+};
 
-  // Register helper: fill WAV header
-  const wavHeaderFunc = 'void ' + varName + '_fillWavHeader(uint8_t *hdr, uint32_t dataBytes) {\n' +
-    '  const uint32_t sampleRate = ' + sampleRate + ';\n' +
-    '  const uint16_t channels = 1;\n' +
-    '  const uint16_t bitsPerSample = 16;\n' +
-    '  const uint32_t byteRate = sampleRate * channels * (bitsPerSample / 8);\n' +
-    '  const uint16_t blockAlign = channels * (bitsPerSample / 8);\n' +
-    '  const uint32_t riffSize = 36 + dataBytes;\n' +
-    '  memcpy(hdr + 0, "RIFF", 4);\n' +
-    '  hdr[4] = (uint8_t)(riffSize & 0xFF);\n' +
-    '  hdr[5] = (uint8_t)((riffSize >> 8) & 0xFF);\n' +
-    '  hdr[6] = (uint8_t)((riffSize >> 16) & 0xFF);\n' +
-    '  hdr[7] = (uint8_t)((riffSize >> 24) & 0xFF);\n' +
-    '  memcpy(hdr + 8, "WAVE", 4);\n' +
-    '  memcpy(hdr + 12, "fmt ", 4);\n' +
-    '  hdr[16] = 16; hdr[17] = 0; hdr[18] = 0; hdr[19] = 0;\n' +
-    '  hdr[20] = 1;  hdr[21] = 0;\n' +
-    '  hdr[22] = channels; hdr[23] = 0;\n' +
-    '  hdr[24] = (uint8_t)(sampleRate & 0xFF);\n' +
-    '  hdr[25] = (uint8_t)((sampleRate >> 8) & 0xFF);\n' +
-    '  hdr[26] = (uint8_t)((sampleRate >> 16) & 0xFF);\n' +
-    '  hdr[27] = (uint8_t)((sampleRate >> 24) & 0xFF);\n' +
-    '  hdr[28] = (uint8_t)(byteRate & 0xFF);\n' +
-    '  hdr[29] = (uint8_t)((byteRate >> 8) & 0xFF);\n' +
-    '  hdr[30] = (uint8_t)((byteRate >> 16) & 0xFF);\n' +
-    '  hdr[31] = (uint8_t)((byteRate >> 24) & 0xFF);\n' +
-    '  hdr[32] = (uint8_t)(blockAlign & 0xFF);\n' +
-    '  hdr[33] = (uint8_t)((blockAlign >> 8) & 0xFF);\n' +
-    '  hdr[34] = bitsPerSample;\n' +
-    '  hdr[35] = 0;\n' +
-    '  memcpy(hdr + 36, "data", 4);\n' +
-    '  hdr[40] = (uint8_t)(dataBytes & 0xFF);\n' +
-    '  hdr[41] = (uint8_t)((dataBytes >> 8) & 0xFF);\n' +
-    '  hdr[42] = (uint8_t)((dataBytes >> 16) & 0xFF);\n' +
-    '  hdr[43] = (uint8_t)((dataBytes >> 24) & 0xFF);\n' +
-    '}\n';
-  generator.addFunction(varName + '_fillWavHeader', wavHeaderFunc, true);
+Arduino.forBlock['es8311_has_recording'] = function(block, generator) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  return [varName + '.hasRecording()', generator.ORDER_FUNCTION_CALL];
+};
 
-  // Register helper: save WAV to filesystem
-  const saveWavFunc = 'bool ' + varName + '_saveWav(const char* path) {\n' +
-    '  if (!' + varName + '_hasRecording) {\n' +
-    '    Serial.println("[WAV] no recording yet");\n' +
-    '    return false;\n' +
-    '  }\n' +
-    '  fs::FS* fs = nullptr;\n' +
-    '  if (SPIFFS.begin(true)) fs = &SPIFFS;\n' +
-    '  else if (SD.begin()) fs = &SD;\n' +
-    '  if (!fs) {\n' +
-    '    Serial.println("[WAV] no FS available");\n' +
-    '    return false;\n' +
-    '  }\n' +
-    '  File f = fs->open(path, FILE_WRITE);\n' +
-    '  if (!f) {\n' +
-    '    Serial.printf("[WAV] open failed: %s\\n", path);\n' +
-    '    return false;\n' +
-    '  }\n' +
-    '  uint32_t dataBytes = (uint32_t)(' + varName + '_audioSamples * sizeof(int16_t));\n' +
-    '  uint8_t hdr[44] = {0};\n' +
-    '  ' + varName + '_fillWavHeader(hdr, dataBytes);\n' +
-    '  if (f.write(hdr, sizeof(hdr)) != sizeof(hdr)) { f.close(); return false; }\n' +
-    '  const uint8_t* src = (const uint8_t*)' + varName + '_audioBuf;\n' +
-    '  size_t left = dataBytes;\n' +
-    '  while (left > 0) {\n' +
-    '    size_t chunk = left > 2048 ? 2048 : left;\n' +
-    '    if (f.write(src, chunk) != chunk) { f.close(); return false; }\n' +
-    '    src += chunk;\n' +
-    '    left -= chunk;\n' +
-    '  }\n' +
-    '  f.close();\n' +
-    '  Serial.printf("[WAV] saved: %s\\n", path);\n' +
-    '  return true;\n' +
-    '}\n';
-  generator.addFunction(varName + '_saveWav', saveWavFunc, true);
+Arduino.forBlock['es8311_set_volume'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const volume = block.getFieldValue('VOLUME');
+  return varName + '.setVolume(' + volume + ');\n';
+};
 
-  // Wire initialization with I2C de-duplication
-  const wireBeginKey = 'wire_' + wire + '_begin';
-  if (!generator.setupCodes_ || !generator.setupCodes_[wireBeginKey]) {
-    generator.addSetupBegin(wireBeginKey, wire + '.begin(' + sda + ', ' + scl + ', 400000);\n');
-  }
+Arduino.forBlock['es8311_set_mic_gain'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const gain = block.getFieldValue('GAIN') || '0';
+  return varName + '.setMicGain(' + gain + ');\n';
+};
 
-  // Generate init code
+Arduino.forBlock['es8311_stop'] = function(block, generator) {
+  ensureEs8311QwenState(generator);
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  return 'es8311_qwen_stop_requested = true;\n' + varName + '.stop();\n';
+};
+
+Arduino.forBlock['es8311_sound_detected'] = function(block, generator) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const threshold = block.getFieldValue('THRESHOLD');
+  return [varName + '.soundDetected(' + threshold + ')', generator.ORDER_FUNCTION_CALL];
+};
+
+Arduino.forBlock['es8311_mute'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const mode = block.getFieldValue('MODE') || '0';
+  return varName + '.mute(' + mode + ');\n';
+};
+
+Arduino.forBlock['es8311_play_tone'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const freq = block.getFieldValue('FREQ');
+  const duration = block.getFieldValue('DURATION');
+  return varName + '.playTone(' + freq + ', ' + duration + ');\n';
+};
+
+Arduino.forBlock['es8311_alc_enable'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const enable = block.getFieldValue('ENABLE') || 'true';
+  return varName + '.alcEnable(' + enable + ');\n';
+};
+
+Arduino.forBlock['es8311_record_slot'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const slot = block.getFieldValue('SLOT') || '0';
+  return varName + '.recordSlot(' + slot + ');\n';
+};
+
+Arduino.forBlock['es8311_play_slot'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  const slot = block.getFieldValue('SLOT') || '0';
+  return varName + '.playSlot(' + slot + ');\n';
+};
+
+Arduino.forBlock['es8311_play_loop'] = function(block) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'audio';
+  return varName + '.playLoop();\n';
+};
+
+Arduino.forBlock['es8311_qwen_config'] = function(block, generator) {
+  ensureEs8311QwenSupport(generator);
+  const apiKey = generator.valueToCode(block, 'API_KEY', generator.ORDER_ATOMIC) || '""';
+  const baseUrl = generator.valueToCode(block, 'BASE_URL', generator.ORDER_ATOMIC) || '"https://dashscope.aliyuncs.com/compatible-mode/v1"';
+
   let code = '';
-  code += '// Scan ES8311 I2C address\n';
-  code += 'bool _found18 = false, _found30 = false;\n';
-  code += wire + '.beginTransmission(0x18); _found18 = (' + wire + '.endTransmission() == 0);\n';
-  code += wire + '.beginTransmission(0x30); _found30 = (' + wire + '.endTransmission() == 0);\n';
-  code += 'if (_found18) ' + varName + '_addr = 0x18;\n';
-  code += 'else if (_found30) ' + varName + '_addr = 0x30;\n';
-  code += 'else { Serial.println("ES8311 not found on I2C!"); return; }\n';
-  code += 'Serial.printf("ES8311 found at 0x%02X\\n", ' + varName + '_addr);\n';
-  code += '\n';
-  code += '// Allocate audio buffer\n';
-  code += varName + '_audioBuf = (int16_t*)malloc(' + varName + '_audioSamples * sizeof(int16_t));\n';
-  code += 'if (!' + varName + '_audioBuf) { Serial.println("Audio buffer alloc failed!"); return; }\n';
-  code += '\n';
-  code += '// Init ES8311 registers\n';
-  code += 'if (!' + varName + '_initRegs()) { Serial.println("ES8311 init failed!"); return; }\n';
-  code += 'Serial.println("ES8311 init OK");\n';
-  code += '\n';
-  code += '// Init I2S\n';
-  code += 'if (!' + varName + '_initI2S()) { Serial.println("I2S init failed!"); return; }\n';
-  code += 'Serial.println("ES8311 I2S init OK");\n';
-
+  code += 'es8311_qwen_api_key = ' + apiKey + ';\n';
+  code += 'es8311_qwen_base_url = ' + baseUrl + ';\n';
+  code += 'es8311_qwen_last_success = false;\n';
+  code += 'es8311_qwen_last_error = "";\n';
+  code += 'es8311_qwen_last_text = "";\n';
+  code += 'es8311_qwen_stop_requested = false;\n';
   return code;
 };
 
-// ==================== ES8311 Record ====================
-Arduino.forBlock['es8311_record'] = function(block, generator) {
+Arduino.forBlock['es8311_qwen_audio_chat'] = function(block, generator) {
+  ensureEs8311QwenSupport(generator);
   const varField = block.getField('VAR');
-  const varName = varField ? varField.getText() : 'es8311';
-
-  generator.addLibrary('driver_i2s', '#include "driver/i2s.h"');
-  ensureSerialBegin('Serial', generator, 115200);
-
-  return varName + '_record();\n';
+  const varName = varField ? varField.getText() : 'audio';
+  const prompt = generator.valueToCode(block, 'PROMPT', generator.ORDER_ATOMIC) || '"What does this audio say?"';
+  const model = block.getFieldValue('MODEL') || 'qwen3.5-omni-plus';
+  return 'es8311_qwen_audio_chat_request(' + varName + ', "' + model + '", ' + prompt + ');\n';
 };
 
-// ==================== ES8311 Play ====================
-Arduino.forBlock['es8311_play'] = function(block, generator) {
-  const varField = block.getField('VAR');
-  const varName = varField ? varField.getText() : 'es8311';
-
-  generator.addLibrary('driver_i2s', '#include "driver/i2s.h"');
-  ensureSerialBegin('Serial', generator, 115200);
-
-  return varName + '_play();\n';
+Arduino.forBlock['es8311_qwen_get_last_text'] = function(block, generator) {
+  ensureEs8311QwenState(generator);
+  return ['es8311_qwen_last_text', generator.ORDER_ATOMIC];
 };
 
-// ==================== ES8311 Set Volume ====================
-Arduino.forBlock['es8311_set_volume'] = function(block, generator) {
-  const varField = block.getField('VAR');
-  const varName = varField ? varField.getText() : 'es8311';
-  const volume = generator.valueToCode(block, 'VOLUME', generator.ORDER_ATOMIC) || '191';
-
-  generator.addLibrary('Wire', '#include <Wire.h>');
-  ensureSerialBegin('Serial', generator, 115200);
-
-  // Generate inline volume set
-  let code = '';
-  code += 'if (' + varName + '_writeReg(0x32, (uint8_t)(' + volume + '))) {\n';
-  code += '  Serial.printf("[VOL] DAC set to %d\\n", (int)(' + volume + '));\n';
-  code += '} else {\n';
-  code += '  Serial.println("[VOL] set failed");\n';
-  code += '}\n';
-
-  return code;
+Arduino.forBlock['es8311_qwen_get_last_success'] = function(block, generator) {
+  ensureEs8311QwenState(generator);
+  return ['es8311_qwen_last_success', generator.ORDER_ATOMIC];
 };
 
-// ==================== ES8311 Set Mic Gain ====================
-Arduino.forBlock['es8311_set_mic_gain'] = function(block, generator) {
-  const varField = block.getField('VAR');
-  const varName = varField ? varField.getText() : 'es8311';
-  const gain = generator.valueToCode(block, 'GAIN', generator.ORDER_ATOMIC) || '4';
-
-  generator.addLibrary('Wire', '#include <Wire.h>');
-  ensureSerialBegin('Serial', generator, 115200);
-
-  let code = '';
-  code += '{\n';
-  code += '  uint8_t _step = (uint8_t)(' + gain + ');\n';
-  code += '  if (_step > 8) _step = 8;\n';
-  code += '  uint8_t reg16 = 0;\n';
-  code += '  if (' + varName + '_readReg(0x16, reg16)) {\n';
-  code += '    reg16 = (uint8_t)((reg16 & 0xF0) | (_step & 0x0F));\n';
-  code += '    if (' + varName + '_writeReg(0x16, reg16)) {\n';
-  code += '      Serial.printf("[GAIN] ADC PGA step=%u\\n", _step);\n';
-  code += '    } else {\n';
-  code += '      Serial.println("[GAIN] write failed");\n';
-  code += '    }\n';
-  code += '  } else {\n';
-  code += '    Serial.println("[GAIN] read failed");\n';
-  code += '  }\n';
-  code += '}\n';
-
-  return code;
-};
-
-// ==================== ES8311 Save WAV ====================
-Arduino.forBlock['es8311_save_wav'] = function(block, generator) {
-  const varField = block.getField('VAR');
-  const varName = varField ? varField.getText() : 'es8311';
-  const path = generator.valueToCode(block, 'PATH', generator.ORDER_ATOMIC) || '"/rec_001.wav"';
-
-  generator.addLibrary('FS', '#include <FS.h>');
-  generator.addLibrary('SPIFFS', '#include <SPIFFS.h>');
-  generator.addLibrary('SD', '#include <SD.h>');
-  ensureSerialBegin('Serial', generator, 115200);
-
-  return varName + '_saveWav(' + path + ');\n';
+Arduino.forBlock['es8311_qwen_get_last_error'] = function(block, generator) {
+  ensureEs8311QwenState(generator);
+  return ['es8311_qwen_last_error', generator.ORDER_ATOMIC];
 };
