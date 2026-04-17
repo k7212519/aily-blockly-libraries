@@ -1,0 +1,93 @@
+{
+  "toolbox_name": "ES8311オーディオ",
+  "es8311_init": {
+    "message0": "ES8311 オーディオコーデック初期化 %1 I2C %2 アドレス %3",
+    "tooltip": "ES8311 I2C通信を初期化し、I2Cバスとデバイスアドレスを設定",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["0x18 (デフォルト)", "0x18"],
+          ["0x30", "0x30"]
+        ]
+      }
+    ]
+  },
+  "es8311_i2s_config": {
+    "message0": "ES8311 %1 I2S設定 MCK %2 BCK %3 WS %4 DOUT %5 DIN %6 録音時間(秒) %7",
+    "tooltip": "ES8311 I2Sオーディオピンと録音時間を設定"
+  },
+  "es8311_record": {
+    "message0": "ES8311 %1 録音開始",
+    "tooltip": "録音を開始、時間は初期化ブロックで設定"
+  },
+  "es8311_play": {
+    "message0": "ES8311 %1 再生開始",
+    "tooltip": "録音済みオーディオを再生"
+  },
+  "es8311_has_recording": {
+    "message0": "ES8311 %1 録音あり",
+    "tooltip": "オーディオが録音済みかどうかを確認"
+  },
+  "es8311_set_volume": {
+    "message0": "ES8311 %1 音量設定 %2",
+    "tooltip": "ES8311 出力音量を設定（0~100）"
+  },
+  "es8311_set_mic_gain": {
+    "message0": "ES8311 %1 マイクゲイン設定 %2",
+    "tooltip": "ES8311 マイクアナログゲインを設定（0~42dB、6dBステップ）"
+  },
+  "es8311_stop": {
+    "message0": "ES8311 %1 録音/再生停止",
+    "tooltip": "現在の録音または再生を停止し、I2S DMAバッファをクリア"
+  },
+  "es8311_sound_detected": {
+    "message0": "ES8311 %1 音検出 しきい値 %2",
+    "tooltip": "環境音がしきい値（0~100）を超えたか検出、超えた場合trueを返す"
+  },
+  "es8311_mute": {
+    "message0": "ES8311 %1 %2",
+    "tooltip": "ES8311 ミュート状態を制御",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["ミュート解除", "0"],
+          ["出力ミュート", "1"],
+          ["マイクミュート", "2"],
+          ["全ミュート", "3"]
+        ]
+      }
+    ]
+  },
+  "es8311_play_tone": {
+    "message0": "ES8311 %1 トーン再生 周波数 %2 Hz 持続 %3 ms",
+    "tooltip": "指定周波数の正弦波トーンを生成して再生"
+  },
+  "es8311_alc_enable": {
+    "message0": "ES8311 %1 自動ゲイン制御 %2",
+    "tooltip": "ES8311 自動レベル制御（ALC）を有効/無効にする",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["有効", "true"],
+          ["無効", "false"]
+        ]
+      }
+    ]
+  },
+  "es8311_record_slot": {
+    "message0": "ES8311 %1 スロット %2 に録音",
+    "tooltip": "指定スロット（0~3）に録音、各スロットは独立して保存"
+  },
+  "es8311_play_slot": {
+    "message0": "ES8311 %1 スロット %2 を再生",
+    "tooltip": "指定スロットの録音を再生"
+  },
+  "es8311_play_loop": {
+    "message0": "ES8311 %1 ループ再生",
+    "tooltip": "録音済みオーディオを停止するまでループ再生"
+  }
+}
