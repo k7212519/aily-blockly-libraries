@@ -26,11 +26,10 @@ Arduino.forBlock['k10_camera_init'] = function(block, generator) {
   return '';
 };
 
-// ========== 摄像头背景开关 ==========
+// ========== 显示摄像头画面 ==========
 Arduino.forBlock['k10_camera_show'] = function(block, generator) {
-  var show = block.getFieldValue('SHOW');
   ensureK10(generator);
-  return 'k10.setBgCamerImage(' + show + ');\n';
+  return 'k10.setBgCamerImage(true);\n';
 };
 
 // ========== 拍照保存 ==========
