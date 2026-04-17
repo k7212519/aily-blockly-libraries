@@ -7,16 +7,18 @@ function ensureK10(generator) {
 
 // ========== 按键轮询 ==========
 Arduino.forBlock['k10_button_pressed'] = function(block, generator) {
-  var button = block.getFieldValue('BUTTON');
+  var button = block.getFieldValue('BTN');
   ensureK10(generator);
   return ['(k10.' + button + '->isPressed())', generator.ORDER_ATOMIC];
 };
 
-// ========== 按键回调（hat block）==========
+// ========== 按键回调 ==========
 Arduino.forBlock['k10_button_callback'] = function(block, generator) {
-  var button = block.getFieldValue('BUTTON');
-  var handlerCode = generator.statementToCode(block, 'HANDLER') || '';
-  var callbackName = 'onK10_' + button + '_Pressed';
+  var button = block.getFieldValue('BTN');
+  var event = block.getFieldValue('EVENT');
+  var handlerCode = generator.statementToCode(block, 'DO') || '';
+  var eventCap = event.charAt(0).toUpperCase() + event.slice(1);
+  var callbackName = 'onK10_' + button + '_' + eventCap;
 
   ensureK10(generator);
 
@@ -26,7 +28,7 @@ Arduino.forBlock['k10_button_callback'] = function(block, generator) {
   generator.addFunction(callbackName, functionDef);
 
   // Register callback in setup
-  generator.addSetupEnd(callbackName + '_reg', 'k10.' + button + '->setPressedCallback(' + callbackName + ');');
+  generator.addSetupEnd(callbackName + '_reg', 'k10.' + button + '->set' + eventCap + 'Callback(' + callbackName + ');');
 
   return '';
 };
