@@ -17,6 +17,7 @@ Arduino.forBlock['k10_button_callback'] = function(block, generator) {
   var button = block.getFieldValue('BTN');
   var event = block.getFieldValue('EVENT');
   var handlerCode = generator.statementToCode(block, 'DO') || '';
+  var setterName = (event === 'released') ? 'setUnPressedCallback' : 'setPressedCallback';
   var eventCap = event.charAt(0).toUpperCase() + event.slice(1);
   var callbackName = 'onK10_' + button + '_' + eventCap;
 
@@ -28,7 +29,7 @@ Arduino.forBlock['k10_button_callback'] = function(block, generator) {
   generator.addFunction(callbackName, functionDef);
 
   // Register callback in setup
-  generator.addSetupEnd(callbackName + '_reg', 'k10.' + button + '->set' + eventCap + 'Callback(' + callbackName + ');');
+  generator.addSetupEnd(callbackName + '_reg', 'k10.' + button + '->' + setterName + '(' + callbackName + ');');
 
   return '';
 };
