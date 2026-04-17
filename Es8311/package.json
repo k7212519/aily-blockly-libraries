@@ -42,7 +42,11 @@
     "recording",
     "playback",
     "microphone",
-    "speaker"
+    "speaker",
+    "qwen",
+    "dashscope",
+    "audio-understanding",
+    "voice-chat"
   ],
   "scripts": {},
   "dependencies": {},
