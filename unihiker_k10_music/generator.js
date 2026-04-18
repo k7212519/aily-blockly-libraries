@@ -26,16 +26,19 @@ Arduino.forBlock['k10_music_play_tone'] = function(block, generator) {
 
 // ========== 录音保存到TF卡 ==========
 Arduino.forBlock['k10_music_record'] = function(block, generator) {
-  var path = generator.valueToCode(block, 'PATH', generator.ORDER_ATOMIC) || '"S:/sound.wav"';
-  var seconds = block.getFieldValue('SECONDS');
+  var cmd = block.getFieldValue('CMD');
+  var path = generator.valueToCode(block, 'FILENAME', generator.ORDER_ATOMIC) || '"S:/sound.wav"';
   ensureMusic(generator);
-  generator.addSetupBegin('k10_initSDFile', 'k10.initSDFile();');
-  return 'music.recordSaveToTFCard(' + path + ', ' + seconds + ');\n';
+  if (cmd === 'start') {
+    generator.addSetupBegin('k10_initSDFile', 'k10.initSDFile();');
+    return 'music.recordSaveToTFCard(' + path + ');\n';
+  }
+  return 'music.stopRecord();\n';
 };
 
 // ========== 播放TF卡音频 ==========
 Arduino.forBlock['k10_music_play_tf'] = function(block, generator) {
-  var path = generator.valueToCode(block, 'PATH', generator.ORDER_ATOMIC) || '"S:/sound.wav"';
+  var path = generator.valueToCode(block, 'FILENAME', generator.ORDER_ATOMIC) || '"S:/sound.wav"';
   ensureMusic(generator);
   return 'music.playTFCardAudio(' + path + ');\n';
 };

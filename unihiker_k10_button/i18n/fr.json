@@ -8,11 +8,15 @@
         "options": [
           [
             "A",
-            "BtnA"
+            "buttonA"
           ],
           [
             "B",
-            "BtnB"
+            "buttonB"
+          ],
+          [
+            "A+B",
+            "buttonAB"
           ]
         ]
       }
@@ -26,11 +30,15 @@
         "options": [
           [
             "A",
-            "BtnA"
+            "buttonA"
           ],
           [
             "B",
-            "BtnB"
+            "buttonB"
+          ],
+          [
+            "A+B",
+            "buttonAB"
           ]
         ]
       },

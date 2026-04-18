@@ -12,17 +12,15 @@ function ensureASR(generator) {
 
 // ========== 初始化语音识别 ==========
 Arduino.forBlock['k10_asr_init'] = function(block, generator) {
-  var lang = block.getFieldValue('LANG');
-  var timeout = block.getFieldValue('TIMEOUT');
   ensureASR(generator);
-  generator.addSetupBegin('asr_init', 'asr.asrInit(CONTINUOUS, ' + lang + ', ' + timeout + ');');
+  generator.addSetupBegin('asr_init', 'asr.asrInit(CONTINUOUS, ZH, 10);');
   generator.addSetupBegin('asr_wait', 'while(asr._asrState == 0){delay(100);}');
   return '';
 };
 
 // ========== 添加语音命令 ==========
 Arduino.forBlock['k10_asr_add_command'] = function(block, generator) {
-  var id = block.getFieldValue('ID');
+  var id = generator.valueToCode(block, 'ID', generator.ORDER_ATOMIC) || '0';
   var keyword = generator.valueToCode(block, 'KEYWORD', generator.ORDER_ATOMIC) || '""';
   ensureASR(generator);
   return 'asr.addASRCommand(' + id + ', ' + keyword + ');\n';
@@ -36,7 +34,7 @@ Arduino.forBlock['k10_asr_is_wakeup'] = function(block, generator) {
 
 // ========== 识别到命令 ==========
 Arduino.forBlock['k10_asr_is_detected'] = function(block, generator) {
-  var id = block.getFieldValue('ID');
+  var id = generator.valueToCode(block, 'ID', generator.ORDER_ATOMIC) || '0';
   ensureASR(generator);
   return ['asr.isDetectCmdID(' + id + ')', generator.ORDER_ATOMIC];
 };

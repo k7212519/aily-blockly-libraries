@@ -11,8 +11,12 @@ Arduino.forBlock['k10_get_accelerometer'] = function(block, generator) {
   return ['(k10.getAccelerometer' + axis + '())', generator.ORDER_ATOMIC];
 };
 
-// ========== 获取运动强度 ==========
+// ========== 获取光线/声音强度 ==========
 Arduino.forBlock['k10_get_strength'] = function(block, generator) {
+  var type = block.getFieldValue('TYPE');
   ensureK10(generator);
-  return ['(k10.getStrength())', generator.ORDER_ATOMIC];
+  if (type === 'sound') {
+    return ['(k10.readSOUND())', generator.ORDER_ATOMIC];
+  }
+  return ['(k10.readALS())', generator.ORDER_ATOMIC];
 };
