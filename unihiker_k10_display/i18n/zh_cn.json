@@ -1,0 +1,134 @@
+{
+  "toolbox_name": "K10屏幕显示",
+  "k10_init_screen": {
+    "message0": "初始化K10屏幕 方向 %1",
+    "tooltip": "初始化UNIHIKER K10屏幕并创建画布",
+    "args0": [
+      {
+        "options": [
+          [
+            "正向",
+            "2"
+          ],
+          [
+            "反向",
+            "0"
+          ],
+          [
+            "左横屏",
+            "1"
+          ],
+          [
+            "右横屏",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_set_background": {
+    "message0": "设置屏幕背景颜色 %1",
+    "tooltip": "设置屏幕背景颜色"
+  },
+  "k10_draw_point": {
+    "message0": "画点 X %1 Y %2 颜色 %3",
+    "tooltip": "在屏幕上画一个点"
+  },
+  "k10_draw_line": {
+    "message0": "画线 起点X %1 Y %2 终点X %3 Y %4 颜色 %5",
+    "tooltip": "在屏幕上画一条线"
+  },
+  "k10_set_line_width": {
+    "message0": "设置线宽 %1",
+    "tooltip": "设置画线的线宽"
+  },
+  "k10_draw_circle": {
+    "message0": "画圆 圆心X %1 Y %2 半径 %3 边框颜色 %4 填充颜色 %5 填充 %6",
+    "tooltip": "在屏幕上画一个圆"
+  },
+  "k10_draw_rectangle": {
+    "message0": "画矩形 X %1 Y %2 宽 %3 高 %4 边框颜色 %5 填充颜色 %6 填充 %7",
+    "tooltip": "在屏幕上画一个矩形"
+  },
+  "k10_draw_text_simple": {
+    "message0": "显示文字 %1 字号 %2 颜色 %3",
+    "tooltip": "在屏幕上显示文字（简化版，自动排列）",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "小",
+            "1"
+          ],
+          [
+            "中",
+            "2"
+          ],
+          [
+            "大",
+            "3"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_text": {
+    "message0": "显示文字 %1 X %2 Y %3 颜色 %4 字体 %5 每行字数 %6",
+    "tooltip": "在屏幕指定位置显示文字",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "16号字体",
+            "eCNAndENFont16"
+          ],
+          [
+            "24号字体",
+            "eCNAndENFont24"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_bitmap": {
+    "message0": "显示内置图片 X %1 Y %2 宽 %3 高 %4",
+    "tooltip": "显示内置图片"
+  },
+  "k10_draw_image": {
+    "message0": "显示TF卡图片 路径 %1 X %2 Y %3",
+    "tooltip": "从TF卡加载并显示图片"
+  },
+  "k10_draw_qrcode": {
+    "message0": "显示二维码 内容 %1",
+    "tooltip": "在屏幕上显示二维码"
+  },
+  "k10_update_canvas": {
+    "message0": "刷新画布",
+    "tooltip": "刷新屏幕画布显示"
+  },
+  "k10_clear_canvas": {
+    "message0": "清除画布 %1",
+    "tooltip": "清除屏幕画布",
+    "args0": [
+      {
+        "options": [
+          [
+            "清除全部",
+            "0"
+          ],
+          [
+            "清除文字层",
+            "1"
+          ]
+        ]
+      }
+    ]
+  }
+}

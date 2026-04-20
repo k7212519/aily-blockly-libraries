@@ -1,0 +1,56 @@
+{
+  "toolbox_name": "K10 Música",
+  "k10_music_play_builtin": {
+    "message0": "reproduzir música integrada %1",
+    "tooltip": "Reproduzir música integrada K10",
+    "args0": [
+      {
+        "options": [
+          [
+            "Parabéns",
+            "birthday"
+          ],
+          [
+            "Brilha estrelinha",
+            "littlestar"
+          ],
+          [
+            "Jingle Bells",
+            "jinglebells"
+          ],
+          [
+            "Ode à Alegria",
+            "odeTojoy"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_music_play_tone": {
+    "message0": "reproduzir tom frequência %1 duração(ms) %2",
+    "tooltip": "Reproduzir tom com frequência e duração especificadas"
+  },
+  "k10_music_record": {
+    "message0": "gravar %1 nome do arquivo %2",
+    "tooltip": "Gravar e salvar no cartão TF",
+    "args0": [
+      {
+        "options": [
+          [
+            "Iniciar",
+            "start"
+          ],
+          [
+            "Parar",
+            "stop"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_music_play_tf": {
+    "message0": "reproduzir áudio cartão TF nome do arquivo %1",
+    "tooltip": "Reproduzir arquivo de áudio do cartão TF"
+  }
+}

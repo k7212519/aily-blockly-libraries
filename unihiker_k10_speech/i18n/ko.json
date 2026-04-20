@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10 음성",
+  "k10_asr_init": {
+    "message0": "음성 인식 초기화",
+    "tooltip": "K10 음성 인식 기능 초기화"
+  },
+  "k10_asr_add_command": {
+    "message0": "음성 명령 추가 ID %1 키워드 %2",
+    "tooltip": "음성 인식 명령어 추가"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "음성 어시스턴트 활성화됨",
+    "tooltip": "음성 어시스턴트가 활성화되었는지 확인"
+  },
+  "k10_asr_is_detected": {
+    "message0": "음성 명령 감지 ID %1",
+    "tooltip": "지정된 ID의 음성 명령이 감지되었는지 확인"
+  },
+  "k10_asr_speak": {
+    "message0": "음성 출력 %1",
+    "tooltip": "TTS로 텍스트 음성 출력"
+  },
+  "k10_asr_set_speed": {
+    "message0": "음성 속도 설정 %1",
+    "tooltip": "TTS 음성 속도 설정",
+    "args0": [
+      {
+        "options": [
+          [
+            "매우 느리게",
+            "1"
+          ],
+          [
+            "느리게",
+            "3"
+          ],
+          [
+            "보통",
+            "5"
+          ],
+          [
+            "빠르게",
+            "7"
+          ],
+          [
+            "매우 빠르게",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ SPA06 是一款基于 SPL07-003 芯片的高精度气压和温度传感器 Block
 |-------|-------|
 | Package | @aily-project/lib-seeed-spa06 |
 | Version | 0.0.1 |
-| Author | Seeed Studio / Kenneract |
+| Author | SeeedStudio / Kenneract |
 | Source | https://github.com/Seeed-Studio/Seeed_Arduino_SPA06 |
 | License | MIT |
 

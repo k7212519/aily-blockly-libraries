@@ -1,0 +1,56 @@
+{
+  "toolbox_name": "K10 음악",
+  "k10_music_play_builtin": {
+    "message0": "내장 음악 재생 %1",
+    "tooltip": "K10 내장 음악 재생",
+    "args0": [
+      {
+        "options": [
+          [
+            "생일 축하",
+            "birthday"
+          ],
+          [
+            "반짝반짝 작은별",
+            "littlestar"
+          ],
+          [
+            "징글벨",
+            "jinglebells"
+          ],
+          [
+            "환희의 송가",
+            "odeTojoy"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_music_play_tone": {
+    "message0": "톤 재생 주파수 %1 길이(ms) %2",
+    "tooltip": "지정 주파수와 길이의 톤 재생"
+  },
+  "k10_music_record": {
+    "message0": "녹음 %1 파일명 %2",
+    "tooltip": "녹음하여 TF카드에 저장",
+    "args0": [
+      {
+        "options": [
+          [
+            "시작",
+            "start"
+          ],
+          [
+            "정지",
+            "stop"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_music_play_tf": {
+    "message0": "TF카드 오디오 재생 파일명 %1",
+    "tooltip": "TF카드의 오디오 파일 재생"
+  }
+}

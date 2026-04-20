@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10语音",
+  "k10_asr_init": {
+    "message0": "初始化语音识别",
+    "tooltip": "初始化K10语音识别功能"
+  },
+  "k10_asr_add_command": {
+    "message0": "添加语音命令 ID %1 关键词 %2",
+    "tooltip": "添加语音识别命令词"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "语音助手已唤醒",
+    "tooltip": "检测语音助手是否已被唤醒"
+  },
+  "k10_asr_is_detected": {
+    "message0": "识别到语音命令 ID为 %1",
+    "tooltip": "检测是否识别到指定ID的语音命令"
+  },
+  "k10_asr_speak": {
+    "message0": "语音播报 %1",
+    "tooltip": "使用TTS语音播报文字"
+  },
+  "k10_asr_set_speed": {
+    "message0": "设置语音播报速度 %1",
+    "tooltip": "设置TTS语音播报速度",
+    "args0": [
+      {
+        "options": [
+          [
+            "很慢",
+            "1"
+          ],
+          [
+            "慢",
+            "3"
+          ],
+          [
+            "正常",
+            "5"
+          ],
+          [
+            "快",
+            "7"
+          ],
+          [
+            "很快",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

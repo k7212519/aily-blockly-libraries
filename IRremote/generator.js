@@ -86,10 +86,11 @@ Arduino.forBlock["irremote_receiver_begin"] = function (block, generator) {
   ensureIrremote(generator);
   const pin =
     generator.valueToCode(block, "PIN", generator.ORDER_ATOMIC) || "2";
+  const ledFeedback = block.getFieldValue("LED_FEEDBACK") === "TRUE";
 
   Arduino.addSetupBegin(
     "irremote_receiver_begin",
-    `  IrReceiver.begin(${pin});\n`,
+    `  IrReceiver.begin(${pin}, ${ledFeedback ? "ENABLE_LED_FEEDBACK" : "DISABLE_LED_FEEDBACK"});\n`,
   );
 
   return "";
@@ -108,6 +109,11 @@ Arduino.forBlock["irremote_on_receive"] = function (block, generator) {
   ensureIrremote(generator);
   const statements = generator.statementToCode(block, "DO");
   const userCode = statements || "";
+  const ignoreRepeat = block.getFieldValue("IGNORE_REPEAT") === "TRUE";
+
+  if (ignoreRepeat) {
+    return `if (IrReceiver.decode()) {\n  if (!(IrReceiver.decodedIRData.flags & IRDATA_FLAGS_IS_REPEAT)) {\n${userCode}  }\n  IrReceiver.resume();\n}\n`;
+  }
 
   return `if (IrReceiver.decode()) {\n${userCode}  IrReceiver.resume();\n}\n`;
 };
@@ -210,4 +216,64 @@ Arduino.forBlock["irremote_send_command"] = function (block, generator) {
     generator.valueToCode(block, "REPEAT", generator.ORDER_ATOMIC) || "0";
 
   return `IrSender.write(${protocol}, ${address}, ${command}, ${repeat});\n`;
+};
+
+Arduino.forBlock["irremote_print_result"] = function (block, generator) {
+  ensureIrremote(generator);
+  const format = block.getFieldValue("FORMAT");
+
+  switch (format) {
+    case "SEND_USAGE":
+      return "IrReceiver.printIRSendUsage(&Serial);\n";
+    case "RAW":
+      return "IrReceiver.printIRResultRawFormatted(&Serial, true);\n";
+    default:
+      return "IrReceiver.printIRResultShort(&Serial);\n";
+  }
+};
+
+Arduino.forBlock["irremote_command_equals"] = function (block, generator) {
+  ensureIrremote(generator);
+  const value =
+    generator.valueToCode(block, "VALUE", generator.ORDER_ATOMIC) || "0";
+
+  return [
+    `(IrReceiver.decodedIRData.command == ${value})`,
+    generator.ORDER_ATOMIC,
+  ];
+};
+
+Arduino.forBlock["irremote_send_nec"] = function (block, generator) {
+  ensureIrremote(generator);
+  const address =
+    generator.valueToCode(block, "ADDRESS", generator.ORDER_ATOMIC) || "0";
+  const command =
+    generator.valueToCode(block, "COMMAND", generator.ORDER_ATOMIC) || "0";
+  const repeat =
+    generator.valueToCode(block, "REPEAT", generator.ORDER_ATOMIC) || "0";
+
+  return `IrSender.sendNEC(${address}, ${command}, ${repeat});\n`;
+};
+
+Arduino.forBlock["irremote_send_raw"] = function (block, generator) {
+  ensureIrremote(generator);
+  const data =
+    generator.valueToCode(block, "DATA", generator.ORDER_ATOMIC) || '""';
+  const freq =
+    generator.valueToCode(block, "FREQ", generator.ORDER_ATOMIC) || "38";
+
+  // Strip surrounding quotes from string value
+  const rawData = data.replace(/^["'](.*)["']$/, "$1");
+
+  return `{\n  const uint16_t irRawData[] = {${rawData}};\n  IrSender.sendRaw(irRawData, sizeof(irRawData) / sizeof(irRawData[0]), ${freq});\n}\n`;
+};
+
+Arduino.forBlock["irremote_send_pronto"] = function (block, generator) {
+  ensureIrremote(generator);
+  const code =
+    generator.valueToCode(block, "CODE", generator.ORDER_ATOMIC) || '""';
+  const repeat =
+    generator.valueToCode(block, "REPEAT", generator.ORDER_ATOMIC) || "0";
+
+  return `IrSender.sendPronto(F(${code}), ${repeat});\n`;
 };

@@ -1,0 +1,36 @@
+{
+  "toolbox_name": "K10 LED RVB",
+  "k10_rgb_brightness": {
+    "message0": "définir luminosité LED RVB %1",
+    "tooltip": "Définir la luminosité des LED RVB intégrées K10"
+  },
+  "k10_rgb_write": {
+    "message0": "définir LED RVB n° %1 rouge %2 vert %3 bleu %4",
+    "tooltip": "Définir la couleur des LED RVB intégrées K10",
+    "args0": [
+      {
+        "options": [
+          [
+            "Toutes",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "2",
+            "1"
+          ],
+          [
+            "3",
+            "2"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  }
+}

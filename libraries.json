@@ -10373,7 +10373,7 @@
     "nickname": "HM3301 PM2.5传感器",
     "version": "1.0.0",
     "description": "HM3301激光粉尘传感器，I2C通讯，可检测PM1.0、PM2.5、PM10颗粒物浓度",
-    "author": "Seeed Studio",
+    "author": "SeeedStudio",
     "compatibility": {
       "core": [],
       "voltage": [
@@ -12106,5 +12106,117 @@
     "description_pt": "Biblioteca principal, geralmente já integrada ao modelo inicial",
     "description_ru": "Базовая библиотека, обычно уже интегрированная в исходный шаблон.",
     "description_ar": "المكتبة الأساسية، عادة ما تكون مدمجة بالفعل في القالب الأولي"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-display",
+    "nickname": "K10屏幕显示",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10屏幕显示库，支持绘制点、线、圆、矩形、文字、图片和二维码",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "display", "screen", "canvas"],
+    "nickname_zh_cn": "K10屏幕显示",
+    "nickname_en": "K10 Screen Display",
+    "description_zh_cn": "UNIHIKER K10屏幕显示库，支持绘制点、线、圆、矩形、文字、图片和二维码",
+    "description_en": "UNIHIKER K10 screen display library, supports drawing points, lines, circles, rectangles, text, images and QR codes"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-button",
+    "nickname": "K10按键",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10板载按键库，支持A/B/AB按键轮询和中断回调",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "button", "input"],
+    "nickname_zh_cn": "K10按键",
+    "nickname_en": "K10 Button",
+    "description_zh_cn": "UNIHIKER K10板载按键库，支持A/B/AB按键轮询和中断回调",
+    "description_en": "UNIHIKER K10 onboard button library, supports A/B/AB button polling and interrupt callbacks"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-led",
+    "nickname": "K10 RGB LED",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10板载RGB LED控制库，支持亮度和颜色设置",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "rgb", "led"],
+    "nickname_zh_cn": "K10 RGB LED",
+    "nickname_en": "K10 RGB LED",
+    "description_zh_cn": "UNIHIKER K10板载RGB LED控制库，支持亮度和颜色设置",
+    "description_en": "UNIHIKER K10 onboard RGB LED control library, supports brightness and color settings"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-sensor",
+    "nickname": "K10传感器",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10板载传感器库，支持加速度和运动强度检测",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "sensor", "accelerometer"],
+    "nickname_zh_cn": "K10传感器",
+    "nickname_en": "K10 Sensor",
+    "description_zh_cn": "UNIHIKER K10板载传感器库，支持加速度和运动强度检测",
+    "description_en": "UNIHIKER K10 onboard sensor library, supports accelerometer and motion strength detection"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-camera-ai",
+    "nickname": "K10摄像头/AI识别",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10摄像头与AI识别库，支持拍照、人脸检测/识别、猫狗检测、运动检测、二维码扫描",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "camera", "ai", "face", "qrcode"],
+    "nickname_zh_cn": "K10摄像头/AI识别",
+    "nickname_en": "K10 Camera & AI Recognition",
+    "description_zh_cn": "UNIHIKER K10摄像头与AI识别库，支持拍照、人脸检测/识别、猫狗检测、运动检测、二维码扫描",
+    "description_en": "UNIHIKER K10 camera and AI recognition library, supports photo, face detection/recognition, pet detection, motion detection, QR code scanning"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-speech",
+    "nickname": "K10语音识别/合成",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10语音识别与合成库，支持中英文语音识别、命令词检测和语音合成播报",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "speech", "asr", "tts", "voice"],
+    "nickname_zh_cn": "K10语音识别/合成",
+    "nickname_en": "K10 Speech Recognition & Synthesis",
+    "description_zh_cn": "UNIHIKER K10语音识别与合成库，支持中英文语音识别、命令词检测和语音合成播报",
+    "description_en": "UNIHIKER K10 speech recognition and synthesis library, supports Chinese/English speech recognition, command detection and TTS"
+  },
+  {
+    "name": "@aily-project/lib-unihiker-k10-music",
+    "nickname": "K10音乐/音频",
+    "version": "0.1.0",
+    "description": "UNIHIKER K10音乐与音频库，支持内置音乐播放、音调播放、TF卡录音和播放",
+    "author": "DFRobot",
+    "compatibility": {
+      "core": ["UNIHIKER:esp32:k10"],
+      "voltage": [3.3]
+    },
+    "keywords": ["aily", "blockly", "unihiker", "k10", "music", "audio", "tone", "record"],
+    "nickname_zh_cn": "K10音乐/音频",
+    "nickname_en": "K10 Music & Audio",
+    "description_zh_cn": "UNIHIKER K10音乐与音频库，支持内置音乐播放、音调播放、TF卡录音和播放",
+    "description_en": "UNIHIKER K10 music and audio library, supports built-in music, tone playback, TF card recording and playback"
   }
 ]

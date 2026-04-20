@@ -1,0 +1,36 @@
+{
+  "toolbox_name": "K10 LED RGB",
+  "k10_rgb_brightness": {
+    "message0": "تعيين سطوع LED RGB %1",
+    "tooltip": "تعيين سطوع LED RGB المدمج في K10"
+  },
+  "k10_rgb_write": {
+    "message0": "تعيين LED RGB رقم %1 أحمر %2 أخضر %3 أزرق %4",
+    "tooltip": "تعيين لون LED RGB المدمج في K10",
+    "args0": [
+      {
+        "options": [
+          [
+            "الكل",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "2",
+            "1"
+          ],
+          [
+            "3",
+            "2"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  }
+}

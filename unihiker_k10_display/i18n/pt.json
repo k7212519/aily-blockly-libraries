@@ -1,0 +1,134 @@
+{
+  "toolbox_name": "K10 Tela",
+  "k10_init_screen": {
+    "message0": "inicializar tela K10 direção %1",
+    "tooltip": "Inicializar tela UNIHIKER K10 e criar canvas",
+    "args0": [
+      {
+        "options": [
+          [
+            "Normal",
+            "2"
+          ],
+          [
+            "Invertido",
+            "0"
+          ],
+          [
+            "Paisagem esquerda",
+            "1"
+          ],
+          [
+            "Paisagem direita",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_set_background": {
+    "message0": "definir cor de fundo %1",
+    "tooltip": "Definir cor de fundo da tela"
+  },
+  "k10_draw_point": {
+    "message0": "desenhar ponto X %1 Y %2 cor %3",
+    "tooltip": "Desenhar um ponto na tela"
+  },
+  "k10_draw_line": {
+    "message0": "desenhar linha de X %1 Y %2 até X %3 Y %4 cor %5",
+    "tooltip": "Desenhar uma linha na tela"
+  },
+  "k10_set_line_width": {
+    "message0": "definir espessura da linha %1",
+    "tooltip": "Definir espessura da linha"
+  },
+  "k10_draw_circle": {
+    "message0": "desenhar círculo centro X %1 Y %2 raio %3 cor da borda %4 cor de preenchimento %5 preencher %6",
+    "tooltip": "Desenhar um círculo na tela"
+  },
+  "k10_draw_rectangle": {
+    "message0": "desenhar retângulo X %1 Y %2 largura %3 altura %4 cor da borda %5 cor de preenchimento %6 preencher %7",
+    "tooltip": "Desenhar um retângulo na tela"
+  },
+  "k10_draw_text_simple": {
+    "message0": "exibir texto %1 tamanho %2 cor %3",
+    "tooltip": "Exibir texto na tela (simples, layout auto)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Pequeno",
+            "1"
+          ],
+          [
+            "Médio",
+            "2"
+          ],
+          [
+            "Grande",
+            "3"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_text": {
+    "message0": "exibir texto %1 X %2 Y %3 cor %4 fonte %5 caracteres por linha %6",
+    "tooltip": "Exibir texto na posição especificada",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Fonte 16",
+            "eCNAndENFont16"
+          ],
+          [
+            "Fonte 24",
+            "eCNAndENFont24"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "k10_draw_bitmap": {
+    "message0": "exibir imagem integrada X %1 Y %2 largura %3 altura %4",
+    "tooltip": "Exibir imagem integrada"
+  },
+  "k10_draw_image": {
+    "message0": "exibir imagem cartão TF caminho %1 X %2 Y %3",
+    "tooltip": "Carregar e exibir imagem do cartão TF"
+  },
+  "k10_draw_qrcode": {
+    "message0": "exibir QR code conteúdo %1",
+    "tooltip": "Exibir QR code na tela"
+  },
+  "k10_update_canvas": {
+    "message0": "atualizar canvas",
+    "tooltip": "Atualizar exibição do canvas"
+  },
+  "k10_clear_canvas": {
+    "message0": "limpar canvas %1",
+    "tooltip": "Limpar canvas",
+    "args0": [
+      {
+        "options": [
+          [
+            "Limpar tudo",
+            "0"
+          ],
+          [
+            "Limpar camada texto",
+            "1"
+          ]
+        ]
+      }
+    ]
+  }
+}

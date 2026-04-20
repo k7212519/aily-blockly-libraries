@@ -66,7 +66,7 @@
       "variants": [
         {
           "id": "seeed",
-          "name": "Seeed Studio Grove",
+          "name": "SeeedStudio Grove",
           "fullId": "lib-dht:dht20:seeed",
           "pinmapFile": "pinmaps/dht20_seeed.json",
           "protocol": "i2c",

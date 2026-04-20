@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10 Voz",
+  "k10_asr_init": {
+    "message0": "inicializar reconhecimento de voz",
+    "tooltip": "Inicializar reconhecimento de voz K10"
+  },
+  "k10_asr_add_command": {
+    "message0": "adicionar comando de voz ID %1 palavra-chave %2",
+    "tooltip": "Adicionar palavra de comando de reconhecimento de voz"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "assistente de voz ativado",
+    "tooltip": "Verificar se o assistente de voz foi ativado"
+  },
+  "k10_asr_is_detected": {
+    "message0": "comando de voz detectado ID %1",
+    "tooltip": "Verificar se o comando de voz com o ID especificado foi detectado"
+  },
+  "k10_asr_speak": {
+    "message0": "falar %1",
+    "tooltip": "Usar TTS para falar texto"
+  },
+  "k10_asr_set_speed": {
+    "message0": "definir velocidade de fala %1",
+    "tooltip": "Definir velocidade de fala TTS",
+    "args0": [
+      {
+        "options": [
+          [
+            "Muito lento",
+            "1"
+          ],
+          [
+            "Lento",
+            "3"
+          ],
+          [
+            "Normal",
+            "5"
+          ],
+          [
+            "Rápido",
+            "7"
+          ],
+          [
+            "Muito rápido",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

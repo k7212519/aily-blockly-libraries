@@ -1,0 +1,43 @@
+{
+  "toolbox_name": "K10 Sensor",
+  "k10_get_accelerometer": {
+    "message0": "obtener acelerómetro eje %1",
+    "tooltip": "Obtener datos del acelerómetro integrado K10",
+    "args0": [
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ],
+          [
+            "Z",
+            "z"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_get_strength": {
+    "message0": "obtener valor de %1",
+    "tooltip": "Obtener valor del sensor integrado K10",
+    "args0": [
+      {
+        "options": [
+          [
+            "intensidad lumínica",
+            "light"
+          ],
+          [
+            "intensidad sonora",
+            "sound"
+          ]
+        ]
+      }
+    ]
+  }
+}

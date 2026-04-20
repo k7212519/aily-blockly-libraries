@@ -1,63 +1,49 @@
 {
-  "toolbox_name": "SHT3x温湿度",
+  "toolbox_name": "SHT3x Темп. и Влажн.",
   "sht31_init": {
-    "message0": "初始化SHT3x传感器 地址%1",
-    "tooltip": "初始化SHT3x温湿度传感器，选择I2C地址",
+    "message0": "Инициализация SHT3x %1 датчик I2C-адрес %2 шина I2C %3",
+    "tooltip": "Инициализация датчика температуры и влажности SHT3x с I2C-адресом",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "0x44 (默认)",
-            "0x44"
-          ],
-          [
-            "0x45 (备用)",
-            "0x45"
-          ]
+          ["0x44 (по умолчанию)", "0x44"],
+          ["0x45 (альтернативный)", "0x45"]
         ]
-      }
+      },
+      null
     ]
   },
   "sht31_heater_control": {
-    "message0": "SHT3x加热器%1",
-    "tooltip": "控制SHT3x传感器内置加热器的开启/关闭",
+    "message0": "%1 нагреватель %2",
+    "tooltip": "Управление встроенным нагревателем датчика SHT3x",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "开启",
-            "true"
-          ],
-          [
-            "关闭",
-            "false"
-          ]
+          ["Включить", "true"],
+          ["Выключить", "false"]
         ]
       }
     ]
   },
   "sht31_is_heater_enabled": {
-    "message0": "SHT3x加热器是否开启",
-    "tooltip": "检查SHT3x传感器加热器是否处于开启状态"
+    "message0": "%1 нагреватель включён",
+    "tooltip": "Проверить, включён ли нагреватель датчика SHT3x"
   },
   "sht31_reset": {
-    "message0": "SHT3x软件复位",
-    "tooltip": "对SHT3x传感器执行软件复位"
+    "message0": "%1 программный сброс",
+    "tooltip": "Выполнить программный сброс датчика SHT3x"
   },
   "sht31_simple_read": {
-    "message0": "SHT3x传感器读取%1",
-    "tooltip": "简化版读取SHT3x传感器数据，自动初始化",
+    "message0": "%1 чтение %2",
+    "tooltip": "Чтение данных температуры или влажности с датчика SHT3x",
     "args0": [
+      null,
       {
         "options": [
-          [
-            "温度(°C)",
-            "temperature"
-          ],
-          [
-            "湿度(%)",
-            "humidity"
-          ]
+          ["Температура(°C)", "temperature"],
+          ["Влажность(%)", "humidity"]
         ]
       }
     ]

@@ -1,0 +1,188 @@
+{
+  "toolbox_name": "K10 카메라 & AI",
+  "k10_camera_init": {
+    "message0": "카메라 초기화",
+    "tooltip": "K10 카메라 초기화"
+  },
+  "k10_camera_show": {
+    "message0": "카메라 화면 표시",
+    "tooltip": "화면에 카메라 실시간 화면 표시"
+  },
+  "k10_photo_save": {
+    "message0": "TF카드에 사진 저장 파일명 %1",
+    "tooltip": "사진을 찍고 TF카드에 저장"
+  },
+  "k10_ai_init": {
+    "message0": "AI 기능 초기화 모드 %1",
+    "tooltip": "AI 비전 초기화",
+    "args0": [
+      {
+        "options": [
+          [
+            "얼굴 감지",
+            "Face"
+          ],
+          [
+            "고양이 감지",
+            "Cat"
+          ],
+          [
+            "모션 감지",
+            "Move"
+          ],
+          [
+            "QR코드 인식",
+            "Code"
+          ],
+          [
+            "얼굴 인식",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_switch_mode": {
+    "message0": "AI 모드 전환 %1",
+    "tooltip": "AI 감지 모드 전환",
+    "args0": [
+      {
+        "options": [
+          [
+            "얼굴 감지",
+            "Face"
+          ],
+          [
+            "고양이 감지",
+            "Cat"
+          ],
+          [
+            "모션 감지",
+            "Move"
+          ],
+          [
+            "QR코드 인식",
+            "Code"
+          ],
+          [
+            "얼굴 인식",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_is_detected": {
+    "message0": "AI 감지 %1",
+    "tooltip": "AI가 대상을 감지했는지 반환",
+    "args0": [
+      {
+        "options": [
+          [
+            "얼굴",
+            "Face"
+          ],
+          [
+            "고양이",
+            "Cat"
+          ],
+          [
+            "움직임",
+            "Move"
+          ],
+          [
+            "QR코드",
+            "Code"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_face_data": {
+    "message0": "얼굴 %1 데이터 가져오기",
+    "tooltip": "얼굴 감지 데이터 가져오기",
+    "args0": [
+      {
+        "options": [
+          [
+            "중심 X좌표",
+            "CenterX"
+          ],
+          [
+            "중심 Y좌표",
+            "CenterY"
+          ],
+          [
+            "너비",
+            "Length"
+          ],
+          [
+            "높이",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_cat_data": {
+    "message0": "고양이 얼굴 %1 데이터 가져오기",
+    "tooltip": "고양이 얼굴 감지 데이터 가져오기",
+    "args0": [
+      {
+        "options": [
+          [
+            "중심 X좌표",
+            "CenterX"
+          ],
+          [
+            "중심 Y좌표",
+            "CenterY"
+          ],
+          [
+            "너비",
+            "Length"
+          ],
+          [
+            "높이",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_qrcode": {
+    "message0": "QR코드 내용 가져오기",
+    "tooltip": "AI가 인식한 QR코드 내용 가져오기"
+  },
+  "k10_ai_set_motion_threshold": {
+    "message0": "모션 감지 임계값 설정 %1",
+    "tooltip": "모션 감지 민감도 임계값 설정"
+  },
+  "k10_ai_face_recognized": {
+    "message0": "얼굴이 인식됨",
+    "tooltip": "얼굴이 인식되었는지 반환"
+  },
+  "k10_ai_get_face_id": {
+    "message0": "인식된 얼굴 ID 가져오기",
+    "tooltip": "인식된 얼굴 ID 가져오기"
+  },
+  "k10_ai_face_cmd": {
+    "message0": "얼굴 인식 %1 ID %2",
+    "tooltip": "얼굴 등록 또는 삭제",
+    "args0": [
+      {
+        "options": [
+          [
+            "얼굴 등록",
+            "ENROLL"
+          ],
+          [
+            "얼굴 삭제",
+            "DELETE"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

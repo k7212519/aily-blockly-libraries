@@ -1,0 +1,93 @@
+{
+  "toolbox_name": "ES8311 Áudio",
+  "es8311_init": {
+    "message0": "Inicializar codec de áudio ES8311 %1 I2C %2 endereço %3",
+    "tooltip": "Inicializar comunicação I2C ES8311, configurar barramento I2C e endereço do dispositivo",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["0x18 (padrão)", "0x18"],
+          ["0x30", "0x30"]
+        ]
+      }
+    ]
+  },
+  "es8311_i2s_config": {
+    "message0": "ES8311 %1 configurar I2S MCK %2 BCK %3 WS %4 DOUT %5 DIN %6 duração da gravação(s) %7",
+    "tooltip": "Configurar pinos de áudio I2S ES8311 e duração da gravação"
+  },
+  "es8311_record": {
+    "message0": "ES8311 %1 iniciar gravação",
+    "tooltip": "Iniciar gravação, duração definida pelo bloco de inicialização"
+  },
+  "es8311_play": {
+    "message0": "ES8311 %1 iniciar reprodução",
+    "tooltip": "Reproduzir áudio gravado"
+  },
+  "es8311_has_recording": {
+    "message0": "ES8311 %1 tem gravação",
+    "tooltip": "Verificar se o áudio foi gravado"
+  },
+  "es8311_set_volume": {
+    "message0": "ES8311 %1 definir volume %2",
+    "tooltip": "Definir volume de saída ES8311 (0~100)"
+  },
+  "es8311_set_mic_gain": {
+    "message0": "ES8311 %1 definir ganho do microfone %2",
+    "tooltip": "Definir ganho analógico do microfone ES8311 (0~42dB, passo de 6dB)"
+  },
+  "es8311_stop": {
+    "message0": "ES8311 %1 parar gravação/reprodução",
+    "tooltip": "Parar gravação ou reprodução atual, limpar buffer DMA I2S"
+  },
+  "es8311_sound_detected": {
+    "message0": "ES8311 %1 som detectado limiar %2",
+    "tooltip": "Detectar se o som ambiente excede o limiar (0~100), retorna true se excedido"
+  },
+  "es8311_mute": {
+    "message0": "ES8311 %1 %2",
+    "tooltip": "Controlar estado de silêncio ES8311",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["Ativar som", "0"],
+          ["Silenciar saída", "1"],
+          ["Silenciar microfone", "2"],
+          ["Silenciar tudo", "3"]
+        ]
+      }
+    ]
+  },
+  "es8311_play_tone": {
+    "message0": "ES8311 %1 tocar tom frequência %2 Hz duração %3 ms",
+    "tooltip": "Gerar e tocar um tom senoidal na frequência especificada"
+  },
+  "es8311_alc_enable": {
+    "message0": "ES8311 %1 controle automático de ganho %2",
+    "tooltip": "Ativar ou desativar o controle automático de nível ES8311 (ALC)",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["Ativar", "true"],
+          ["Desativar", "false"]
+        ]
+      }
+    ]
+  },
+  "es8311_record_slot": {
+    "message0": "ES8311 %1 gravar no slot %2",
+    "tooltip": "Gravar no slot especificado (0~3), cada slot armazena independentemente"
+  },
+  "es8311_play_slot": {
+    "message0": "ES8311 %1 reproduzir slot %2",
+    "tooltip": "Reproduzir gravação do slot especificado"
+  },
+  "es8311_play_loop": {
+    "message0": "ES8311 %1 reprodução em loop",
+    "tooltip": "Reproduzir áudio gravado em loop até parar"
+  }
+}

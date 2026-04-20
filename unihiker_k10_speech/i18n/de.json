@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "K10 Sprache",
+  "k10_asr_init": {
+    "message0": "Spracherkennung initialisieren",
+    "tooltip": "K10 Spracherkennung initialisieren"
+  },
+  "k10_asr_add_command": {
+    "message0": "Sprachbefehl hinzufügen ID %1 Schlüsselwort %2",
+    "tooltip": "Spracherkennungs-Befehlswort hinzufügen"
+  },
+  "k10_asr_is_wakeup": {
+    "message0": "Sprachassistent ist aktiv",
+    "tooltip": "Prüfen ob Sprachassistent aktiviert ist"
+  },
+  "k10_asr_is_detected": {
+    "message0": "Sprachbefehl erkannt ID %1",
+    "tooltip": "Prüfen ob Sprachbefehl mit ID erkannt wurde"
+  },
+  "k10_asr_speak": {
+    "message0": "Sprachausgabe %1",
+    "tooltip": "TTS-Sprachausgabe von Text"
+  },
+  "k10_asr_set_speed": {
+    "message0": "Sprachgeschwindigkeit setzen %1",
+    "tooltip": "TTS-Sprachgeschwindigkeit setzen",
+    "args0": [
+      {
+        "options": [
+          [
+            "Sehr langsam",
+            "1"
+          ],
+          [
+            "Langsam",
+            "3"
+          ],
+          [
+            "Normal",
+            "5"
+          ],
+          [
+            "Schnell",
+            "7"
+          ],
+          [
+            "Sehr schnell",
+            "9"
+          ]
+        ]
+      }
+    ]
+  }
+}

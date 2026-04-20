@@ -7,7 +7,7 @@
     {
       "id": "sscma",
       "name": "SSCMA",
-      "description": "Seeed Studio AI视觉传感器，支持目标检测、图像分类等AI推理任务，通过I2C与主控通信。",
+      "description": "SeeedStudio AI视觉传感器，支持目标检测、图像分类等AI推理任务，通过I2C与主控通信。",
       "defaultVariant": "module",
       "variants": [
         {

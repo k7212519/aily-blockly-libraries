@@ -1,0 +1,188 @@
+{
+  "toolbox_name": "K10カメラとAI",
+  "k10_camera_init": {
+    "message0": "カメラを初期化",
+    "tooltip": "K10カメラを初期化"
+  },
+  "k10_camera_show": {
+    "message0": "カメラ映像を表示",
+    "tooltip": "スクリーンにカメラライブ映像を表示"
+  },
+  "k10_photo_save": {
+    "message0": "TFカードに写真を保存 ファイル名 %1",
+    "tooltip": "写真を撮影しTFカードに保存"
+  },
+  "k10_ai_init": {
+    "message0": "AI機能を初期化 モード %1",
+    "tooltip": "AIビジョンを初期化",
+    "args0": [
+      {
+        "options": [
+          [
+            "顔検出",
+            "Face"
+          ],
+          [
+            "猫顔検出",
+            "Cat"
+          ],
+          [
+            "動体検出",
+            "Move"
+          ],
+          [
+            "QRコード認識",
+            "Code"
+          ],
+          [
+            "顔認識",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_switch_mode": {
+    "message0": "AIモードを切替 %1",
+    "tooltip": "AI検出モードを切替",
+    "args0": [
+      {
+        "options": [
+          [
+            "顔検出",
+            "Face"
+          ],
+          [
+            "猫顔検出",
+            "Cat"
+          ],
+          [
+            "動体検出",
+            "Move"
+          ],
+          [
+            "QRコード認識",
+            "Code"
+          ],
+          [
+            "顔認識",
+            "Face"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_is_detected": {
+    "message0": "AI検出 %1",
+    "tooltip": "AIがターゲットを検出したか返す",
+    "args0": [
+      {
+        "options": [
+          [
+            "顔",
+            "Face"
+          ],
+          [
+            "猫顔",
+            "Cat"
+          ],
+          [
+            "動き",
+            "Move"
+          ],
+          [
+            "QRコード",
+            "Code"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_face_data": {
+    "message0": "顔の %1 データを取得",
+    "tooltip": "顔検出データを取得",
+    "args0": [
+      {
+        "options": [
+          [
+            "中心X座標",
+            "CenterX"
+          ],
+          [
+            "中心Y座標",
+            "CenterY"
+          ],
+          [
+            "幅",
+            "Length"
+          ],
+          [
+            "高さ",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_cat_data": {
+    "message0": "猫の顔 %1 データを取得",
+    "tooltip": "猫顔検出データを取得",
+    "args0": [
+      {
+        "options": [
+          [
+            "中心X座標",
+            "CenterX"
+          ],
+          [
+            "中心Y座標",
+            "CenterY"
+          ],
+          [
+            "幅",
+            "Length"
+          ],
+          [
+            "高さ",
+            "Width"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_ai_get_qrcode": {
+    "message0": "QRコード内容を取得",
+    "tooltip": "AIが認識したQRコード内容を取得"
+  },
+  "k10_ai_set_motion_threshold": {
+    "message0": "動体検出閾値を設定 %1",
+    "tooltip": "動体検出の感度閾値を設定"
+  },
+  "k10_ai_face_recognized": {
+    "message0": "顔が認識された",
+    "tooltip": "顔が認識されたか返す"
+  },
+  "k10_ai_get_face_id": {
+    "message0": "認識された顔IDを取得",
+    "tooltip": "認識された顔IDを取得"
+  },
+  "k10_ai_face_cmd": {
+    "message0": "顔認識 %1 ID %2",
+    "tooltip": "顔の登録または削除",
+    "args0": [
+      {
+        "options": [
+          [
+            "顔を登録",
+            "ENROLL"
+          ],
+          [
+            "顔を削除",
+            "DELETE"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

@@ -1,53 +1,58 @@
 {
-  "toolbox_name": "红外遥控",
+  "toolbox_name": "Controle Remoto IR",
+  "toolbox_categories": [
+    "Recepção",
+    "Envio",
+    "Avançado"
+  ],
   "irremote_library_config": {
-    "message0": "红外库配置 缓冲区长度 %1 启用通用解码 %2 保留特殊协议 %3",
-    "tooltip": "通过编译期宏配置RAW_BUFFER_LENGTH以及是否保留通用/特殊协议解析"
+    "message0": "config biblioteca IR comprimento do buffer %1 ativar decodificação universal %2 manter protocolos especiais %3",
+    "tooltip": "Configurar RAW_BUFFER_LENGTH e se a análise de protocolos universais/especiais é mantida via macros de compilação"
   },
   "irremote_receiver_begin": {
-    "message0": "初始化红外接收 引脚 %1",
-    "tooltip": "调用IrReceiver.begin设置接收引脚与LED反馈参数，需在setup中执行一次"
+    "message0": "inicializar receptor IR pino %1 feedback LED %2",
+    "tooltip": "Inicializar o receptor IR; ao ativar o feedback LED, o LED integrado pisca ao receber sinais para facilitar a depuração"
   },
   "irremote_sender_begin": {
-    "message0": "初始化红外发送 引脚 %1",
-    "tooltip": "调用IrSender.begin设置发射引脚与可选LED反馈"
+    "message0": "inicializar emissor IR pino %1",
+    "tooltip": "Inicializar o emissor IR e definir o pino de transmissão"
   },
   "irremote_on_receive": {
-    "message0": "当红外接收成功时 %1",
-    "tooltip": "生成 if (IrReceiver.decode()) { ... IrReceiver.resume(); } 结构，需放在loop中"
+    "message0": "quando IR recebido ignorar repetição %1 %2",
+    "tooltip": "Executar código interno quando um sinal IR é recebido; marcar ignorar repetição para evitar múltiplos disparos com um único pressionar"
   },
   "irremote_receiver_available": {
-    "message0": "红外接收有新数据",
-    "tooltip": "返回IrReceiver.available()状态"
+    "message0": "receptor IR tem novos dados",
+    "tooltip": "Verificar se há novos dados IR disponíveis"
   },
   "irremote_get_value": {
-    "message0": "红外数据 %1",
-    "tooltip": "读取IrReceiver.decodedIRData中的数值字段",
+    "message0": "dados IR %1",
+    "tooltip": "Ler o campo especificado dos dados IR recebidos",
     "args0": [
       {
         "options": [
           [
-            "地址",
+            "Endereço",
             "ADDRESS"
           ],
           [
-            "命令",
+            "Comando",
             "COMMAND"
           ],
           [
-            "附加值",
+            "Extra",
             "EXTRA"
           ],
           [
-            "原始码",
+            "Bruto",
             "RAW"
           ],
           [
-            "位数",
+            "Bits",
             "BITS"
           ],
           [
-            "标志位",
+            "Flags",
             "FLAGS"
           ]
         ]
@@ -55,17 +60,17 @@
     ]
   },
   "irremote_get_protocol": {
-    "message0": "红外协议 %1",
-    "tooltip": "返回协议名称或decode_type_t枚举值",
+    "message0": "protocolo IR %1",
+    "tooltip": "Retornar o nome ou valor enum do protocolo IR recebido",
     "args0": [
       {
         "options": [
           [
-            "名称",
+            "Nome",
             "NAME"
           ],
           [
-            "枚举值",
+            "Valor enum",
             "ID"
           ]
         ]
@@ -73,33 +78,33 @@
     ]
   },
   "irremote_check_flag": {
-    "message0": "红外标志 %1",
-    "tooltip": "检查IrReceiver.decodedIRData.flags对应标志位",
+    "message0": "flag IR %1",
+    "tooltip": "Verificar o estado da flag dos dados IR recebidos",
     "args0": [
       {
         "options": [
           [
-            "重复帧",
+            "Repetição",
             "REPEAT"
           ],
           [
-            "自动重复",
+            "Repetição automática",
             "AUTO_REPEAT"
           ],
           [
-            "奇偶校验失败",
+            "Falha de paridade",
             "PARITY"
           ],
           [
-            "切换位",
+            "Bit de alternância",
             "TOGGLE"
           ],
           [
-            "不同重发协议",
+            "Protocolo repetição diferente",
             "DIFF_REPEAT"
           ],
           [
-            "包含附加信息",
+            "Tem info adicional",
             "EXTRA_INFO"
           ]
         ]
@@ -107,8 +112,8 @@
     ]
   },
   "irremote_is_preset_key": {
-    "message0": "按下预置按键%1",
-    "tooltip": "匹配预置遥控器按键命令，无需手动比较命令值",
+    "message0": "tecla predefinida pressionada %1",
+    "tooltip": "Corresponder a uma tecla predefinida do mini controle remoto NEC do kit Arduino",
     "args0": [
       {
         "options": [
@@ -193,16 +198,16 @@
     ]
   },
   "irremote_get_preset_name": {
-    "message0": "获取预置按键名称",
-    "tooltip": "返回预置遥控器按键的名称，若未匹配返回空字符串"
+    "message0": "obter nome da tecla predefinida",
+    "tooltip": "Retorna o nome da tecla predefinida do controle remoto; retorna string vazia se não corresponder"
   },
   "irremote_resume": {
-    "message0": "红外接收准备下一帧",
-    "tooltip": "调用IrReceiver.resume()手动准备下一次接收"
+    "message0": "receptor IR preparar próximo quadro",
+    "tooltip": "Preparar manualmente a próxima recepção; necessário apenas quando o bloco \"quando IR recebido\" não é utilizado"
   },
   "irremote_send_command": {
-    "message0": "红外发送 协议 %1 地址 %2 命令 %3 重复 %4",
-    "tooltip": "调用IrSender.write按指定协议发送地址与命令，可配置重复次数",
+    "message0": "enviar IR protocolo %1 endereço %2 comando %3 repetições %4",
+    "tooltip": "Enviar sinal IR usando o protocolo especificado, com endereço, comando e número de repetições configuráveis",
     "args0": [
       {
         "options": [
@@ -300,5 +305,43 @@
       null,
       null
     ]
+  },
+  "irremote_print_result": {
+    "message0": "imprimir resultado IR na serial formato %1",
+    "tooltip": "Imprimir resultados de recepção IR na porta serial; resumo mostra protocolo/endereço/comando, código de envio mostra como reproduzir o sinal",
+    "args0": [
+      {
+        "options": [
+          [
+            "Resumo",
+            "SHORT"
+          ],
+          [
+            "Código de envio",
+            "SEND_USAGE"
+          ],
+          [
+            "Timing bruto",
+            "RAW"
+          ]
+        ]
+      }
+    ]
+  },
+  "irremote_command_equals": {
+    "message0": "valor comando IR igual a %1",
+    "tooltip": "Verificar se o valor do comando IR recebido é igual a um valor especificado; funciona com qualquer controle remoto"
+  },
+  "irremote_send_nec": {
+    "message0": "enviar IR NEC endereço %1 comando %2 repetições %3",
+    "tooltip": "Enviar sinal IR usando protocolo NEC, o protocolo IR mais comumente utilizado"
+  },
+  "irremote_send_raw": {
+    "message0": "enviar IR Raw dados %1 frequência(kHz) %2",
+    "tooltip": "Enviar dados de temporização IR brutos para reproduzir sinais de protocolos desconhecidos; formato de dados em valores de microssegundos separados por vírgulas"
+  },
+  "irremote_send_pronto": {
+    "message0": "enviar IR código Pronto %1 repetições %2",
+    "tooltip": "Enviar sinal IR no formato Pronto; códigos Pronto podem ser encontrados em bancos de dados de códigos IR online"
   }
 }
