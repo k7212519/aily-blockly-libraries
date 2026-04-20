@@ -239,18 +239,18 @@ Arduino.forBlock['openart_mini_detection_object_easy'] = function (block, genera
 };
 
 Arduino.forBlock['openart_mini_detection_object'] = function (block, generator) {
-	var l_min = block.getFieldValue('L_MIN');
-	var l_max = block.getFieldValue('L_MAX');
-	var a_min = block.getFieldValue('A_MIN');
-	var a_max = block.getFieldValue('A_MAX');
-	var b_min = block.getFieldValue('B_MIN');
-	var b_max = block.getFieldValue('B_MAX');
+	var l_min = generator.valueToCode(block, 'L_MIN', Arduino.ORDER_ATOMIC);
+	var l_max = generator.valueToCode(block, 'L_MAX', Arduino.ORDER_ATOMIC);
+	var a_min = generator.valueToCode(block, 'A_MIN', Arduino.ORDER_ATOMIC);
+	var a_max = generator.valueToCode(block, 'A_MAX', Arduino.ORDER_ATOMIC);
+	var b_min = generator.valueToCode(block, 'B_MIN', Arduino.ORDER_ATOMIC);
+	var b_max = generator.valueToCode(block, 'B_MAX', Arduino.ORDER_ATOMIC);
 	
     // 添加ADC按键库引用和对象（如果尚未添加）
     generator.addLibrary('#include "seekfree_openart_mini.h"', '#include "seekfree_openart_mini.h"');
     generator.addObject('OPENART_MINI openart_mini', 'OPENART_MINI openart_mini;');
 	
-	var code = 'openart_mini.detection_object_easy(' + l_min + ', ' + l_max + ', ' + a_min + ', ' + a_max + ', ' + b_min + ', ' + b_max + ');\n';
+	var code = 'openart_mini.detection_object(' + l_min + ', ' + l_max + ', ' + a_min + ', ' + a_max + ', ' + b_min + ', ' + b_max + ');\n';
 	return code;
 };
 
