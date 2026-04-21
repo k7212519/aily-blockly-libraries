@@ -212,21 +212,19 @@
   },
   {
     "type": "k10_draw_text_simple",
-    "message0": "显示文字 %1 字号 %2 颜色 %3",
+    "message0": "在第 %1 行显示文字 %2 颜色 %3",
     "args0": [
+      {
+        "type": "field_number",
+        "name": "LINE",
+        "value": 1,
+        "min": 1,
+        "max": 7
+      },
       {
         "type": "input_value",
         "name": "TEXT",
         "check": "String"
-      },
-      {
-        "type": "field_dropdown",
-        "name": "SIZE",
-        "options": [
-          ["小", "1"],
-          ["中", "2"],
-          ["大", "3"]
-        ]
       },
       {
         "type": "field_colour_hsv_sliders",
@@ -238,7 +236,7 @@
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#2196F3",
-    "tooltip": "在屏幕上显示文字（简化版，自动排列）",
+    "tooltip": "在屏幕指定行(1~7)显示文字，自动按行排版",
     "icon": "fa-light fa-display"
   },
   {
@@ -275,8 +273,8 @@
       },
       {
         "type": "field_number",
-        "name": "LINE_WIDTH",
-        "value": 50,
+        "name": "LINE_CHARS",
+        "value": 25,
         "min": 1,
         "max": 100
       }
@@ -285,13 +283,18 @@
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#2196F3",
-    "tooltip": "在屏幕指定位置显示文字",
+    "tooltip": "在屏幕指定坐标显示文字。每行字数为自动换行字符数：16号字体建议25，24号字体建议10。",
     "icon": "fa-light fa-display"
   },
   {
     "type": "k10_draw_bitmap",
-    "message0": "显示内置图片 X %1 Y %2 宽 %3 高 %4",
+    "message0": "显示内置图片 %1 X %2 Y %3 宽 %4 高 %5",
     "args0": [
+      {
+        "type": "field_input",
+        "name": "IMAGE",
+        "text": "image_data1"
+      },
       {
         "type": "input_value",
         "name": "X",
@@ -317,7 +320,7 @@
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#2196F3",
-    "tooltip": "显示内置图片（需要引入arduino_image_cache.h）",
+    "tooltip": "显示内置图片（需在工程中提供 arduino_image_cache.h 与对应图片数组，如 image_data1）",
     "icon": "fa-light fa-display"
   },
   {
@@ -391,7 +394,26 @@
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#2196F3",
-    "tooltip": "清除屏幕画布",
+    "tooltip": "清除画布内容（清除后通常需要再次刷新画布）",
+    "icon": "fa-light fa-display"
+  },
+  {
+    "type": "k10_screen_size",
+    "message0": "屏幕 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "WHICH",
+        "options": [
+          ["宽度", "W"],
+          ["高度", "H"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#2196F3",
+    "tooltip": "K10 屏幕分辨率：240×320（正向/反向）",
     "icon": "fa-light fa-display"
   }
 ]

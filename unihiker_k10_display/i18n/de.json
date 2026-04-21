@@ -2,7 +2,7 @@
   "toolbox_name": "K10 Anzeige",
   "k10_init_screen": {
     "message0": "K10-Bildschirm initialisieren Richtung %1",
-    "tooltip": "UNIHIKER K10 Bildschirm initialisieren und Leinwand erstellen",
+    "tooltip": "UNIHIKER K10-Bildschirm initialisieren und Zeichenfläche erstellen",
     "args0": [
       {
         "options": [
@@ -27,7 +27,7 @@
     ]
   },
   "k10_set_background": {
-    "message0": "Hintergrundfarbe setzen %1",
+    "message0": "Bildschirmhintergrundfarbe setzen %1",
     "tooltip": "Bildschirm-Hintergrundfarbe setzen"
   },
   "k10_draw_point": {
@@ -51,32 +51,12 @@
     "tooltip": "Rechteck auf dem Bildschirm zeichnen"
   },
   "k10_draw_text_simple": {
-    "message0": "Text anzeigen %1 Größe %2 Farbe %3",
-    "tooltip": "Text auf dem Bildschirm anzeigen (einfach, auto Layout)",
-    "args0": [
-      null,
-      {
-        "options": [
-          [
-            "Klein",
-            "1"
-          ],
-          [
-            "Mittel",
-            "2"
-          ],
-          [
-            "Groß",
-            "3"
-          ]
-        ]
-      },
-      null
-    ]
+    "message0": "Text %2 in Zeile %1 anzeigen Farbe %3",
+    "tooltip": "Text in der angegebenen Zeile (1~7) automatisch anordnen und anzeigen"
   },
   "k10_draw_text": {
     "message0": "Text anzeigen %1 X %2 Y %3 Farbe %4 Schrift %5 Zeichen pro Zeile %6",
-    "tooltip": "Text an bestimmter Position anzeigen",
+    "tooltip": "Text an der angegebenen Position anzeigen. Zeichen pro Zeile steuern den automatischen Umbruch: 25 für Schrift 16, 10 für Schrift 24.",
     "args0": [
       null,
       null,
@@ -98,8 +78,8 @@
     ]
   },
   "k10_draw_bitmap": {
-    "message0": "Integriertes Bild anzeigen X %1 Y %2 Breite %3 Höhe %4",
-    "tooltip": "Integriertes Bild anzeigen"
+    "message0": "Integriertes Bild %1 anzeigen X %2 Y %3 Breite %4 Höhe %5",
+    "tooltip": "Integriertes Bild anzeigen (arduino_image_cache.h und Bildarray, z. B. image_data1, bereitstellen)"
   },
   "k10_draw_image": {
     "message0": "TF-Karten-Bild anzeigen Pfad %1 X %2 Y %3",
@@ -115,7 +95,7 @@
   },
   "k10_clear_canvas": {
     "message0": "Leinwand löschen %1",
-    "tooltip": "Leinwand löschen",
+    "tooltip": "Leinwand löschen (danach normalerweise erneut aktualisieren)",
     "args0": [
       {
         "options": [
@@ -126,6 +106,24 @@
           [
             "Textebene löschen",
             "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_screen_size": {
+    "message0": "Bildschirm %1",
+    "tooltip": "K10-Bildschirmauflösung: 240x320 (Hochformat)",
+    "args0": [
+      {
+        "options": [
+          [
+            "Breite",
+            "W"
+          ],
+          [
+            "Höhe",
+            "H"
           ]
         ]
       }

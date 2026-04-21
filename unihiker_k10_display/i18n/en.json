@@ -51,32 +51,12 @@
     "tooltip": "Draw a rectangle on screen"
   },
   "k10_draw_text_simple": {
-    "message0": "show text %1 size %2 color %3",
-    "tooltip": "Show text on screen (simple, auto layout)",
-    "args0": [
-      null,
-      {
-        "options": [
-          [
-            "Small",
-            "1"
-          ],
-          [
-            "Medium",
-            "2"
-          ],
-          [
-            "Large",
-            "3"
-          ]
-        ]
-      },
-      null
-    ]
+    "message0": "on line %1 show text %2 color %3",
+    "tooltip": "Show text on the specified line (1~7), auto-laid out"
   },
   "k10_draw_text": {
     "message0": "show text %1 X %2 Y %3 color %4 font %5 chars per line %6",
-    "tooltip": "Show text at specified position",
+    "tooltip": "Show text at specified position. chars per line: 25 for font 16, 10 for font 24.",
     "args0": [
       null,
       null,
@@ -98,8 +78,8 @@
     ]
   },
   "k10_draw_bitmap": {
-    "message0": "show built-in image X %1 Y %2 width %3 height %4",
-    "tooltip": "Show built-in image"
+    "message0": "show built-in image %1 X %2 Y %3 width %4 height %5",
+    "tooltip": "Show built-in image (provide arduino_image_cache.h with the image array, e.g. image_data1)"
   },
   "k10_draw_image": {
     "message0": "show TF card image path %1 X %2 Y %3",
@@ -115,7 +95,7 @@
   },
   "k10_clear_canvas": {
     "message0": "clear canvas %1",
-    "tooltip": "Clear canvas",
+    "tooltip": "Clear canvas (refresh canvas afterwards)",
     "args0": [
       {
         "options": [
@@ -126,6 +106,24 @@
           [
             "Clear text layer",
             "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_screen_size": {
+    "message0": "screen %1",
+    "tooltip": "K10 screen resolution: 240x320 (portrait)",
+    "args0": [
+      {
+        "options": [
+          [
+            "width",
+            "W"
+          ],
+          [
+            "height",
+            "H"
           ]
         ]
       }

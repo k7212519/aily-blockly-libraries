@@ -51,32 +51,12 @@
     "tooltip": "Desenhar um retângulo na tela"
   },
   "k10_draw_text_simple": {
-    "message0": "exibir texto %1 tamanho %2 cor %3",
-    "tooltip": "Exibir texto na tela (simples, layout auto)",
-    "args0": [
-      null,
-      {
-        "options": [
-          [
-            "Pequeno",
-            "1"
-          ],
-          [
-            "Médio",
-            "2"
-          ],
-          [
-            "Grande",
-            "3"
-          ]
-        ]
-      },
-      null
-    ]
+    "message0": "exibir texto %2 na linha %1 cor %3",
+    "tooltip": "Exibir texto na linha indicada (1~7) com layout automático"
   },
   "k10_draw_text": {
     "message0": "exibir texto %1 X %2 Y %3 cor %4 fonte %5 caracteres por linha %6",
-    "tooltip": "Exibir texto na posição especificada",
+    "tooltip": "Exibir texto na posição especificada. caracteres por linha controlam a quebra automática: 25 para fonte 16, 10 para fonte 24.",
     "args0": [
       null,
       null,
@@ -98,8 +78,8 @@
     ]
   },
   "k10_draw_bitmap": {
-    "message0": "exibir imagem integrada X %1 Y %2 largura %3 altura %4",
-    "tooltip": "Exibir imagem integrada"
+    "message0": "exibir imagem integrada %1 X %2 Y %3 largura %4 altura %5",
+    "tooltip": "Exibir imagem integrada (forneça arduino_image_cache.h e o vetor da imagem, por exemplo image_data1)"
   },
   "k10_draw_image": {
     "message0": "exibir imagem cartão TF caminho %1 X %2 Y %3",
@@ -115,7 +95,7 @@
   },
   "k10_clear_canvas": {
     "message0": "limpar canvas %1",
-    "tooltip": "Limpar canvas",
+    "tooltip": "Limpar canvas (atualize novamente depois)",
     "args0": [
       {
         "options": [
@@ -126,6 +106,24 @@
           [
             "Limpar camada texto",
             "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_screen_size": {
+    "message0": "tela %1",
+    "tooltip": "Resolução da tela K10: 240x320 (retrato)",
+    "args0": [
+      {
+        "options": [
+          [
+            "largura",
+            "W"
+          ],
+          [
+            "altura",
+            "H"
           ]
         ]
       }

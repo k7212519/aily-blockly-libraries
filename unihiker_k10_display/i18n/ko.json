@@ -2,7 +2,7 @@
   "toolbox_name": "K10 디스플레이",
   "k10_init_screen": {
     "message0": "K10 화면 초기화 방향 %1",
-    "tooltip": "UNIHIKER K10 화면을 초기화하고 캔버스 생성",
+    "tooltip": "UNIHIKER K10 화면을 초기화하고 캔버스를 생성",
     "args0": [
       {
         "options": [
@@ -51,32 +51,12 @@
     "tooltip": "화면에 사각형 그리기"
   },
   "k10_draw_text_simple": {
-    "message0": "텍스트 표시 %1 크기 %2 색상 %3",
-    "tooltip": "화면에 텍스트 표시 (간편, 자동 배치)",
-    "args0": [
-      null,
-      {
-        "options": [
-          [
-            "작게",
-            "1"
-          ],
-          [
-            "보통",
-            "2"
-          ],
-          [
-            "크게",
-            "3"
-          ]
-        ]
-      },
-      null
-    ]
+    "message0": "텍스트 %2 를 %1번 줄에 표시 색상 %3",
+    "tooltip": "지정한 줄(1~7)에 텍스트를 자동 배치로 표시"
   },
   "k10_draw_text": {
     "message0": "텍스트 표시 %1 X %2 Y %3 색상 %4 글꼴 %5 줄당 글자수 %6",
-    "tooltip": "지정 위치에 텍스트 표시",
+    "tooltip": "지정한 위치에 텍스트를 표시합니다. 줄당 글자수는 자동 줄바꿈 기준이며 글꼴 16은 25, 글꼴 24는 10을 권장합니다.",
     "args0": [
       null,
       null,
@@ -98,12 +78,12 @@
     ]
   },
   "k10_draw_bitmap": {
-    "message0": "내장 이미지 표시 X %1 Y %2 너비 %3 높이 %4",
-    "tooltip": "내장 이미지 표시"
+    "message0": "내장 이미지 %1 표시 X %2 Y %3 너비 %4 높이 %5",
+    "tooltip": "내장 이미지를 표시합니다(arduino_image_cache.h 와 이미지 배열, 예: image_data1 필요)"
   },
   "k10_draw_image": {
     "message0": "TF카드 이미지 표시 경로 %1 X %2 Y %3",
-    "tooltip": "TF카드에서 이미지 로드 및 표시"
+    "tooltip": "TF카드에서 이미지를 불러와 표시"
   },
   "k10_draw_qrcode": {
     "message0": "QR코드 표시 내용 %1",
@@ -115,7 +95,7 @@
   },
   "k10_clear_canvas": {
     "message0": "캔버스 지우기 %1",
-    "tooltip": "캔버스 지우기",
+    "tooltip": "캔버스를 지웁니다(보통 이후 다시 새로고침 필요)",
     "args0": [
       {
         "options": [
@@ -126,6 +106,24 @@
           [
             "텍스트 레이어 지우기",
             "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_screen_size": {
+    "message0": "화면 %1",
+    "tooltip": "K10 화면 해상도: 240×320(세로)",
+    "args0": [
+      {
+        "options": [
+          [
+            "너비",
+            "W"
+          ],
+          [
+            "높이",
+            "H"
           ]
         ]
       }

@@ -6,16 +6,20 @@ function colorToHex(color) {
   return color || '0xFFFFFF';
 }
 
-// Ensure k10 object and screen are initialized
-function ensureK10Init(generator, screenDir) {
+// Ensure k10 object is initialized (begin only).
+function ensureK10(generator) {
   generator.addLibrary('unihiker_k10', '#include "unihiker_k10.h"');
   generator.addVariable('k10', 'UNIHIKER_K10 k10;');
-  generator.addVariable('k10_screen_dir', 'uint8_t screen_dir = ' + screenDir + ';');
   generator.addSetupBegin('k10_begin', 'k10.begin();');
 }
 
+// Ensure screen + canvas initialization. Drawing blocks pass the default
+// direction ('2' = portrait). When the user adds the "init screen" block,
+// its direction takes effect because addVariable / addSetupBegin de-duplicate
+// by key (first-wins). Place the init block near the top of setup.
 function ensureScreenInit(generator, screenDir) {
-  ensureK10Init(generator, screenDir);
+  ensureK10(generator);
+  generator.addVariable('k10_screen_dir', 'uint8_t screen_dir = ' + screenDir + ';');
   generator.addSetupBegin('k10_initScreen', 'k10.initScreen(screen_dir);');
   generator.addSetupBegin('k10_creatCanvas', 'k10.creatCanvas();');
 }
@@ -86,25 +90,28 @@ Arduino.forBlock['k10_draw_rectangle'] = function(block, generator) {
   return 'k10.canvas->canvasRectangle(' + x + ', ' + y + ', ' + w + ', ' + h + ', ' + borderColor + ', ' + fillColor + ', ' + filled + ');\n';
 };
 
-// ========== 显示文字（简化版）==========
+// ========== 在指定行显示文字（简化版）==========
+// API: canvasText(text, line_num, color)
+// 第二参数为屏幕行号(1~7)，系统自动按行排版，无需指定 X/Y。
 Arduino.forBlock['k10_draw_text_simple'] = function(block, generator) {
   var text = generator.valueToCode(block, 'TEXT', generator.ORDER_ATOMIC) || '""';
-  var size = block.getFieldValue('SIZE');
+  var line = block.getFieldValue('LINE');
   var color = colorToHex(block.getFieldValue('COLOR'));
   ensureScreenInit(generator, '2');
-  return 'k10.canvas->canvasText(' + text + ', ' + size + ', ' + color + ');\n';
+  return 'k10.canvas->canvasText(' + text + ', ' + line + ', ' + color + ');\n';
 };
 
 // ========== 显示文字（完整版）==========
+// API: canvasText(text, x, y, color, font, lineCharCount, fillBg)
 Arduino.forBlock['k10_draw_text'] = function(block, generator) {
   var text = generator.valueToCode(block, 'TEXT', generator.ORDER_ATOMIC) || '""';
   var x = generator.valueToCode(block, 'X', generator.ORDER_ATOMIC) || '0';
   var y = generator.valueToCode(block, 'Y', generator.ORDER_ATOMIC) || '0';
   var color = colorToHex(block.getFieldValue('COLOR'));
   var font = block.getFieldValue('FONT');
-  var lineWidth = block.getFieldValue('LINE_WIDTH');
+  var lineChars = block.getFieldValue('LINE_CHARS');
   ensureScreenInit(generator, '2');
-  return 'k10.canvas->canvasText(' + text + ', ' + x + ', ' + y + ', ' + color + ', k10.canvas->' + font + ', ' + lineWidth + ', true);\n';
+  return 'k10.canvas->canvasText(' + text + ', ' + x + ', ' + y + ', ' + color + ', k10.canvas->' + font + ', ' + lineChars + ', true);\n';
 };
 
 // ========== 显示内置图片 ==========
@@ -113,9 +120,10 @@ Arduino.forBlock['k10_draw_bitmap'] = function(block, generator) {
   var y = generator.valueToCode(block, 'Y', generator.ORDER_ATOMIC) || '0';
   var w = generator.valueToCode(block, 'W', generator.ORDER_ATOMIC) || '100';
   var h = generator.valueToCode(block, 'H', generator.ORDER_ATOMIC) || '100';
+  var imageVar = block.getFieldValue('IMAGE') || 'image_data1';
   ensureScreenInit(generator, '2');
   generator.addLibrary('arduino_image_cache', '#include "arduino_image_cache.h"');
-  return 'k10.canvas->canvasDrawBitmap(' + x + ', ' + y + ', ' + w + ', ' + h + ', image_data1);\n';
+  return 'k10.canvas->canvasDrawBitmap(' + x + ', ' + y + ', ' + w + ', ' + h + ', ' + imageVar + ');\n';
 };
 
 // ========== 显示TF卡图片 ==========
@@ -124,6 +132,7 @@ Arduino.forBlock['k10_draw_image'] = function(block, generator) {
   var x = generator.valueToCode(block, 'X', generator.ORDER_ATOMIC) || '0';
   var y = generator.valueToCode(block, 'Y', generator.ORDER_ATOMIC) || '0';
   ensureScreenInit(generator, '2');
+  generator.addSetupBegin('k10_initSDFile', 'k10.initSDFile();');
   return 'k10.canvas->canvasDrawImage(' + x + ', ' + y + ', ' + path + ');\n';
 };
 
@@ -149,4 +158,12 @@ Arduino.forBlock['k10_clear_canvas'] = function(block, generator) {
   } else {
     return 'k10.canvas->canvasClear(1);\n';
   }
+};
+
+// ========== 屏幕宽度 / 高度（常量）==========
+Arduino.forBlock['k10_screen_size'] = function(block, generator) {
+  var which = block.getFieldValue('WHICH');
+  // K10 屏幕分辨率：240(W) x 320(H)（正向/反向）；横屏方向交换
+  var value = which === 'W' ? '240' : '320';
+  return [value, generator.ORDER_ATOMIC];
 };

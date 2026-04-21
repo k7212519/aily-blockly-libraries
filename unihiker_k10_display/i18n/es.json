@@ -51,32 +51,12 @@
     "tooltip": "Dibujar un rectángulo en la pantalla"
   },
   "k10_draw_text_simple": {
-    "message0": "mostrar texto %1 tamaño %2 color %3",
-    "tooltip": "Mostrar texto en pantalla (simple, diseño auto)",
-    "args0": [
-      null,
-      {
-        "options": [
-          [
-            "Pequeño",
-            "1"
-          ],
-          [
-            "Mediano",
-            "2"
-          ],
-          [
-            "Grande",
-            "3"
-          ]
-        ]
-      },
-      null
-    ]
+    "message0": "mostrar texto %2 en la línea %1 color %3",
+    "tooltip": "Mostrar texto en la línea indicada (1~7) con distribución automática"
   },
   "k10_draw_text": {
     "message0": "mostrar texto %1 X %2 Y %3 color %4 fuente %5 caracteres por línea %6",
-    "tooltip": "Mostrar texto en posición especificada",
+    "tooltip": "Mostrar texto en la posición indicada. caracteres por línea controla el salto automático: 25 para fuente 16, 10 para fuente 24.",
     "args0": [
       null,
       null,
@@ -98,8 +78,8 @@
     ]
   },
   "k10_draw_bitmap": {
-    "message0": "mostrar imagen integrada X %1 Y %2 ancho %3 alto %4",
-    "tooltip": "Mostrar imagen integrada"
+    "message0": "mostrar imagen integrada %1 X %2 Y %3 ancho %4 alto %5",
+    "tooltip": "Mostrar imagen integrada (proporcione arduino_image_cache.h y el arreglo de imagen, por ejemplo image_data1)"
   },
   "k10_draw_image": {
     "message0": "mostrar imagen tarjeta TF ruta %1 X %2 Y %3",
@@ -115,7 +95,7 @@
   },
   "k10_clear_canvas": {
     "message0": "limpiar lienzo %1",
-    "tooltip": "Limpiar lienzo",
+    "tooltip": "Limpiar lienzo (actualícelo después)",
     "args0": [
       {
         "options": [
@@ -126,6 +106,24 @@
           [
             "Limpiar capa texto",
             "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "k10_screen_size": {
+    "message0": "pantalla %1",
+    "tooltip": "Resolución de pantalla K10: 240x320 (vertical)",
+    "args0": [
+      {
+        "options": [
+          [
+            "ancho",
+            "W"
+          ],
+          [
+            "alto",
+            "H"
           ]
         ]
       }
