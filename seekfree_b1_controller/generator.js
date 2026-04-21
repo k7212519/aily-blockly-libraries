@@ -138,10 +138,14 @@ Arduino.forBlock['key_gpio_read'] = function (block, generator) {
 Arduino.forBlock['photoelectricity_init'] = function (block, generator) {
     generator.addLibrary('#include "seekfree_can.h"', '#include "seekfree_can.h"');
     generator.addLibrary('#include "seekfree_photoelectricity.h"', '#include "seekfree_photoelectricity.h"');
+	
+    generator.addObject('ESP32C3_CAN esp32c3_can', 'ESP32C3_CAN esp32c3_can;');
     generator.addObject('PHOTOELECTRICITY location', 'PHOTOELECTRICITY location;');
+	
 	
 	const power_index = block.getFieldValue('power_index');
 	
+    generator.addSetup('esp32c3_can.begin()', 'esp32c3_can.begin();');
     generator.addSetup('location.begin(' + power_index + ')', 'location.begin(' + power_index + ');');
 
     return '';
