@@ -23,22 +23,8 @@
     ]
   },
   "k10_get_strength": {
-    "message0": "%1 の値を取得",
-    "tooltip": "K10ボードのセンサー値を取得",
-    "args0": [
-      {
-        "options": [
-          [
-            "光の強さ",
-            "light"
-          ],
-          [
-            "音の強さ",
-            "sound"
-          ]
-        ]
-      }
-    ]
+    "message0": "光の強さの値を取得",
+    "tooltip": "K10ボードの光センサー値を取得"
   },
   "k10_aht20_measure": {
     "message0": "AHT20 測定開始 CRC %1",

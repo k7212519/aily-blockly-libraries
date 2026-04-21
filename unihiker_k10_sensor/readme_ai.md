@@ -1,6 +1,6 @@
 # K10传感器
 
-UNIHIKER K10 板载传感器库，支持加速度计、光线/声音强度检测以及 AHT20 温湿度传感器。
+UNIHIKER K10 板载传感器库，支持加速度计、光线强度检测以及 AHT20 温湿度传感器。
 
 ## Library Info
 - **Name**: @aily-project/lib-unihiker-k10-sensor
@@ -11,7 +11,7 @@ UNIHIKER K10 板载传感器库，支持加速度计、光线/声音强度检测
 | Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
 | `k10_get_accelerometer` | Value(Number) | AXIS(dropdown) | `k10_get_accelerometer(x)` | `(k10.getAccelerometerX())` |
-| `k10_get_strength` | Value(Number) | TYPE(dropdown) | `k10_get_strength(light)` | `(k10.readALS())` / `(k10.readSOUND())` |
+| `k10_get_strength` | Value(Number) | TYPE(dropdown) | `k10_get_strength(light)` | `(k10.readALS())` |
 | `k10_aht20_measure` | Value(Boolean) | CRC(dropdown) | `k10_aht20_measure(true)` | `(aht20.startMeasurementReady(true))` |
 | `k10_aht20_get_temperature` | Value(Number) | UNIT(dropdown) | `k10_aht20_get_temperature(C)` | `(aht20.getTemperature_C())` / `(aht20.getTemperature_F())` |
 | `k10_aht20_get_humidity` | Value(Number) | — | `k10_aht20_get_humidity()` | `(aht20.getHumidity_RH())` |
@@ -21,7 +21,7 @@ UNIHIKER K10 板载传感器库，支持加速度计、光线/声音强度检测
 | Parameter | Values | Description |
 |-----------|--------|-------------|
 | AXIS | x, y, z | 加速度计轴方向 |
-| TYPE | light(光线强度), sound(声音强度) | K10 板载传感器类型 |
+| TYPE | light(光线强度) | K10 板载光线传感器类型 |
 | CRC | true(开启), false(关闭) | AHT20 测量过程是否启用 CRC 校验 |
 | UNIT | C(摄氏度℃), F(华氏度℉) | AHT20 温度单位 |
 
@@ -75,6 +75,6 @@ arduino_loop()
 
 1. **无需额外初始化**: 使用 K10 板载积木时自动 `k10.begin()`；使用 AHT20 积木时自动包含 `DFRobot_AHT20.h` 并在 `setup()` 中循环 `aht20.begin()` 直至成功
 2. **加速度计**: `k10_get_accelerometer` 返回 X/Y/Z 轴原始加速度值
-3. **光线/声音传感器**: `k10_get_strength(light)` 调用 `k10.readALS()`，`k10_get_strength(sound)` 调用 `k10.readSOUND()`
+3. **光线传感器**: `k10_get_strength(light)` 调用 `k10.readALS()`
 4. **AHT20 调用顺序**: 必须先用 `k10_aht20_measure` 启动测量并判断返回 true，再调用 `k10_aht20_get_temperature` / `k10_aht20_get_humidity` 读取，否则得到的是上一次或初始值
 5. **AHT20 接口**: 默认 I2C 地址 0x38；温度范围 -40~85℃，湿度 0~100%RH

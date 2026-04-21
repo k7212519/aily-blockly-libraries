@@ -4,9 +4,9 @@
   "nickname_zh_cn": "K10传感器",
   "nickname_en": "K10 Sensor",
   "author": "DFRobot",
-  "description": "UNIHIKER K10板载传感器库，支持加速度、光线/声音强度及AHT20温湿度检测",
-  "description_zh_cn": "UNIHIKER K10板载传感器库，支持加速度、光线/声音强度及AHT20温湿度检测",
-  "description_en": "UNIHIKER K10 onboard sensor library, supports accelerometer, light/sound intensity and AHT20 temperature & humidity",
+  "description": "UNIHIKER K10板载传感器库，支持加速度、光线强度及AHT20温湿度检测",
+  "description_zh_cn": "UNIHIKER K10板载传感器库，支持加速度、光线强度及AHT20温湿度检测",
+  "description_en": "UNIHIKER K10 onboard sensor library, supports accelerometer, light intensity and AHT20 temperature & humidity",
   "version": "0.1.0",
   "compatibility": {
     "core": ["UNIHIKER:esp32:k10"],

@@ -7,9 +7,9 @@
         "type": "field_dropdown",
         "name": "AXIS",
         "options": [
-          ["X", "x"],
-          ["Y", "y"],
-          ["Z", "z"]
+          ["X", "X"],
+          ["Y", "Y"],
+          ["Z", "Z"]
         ]
       }
     ],
@@ -21,21 +21,11 @@
   },
   {
     "type": "k10_get_strength",
-    "message0": "获取 %1 值",
-    "args0": [
-      {
-        "type": "field_dropdown",
-        "name": "TYPE",
-        "options": [
-          ["光线强度", "light"],
-          ["声音强度", "sound"]
-        ]
-      }
-    ],
+    "message0": "获取光线强度值",
     "inputsInline": true,
     "output": "Number",
     "colour": "#9C27B0",
-    "tooltip": "获取K10板载传感器的值",
+    "tooltip": "获取K10板载光线传感器的值",
     "icon": "fa-light fa-gauge-high"
   },
   {
