@@ -39,5 +39,33 @@
         ]
       }
     ]
+  },
+  "k10_aht20_measure": {
+    "message0": "AHT20 測定開始 CRC %1",
+    "tooltip": "AHT20の測定を1回開始し、完了したらtrueを返す。その後温度/湿度を取得",
+    "args0": [
+      {
+        "options": [
+          ["オン", "true"],
+          ["オフ", "false"]
+        ]
+      }
+    ]
+  },
+  "k10_aht20_get_temperature": {
+    "message0": "AHT20 温度を取得 %1",
+    "tooltip": "AHT20センサーの温度を取得（先に測定開始が必要）",
+    "args0": [
+      {
+        "options": [
+          ["摂氏(℃)", "C"],
+          ["華氏(℉)", "F"]
+        ]
+      }
+    ]
+  },
+  "k10_aht20_get_humidity": {
+    "message0": "AHT20 相対湿度を取得(%RH)",
+    "tooltip": "AHT20センサーの相対湿度を取得（先に測定開始が必要）"
   }
 }

@@ -39,5 +39,33 @@
         ]
       }
     ]
+  },
+  "k10_aht20_measure": {
+    "message0": "AHT20 iniciar medição CRC %1",
+    "tooltip": "Iniciar uma medição AHT20; retorna verdadeiro quando pronto, depois ler temperatura/umidade",
+    "args0": [
+      {
+        "options": [
+          ["ligado", "true"],
+          ["desligado", "false"]
+        ]
+      }
+    ]
+  },
+  "k10_aht20_get_temperature": {
+    "message0": "AHT20 obter temperatura %1",
+    "tooltip": "Obter a temperatura do sensor AHT20 (iniciar a medição primeiro)",
+    "args0": [
+      {
+        "options": [
+          ["Celsius(℃)", "C"],
+          ["Fahrenheit(℉)", "F"]
+        ]
+      }
+    ]
+  },
+  "k10_aht20_get_humidity": {
+    "message0": "AHT20 obter umidade relativa(%RH)",
+    "tooltip": "Obter a umidade relativa do sensor AHT20 (iniciar a medição primeiro)"
   }
 }

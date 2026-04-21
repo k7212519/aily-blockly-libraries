@@ -11,6 +11,18 @@
     {
       "kind": "block",
       "type": "k10_get_strength"
+    },
+    {
+      "kind": "block",
+      "type": "k10_aht20_measure"
+    },
+    {
+      "kind": "block",
+      "type": "k10_aht20_get_temperature"
+    },
+    {
+      "kind": "block",
+      "type": "k10_aht20_get_humidity"
     }
   ]
 }

@@ -20,3 +20,36 @@ Arduino.forBlock['k10_get_strength'] = function(block, generator) {
   }
   return ['(k10.readALS())', generator.ORDER_ATOMIC];
 };
+
+// ========== AHT20 温湿度传感器 ==========
+function ensureAHT20(generator) {
+  generator.addLibrary('DFRobot_AHT20', '#include "DFRobot_AHT20.h"');
+  generator.addVariable('aht20', 'DFRobot_AHT20 aht20;');
+  generator.addSetupBegin(
+    'aht20_begin',
+    'while(aht20.begin() != 0){\n  delay(1000);\n}'
+  );
+}
+
+// 启动一次测量
+Arduino.forBlock['k10_aht20_measure'] = function(block, generator) {
+  var crc = block.getFieldValue('CRC');
+  ensureAHT20(generator);
+  return ['(aht20.startMeasurementReady(' + crc + '))', generator.ORDER_FUNCTION_CALL];
+};
+
+// 获取温度
+Arduino.forBlock['k10_aht20_get_temperature'] = function(block, generator) {
+  var unit = block.getFieldValue('UNIT');
+  ensureAHT20(generator);
+  if (unit === 'F') {
+    return ['(aht20.getTemperature_F())', generator.ORDER_FUNCTION_CALL];
+  }
+  return ['(aht20.getTemperature_C())', generator.ORDER_FUNCTION_CALL];
+};
+
+// 获取相对湿度
+Arduino.forBlock['k10_aht20_get_humidity'] = function(block, generator) {
+  ensureAHT20(generator);
+  return ['(aht20.getHumidity_RH())', generator.ORDER_FUNCTION_CALL];
+};

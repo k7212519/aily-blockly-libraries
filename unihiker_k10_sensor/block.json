@@ -37,5 +37,52 @@
     "colour": "#9C27B0",
     "tooltip": "获取K10板载传感器的值",
     "icon": "fa-light fa-gauge-high"
+  },
+  {
+    "type": "k10_aht20_measure",
+    "message0": "AHT20 启动测量 %1 校验",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CRC",
+        "options": [
+          ["开启", "true"],
+          ["关闭", "false"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Boolean",
+    "colour": "#9C27B0",
+    "tooltip": "启动AHT20一次测量，返回测量是否完成；完成后再读取温度/湿度",
+    "icon": "fa-light fa-temperature-half"
+  },
+  {
+    "type": "k10_aht20_get_temperature",
+    "message0": "AHT20 获取温度 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "UNIT",
+        "options": [
+          ["摄氏度(℃)", "C"],
+          ["华氏度(℉)", "F"]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#9C27B0",
+    "tooltip": "获取AHT20传感器测量到的温度（需先启动测量）",
+    "icon": "fa-light fa-temperature-half"
+  },
+  {
+    "type": "k10_aht20_get_humidity",
+    "message0": "AHT20 获取相对湿度(%RH)",
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "#9C27B0",
+    "tooltip": "获取AHT20传感器测量到的相对湿度（需先启动测量）",
+    "icon": "fa-light fa-droplet"
   }
 ]
