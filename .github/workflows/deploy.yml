@@ -655,17 +655,25 @@ jobs:
             exit 1
           fi
       
-      - name: SCP upload boards JSON files
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SERVER }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: 22
-          source: "libraries.json, libraries-index.json, tags.json"
-          target: ${{ secrets.TARGET }}
-          timeout: 600s
-          command_timeout: 300s
+      - name: Upload JSON files to RustFS
+        env:
+          RUSTFS_ENDPOINT: ${{ secrets.RUSTFS_ENDPOINT }}
+          RUSTFS_ACCESS_KEY_ID: ${{ secrets.RUSTFS_ACCESS_KEY_ID }}
+          RUSTFS_SECRET_ACCESS_KEY: ${{ secrets.RUSTFS_SECRET_ACCESS_KEY }}
+          RUSTFS_BUCKET: ${{ secrets.RUSTFS_BUCKET }}
+          RUSTFS_TARGET: ${{ secrets.RUSTFS_TARGET }}
+        run: |
+          if [ -z "$RUSTFS_ENDPOINT" ] || [ -z "$RUSTFS_ACCESS_KEY_ID" ] || [ -z "$RUSTFS_SECRET_ACCESS_KEY" ] || [ -z "$RUSTFS_BUCKET" ]; then
+            echo "RustFS secrets not set, skipping."
+            exit 0
+          fi
+          export AWS_ACCESS_KEY_ID="$RUSTFS_ACCESS_KEY_ID"
+          export AWS_SECRET_ACCESS_KEY="$RUSTFS_SECRET_ACCESS_KEY"
+          export AWS_DEFAULT_REGION="us-east-1"
+          PREFIX="${RUSTFS_TARGET:+${RUSTFS_TARGET}/}"
+          for file in libraries.json libraries-index.json tags.json; do
+            aws --endpoint-url "$RUSTFS_ENDPOINT" s3 cp "$file" "s3://${RUSTFS_BUCKET}/${PREFIX}${file}" --no-progress
+          done
       
       - name: Prepare R2 Upload
         run: |
