@@ -13,6 +13,7 @@ Blockly.getMainWorkspace().addChangeListener((event) => {
     // 从工具箱中删除变量
     // 获取原始工具箱定义
     const originalToolboxDef = workspace.options.languageTree;
+    if (!originalToolboxDef) return;
 
     // 找到变量类别并更新其内容
     for (let category of originalToolboxDef.contents) {
