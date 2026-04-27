@@ -1,6 +1,7 @@
 {
   "kind": "category",
   "name": "QuickESPNow",
+  "icon": "fa-light fa-signal-stream",
   "contents": [
     {
       "kind": "label",

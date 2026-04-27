@@ -1,6 +1,7 @@
 [
   {
     "type": "quickespnow_init_current",
+    "icon": "fa-light fa-signal-stream",
     "message0": "初始化 QuickESPNow 当前 WiFi 频道 接口 %1 发送模式 %2",
     "args0": [
       {
@@ -29,6 +30,7 @@
   },
   {
     "type": "quickespnow_init_channel",
+    "icon": "fa-light fa-signal-stream",
     "message0": "初始化 QuickESPNow 频道 %1 接口 %2 发送模式 %3",
     "args0": [
       {
@@ -62,6 +64,7 @@
   },
   {
     "type": "quickespnow_stop",
+    "icon": "fa-light fa-signal-stream",
     "message0": "停止 QuickESPNow",
     "previousStatement": null,
     "nextStatement": null,
@@ -70,6 +73,7 @@
   },
   {
     "type": "quickespnow_set_channel",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 设置频道 %1",
     "args0": [
       {
@@ -86,6 +90,7 @@
   },
   {
     "type": "quickespnow_enable_transmit",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 允许发送 %1",
     "args0": [
       {
@@ -102,6 +107,7 @@
   },
   {
     "type": "quickespnow_send_text",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 发文本到 MAC %1 内容 %2",
     "args0": [
       {
@@ -123,6 +129,7 @@
   },
   {
     "type": "quickespnow_send_broadcast_text",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 广播文本 %1",
     "args0": [
       {
@@ -139,6 +146,7 @@
   },
   {
     "type": "quickespnow_on_received",
+    "icon": "fa-light fa-signal-stream",
     "message0": "当 QuickESPNow 收到数据时",
     "message1": "执行 %1",
     "args1": [
@@ -152,6 +160,7 @@
   },
   {
     "type": "quickespnow_on_sent",
+    "icon": "fa-light fa-signal-stream",
     "message0": "当 QuickESPNow 发送完成时",
     "message1": "执行 %1",
     "args1": [
@@ -165,6 +174,7 @@
   },
   {
     "type": "quickespnow_ready_to_send",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 可发送",
     "output": "Boolean",
     "colour": "#FF7043",
@@ -172,6 +182,7 @@
   },
   {
     "type": "quickespnow_last_send_result",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 最近发送调用结果",
     "output": "Number",
     "colour": "#FF7043",
@@ -179,6 +190,7 @@
   },
   {
     "type": "quickespnow_get_max_message_length",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 最大消息长度",
     "output": "Number",
     "colour": "#FF7043",
@@ -186,6 +198,7 @@
   },
   {
     "type": "quickespnow_get_address_length",
+    "icon": "fa-light fa-signal-stream",
     "message0": "QuickESPNow 地址长度",
     "output": "Number",
     "colour": "#FF7043",
@@ -193,6 +206,7 @@
   },
   {
     "type": "quickespnow_received_message",
+    "icon": "fa-light fa-signal-stream",
     "message0": "收到的文本",
     "output": "String",
     "colour": "#FF7043",
@@ -200,6 +214,7 @@
   },
   {
     "type": "quickespnow_received_length",
+    "icon": "fa-light fa-signal-stream",
     "message0": "收到的数据长度",
     "output": "Number",
     "colour": "#FF7043",
@@ -207,6 +222,7 @@
   },
   {
     "type": "quickespnow_received_rssi",
+    "icon": "fa-light fa-signal-stream",
     "message0": "收到消息 RSSI",
     "output": "Number",
     "colour": "#FF7043",
@@ -214,6 +230,7 @@
   },
   {
     "type": "quickespnow_received_is_broadcast",
+    "icon": "fa-light fa-signal-stream",
     "message0": "收到的是广播消息",
     "output": "Boolean",
     "colour": "#FF7043",
@@ -221,6 +238,7 @@
   },
   {
     "type": "quickespnow_received_sender_mac",
+    "icon": "fa-light fa-signal-stream",
     "message0": "收到消息的发送方 MAC",
     "output": "String",
     "colour": "#FF7043",
@@ -228,6 +246,7 @@
   },
   {
     "type": "quickespnow_sent_target_mac",
+    "icon": "fa-light fa-signal-stream",
     "message0": "最近发送回调目标 MAC",
     "output": "String",
     "colour": "#FF7043",
@@ -235,6 +254,7 @@
   },
   {
     "type": "quickespnow_sent_status",
+    "icon": "fa-light fa-signal-stream",
     "message0": "最近发送回调状态",
     "output": "Number",
     "colour": "#FF7043",
