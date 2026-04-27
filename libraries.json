@@ -3693,7 +3693,7 @@
       "双路电机驱动"
     ],
     "tested": true,
-    "icon": "",
+    "icon": "iconfont icon-motor",
     "url": "",
     "nickname_zh_cn": "TB6612直流电机驱动",
     "nickname_en": "TB6612 DC motor driver",
