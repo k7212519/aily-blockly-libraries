@@ -1,8 +1,8 @@
 {
   "name": "@aily-project/lib-arduino-freertos",
-  "nickname": "Arduino R4 FreeRTOS",
-  "nickname_zh_cn": "Arduino R4 FreeRTOS",
-  "nickname_en": "Arduino R4 FreeRTOS",
+  "nickname": "R4 FreeRTOS",
+  "nickname_zh_cn": "R4 FreeRTOS",
+  "nickname_en": "R4 FreeRTOS",
   "version": "1.0.0",
   "description": "Arduino UNO R4 多任务实时系统库",
   "description_zh_cn": "Arduino UNO R4 多任务实时系统库",
