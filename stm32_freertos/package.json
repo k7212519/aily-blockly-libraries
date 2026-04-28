@@ -52,5 +52,6 @@
   "tags": [
     "core",
     "system"
-  ]
+  ],
+  "hide": true
 }
