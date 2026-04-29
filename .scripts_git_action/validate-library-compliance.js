@@ -906,6 +906,55 @@ class LibraryValidator {
     }
   }
 
+  // 检测整个工作区中是否存在重复的包名
+  // libraryFilter: 可选，仅当重复涉及到这些库时才报告（用于单库/变更库模式）
+  checkDuplicatePackageNames(rootDir, libraryFilter = null) {
+    console.log('\n🔁 检测重复的包名...');
+
+    const entries = fs.readdirSync(rootDir, { withFileTypes: true });
+    const nameMap = new Map(); // packageName -> [libDirName, ...]
+
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
+
+      const pkgPath = path.join(rootDir, entry.name, 'package.json');
+      if (!fs.existsSync(pkgPath)) continue;
+
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+        if (pkg && pkg.name) {
+          if (!nameMap.has(pkg.name)) nameMap.set(pkg.name, []);
+          nameMap.get(pkg.name).push(entry.name);
+        }
+      } catch (e) {
+        // 忽略损坏的 package.json，已由其它检测处理
+      }
+    }
+
+    const duplicates = [];
+    for (const [name, dirs] of nameMap.entries()) {
+      if (dirs.length > 1) {
+        // 如果指定了过滤器，仅当至少一个目录在过滤器中时才报告
+        if (libraryFilter && !dirs.some(d => libraryFilter.includes(d))) continue;
+        duplicates.push({ name, dirs });
+      }
+    }
+
+    if (duplicates.length === 0) {
+      console.log('  ✅ 未发现重复的包名');
+      return [];
+    }
+
+    console.log(`  ❌ 发现 ${duplicates.length} 个重复的包名:`);
+    for (const dup of duplicates) {
+      console.log(`     - "${dup.name}" 出现在: ${dup.dirs.join(', ')}`);
+    }
+
+    process.exitCode = 1;
+    return duplicates;
+  }
+
   // 生成检测报告
   generateReport(libraryName) {
     const scorePercentage = this.maxScore > 0 ? Math.round((this.score / this.maxScore) * 100) : 0;
@@ -986,6 +1035,12 @@ class LibraryValidator {
         failCount++;
       }
     }
+
+    // 工作区级检测：重复的包名
+    console.log('\n' + '='.repeat(60));
+    console.log('🔁 工作区级检测');
+    console.log('='.repeat(60));
+    this.checkDuplicatePackageNames(currentDir);
 
     // 总体统计
     console.log('\n' + '='.repeat(60));
@@ -1117,6 +1172,12 @@ class LibraryValidator {
       }
     }
 
+    // 工作区级检测：重复的包名（仅当涉及到变更的库时报告）
+    console.log('\n' + '='.repeat(60));
+    console.log('🔁 工作区级检测');
+    console.log('='.repeat(60));
+    const dupDuringChanged = this.checkDuplicatePackageNames(currentDir, changedLibraries);
+
     // 总体统计
     if (results.length > 0) {
       console.log('\n' + '='.repeat(60));
@@ -1173,6 +1234,7 @@ Arduino库转Blockly库规范检测工具
   ✅ toolbox.json影子块配置
   ✅ README轻量化规范
   ✅ generator.js最佳实践
+  ✅ 工作区内重复包名检测
 
 CI/CD 集成:
   在 GitHub Actions 或其他 CI 中使用 --changed 参数
@@ -1204,6 +1266,13 @@ CI/CD 集成:
     }
 
     await validator.validateLibrary(libraryPath);
+
+    // 工作区级检测：仅当指定库的包名与其它库重复时报告
+    const rootDir = path.dirname(libraryPath);
+    console.log('\n' + '='.repeat(60));
+    console.log('🔁 工作区级检测');
+    console.log('='.repeat(60));
+    validator.checkDuplicatePackageNames(rootDir, [path.basename(libraryPath)]);
   }
 }
 
