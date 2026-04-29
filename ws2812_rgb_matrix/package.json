@@ -54,5 +54,6 @@
   "tags": [
     "led",
     "display"
-  ]
+  ],
+  "hide": true
 }
