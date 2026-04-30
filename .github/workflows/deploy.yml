@@ -627,6 +627,9 @@ jobs:
       - name: Generate JSON
         run: node .scripts_git_action/genjson.js
 
+      - name: Generate AI libraries JSON
+        run: node .scripts/genjson-ai.js
+
       - name: Generate library info files
         run: node .scripts_git_action/generate-info.js --all
       
@@ -635,14 +638,16 @@ jobs:
       
       - name: Check if JSON file exists
         run: |
-          if [ -f "./libraries.json" ]; then
-            echo "File exists"
-            cat ./libraries.json | head -n 10
-          else
-            echo "File does not exist"
-            ls -la
-            exit 1
-          fi
+          for file in libraries.json libraries-ai.json; do
+            if [ -f "./$file" ]; then
+              echo "$file exists"
+              cat "./$file" | head -n 10
+            else
+              echo "$file does not exist"
+              ls -la
+              exit 1
+            fi
+          done
       
       - name: Check if libraries index file exists
         run: |
@@ -671,7 +676,7 @@ jobs:
           export AWS_SECRET_ACCESS_KEY="$RUSTFS_SECRET_ACCESS_KEY"
           export AWS_DEFAULT_REGION="us-east-1"
           PREFIX="${RUSTFS_TARGET:+${RUSTFS_TARGET}/}"
-          for file in libraries.json libraries-index.json tags.json; do
+          for file in libraries.json libraries-ai.json libraries-index.json tags.json; do
             aws --endpoint-url "$RUSTFS_ENDPOINT" s3 cp "$file" "s3://${RUSTFS_BUCKET}/${PREFIX}${file}" --no-progress
           done
       
@@ -679,6 +684,7 @@ jobs:
         run: |
           mkdir -p r2_json
           cp libraries.json r2_json/
+          cp libraries-ai.json r2_json/
           cp libraries-index.json r2_json/
           cp tags.json r2_json/
 
