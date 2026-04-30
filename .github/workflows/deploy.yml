@@ -641,7 +641,7 @@ jobs:
           for file in libraries.json libraries-ai.json; do
             if [ -f "./$file" ]; then
               echo "$file exists"
-              cat "./$file" | head -n 10
+              head -n 10 "./$file"
             else
               echo "$file does not exist"
               ls -la
@@ -653,7 +653,7 @@ jobs:
         run: |
           if [ -f "./libraries-index.json" ]; then
             echo "Libraries index file exists"
-            cat ./libraries-index.json | head -n 10
+            head -n 10 ./libraries-index.json
           else
             echo "Libraries index file does not exist"
             ls -la
