@@ -4,7 +4,7 @@ MAX30102 Blockly库，封装MAX30102_by_RF的初始化、批量采样和RF算法
 
 ## Library Info
 - **Name**: @aily-project/lib-max30102
-- **Version**: 0.0.1
+- **Version**: 0.0.2
 
 ## Block Definitions
 
@@ -16,14 +16,15 @@ MAX30102 Blockly库，封装MAX30102_by_RF的初始化、批量采样和RF算法
 | `max30102_is_valid` | Value Boolean | TARGET(dropdown) | `max30102_is_valid(MEASURE)` | validity global |
 | `max30102_reset` | Statement | none | `max30102_reset()` | `maxim_max30102_reset();` |
 | `max30102_set_led_amplitude` | Statement | LED1(input Number), LED2(input Number) | `max30102_set_led_amplitude(36,36)` | LED amplitude setters |
-| `max30102_config_spo2` | Statement | AVERAGING, ADC_RANGE, SAMPLE_RATE, PULSE_WIDTH(dropdown) | `max30102_config_spo2(AVG_4,ADC_RANGE_4096,SPO2_RATE_100,PW_411)` | config setters |
+| `max30102_config_spo2` | Statement | AVERAGING, ADC_RANGE, SAMPLE_RATE, PULSE_WIDTH(dropdown) | `max30102_config_spo2(AVG_4,ADC_RANGE_4096,SPO2_RATE_100,PW_411)` | cached/live config helper |
+| `max30102_set_finger_threshold` | Statement | THRESHOLD(input Number) | `max30102_set_finger_threshold(50000)` | finger threshold global |
 
 ## Parameter Options
 
 | Parameter | Values |
 |-----------|--------|
 | VALUE | SPO2, HEART_RATE, TEMPERATURE, RED, IR, RATIO, CORRELATION |
-| TARGET | MEASURE, SPO2, HEART_RATE, FINGER |
+| TARGET | MEASURE, INIT, SPO2, HEART_RATE, FINGER |
 | AVERAGING | NO_AVERAGING, AVG_2, AVG_4, AVG_8, AVG_16, AVG_32 |
 | ADC_RANGE | ADC_RANGE_2048, ADC_RANGE_4096, ADC_RANGE_8192, ADC_RANGE_16384 |
 | SAMPLE_RATE | SPO2_RATE_50, SPO2_RATE_100, SPO2_RATE_200, SPO2_RATE_400, SPO2_RATE_800, SPO2_RATE_1000, SPO2_RATE_1600, SPO2_RATE_3200 |
@@ -47,6 +48,8 @@ arduino_loop()
 ## Notes
 
 1. The library uses global helper state; no Blockly variable is required.
-2. `max30102_measure` must run before value blocks return fresh data.
-3. SDA, SCL, and INT must be connected. ESP32 code uses `Wire.begin(SDA, SCL)`; non-ESP32 cores use default `Wire.begin()`.
-4. Avoid AVR boards with very small SRAM because the algorithm keeps two 100-sample buffers.
+2. `max30102_measure` must run before value blocks return fresh data. Its timeout is the total wait for the whole batch; 0 disables timeout.
+3. `max30102_config_spo2` may run before initialization to cache settings, or after initialization to apply settings immediately.
+4. `max30102_set_finger_threshold` controls `max30102_is_valid(FINGER)`; default is 50000.
+5. SDA, SCL, and INT must be connected. ESP32 code uses `Wire.begin(SDA, SCL)`; non-ESP32 cores use default `Wire.begin()`.
+6. Avoid AVR boards with very small SRAM because the algorithm keeps two 100-sample buffers.

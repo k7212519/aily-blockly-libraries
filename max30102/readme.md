@@ -4,7 +4,7 @@ MAX30102血氧和心率传感器Blockly库，基于MAX30102_by_RF驱动与算法
 
 ## 库信息
 - **库名**: @aily-project/lib-max30102
-- **版本**: 0.0.1
+- **版本**: 0.0.2
 - **兼容**: ESP32、ESP32-S3、Arduino SAMD；不建议在SRAM较小的AVR板卡上使用
 
 ## 块定义
@@ -17,7 +17,8 @@ MAX30102血氧和心率传感器Blockly库，基于MAX30102_by_RF驱动与算法
 | `max30102_is_valid` | 值块 | TARGET(field_dropdown) | `"TARGET":"MEASURE"` | `_ailyMax30102LastOK` |
 | `max30102_reset` | 语句块 | 无 | `{}` | `maxim_max30102_reset();` |
 | `max30102_set_led_amplitude` | 语句块 | LED1/LED2(input_value) | `"LED1":{...}` | `setLED1PulseAmplitude(...)` |
-| `max30102_config_spo2` | 语句块 | AVERAGING/ADC_RANGE/SAMPLE_RATE/PULSE_WIDTH(dropdown) | `"SAMPLE_RATE":"SPO2_RATE_100"` | `setSPO2SampleRate(...)` |
+| `max30102_config_spo2` | 语句块 | AVERAGING/ADC_RANGE/SAMPLE_RATE/PULSE_WIDTH(dropdown) | `"SAMPLE_RATE":"SPO2_RATE_100"` | `ailyMax30102SetSpO2Config(...)` |
+| `max30102_set_finger_threshold` | 语句块 | THRESHOLD(input_value) | `"THRESHOLD":{...}` | `_ailyMax30102FingerThreshold = ...` |
 
 ## 字段类型映射
 
@@ -30,9 +31,11 @@ MAX30102血氧和心率传感器Blockly库，基于MAX30102_by_RF驱动与算法
 ## 连接规则
 
 - `max30102_init`放在`arduino_setup`中，SDA/SCL必须接到模块I2C引脚，INT必须接到模块INT引脚。ESP32会按所选SDA/SCL初始化`Wire`；非ESP32核心使用默认`Wire.begin()`。
-- `max30102_measure`放在`arduino_loop`或需要测量的位置；一次测量会采集`BUFFER_SIZE`批数据，默认约4秒。
+- `max30102_measure`放在`arduino_loop`或需要测量的位置；一次测量会采集`BUFFER_SIZE`批数据，默认约4秒。`TIMEOUT`是整次测量的总等待时间，0表示不超时。
 - `max30102_get_value`读取最近一次测量结果，不会主动采样。
-- `max30102_is_valid`可用于判断本次测量、血氧、心率或手指检测状态。
+- `max30102_is_valid`可用于判断初始化、本次测量、血氧、心率或手指检测状态。
+- `max30102_config_spo2`可放在初始化前或初始化后。初始化前会先缓存配置，初始化时统一应用；初始化后会立即写入传感器寄存器。
+- `max30102_set_finger_threshold`设置手指检测阈值，默认`50000`，用于`max30102_is_valid(FINGER)`判断。
 
 ## 使用示例
 
@@ -65,5 +68,5 @@ MAX30102血氧和心率传感器Blockly库，基于MAX30102_by_RF驱动与算法
 ## 支持的关键参数
 
 - `VALUE`: `SPO2`, `HEART_RATE`, `TEMPERATURE`, `RED`, `IR`, `RATIO`, `CORRELATION`
-- `TARGET`: `MEASURE`, `SPO2`, `HEART_RATE`, `FINGER`
+- `TARGET`: `MEASURE`, `INIT`, `SPO2`, `HEART_RATE`, `FINGER`
 - 默认高级配置：`AVG_4`, `ADC_RANGE_4096`, `SPO2_RATE_100`, `PW_411`
