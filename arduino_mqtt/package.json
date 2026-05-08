@@ -1,5 +1,5 @@
 {
-   "name": "@aily-project/lib-mqtt",
+   "name": "@aily-project/lib-arduino-mqtt",
    "nickname": "MQTT通信库",
    "nickname_zh_cn": "MQTT通信库",
    "nickname_en": "MQTT communication library",

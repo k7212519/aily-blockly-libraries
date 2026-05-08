@@ -2,6 +2,7 @@
 {
   "kind": "category",
   "name": "TB6612",
+  "icon": "iconfont icon-motor",
   "contents": [
     {
   "kind": "block",

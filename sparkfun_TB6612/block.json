@@ -2,6 +2,7 @@
 [
   {
   "type": "tb6612_motor_init",
+  "icon": "iconfont icon-motor",
   "message0": "初始化TB6612双电机驱动器 %1 电机A名称 %2 AIN1 %3 AIN2 %4 PWMA %5 偏移量A %6",
   "args0": [
     {
@@ -78,6 +79,7 @@
   },
   {
   "type": "tb6612_drive",
+  "icon": "iconfont icon-motor",
   "message0": "电机 %1 前进 速度: %2",
   "args0": [
     {
@@ -102,6 +104,7 @@
 },
 {
   "type": "tb6612_reverse",
+  "icon": "iconfont icon-motor",
   "message0": "电机 %1 后退 速度: %2",
   "args0": [
     {
@@ -126,6 +129,7 @@
 },
 {
   "type": "tb6612_brake",
+  "icon": "iconfont icon-motor",
   "message0": "电机 %1 刹车",
   "args0": [
     {
@@ -145,6 +149,7 @@
   },
   {
     "type": "tb6612_dual_action",
+    "icon": "iconfont icon-motor",
     "message0": "双电机动作 模式: %1 速度: %2\n前后: M1 %3, M2 %4\n左右: 左 %5, 右 %6",
     "args0": [
       {

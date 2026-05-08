@@ -1,5 +1,5 @@
 {
-   "name": "@aily-project/lib-mqtt",
+   "name": "@aily-project/lib-pubsubclient",
    "nickname": "MQTT通信",
    "nickname_zh_cn": "MQTT通信",
    "nickname_en": "MQTT communication",

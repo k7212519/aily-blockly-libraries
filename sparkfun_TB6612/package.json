@@ -1,5 +1,5 @@
 {
-   "name": "@aily-project/lib-sparkfun_tb6612",
+   "name": "@aily-project/lib-sparkfun-tb6612",
    "nickname": "TB6612直流电机驱动",
    "nickname_zh_cn": "TB6612直流电机驱动",
    "nickname_en": "TB6612 DC motor driver",
@@ -25,7 +25,8 @@
    "description_pt": "Com base no chip do driver do motor DC TB6612, a rotação direta e reversa e a regulação da velocidade dos motores DC de canal duplo são realizadas por meio de sinais de controle de direção e PWM. É adequado para placas de desenvolvimento como Arduino e ESP32.",
    "description_ru": "На основе микросхемы драйвера двигателя постоянного тока TB6612 вращение вперед и назад, а также регулирование скорости двухканальных двигателей постоянного тока осуществляется посредством ШИМ и сигналов управления направлением. Он подходит для плат разработки, таких как Arduino и ESP32.",
    "description_ar": "استنادًا إلى شريحة تشغيل محرك DC TB6612، يتم تحقيق الدوران الأمامي والخلفي وتنظيم السرعة لمحركات DC مزدوجة القناة من خلال إشارات PWM والتحكم في الاتجاه. إنها مناسبة للوحات التطوير مثل Arduino وESP32.",
-   "version": "0.0.2",
+   "icon": "iconfont icon-motor",
+   "version": "0.0.3",
    "compatibility": {
       "core": [
          "arduino:avr",
