@@ -1,0 +1,36 @@
+[
+  {
+    "type": "cycore_iot_begin",
+    "message0": "初始化 Cycore IoT Wi-Fi %1 密码 %2",
+    "args0": [{"type":"input_value","name":"SSID","check":"String"},{"type":"input_value","name":"WIFI_PASSWORD","check":"String"}],
+    "message1": "设备码 %1",
+    "args1": [{"type":"input_value","name":"DEVICE_CODE","check":"String"}],
+    "previousStatement":null,"nextStatement":null,"colour":"#00A9D6","inputsInline":false
+  },
+  {"type":"cycore_iot_on_connected","message0":"Cycore IoT 连接成功时 %1 %2","args0":[{"type":"input_dummy"},{"type":"input_statement","name":"DO"}],"colour":"#00A9D6"},
+  {"type":"cycore_iot_on_disconnected","message0":"Cycore IoT 断开连接时 %1 %2","args0":[{"type":"input_dummy"},{"type":"input_statement","name":"DO"}],"colour":"#00A9D6"},
+  {"type":"cycore_iot_is_online","message0":"Cycore IoT 已在线","output":"Boolean","colour":"#00A9D6"},
+  {"type":"cycore_iot_reconnect","message0":"Cycore IoT 立即重连","previousStatement":null,"nextStatement":null,"colour":"#00A9D6"},
+  {
+    "type":"cycore_iot_on_control","message0":"当 %1 组件 Binding Key %2 收到控制时 %3 %4",
+    "args0":[{"type":"field_dropdown","name":"KIND","options":[["按钮","button"],["开关","switch"],["滑块","slider"],["选择器","selector"],["摇杆","joystick"],["颜色","color"]]},{"type":"field_input","name":"KEY","text":"control_1"},{"type":"input_dummy"},{"type":"input_statement","name":"DO"}],
+    "colour":"#18B89A"
+  },
+  {"type":"cycore_iot_current_action","message0":"当前动作","output":"String","colour":"#18B89A"},
+  {"type":"cycore_iot_current_bool","message0":"当前布尔值","output":"Boolean","colour":"#18B89A"},
+  {"type":"cycore_iot_current_number","message0":"当前数字值","output":"Number","colour":"#18B89A"},
+  {"type":"cycore_iot_current_text","message0":"当前文本值","output":"String","colour":"#18B89A"},
+  {"type":"cycore_iot_current_axis","message0":"当前摇杆 %1 坐标","args0":[{"type":"field_dropdown","name":"AXIS","options":[["X","x"],["Y","y"]]}],"output":"Number","colour":"#18B89A"},
+  {"type":"cycore_iot_current_color","message0":"当前颜色 %1","args0":[{"type":"field_dropdown","name":"CHANNEL","options":[["R","r"],["G","g"],["B","b"]]}],"output":"Number","colour":"#18B89A"},
+  {"type":"cycore_iot_report_number","message0":"上报数值 Binding Key %1 值 %2","args0":[{"type":"field_input","name":"KEY","text":"temperature"},{"type":"input_value","name":"VALUE","check":"Number"}],"previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_report_text","message0":"上报文本 Binding Key %1 值 %2","args0":[{"type":"field_input","name":"KEY","text":"message"},{"type":"input_value","name":"VALUE","check":"String"}],"previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_report_bool","message0":"上报布尔 Binding Key %1 值 %2","args0":[{"type":"field_input","name":"KEY","text":"enabled"},{"type":"input_value","name":"VALUE","check":"Boolean"}],"previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_report_color","message0":"上报颜色 Binding Key %1 R %2 G %3 B %4","args0":[{"type":"field_input","name":"KEY","text":"color"},{"type":"input_value","name":"R","check":"Number"},{"type":"input_value","name":"G","check":"Number"},{"type":"input_value","name":"B","check":"Number"}],"previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_batch_begin","message0":"开始批量遥测","previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_batch_add","message0":"批量遥测添加 Binding Key %1 值 %2","args0":[{"type":"field_input","name":"KEY","text":"sensor_1"},{"type":"input_value","name":"VALUE"}],"previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_batch_publish","message0":"发布批量遥测","previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_notify_event","message0":"发送事件 Binding Key %1 事件 %2 值 %3","args0":[{"type":"field_input","name":"KEY","text":"alarm"},{"type":"field_input","name":"EVENT","text":"triggered"},{"type":"input_value","name":"VALUE"}],"previousStatement":null,"nextStatement":null,"colour":"#596EDB"},
+  {"type":"cycore_iot_connection_state","message0":"Cycore IoT 连接状态文本","output":"String","colour":"#A06AD4"},
+  {"type":"cycore_iot_last_error","message0":"Cycore IoT 最后错误","output":"String","colour":"#A06AD4"},
+  {"type":"cycore_iot_debug","message0":"Cycore IoT 串口日志 %1","args0":[{"type":"input_value","name":"TEXT"}],"previousStatement":null,"nextStatement":null,"colour":"#A06AD4"}
+]

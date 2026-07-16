@@ -1,0 +1,10 @@
+{
+  "kind":"category","name":"芯云物联网","colour":"#00A9D6","contents":[
+    {"kind":"label","text":"初始化与连接"},
+    {"kind":"block","type":"cycore_iot_begin","inputs":{"SSID":{"shadow":{"type":"text","fields":{"TEXT":"Your WiFi SSID"}}},"WIFI_PASSWORD":{"shadow":{"type":"text","fields":{"TEXT":"Your WiFi Password"}}},"DEVICE_CODE":{"shadow":{"type":"text","fields":{"TEXT":"Device Code"}}}}},
+    {"kind":"block","type":"cycore_iot_on_connected"},{"kind":"block","type":"cycore_iot_on_disconnected"},{"kind":"block","type":"cycore_iot_is_online"},{"kind":"block","type":"cycore_iot_reconnect"},
+    {"kind":"label","text":"控制回调"},{"kind":"block","type":"cycore_iot_on_control"},{"kind":"block","type":"cycore_iot_current_action"},{"kind":"block","type":"cycore_iot_current_bool"},{"kind":"block","type":"cycore_iot_current_number"},{"kind":"block","type":"cycore_iot_current_text"},{"kind":"block","type":"cycore_iot_current_axis"},{"kind":"block","type":"cycore_iot_current_color"},
+    {"kind":"label","text":"数据上报"},{"kind":"block","type":"cycore_iot_report_number","inputs":{"VALUE":{"shadow":{"type":"math_number","fields":{"NUM":25.5}}}}},{"kind":"block","type":"cycore_iot_report_text","inputs":{"VALUE":{"shadow":{"type":"text","fields":{"TEXT":"online"}}}}},{"kind":"block","type":"cycore_iot_report_bool","inputs":{"VALUE":{"shadow":{"type":"logic_boolean","fields":{"BOOL":"TRUE"}}}}},{"kind":"block","type":"cycore_iot_report_color","inputs":{"R":{"shadow":{"type":"math_number","fields":{"NUM":24}}},"G":{"shadow":{"type":"math_number","fields":{"NUM":215}}},"B":{"shadow":{"type":"math_number","fields":{"NUM":255}}}}},{"kind":"block","type":"cycore_iot_batch_begin"},{"kind":"block","type":"cycore_iot_batch_add"},{"kind":"block","type":"cycore_iot_batch_publish"},{"kind":"block","type":"cycore_iot_notify_event"},
+    {"kind":"label","text":"调试"},{"kind":"block","type":"cycore_iot_connection_state"},{"kind":"block","type":"cycore_iot_last_error"},{"kind":"block","type":"cycore_iot_debug"}
+  ]
+}
