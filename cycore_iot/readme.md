@@ -2,7 +2,7 @@
 
 面向 ESP32、ESP32-S3、Cycore ESP32-S3（WiFiDuino，编译标识 `esp32:esp32:wifiduino32s3`）、ESP32-C3 和 ESP32-C6 的芯云物联网图形化编程库。学生只需要填写 Wi-Fi 和平台返回的设备码；Broker、端口、共享账号、连接模式和基础 Topic 均由库内置，无法从积木修改。
 
-库会自动完成 MQTT Topic 拼接、LWT、心跳、自动重连、命令解析、ACK 和批量遥测。MQTT Client ID 会组合设备码与芯片 MAC，避免重复烧录造成会话互踢；网络尚未连通时的少量上报会进入本地队列并在上线后补发。默认 Topic 为 `cycoreiot/{deviceCode}/{telemetry|event|status|ack|command}`。
+库会自动完成 MQTT Topic 拼接、LWT、心跳、自动重连、命令解析、ACK 和批量遥测。MQTT Client ID 会组合设备码与芯片 MAC，避免重复烧录造成会话互踢；网络尚未连通时的少量上报会进入本地队列并在上线后补发。最近收到的命令 ID 会被缓存，重复投递只会重发 ACK，不会再次执行硬件回调。默认 Topic 为 `cycoreiot/{deviceCode}/{telemetry|event|status|ack|command}`。
 
 建议先放置“初始化 Cycore IoT”块，再添加组件控制回调和遥测上报块。主循环中的网络处理由生成器自动加入，重连使用 `millis()` 判断，不会阻塞学生程序。
 
