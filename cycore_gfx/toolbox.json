@@ -1,0 +1,224 @@
+{
+  "kind": "category",
+  "name": "芯云显示屏",
+  "icon": "iconfont icon-oled12864",
+  "contents": [
+    {
+      "kind": "block",
+      "type": "cycore_gfx_init",
+      "fields": {"SIZE": "240X240", "ROTATION": "0", "FREQUENCY": "32000000"},
+      "inputs": {
+        "SCK": {"shadow": {"type": "math_number", "fields": {"NUM": 12}}},
+        "MOSI": {"shadow": {"type": "math_number", "fields": {"NUM": 11}}},
+        "RST": {"shadow": {"type": "math_number", "fields": {"NUM": 17}}},
+        "DC": {"shadow": {"type": "math_number", "fields": {"NUM": 18}}},
+        "CS": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "BL": {"shadow": {"type": "math_number", "fields": {"NUM": 21}}}
+      }
+    },
+    {"kind": "block", "type": "cycore_gfx_ready"},
+    {"kind": "block", "type": "cycore_gfx_dimension"},
+    {"kind": "block", "type": "cycore_gfx_set_rotation"},
+    {"kind": "block", "type": "cycore_gfx_invert"},
+    {"kind": "block", "type": "cycore_gfx_backlight"},
+    {"kind": "sep", "gap": 24},
+    {"kind": "block", "type": "cycore_gfx_present"},
+    {
+      "kind": "block",
+      "type": "cycore_gfx_present_region",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "WIDTH": {"shadow": {"type": "math_number", "fields": {"NUM": 64}}},
+        "HEIGHT": {"shadow": {"type": "math_number", "fields": {"NUM": 64}}}
+      }
+    },
+    {"kind": "block", "type": "cycore_gfx_frame"},
+    {"kind": "sep", "gap": 24},
+    {
+      "kind": "block",
+      "type": "cycore_gfx_fill_screen",
+      "inputs": {"COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#000000"}}}}
+    },
+    {"kind": "block", "type": "cycore_gfx_clear"},
+    {"kind": "block", "type": "cycore_gfx_color"},
+    {
+      "kind": "block",
+      "type": "cycore_gfx_rgb565",
+      "inputs": {
+        "R": {"shadow": {"type": "math_number", "fields": {"NUM": 255}}},
+        "G": {"shadow": {"type": "math_number", "fields": {"NUM": 255}}},
+        "B": {"shadow": {"type": "math_number", "fields": {"NUM": 255}}}
+      }
+    },
+    {"kind": "sep", "gap": 24},
+    {
+      "kind": "block",
+      "type": "cycore_gfx_set_text_color",
+      "fields": {"MODE": "TRANSPARENT"},
+      "inputs": {
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}},
+        "BACKGROUND": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#000000"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_set_text_size",
+      "inputs": {"SIZE": {"shadow": {"type": "math_number", "fields": {"NUM": 1}}}}
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_text",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "TEXT": {"shadow": {"type": "text", "fields": {"TEXT": "Hello"}}}
+      }
+    },
+    {"kind": "sep", "gap": 24},
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_pixel",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_line",
+      "inputs": {
+        "X0": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y0": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "X1": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "Y1": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_fast_h_line",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "LENGTH": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_fast_v_line",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "LENGTH": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_rect",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "WIDTH": {"shadow": {"type": "math_number", "fields": {"NUM": 80}}},
+        "HEIGHT": {"shadow": {"type": "math_number", "fields": {"NUM": 50}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_fill_rect",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "WIDTH": {"shadow": {"type": "math_number", "fields": {"NUM": 80}}},
+        "HEIGHT": {"shadow": {"type": "math_number", "fields": {"NUM": 50}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#1677ff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_round_rect",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "WIDTH": {"shadow": {"type": "math_number", "fields": {"NUM": 80}}},
+        "HEIGHT": {"shadow": {"type": "math_number", "fields": {"NUM": 50}}},
+        "RADIUS": {"shadow": {"type": "math_number", "fields": {"NUM": 8}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_fill_round_rect",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "WIDTH": {"shadow": {"type": "math_number", "fields": {"NUM": 80}}},
+        "HEIGHT": {"shadow": {"type": "math_number", "fields": {"NUM": 50}}},
+        "RADIUS": {"shadow": {"type": "math_number", "fields": {"NUM": 8}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#1677ff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_circle",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 60}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 60}}},
+        "RADIUS": {"shadow": {"type": "math_number", "fields": {"NUM": 30}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_fill_circle",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 60}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 60}}},
+        "RADIUS": {"shadow": {"type": "math_number", "fields": {"NUM": 30}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#1677ff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_triangle",
+      "inputs": {
+        "X0": {"shadow": {"type": "math_number", "fields": {"NUM": 60}}},
+        "Y0": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "X1": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "Y1": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "X2": {"shadow": {"type": "math_number", "fields": {"NUM": 110}}},
+        "Y2": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_gfx_fill_triangle",
+      "inputs": {
+        "X0": {"shadow": {"type": "math_number", "fields": {"NUM": 60}}},
+        "Y0": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "X1": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "Y1": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "X2": {"shadow": {"type": "math_number", "fields": {"NUM": 110}}},
+        "Y2": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#1677ff"}}}
+      }
+    },
+    {"kind": "sep", "gap": 24},
+    {"kind": "block", "type": "cycore_gfx_bitmap_data"},
+    {
+      "kind": "block",
+      "type": "cycore_gfx_draw_image",
+      "inputs": {
+        "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+        "IMAGE": {"shadow": {"type": "cycore_gfx_bitmap_data", "fields": {"DATA": "[[\"#ffffff\"]]"}}}
+      }
+    },
+    {"kind": "block", "type": "cycore_gfx_image_file"}
+  ]
+}

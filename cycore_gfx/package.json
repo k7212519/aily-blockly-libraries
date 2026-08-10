@@ -1,0 +1,40 @@
+{
+  "name": "@aily-project/lib-cycore-gfx",
+  "nickname": "芯云显示屏",
+  "nickname_zh_cn": "芯云显示屏",
+  "nickname_en": "Cycore Display",
+  "nickname_zh_hk": "芯雲顯示屏",
+  "author": "Cycore",
+  "description": "面向ESP32-S3和ST7789八针SPI屏的双缓冲显示库，使用PSRAM画布、独立HSPI和手动批量刷新。",
+  "description_zh_cn": "面向ESP32-S3和ST7789八针SPI屏的双缓冲显示库，使用PSRAM画布、独立HSPI和手动批量刷新。",
+  "description_zh_hk": "面向ESP32-S3和ST7789八針SPI屏的雙緩衝顯示庫，使用PSRAM畫布、獨立HSPI和手動批量刷新。",
+  "description_en": "A double-buffered display library for ESP32-S3 and 8-pin ST7789 SPI displays, using a PSRAM canvas, dedicated HSPI, and manual batched refresh.",
+  "version": "1.0.0",
+  "compatibility": {
+    "core": [
+      "esp32:esp32:wifiduino32s3"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "cycore",
+    "wifiduino",
+    "esp32-s3",
+    "st7789",
+    "tft",
+    "hspi",
+    "psram",
+    "rgb565",
+    "display"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "Cycore",
+  "tags": [
+    "display"
+  ]
+}

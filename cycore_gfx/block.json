@@ -1,0 +1,418 @@
+[
+  {
+    "type": "cycore_gfx_init",
+    "message0": "初始化芯云显示屏 尺寸 %1 旋转 %2 SPI频率 %3 MHz",
+    "args0": [
+      {"type": "field_dropdown", "name": "SIZE", "options": [["240×240", "240X240"], ["240×320", "240X320"]]},
+      {"type": "field_dropdown", "name": "ROTATION", "options": [["0°", "0"], ["90°", "1"], ["180°", "2"], ["270°", "3"]]},
+      {"type": "field_dropdown", "name": "FREQUENCY", "options": [["20", "20000000"], ["32", "32000000"], ["40", "40000000"]]}
+    ],
+    "message1": "SCL/SCK %1 SDA/MOSI %2 RST %3 DC %4 CS %5 BL %6",
+    "args1": [
+      {"type": "input_value", "name": "SCK", "check": "Number"},
+      {"type": "input_value", "name": "MOSI", "check": "Number"},
+      {"type": "input_value", "name": "RST", "check": "Number"},
+      {"type": "input_value", "name": "DC", "check": "Number"},
+      {"type": "input_value", "name": "CS", "check": "Number"},
+      {"type": "input_value", "name": "BL", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1677FF",
+    "tooltip": "初始化Wifiduino 32S3上的ST7789八针显示屏，使用独立HSPI硬件总线和PSRAM画布",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_ready",
+    "message0": "芯云显示屏已就绪",
+    "output": "Boolean",
+    "colour": "#1677FF",
+    "tooltip": "返回硬件SPI、显示屏和离屏画布是否初始化成功",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_dimension",
+    "message0": "屏幕当前 %1",
+    "args0": [{"type": "field_dropdown", "name": "DIMENSION", "options": [["宽度", "WIDTH"], ["高度", "HEIGHT"]]}],
+    "output": "Number",
+    "colour": "#1677FF",
+    "tooltip": "获取当前旋转方向下的逻辑宽度或高度",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_set_rotation",
+    "message0": "设置显示屏旋转 %1",
+    "args0": [{"type": "field_dropdown", "name": "ROTATION", "options": [["0°", "0"], ["90°", "1"], ["180°", "2"], ["270°", "3"]]}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1677FF",
+    "tooltip": "改变显示方向并按新尺寸重建空白画布",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_invert",
+    "message0": "设置显示屏反色 %1",
+    "args0": [{"type": "field_dropdown", "name": "INVERT", "options": [["开启", "TRUE"], ["关闭", "FALSE"]]}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1677FF",
+    "tooltip": "开启或关闭ST7789硬件反色显示",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_backlight",
+    "message0": "设置显示屏背光 %1",
+    "args0": [{"type": "field_dropdown", "name": "STATE", "options": [["开启", "TRUE"], ["关闭", "FALSE"]]}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1677FF",
+    "tooltip": "控制初始化时指定的BL引脚，高电平为开启",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_present",
+    "message0": "刷新整个显示屏",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#13A8A8",
+    "tooltip": "将PSRAM画布通过硬件SPI一次性批量发送到显示屏",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_present_region",
+    "message0": "刷新显示区域 X %1 Y %2 宽 %3 高 %4",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "WIDTH", "check": "Number"},
+      {"type": "input_value", "name": "HEIGHT", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#13A8A8",
+    "tooltip": "只把指定矩形区域发送到显示屏，越界部分自动裁剪",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_frame",
+    "message0": "绘制一帧",
+    "message1": "%1",
+    "args1": [{"type": "input_statement", "name": "DRAW"}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#13A8A8",
+    "tooltip": "先执行内部绘图积木，再自动刷新整个显示屏",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_fill_screen",
+    "message0": "填充画布颜色 %1",
+    "args0": [{"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "只填充离屏画布，执行刷新后才会显示",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_clear",
+    "message0": "清空画布",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "将离屏画布填充为黑色，不立即改变屏幕",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_color",
+    "message0": "显示颜色 %1",
+    "args0": [{"type": "field_colour_hsv_sliders", "name": "COLOR", "colour": "#ffffff"}],
+    "output": ["Colour", "Number"],
+    "colour": "#2A82DA",
+    "tooltip": "选择颜色并转换为RGB565值",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_rgb565",
+    "message0": "RGB565 R %1 G %2 B %3",
+    "args0": [
+      {"type": "input_value", "name": "R", "check": "Number"},
+      {"type": "input_value", "name": "G", "check": "Number"},
+      {"type": "input_value", "name": "B", "check": "Number"}
+    ],
+    "output": ["Colour", "Number"],
+    "colour": "#2A82DA",
+    "tooltip": "把0到255的RGB分量转换成16位RGB565颜色",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_set_text_color",
+    "message0": "设置文字颜色 %1 背景 %2 模式 %3",
+    "args0": [
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]},
+      {"type": "input_value", "name": "BACKGROUND", "check": ["Colour", "Number"]},
+      {"type": "field_dropdown", "name": "MODE", "options": [["透明", "TRANSPARENT"], ["不透明", "OPAQUE"]]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#9254DE",
+    "tooltip": "设置后续文字的前景色以及透明或不透明背景",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_set_text_size",
+    "message0": "设置文字大小 %1",
+    "args0": [{"type": "input_value", "name": "SIZE", "check": "Number"}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#9254DE",
+    "tooltip": "设置内置字体的整数缩放倍数",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_text",
+    "message0": "在 X %1 Y %2 绘制文字 %3",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "TEXT"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#9254DE",
+    "tooltip": "在离屏画布指定像素坐标绘制文字",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_pixel",
+    "message0": "画点 X %1 Y %2 颜色 %3",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制一个像素",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_line",
+    "message0": "画线 X0 %1 Y0 %2 X1 %3 Y1 %4 颜色 %5",
+    "args0": [
+      {"type": "input_value", "name": "X0", "check": "Number"},
+      {"type": "input_value", "name": "Y0", "check": "Number"},
+      {"type": "input_value", "name": "X1", "check": "Number"},
+      {"type": "input_value", "name": "Y1", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制直线",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_fast_h_line",
+    "message0": "画水平线 X %1 Y %2 长度 %3 颜色 %4",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "LENGTH", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布快速绘制水平线",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_fast_v_line",
+    "message0": "画垂直线 X %1 Y %2 长度 %3 颜色 %4",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "LENGTH", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布快速绘制垂直线",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_rect",
+    "message0": "画矩形 X %1 Y %2 宽 %3 高 %4 颜色 %5",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "WIDTH", "check": "Number"},
+      {"type": "input_value", "name": "HEIGHT", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制空心矩形",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_fill_rect",
+    "message0": "填充矩形 X %1 Y %2 宽 %3 高 %4 颜色 %5",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "WIDTH", "check": "Number"},
+      {"type": "input_value", "name": "HEIGHT", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制实心矩形",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_round_rect",
+    "message0": "画圆角矩形 X %1 Y %2 宽 %3 高 %4 半径 %5 颜色 %6",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "WIDTH", "check": "Number"},
+      {"type": "input_value", "name": "HEIGHT", "check": "Number"},
+      {"type": "input_value", "name": "RADIUS", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制空心圆角矩形",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_fill_round_rect",
+    "message0": "填充圆角矩形 X %1 Y %2 宽 %3 高 %4 半径 %5 颜色 %6",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "WIDTH", "check": "Number"},
+      {"type": "input_value", "name": "HEIGHT", "check": "Number"},
+      {"type": "input_value", "name": "RADIUS", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制实心圆角矩形",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_circle",
+    "message0": "画圆 中心X %1 中心Y %2 半径 %3 颜色 %4",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "RADIUS", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制空心圆",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_fill_circle",
+    "message0": "填充圆 中心X %1 中心Y %2 半径 %3 颜色 %4",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "RADIUS", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制实心圆",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_triangle",
+    "message0": "画三角形 X0 %1 Y0 %2 X1 %3 Y1 %4 X2 %5 Y2 %6 颜色 %7",
+    "args0": [
+      {"type": "input_value", "name": "X0", "check": "Number"},
+      {"type": "input_value", "name": "Y0", "check": "Number"},
+      {"type": "input_value", "name": "X1", "check": "Number"},
+      {"type": "input_value", "name": "Y1", "check": "Number"},
+      {"type": "input_value", "name": "X2", "check": "Number"},
+      {"type": "input_value", "name": "Y2", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制空心三角形",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_fill_triangle",
+    "message0": "填充三角形 X0 %1 Y0 %2 X1 %3 Y1 %4 X2 %5 Y2 %6 颜色 %7",
+    "args0": [
+      {"type": "input_value", "name": "X0", "check": "Number"},
+      {"type": "input_value", "name": "Y0", "check": "Number"},
+      {"type": "input_value", "name": "X1", "check": "Number"},
+      {"type": "input_value", "name": "Y1", "check": "Number"},
+      {"type": "input_value", "name": "X2", "check": "Number"},
+      {"type": "input_value", "name": "Y2", "check": "Number"},
+      {"type": "input_value", "name": "COLOR", "check": ["Colour", "Number"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5C68A6",
+    "tooltip": "在离屏画布绘制实心三角形",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_bitmap_data",
+    "message0": "本地图像数据 %1",
+    "args0": [{"type": "field_input", "name": "DATA", "text": "[[\"#ffffff\"]]"}],
+    "output": "CycoreGfxImage",
+    "colour": "#FA8C16",
+    "tooltip": "输入JSON二维颜色数组、RGB数组或包含width、height、pixels的JSON对象",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_draw_image",
+    "message0": "在 X %1 Y %2 绘制本地图像 %3",
+    "args0": [
+      {"type": "input_value", "name": "X", "check": "Number"},
+      {"type": "input_value", "name": "Y", "check": "Number"},
+      {"type": "input_value", "name": "IMAGE", "check": "CycoreGfxImage"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FA8C16",
+    "tooltip": "将嵌入固件的RGB565图像复制到离屏画布",
+    "icon": "iconfont icon-oled12864"
+  },
+  {
+    "type": "cycore_gfx_image_file",
+    "message0": "选择本地图片 %1",
+    "args0": [{"type": "field_image_preview", "name": "IMAGE_PREVIEW", "defaultWidth": 100, "defaultHeight": 100, "previewSize": 150}],
+    "message1": "绘制到 X %1 Y %2 尺寸 宽 %3 高 %4",
+    "args1": [
+      {"type": "field_number", "name": "X", "value": 0},
+      {"type": "field_number", "name": "Y", "value": 0},
+      {"type": "field_number", "name": "WIDTH", "value": 32, "min": 1, "max": 320},
+      {"type": "field_number", "name": "HEIGHT", "value": 32, "min": 1, "max": 320}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#FA8C16",
+    "tooltip": "选择图片、转换为RGB565并复制到离屏画布；图片无效时会显示积木警告",
+    "icon": "iconfont icon-oled12864"
+  }
+]
