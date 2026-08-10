@@ -19,7 +19,7 @@ The canvas always has rotation 0 and is recreated to match `tft.width()` and `tf
 
 ## Initialization
 
-Use `cycore_gfx_init` in setup. Defaults: size 240×240, rotation 0, 32MHz, SCK 12, MOSI 11, CS 10, RST 17, DC 18, BL 21. Available frequencies are 20, 32, and 40MHz. MISO is fixed to -1. The backlight is active-high.
+Use `cycore_gfx_init` in setup. It initializes at rotation 0 and 32MHz; use `cycore_gfx_set_rotation` and `cycore_gfx_set_frequency` afterward when different settings are needed. Defaults: size 240×240, SCK 12, MOSI 11, CS 10, RST 17, DC 18, BL 21. Available frequencies are 20, 32, and 40MHz. MISO is fixed to -1. The backlight is active-high.
 
 Check `cycore_gfx_ready` before relying on output when allocation may fail. Width and height reporters return the current rotated logical dimensions. Repeated initialization releases the old canvas/display, ends HSPI, and configures it again.
 

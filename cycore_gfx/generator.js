@@ -129,6 +129,12 @@ static bool cycoreGfxSetRotation(uint8_t rotation) {
   return cycoreGfxReady;
 }
 
+static bool cycoreGfxSetFrequency(uint32_t spiFrequency) {
+  if (!cycoreGfxDisplay) return false;
+  cycoreGfxDisplay->setSPISpeed(spiFrequency);
+  return true;
+}
+
 static void cycoreGfxSetBacklight(bool enabled) {
   if (cycoreGfxBacklightPin >= 0) {
     digitalWrite(cycoreGfxBacklightPin, enabled ? HIGH : LOW);
@@ -419,9 +425,7 @@ function cycoreGfxResizePixels(source, sourceWidth, sourceHeight, width, height)
 Arduino.forBlock['cycore_gfx_init'] = function(block, generator) {
   cycoreGfxEnsureCore(generator);
   const height = block.getFieldValue('SIZE') === '240X320' ? '320' : '240';
-  const rotation = block.getFieldValue('ROTATION') || '0';
-  const frequency = block.getFieldValue('FREQUENCY') || '32000000';
-  return 'cycoreGfxBegin(240, ' + height + ', ' + rotation + ', ' + frequency + ', ' +
+  return 'cycoreGfxBegin(240, ' + height + ', 0, 32000000, ' +
       cycoreGfxValue(block, generator, 'SCK', '12') + ', ' +
       cycoreGfxValue(block, generator, 'MOSI', '11') + ', ' +
       cycoreGfxValue(block, generator, 'RST', '17') + ', ' +
@@ -444,6 +448,12 @@ Arduino.forBlock['cycore_gfx_dimension'] = function(block, generator) {
 Arduino.forBlock['cycore_gfx_set_rotation'] = function(block, generator) {
   cycoreGfxEnsureCore(generator);
   return 'cycoreGfxSetRotation(' + (block.getFieldValue('ROTATION') || '0') + ');\n';
+};
+
+Arduino.forBlock['cycore_gfx_set_frequency'] = function(block, generator) {
+  cycoreGfxEnsureCore(generator);
+  return 'cycoreGfxSetFrequency(' +
+      (block.getFieldValue('FREQUENCY') || '32000000') + ');\n';
 };
 
 Arduino.forBlock['cycore_gfx_invert'] = function(block, generator) {

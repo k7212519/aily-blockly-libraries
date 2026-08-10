@@ -1,9 +1,10 @@
 {
   "toolbox_name": "Cycore Display",
-  "cycore_gfx_init": {"message0": "initialize Cycore display size %1 rotation %2 SPI frequency %3 MHz", "message1": "SCL/SCK %1 SDA/MOSI %2 RST %3 DC %4 CS %5 BL %6", "tooltip": "Initialize an ST7789 display using dedicated HSPI and an off-screen buffer."},
+  "cycore_gfx_init": {"message0": "initialize LCD display size %1", "message1": "SCL/SCK %1 SDA/MOSI %2 RST %3 DC %4 CS %5 BL %6", "tooltip": "Initialize an ST7789 display using dedicated HSPI and an off-screen buffer."},
   "cycore_gfx_ready": {"message0": "Cycore display is ready"},
   "cycore_gfx_dimension": {"message0": "current display %1"},
   "cycore_gfx_set_rotation": {"message0": "set display rotation %1"},
+  "cycore_gfx_set_frequency": {"message0": "set display SPI frequency %1 MHz"},
   "cycore_gfx_invert": {"message0": "set display inversion %1"},
   "cycore_gfx_backlight": {"message0": "set display backlight %1"},
   "cycore_gfx_present": {"message0": "refresh entire display"},
