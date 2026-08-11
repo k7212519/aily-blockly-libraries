@@ -22,7 +22,7 @@
   },
   {
     "type": "cycore_gfx_ready",
-    "message0": "芯云显示屏已就绪",
+    "message0": "显示屏已就绪",
     "output": "Boolean",
     "colour": "#1677FF",
     "tooltip": "返回硬件SPI、显示屏和离屏画布是否初始化成功",

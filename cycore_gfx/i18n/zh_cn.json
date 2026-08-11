@@ -1,7 +1,7 @@
 {
   "toolbox_name": "芯云显示屏",
   "cycore_gfx_init": {"message0": "初始化LCD显示屏 尺寸 %1", "message1": "SCL/SCK %1 SDA/MOSI %2 RST %3 DC %4 CS %5 BL %6"},
-  "cycore_gfx_ready": {"message0": "芯云显示屏已就绪"},
+  "cycore_gfx_ready": {"message0": "显示屏已就绪"},
   "cycore_gfx_dimension": {"message0": "屏幕当前 %1"},
   "cycore_gfx_set_rotation": {"message0": "设置显示屏旋转 %1"},
   "cycore_gfx_set_frequency": {"message0": "设置显示屏SPI频率 %1 MHz"},
