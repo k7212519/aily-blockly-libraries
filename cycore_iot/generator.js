@@ -53,22 +53,49 @@ Arduino.forBlock['cycore_iot_current_text'] = function() { return ['command.text
 Arduino.forBlock['cycore_iot_current_axis'] = function(block) { return [`command.${block.getFieldValue('AXIS') || 'x'}`, Arduino.ORDER_MEMBER]; };
 Arduino.forBlock['cycore_iot_current_color'] = function(block) { return [`command.${block.getFieldValue('CHANNEL') || 'r'}`, Arduino.ORDER_MEMBER]; };
 
+Arduino.forBlock['cycore_iot_report_container'] = function(block, generator) {
+  cycoreIoTEnsure(generator);
+  const suffix = cycoreIoTSafeName(block.id || 'report');
+  const variable = `cycoreTelemetry_${suffix}`;
+  const lastReport = `cycoreLastReport_${suffix}`;
+  const now = `cycoreReportNow_${suffix}`;
+  const selectedInterval = block.getFieldValue('INTERVAL') || '2000';
+  const interval = ['1000', '2000', '3000', '4000', '5000'].includes(selectedInterval)
+    ? selectedInterval
+    : '2000';
+  const previousVariable = generator.cycoreIoTTelemetryVariable_;
+  generator.cycoreIoTTelemetryVariable_ = variable;
+  const reports = generator.statementToCode(block, 'REPORTS')
+    .split('\n')
+    .map(line => line ? `  ${line}` : line)
+    .join('\n');
+  generator.cycoreIoTTelemetryVariable_ = previousVariable;
+  return `{\n  static unsigned long ${lastReport} = 0;\n  const unsigned long ${now} = millis();\n  if (${now} - ${lastReport} >= ${interval}UL) {\n    ${lastReport} = ${now};\n    CycoreIoT::Telemetry ${variable}(cycoreIoT);\n${reports}    ${variable}.publish();\n  }\n}\n`;
+};
 Arduino.forBlock['cycore_iot_report_number'] = function(block, generator) {
   cycoreIoTEnsure(generator); const key = block.getFieldValue('KEY') || 'value'; const value = generator.valueToCode(block, 'VALUE', generator.ORDER_ATOMIC) || '0';
-  return `cycoreIoT.report("${key}", (double)(${value}));\n`;
+  const target = generator.cycoreIoTTelemetryVariable_ || 'cycoreIoT';
+  const method = generator.cycoreIoTTelemetryVariable_ ? 'add' : 'report';
+  return `${target}.${method}("${key}", (double)(${value}));\n`;
 };
 Arduino.forBlock['cycore_iot_report_text'] = function(block, generator) {
   cycoreIoTEnsure(generator); const key = block.getFieldValue('KEY') || 'text'; const value = generator.valueToCode(block, 'VALUE', generator.ORDER_ATOMIC) || '""';
-  return `cycoreIoT.report("${key}", String(${value}));\n`;
+  const target = generator.cycoreIoTTelemetryVariable_ || 'cycoreIoT';
+  const method = generator.cycoreIoTTelemetryVariable_ ? 'add' : 'report';
+  return `${target}.${method}("${key}", String(${value}));\n`;
 };
 Arduino.forBlock['cycore_iot_report_bool'] = function(block, generator) {
   cycoreIoTEnsure(generator); const key = block.getFieldValue('KEY') || 'enabled'; const value = generator.valueToCode(block, 'VALUE', generator.ORDER_ATOMIC) || 'false';
-  return `cycoreIoT.report("${key}", (bool)(${value}));\n`;
+  const target = generator.cycoreIoTTelemetryVariable_ || 'cycoreIoT';
+  const method = generator.cycoreIoTTelemetryVariable_ ? 'add' : 'report';
+  return `${target}.${method}("${key}", (bool)(${value}));\n`;
 };
 Arduino.forBlock['cycore_iot_report_color'] = function(block, generator) {
   cycoreIoTEnsure(generator); const key = block.getFieldValue('KEY') || 'color';
   const r = generator.valueToCode(block, 'R', generator.ORDER_ATOMIC) || '0', g = generator.valueToCode(block, 'G', generator.ORDER_ATOMIC) || '0', b = generator.valueToCode(block, 'B', generator.ORDER_ATOMIC) || '0';
-  return `cycoreIoT.reportColor("${key}", ${r}, ${g}, ${b});\n`;
+  const target = generator.cycoreIoTTelemetryVariable_ || 'cycoreIoT';
+  const method = generator.cycoreIoTTelemetryVariable_ ? 'addColor' : 'reportColor';
+  return `${target}.${method}("${key}", ${r}, ${g}, ${b});\n`;
 };
 Arduino.forBlock['cycore_iot_batch_begin'] = function(block, generator) { cycoreIoTEnsure(generator); return 'cycoreIoT.beginTelemetry();\n'; };
 Arduino.forBlock['cycore_iot_batch_add'] = function(block, generator) {

@@ -18,6 +18,11 @@ void loop() {
   static unsigned long lastReport = 0;
   if (millis() - lastReport >= 5000) {
     lastReport = millis();
-    cycoreIoT.report("uptime", millis() / 1000.0);
+    // This local container can also be created and published in a FreeRTOS
+    // task. publish() only queues the message; cycoreIoT.loop() sends it.
+    CycoreIoT::Telemetry telemetry(cycoreIoT);
+    telemetry.add("uptime", millis() / 1000.0);
+    telemetry.add("online", true);
+    telemetry.publish();
   }
 }
