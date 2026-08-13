@@ -31,7 +31,7 @@ Check `cycore_gfx_ready` before relying on output when allocation may fail. Widt
 
 Changes remain invisible until refresh. This avoids character-by-character and shape-by-shape redraw artifacts. The display has no TE signal, so refresh is not synchronized to vertical blanking.
 
-Text supports foreground color, transparent or opaque background, integer size, and X/Y placement. Geometry includes pixels, lines, fast horizontal/vertical lines, rectangles, rounded rectangles, circles, triangles, and filled variants. Colors are RGB565 values; use the color picker or RGB conversion block.
+There is no global font or font-size state. Each `cycore_gfx_draw_text` block independently selects from one `FONT` field: complete WenQuanYi GB2312 at 14 or 16 pixels, integer-scaled Chinese 28/32/42/48 pixels, or built-in Latin 8/16/24/32 pixels. Chinese choices accept runtime UTF-8 `String` values containing Simplified Chinese, mixed ASCII, and symbols such as `℃` (U+2103). Scaling is applied per draw call while rendering into the canvas. Text supports foreground color, transparent or opaque background, and X/Y placement. Geometry includes pixels, lines, fast horizontal/vertical lines, rectangles, rounded rectangles, circles, triangles, and filled variants. Colors are RGB565 values; use the color picker or RGB conversion block.
 
 ## Images
 

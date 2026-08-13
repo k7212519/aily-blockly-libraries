@@ -19,6 +19,7 @@ function cycoreGfxEnsureCore(generator) {
   generator.addLibrary('cycore_gfx_spi', '#include <SPI.h>');
   generator.addLibrary('cycore_gfx_adafruit_gfx', '#include <Adafruit_GFX.h>');
   generator.addLibrary('cycore_gfx_st7789', '#include <Adafruit_ST7789.h>');
+  generator.addLibrary('cycore_gfx_u8g2_fonts', '#include <U8g2_for_Adafruit_GFX.h>');
   generator.addLibrary('cycore_gfx_heap_caps', '#include <esp_heap_caps.h>');
   generator.addLibrary('cycore_gfx_pgmspace', '#include <pgmspace.h>');
   generator.addLibrary('cycore_gfx_new', '#include <new>');
@@ -54,9 +55,56 @@ class CycoreGfxCanvas16 : public GFXcanvas16 {
   bool valid() const { return buffer != nullptr; }
 };
 
+class CycoreGfxScaledTextSurface : public Adafruit_GFX {
+ public:
+  CycoreGfxScaledTextSurface()
+      : Adafruit_GFX(1, 1), target_(nullptr), scale_(1), originX_(0), originY_(0) {}
+
+  void attach(CycoreGfxCanvas16 *target) { target_ = target; }
+
+  void configure(CycoreGfxCanvas16 *target, uint8_t scale,
+                 int16_t originX, int16_t originY) {
+    target_ = target;
+    scale_ = scale > 0 ? scale : 1;
+    originX_ = originX;
+    originY_ = originY;
+  }
+
+  void drawPixel(int16_t x, int16_t y, uint16_t color) override {
+    if (!target_) return;
+    target_->fillRect(originX_ + x * scale_, originY_ + y * scale_,
+                      scale_, scale_, color);
+  }
+
+  void drawFastHLine(int16_t x, int16_t y, int16_t width,
+                     uint16_t color) override {
+    if (!target_ || width <= 0) return;
+    target_->fillRect(originX_ + x * scale_, originY_ + y * scale_,
+                      width * scale_, scale_, color);
+  }
+
+  void drawFastVLine(int16_t x, int16_t y, int16_t height,
+                     uint16_t color) override {
+    if (!target_ || height <= 0) return;
+    target_->fillRect(originX_ + x * scale_, originY_ + y * scale_,
+                      scale_, height * scale_, color);
+  }
+
+ private:
+  CycoreGfxCanvas16 *target_;
+  uint8_t scale_;
+  int16_t originX_;
+  int16_t originY_;
+};
+
 SPIClass cycoreGfxSpi(HSPI);
 Adafruit_ST7789 *cycoreGfxDisplay = nullptr;
 CycoreGfxCanvas16 *cycoreGfxCanvas = nullptr;
+CycoreGfxScaledTextSurface cycoreGfxTextSurface;
+U8G2_FOR_ADAFRUIT_GFX cycoreGfxUnicode;
+uint16_t cycoreGfxTextForeground = 0x0000;
+uint16_t cycoreGfxTextBackground = 0xFFFF;
+bool cycoreGfxTextOpaque = false;
 bool cycoreGfxReady = false;
 int8_t cycoreGfxBacklightPin = -1;
 const CycoreGfxImage cycoreGfxEmptyImage = {nullptr, 0, 0};
@@ -81,6 +129,18 @@ static bool cycoreGfxCreateCanvas() {
   }
   cycoreGfxCanvas->setRotation(0);
   cycoreGfxCanvas->fillScreen(0x0000);
+  if (cycoreGfxTextOpaque) {
+    cycoreGfxCanvas->setTextColor(cycoreGfxTextForeground,
+                                  cycoreGfxTextBackground);
+  } else {
+    cycoreGfxCanvas->setTextColor(cycoreGfxTextForeground);
+  }
+  cycoreGfxTextSurface.attach(cycoreGfxCanvas);
+  cycoreGfxUnicode.begin(cycoreGfxTextSurface);
+  cycoreGfxUnicode.setFontDirection(0);
+  cycoreGfxUnicode.setForegroundColor(cycoreGfxTextForeground);
+  cycoreGfxUnicode.setBackgroundColor(cycoreGfxTextBackground);
+  cycoreGfxUnicode.setFontMode(cycoreGfxTextOpaque ? 0 : 1);
   return true;
 }
 
@@ -138,6 +198,40 @@ static bool cycoreGfxSetFrequency(uint32_t spiFrequency) {
 static void cycoreGfxSetBacklight(bool enabled) {
   if (cycoreGfxBacklightPin >= 0) {
     digitalWrite(cycoreGfxBacklightPin, enabled ? HIGH : LOW);
+  }
+}
+
+static void cycoreGfxSetTextColor(uint16_t foreground,
+                                  uint16_t background,
+                                  bool opaque) {
+  cycoreGfxTextForeground = foreground;
+  cycoreGfxTextBackground = background;
+  cycoreGfxTextOpaque = opaque;
+  if (cycoreGfxCanvas) {
+    if (opaque) {
+      cycoreGfxCanvas->setTextColor(foreground, background);
+    } else {
+      cycoreGfxCanvas->setTextColor(foreground);
+    }
+  }
+  cycoreGfxUnicode.setForegroundColor(foreground);
+  cycoreGfxUnicode.setBackgroundColor(background);
+  cycoreGfxUnicode.setFontMode(opaque ? 0 : 1);
+}
+
+static void cycoreGfxDrawText(int32_t x, int32_t y, const String &text,
+                              const uint8_t *font, uint8_t scale) {
+  if (!cycoreGfxReady || !cycoreGfxCanvas) return;
+  if (font) {
+    cycoreGfxUnicode.setFont(font);
+    cycoreGfxTextSurface.configure(cycoreGfxCanvas, scale > 0 ? scale : 1,
+                                   (int16_t)x, (int16_t)y);
+    cycoreGfxUnicode.setCursor(0, cycoreGfxUnicode.getFontAscent());
+    cycoreGfxUnicode.print(text);
+  } else {
+    cycoreGfxCanvas->setTextSize(scale > 0 ? scale : 1);
+    cycoreGfxCanvas->setCursor((int16_t)x, (int16_t)y);
+    cycoreGfxCanvas->print(text);
   }
 }
 
@@ -487,7 +581,7 @@ Arduino.forBlock['cycore_gfx_frame'] = function(block, generator) {
 };
 
 Arduino.forBlock['cycore_gfx_fill_screen'] = function(block, generator) {
-  return cycoreGfxDrawCall(block, generator, 'fillScreen', ['COLOR'], ['0x0000']);
+  return cycoreGfxDrawCall(block, generator, 'fillScreen', ['COLOR'], ['0xFFFF']);
 };
 
 Arduino.forBlock['cycore_gfx_clear'] = function(block, generator) {
@@ -514,24 +608,40 @@ Arduino.forBlock['cycore_gfx_rgb565'] = function(block, generator) {
 
 Arduino.forBlock['cycore_gfx_set_text_color'] = function(block, generator) {
   cycoreGfxEnsureCore(generator);
-  const foreground = cycoreGfxValue(block, generator, 'COLOR', '0xFFFF');
-  const background = cycoreGfxValue(block, generator, 'BACKGROUND', '0x0000');
-  const args = block.getFieldValue('MODE') === 'OPAQUE' ?
-      foreground + ', ' + background : foreground;
-  return 'if (cycoreGfxReady && cycoreGfxCanvas) cycoreGfxCanvas->setTextColor(' + args + ');\n';
+  const foreground = cycoreGfxValue(block, generator, 'COLOR', '0x0000');
+  const background = cycoreGfxValue(block, generator, 'BACKGROUND', '0xFFFF');
+  const opaque = block.getFieldValue('MODE') === 'OPAQUE' ? 'true' : 'false';
+  return 'cycoreGfxSetTextColor(' + foreground + ', ' + background + ', ' + opaque + ');\n';
 };
 
-Arduino.forBlock['cycore_gfx_set_text_size'] = function(block, generator) {
-  return cycoreGfxDrawCall(block, generator, 'setTextSize', ['SIZE'], ['1']);
-};
+function cycoreGfxFontSpec(font) {
+  const fonts = {
+    'u8g2_font_wqy14_t_gb2312': ['u8g2_font_wqy14_t_gb2312', 1],
+    'u8g2_font_wqy16_t_gb2312': ['u8g2_font_wqy16_t_gb2312', 1],
+    'WQY14_X2': ['u8g2_font_wqy14_t_gb2312', 2],
+    'WQY16_X2': ['u8g2_font_wqy16_t_gb2312', 2],
+    'WQY14_X3': ['u8g2_font_wqy14_t_gb2312', 3],
+    'WQY16_X3': ['u8g2_font_wqy16_t_gb2312', 3],
+    'LATIN_8': [null, 1],
+    'LATIN_16': [null, 2],
+    'LATIN_24': [null, 3],
+    'LATIN_32': [null, 4],
+    'DEFAULT': [null, 1],
+    'u8g2_font_wqy12_t_gb2312': ['u8g2_font_wqy14_t_gb2312', 1]
+  };
+  return fonts[font] || fonts.u8g2_font_wqy16_t_gb2312;
+}
 
 Arduino.forBlock['cycore_gfx_draw_text'] = function(block, generator) {
   cycoreGfxEnsureCore(generator);
   const x = cycoreGfxValue(block, generator, 'X', '0');
   const y = cycoreGfxValue(block, generator, 'Y', '0');
   const text = cycoreGfxValue(block, generator, 'TEXT', '""');
-  return 'if (cycoreGfxReady && cycoreGfxCanvas) { cycoreGfxCanvas->setCursor(' + x +
-      ', ' + y + '); cycoreGfxCanvas->print(' + text + '); }\n';
+  const selected = cycoreGfxFontSpec(
+      block.getFieldValue('FONT') || 'u8g2_font_wqy16_t_gb2312');
+  const font = selected[0] || 'nullptr';
+  return 'cycoreGfxDrawText(' + x + ', ' + y + ', String(' + text + '), ' +
+      font + ', ' + selected[1] + ');\n';
 };
 
 const cycoreGfxShapeBlocks = {

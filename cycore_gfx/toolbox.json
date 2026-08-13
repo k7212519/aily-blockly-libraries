@@ -39,7 +39,7 @@
     {
       "kind": "block",
       "type": "cycore_gfx_fill_screen",
-      "inputs": {"COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#000000"}}}}
+      "inputs": {"COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}}
     },
     {"kind": "block", "type": "cycore_gfx_clear"},
     {"kind": "block", "type": "cycore_gfx_color"},
@@ -58,18 +58,14 @@
       "type": "cycore_gfx_set_text_color",
       "fields": {"MODE": "TRANSPARENT"},
       "inputs": {
-        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}},
-        "BACKGROUND": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#000000"}}}
+        "COLOR": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#000000"}}},
+        "BACKGROUND": {"shadow": {"type": "cycore_gfx_color", "fields": {"COLOR": "#ffffff"}}}
       }
     },
     {
       "kind": "block",
-      "type": "cycore_gfx_set_text_size",
-      "inputs": {"SIZE": {"shadow": {"type": "math_number", "fields": {"NUM": 1}}}}
-    },
-    {
-      "kind": "block",
       "type": "cycore_gfx_draw_text",
+      "fields": {"FONT": "u8g2_font_wqy16_t_gb2312"},
       "inputs": {
         "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
         "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
