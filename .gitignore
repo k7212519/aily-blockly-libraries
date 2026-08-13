@@ -2,6 +2,7 @@ node_modules/
 package-lock.json
 # /package.json
 .env
+.DS_Store
 .temp/
 .libs/
 
@@ -9,6 +10,7 @@ package-lock.json
 **/.temp/
 **/source/
 **/info.json
+**/.DS_Store
 
 check_src.ps1
 check_result.txt
