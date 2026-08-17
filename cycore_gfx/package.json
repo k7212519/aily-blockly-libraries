@@ -32,7 +32,7 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {},
-  "tested": false,
+  "tested": true,
   "tester": "Cycore",
   "tags": [
     "display"
