@@ -26,6 +26,7 @@
   "description_ru": "Библиотека Watchdog для Arduino UNO R4",
   "description_ar": "مكتبة المراقبة لاردوينو UNO R4",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:minima",

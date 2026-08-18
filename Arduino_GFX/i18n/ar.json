@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "تهيئة عرض Arduino GFX %1 %2 DC %3 CS %4 إعادة تعيين %5 دوران %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "قم بإنشاء ناقل SPI للأجهزة وبرنامج تشغيل العرض Arduino_GFX الشائع."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 ملء لون الشاشة %2",
+    "tooltip": "املأ الشاشة بأكملها باللون RGB565."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 الخط x0 %2 y0 %3 x1 %4 y1 %5 اللون %6",
+    "tooltip": "ارسم قطعة خطية."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 مستطيل x %3 y %4 عرض %5 ارتفاع %6 لون %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "شكل الخطوط العريضة",
+            "drawRect"
+          ],
+          [
+            "شكل مملوء",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "ارسم مستطيلاً محددًا أو مملوءًا."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 دائرة x %3 y %4 نصف قطر %5 لون %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "شكل الخطوط العريضة",
+            "drawCircle"
+          ],
+          [
+            "شكل مملوء",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "ارسم دائرة محددة أو مملوءة."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 لون النص %2 الخلفية %3 الحجم %4 التفاف %5",
+    "tooltip": "قم بتعيين لون النص والخلفية والحجم والالتفاف."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 في x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "الطباعة بدون سطر جديد",
+            "print"
+          ],
+          [
+            "الطباعة مع السطر الجديد",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "ضع المؤشر وارسم النص."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ضبط التناوب",
+            "setRotation"
+          ],
+          [
+            "عرض عكس",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "تغيير دوران العرض أو الانقلاب."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "العرض",
+            "width"
+          ],
+          [
+            "الارتفاع",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "اقرأ أبعاد العرض المنطقي الحالية."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 أحمر %1 أخضر %2 أزرق %3",
+    "tooltip": "تحويل مكونات RGB 8 بت إلى لون RGB565."
+  }
+}

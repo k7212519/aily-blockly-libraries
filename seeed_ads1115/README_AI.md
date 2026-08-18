@@ -8,12 +8,12 @@ Blockly library for Seeed Ads1115.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ads1115_init` | Statement | ADDRESS(dropdown) | `ads1115_init(ADS1115_GND_ADDRESS)` | Wire.begin();\nads1115_adc.begin( |
-| `ads1115_set_gain` | Statement | GAIN(dropdown) | `ads1115_set_gain(ADS1115_PGA_6_144)` | ads1115_adc.setPGAGain( |
-| `ads1115_read_raw` | Value | CHANNEL(dropdown) | `ads1115_read_raw(channel0)` | ads1115_adc.getConversionResults( |
-| `ads1115_read_voltage` | Value | CHANNEL(dropdown), VRANGE(dropdown) | `ads1115_read_voltage(channel0, "6.144")` | ads1115_toVoltage(ads1115_adc.getConversionResults( |
+| `ads1115_init` | Statement | ADDRESS(dropdown) | `ads1115_init(ADS1115_GND_ADDRESS)` | `Wire.begin(); ↵ ads1115_adc.begin(ADS1115_GND_ADDRESS);` |
+| `ads1115_set_gain` | Statement | GAIN(dropdown) | `ads1115_set_gain(ADS1115_PGA_6_144)` | `ads1115_adc.setPGAGain(ADS1115_PGA_6_144);` |
+| `ads1115_read_raw` | Value | CHANNEL(dropdown) | `ads1115_read_raw(channel0)` | `ads1115_adc.getConversionResults(channel0)` |
+| `ads1115_read_voltage` | Value | CHANNEL(dropdown), VRANGE(dropdown) | `ads1115_read_voltage(channel0, "6.144")` | `ads1115_toVoltage(ads1115_adc.getConversionResults(channel0), 6.144)` |
 
 ## Parameter Options
 

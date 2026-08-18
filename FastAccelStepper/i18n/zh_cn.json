@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "初始化快速步进器 %1 步进引脚 %2 方向引脚 %3 使能引脚 %4",
+    "tooltip": "连接 FastAccelStepper 实例并启用自动电机电源。"
+  },
+  "fast_stepper_set_profile": {
+    "message0": "快速步进器 %1 设定速度 %2 步/秒 加速度 %3 步/秒2",
+    "tooltip": "设置最大速度和加速度。"
+  },
+  "fast_stepper_move": {
+    "message0": "快速步进器%1移动%2 %3步",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "相对于",
+            "move"
+          ],
+          [
+            "绝对到",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "对相对或绝对移动进行排队。"
+  },
+  "fast_stepper_run": {
+    "message0": "快速步进器%1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "持续正向运行",
+            "runForward"
+          ],
+          [
+            "持续反向运行",
+            "runBackward"
+          ],
+          [
+            "减速并停止",
+            "stopMove"
+          ],
+          [
+            "立即停止并将位置设为 0",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "连续运行或停止电机。"
+  },
+  "fast_stepper_position": {
+    "message0": "快速步进器 %1 设置当前位置 %2",
+    "tooltip": "电机停止时重置逻辑位置。"
+  },
+  "fast_stepper_state": {
+    "message0": "快速步进器%1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "当前位置",
+            "getCurrentPosition"
+          ],
+          [
+            "目标位置",
+            "targetPos"
+          ],
+          [
+            "正在运行",
+            "isRunning"
+          ],
+          [
+            "正在连续运行",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取步进器位置或运动状态。"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "初始化 TMC2209 %1 串口 %2 波特率 %3 地址 %4 检测电阻欧姆 %5",
+    "tooltip": "初始化 TMC2209 UART 步进驱动器。"
+  },
+  "tmc2130_init": {
+    "message0": "初始化 TMC2130 %1 CS 引脚 %2 检测电阻欧姆 %3",
+    "tooltip": "初始化 TMC2130 硬件 SPI 步进驱动程序。"
+  },
+  "tmc_set_current": {
+    "message0": "TMC 驱动器 %1 RMS 电流 %2 mA 保持乘法器 %3",
+    "tooltip": "设置电机 RMS 电流和保持电流倍数。"
+  },
+  "tmc_set_motion": {
+    "message0": "TMC 驱动器 %1 微步 %2 斩波器关闭时间 %3",
+    "tooltip": "设置微步分辨率并启用斩波器。"
+  },
+  "tmc2209_mode": {
+    "message0": "TMC2209 %1 模式 %2 自动电流缩放 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "为 TMC2209 选择安静或高扭矩斩波模式。"
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard 阈值 %2 酷阈值 %3",
+    "tooltip": "在 TMC2209 上配置无传感器归位阈值。"
+  },
+  "tmc_read": {
+    "message0": "TMC驱动器%1读取%2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "驱动器状态寄存器",
+            "DRV_STATUS"
+          ],
+          [
+            "步长周期",
+            "TSTEP"
+          ],
+          [
+            "微步",
+            "microsteps"
+          ],
+          [
+            "实际电流mA",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取受支持的驱动程序通用的诊断和当前配置。"
+  },
+  "tmc_connection": {
+    "message0": "TMC驱动%1连接测试结果",
+    "tooltip": "返回TMCStepper连接测试代码。"
+  }
+}

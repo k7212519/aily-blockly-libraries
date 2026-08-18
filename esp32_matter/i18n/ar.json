@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "مسألة ESP32",
+  "esp32_matter_begin": {
+    "message0": "ابدأ المادة",
+    "tooltip": "ابدأ عقدة المادة؛ يجب إنشاء نقطة النهاية أولاً."
+  },
+  "esp32_matter_status": {
+    "message0": "حالة المسألة %1",
+    "tooltip": "الاستعلام عن حالة شبكة التوزيع أو الاتصال.",
+    "args0": [
+      {
+        "options": [
+          [
+            "تم تكوين الشبكة",
+            "isDeviceCommissioned"
+          ],
+          [
+            "متصل بشبكة Wi-Fi",
+            "isWiFiConnected"
+          ],
+          [
+            "الخيط متصل",
+            "isThreadConnected"
+          ],
+          [
+            "الجهاز متصل",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "معلومات اقتران المادة %1",
+    "tooltip": "احصل على رمز إقران Matter أو عنوان URL لرمز QR.",
+    "args0": [
+      {
+        "options": [
+          [
+            "رمز الاقتران اليدوي",
+            "getManualPairingCode"
+          ],
+          [
+            "عنوان URL لرمز الاستجابة السريعة",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "المسألة واضحة في شبكة التوزيع",
+    "tooltip": "امسح معلومات شبكة توزيع Matter Fabric الحالية."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "ضوء مفتاح إنشاء المادة %1 الحالة الأولية %2",
+    "tooltip": "قم بإنشاء نقطة نهاية ضوء المفتاح."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "إنشاء ضوء معتم للمادة %1 الحالة %2 السطوع %3",
+    "tooltip": "إنشاء نقطة نهاية ضوء خافتة."
+  },
+  "esp32_matter_light_set": {
+    "message0": "ضوء المادة %1 يضبط %2 على %3",
+    "tooltip": "اضبط مفتاح الضوء أو السطوع.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "التبديل",
+            "setOnOff"
+          ],
+          [
+            "السطوع",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "مصباح المادة %1 اقرأ %2",
+    "tooltip": "اقرأ مفتاح الضوء أو السطوع.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "التبديل",
+            "getOnOff"
+          ],
+          [
+            "السطوع",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "إنشاء مستشعر رقمي للمادة %1 النوع %2 القيمة الأولية %3",
+    "tooltip": "إنشاء نقاط نهاية مستشعر رقمي مشترك.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "درجة الحرارة",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "الرطوبة",
+            "MatterHumiditySensor"
+          ],
+          [
+            "الإضاءة",
+            "MatterLightSensor"
+          ],
+          [
+            "الضغط",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "حساس رقمي للمادة %1 نوع %2 تحديث %3",
+    "tooltip": "تحديث قيم المستشعر الرقمي والإبلاغ عنها.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "درجة الحرارة",
+            "setTemperature"
+          ],
+          [
+            "الرطوبة",
+            "setHumidity"
+          ],
+          [
+            "الإضاءة",
+            "setIlluminance"
+          ],
+          [
+            "الضغط",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "إنشاء مستشعر منطقي للمادة %1 النوع %2 القيمة الأولية %3",
+    "tooltip": "إنشاء نقاط نهاية مستشعر منطقية مشتركة.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الاتصال",
+            "MatterContactSensor"
+          ],
+          [
+            "محتلة",
+            "MatterOccupancySensor"
+          ],
+          [
+            "المطر",
+            "MatterRainSensor"
+          ],
+          [
+            "تسرب الماء",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "حساس المسألة المنطقية %1 النوع %2 التحديث %3",
+    "tooltip": "تحديث قيم المستشعر المنطقي والإبلاغ عنها.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الاتصال",
+            "setContact"
+          ],
+          [
+            "محتلة",
+            "setOccupancy"
+          ],
+          [
+            "المطر",
+            "setRain"
+          ],
+          [
+            "تسرب الماء",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

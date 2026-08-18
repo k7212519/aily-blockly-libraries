@@ -8,11 +8,11 @@ Blockly library for Seeed Gesture.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `gesture_init` | Statement | (none) | `gesture_init()` | gesture_sensor.init();\n |
-| `gesture_read` | Value | (none) | `gesture_read()` | gesture_readGesture() |
-| `gesture_is` | Value | GESTURE(dropdown) | `gesture_is(UP)` | (gesture_readGesture() == (int) |
+| `gesture_init` | Statement | (none) | `gesture_init()` | `gesture_sensor.init();` |
+| `gesture_read` | Value | (none) | `gesture_read()` | `gesture_readGesture()` |
+| `gesture_is` | Value | GESTURE(dropdown) | `gesture_is(UP)` | `(gesture_readGesture() == (int)UP)` |
 
 ## Parameter Options
 

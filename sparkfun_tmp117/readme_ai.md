@@ -8,15 +8,15 @@ Blockly wrapper for the SparkFun TMP117 high-accuracy I2C temperature sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tmp117_init` | Statement | VAR(field_input), ADDR(dropdown) | `tmp117_init("tmp117", "0x48")` | Wire.begin();\n |
-| `tmp117_read_temp_c` | Value | VAR(field_variable) | `tmp117_read_temp_c(variables_get($tmp117))` | Dynamic code |
-| `tmp117_read_temp_f` | Value | VAR(field_variable) | `tmp117_read_temp_f(variables_get($tmp117))` | Dynamic code |
-| `tmp117_data_ready` | Value | VAR(field_variable) | `tmp117_data_ready(variables_get($tmp117))` | Dynamic code |
-| `tmp117_set_conversion_mode` | Statement | VAR(field_variable), MODE(dropdown) | `tmp117_set_conversion_mode(variables_get($tmp117), CONTINUOUS)` | Dynamic code |
-| `tmp117_set_high_limit` | Statement | VAR(field_variable), TEMP(input_value) | `tmp117_set_high_limit(variables_get($tmp117), math_number(0))` | Dynamic code |
-| `tmp117_set_low_limit` | Statement | VAR(field_variable), TEMP(input_value) | `tmp117_set_low_limit(variables_get($tmp117), math_number(0))` | Dynamic code |
+| `tmp117_init` | Statement | VAR(field_input), ADDR(dropdown) | `tmp117_init("tmp117", "0x48")` | `Wire.begin(); ↵ tmp117.begin(0x48);` |
+| `tmp117_read_temp_c` | Value | VAR(field_variable) | `tmp117_read_temp_c($tmp117)` | `tmp117.readTempC()` |
+| `tmp117_read_temp_f` | Value | VAR(field_variable) | `tmp117_read_temp_f($tmp117)` | `tmp117.readTempF()` |
+| `tmp117_data_ready` | Value | VAR(field_variable) | `tmp117_data_ready($tmp117)` | `tmp117.dataReady()` |
+| `tmp117_set_conversion_mode` | Statement | VAR(field_variable), MODE(dropdown) | `tmp117_set_conversion_mode($tmp117, CONTINUOUS)` | `tmp117.setContinuousConversionMode();` |
+| `tmp117_set_high_limit` | Statement | VAR(field_variable), TEMP(input_value) | `tmp117_set_high_limit($tmp117, math_number(0))` | `tmp117.setHighLimit(1);` |
+| `tmp117_set_low_limit` | Statement | VAR(field_variable), TEMP(input_value) | `tmp117_set_low_limit($tmp117, math_number(0))` | `tmp117.setLowLimit(1);` |
 
 ## Parameter Options
 
@@ -34,12 +34,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, tmp117_read_temp_c(variables_get($tmp117)))
+    serial_println(Serial, tmp117_read_temp_c($tmp117))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `tmp117_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `tmp117_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

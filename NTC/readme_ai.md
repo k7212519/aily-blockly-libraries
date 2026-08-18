@@ -8,12 +8,18 @@ The NTC thermistor library supports development boards such as Esp32 and provide
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ntc_init` | Statement | PIN(dropdown), REF_RESISTANCE(field_number), NOMINAL_RESISTANCE(field_number), NOMINAL_TEMP(field_number), B_VALUE(field_number) | `ntc_init(PIN, 10000, 10000, 25, 3950)` | Dynamic code |
-| `ntc_read_celsius` | Value | PIN(dropdown) | `ntc_read_celsius(PIN)` | ...->readCelsius() |
-| `ntc_read_fahrenheit` | Value | PIN(dropdown) | `ntc_read_fahrenheit(PIN)` | ...->readFahrenheit() |
-| `ntc_read_kelvin` | Value | PIN(dropdown) | `ntc_read_kelvin(PIN)` | ...->readKelvin() |
+| `ntc_init` | Statement | PIN(dropdown), REF_RESISTANCE(field_number), NOMINAL_RESISTANCE(field_number), NOMINAL_TEMP(field_number), B_VALUE(field_number) | `ntc_init(PIN, 10000, 10000, 25, 3950)` | `NTC_Thermistor* ntc_temp_PIN = new NTC_Thermistor(PIN, 10000, 10000, 25, 3950);` |
+| `ntc_read_celsius` | Value | PIN(dropdown) | `ntc_read_celsius(PIN)` | `ntc_temp_PIN->readCelsius()` |
+| `ntc_read_fahrenheit` | Value | PIN(dropdown) | `ntc_read_fahrenheit(PIN)` | `ntc_temp_PIN->readFahrenheit()` |
+| `ntc_read_kelvin` | Value | PIN(dropdown) | `ntc_read_kelvin(PIN)` | `ntc_temp_PIN->readKelvin()` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| PIN | ${board.analogPins} | ntc_init |
 
 ## ABS Examples
 

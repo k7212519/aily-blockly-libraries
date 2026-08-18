@@ -1,0 +1,775 @@
+{
+  "toolbox_name": "Xiaomi MiMo AI",
+  "toolbox_labels": {
+    "变量声明": "変数宣言",
+    "提示：请手动将变量类型改为字符串型": "ヒント：変数の型を手動で文字列型に変更してください",
+    "初始化": "初期化",
+    "loop": "loop"
+  },
+  "toolbox_categories": [
+    "初期化",
+    "機能設定",
+    "状態診断",
+    "シリアル問答例",
+    "シリアル朗読例",
+    "音声対話例",
+    "写真認識例"
+  ],
+  "mimo_init": {
+    "message0": "初期化 MiMo クライアント %1 API Key %2 接続方式 %3",
+    "tooltip": "初期化 MiMo クライアント API Key 接続方式を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "従量課金",
+            "PAYG"
+          ],
+          [
+            "Token Plan",
+            "TOKEN_PLAN"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_set_ca_certificate": {
+    "message0": "MiMo %1 設定 TLS root certificate %2",
+    "tooltip": "MiMo 設定 TLS root certificateを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_set_model": {
+    "message0": "MiMo %1 使用 モデル %2",
+    "tooltip": "MiMo 使用 モデルを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "MiMo V2.5 マルチモーダル",
+            "mimo-v2.5"
+          ],
+          [
+            "MiMo V2.5 Pro",
+            "mimo-v2.5-pro"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_set_system_prompt": {
+    "message0": "MiMo %1 設定 システムプロンプト %2",
+    "tooltip": "MiMo 設定 システムプロンプトを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_set_generation": {
+    "message0": "MiMo %1 最大出力 %2 深い思考 %3 temperature %4 top_p %5",
+    "tooltip": "MiMo 最大出力 深い思考 temperature top_pを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "有効",
+            "enabled"
+          ],
+          [
+            "無効",
+            "disabled"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "mimo_set_json_mode": {
+    "message0": "MiMo %1 JSON 出力モード %2",
+    "tooltip": "MiMo JSON 出力モードを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_clear_messages": {
+    "message0": "MiMo %1 会話履歴を消去",
+    "tooltip": "MiMo 会話履歴を消去を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_add_user_message": {
+    "message0": "MiMo %1 ユーザーメッセージを追加 %2",
+    "tooltip": "MiMo ユーザーメッセージを追加を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_add_assistant_message": {
+    "message0": "MiMo %1 アシスタントメッセージを追加 %2",
+    "tooltip": "MiMo アシスタントメッセージを追加を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_chat": {
+    "message0": "MiMo %1 質問 %2",
+    "tooltip": "MiMo 質問を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_chat_with_tools": {
+    "message0": "MiMo %1 質問 %3 使用 ツール定義 %2",
+    "tooltip": "MiMo 質問 使用 ツール定義を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_continue_tool": {
+    "message0": "MiMo %1 ツール結果を返す %2 して続行",
+    "tooltip": "MiMo ツール結果を返す して続行を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_when_tool_called": {
+    "message0": "時 MiMo %1 ツール呼び出し %2",
+    "tooltip": "時 MiMo ツール呼び出しを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "message1": "执行 %1"
+  },
+  "mimo_tool_arguments": {
+    "message0": "MiMo %1 現在のツール引数 JSON",
+    "tooltip": "MiMo 現在のツール引数 JSONを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_web_search": {
+    "message0": "MiMo %1 ウェブ質問 %2 強制検索 %3 最大キーワード %4 各語の結果 %5 国 %6 地域 %7 都市 %8",
+    "tooltip": "MiMo ウェブ質問 強制検索 最大キーワード 各語の結果 国 地域 都市を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_image_url": {
+    "message0": "MiMo %1 理解 image URL %2 質問 %3",
+    "tooltip": "MiMo 理解 image URL 質問を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_image_base64": {
+    "message0": "MiMo %1 理解 Base64 image %2 MIME %3 質問 %4",
+    "tooltip": "MiMo 理解 Base64 image MIME 質問を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_audio_url": {
+    "message0": "MiMo %1 理解 audio URL %2 質問 %3",
+    "tooltip": "MiMo 理解 audio URL 質問を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_audio_base64": {
+    "message0": "MiMo %1 理解 Base64 audio %2 MIME %3 質問 %4",
+    "tooltip": "MiMo 理解 Base64 audio MIME 質問を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_video_url": {
+    "message0": "MiMo %1 理解 video URL %2 質問 %3 FPS %4 detail %5",
+    "tooltip": "MiMo 理解 video URL 質問 FPS detailを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "既定",
+            "default"
+          ],
+          [
+            "最大",
+            "max"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_video_base64": {
+    "message0": "MiMo %1 理解 Base64 video %2 MIME %3 質問 %4 FPS %5 detail %6",
+    "tooltip": "MiMo 理解 Base64 video MIME 質問 FPS detailを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "既定",
+            "default"
+          ],
+          [
+            "最大",
+            "max"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_asr_base64": {
+    "message0": "MiMo %1 認識 Base64 audio %2 MIME %3 言語 %4",
+    "tooltip": "MiMo 認識 Base64 audio MIME 言語を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "自動",
+            "auto"
+          ],
+          [
+            "中国語",
+            "zh"
+          ],
+          [
+            "英語",
+            "en"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_tts_preset": {
+    "message0": "MiMo %1 preset 音声 合成 テキスト %2 スタイル %3 音声 %4 形式 %5",
+    "tooltip": "MiMo preset 音声 合成 テキスト スタイル 音声 形式を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "既定",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_speaker_init_i2s": {
+    "message0": "初期化 MiMo I2S speaker %1 BCLK %2 LRC %3 DIN %4",
+    "tooltip": "初期化 MiMo I2S speaker BCLK LRC DINを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_speaker_tone": {
+    "message0": "MiMo speaker %1 play tone frequency %2 Hz duration %3 ms",
+    "tooltip": "MiMo speaker play tone frequency Hz duration msを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_tts_speak_i2s": {
+    "message0": "MiMo %1 stream speech で speaker %2 テキスト %3 スタイル %4 音声 %5",
+    "tooltip": "MiMo stream speech で speaker テキスト スタイル 音声を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "既定",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_es8311_init": {
+    "message0": "初期化 MiMo ES8311 audio %1 SDA %2 SCL %3 address %4 MCK %5 BCK %6 WS %7 DOUT %8 DIN %9 max 録音 秒 %10 PA_EN %11",
+    "tooltip": "初期化 MiMo ES8311 audio SDA SCL address MCK BCK WS DOUT DIN max 録音 秒 PA_ENを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "自动扫描",
+            "0"
+          ],
+          [
+            "0x18",
+            "0x18"
+          ],
+          [
+            "0x30",
+            "0x30"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "mimo_es8311_set_volume": {
+    "message0": "MiMo ES8311 %1 設定 speaker volume %2 percent",
+    "tooltip": "MiMo ES8311 設定 speaker volume percentを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_set_mic_gain": {
+    "message0": "MiMo ES8311 %1 設定 マイク gain %2",
+    "tooltip": "MiMo ES8311 設定 マイク gainを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_tone": {
+    "message0": "MiMo ES8311 %1 play tone frequency %2 Hz duration %3 ms",
+    "tooltip": "MiMo ES8311 play tone frequency Hz duration msを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_record": {
+    "message0": "MiMo ES8311 %1 録音 %2 秒 として WAV Base64",
+    "tooltip": "MiMo ES8311 録音 秒 として WAV Base64を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_transcribe": {
+    "message0": "MiMo %1 使用 ES8311 %2 録音 %3 秒 して 認識 言語 %4",
+    "tooltip": "MiMo 使用 ES8311 録音 秒 して 認識 言語を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "自動",
+            "auto"
+          ],
+          [
+            "中国語",
+            "zh"
+          ],
+          [
+            "英語",
+            "en"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_tts_speak_es8311": {
+    "message0": "MiMo %1 stream speech で ES8311 %2 テキスト %3 スタイル %4 音声 %5",
+    "tooltip": "MiMo stream speech で ES8311 テキスト スタイル 音声を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "既定",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_es8311_end": {
+    "message0": "stop MiMo ES8311 %1 audio",
+    "tooltip": "stop MiMo ES8311 audioを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_tts_voice_design": {
+    "message0": "MiMo %1 設計 音声 説明 %2 テキスト %3 最適化 %4 形式 %5",
+    "tooltip": "MiMo 設計 音声 説明 テキスト 最適化 形式を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_tts_voice_clone": {
+    "message0": "MiMo %1 クローン 音声 サンプル %2 MIME %3 テキスト %4 スタイル %5 形式 %6",
+    "tooltip": "MiMo クローン 音声 サンプル MIME テキスト スタイル 形式を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_camera_init_profile": {
+    "message0": "初期化 MiMo カメラ %1 ボード %2 解像度 %3 JPEG 品質 %4",
+    "tooltip": "初期化 MiMo カメラ ボード 解像度 JPEG 品質を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ESP32S3 RGB565 摄像头",
+            "ESP32S3_RGB565"
+          ],
+          [
+            "AI Thinker ESP32-CAM",
+            "AI_THINKER"
+          ],
+          [
+            "XIAO ESP32S3 Sense",
+            "XIAO_ESP32S3"
+          ],
+          [
+            "ESP32-S3-EYE",
+            "ESP32S3_EYE"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "QVGA 320x240",
+            "FRAMESIZE_QVGA"
+          ],
+          [
+            "VGA 640x480",
+            "FRAMESIZE_VGA"
+          ],
+          [
+            "SVGA 800x600",
+            "FRAMESIZE_SVGA"
+          ],
+          [
+            "XGA 1024x768",
+            "FRAMESIZE_XGA"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "mimo_camera_init_custom": {
+    "message0": "初期化 カスタム MiMo カメラ %1 解像度 %2 JPEG 品質 %3",
+    "tooltip": "初期化 カスタム MiMo カメラ 解像度 JPEG 品質を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "message1": "PWDN %1 RESET %2 XCLK %3 SIOD %4 SIOC %5",
+    "message2": "Y2 %1 Y3 %2 Y4 %3 Y5 %4 Y6 %5 Y7 %6 Y8 %7 Y9 %8",
+    "message3": "VSYNC %1 HREF %2 PCLK %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "QVGA 320x240",
+            "FRAMESIZE_QVGA"
+          ],
+          [
+            "VGA 640x480",
+            "FRAMESIZE_VGA"
+          ],
+          [
+            "SVGA 800x600",
+            "FRAMESIZE_SVGA"
+          ],
+          [
+            "XGA 1024x768",
+            "FRAMESIZE_XGA"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "mimo_camera_capture": {
+    "message0": "MiMo カメラ %1 撮影 Base64 写真",
+    "tooltip": "MiMo カメラ 撮影 Base64 写真を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_camera_ask": {
+    "message0": "MiMo %1 使用 カメラ %2 で 撮影 して 質問 %3",
+    "tooltip": "MiMo 使用 カメラ で 撮影 して 質問を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_camera_end": {
+    "message0": "終了 MiMo カメラ %1",
+    "tooltip": "終了 MiMo カメラを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_mic_init_i2s_preset": {
+    "message0": "初期化 common I2S マイク %1 モデル %2 BCLK %3 WS %4 DATA %5 サンプルレート %6",
+    "tooltip": "初期化 common I2S マイク モデル BCLK WS DATA サンプルレートを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "共通 I2S",
+            "COMMON_I2S"
+          ],
+          [
+            "MSM261S4030H0R",
+            "MSM261S4030H0R"
+          ],
+          [
+            "INMP441",
+            "INMP441"
+          ],
+          [
+            "ICS-43434",
+            "ICS43434"
+          ],
+          [
+            "SPH0645LM4H",
+            "SPH0645LM4H"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "mimo_mic_init_i2s": {
+    "message0": "初期化 MiMo I2S マイク %1 BCLK %2 WS %3 DATA %4 サンプルレート %5 channel %6 gain %7",
+    "tooltip": "初期化 MiMo I2S マイク BCLK WS DATA サンプルレート channel gainを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "左チャンネル",
+            "LEFT"
+          ],
+          [
+            "右チャンネル",
+            "RIGHT"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "mimo_mic_init_pdm": {
+    "message0": "初期化 MiMo PDM マイク %1 CLK %2 DATA %3 サンプルレート %4",
+    "tooltip": "初期化 MiMo PDM マイク CLK DATA サンプルレートを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_mic_record": {
+    "message0": "MiMo マイク %1 録音 %2 秒 として WAV Base64",
+    "tooltip": "MiMo マイク 録音 秒 として WAV Base64を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_mic_transcribe": {
+    "message0": "MiMo %1 使用 マイク %2 録音 %3 秒 して 認識 言語 %4",
+    "tooltip": "MiMo 使用 マイク 録音 秒 して 認識 言語を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "自動",
+            "auto"
+          ],
+          [
+            "中国語",
+            "zh"
+          ],
+          [
+            "英語",
+            "en"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_mic_analyze": {
+    "message0": "MiMo %1 使用 マイク %2 録音 %3 秒 して 分析 %4",
+    "tooltip": "MiMo 使用 マイク 録音 秒 して 分析を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_mic_end": {
+    "message0": "終了 MiMo マイク %1",
+    "tooltip": "終了 MiMo マイクを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_ok": {
+    "message0": "MiMo %1 前回の要求成功",
+    "tooltip": "MiMo 前回の要求成功を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_last_reasoning": {
+    "message0": "MiMo %1 前回の推論内容",
+    "tooltip": "MiMo 前回の推論内容を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_last_error": {
+    "message0": "MiMo %1 前回のエラー",
+    "tooltip": "MiMo 前回のエラーを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_http_status": {
+    "message0": "MiMo %1 HTTP ステータスコード",
+    "tooltip": "MiMo HTTP ステータスコードを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_token_usage": {
+    "message0": "MiMo %1 last %2 トークン数",
+    "tooltip": "MiMo last トークン数を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "入力",
+            "PROMPT"
+          ],
+          [
+            "出力",
+            "COMPLETION"
+          ],
+          [
+            "合計",
+            "TOTAL"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_raw_response": {
+    "message0": "MiMo %1 前回の生応答",
+    "tooltip": "MiMo 前回の生応答を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_camera_ready": {
+    "message0": "MiMo カメラ %1 準備完了",
+    "tooltip": "MiMo カメラ 準備完了を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_camera_error": {
+    "message0": "MiMo カメラ %1 前回のエラー",
+    "tooltip": "MiMo カメラ 前回のエラーを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_mic_ready": {
+    "message0": "MiMo マイク %1 準備完了",
+    "tooltip": "MiMo マイク 準備完了を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_mic_error": {
+    "message0": "MiMo マイク %1 前回のエラー",
+    "tooltip": "MiMo マイク 前回のエラーを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_speaker_ready": {
+    "message0": "MiMo speaker %1 準備完了",
+    "tooltip": "MiMo speaker 準備完了を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_speaker_error": {
+    "message0": "MiMo speaker %1 前回のエラー",
+    "tooltip": "MiMo speaker 前回のエラーを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_ready": {
+    "message0": "MiMo ES8311 %1 準備完了",
+    "tooltip": "MiMo ES8311 準備完了を実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_error": {
+    "message0": "MiMo ES8311 %1 前回のエラー",
+    "tooltip": "MiMo ES8311 前回のエラーを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  },
+  "mimo_es8311_sound_level": {
+    "message0": "MiMo ES8311 %1 current sound level",
+    "tooltip": "MiMo ES8311 current sound levelを実行します。失敗した場合は対応する状態とエラーブロックを確認してください。"
+  }
+}

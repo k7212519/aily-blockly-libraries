@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "micro-ROS ノードを初期化します %1 名前 %2 ネームスペース %3 エグゼキューターは %4 を処理します",
+    "tooltip": "デフォルトの micro-ROS トランスポート、サポート、ノード、およびエグゼキューターを初期化します。"
+  },
+  "micro_ros_publisher_init": {
+    "message0": "作成 micro-ROS Int32 パブリッシャー %1 ノード %2 トピック %3",
+    "tooltip": "std_msgs/Int32 パブリッシャーを作成します。"
+  },
+  "micro_ros_publish_int32": {
+    "message0": "micro-ROS パブリッシャー %1 パブリッシュ Int32 %2",
+    "tooltip": "1 つの std_msgs/Int32 値を公開します。"
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "作成 micro-ROS Int32 サブスクライバー %1 ノード %2 トピック %3 データ到着時 %4",
+    "tooltip": "std_msgs/Int32 サブスクリプションとコールバックを作成します。"
+  },
+  "micro_ros_received_int32": {
+    "message0": "micro-ROS サブスクライバー %1 が Int32 を受信しました",
+    "tooltip": "コールバック内またはコールバック後に最新の Int32 メッセージを読み取ります。"
+  },
+  "micro_ros_spin": {
+    "message0": "micro-ROS ノード %1 スピン (%2 ミリ秒)",
+    "tooltip": "rclc エグゼキューターを 1 回実行します。ノードの初期化により、デフォルトのスピンがループにすでに追加されています。"
+  }
+}

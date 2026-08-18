@@ -1,0 +1,151 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "SdFat %1 CS 핀 %2 최대 SPI MHz %3 초기화",
+    "tooltip": "SPI 위에 FAT 또는 exFAT SD 카드를 장착합니다."
+  },
+  "sdfat_file_open": {
+    "message0": "%2 경로 %3 모드 %4에서 SdFat 파일 %1 열기",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "읽다",
+            "O_RDONLY"
+          ],
+          [
+            "쓰기/추가",
+            "O_WRONLY | O_CREAT | O_APPEND"
+          ],
+          [
+            "쓰기/잘라내기",
+            "O_WRONLY | O_CREAT | O_TRUNC"
+          ],
+          [
+            "읽기/쓰기",
+            "O_RDWR | O_CREAT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "FsFile 개체를 만들고 경로를 엽니다."
+  },
+  "sdfat_file_write": {
+    "message0": "SdFat 파일 %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "개행 없이 인쇄",
+            "print"
+          ],
+          [
+            "줄 바꿈으로 인쇄",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "열린 파일에 값을 씁니다."
+  },
+  "sdfat_file_control": {
+    "message0": "SdFat 파일 %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "파일 위치를 찾으십시오.",
+            "seek"
+          ],
+          [
+            "파일 자르기",
+            "truncate"
+          ],
+          [
+            "파일 버퍼 플러시",
+            "flush"
+          ],
+          [
+            "닫기",
+            "close"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "열려 있는 파일을 검색하고, 자르고, 플러시하고, 닫습니다."
+  },
+  "sdfat_file_read": {
+    "message0": "SdFat 파일 %1 %2 읽기",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "다음 바이트",
+            "read"
+          ],
+          [
+            "텍스트 라인",
+            "line"
+          ],
+          [
+            "모든 파일 텍스트",
+            "string"
+          ],
+          [
+            "사용 가능한 바이트",
+            "available"
+          ],
+          [
+            "크기",
+            "size"
+          ],
+          [
+            "위치",
+            "position"
+          ],
+          [
+            "파일이 열려있습니다",
+            "open"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "열린 파일에서 데이터나 상태를 읽습니다."
+  },
+  "sdfat_fs_operation": {
+    "message0": "SdFat %1 %2 경로 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "디렉토리 생성",
+            "mkdir"
+          ],
+          [
+            "디렉토리 제거",
+            "rmdir"
+          ],
+          [
+            "파일 제거",
+            "remove"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "SD 카드 파일 시스템을 수정합니다."
+  },
+  "sdfat_exists": {
+    "message0": "SdFat %1 경로 %2가 존재합니다",
+    "tooltip": "경로가 존재하는지 확인하세요."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "toolbox_name": "U8g2 机器人眼睛",
+  "toolbox_labels": {
+    "初始化与渲染": "初始化与渲染",
+    "表情与视线": "表情与视线",
+    "自动动画": "自动动画",
+    "状态查询": "状态查询"
+  },
+  "u8g2_robot_eyes_init": {
+    "message0": "创建 U8g2 机器人眼睛 %1 使用显示对象 %2 主题 %3 宽 %4 高 %5 帧率 %6 自动在 loop 更新 %7",
+    "tooltip": "使用已创建并初始化的全缓冲 U8g2 对象创建机器人眼睛；主题在编译期选择，同一程序只能使用一种主题"
+  },
+  "u8g2_robot_eyes_set_expression": {
+    "message0": "%1 设置表情 %2 过渡时长 %3 毫秒",
+    "tooltip": "平滑切换到指定表情；动画进行中再次切换也会从当前姿态继续"
+  },
+  "u8g2_robot_eyes_blink": {
+    "message0": "%1 眨眼 时长 %2 毫秒",
+    "tooltip": "触发一次非阻塞眨眼动画"
+  },
+  "u8g2_robot_eyes_set_gaze": {
+    "message0": "%1 设置视线 X %2 Y %3 过渡时长 %4 毫秒",
+    "tooltip": "平滑移动视线；建议 X 使用 -8..8，Y 使用 -7..7"
+  },
+  "u8g2_robot_eyes_center_gaze": {
+    "message0": "%1 视线回到中央 过渡时长 %2 毫秒",
+    "tooltip": "让视线平滑回到屏幕中央"
+  },
+  "u8g2_robot_eyes_set_auto_blink": {
+    "message0": "%1 自动眨眼 启用 %2 基础间隔 %3 随机变化 %4 毫秒",
+    "tooltip": "开启或关闭随机自动眨眼，并设置基础间隔和随机变化范围"
+  },
+  "u8g2_robot_eyes_set_idle": {
+    "message0": "%1 随机视线 启用 %2 间隔 %3 毫秒",
+    "tooltip": "开启或关闭非阻塞随机视线微动作"
+  },
+  "u8g2_robot_eyes_render": {
+    "message0": "%1 %2",
+    "tooltip": "update 会限帧、清屏并发送缓冲区；draw 立即清屏绘制并发送；drawToBuffer 仅绘制，便于与其他 U8g2 内容合成"
+  },
+  "u8g2_robot_eyes_expression": {
+    "message0": "%1 当前目标表情编号",
+    "tooltip": "返回当前目标表情编号 0..19"
+  },
+  "u8g2_robot_eyes_is_animating": {
+    "message0": "%1 正在过渡动画",
+    "tooltip": "判断表情或视线过渡动画是否仍在进行"
+  },
+  "u8g2_robot_eyes_style": {
+    "message0": "%1 眼睛主题编号",
+    "tooltip": "返回编译期主题编号：0 为方眼，1 为圆眼"
+  }
+}

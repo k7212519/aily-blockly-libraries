@@ -1,26 +1,23 @@
-# HuskyLensV2 AI camera
+# HuskyLensV2 AI摄像头
 
-HuskyLensV2 is a simple and easy-to-use AI vision sensor that supports multiple AI functions such as face recognition, object tracking, color recognition, QR code recognition, etc. It can communicate through I2C or se...
+DFRobot 二哈识图2 AI视觉传感器 Blockly 库，支持人脸/手势/姿态/巡线等算法，I2C 与串口通信。
 
-## Library Info
+## 库信息
 
-| Field | Value |
-|-------|-------|
-| Package | @aily-project/lib-huskylensv2 |
-| Version | 1.0.0 |
-| Author | Vonweller |
-| Source | https://www.dfrobot.com.cn/products-1782.html |
-| License | MIT |
+| 字段 | 值 |
+|------|----|
+| 包名 | @aily-project/lib-huskylensv2 |
+| 版本 | 1.0.9 |
+| 作者 | DFRobot |
+| 来源 | https://gitee.com/dfrobot/DFRobot_HuskylensV2 |
+| 许可证 | LGPL |
 
-## Supported Boards
+## 支持的板卡
 
-Arduino-compatible boards supported by this package.
+Arduino / ESP32 / ESP8266 等（多算法与关键点需大内存板）
 
-## Description
+## 快速入门
 
-HuskyLensV2 is a simple and easy-to-use AI vision sensor that supports multiple AI functions such as face recognition, object tracking, color recognition, QR code recognition, etc. It can communicate through I2C or se...
-
-## Quick Start
-
-1. Enable `@aily-project/lib-huskylensv2` in Aily Blockly.
-2. Add the library blocks, initialize hardware in `arduino_setup()`, then use read/write blocks in `arduino_loop()`.
+1. 使用 I2C 初始化块连接传感器
+2. 切换算法
+3. 循环获取结果 → 判断还有结果 → 弹出结果 → 读取字段

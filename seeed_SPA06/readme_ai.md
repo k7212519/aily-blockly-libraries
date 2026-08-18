@@ -8,19 +8,19 @@ Used to read data from Grove SPA06 (SPL07-003) air pressure and temperature sens
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `spa06_init` | Statement | ADDRESS(dropdown) | `spa06_init("0x77")` | Dynamic code |
-| `spa06_read_temperature` | Value | (none) | `spa06_read_temperature()` | spa06.readTemperature() |
-| `spa06_read_pressure` | Value | (none) | `spa06_read_pressure()` | spa06.readPressure() |
-| `spa06_read_altitude` | Value | (none) | `spa06_read_altitude()` | spa06.calcAltitude() |
-| `spa06_pressure_available` | Value | (none) | `spa06_pressure_available()` | spa06.pressureAvailable() |
-| `spa06_temperature_available` | Value | (none) | `spa06_temperature_available()` | spa06.temperatureAvailable() |
-| `spa06_set_mode` | Statement | MODE(dropdown) | `spa06_set_mode(SPL07_IDLE)` | spa06.setMode( |
-| `spa06_set_pressure_config` | Statement | RATE(dropdown), OVERSAMPLE(dropdown) | `spa06_set_pressure_config(SPL07_1HZ, SPL07_1SAMPLE)` | spa06.setPressureConfig( |
-| `spa06_set_temperature_config` | Statement | RATE(dropdown), OVERSAMPLE(dropdown) | `spa06_set_temperature_config(SPL07_1HZ, SPL07_1SAMPLE)` | spa06.setTemperatureConfig( |
-| `spa06_set_pressure_offset` | Statement | OFFSET(input_value) | `spa06_set_pressure_offset(math_number(0))` | spa06.setPressureOffset( |
-| `spa06_set_temperature_offset` | Statement | OFFSET(input_value) | `spa06_set_temperature_offset(math_number(0))` | spa06.setTemperatureOffset( |
+| `spa06_init` | Statement | ADDRESS(dropdown) | `spa06_init("0x77")` | `SPL07_003 spa06; ↵ Wire.begin(); ↵ spa06.begin(0x77, &Wire);` |
+| `spa06_read_temperature` | Value | (none) | `spa06_read_temperature()` | `spa06.readTemperature()` |
+| `spa06_read_pressure` | Value | (none) | `spa06_read_pressure()` | `spa06.readPressure()` |
+| `spa06_read_altitude` | Value | (none) | `spa06_read_altitude()` | `spa06.calcAltitude()` |
+| `spa06_pressure_available` | Value | (none) | `spa06_pressure_available()` | `spa06.pressureAvailable()` |
+| `spa06_temperature_available` | Value | (none) | `spa06_temperature_available()` | `spa06.temperatureAvailable()` |
+| `spa06_set_mode` | Statement | MODE(dropdown) | `spa06_set_mode(SPL07_IDLE)` | `spa06.setMode(SPL07_IDLE);` |
+| `spa06_set_pressure_config` | Statement | RATE(dropdown), OVERSAMPLE(dropdown) | `spa06_set_pressure_config(SPL07_1HZ, SPL07_1SAMPLE)` | `spa06.setPressureConfig(SPL07_1HZ, SPL07_1SAMPLE);` |
+| `spa06_set_temperature_config` | Statement | RATE(dropdown), OVERSAMPLE(dropdown) | `spa06_set_temperature_config(SPL07_1HZ, SPL07_1SAMPLE)` | `spa06.setTemperatureConfig(SPL07_1HZ, SPL07_1SAMPLE);` |
+| `spa06_set_pressure_offset` | Statement | OFFSET(input_value) | `spa06_set_pressure_offset(math_number(0))` | `spa06.setPressureOffset(1);` |
+| `spa06_set_temperature_offset` | Statement | OFFSET(input_value) | `spa06_set_temperature_offset(math_number(0))` | `spa06.setTemperatureOffset(1);` |
 
 ## Parameter Options
 

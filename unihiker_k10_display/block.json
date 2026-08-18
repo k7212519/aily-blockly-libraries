@@ -575,51 +575,6 @@
     "inputsInline": true
   },
   {
-    "type": "k10_step_animation_frame",
-    "message0": "让帧变量 %1 向目标帧 %2 移动一步 总帧数 %3 方向 %4",
-    "args0": [
-      {
-        "type": "field_variable",
-        "name": "FRAME_VAR",
-        "variable": "k10AnimationFrame"
-      },
-      {
-        "type": "input_value",
-        "name": "TARGET",
-        "check": "Number"
-      },
-      {
-        "type": "input_value",
-        "name": "FRAME_COUNT",
-        "check": "Number"
-      },
-      {
-        "type": "field_dropdown",
-        "name": "DIRECTION",
-        "options": [
-          [
-            "自动",
-            "AUTO"
-          ],
-          [
-            "正向",
-            "FORWARD"
-          ],
-          [
-            "反向",
-            "BACKWARD"
-          ]
-        ]
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#2196F3",
-    "icon": "fa-solid fa-film",
-    "tooltip": "让帧变量移动一帧；正向和反向会在首尾循环，自动模式会选择方向",
-    "inputsInline": true
-  },
-  {
     "type": "k10_screen_size",
     "message0": "屏幕 %1",
     "args0": [

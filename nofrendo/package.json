@@ -1,0 +1,31 @@
+{
+  "name": "@aily-project/lib-nofrendo",
+  "nickname": "NES模拟器",
+  "nickname_zh_cn": "NES模拟器",
+  "nickname_en": "NES Emulator",
+  "description": "基于nofrendo的NES红白机模拟器，ESP32+ST7789+SD卡",
+  "version": "1.0.4",
+  "author": "Bryan",
+  "compatibility": {
+    "core": [
+      "esp32:esp32"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "nes",
+    "emulator",
+    "nofrendo",
+    "game",
+    "xueersi",
+    "学而思",
+    "小喵掌机",
+    "nes"
+  ],
+  "tested": false,
+  "url": "https://github.com/moononournation/arduino-nofrendo"
+}

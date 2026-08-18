@@ -1,925 +1,1084 @@
 {
   "kind": "category",
   "icon": "fa-light fa-mobile",
-  "name": "TFT_eSPI",
+  "name": "TFT eSPI",
   "colour": "#00bcd4",
   "contents": [
     {
-      "kind": "label",
-      "text": "初始化"
+      "kind": "category",
+      "name": "基础设置",
+      "icon": "fa-light fa-sliders",
+      "colour": "#00bcd4",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "屏幕控制"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_setup"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_rotation"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_invert_display"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_get_dimension"
+        },
+        {
+          "kind": "label",
+          "text": "颜色"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_color"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_color_rgb565"
+        }
+      ]
     },
     {
-      "kind": "block",
-      "type": "tftespi_setup",
-      "inputs": {
-        "WIDTH": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "240"
+      "kind": "category",
+      "name": "图形绘制",
+      "icon": "fa-light fa-shapes",
+      "colour": "#00bcd4",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "基础图形"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_fill_screen",
+          "inputs": {
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "HEIGHT": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "320"
+        {
+          "kind": "block",
+          "type": "tftespi_draw_pixel",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "MISO": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "block",
+          "type": "tftespi_draw_line",
+          "inputs": {
+            "X1": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y1": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "X2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "Y2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "MOSI": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "label",
+          "text": "矩形"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_draw_rect",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "W": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "H": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "SCLK": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "block",
+          "type": "tftespi_fill_rect",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "W": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "H": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "CS": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "block",
+          "type": "tftespi_draw_round_rect",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "10"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "10"
+                }
+              }
+            },
+            "W": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "H": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "60"
+                }
+              }
+            },
+            "RADIUS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "8"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "DC": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "block",
+          "type": "tftespi_fill_round_rect",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "10"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "10"
+                }
+              }
+            },
+            "W": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "H": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "60"
+                }
+              }
+            },
+            "RADIUS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "8"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "RST": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "block",
+          "type": "tftespi_fill_rect_v_gradient",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "20"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "20"
+                }
+              }
+            },
+            "W": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "H": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "60"
+                }
+              }
+            },
+            "COLOR1": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            },
+            "COLOR2": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         },
-        "BL": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "-1"
+        {
+          "kind": "block",
+          "type": "tftespi_fill_rect_h_gradient",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "20"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "20"
+                }
+              }
+            },
+            "W": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            },
+            "H": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "60"
+                }
+              }
+            },
+            "COLOR1": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            },
+            "COLOR2": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "圆形与椭圆"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_draw_circle",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            },
+            "RADIUS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "50"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_fill_circle",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            },
+            "RADIUS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "50"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_draw_arc",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            },
+            "RADIUS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "80"
+                }
+              }
+            },
+            "INNER_RADIUS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "60"
+                }
+              }
+            },
+            "START_ANGLE": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "END_ANGLE": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "270"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color",
+                "fields": {
+                  "COLOR": "TFT_CYAN"
+                }
+              }
+            },
+            "BG_COLOR": {
+              "shadow": {
+                "type": "tftespi_color",
+                "fields": {
+                  "COLOR": "TFT_BLACK"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_draw_ellipse",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            },
+            "RX": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "60"
+                }
+              }
+            },
+            "RY": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "40"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_fill_ellipse",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            },
+            "RX": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "50"
+                }
+              }
+            },
+            "RY": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "30"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "三角形"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_draw_triangle",
+          "inputs": {
+            "X1": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "Y1": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "70"
+                }
+              }
+            },
+            "X2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "110"
+                }
+              }
+            },
+            "Y2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "170"
+                }
+              }
+            },
+            "X3": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "210"
+                }
+              }
+            },
+            "Y3": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "170"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_fill_triangle",
+          "inputs": {
+            "X1": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "Y1": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "70"
+                }
+              }
+            },
+            "X2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "110"
+                }
+              }
+            },
+            "Y2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "170"
+                }
+              }
+            },
+            "X3": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "210"
+                }
+              }
+            },
+            "Y3": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "170"
+                }
+              }
+            },
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
             }
           }
         }
-      }
+      ]
     },
     {
-      "kind": "block",
-      "type": "tftespi_set_rotation"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_invert_display"
-    },
-    {
-      "kind": "label",
-      "text": "基本图形"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_screen",
-      "inputs": {
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
+      "kind": "category",
+      "name": "文字",
+      "icon": "fa-light fa-font",
+      "colour": "#00bcd4",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "tftespi_draw_string",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "Hello"
+                }
+              }
+            }
           }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_text_color",
+          "inputs": {
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color"
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_text_colors",
+          "inputs": {
+            "COLOR": {
+              "shadow": {
+                "type": "tftespi_color",
+                "fields": {
+                  "COLOR": "TFT_WHITE"
+                }
+              }
+            },
+            "BG_COLOR": {
+              "shadow": {
+                "type": "tftespi_color",
+                "fields": {
+                  "COLOR": "TFT_BLACK"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_text_datum"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_text_padding",
+          "inputs": {
+            "WIDTH": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "100"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_text_size"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_set_text_font"
         }
-      }
+      ]
     },
     {
-      "kind": "block",
-      "type": "tftespi_draw_pixel",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
+      "kind": "category",
+      "name": "图像与动画",
+      "icon": "fa-light fa-image",
+      "colour": "#00bcd4",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "图像"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_draw_image",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "IMAGE": {
+              "shadow": {
+                "type": "tftespi_image"
+              }
             }
           }
         },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
+        {
+          "kind": "block",
+          "type": "tftespi_image"
+        },
+        {
+          "kind": "label",
+          "text": "动画"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_play_animation",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "ANIMATION": {
+              "shadow": {
+                "type": "tftespi_animation"
+              }
             }
           }
         },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
+        {
+          "kind": "block",
+          "type": "tftespi_draw_animation_frame",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "ANIMATION": {
+              "shadow": {
+                "type": "tftespi_animation"
+              }
+            },
+            "FRAME": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            }
           }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_animation"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_animation_frame_count",
+          "inputs": {
+            "ANIMATION": {
+              "shadow": {
+                "type": "tftespi_animation"
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "Sprite 画布"
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_sprite_create",
+          "inputs": {
+            "WIDTH": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "160"
+                }
+              }
+            },
+            "HEIGHT": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "120"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_sprite_push",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_sprite_push_transparent",
+          "inputs": {
+            "X": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "Y": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": "0"
+                }
+              }
+            },
+            "TRANSPARENT_COLOR": {
+              "shadow": {
+                "type": "tftespi_color",
+                "fields": {
+                  "COLOR": "TFT_BLACK"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "tftespi_sprite_delete"
         }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_line",
-      "inputs": {
-        "X1": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "Y1": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "X2": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "Y2": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "label",
-      "text": "矩形"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_rect",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "W": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "H": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_rect",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "W": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "H": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_round_rect",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "10"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "10"
-            }
-          }
-        },
-        "W": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "H": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "60"
-            }
-          }
-        },
-        "RADIUS": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "8"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_round_rect",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "10"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "10"
-            }
-          }
-        },
-        "W": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "H": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "60"
-            }
-          }
-        },
-        "RADIUS": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "8"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_rect_v_gradient",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "20"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "20"
-            }
-          }
-        },
-        "W": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "H": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "60"
-            }
-          }
-        },
-        "COLOR1": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        },
-        "COLOR2": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_rect_h_gradient",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "20"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "20"
-            }
-          }
-        },
-        "W": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "100"
-            }
-          }
-        },
-        "H": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "60"
-            }
-          }
-        },
-        "COLOR1": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        },
-        "COLOR2": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "label",
-      "text": "圆形"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_circle",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "160"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "120"
-            }
-          }
-        },
-        "RADIUS": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "50"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_circle",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "160"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "120"
-            }
-          }
-        },
-        "RADIUS": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "50"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "label",
-      "text": "椭圆"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_ellipse",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "160"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "120"
-            }
-          }
-        },
-        "RX": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "60"
-            }
-          }
-        },
-        "RY": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "40"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_ellipse",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "160"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "120"
-            }
-          }
-        },
-        "RX": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "50"
-            }
-          }
-        },
-        "RY": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "30"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "label",
-      "text": "三角形"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_triangle",
-      "inputs": {
-        "X1": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "160"
-            }
-          }
-        },
-        "Y1": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "70"
-            }
-          }
-        },
-        "X2": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "110"
-            }
-          }
-        },
-        "Y2": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "170"
-            }
-          }
-        },
-        "X3": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "210"
-            }
-          }
-        },
-        "Y3": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "170"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_fill_triangle",
-      "inputs": {
-        "X1": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "160"
-            }
-          }
-        },
-        "Y1": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "70"
-            }
-          }
-        },
-        "X2": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "110"
-            }
-          }
-        },
-        "Y2": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "170"
-            }
-          }
-        },
-        "X3": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "210"
-            }
-          }
-        },
-        "Y3": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "170"
-            }
-          }
-        },
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "label",
-      "text": "文字"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_string",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "TEXT": {
-          "shadow": {
-            "type": "text",
-            "fields": {
-              "TEXT": "Hello"
-            }
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_set_text_color",
-      "inputs": {
-        "COLOR": {
-          "shadow": {
-            "type": "tftespi_color"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_set_text_size"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_set_text_font"
-    },
-    {
-      "kind": "label",
-      "text": "颜色"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_color"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_color_rgb565"
-    },
-    {
-      "kind": "label",
-      "text": "动画"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_play_animation",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "ANIMATION": {
-          "shadow": {
-            "type": "tftespi_animation"
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_draw_animation_frame",
-      "inputs": {
-        "X": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "Y": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "ANIMATION": {
-          "shadow": {
-            "type": "tftespi_animation"
-          }
-        },
-        "FRAME": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_step_animation_frame",
-      "inputs": {
-        "TARGET": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "FRAME_COUNT": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "1"
-            }
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_animation"
-    },
-    {
-      "kind": "block",
-      "type": "tftespi_animation_frame_count",
-      "inputs": {
-        "ANIMATION": {
-          "shadow": {
-            "type": "tftespi_animation"
-          }
-        }
-      }
+      ]
     }
   ]
 }

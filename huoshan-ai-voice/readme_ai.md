@@ -9,33 +9,33 @@ ESP32 voice conversation blocks for WiFi, I2S microphone/speaker, Doubao ASR/TTS
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `huoshan_ai_config` | Statement | DOUBAO_APP_ID(input_value), DOUBAO_TOKEN(input_value), COZE_TOKEN(input_value), COZE_BOT_ID(input_value), USER_ID(input_value) | `huoshan_ai_config(text("doubao-app-id"), text("doubao-token"), text("coze-token"), text("coze-bot-id"), text(""))` | `HuoshanAIVoice.config(appId, doubaoToken, cozeToken, cozeBotId, userId);` |
-| `huoshan_ai_wifi_connect` | Statement | SSID(input_value), PASSWORD(input_value), TIMEOUT(input_value) | `huoshan_ai_wifi_connect(text("ssid"), text("password"), math_number(20000))` | `HuoshanAIVoice.connectWiFi(ssid, password, timeoutMs);` |
-| `huoshan_ai_mic_config` | Statement | PORT(field_dropdown), BCLK(input_value), WS(input_value), DIN(input_value), GAIN(input_value), MAX_SECONDS(input_value) | `huoshan_ai_mic_config(I2S_NUM_1, math_number(42), math_number(2), math_number(1), math_number(4), math_number(15))` | `HuoshanAIVoice.configMic(port, bclk, ws, din, gain, maxSeconds);` |
-| `huoshan_ai_speaker_config` | Statement | PORT(field_dropdown), BCLK(input_value), WS(input_value), DOUT(input_value), VOLUME(input_value) | `huoshan_ai_speaker_config(I2S_NUM_0, math_number(39), math_number(40), math_number(38), math_number(0.9))` | `HuoshanAIVoice.configSpeaker(port, bclk, ws, dout, volume);` |
-| `huoshan_ai_begin` | Statement | none | `huoshan_ai_begin()` | `HuoshanAIVoice.begin();` |
-| `huoshan_ai_start_listening` | Statement | none | `huoshan_ai_start_listening()` | `HuoshanAIVoice.startListening();` |
-| `huoshan_ai_stop_listening_and_chat` | Statement | none | `huoshan_ai_stop_listening_and_chat()` | `HuoshanAIVoice.stopListeningAndChat();` |
-| `huoshan_ai_send_text` | Statement | TEXT(input_value), SPEAK(field_dropdown) | `huoshan_ai_send_text(text("你好"), true)` | `HuoshanAIVoice.sendText(text, speakReply);` |
-| `huoshan_ai_tts_speak` | Statement | TEXT(input_value) | `huoshan_ai_tts_speak(text("你好"))` | `HuoshanAIVoice.speak(text);` |
-| `huoshan_ai_stop_audio` | Statement | none | `huoshan_ai_stop_audio()` | `HuoshanAIVoice.stopAudio();` |
-| `huoshan_ai_clear_conversation` | Statement | none | `huoshan_ai_clear_conversation()` | `HuoshanAIVoice.clearConversation();` |
-| `huoshan_ai_set_voice` | Statement | VOICE(field_dropdown) | `huoshan_ai_set_voice(zh_female_wanwanxiaohe_moon_bigtts)` | `HuoshanAIVoice.setVoice("zh_female_wanwanxiaohe_moon_bigtts");` |
-| `huoshan_ai_set_volume` | Statement | VOLUME(input_value) | `huoshan_ai_set_volume(math_number(0.9))` | `HuoshanAIVoice.setVolume(volume);` |
-| `huoshan_ai_set_speed` | Statement | SPEED(input_value) | `huoshan_ai_set_speed(math_number(1.0))` | `HuoshanAIVoice.setSpeed(speed);` |
-| `huoshan_ai_get_state` | Value | none | `huoshan_ai_get_state()` | `HuoshanAIVoice.state()` |
-| `huoshan_ai_is_wifi_connected` | Value | none | `huoshan_ai_is_wifi_connected()` | `HuoshanAIVoice.isWiFiConnected()` |
-| `huoshan_ai_get_last_asr_text` | Value | none | `huoshan_ai_get_last_asr_text()` | `HuoshanAIVoice.lastAsrText()` |
-| `huoshan_ai_get_last_reply_text` | Value | none | `huoshan_ai_get_last_reply_text()` | `HuoshanAIVoice.lastReplyText()` |
-| `huoshan_ai_get_last_error` | Value | none | `huoshan_ai_get_last_error()` | `HuoshanAIVoice.lastError()` |
-| `huoshan_ai_screen_config` | Statement | WIDTH(field_number), HEIGHT(field_number), ROTATION(dropdown), BRIGHTNESS(field_number), BL(field_number), MISO(field_number), MOSI(field_number), SCLK(field_number), CS(field_number), DC(field_number), RST(field_number), TOUCH_SDA(field_number), TOUCH_SCL(field_number), TOUCH_RST(field_number), TOUCH_INT(field_number) | `huoshan_ai_screen_config(240, 320, LV_DISPLAY_ROTATION_0, 80, 8, 15, 17, 16, 5, 7, 6, 10, 13, 9, 12)` | `HuoshanAIVoice.configScreen(width, height, brightness);` |
-| `huoshan_ai_screen_begin` | Statement | TOUCH_TO_TALK(dropdown), AUTO_MESSAGES(dropdown) | `huoshan_ai_screen_begin(true, true)` | `HuoshanAIVoice.beginScreen(touchToTalk, autoMessages);` |
-| `huoshan_ai_screen_set_brightness` | Statement | VALUE(input_value) | `huoshan_ai_screen_set_brightness(math_number(80))` | `HuoshanAIVoice.setScreenBrightness(value);` |
-| `huoshan_ai_screen_set_status` | Statement | TEXT(input_value) | `huoshan_ai_screen_set_status(text("准备就绪"))` | `HuoshanAIVoice.setScreenStatus(text);` |
-| `huoshan_ai_screen_add_message` | Statement | ROLE(dropdown), TEXT(input_value) | `huoshan_ai_screen_add_message(system, text("Ready"))` | `HuoshanAIVoice.addScreenMessage(role, text);` |
-| `huoshan_ai_screen_clear_messages` | Statement | none | `huoshan_ai_screen_clear_messages()` | `HuoshanAIVoice.clearScreenMessages();` |
+| `huoshan_ai_config` | Statement | DOUBAO_APP_ID(input_value), DOUBAO_TOKEN(input_value), COZE_TOKEN(input_value), COZE_BOT_ID(input_value), USER_ID(input_value) | `huoshan_ai_config(text("doubao-app-id"), text("doubao-token"), text("coze-token"), text("coze-bot-id"), text(""))` | `HuoshanAIVoice.config("value", "value", "value", "value", "value");` |
+| `huoshan_ai_wifi_connect` | Statement | SSID(input_value), PASSWORD(input_value), TIMEOUT(input_value) | `huoshan_ai_wifi_connect(text("ssid"), text("password"), math_number(20000))` | `HuoshanAIVoice.connectWiFi("value", "value", 1);` |
+| `huoshan_ai_mic_config` | Statement | PORT(dropdown), BCLK(input_value), WS(input_value), DIN(input_value), GAIN(input_value), MAX_SECONDS(input_value) | `huoshan_ai_mic_config(I2S_NUM_1, math_number(42), math_number(2), math_number(1), math_number(4), math_number(15))` | `HuoshanAIVoice.configMic(I2S_NUM_0, 1, 1, 1, 1, 1);` |
+| `huoshan_ai_speaker_config` | Statement | PORT(dropdown), BCLK(input_value), WS(input_value), DOUT(input_value), VOLUME(input_value) | `huoshan_ai_speaker_config(I2S_NUM_0, math_number(39), math_number(40), math_number(38), math_number(0.9))` | `HuoshanAIVoice.configSpeaker(I2S_NUM_0, 1, 1, 1, 1);` |
+| `huoshan_ai_begin` | Statement | (none) | `huoshan_ai_begin()` | `HuoshanAIVoice.begin();` |
+| `huoshan_ai_start_listening` | Statement | (none) | `huoshan_ai_start_listening()` | `HuoshanAIVoice.startListening();` |
+| `huoshan_ai_stop_listening_and_chat` | Statement | (none) | `huoshan_ai_stop_listening_and_chat()` | `HuoshanAIVoice.stopListeningAndChat();` |
+| `huoshan_ai_send_text` | Statement | TEXT(input_value), SPEAK(dropdown) | `huoshan_ai_send_text(text("你好"), true)` | `HuoshanAIVoice.sendText("value", true);` |
+| `huoshan_ai_tts_speak` | Statement | TEXT(input_value) | `huoshan_ai_tts_speak(text("你好"))` | `HuoshanAIVoice.speak("value");` |
+| `huoshan_ai_stop_audio` | Statement | (none) | `huoshan_ai_stop_audio()` | `HuoshanAIVoice.stopAudio();` |
+| `huoshan_ai_clear_conversation` | Statement | (none) | `huoshan_ai_clear_conversation()` | `HuoshanAIVoice.clearConversation();` |
+| `huoshan_ai_set_voice` | Statement | VOICE(dropdown) | `huoshan_ai_set_voice(zh_female_wanwanxiaohe_moon_bigtts)` | `HuoshanAIVoice.setVoice("zh_female_wanwanxiaohe_moon_bigtts");` |
+| `huoshan_ai_set_volume` | Statement | VOLUME(input_value) | `huoshan_ai_set_volume(math_number(0.9))` | `HuoshanAIVoice.setVolume(1);` |
+| `huoshan_ai_set_speed` | Statement | SPEED(input_value) | `huoshan_ai_set_speed(math_number(1.0))` | `HuoshanAIVoice.setSpeed(1);` |
+| `huoshan_ai_get_state` | Value | (none) | `huoshan_ai_get_state()` | `HuoshanAIVoice.state()` |
+| `huoshan_ai_is_wifi_connected` | Value | (none) | `huoshan_ai_is_wifi_connected()` | `HuoshanAIVoice.isWiFiConnected()` |
+| `huoshan_ai_get_last_asr_text` | Value | (none) | `huoshan_ai_get_last_asr_text()` | `HuoshanAIVoice.lastAsrText()` |
+| `huoshan_ai_get_last_reply_text` | Value | (none) | `huoshan_ai_get_last_reply_text()` | `HuoshanAIVoice.lastReplyText()` |
+| `huoshan_ai_get_last_error` | Value | (none) | `huoshan_ai_get_last_error()` | `HuoshanAIVoice.lastError()` |
+| `huoshan_ai_screen_config` | Statement | WIDTH(field_number), HEIGHT(field_number), ROTATION(dropdown), BRIGHTNESS(field_number), BL(field_number), MISO(field_number), MOSI(field_number), SCLK(field_number), CS(field_number), DC(field_number), RST(field_number), TOUCH_SDA(field_number), TOUCH_SCL(field_number), TOUCH_RST(field_number), TOUCH_INT(field_number) | `huoshan_ai_screen_config(240, 320, LV_DISPLAY_ROTATION_0, 80, 8, 15, 17, 16, 5, 7, 6, 10, 13, 9, 12)` | `HuoshanAIVoice.configScreen(240, 320, 80);` |
+| `huoshan_ai_screen_begin` | Statement | TOUCH_TO_TALK(dropdown), AUTO_MESSAGES(dropdown) | `huoshan_ai_screen_begin(true, true)` | `HuoshanAIVoice.beginScreen(true, true);` |
+| `huoshan_ai_screen_set_brightness` | Statement | VALUE(input_value) | `huoshan_ai_screen_set_brightness(math_number(80))` | `HuoshanAIVoice.setScreenBrightness(1);` |
+| `huoshan_ai_screen_set_status` | Statement | TEXT(input_value) | `huoshan_ai_screen_set_status(text("准备就绪"))` | `HuoshanAIVoice.setScreenStatus("value");` |
+| `huoshan_ai_screen_add_message` | Statement | ROLE(dropdown), TEXT(input_value) | `huoshan_ai_screen_add_message(system, text("Ready"))` | `HuoshanAIVoice.addScreenMessage("user", "value");` |
+| `huoshan_ai_screen_clear_messages` | Statement | (none) | `huoshan_ai_screen_clear_messages()` | `HuoshanAIVoice.clearScreenMessages();` |
 
 ## Parameter Options
 

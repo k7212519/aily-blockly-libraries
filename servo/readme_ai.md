@@ -8,11 +8,17 @@ The servo control support library accurately controls the rotation angle of the 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `servo_write` | Statement | PIN(dropdown), ANGLE(input_value) | `servo_write(PIN, math_number(90))` | Dynamic code |
-| `servo_read` | Value | PIN(dropdown) | `servo_read(PIN)` | Dynamic code |
-| `servo_angle` | Value | ANGLE(field_angle180) | `servo_angle()` | Dynamic code |
+| `servo_write` | Statement | PIN(dropdown), ANGLE(input_value) | `servo_write(PIN, math_number(90))` | `servo_PIN.write(1);` |
+| `servo_read` | Value | PIN(dropdown) | `servo_read(PIN)` | `servo_pin_PIN.read()` |
+| `servo_angle` | Value | ANGLE(field_angle180) | `servo_angle(0)` | `0` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| PIN | ${board.digitalPins} | servo_write |
 
 ## ABS Examples
 

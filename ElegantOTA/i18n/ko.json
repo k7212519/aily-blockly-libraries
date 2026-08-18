@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "ElegantOTA 서버 초기화 %1 모드 %2 포트 %3 사용자 이름 %4 비밀번호 %5 자동 재부팅 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "동기식 웹서버",
+            "sync"
+          ],
+          [
+            "비동기웹서버",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "웹 서버를 생성하고 /update에 ElegantOTA 업데이트 포털을 노출합니다."
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA 사용자 이름 %1 비밀번호 %2 설정",
+    "tooltip": "업데이트 포털 인증을 변경합니다."
+  },
+  "elegant_ota_on_start": {
+    "message0": "ElegantOTA 업데이트가 시작될 때 %1",
+    "tooltip": "OTA 업로드가 시작되면 코드를 실행합니다."
+  },
+  "elegant_ota_on_progress": {
+    "message0": "ElegantOTA 업데이트가 진행되는 동안 %1",
+    "tooltip": "OTA 진행 상황이 변경되면 코드를 실행합니다."
+  },
+  "elegant_ota_on_end": {
+    "message0": "ElegantOTA 업데이트가 종료되면 %1",
+    "tooltip": "OTA 업데이트가 성공하거나 실패하면 코드를 실행합니다."
+  },
+  "elegant_ota_callback_value": {
+    "message0": "ElegantOTA 콜백 %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "수신된 바이트",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "총 바이트",
+            "_ailyOtaFinal"
+          ],
+          [
+            "진행률",
+            "percent"
+          ],
+          [
+            "성공",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "OTA 콜백 블록 내에서 사용 가능한 값을 읽습니다."
+  }
+}

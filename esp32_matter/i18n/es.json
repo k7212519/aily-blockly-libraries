@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32 Asunto",
+  "esp32_matter_begin": {
+    "message0": "Materia inicial",
+    "tooltip": "Inicie el nodo Materia; primero es necesario crear el punto final."
+  },
+  "esp32_matter_status": {
+    "message0": "Estado del asunto %1",
+    "tooltip": "Consultar red de distribución de asunto o estado de conexión.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Red configurada",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi conectado",
+            "isWiFiConnected"
+          ],
+          [
+            "El hilo está conectado",
+            "isThreadConnected"
+          ],
+          [
+            "El dispositivo está conectado",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "Información de emparejamiento de materia %1",
+    "tooltip": "Obtenga el código de emparejamiento de Matter o la URL del código QR.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Código de emparejamiento manual",
+            "getManualPairingCode"
+          ],
+          [
+            "URL del código QR",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "Red de distribución de materia clara",
+    "tooltip": "Borrar la información actual de la red de distribución de Matter Fabric."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "Crear luz del interruptor de Materia %1 estado inicial %2",
+    "tooltip": "Crea el punto final de la luz del interruptor."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "Crear Materia atenuación de luz %1 estado %2 brillo %3",
+    "tooltip": "Crea un punto final de luz más tenue."
+  },
+  "esp32_matter_light_set": {
+    "message0": "La luz de materia %1 establece %2 en %3",
+    "tooltip": "Configura el interruptor de luz o el brillo.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "interruptor",
+            "setOnOff"
+          ],
+          [
+            "Brillo",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "Lámpara de materia %1 lectura %2",
+    "tooltip": "Leer el interruptor de luz o brillo.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "interruptor",
+            "getOnOff"
+          ],
+          [
+            "Brillo",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "Crear sensor numérico de materia %1 tipo %2 valor inicial %3",
+    "tooltip": "Crear puntos finales de sensores numéricos comunes.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Temperatura",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "Humedad",
+            "MatterHumiditySensor"
+          ],
+          [
+            "Iluminación",
+            "MatterLightSensor"
+          ],
+          [
+            "Presión",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "Sensor numérico de materia %1 tipo %2 actualización %3",
+    "tooltip": "Actualiza y reporta valores numéricos del sensor.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Temperatura",
+            "setTemperature"
+          ],
+          [
+            "Humedad",
+            "setHumidity"
+          ],
+          [
+            "Iluminación",
+            "setIlluminance"
+          ],
+          [
+            "Presión",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "Crear sensor booleano de materia %1 tipo %2 valor inicial %3",
+    "tooltip": "Crea puntos finales de sensores booleanos comunes.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Contacto",
+            "MatterContactSensor"
+          ],
+          [
+            "ocupado",
+            "MatterOccupancySensor"
+          ],
+          [
+            "Lluvia",
+            "MatterRainSensor"
+          ],
+          [
+            "Fuga de agua",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Materia Sensor booleano %1 tipo %2 actualización %3",
+    "tooltip": "Actualiza y reporta valores booleanos del sensor.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Contacto",
+            "setContact"
+          ],
+          [
+            "ocupado",
+            "setOccupancy"
+          ],
+          [
+            "Lluvia",
+            "setRain"
+          ],
+          [
+            "Fuga de agua",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

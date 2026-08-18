@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 إيبروم",
+  "esp32_eeprom_begin": {
+    "message0": "تهيئة حجم EEPROM %1 بايت",
+    "tooltip": "تخصيص منطقة تخزين مضاهاة EEPROM."
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM قراءة عنوان البايت %1",
+    "tooltip": "قراءة بايت على العنوان المحدد."
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM كتابة عنوان البايت %1 القيمة %2",
+    "tooltip": "اكتب بايتًا، والذي يجب إرساله لاحقًا."
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "يقرأ EEPROM %1 العنوان %2",
+    "tooltip": "اقرأ القيمة حسب النوع المحدد.",
+    "args0": [
+      {
+        "options": [
+          [
+            "عدد صحيح",
+            "readInt"
+          ],
+          [
+            "عدد صحيح غير موقع",
+            "readUInt"
+          ],
+          [
+            "عدد صحيح طويل",
+            "readLong64"
+          ],
+          [
+            "رقم النقطة العائمة",
+            "readFloat"
+          ],
+          [
+            "دقة مضاعفة",
+            "readDouble"
+          ],
+          [
+            "قيمة منطقية",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM يكتب %1 عنوان %2 قيمة %3",
+    "tooltip": "اكتب قيمة حسب النوع المحدد.",
+    "args0": [
+      {
+        "options": [
+          [
+            "عدد صحيح",
+            "writeInt"
+          ],
+          [
+            "عدد صحيح غير موقع",
+            "writeUInt"
+          ],
+          [
+            "عدد صحيح طويل",
+            "writeLong64"
+          ],
+          [
+            "رقم النقطة العائمة",
+            "writeFloat"
+          ],
+          [
+            "دقة مضاعفة",
+            "writeDouble"
+          ],
+          [
+            "قيمة منطقية",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "قراءة عنوان سلسلة EEPROM %1",
+    "tooltip": "قراءة سلسلة منتهية بصفر."
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "عنوان سلسلة الكتابة EEPROM %1 النص %2",
+    "tooltip": "يكتب سلسلة ويعيد الطول المكتوب."
+  },
+  "esp32_eeprom_commit": {
+    "message0": "تنفيذ تغييرات EEPROM",
+    "tooltip": "اكتب التغييرات المخزنة مؤقتًا على Flash."
+  },
+  "esp32_eeprom_end": {
+    "message0": "نهاية إيبروم",
+    "tooltip": "تنفيذ وتحرير المخزن المؤقت EEPROM."
+  },
+  "esp32_eeprom_length": {
+    "message0": "سعة إيبروم",
+    "tooltip": "يُرجع سعة EEPROM الحالية."
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "يحتوي EEPROM على تغييرات متاحة",
+    "tooltip": "تحقق من ذاكرة التخزين المؤقت للتغييرات غير الملتزم بها."
+  }
+}

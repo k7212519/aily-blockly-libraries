@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 오픈스레드",
+  "esp32_openthread_begin": {
+    "message0": "OpenThread를 초기화하여 %1을 자동으로 시작하세요.",
+    "tooltip": "OpenThread 스택을 초기화합니다."
+  },
+  "esp32_openthread_end": {
+    "message0": "OpenThread 종료",
+    "tooltip": "OpenThread 스택을 닫습니다."
+  },
+  "esp32_openthread_control": {
+    "message0": "오픈스레드 %1",
+    "tooltip": "스레드 네트워크 또는 인터페이스를 제어합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "네트워크 시작",
+            "start"
+          ],
+          [
+            "네트워크 중지",
+            "stop"
+          ],
+          [
+            "인터페이스 온라인",
+            "networkInterfaceUp"
+          ],
+          [
+            "인터페이스 오프라인",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread가 실행 중입니다.",
+    "tooltip": "OpenThread 스택이 실행 중인지 확인하세요."
+  },
+  "esp32_openthread_role": {
+    "message0": "OpenThread 현재 역할",
+    "tooltip": "비활성화/분리/하위/라우터/리더를 반환합니다."
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "OpenThread에 활성 데이터 세트가 있습니다.",
+    "tooltip": "활성 데이터세트가 제출되었는지 확인하세요."
+  },
+  "esp32_openthread_dataset": {
+    "message0": "스레드 데이터 세트 생성 및 제출 %1 이름 %2 채널 %3 PAN ID %4",
+    "tooltip": "새로운 활성 데이터 세트를 생성하고 제출하세요."
+  },
+  "esp32_openthread_network_number": {
+    "message0": "OpenThread 네트워크 값 %1",
+    "tooltip": "스레드 네트워크 값을 읽습니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "채널",
+            "getChannel"
+          ],
+          [
+            "팬 ID",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "유니캐스트 주소 수",
+            "getUnicastAddressCount"
+          ],
+          [
+            "멀티캐스트 주소 수",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "OpenThread 네트워크 텍스트 %1",
+    "tooltip": "네트워크 이름 또는 IPv6 주소를 읽어보세요.",
+    "args0": [
+      {
+        "options": [
+          [
+            "네트워크 이름",
+            "getNetworkName"
+          ],
+          [
+            "메시 로컬 EID",
+            "getMeshLocalEid"
+          ],
+          [
+            "리더 RLOC",
+            "getLeaderRloc"
+          ],
+          [
+            "네이티브 RLOC",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

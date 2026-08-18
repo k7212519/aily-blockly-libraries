@@ -8,13 +8,13 @@ Blockly wrapper for the SparkFun DS1307 I2C real-time clock module.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ds1307_begin` | Statement | (none) | `ds1307_begin()` | Wire.begin();\nrtc.begin();\n |
-| `ds1307_auto_time` | Statement | (none) | `ds1307_auto_time()` | rtc.autoTime();\n |
-| `ds1307_set_time` | Statement | SEC(input_value), MIN(input_value), HOUR(input_value), DAY(input_value), DATE(input_value), MONTH(input_value), YEAR(input_value) | `ds1307_set_time(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | rtc.setTime( |
-| `ds1307_update` | Statement | (none) | `ds1307_update()` | rtc.update();\n |
-| `ds1307_get_time` | Value | FIELD(dropdown) | `ds1307_get_time(second)` | rtc. |
+| `ds1307_begin` | Statement | (none) | `ds1307_begin()` | `Wire.begin(); ↵ rtc.begin();` |
+| `ds1307_auto_time` | Statement | (none) | `ds1307_auto_time()` | `rtc.autoTime();` |
+| `ds1307_set_time` | Statement | SEC(input_value), MIN(input_value), HOUR(input_value), DAY(input_value), DATE(input_value), MONTH(input_value), YEAR(input_value) | `ds1307_set_time(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `rtc.setTime(1, 1, 1, 1, 1, 1, 1);` |
+| `ds1307_update` | Statement | (none) | `ds1307_update()` | `rtc.update();` |
+| `ds1307_get_time` | Value | FIELD(dropdown) | `ds1307_get_time(second)` | `rtc.second()` |
 
 ## Parameter Options
 

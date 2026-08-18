@@ -8,24 +8,24 @@ Blockly library for the FT6336U capacitive touch controller.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ft6336u_init` | Statement | VAR(field_input), RST(input_value), INT(input_value) | `ft6336u_init("touch", math_number(21), math_number(34))` | `FT6336U touch(rst, int); touch.begin();` |
-| `ft6336u_init_with_pins` | Statement | VAR(field_input), SDA(input_value), SCL(input_value), RST(input_value), INT(input_value) | `ft6336u_init_with_pins("touch", math_number(22), math_number(23), math_number(21), math_number(34))` | `FT6336U touch(sda, scl, rst, int); touch.begin();` |
-| `ft6336u_touch_count` | Value | VAR(field_variable) | `ft6336u_touch_count(variables_get($touch))` | `touch.read_touch_number()` |
-| `ft6336u_read_gesture` | Value | VAR(field_variable) | `ft6336u_read_gesture(variables_get($touch))` | `touch.read_gesture_id()` |
-| `ft6336u_read_touch` | Value | VAR(field_variable), TOUCH(dropdown), FIELD(dropdown) | `ft6336u_read_touch(variables_get($touch), 1, x)` | `touch.read_touch1_x()` |
-| `ft6336u_scan` | Statement | VAR(field_variable) | `ft6336u_scan(variables_get($touch))` | `touch_points = touch.scan();` |
-| `ft6336u_scan_touch_count` | Value | VAR(field_variable) | `ft6336u_scan_touch_count(variables_get($touch))` | `touch_points.touch_count` |
-| `ft6336u_scan_point` | Value | VAR(field_variable), POINT(dropdown), FIELD(dropdown) | `ft6336u_scan_point(variables_get($touch), 0, x)` | `touch_points.tp[0].x` |
-| `ft6336u_scan_point_pressed` | Value | VAR(field_variable), POINT(dropdown) | `ft6336u_scan_point_pressed(variables_get($touch), 0)` | `touch_points.tp[0].status != release` |
-| `ft6336u_set_device_mode` | Statement | VAR(field_variable), MODE(dropdown) | `ft6336u_set_device_mode(variables_get($touch), working_mode)` | `touch.write_device_mode(working_mode);` |
-| `ft6336u_set_ctrl_mode` | Statement | VAR(field_variable), MODE(dropdown) | `ft6336u_set_ctrl_mode(variables_get($touch), keep_active_mode)` | `touch.write_ctrl_mode(keep_active_mode);` |
-| `ft6336u_set_g_mode` | Statement | VAR(field_variable), MODE(dropdown) | `ft6336u_set_g_mode(variables_get($touch), pollingMode)` | `touch.write_g_mode(pollingMode);` |
-| `ft6336u_read_mode_param` | Value | VAR(field_variable), PARAM(dropdown) | `ft6336u_read_mode_param(variables_get($touch), threshold)` | `touch.read_touch_threshold()` |
-| `ft6336u_read_gesture_param` | Value | VAR(field_variable), PARAM(dropdown) | `ft6336u_read_gesture_param(variables_get($touch), radian)` | `touch.read_radian_value()` |
-| `ft6336u_write_gesture_param` | Statement | VAR(field_variable), PARAM(dropdown), VALUE(input_value) | `ft6336u_write_gesture_param(variables_get($touch), radian, math_number(16))` | `touch.write_radian_value(value);` |
-| `ft6336u_read_system_info` | Value | VAR(field_variable), PARAM(dropdown) | `ft6336u_read_system_info(variables_get($touch), chip_id)` | `touch.read_chip_id()` |
+| `ft6336u_init` | Statement | VAR(field_input), RST(input_value), INT(input_value) | `ft6336u_init("touch", math_number(21), math_number(34))` | `touch.begin();` |
+| `ft6336u_init_with_pins` | Statement | VAR(field_input), SDA(input_value), SCL(input_value), RST(input_value), INT(input_value) | `ft6336u_init_with_pins("touch", math_number(22), math_number(23), math_number(21), math_number(34))` | `touch.begin();` |
+| `ft6336u_touch_count` | Value | VAR(field_variable) | `ft6336u_touch_count($touch)` | `touch.read_touch_number()` |
+| `ft6336u_read_gesture` | Value | VAR(field_variable) | `ft6336u_read_gesture($touch)` | `touch.read_gesture_id()` |
+| `ft6336u_read_touch` | Value | VAR(field_variable), TOUCH(dropdown), FIELD(dropdown) | `ft6336u_read_touch($touch, 1, x)` | `touch.read_touch1_x()` |
+| `ft6336u_scan` | Statement | VAR(field_variable) | `ft6336u_scan($touch)` | `touch_points = touch.scan();` |
+| `ft6336u_scan_touch_count` | Value | VAR(field_variable) | `ft6336u_scan_touch_count($touch)` | `touch_points.touch_count` |
+| `ft6336u_scan_point` | Value | VAR(field_variable), POINT(dropdown), FIELD(dropdown) | `ft6336u_scan_point($touch, 0, x)` | `touch_points.tp[0].status` |
+| `ft6336u_scan_point_pressed` | Value | VAR(field_variable), POINT(dropdown) | `ft6336u_scan_point_pressed($touch, 0)` | `touch_points.tp[0].status != release` |
+| `ft6336u_set_device_mode` | Statement | VAR(field_variable), MODE(dropdown) | `ft6336u_set_device_mode($touch, working_mode)` | `touch.write_device_mode(working_mode);` |
+| `ft6336u_set_ctrl_mode` | Statement | VAR(field_variable), MODE(dropdown) | `ft6336u_set_ctrl_mode($touch, keep_active_mode)` | `touch.write_ctrl_mode(keep_active_mode);` |
+| `ft6336u_set_g_mode` | Statement | VAR(field_variable), MODE(dropdown) | `ft6336u_set_g_mode($touch, pollingMode)` | `touch.write_g_mode(pollingMode);` |
+| `ft6336u_read_mode_param` | Value | VAR(field_variable), PARAM(dropdown) | `ft6336u_read_mode_param($touch, threshold)` | `touch.read_touch_threshold()` |
+| `ft6336u_read_gesture_param` | Value | VAR(field_variable), PARAM(dropdown) | `ft6336u_read_gesture_param($touch, radian)` | `touch.read_radian_value()` |
+| `ft6336u_write_gesture_param` | Statement | VAR(field_variable), PARAM(dropdown), VALUE(input_value) | `ft6336u_write_gesture_param($touch, radian, math_number(16))` | `touch.write_radian_value(1);` |
+| `ft6336u_read_system_info` | Value | VAR(field_variable), PARAM(dropdown) | `ft6336u_read_system_info($touch, chip_id)` | `touch.read_library_version()` |
 
 ## Parameter Options
 
@@ -51,15 +51,15 @@ arduino_setup()
     serial_begin(Serial, 115200)
 
 arduino_loop()
-    ft6336u_scan(variables_get($touch))
-    serial_println(Serial, ft6336u_scan_point(variables_get($touch), 0, x))
-    serial_println(Serial, ft6336u_scan_point(variables_get($touch), 0, y))
+    ft6336u_scan($touch)
+    serial_println(Serial, ft6336u_scan_point($touch, 0, x))
+    serial_println(Serial, ft6336u_scan_point($touch, 0, y))
     time_delay(math_number(20))
 ```
 
 ## Notes
 
-1. **Variable**: init blocks create `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: init blocks create `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Scan cache**: call `ft6336u_scan` before reading `ft6336u_scan_touch_count`, `ft6336u_scan_point`, or `ft6336u_scan_point_pressed`.
 3. **Custom pins**: SDA/SCL are honored only on ESP32, ESP8266, and Teensy builds supported by upstream.
 4. **Parameter order**: ABS parameters follow `block.json` args order.

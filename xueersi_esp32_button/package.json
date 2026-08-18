@@ -26,6 +26,7 @@
   "description_ru": "Библиотека встроенных кнопок Up, Down, Left, Right, A и B для Xueersi XiaoMiao ESP32 с событиями в стиле OneButton。",
   "description_ar": "مكتبة أزرار Xueersi XiaoMiao ESP32 المدمجة Up وDown وLeft وRight وA وB مع أحداث بأسلوب OneButton。",
   "version": "1.0.0",
+  "spec": true,
   "license": "MIT",
   "compatibility": {
     "core": [

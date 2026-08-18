@@ -8,14 +8,14 @@ Sound function, which can be used to control the passive buzzer to emit sounds o
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `io_tone` | Statement | TONEPIN(dropdown), FREQUENCY(input_value) | `io_tone(TONEPIN, math_number(0))` | tone(...,...);\n |
-| `io_tone_duration` | Statement | TONEPIN(dropdown), FREQUENCY(input_value), DURATION(input_value) | `io_tone_duration(TONEPIN, math_number(0), math_number(1000))` | tone(...,...,...);\ndelay(...);\n |
-| `io_system_sound` | Statement | TONEPIN(dropdown), SOUND_TYPE(dropdown) | `io_system_sound(TONEPIN, startup)` | Dynamic code |
-| `io_note` | Value | NOTE(dropdown) | `io_note("261")` | Dynamic code |
-| `io_music` | Statement | TONEPIN(dropdown), MUSIC_TYPE(dropdown) | `io_music(TONEPIN, twinkle)` | Dynamic code |
-| `io_notone` | Statement | TONEPIN(dropdown) | `io_notone(TONEPIN)` | noTone(...);\n |
+| `io_tone` | Statement | TONEPIN(dropdown), FREQUENCY(input_value) | `io_tone(TONEPIN, math_number(0))` | `tone(TONEPIN,1);` |
+| `io_tone_duration` | Statement | TONEPIN(dropdown), FREQUENCY(input_value), DURATION(input_value) | `io_tone_duration(TONEPIN, math_number(0), math_number(1000))` | `tone(TONEPIN,1,1); ↵ delay(1);` |
+| `io_system_sound` | Statement | TONEPIN(dropdown), SOUND_TYPE(dropdown) | `io_system_sound(TONEPIN, startup)` | `tone(TONEPIN,523,200); ↵ delay(200); ↵ tone(TONEPIN,659,200); ↵ delay(200); ↵ tone(TONEPIN,784,400); ↵ delay(400); ↵ noTone(TONEPIN);` |
+| `io_note` | Value | NOTE(dropdown) | `io_note("261")` | `261` |
+| `io_music` | Statement | TONEPIN(dropdown), MUSIC_TYPE(dropdown) | `io_music(TONEPIN, twinkle)` | `tone(TONEPIN,262,500); ↵ delay(500); ↵ tone(TONEPIN,262,500); ↵ delay(500); ↵ tone(TONEPIN,392,500); ↵ delay(500); ↵ tone(TONEPIN,392,500); ↵ delay(500); ↵ tone(TONEPIN,440,500); ↵ delay(500); ↵ tone(TONEPIN,440,500); ↵ delay(500); ↵ tone(TONEPIN,392,1000); ↵ delay(1000); ↵ tone(TONEPIN,349,500); ↵ delay(500); ↵ tone(TONEPIN,349,500); ↵ delay(500); ↵ tone(TONEPIN,330,500); ↵ delay(500); ↵ tone(TONEPIN,330,500); ↵ delay(500); ↵ tone(TONEPIN,294,500); ↵ delay(500); ↵ tone(TONEPIN,294,500); ↵ delay(500); ↵ tone(TONEPIN,262,1000); ↵ delay(1000); ↵ noTone(TONEPIN);` |
+| `io_notone` | Statement | TONEPIN(dropdown) | `io_notone(TONEPIN)` | `noTone(TONEPIN);` |
 
 ## Parameter Options
 

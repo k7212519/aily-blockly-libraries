@@ -8,18 +8,18 @@ Eight-channel line patrol sensor library supports I2C communication, status dete
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `line_init` | Statement | WIRE(dropdown) | `line_init(WIRE)` | lineSensor.begin();\n |
-| `line_is_state` | Value | STATE(dropdown) | `line_is_state("0")` | (lineSensor.calculateDigitalState(lineSensor.getLatestData()) == ...) |
-| `line_get_state` | Value | (none) | `line_get_state()` | lineSensor.calculateDigitalState(lineSensor.getLatestData()) |
-| `line_offset` | Value | (none) | `line_offset()` | lineSensor.calculateLineOffset(lineSensor.getLatestData()) |
-| `line_sensor_value` | Value | SENSOR(dropdown) | `line_sensor_value("0")` | lineSensor.getSensorCurrent(lineSensor.getLatestData(), ...) |
-| `line_sensor_reference` | Value | SENSOR(dropdown) | `line_sensor_reference("0")` | lineSensor.getSensorReference(lineSensor.getLatestData(), ...) |
-| `line_sensor_digital` | Value | SENSOR(dropdown) | `line_sensor_digital("0")` | lineSensor.getSensorColor(lineSensor.getLatestData(), ...) |
-| `line_set_rgb` | Statement | COLOR(dropdown) | `line_set_rgb("0")` | lineSensor.setModuleRGB(...);\n |
-| `line_set_frequency` | Statement | INTERVAL(input_value) | `line_set_frequency(math_number(1000))` | lineSensor.setModuleFrequency(...);\n |
-| `line_print_data` | Statement | (none) | `line_print_data()` | { SensorData data = lineSensor.getLatestData(); lineSensor.printSensorData(data); }\n |
+| `line_init` | Statement | WIRE(dropdown) | `line_init(WIRE)` | `lineSensor.begin();` |
+| `line_is_state` | Value | STATE(dropdown) | `line_is_state("0")` | `(lineSensor.calculateDigitalState(lineSensor.getLatestData()) == 0)` |
+| `line_get_state` | Value | (none) | `line_get_state()` | `lineSensor.calculateDigitalState(lineSensor.getLatestData())` |
+| `line_offset` | Value | (none) | `line_offset()` | `lineSensor.calculateLineOffset(lineSensor.getLatestData())` |
+| `line_sensor_value` | Value | SENSOR(dropdown) | `line_sensor_value("0")` | `lineSensor.getSensorCurrent(lineSensor.getLatestData(), 0)` |
+| `line_sensor_reference` | Value | SENSOR(dropdown) | `line_sensor_reference("0")` | `lineSensor.getSensorReference(lineSensor.getLatestData(), 0)` |
+| `line_sensor_digital` | Value | SENSOR(dropdown) | `line_sensor_digital("0")` | `lineSensor.getSensorColor(lineSensor.getLatestData(), 0)` |
+| `line_set_rgb` | Statement | COLOR(dropdown) | `line_set_rgb("0")` | `lineSensor.setModuleRGB(0);` |
+| `line_set_frequency` | Statement | INTERVAL(input_value) | `line_set_frequency(math_number(1000))` | `lineSensor.setModuleFrequency(1);` |
+| `line_print_data` | Statement | (none) | `line_print_data()` | `{ SensorData data = lineSensor.getLatestData(); lineSensor.printSensorData(data); }` |
 
 ## Parameter Options
 

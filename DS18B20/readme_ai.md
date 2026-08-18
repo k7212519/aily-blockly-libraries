@@ -8,13 +8,13 @@ Dallas digital temperature sensor library supports DS18B20, DS18S20, DS1820, DS1
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ds18b20_init_pin` | Statement | PIN(input_value) | `ds18b20_init_pin(math_number(2))` | Dynamic code |
-| `ds18b20_read_temperature_c_pin` | Value | PIN(input_value) | `ds18b20_read_temperature_c_pin(math_number(2))` | Dynamic code |
-| `ds18b20_read_temperature_f_pin` | Value | PIN(input_value) | `ds18b20_read_temperature_f_pin(math_number(2))` | Dynamic code |
-| `ds18b20_get_device_count_pin` | Value | PIN(input_value) | `ds18b20_get_device_count_pin(math_number(2))` | sensors_ |
-| `ds18b20_read_temperature_by_index_pin` | Value | PIN(input_value), INDEX(input_value) | `ds18b20_read_temperature_by_index_pin(math_number(2), math_number(0))` | Dynamic code |
+| `ds18b20_init_pin` | Statement | PIN(input_value) | `ds18b20_init_pin(math_number(2))` | `OneWire oneWire_pin_1(1); ↵ DallasTemperature sensors_pin_1(&oneWire_pin_1); ↵ sensors_pin_1.begin();` |
+| `ds18b20_read_temperature_c_pin` | Value | PIN(input_value) | `ds18b20_read_temperature_c_pin(math_number(2))` | `readDS18B20C_pin_1()` |
+| `ds18b20_read_temperature_f_pin` | Value | PIN(input_value) | `ds18b20_read_temperature_f_pin(math_number(2))` | `readDS18B20F_pin_1()` |
+| `ds18b20_get_device_count_pin` | Value | PIN(input_value) | `ds18b20_get_device_count_pin(math_number(2))` | `sensors_pin_1.getDeviceCount()` |
+| `ds18b20_read_temperature_by_index_pin` | Value | PIN(input_value), INDEX(input_value) | `ds18b20_read_temperature_by_index_pin(math_number(2), math_number(0))` | `readDS18B20ByIndex_pin_1(1)` |
 
 ## ABS Examples
 

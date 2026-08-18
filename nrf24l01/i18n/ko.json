@@ -1,0 +1,76 @@
+{
+  "toolbox_name": "nRF24L01 무선 통신",
+  "toolbox_labels": {
+    "Setup": "초기화 및 설정",
+    "Addresses": "통신 주소",
+    "Send and receive": "송신 및 수신",
+    "Status and power": "상태 및 전원"
+  },
+  "nrf24l01_init": {
+    "message0": "nRF24L01 %1 초기화 CE 핀 %2 CSN 핀 %3",
+    "tooltip": "RF24 객체를 만들고 SPI 무선을 초기화한 뒤 동적 페이로드를 활성화합니다. 모듈에는 3.3 V를 공급하십시오."
+  },
+  "nrf24l01_set_radio_parameters": {
+    "message0": "nRF24L01 %1 채널 %2 데이터 속도 %3 송신 출력 %4 설정",
+    "tooltip": "RF 채널(0-125), 무선 데이터 속도 및 송신 출력을 설정합니다. 양쪽 무선의 채널과 속도가 같아야 합니다.",
+    "args0": [null, null, {"options": [["250 kbps", "RF24_250KBPS"], ["1 Mbps", "RF24_1MBPS"], ["2 Mbps", "RF24_2MBPS"]]}, {"options": [["최소(-18 dBm)", "RF24_PA_MIN"], ["낮음(-12 dBm)", "RF24_PA_LOW"], ["높음(-6 dBm)", "RF24_PA_HIGH"], ["최대(0 dBm)", "RF24_PA_MAX"]]}]
+  },
+  "nrf24l01_set_retries": {
+    "message0": "nRF24L01 %1 재시도 지연 %2 횟수 %3 설정",
+    "tooltip": "자동 재전송 지연과 횟수를 설정합니다. 각 값의 범위는 0-15입니다."
+  },
+  "nrf24l01_set_auto_ack": {
+    "message0": "nRF24L01 %1 자동 응답 %2",
+    "tooltip": "모든 수신 파이프의 자동 응답을 활성화하거나 비활성화합니다."
+  },
+  "nrf24l01_open_writing_pipe": {
+    "message0": "nRF24L01 %1 송신 주소 %2 설정",
+    "tooltip": "대상 주소를 설정하고 송신 모드로 전환합니다. 처음 5바이트를 사용하며 짧으면 채웁니다."
+  },
+  "nrf24l01_open_reading_pipe": {
+    "message0": "nRF24L01 %1 수신 파이프 %2 주소 %3 열기",
+    "tooltip": "5바이트 주소로 수신 파이프 0-5를 엽니다. 파이프 2-5의 마지막 4바이트는 파이프 1과 같아야 합니다."
+  },
+  "nrf24l01_set_listening": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "수신 모드와 송신 모드를 전환합니다. 수신을 시작하기 전에 수신 파이프를 여십시오.",
+    "args0": [null, {"options": [["수신 시작", "START"], ["수신 중지", "STOP"]]}]
+  },
+  "nrf24l01_send_text": {
+    "message0": "nRF24L01 %1 텍스트 %2 송신",
+    "tooltip": "최대 31개의 텍스트 바이트와 종료 문자를 보내고 응답 여부를 저장합니다."
+  },
+  "nrf24l01_send_number": {
+    "message0": "nRF24L01 %1 숫자 %2 송신",
+    "tooltip": "숫자를 32비트 부동소수점 페이로드로 보내고 응답 여부를 저장합니다."
+  },
+  "nrf24l01_available": {
+    "message0": "nRF24L01 %1 수신 데이터 있음",
+    "tooltip": "대기 중인 페이로드가 있으면 참을 반환하고 수신 파이프 번호를 기록합니다."
+  },
+  "nrf24l01_read_text": {
+    "message0": "nRF24L01 %1 텍스트 읽기",
+    "tooltip": "다음 페이로드를 텍스트로 읽고 소비합니다. 먼저 수신 데이터를 확인하십시오."
+  },
+  "nrf24l01_read_number": {
+    "message0": "nRF24L01 %1 숫자 읽기",
+    "tooltip": "다음 32비트 부동소수점 페이로드를 읽고 소비합니다. 먼저 수신 데이터를 확인하십시오."
+  },
+  "nrf24l01_last_send_succeeded": {
+    "message0": "nRF24L01 %1 마지막 송신 성공",
+    "tooltip": "가장 최근 텍스트 또는 숫자 송신의 응답 결과를 반환합니다."
+  },
+  "nrf24l01_received_pipe": {
+    "message0": "nRF24L01 %1 마지막 수신 파이프",
+    "tooltip": "마지막 수신 데이터 검사에서 기록된 파이프 번호를 반환합니다."
+  },
+  "nrf24l01_is_chip_connected": {
+    "message0": "nRF24L01 %1 하드웨어 연결됨",
+    "tooltip": "마이크로컨트롤러가 SPI로 무선 모듈과 통신할 수 있는지 확인합니다."
+  },
+  "nrf24l01_set_power_mode": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "무선을 깨우거나 저전력 모드로 전환합니다. 전원 차단 중에도 설정은 유지됩니다.",
+    "args0": [null, {"options": [["전원 켜기", "UP"], ["전원 끄기", "DOWN"]]}]
+  }
+}

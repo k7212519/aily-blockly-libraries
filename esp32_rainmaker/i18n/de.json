@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 RainMaker",
+  "esp32_rainmaker_init_node": {
+    "message0": "RainMaker-Knoten %1, Name %2, initialisieren",
+    "tooltip": "Erstellen Sie einen RainMaker-Knoten."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "RainMaker-Knoten %1 Hinzufügen %2 Gerät %3 Name %4 Anfangswert %5",
+    "tooltip": "Erstellen Sie Standardgeräte und fügen Sie sie zu Knoten hinzu.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "-Schalter",
+            "Switch"
+          ],
+          [
+            "Licht",
+            "LightBulb"
+          ],
+          [
+            "Lüfter",
+            "Fan"
+          ],
+          [
+            "Temperatursensor",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker-Aktivierungsdienst %1",
+    "tooltip": "Aktivieren Sie den RainMaker-Standarddienst.",
+    "args0": [
+      {
+        "options": [
+          [
+            "OTA",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "Zeitzone",
+            "enableTZService()"
+          ],
+          [
+            "Planen",
+            "enableSchedule()"
+          ],
+          [
+            "-Szene",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "Starten Sie RainMaker",
+    "tooltip": "Starten Sie den RainMaker-Clouddienst."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "RainMaker stoppen",
+    "tooltip": "Beenden Sie den RainMaker-Clouddienst."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "RainMaker-Gerät %1 meldet Parameter %2 Wert %3",
+    "tooltip": "Geräteparameter aktualisieren und melden."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 Verzögerung %2 Sekunden",
+    "tooltip": "Verzögern Sie die Ausführung der RainMaker-Werkswiederherstellung oder des WLAN-Resets.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Werkseinstellungen wiederherstellen",
+            "RMakerFactoryReset"
+          ],
+          [
+            "WLAN zurücksetzen",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "RainMaker-Knoten %1 ID",
+    "tooltip": "RainMaker-Knoten-ID lesen."
+  }
+}

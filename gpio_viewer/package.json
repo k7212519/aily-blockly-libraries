@@ -1,0 +1,61 @@
+{
+  "name": "@aily-project/lib-gpio-viewer",
+  "nickname": "GPIO Viewer",
+  "nickname_en": "GPIO Viewer",
+  "author": "The Last Outpost Workshop",
+  "description": "Live ESP32 GPIO, ADC, touch, PWM, memory, and device information in a web UI.",
+  "description_en": "Live ESP32 GPIO, ADC, touch, PWM, memory, and device information in a web UI.",
+  "version": "0.1.0",
+  "url": "https://github.com/thelastoutpostworkshop/gpio_viewer",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "esp32:esp32"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "gpio",
+    "viewer",
+    "debug",
+    "esp32"
+  ],
+  "bundledDependencies": {
+    "GPIOViewer": "1.7.1",
+    "ESP Async WebServer": "3.11.1",
+    "Async TCP": "3.4.10"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "debug",
+    "web"
+  ],
+  "nickname_zh_cn": "GPIO Viewer",
+  "description_zh_cn": "Web UI 中实时显示 ESP32 GPIO、ADC、触摸、PWM、内存和设备信息。",
+  "nickname_zh_hk": "GPIO Viewer",
+  "description_zh_hk": "Web UI 中即時顯示 ESP32 GPIO、ADC、觸控、PWM、記憶體和裝置資訊。",
+  "nickname_ja": "GPIO Viewer",
+  "description_ja": "Web UI でのライブ ESP32 GPIO、ADC、タッチ、PWM、メモリ、およびデバイス情報。",
+  "nickname_ko": "GPIO Viewer",
+  "description_ko": "ESP32 GPIO, ADC, 터치, PWM, 메모리 및 장치 정보를 웹 UI에 실시간으로 표시합니다.",
+  "nickname_de": "GPIO Viewer",
+  "description_de": "Live-ESP32 GPIO-, ADC-, Touch-, PWM-, Speicher- und Geräteinformationen in einer Web-Benutzeroberfläche.",
+  "nickname_fr": "GPIO Viewer",
+  "description_fr": "Live ESP32 GPIO, ADC, touch, PWM, mémoire et informations sur l'appareil dans une interface utilisateur Web.",
+  "nickname_es": "GPIO Viewer",
+  "description_es": "Vive ESP32 GPIO, ADC, toque, PWM, memoria e información del dispositivo en una interfaz de usuario web.",
+  "nickname_pt": "GPIO Viewer",
+  "description_pt": "Viva ESP32 GPIO, ADC, toque, PWM, memória e informações do dispositivo em uma interface da web.",
+  "nickname_ru": "GPIO Viewer",
+  "description_ru": "Live ESP32 GPIO, АЦП, сенсорный ввод, PWM, память и информация об устройстве в веб-интерфейсе.",
+  "nickname_ar": "GPIO Viewer",
+  "description_ar": "Live ESP32 GPIO وADC واللمس وPWM والذاكرة ومعلومات الجهاز في واجهة مستخدم الويب."
+}

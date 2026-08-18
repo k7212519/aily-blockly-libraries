@@ -8,15 +8,15 @@ Infineon XENSIV TLx493D 3D magnetic sensor library reads three-axis magnetic fie
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tlx493d_init` | Statement | VAR(field_input), TYPE(dropdown), ADDRESS(dropdown), WIRE(dropdown) | `tlx493d_init("mag", A1B6, TLx493D_IIC_ADDR_A0_e, WIRE)` | Dynamic code |
-| `tlx493d_get_temperature` | Value | VAR(field_variable) | `tlx493d_get_temperature(variables_get($mag))` | Dynamic code |
-| `tlx493d_get_magnetic_field` | Value | VAR(field_variable), AXIS(dropdown) | `tlx493d_get_magnetic_field(variables_get($mag), X)` | + returnVar + |
-| `tlx493d_set_sensitivity` | Statement | VAR(field_variable), RANGE(dropdown) | `tlx493d_set_sensitivity(variables_get($mag), TLx493D_FULL_RANGE_e)` | Dynamic code |
-| `tlx493d_set_power_mode` | Statement | VAR(field_variable), MODE(dropdown) | `tlx493d_set_power_mode(variables_get($mag), TLx493D_FAST_MODE_e)` | Dynamic code |
-| `tlx493d_has_valid_data` | Value | VAR(field_variable) | `tlx493d_has_valid_data(variables_get($mag))` | Dynamic code |
-| `tlx493d_software_reset` | Statement | VAR(field_variable) | `tlx493d_software_reset(variables_get($mag))` | Dynamic code |
+| `tlx493d_init` | Statement | VAR(field_input), TYPE(dropdown), ADDRESS(dropdown), WIRE(dropdown) | `tlx493d_init("mag", A1B6, TLx493D_IIC_ADDR_A0_e, WIRE)` | `if (!mag.begin()) { ↵ Serial.println("TLx493D sensor mag init failed!"); ↵ }` |
+| `tlx493d_get_temperature` | Value | VAR(field_variable) | `tlx493d_get_temperature($mag)` | `_tlx493d_getTemp_mag()` |
+| `tlx493d_get_magnetic_field` | Value | VAR(field_variable), AXIS(dropdown) | `tlx493d_get_magnetic_field($mag, X)` | `_tlx493d_getMagX_mag()` |
+| `tlx493d_set_sensitivity` | Statement | VAR(field_variable), RANGE(dropdown) | `tlx493d_set_sensitivity($mag, TLx493D_FULL_RANGE_e)` | `mag.setSensitivity(TLx493D_FULL_RANGE_e);` |
+| `tlx493d_set_power_mode` | Statement | VAR(field_variable), MODE(dropdown) | `tlx493d_set_power_mode($mag, TLx493D_FAST_MODE_e)` | `mag.setPowerMode(TLx493D_FAST_MODE_e);` |
+| `tlx493d_has_valid_data` | Value | VAR(field_variable) | `tlx493d_has_valid_data($mag)` | `mag.hasValidData()` |
+| `tlx493d_software_reset` | Statement | VAR(field_variable) | `tlx493d_software_reset($mag)` | `mag.softwareReset();` |
 
 ## Parameter Options
 
@@ -37,12 +37,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, tlx493d_get_temperature(variables_get($mag)))
+    serial_println(Serial, tlx493d_get_temperature($mag))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `tlx493d_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `tlx493d_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

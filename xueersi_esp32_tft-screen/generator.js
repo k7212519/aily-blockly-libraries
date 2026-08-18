@@ -33,7 +33,10 @@ Arduino.forBlock['tftscr_init'] = function(block, generator) {
   const sclk = '18';
   const cs = '5';
   const dc = '4';
-  const rst = '19';
+  // GPIO19 is electrically shared with the TF-card MISO signal.  The ST7735
+  // supports command-based software reset, so TFT_eSPI must not drive GPIO19
+  // as a reset output or the card can never return SPI data.
+  const rst = '-1';
   const bl = '-1';
   const blLevel = 'HIGH';
   const colorMode = 'TFT_RGB';
@@ -42,7 +45,7 @@ Arduino.forBlock['tftscr_init'] = function(block, generator) {
   if (typeof window !== 'undefined' && window['projectService']) {
     let p = Promise.resolve();
     p = p.then(() => window['projectService'].addMacro(model));
-    p = p.then(() => window['projectService'].addMacro(`TFT_FREQUENCY=${frequency}`));
+    p = p.then(() => window['projectService'].addMacro(`SPI_FREQUENCY=${frequency}`));
     p = p.then(() => window['projectService'].addMacro(`TFT_WIDTH=${width}`));
     p = p.then(() => window['projectService'].addMacro(`TFT_HEIGHT=${height}`));
     p = p.then(() => window['projectService'].addMacro(`TFT_MISO=${miso}`));
@@ -63,7 +66,7 @@ Arduino.forBlock['tftscr_init'] = function(block, generator) {
 
   // 生成器宏
   generator.addMacro("TFT_MODEL", `#define ${model}`);
-  generator.addMacro("TFT_FREQUENCY", `#define TFT_FREQUENCY ${frequency}`);
+  generator.addMacro("SPI_FREQUENCY", `#define SPI_FREQUENCY ${frequency}`);
   generator.addMacro("TFT_WIDTH", `#define TFT_WIDTH ${width}`);
   generator.addMacro("TFT_HEIGHT", `#define TFT_HEIGHT ${height}`);
   generator.addMacro("TFT_MISO", `#define TFT_MISO ${miso}`);
@@ -175,6 +178,428 @@ Arduino.forBlock['tftscr_width'] = function(block, generator) {
 
 Arduino.forBlock['tftscr_height'] = function(block, generator) {
   return ['tft.height()', generator.ORDER_ATOMIC];
+};
+
+function tftScreenAddTfAnimationPlayer(generator) {
+  generator.addLibrary('TFT_eSPI', '#include <TFT_eSPI.h>');
+  generator.addLibrary('FS', '#include <FS.h>');
+  generator.addLibrary('SD', '#include <SD.h>');
+  generator.addLibrary('stdint', '#include <stdint.h>');
+  generator.addLibrary('stdlib', '#include <stdlib.h>');
+  ensureSerialBegin('Serial', generator);
+
+  generator.addFunction('tftscr_play_tf_animation', `static uint16_t tftScreenReadTfLe16(const uint8_t *data) {
+  return (uint16_t)data[0] | ((uint16_t)data[1] << 8);
+}
+
+static uint32_t tftScreenReadTfLe32(const uint8_t *data) {
+  return (uint32_t)data[0]
+    | ((uint32_t)data[1] << 8)
+    | ((uint32_t)data[2] << 16)
+    | ((uint32_t)data[3] << 24);
+}
+
+static bool tftScreenReadTfData(fs::File &file, uint8_t *buffer, size_t length) {
+  size_t bytesRead = 0;
+  while (bytesRead < length) {
+    const size_t remaining = length - bytesRead;
+    const size_t count = file.read(buffer + bytesRead, remaining);
+    if (count == 0 || count > remaining) {
+      return false;
+    }
+    bytesRead += count;
+  }
+  return true;
+}
+
+static uint8_t *tftScreenAllocateTfBuffer(
+    size_t requestedSize,
+    size_t rowBytes,
+    size_t &allocatedSize) {
+  allocatedSize = 0;
+  if (rowBytes == 0) {
+    return nullptr;
+  }
+
+  size_t candidateSize = requestedSize < rowBytes ? rowBytes : requestedSize;
+  candidateSize -= candidateSize % rowBytes;
+  if (candidateSize == 0) {
+    candidateSize = rowBytes;
+  }
+
+  while (candidateSize >= rowBytes) {
+    uint8_t *buffer = (uint8_t *)malloc(candidateSize);
+    if (buffer != nullptr) {
+      allocatedSize = candidateSize;
+      return buffer;
+    }
+
+    size_t nextSize = candidateSize / 2;
+    nextSize -= nextSize % rowBytes;
+    if (nextSize < rowBytes) {
+      break;
+    }
+    candidateSize = nextSize;
+  }
+  return nullptr;
+}
+
+static void tftScreenWaitTfFrame(uint32_t frameStartedAt, uint64_t frameIntervalUs) {
+  const uint64_t elapsedUs = (uint32_t)(micros() - frameStartedAt);
+  if (elapsedUs >= frameIntervalUs) {
+    return;
+  }
+
+  uint64_t remainingUs = frameIntervalUs - elapsedUs;
+  while (remainingUs >= 1000) {
+    const uint32_t waitMs = remainingUs / 1000 > 1000
+      ? 1000
+      : (uint32_t)(remainingUs / 1000);
+    delay(waitMs);
+    remainingUs -= (uint64_t)waitMs * 1000;
+  }
+  if (remainingUs > 0) {
+    delayMicroseconds((uint32_t)remainingUs);
+  }
+}
+
+static void tftScreenPushTfRgb565Rows(
+    TFT_eSPI &display,
+    uint8_t *buffer,
+    uint16_t width,
+    uint16_t y,
+    uint16_t rows) {
+  // Do not call TFT_eSPI::initDMA() on the shared HSPI bus. Its ESP32 DMA
+  // implementation owns the IDF SPI host independently from Arduino SPIClass;
+  // initializing or releasing it invalidates the SD driver's live bus state.
+  // A single batched pushImage keeps CS transactions serialized and is still
+  // much faster than drawing individual pixels.
+  display.pushImage(0, y, width, rows, reinterpret_cast<uint16_t *>(buffer));
+}
+
+static void tftScreenScaleTfRowInPlace(
+    uint8_t *buffer,
+    uint16_t sourceWidth,
+    uint16_t targetWidth,
+    uint8_t pixelFormat) {
+  if (sourceWidth == targetWidth) {
+    return;
+  }
+
+  if (pixelFormat == 1) {
+    uint16_t *pixels = reinterpret_cast<uint16_t *>(buffer);
+    for (uint16_t x = 0; x < targetWidth; x++) {
+      const uint32_t sourceX = (uint32_t)x * sourceWidth / targetWidth;
+      pixels[x] = pixels[sourceX];
+    }
+  } else {
+    for (uint16_t x = 0; x < targetWidth; x++) {
+      const uint32_t sourceX = (uint32_t)x * sourceWidth / targetWidth;
+      buffer[x] = buffer[sourceX];
+    }
+  }
+}
+
+static void tftScreenLogTfRootDirectory(void) {
+  File root = SD.open("/", FILE_READ);
+  if (!root || !root.isDirectory()) {
+    Serial.println("[TF] cannot read root directory");
+    if (root) root.close();
+    return;
+  }
+
+  Serial.println("[TF] root directory:");
+  uint8_t entriesPrinted = 0;
+  File entry = root.openNextFile();
+  while (entry && entriesPrinted < 32) {
+    Serial.printf("[TF]   %s %s (%lu bytes)\\n",
+      entry.isDirectory() ? "DIR " : "FILE",
+      entry.path(),
+      (unsigned long)entry.size());
+    entry.close();
+    entriesPrinted++;
+    entry = root.openNextFile();
+  }
+  if (entry) entry.close();
+  root.close();
+}
+
+static bool tftScreenShowTfError(
+    TFT_eSPI &display,
+    const char *message) {
+  Serial.println(message);
+  pinMode(22, OUTPUT);
+  digitalWrite(22, HIGH);
+  display.fillScreen(TFT_BLACK);
+  display.setTextColor(TFT_RED, TFT_BLACK);
+  display.setTextSize(1);
+  display.setCursor(2, 2);
+  display.print(message);
+  return false;
+}
+
+bool tftScreenPlayTfAnimation(
+    TFT_eSPI &display,
+    const String &fileName,
+    int32_t bufferSizeKb) {
+  const uint8_t AILY_RGB565_LE = 1;
+  const uint8_t AILY_RGB332 = 2;
+  const uint8_t AILY_MONO1_XBM = 3;
+  const uint8_t AILY_HEADER_SIZE = 40;
+
+  if (bufferSizeKb <= 0
+      || (uint64_t)bufferSizeKb * 1024ULL > (uint64_t)SIZE_MAX) {
+    return tftScreenShowTfError(display, "TF ERR: buffer size");
+  }
+
+  String normalizedFileName = fileName;
+  if (normalizedFileName.length() == 0) {
+    return tftScreenShowTfError(display, "TF ERR: empty name");
+  }
+  if (!normalizedFileName.startsWith("/")) {
+    normalizedFileName = String("/") + normalizedFileName;
+  }
+  // SD mounting belongs to the xueersi_esp32_sd library. This player only consumes
+  // an already-mounted global SD filesystem and never restarts its SPI bus.
+  if (SD.cardType() == CARD_NONE) {
+    return tftScreenShowTfError(display, "TF ERR: SD not ready");
+  }
+
+  Serial.printf("[TF] open %s\\n", normalizedFileName.c_str());
+  if (!SD.exists(normalizedFileName.c_str())) {
+    Serial.printf("[TF] path not found: %s\\n", normalizedFileName.c_str());
+    tftScreenLogTfRootDirectory();
+    return tftScreenShowTfError(display, "TF ERR: not found");
+  }
+  fs::File file = SD.open(normalizedFileName.c_str(), FILE_READ);
+  if (!file || file.isDirectory()) {
+    if (file) file.close();
+    tftScreenLogTfRootDirectory();
+    return tftScreenShowTfError(display, "TF ERR: file open");
+  }
+
+  uint8_t header[AILY_HEADER_SIZE];
+  if (!tftScreenReadTfData(file, header, sizeof(header))) {
+    file.close();
+    return tftScreenShowTfError(display, "TF ERR: header read");
+  }
+
+  if (header[0] != 'A' || header[1] != 'I' || header[2] != 'L' || header[3] != 'Y'
+      || header[4] != 1 || header[5] < AILY_HEADER_SIZE) {
+    file.close();
+    return tftScreenShowTfError(display, "TF ERR: AILY header");
+  }
+
+  const uint8_t pixelFormat = header[6];
+  const uint16_t width = tftScreenReadTfLe16(header + 8);
+  const uint16_t height = tftScreenReadTfLe16(header + 10);
+  const uint32_t fpsNumerator = tftScreenReadTfLe32(header + 12);
+  const uint32_t fpsDenominator = tftScreenReadTfLe32(header + 16);
+  const uint32_t frameCount = tftScreenReadTfLe32(header + 20);
+  const uint32_t frameSize = tftScreenReadTfLe32(header + 24);
+  const uint32_t dataOffset = tftScreenReadTfLe32(header + 28);
+  const uint32_t dataSize = tftScreenReadTfLe32(header + 32);
+
+  const int32_t screenWidthValue = display.width();
+  const int32_t screenHeightValue = display.height();
+  if (width == 0 || height == 0 || fpsNumerator == 0 || fpsDenominator == 0
+      || frameCount == 0 || dataOffset < header[5]
+      || screenWidthValue <= 0 || screenHeightValue <= 0) {
+    file.close();
+    return tftScreenShowTfError(display, "TF ERR: metadata");
+  }
+
+  const uint16_t screenWidth = (uint16_t)screenWidthValue;
+  const uint16_t screenHeight = (uint16_t)screenHeightValue;
+
+  uint64_t expectedFrameSize = 0;
+  uint32_t rowBytes = 0;
+  if (pixelFormat == AILY_RGB565_LE) {
+    rowBytes = (uint32_t)width * 2;
+    expectedFrameSize = (uint64_t)rowBytes * height;
+  } else if (pixelFormat == AILY_RGB332) {
+    rowBytes = width;
+    expectedFrameSize = (uint64_t)rowBytes * height;
+  } else if (pixelFormat == AILY_MONO1_XBM) {
+    rowBytes = ((uint32_t)width + 7) / 8;
+    expectedFrameSize = (uint64_t)rowBytes * height;
+  } else {
+    file.close();
+    return tftScreenShowTfError(display, "TF ERR: pixel format");
+  }
+
+  bool scaleToFit = width > screenWidth || height > screenHeight;
+  uint16_t outputWidth = width;
+  uint16_t outputHeight = height;
+  uint16_t outputX = 0;
+  uint16_t outputY = 0;
+  if (scaleToFit) {
+    // MONO1 is bit-packed and cannot be downscaled safely in the source row.
+    if (pixelFormat == AILY_MONO1_XBM) {
+      file.close();
+      return tftScreenShowTfError(display, "TF ERR: MONO size");
+    }
+
+    if ((uint64_t)screenWidth * height <= (uint64_t)screenHeight * width) {
+      outputWidth = screenWidth;
+      outputHeight = (uint16_t)((uint64_t)height * screenWidth / width);
+    } else {
+      outputHeight = screenHeight;
+      outputWidth = (uint16_t)((uint64_t)width * screenHeight / height);
+    }
+    if (outputWidth == 0) outputWidth = 1;
+    if (outputHeight == 0) outputHeight = 1;
+    outputX = (screenWidth - outputWidth) / 2;
+    outputY = (screenHeight - outputHeight) / 2;
+  }
+
+  const uint64_t expectedDataSize = expectedFrameSize * frameCount;
+  const uint64_t requiredFileSize = (uint64_t)dataOffset + dataSize;
+  if (expectedFrameSize > UINT32_MAX || frameSize != (uint32_t)expectedFrameSize
+      || expectedDataSize > UINT32_MAX || dataSize != (uint32_t)expectedDataSize
+      || requiredFileSize > (uint64_t)file.size()) {
+    file.close();
+    return tftScreenShowTfError(display, "TF ERR: data size");
+  }
+
+  if (file.position() != dataOffset) {
+    file.seek(dataOffset);
+    if (file.position() != dataOffset) {
+      file.close();
+      return tftScreenShowTfError(display, "TF ERR: file seek");
+    }
+  }
+
+  size_t requestedBufferSize = (size_t)bufferSizeKb * 1024;
+  if ((uint64_t)requestedBufferSize > expectedFrameSize) {
+    requestedBufferSize = (size_t)expectedFrameSize;
+  }
+
+  size_t activeBufferSize = 0;
+  uint8_t *buffer = tftScreenAllocateTfBuffer(
+    requestedBufferSize,
+    rowBytes,
+    activeBufferSize);
+  if (buffer == nullptr || activeBufferSize < rowBytes) {
+    file.close();
+    return tftScreenShowTfError(display, "TF ERR: no memory");
+  }
+
+  bool previousSwapBytes = display.getSwapBytes();
+  if (pixelFormat == AILY_RGB565_LE) {
+    display.setSwapBytes(true);
+  }
+  if (scaleToFit) {
+    display.fillScreen(TFT_BLACK);
+  }
+
+  uint64_t frameIntervalUs = 1000000ULL * fpsDenominator / fpsNumerator;
+  if (frameIntervalUs == 0) frameIntervalUs = 1;
+
+  bool success = true;
+  uint32_t framesPlayed = 0;
+  const uint32_t rowsPerBuffer = activeBufferSize / rowBytes;
+  while (framesPlayed < frameCount && success) {
+    const uint32_t frameStartedAt = micros();
+    if (scaleToFit) {
+      uint32_t nextOutputY = 0;
+      uint32_t wantedSourceY = 0;
+      for (uint32_t sourceY = 0; sourceY < height && success; sourceY++) {
+        success = tftScreenReadTfData(file, buffer, rowBytes);
+        if (!success) {
+          break;
+        }
+        if (sourceY != wantedSourceY) {
+          continue;
+        }
+
+        tftScreenScaleTfRowInPlace(
+          buffer,
+          width,
+          outputWidth,
+          pixelFormat);
+        if (pixelFormat == AILY_RGB565_LE) {
+          display.pushImage(
+            outputX,
+            outputY + nextOutputY,
+            outputWidth,
+            1,
+            reinterpret_cast<uint16_t *>(buffer));
+        } else {
+          display.pushImage(
+            outputX,
+            outputY + nextOutputY,
+            outputWidth,
+            1,
+            buffer,
+            true);
+        }
+
+        nextOutputY++;
+        if (nextOutputY < outputHeight) {
+          wantedSourceY = (uint64_t)nextOutputY * height / outputHeight;
+        }
+      }
+      success = success && nextOutputY == outputHeight;
+    } else {
+      uint32_t y = 0;
+      while (y < height && success) {
+        const uint32_t remainingRows = (uint32_t)height - y;
+        const uint16_t rows = (uint16_t)(rowsPerBuffer > remainingRows
+          ? remainingRows
+          : rowsPerBuffer);
+        const size_t bytes = (size_t)rowBytes * rows;
+        success = tftScreenReadTfData(file, buffer, bytes);
+        if (!success) {
+          break;
+        }
+
+        if (pixelFormat == AILY_RGB565_LE) {
+          tftScreenPushTfRgb565Rows(
+            display,
+            buffer,
+            width,
+            (uint16_t)y,
+            rows);
+        } else if (pixelFormat == AILY_RGB332) {
+          display.pushImage(0, y, width, rows, buffer, true);
+        } else {
+          display.drawXBitmap(
+            0,
+            (int16_t)y,
+            buffer,
+            (int16_t)width,
+            (int16_t)rows,
+            TFT_WHITE,
+            TFT_BLACK);
+        }
+        y += rows;
+      }
+    }
+
+    if (success) {
+      framesPlayed++;
+      tftScreenWaitTfFrame(frameStartedAt, frameIntervalUs);
+    }
+  }
+
+  if (pixelFormat == AILY_RGB565_LE) {
+    display.setSwapBytes(previousSwapBytes);
+  }
+  free(buffer);
+  file.close();
+  if (!success || framesPlayed != frameCount) {
+    return tftScreenShowTfError(display, "TF ERR: frame read");
+  }
+  return true;
+}`);
+}
+
+Arduino.forBlock['tftscr_play_tf_animation'] = function(block, generator) {
+  const fileName = generator.valueToCode(block, 'FILENAME', generator.ORDER_ATOMIC) || '"/animation.rgb565v"';
+  const bufferSizeKb = generator.valueToCode(block, 'BUFFER_KB', generator.ORDER_ATOMIC) || '48';
+  tftScreenAddTfAnimationPlayer(generator);
+  return `tftScreenPlayTfAnimation(tft, String(${fileName}), (int32_t)(${bufferSizeKb}));\n`;
 };
 
 function tftScreenEnsureAnimationLibraries(generator) {
@@ -337,6 +762,141 @@ function tftScreenGetAnimationData(block) {
   };
 }
 
+function tftScreenGetImageData(block) {
+  let imageData = block.getFieldValue('CUSTOM_IMAGE');
+
+  if (typeof imageData === 'string') {
+    try {
+      imageData = JSON.parse(imageData);
+    } catch (error) {
+      console.error('[tftscr_image] Failed to parse image field value:', error);
+      return null;
+    }
+  }
+
+  if (!imageData || typeof imageData !== 'object') {
+    console.error('[tftscr_image] Image data is missing');
+    return null;
+  }
+
+  const format = imageData.format;
+  const encoding = imageData.encoding;
+  const isRgb565 = format === 'rgb565' && encoding === 'rgb565-be-base64';
+  const isRgb332 = format === 'rgb332' && encoding === 'rgb332-base64';
+  if (imageData.version !== 1 || (!isRgb565 && !isRgb332)) {
+    console.error('[tftscr_image] Unsupported image version, format, or encoding');
+    return null;
+  }
+
+  const width = imageData.width;
+  const height = imageData.height;
+  if (!Number.isInteger(width) || width <= 0 || width > 65535 ||
+      !Number.isInteger(height) || height <= 0 || height > 65535) {
+    console.error('[tftscr_image] Width and height must be positive 16-bit integers');
+    return null;
+  }
+
+  // A newly dragged image block remains empty until an image is uploaded.
+  if (!imageData.data) {
+    return null;
+  }
+
+  const expectedByteLength = width * height * (isRgb332 ? 1 : 2);
+  if (!Number.isSafeInteger(expectedByteLength)) {
+    console.error('[tftscr_image] Image dimensions are too large');
+    return null;
+  }
+  const bytes = tftScreenDecodeBase64Frame(imageData.data, expectedByteLength, 'image');
+  if (bytes === null) {
+    return null;
+  }
+
+  return {
+    width,
+    height,
+    format,
+    signature: tftScreenGetAnimationSignature(
+      format,
+      encoding,
+      width,
+      height,
+      0,
+      [imageData.data]
+    ),
+    pixels: isRgb332 ? tftScreenFormatRgb332Frame(bytes) : tftScreenFormatRgb565Frame(bytes)
+  };
+}
+
+Arduino.forBlock['tftscr_image'] = function(block, generator) {
+  tftScreenEnsureAnimationLibraries(generator);
+  const imageData = tftScreenGetImageData(block);
+  if (!imageData) {
+    return ['', generator.ORDER_ATOMIC];
+  }
+
+  const { width, height, format, signature, pixels } = imageData;
+  const symbolPrefix = `tftscr_image_${signature}`;
+  const pixelType = format === 'rgb332' ? 'uint8_t' : 'uint16_t';
+  const imageDeclaration = `// TFT screen image (${width}x${height}, ${format.toUpperCase()})
+static const ${pixelType} ${symbolPrefix}_data[] PROGMEM = {
+${pixels}
+};
+static const uint16_t ${symbolPrefix}_width = ${width};
+static const uint16_t ${symbolPrefix}_height = ${height};`;
+
+  generator.addVariable(symbolPrefix, imageDeclaration);
+  return [`${symbolPrefix}_data`, generator.ORDER_ATOMIC];
+};
+
+function tftScreenGetImagePrefix(block, generator) {
+  if (typeof block.getInputTargetBlock === 'function') {
+    const imageBlock = block.getInputTargetBlock('IMAGE');
+    if (!imageBlock || imageBlock.type !== 'tftscr_image') {
+      console.error('[TFT screen image] The image input must be connected directly to a TFT screen image data block');
+      return null;
+    }
+  }
+
+  const imageCode = generator.valueToCode(block, 'IMAGE', generator.ORDER_ATOMIC);
+  if (!imageCode) {
+    return null;
+  }
+
+  const match = String(imageCode).trim().match(/^(tftscr_image_[0-9a-f]{16})_data$/);
+  if (!match) {
+    console.error('[TFT screen image] The image input must be connected directly to a TFT screen image data block');
+    return null;
+  }
+  return match[1];
+}
+
+function tftScreenAddImageRenderHelper(generator) {
+  generator.addFunction('tftscr_draw_image', `void tftScreenDrawImage(TFT_eSPI &display, int32_t x, int32_t y, uint16_t width, uint16_t height, const uint16_t *image) {
+  bool previousSwapBytes = display.getSwapBytes();
+  // RGB565 constants are native-endian uint16_t values; swap bytes for TFT transport.
+  display.setSwapBytes(true);
+  display.pushImage(x, y, width, height, image);
+  display.setSwapBytes(previousSwapBytes);
+}
+
+void tftScreenDrawImage(TFT_eSPI &display, int32_t x, int32_t y, uint16_t width, uint16_t height, const uint8_t *image) {
+  display.pushImage(x, y, width, height, image, true);
+}`);
+}
+
+Arduino.forBlock['tftscr_draw_image'] = function(block, generator) {
+  tftScreenEnsureAnimationLibraries(generator);
+  const x = generator.valueToCode(block, 'X', generator.ORDER_ATOMIC) || '0';
+  const y = generator.valueToCode(block, 'Y', generator.ORDER_ATOMIC) || '0';
+  const imagePrefix = tftScreenGetImagePrefix(block, generator);
+  if (!imagePrefix) {
+    return '// No TFT screen image data\n';
+  }
+
+  tftScreenAddImageRenderHelper(generator);
+  return `tftScreenDrawImage(tft, ${x}, ${y}, ${imagePrefix}_width, ${imagePrefix}_height, ${imagePrefix}_data);\n`;
+};
+
 function tftScreenGetBlockSymbolSuffix(block) {
   const suffix = String(block.id || 'block').replace(/[^a-zA-Z0-9]/g, '');
   return suffix || 'block';
@@ -356,22 +916,6 @@ function tftScreenGetVariableCodeName(block, fieldName, fallbackName) {
     ? block.workspace.getVariableById(fieldValue)
     : null;
   return variable && variable.name ? variable.name : fallbackName;
-}
-
-function tftScreenGetFrameVariableCodeName(block, generator) {
-  if (generator && typeof generator.getValue === 'function') {
-    const generatedName = generator.getValue(block, 'FRAME_VAR', 'field_variable');
-    if (generatedName && generatedName !== '?') {
-      return generatedName;
-    }
-  }
-
-  const variableId = block.getFieldValue('FRAME_VAR');
-  if (variableId && generator && generator.nameDB_ && typeof generator.nameDB_.getName === 'function') {
-    return generator.nameDB_.getName(variableId, 'VARIABLE');
-  }
-
-  return tftScreenGetVariableCodeName(block, 'FRAME_VAR', 'tftScreenAnimationFrame');
 }
 
 function tftScreenGetAnimationPrefix(block, generator) {
@@ -557,48 +1101,6 @@ Arduino.forBlock['tftscr_animation_frame_count'] = function(block, generator) {
   }
 
   return [`${animationPrefix}_frame_count`, generator.ORDER_ATOMIC];
-};
-
-Arduino.forBlock['tftscr_step_animation_frame'] = function(block, generator) {
-  tftScreenEnsureAnimationLibraries(generator);
-  const frameVariable = tftScreenGetFrameVariableCodeName(block, generator);
-  const target = generator.valueToCode(block, 'TARGET', generator.ORDER_ATOMIC) || '0';
-  const frameCount = generator.valueToCode(block, 'FRAME_COUNT', generator.ORDER_ATOMIC) || '1';
-  const direction = block.getFieldValue('DIRECTION') || 'AUTO';
-  const symbolSuffix = tftScreenGetBlockSymbolSuffix(block);
-  const targetVariable = `tftscr_animation_target_${symbolSuffix}`;
-  const countVariable = `tftscr_animation_frame_count_${symbolSuffix}`;
-
-  let code = `int32_t ${countVariable} = (int32_t)(${frameCount});\n`;
-  code += `if (${countVariable} > 0) {\n`;
-  code += `  int32_t ${targetVariable} = constrain((int32_t)(${target}), 0, ${countVariable} - 1);\n`;
-  code += `  ${frameVariable} = constrain((int32_t)${frameVariable}, 0, ${countVariable} - 1);\n`;
-
-  if (direction === 'FORWARD') {
-    code += `  if (${frameVariable} != ${targetVariable}) {\n`;
-    code += `    ${frameVariable}++;\n`;
-    code += `    if (${frameVariable} >= ${countVariable}) {\n`;
-    code += `      ${frameVariable} = 0;\n`;
-    code += '    }\n';
-    code += '  }\n';
-  } else if (direction === 'BACKWARD') {
-    code += `  if (${frameVariable} != ${targetVariable}) {\n`;
-    code += `    if (${frameVariable} <= 0) {\n`;
-    code += `      ${frameVariable} = ${countVariable} - 1;\n`;
-    code += '    } else {\n';
-    code += `      ${frameVariable}--;\n`;
-    code += '    }\n';
-    code += '  }\n';
-  } else {
-    code += `  if (${frameVariable} < ${targetVariable}) {\n`;
-    code += `    ${frameVariable}++;\n`;
-    code += `  } else if (${frameVariable} > ${targetVariable}) {\n`;
-    code += `    ${frameVariable}--;\n`;
-    code += '  }\n';
-  }
-
-  code += '}\n';
-  return code;
 };
 
 if (Blockly.Extensions.isRegistered('tftscr_animation_play_dynamic_inputs')) {

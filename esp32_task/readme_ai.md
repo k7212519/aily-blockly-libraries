@@ -8,14 +8,14 @@ ESP32 multi-threaded task management library implements parallel task execution 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_task_new` | Hat | TASK_NAME(field_input), SETUP(input_statement), LOOP(input_statement) | `esp32_task_new("task1") @SETUP: child_block() @LOOP: child_block()` | newTask( |
-| `esp32_task_start` | Statement | TASK_NAME(input_value) | `esp32_task_start(text("value"))` | taskStart( |
-| `esp32_task_start_all` | Statement | (none) | `esp32_task_start_all()` | taskStart();\n |
-| `esp32_task_free` | Statement | TASK_NAME(input_value) | `esp32_task_free(text("value"))` | taskFree( |
-| `esp32_task_free_all` | Statement | (none) | `esp32_task_free_all()` | taskFree();\n |
-| `esp32_task_delay` | Statement | DELAY_TIME(input_value) | `esp32_task_delay(math_number(1000))` | delay( |
+| `esp32_task_new` | Hat | TASK_NAME(field_input), SETUP(input_statement), LOOP(input_statement) | `esp32_task_new("task1")` | `newTask(task1); ↵ void task1::setup() { ↵ } ↵ void task1::loop() { ↵ }` |
+| `esp32_task_start` | Statement | TASK_NAME(input_value) | `esp32_task_start(text("value"))` | `taskStart(value);` |
+| `esp32_task_start_all` | Statement | (none) | `esp32_task_start_all()` | `taskStart();` |
+| `esp32_task_free` | Statement | TASK_NAME(input_value) | `esp32_task_free(text("value"))` | `taskFree(value);` |
+| `esp32_task_free_all` | Statement | (none) | `esp32_task_free_all()` | `taskFree();` |
+| `esp32_task_delay` | Statement | DELAY_TIME(input_value) | `esp32_task_delay(math_number(1000))` | `delay(1);` |
 
 ## ABS Examples
 
@@ -26,7 +26,11 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    esp32_task_new("task1") @SETUP: child_block() @LOOP: child_block()
+    esp32_task_new("task1")
+        @SETUP:
+            serial_begin(Serial, 115200)
+        @LOOP:
+            time_delay(math_number(1000))
     time_delay(math_number(1000))
 ```
 

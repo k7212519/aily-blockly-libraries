@@ -8,11 +8,11 @@ Blockly wrapper for SparkFun DA7280 Haptic Driver (LRA/ERM motor control via I2C
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `haptic_da7280_init` | Statement | VAR(field_input), MOTOR_TYPE(dropdown) | `haptic_da7280_init("haptic", "0")` | Dynamic code |
-| `haptic_da7280_set_mode` | Statement | VAR(field_variable), MODE(dropdown) | `haptic_da7280_set_mode(variables_get($haptic), "1")` | Dynamic code |
-| `haptic_da7280_enable_accel` | Statement | VAR(field_variable), STATE(dropdown) | `haptic_da7280_enable_accel(variables_get($haptic), true)` | Dynamic code |
+| `haptic_da7280_init` | Statement | VAR(field_input), MOTOR_TYPE(dropdown) | `haptic_da7280_init("haptic", "0")` | `haptic.begin(); ↵ haptic.setActuatorType(0); ↵ haptic.setOperationMode(DRO_MODE); ↵ haptic.defaultMotor();` |
+| `haptic_da7280_set_mode` | Statement | VAR(field_variable), MODE(dropdown) | `haptic_da7280_set_mode($haptic, "1")` | `haptic.setOperationMode(1);` |
+| `haptic_da7280_enable_accel` | Statement | VAR(field_variable), STATE(dropdown) | `haptic_da7280_enable_accel($haptic, true)` | `haptic.enableAcceleration(true);` |
 
 ## Parameter Options
 
@@ -31,12 +31,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    haptic_da7280_set_mode(variables_get($haptic), "1")
+    haptic_da7280_set_mode($haptic, "1")
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `haptic_da7280_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `haptic_da7280_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

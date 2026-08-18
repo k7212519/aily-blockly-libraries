@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "Initialisieren Sie InfluxDB %1 URL %2 org %3 Bucket %4 Token %5",
+    "tooltip": "Erstellen Sie einen InfluxDB 2-Client."
+  },
+  "influxdb_point_init": {
+    "message0": "Erstellen Sie einen InfluxDB-Punkt. %1-Messung %2",
+    "tooltip": "Erstellen Sie einen Linienprotokoll-Messpunkt."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB Punkt %1 Hinzufügen %2 Schlüssel %3 Wert %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Tag",
+            "addTag"
+          ],
+          [
+            "Datenfeld",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Fügen Sie einem Punkt ein Tag oder ein typisiertes Feld hinzu."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB Punkt %1 klar %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Datenfelder",
+            "clearFields"
+          ],
+          [
+            "Tags",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Löschen Sie angesammelte Punktfelder oder Tags."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 Schreibpunkt %2",
+    "tooltip": "Schreiben Sie einen Punkt an InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "Die InfluxDB %1-Verbindung ist gültig",
+    "tooltip": "Validieren Sie die Serverkonnektivität und Anmeldeinformationen."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "letzte Fehlermeldung",
+            "getLastErrorMessage"
+          ],
+          [
+            "Server URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Verbindungsinformationen oder den letzten Fehler lesen."
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 Leitungsprotokoll für Punkt %2",
+    "tooltip": "Zeigen Sie einen Punkt als Linienprotokoll in der Vorschau an."
+  }
+}

@@ -8,12 +8,12 @@ Vishay VEML6040 RGBW color sensor over I2C (address 0x10). `veml6040_init` creat
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `veml6040_init` | Statement | VAR(field_input), WIRE(dropdown ${board.i2c}), IT(dropdown) | `veml6040_init("colorSensor", Wire, VEML6040_IT_320MS)` | `VEML6040 colorSensor;` + `Wire.begin();` + `colorSensor.begin(&Wire);` + `colorSensor.setConfiguration(VEML6040_IT_320MS + VEML6040_AF_AUTO + VEML6040_SD_ENABLE);` |
-| `veml6040_read` | Value | VAR(field_variable), CHANNEL(dropdown) | `veml6040_read(variables_get($colorSensor), getRed)` | `colorSensor.getRed()` |
-| `veml6040_get_color` | Value (String) | VAR(field_variable) | `veml6040_get_color(variables_get($colorSensor))` | `veml6040ColorName(colorSensor)` |
-| `veml6040_is_color` | Value (Boolean) | VAR(field_variable), COLOR(dropdown) | `veml6040_is_color(variables_get($colorSensor), "red")` | `(veml6040ColorName(colorSensor) == "red")` |
+| `veml6040_init` | Statement | VAR(field_input), WIRE(dropdown), IT(dropdown) | `veml6040_init("colorSensor", Wire, VEML6040_IT_320MS)` | `colorSensor.begin(&WIRE); ↵ colorSensor.setConfiguration(VEML6040_IT_40MS + VEML6040_AF_AUTO + VEML6040_SD_ENABLE);` |
+| `veml6040_read` | Value | VAR(field_variable), CHANNEL(dropdown) | `veml6040_read($colorSensor, getRed)` | `colorSensor.getRed()` |
+| `veml6040_get_color` | Value (String) | VAR(field_variable) | `veml6040_get_color($colorSensor)` | `veml6040ColorName(colorSensor)` |
+| `veml6040_is_color` | Value (Boolean) | VAR(field_variable), COLOR(dropdown) | `veml6040_is_color($colorSensor, "red")` | `(veml6040ColorName(colorSensor) == "red")` |
 
 ## Parameter Options
 
@@ -33,7 +33,7 @@ arduino_setup()
     serial_begin(Serial, 115200)
 
 arduino_loop()
-    serial_println(Serial, veml6040_read(variables_get($colorSensor), getRed))
+    serial_println(Serial, veml6040_read($colorSensor, getRed))
     time_delay(math_number(500))
 ```
 
@@ -41,7 +41,7 @@ arduino_loop()
 ```
 arduino_loop()
     controls_if()
-        @IF0: veml6040_is_color(variables_get($colorSensor), "red")
+        @IF0: veml6040_is_color($colorSensor, "red")
         @DO0:
             serial_println(Serial, text("RED!"))
 ```

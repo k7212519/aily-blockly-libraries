@@ -8,12 +8,12 @@ Adapted to the openjumper PS3 wireless receiver (No. ojmoBhp4039), the library p
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `openjumper_iicps3_init` | Statement | PS3_NAME(field_input) | `openjumper_iicps3_init("ps3")` | Dynamic code |
-| `openjumper_iicps3_run` | Statement | PS3_NAME(field_input) | `openjumper_iicps3_run("ps3")` | ....run();\n |
-| `openjumper_iicps3_butstate` | Value | PS3_NAME(field_input), IICPS3_BTN(dropdown) | `openjumper_iicps3_butstate("ps3", up)` | ....ps3Data.... |
-| `openjumper_iicps3_xy` | Value | PS3_NAME(field_input), IICPS3_XY(dropdown) | `openjumper_iicps3_xy("ps3", lx)` | ....ps3Data.... |
+| `openjumper_iicps3_init` | Statement | PS3_NAME(field_input) | `openjumper_iicps3_init("ps3")` | `OpenJumperPS3 ps3; ↵ Wire.begin();` |
+| `openjumper_iicps3_run` | Statement | PS3_NAME(field_input) | `openjumper_iicps3_run("ps3")` | `ps3.run();` |
+| `openjumper_iicps3_butstate` | Value | PS3_NAME(field_input), IICPS3_BTN(dropdown) | `openjumper_iicps3_butstate("ps3", up)` | `ps3.ps3Data.up` |
+| `openjumper_iicps3_xy` | Value | PS3_NAME(field_input), IICPS3_XY(dropdown) | `openjumper_iicps3_xy("ps3", lx)` | `ps3.ps3Data.lx` |
 
 ## Parameter Options
 

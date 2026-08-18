@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "初始化 micro-ROS 节点 %1 名称 %2 命名空间 %3 执行器句柄 %4",
+    "tooltip": "初始化默认的micro-ROS传输、支持、节点和执行器。"
+  },
+  "micro_ros_publisher_init": {
+    "message0": "创建 micro-ROS Int32 发布者 %1 节点 %2 主题 %3",
+    "tooltip": "创建 std_msgs/Int32 发布者。"
+  },
+  "micro_ros_publish_int32": {
+    "message0": "micro-ROS 发布者 %1 发布 Int32 %2",
+    "tooltip": "发布一个 std_msgs/Int32 值。"
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "当数据到达 %4 时创建 micro-ROS Int32 订阅者 %1 节点 %2 主题 %3",
+    "tooltip": "创建 std_msgs/Int32 订阅和回调。"
+  },
+  "micro_ros_received_int32": {
+    "message0": "micro-ROS 订阅者 %1 收到 Int32",
+    "tooltip": "在回调内部或之后读取最新的 Int32 消息。"
+  },
+  "micro_ros_spin": {
+    "message0": "micro-ROS 节点 %1 自旋 %2 ms",
+    "tooltip": "运行一次 rclc 执行器。节点初始化已经添加了一个默认的自旋循环。"
+  }
+}

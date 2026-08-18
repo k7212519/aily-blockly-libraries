@@ -1,932 +1,206 @@
 {
-  "toolbox_name": "Датчик машинного зрения Sentry",
+  "toolbox_name": "Визуальный датчик Sentry",
   "toolbox_categories": [
-    "Sentry2",
-    "Блоки настройки",
-    "Блоки выполнения",
     "Sentry1",
-    "Блоки настройки",
-    "Блоки выполнения"
+    "Настройка",
+    "Работа",
+    "Sentry2",
+    "Настройка",
+    "Работа",
+    "Sentry3",
+    "Настройка",
+    "Работа"
   ],
-  "sentry2_begin": {
-    "message0": "Инициализировать Sentry2 порт %1 адрес %2",
-    "tooltip": "Инициализировать Sentry2 датчик зрения",
-    "args0": [
-      {
-        "options": [
-          [
-            "I2C",
-            "Wire"
-          ],
-          [
-            "Serial",
-            "Serial"
-          ],
-          [
-            "Serial1",
-            "Serial1"
-          ],
-          [
-            "Serial2",
-            "Serial2"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "0x60",
-            "0x60"
-          ],
-          [
-            "0x61",
-            "0x61"
-          ],
-          [
-            "0x62",
-            "0x62"
-          ],
-          [
-            "0x63",
-            "0x63"
-          ]
-        ]
-      }
-    ]
+  "sentry1_init_i2c": {
+    "message0": "Инициализировать переменную Sentry1 %1 двухпроводной адрес связи %2",
+    "tooltip": "Используйте стандартную двухпроводную шину платы для инициализации Sentry1 и автоматически повторяйте до успешного соединения"
   },
-  "sentry2_set_default": {
-    "message0": "Sentry2 восстановить параметры по умолчанию",
-    "tooltip": "Восстанавливает состояние алгоритма датчика по умолчанию"
+  "sentry1_init_uart": {
+    "message0": "Инициализация переменной Sentry1 %1 аппаратного последовательного порта %2 скорости передачи %3",
+    "tooltip": "Инициализируйте Sentry1 с помощью выбранного аппаратного последовательного порта и автоматически повторяйте до успешного подключения"
   },
-  "sentry2_set_vision_status": {
-    "message0": "Sentry2 %1 алгоритм %2",
-    "tooltip": "Sentry2 алгоритм задать",
-    "args0": [
-      {
-        "options": [
-          [
-            "Включить",
-            "Begin"
-          ],
-          [
-            "Выключить",
-            "End"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "Распознавание цвета",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Обнаружение цветового блока",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Распознавание метки",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "Обнаружение линии",
-            "Sentry2::kVisionLine"
-          ],
-          [
-            "Глубокое обучение",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Распознавание карточки",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "Распознавание лица",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "Объекты 20 классов",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "QR-код",
-            "Sentry2::kVisionQrCode"
-          ],
-          [
-            "Пользовательский",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "Движущийся объект",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_set_awb": {
-    "message0": "Sentry2 режим баланса белого %1",
-    "tooltip": "Sentry2 режим баланса белого",
-    "args0": [
-      {
-        "options": [
-          [
-            "Авто",
-            "kAutoWhiteBalance"
-          ],
-          [
-            "Блокировка",
-            "kLockWhiteBalance"
-          ],
-          [
-            "Белый свет",
-            "kWhiteLight"
-          ],
-          [
-            "Желтый свет",
-            "kYellowLight"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_set_param_num": {
-    "message0": "Sentry2 алгоритм %1 задать %2 групп параметров",
-    "tooltip": "Sentry2 задать алгоритм групп параметров",
-    "args0": [
-      {
-        "options": [
-          [
-            "Распознавание цвета",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Обнаружение цветового блока",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Пользовательский",
-            "Sentry2::kVisionCustom"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_set_color_param": {
-    "message0": "Sentry2 распознавание цвета центр X %1 Y %2 ширина %3 высота %4 группа параметров %5",
-    "tooltip": "Sentry2 распознавание цвета группа параметров задать"
-  },
-  "sentry2_set_blob_param": {
-    "message0": "Sentry2 обнаружение цветового блока мин. ширина %1 высота %2 цвет %3 группа параметров %4",
-    "tooltip": "Sentry2 обнаружение цветового блока группа параметров задать",
+  "sentry1_set_led": {
+    "message0": "Sentry1 %1 индикаторный свет при обнаружении цели %2 %3 яркости, когда не detected%4",
+    "tooltip": "Установите цвет и яркость индикатора, соответствующие статусу обнаружения (от 0 до 15).",
     "args0": [
       null,
-      null,
       {
         "options": [
           [
-            "Черный",
-            "Sentry2::kColorBlack"
-          ],
-          [
-            "Белый",
-            "Sentry2::kColorWhite"
+            "Выкл",
+            "kLedClose"
           ],
           [
             "Красный",
-            "Sentry2::kColorRed"
+            "kLedRed"
           ],
           [
-            "Зеленый",
-            "Sentry2::kColorGreen"
+            "Зелёный",
+            "kLedGreen"
+          ],
+          [
+            "Жёлтый",
+            "kLedYellow"
           ],
           [
             "Синий",
-            "Sentry2::kColorBlue"
+            "kLedBlue"
           ],
           [
-            "Желтый",
-            "Sentry2::kColorYellow"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_set_custom_param": {
-    "message0": "Sentry2 алгоритм %1 параметр 1 %2 параметр 2 %3 параметр 3 %4 параметр 4 %5 параметр 5 %6 группа параметров %7",
-    "tooltip": "Sentry2 пользовательский группа параметров задать",
-    "args0": [
-      {
-        "options": [
-          [
-            "Пользовательский",
-            "Sentry2::kVisionCustom"
+            "Фиолетовый",
+            "kLedPurple"
           ],
           [
-            "Распознавание цвета",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Обнаружение цветового блока",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Глубокое обучение",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Распознавание лица",
-            "Sentry2::kVisionFace"
-          ]
-        ]
-      },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ]
-  },
-  "sentry2_detected_count": {
-    "message0": "Sentry2 алгоритм %1 вернуть число результатов",
-    "tooltip": "Sentry2 вернуть число результатов",
-    "args0": [
-      {
-        "options": [
-          [
-            "Распознавание цвета",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Обнаружение цветового блока",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Распознавание метки",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "Обнаружение линии",
-            "Sentry2::kVisionLine"
-          ],
-          [
-            "Глубокое обучение",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Распознавание карточки",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "Распознавание лица",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "Объекты 20 классов",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "QR-код",
-            "Sentry2::kVisionQrCode"
-          ],
-          [
-            "Пользовательский",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "Движущийся объект",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_get_value": {
-    "message0": "Sentry2 алгоритм %1 вернуть %2 индекс %3 значение",
-    "tooltip": "Получает результат выбранного алгоритма",
-    "args0": [
-      {
-        "options": [
-          [
-            "Обнаружение цветового блока",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Распознавание метки",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "Глубокое обучение",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Распознавание карточки",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "Распознавание лица",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "Объекты 20 классов",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "Движущийся объект",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "Координата X",
-            "kXValue"
-          ],
-          [
-            "Координата Y",
-            "kYValue"
-          ],
-          [
-            "Ширина",
-            "kWidthValue"
-          ],
-          [
-            "Высота",
-            "kHeightValue"
-          ],
-          [
-            "Метка",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_color_value": {
-    "message0": "Sentry2 распознавание цвета вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry2 распознавание цвета вернуть значение",
-    "args0": [
-      {
-        "options": [
-          [
-            "Метка",
-            "kLabel"
-          ],
-          [
-            "Красный канал",
-            "kRValue"
-          ],
-          [
-            "Зеленый канал",
-            "kGValue"
-          ],
-          [
-            "Синий канал",
-            "kBValue"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_line_value": {
-    "message0": "Sentry2 обнаружение линии вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry2 обнаружение линии вернуть значение",
-    "args0": [
-      {
-        "options": [
-          [
-            "X конечной точки",
-            "kXValue"
-          ],
-          [
-            "Y конечной точки",
-            "kYValue"
-          ],
-          [
-            "X начальной точки",
-            "kWidthValue"
-          ],
-          [
-            "Y начальной точки",
-            "kHeightValue"
-          ],
-          [
-            "Угол наклона",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_qr_value": {
-    "message0": "Sentry2 QR-код вернуть строку результата",
-    "tooltip": "Sentry2 QR-код вернуть строку результата"
-  },
-  "sentry2_get_qr_position": {
-    "message0": "Sentry2 QR-код вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry2 QR-код вернуть значение",
-    "args0": [
-      {
-        "options": [
-          [
-            "Координата X",
-            "kXValue"
-          ],
-          [
-            "Координата Y",
-            "kYValue"
-          ],
-          [
-            "Ширина",
-            "kWidthValue"
-          ],
-          [
-            "Высота",
-            "kHeightValue"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_custom_value": {
-    "message0": "Sentry2 пользовательский вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry2 пользовательский вернуть значение",
-    "args0": [
-      {
-        "options": [
-          [
-            "Данные 1",
-            "kXValue"
-          ],
-          [
-            "Данные 2",
-            "kYValue"
-          ],
-          [
-            "Данные 3",
-            "kWidthValue"
-          ],
-          [
-            "Данные 4",
-            "kHeightValue"
-          ],
-          [
-            "Данные 5",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_blob_color": {
-    "message0": "Sentry2 обнаружен цветовой блок %1 индекс %2",
-    "tooltip": "Возвращает True при обнаружении, иначе False",
-    "args0": [
-      {
-        "options": [
-          [
-            "Черный",
-            "Sentry2::kColorBlack"
+            "cyan",
+            "kLedCyan"
           ],
           [
             "Белый",
-            "Sentry2::kColorWhite"
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Выкл",
+            "kLedClose"
           ],
           [
             "Красный",
-            "Sentry2::kColorRed"
+            "kLedRed"
           ],
           [
-            "Зеленый",
-            "Sentry2::kColorGreen"
+            "Зелёный",
+            "kLedGreen"
+          ],
+          [
+            "Жёлтый",
+            "kLedYellow"
           ],
           [
             "Синий",
-            "Sentry2::kColorBlue"
+            "kLedBlue"
           ],
           [
-            "Желтый",
-            "Sentry2::kColorYellow"
+            "Фиолетовый",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Белый",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry2_check_card": {
-    "message0": "Sentry2 распознана карточка %1 индекс %2",
-    "tooltip": "Возвращает True при обнаружении, иначе False",
+  "sentry1_vision_control": {
+    "message0": "Sentry1 %1 запустить %2 режим %3",
+    "tooltip": "Sentry1 запустить режим",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Вперед",
-            "Sentry2::kCardForward"
+            "Старт",
+            "BEGIN"
           ],
           [
-            "Поворот налево",
-            "Sentry2::kCardLeft"
-          ],
-          [
-            "Поворот направо",
-            "Sentry2::kCardRight"
-          ],
-          [
-            "Разворот",
-            "Sentry2::kCardTurnAround"
-          ],
-          [
-            "Парковка",
-            "Sentry2::kCardPark"
-          ],
-          [
-            "Зеленый свет",
-            "Sentry2::kCardGreenLight"
-          ],
-          [
-            "Красный свет",
-            "Sentry2::kCardRedLight"
-          ],
-          [
-            "Ограничение 40",
-            "Sentry2::kCardSpeed40"
-          ],
-          [
-            "Ограничение 60",
-            "Sentry2::kCardSpeed60"
-          ],
-          [
-            "Ограничение 80",
-            "Sentry2::kCardSpeed80"
-          ],
-          [
-            "✔",
-            "Sentry2::kCardCheck"
-          ],
-          [
-            "☓",
-            "Sentry2::kCardCross"
-          ],
-          [
-            "◯",
-            "Sentry2::kCardCircle"
-          ],
-          [
-            "☐",
-            "Sentry2::kCardSquare"
-          ],
-          [
-            "△",
-            "Sentry2::kCardTriangle"
-          ],
-          [
-            "+",
-            "Sentry2::kCardPlus"
-          ],
-          [
-            "-",
-            "Sentry2::kCardMinus"
-          ],
-          [
-            "÷",
-            "Sentry2::kCardDivide"
-          ],
-          [
-            "=",
-            "Sentry2::kCardEqual"
-          ],
-          [
-            "0",
-            "Sentry2::kCardZero"
-          ],
-          [
-            "1",
-            "Sentry2::kCardOne"
-          ],
-          [
-            "2",
-            "Sentry2::kCardTwo"
-          ],
-          [
-            "3",
-            "Sentry2::kCardThree"
-          ],
-          [
-            "4",
-            "Sentry2::kCardFour"
-          ],
-          [
-            "5",
-            "Sentry2::kCardFive"
-          ],
-          [
-            "6",
-            "Sentry2::kCardSix"
-          ],
-          [
-            "7",
-            "Sentry2::kCardSeven"
-          ],
-          [
-            "8",
-            "Sentry2::kCardEight"
-          ],
-          [
-            "9",
-            "Sentry2::kCardNine"
+            "Стоп",
+            "END"
           ]
         ]
       },
-      null
-    ]
-  },
-  "sentry2_check_20class": {
-    "message0": "Sentry2 обнаружен объект 20 классов %1 индекс %2",
-    "tooltip": "Возвращает True при обнаружении, иначе False",
-    "args0": [
       {
         "options": [
           [
-            "Самолет",
-            "Sentry2::kAirplane"
+            "Цвет",
+            "1"
           ],
           [
-            "Велосипед",
-            "Sentry2::kBicycle"
+            "Область",
+            "2"
           ],
           [
-            "Птица",
-            "Sentry2::kBird"
+            "Мяч",
+            "3"
           ],
           [
-            "Лодка",
-            "Sentry2::kBoat"
+            "Линия",
+            "4"
           ],
           [
-            "Бутылка",
-            "Sentry2::kBottle"
-          ],
-          [
-            "Автобус",
-            "Sentry2::kBus"
-          ],
-          [
-            "Автомобиль",
-            "Sentry2::kCar"
-          ],
-          [
-            "Кошка",
-            "Sentry2::kCat"
-          ],
-          [
-            "Стул",
-            "Sentry2::kChair"
-          ],
-          [
-            "Корова",
-            "Sentry2::kCow"
-          ],
-          [
-            "Обеденный стол",
-            "Sentry2::kDiningTable"
-          ],
-          [
-            "Собака",
-            "Sentry2::kDog"
-          ],
-          [
-            "Лошадь",
-            "Sentry2::kHorse"
-          ],
-          [
-            "Мотоцикл",
-            "Sentry2::kMotorBike"
+            "Карточка",
+            "6"
           ],
           [
             "Человек",
-            "Sentry2::kPerson"
+            "7"
           ],
           [
-            "Растение в горшке",
-            "Sentry2::kPottedPlant"
+            "QR-код",
+            "9"
           ],
           [
-            "Овца",
-            "Sentry2::kSheep"
-          ],
-          [
-            "Диван",
-            "Sentry2::kSofa"
-          ],
-          [
-            "Поезд",
-            "Sentry2::kTrain"
-          ],
-          [
-            "Монитор",
-            "Sentry2::kTvMonitor"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_rows": {
-    "message0": "Sentry2 строки кадра",
-    "tooltip": "Sentry2 строки кадра"
-  },
-  "sentry2_cols": {
-    "message0": "Sentry2 столбцы кадра",
-    "tooltip": "Sentry2 столбцы кадра"
-  },
-  "sentry1_begin": {
-    "message0": "Инициализировать Sentry1 порт %1 адрес %2",
-    "tooltip": "Инициализировать Sentry1 датчик зрения",
-    "args0": [
-      {
-        "options": [
-          [
-            "I2C",
-            "Wire"
-          ],
-          [
-            "Serial",
-            "Serial"
-          ],
-          [
-            "Serial1",
-            "Serial1"
-          ],
-          [
-            "Serial2",
-            "Serial2"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "0x60",
-            "0x60"
-          ],
-          [
-            "0x61",
-            "0x61"
-          ],
-          [
-            "0x62",
-            "0x62"
-          ],
-          [
-            "0x63",
-            "0x63"
+            "Движение",
+            "11"
           ]
         ]
       }
     ]
   },
-  "sentry1_set_default": {
-    "message0": "Sentry1 восстановить параметры по умолчанию",
-    "tooltip": "Восстанавливает состояние алгоритма датчика по умолчанию"
+  "sentry1_set_region_param": {
+    "message0": "Sentry1 %1 задать область распознавания цвета %2 центр, горизонтальную %3 центральную вертикальную ось %4 ширину %5 высоту %6",
+    "tooltip": "Задайте положение и размер области распознавания цвета"
   },
-  "sentry1_led_set_color": {
-    "message0": "Sentry1 LED при обнаружении цели %1 иначе %2 яркость %3",
-    "tooltip": "Черный выключает LED; одинаковые цвета включают ручной режим LED",
+  "sentry1_set_blob_param": {
+    "message0": "Sentry1 %1 Задать параметры цветовых блоков %2 Минимальная ширина %3 Минимальная высота %4 Цвет %5",
+    "tooltip": "Задайте условия фильтрации размеров и целевые цвета для обнаружения цветовых блоков",
     "args0": [
+      null,
+      null,
+      null,
+      null,
       {
         "options": [
           [
-            "Выкл.",
-            "kLedClose"
-          ],
-          [
-            "Красный",
-            "kLedRed"
-          ],
-          [
-            "Зеленый",
-            "kLedGreen"
-          ],
-          [
-            "Желтый",
-            "kLedYellow"
-          ],
-          [
-            "Синий",
-            "kLedBlue"
-          ],
-          [
-            "Фиолетовый",
-            "kLedPurple"
-          ],
-          [
-            "Голубой",
-            "kLedCyan"
+            "Черный",
+            "1"
           ],
           [
             "Белый",
-            "kLedWhite"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "Выкл.",
-            "kLedClose"
+            "2"
           ],
           [
             "Красный",
-            "kLedRed"
+            "3"
           ],
           [
-            "Зеленый",
-            "kLedGreen"
-          ],
-          [
-            "Желтый",
-            "kLedYellow"
+            "Зелёный",
+            "4"
           ],
           [
             "Синий",
-            "kLedBlue"
+            "5"
           ],
           [
-            "Фиолетовый",
-            "kLedPurple"
-          ],
-          [
-            "Голубой",
-            "kLedCyan"
-          ],
-          [
-            "Белый",
-            "kLedWhite"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_set_vision_status": {
-    "message0": "Sentry1 %1 алгоритм %2",
-    "tooltip": "Sentry1 алгоритм задать",
-    "args0": [
-      {
-        "options": [
-          [
-            "Включить",
-            "Begin"
-          ],
-          [
-            "Выключить",
-            "End"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "Распознавание цвета",
-            "Sentry1::kVisionColor"
-          ],
-          [
-            "Обнаружение цветового блока",
-            "Sentry1::kVisionBlob"
-          ],
-          [
-            "Распознавание мяча",
-            "Sentry1::kVisionBall"
-          ],
-          [
-            "Обнаружение линии",
-            "Sentry1::kVisionLine"
-          ],
-          [
-            "Распознавание карточки",
-            "Sentry1::kVisionCard"
-          ],
-          [
-            "Обнаружение тела",
-            "Sentry1::kVisionBody"
+            "Жёлтый",
+            "6"
           ]
         ]
       }
     ]
   },
-  "sentry1_set_awb": {
-    "message0": "Sentry1 режим баланса белого %1",
-    "tooltip": "Sentry1 режим баланса белого",
+  "sentry1_camera_awb": {
+    "message0": "Sentry1 %1 Установить баланс белого %2",
+    "tooltip": "Установите режим баланса белого на камере",
     "args0": [
+      null,
       {
         "options": [
           [
@@ -934,7 +208,7 @@
             "kAutoWhiteBalance"
           ],
           [
-            "Блокировка",
+            "Заблокировать текущее значение",
             "kLockWhiteBalance"
           ],
           [
@@ -942,142 +216,161 @@
             "kWhiteLight"
           ],
           [
-            "Желтый свет",
+            "Жёлтый свет",
             "kYellowLight"
           ]
         ]
       }
     ]
   },
-  "sentry1_set_param_num": {
-    "message0": "Sentry1 алгоритм %1 задать %2 групп параметров",
-    "tooltip": "Sentry1 задать алгоритм групп параметров",
+  "sentry1_vision_default": {
+    "message0": "Sentry1 %1 Восстановить функцию распознавания %2 настройки по умолчанию",
+    "tooltip": "Восстановить параметры по умолчанию для заданных функций распознавания",
     "args0": [
-      {
-        "options": [
-          [
-            "Распознавание цвета",
-            "Sentry1::kVisionColor"
-          ],
-          [
-            "Обнаружение цветового блока",
-            "Sentry1::kVisionBlob"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_set_color_param": {
-    "message0": "Sentry1 распознавание цвета центр X %1 Y %2 ширина %3 высота %4",
-    "tooltip": "Sentry1 распознавание цвета группа параметров задать"
-  },
-  "sentry1_set_blob_param": {
-    "message0": "Sentry1 обнаружение цветового блока мин. ширина %1 высота %2 цвет %3",
-    "tooltip": "Sentry1 обнаружение цветового блока группа параметров задать",
-    "args0": [
-      null,
       null,
       {
         "options": [
           [
-            "Черный",
-            "Sentry1::kColorBlack"
+            "Цвет",
+            "1"
           ],
           [
-            "Белый",
-            "Sentry1::kColorWhite"
+            "Область",
+            "2"
           ],
           [
-            "Красный",
-            "Sentry1::kColorRed"
+            "Мяч",
+            "3"
           ],
           [
-            "Зеленый",
-            "Sentry1::kColorGreen"
+            "Линия",
+            "4"
           ],
           [
-            "Синий",
-            "Sentry1::kColorBlue"
+            "Карточка",
+            "6"
           ],
           [
-            "Желтый",
-            "Sentry1::kColorYellow"
+            "Человек",
+            "7"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Движение",
+            "11"
           ]
         ]
       }
     ]
   },
+  "sentry1_restart": {
+    "message0": "Sentry1 %1 перезагрузка устройства",
+    "tooltip": "Запросить перезагрузку датчика; После перезагрузки связь должна быть переинициализована"
+  },
+  "sentry1_sensor_default": {
+    "message0": "Sentry1 %1 Восстановить настройки по умолчанию Восстановить только функцию распознавания %2",
+    "tooltip": "Восстановить настройки по умолчанию; Конфигурация связи сохраняется только после восстановления функции распознавания"
+  },
   "sentry1_detected_count": {
-    "message0": "Sentry1 алгоритм %1 вернуть число результатов",
-    "tooltip": "Sentry1 вернуть число результатов",
+    "message0": "Sentry1 %1 функция распознавания %2 количество обнаруженных целей",
+    "tooltip": "Обновите и верните целевую сумму",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Распознавание цвета",
-            "Sentry1::kVisionColor"
+            "Цвет",
+            "1"
           ],
           [
-            "Обнаружение цветового блока",
-            "Sentry1::kVisionBlob"
+            "Область",
+            "2"
           ],
           [
-            "Распознавание мяча",
-            "Sentry1::kVisionBall"
+            "Мяч",
+            "3"
           ],
           [
-            "Обнаружение линии",
-            "Sentry1::kVisionLine"
+            "Линия",
+            "4"
           ],
           [
-            "Распознавание карточки",
-            "Sentry1::kVisionCard"
+            "Карточка",
+            "6"
           ],
           [
-            "Обнаружение тела",
-            "Sentry1::kVisionBody"
+            "Человек",
+            "7"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Движение",
+            "11"
           ]
         ]
       }
     ]
   },
   "sentry1_get_value": {
-    "message0": "Sentry1 алгоритм %1 вернуть %2 индекс %3 значение",
-    "tooltip": "Получает результат выбранного алгоритма",
+    "message0": "Sentry1 %1 читать режим %2 цель %3 %4",
+    "tooltip": "Sentry1 читать режим цель",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Обнаружение цветового блока",
-            "Sentry1::kVisionBlob"
+            "Цвет",
+            "1"
           ],
           [
-            "Распознавание мяча",
-            "Sentry1::kVisionBall"
+            "Область",
+            "2"
           ],
           [
-            "Распознавание карточки",
-            "Sentry1::kVisionCard"
+            "Мяч",
+            "3"
           ],
           [
-            "Обнаружение тела",
-            "Sentry1::kVisionBody"
+            "Линия",
+            "4"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Человек",
+            "7"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Движение",
+            "11"
           ]
         ]
       },
+      null,
       {
         "options": [
           [
-            "Координата X",
+            "x-координата (x-координата).",
             "kXValue"
           ],
           [
-            "Координата Y",
+            "Вертикальные координаты",
             "kYValue"
           ],
           [
-            "Ширина",
+            "width",
             "kWidthValue"
           ],
           [
@@ -1085,186 +378,2376 @@
             "kHeightValue"
           ],
           [
-            "Метка",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_get_color_value": {
-    "message0": "Sentry1 распознавание цвета вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry1 распознавание цвета вернуть значение",
-    "args0": [
-      {
-        "options": [
-          [
-            "Метка",
+            "этикетка",
             "kLabel"
           ],
           [
-            "Красный канал",
+            "Красное значение",
             "kRValue"
           ],
           [
-            "Зеленый канал",
+            "Зелёное значение",
             "kGValue"
           ],
           [
-            "Синий канал",
+            "Синее значение",
             "kBValue"
           ]
         ]
-      },
-      null
+      }
     ]
   },
-  "sentry1_get_line_value": {
-    "message0": "Sentry1 обнаружение линии вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry1 обнаружение линии вернуть значение",
+  "sentry1_detected_label": {
+    "message0": "Sentry1 %1 функция распознавания %2 метка цели %3 равно %4",
+    "tooltip": "Проверьте, соответствует ли классификационная метка для указанной цели заданному значению",
     "args0": [
+      null,
       {
         "options": [
           [
-            "X конечной точки",
-            "kXValue"
+            "Цвет",
+            "1"
           ],
           [
-            "Y конечной точки",
-            "kYValue"
+            "Область",
+            "2"
           ],
           [
-            "X начальной точки",
-            "kWidthValue"
+            "Мяч",
+            "3"
           ],
           [
-            "Y начальной точки",
-            "kHeightValue"
+            "Линия",
+            "4"
           ],
           [
-            "Угол наклона",
-            "kLabel"
+            "Карточка",
+            "6"
+          ],
+          [
+            "Человек",
+            "7"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry1_get_qrcode": {
+    "message0": "Sentry1 %1 Прочитать текст QR-кода",
+    "tooltip": "Прочитайте самый свежий QR-код, чтобы определить текст"
+  },
+  "sentry1_vision_status": {
+    "message0": "Функция распознавания Sentry1 %1 %2 включена?",
+    "tooltip": "Проверьте, включена ли функция распознавания",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Мяч",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Человек",
+            "7"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_update_result": {
+    "message0": "Sentry1 %1 настроить режим %2 результат",
+    "tooltip": "Sentry1 настроить режим результат",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Мяч",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Человек",
+            "7"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_init_i2c": {
+    "message0": "Инициализировать переменную Sentry2 %1 двухпроводной коммуникационной address%2",
+    "tooltip": "Используйте стандартную двухпроводную шину платы для инициализации Sentry2 и автоматически повторяйте до успешного соединения"
+  },
+  "sentry2_init_uart": {
+    "message0": "Инициализировать переменную Sentry2 %1 аппаратный последовательный порт %2 скорость передачи %3",
+    "tooltip": "Инициализируйте Sentry2 с помощью выбранного аппаратного последовательного порта и автоматически повторяйте до успешного подключения"
+  },
+  "sentry2_set_led": {
+    "message0": "Sentry2 %1 индикаторный свет при обнаружении цели %2 %3 яркость, когда не detected%4",
+    "tooltip": "Установите цвет и яркость индикатора, соответствующие статусу обнаружения (от 0 до 15).",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Выкл",
+            "kLedClose"
+          ],
+          [
+            "Красный",
+            "kLedRed"
+          ],
+          [
+            "Зелёный",
+            "kLedGreen"
+          ],
+          [
+            "Жёлтый",
+            "kLedYellow"
+          ],
+          [
+            "Синий",
+            "kLedBlue"
+          ],
+          [
+            "Фиолетовый",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Белый",
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Выкл",
+            "kLedClose"
+          ],
+          [
+            "Красный",
+            "kLedRed"
+          ],
+          [
+            "Зелёный",
+            "kLedGreen"
+          ],
+          [
+            "Жёлтый",
+            "kLedYellow"
+          ],
+          [
+            "Синий",
+            "kLedBlue"
+          ],
+          [
+            "Фиолетовый",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Белый",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_get_qr_value": {
-    "message0": "Sentry1 QR-код вернуть строку результата",
-    "tooltip": "Sentry1 QR-код вернуть строку результата"
-  },
-  "sentry1_get_qr_position": {
-    "message0": "Sentry1 QR-код вернуть %1 индекс %2 значение",
-    "tooltip": "Sentry1 QR-код вернуть значение",
+  "sentry2_vision_control": {
+    "message0": "Sentry2 %1 запустить %2 режим %3",
+    "tooltip": "Sentry2 запустить режим",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Координата X",
-            "kXValue"
+            "Старт",
+            "BEGIN"
           ],
           [
-            "Координата Y",
-            "kYValue"
+            "Стоп",
+            "END"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
           ],
           [
-            "Ширина",
-            "kWidthValue"
+            "Область",
+            "2"
           ],
           [
-            "Высота",
-            "kHeightValue"
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_param_num": {
+    "message0": "Sentry2 %1 Функция распознавания множеств %2 Максимальное количество targets%3",
+    "tooltip": "Установите максимальное количество возвращенных голов",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_blob_color": {
-    "message0": "Sentry1 обнаружен цветовой блок %1 индекс %2",
-    "tooltip": "Возвращает True при обнаружении, иначе False",
+  "sentry2_set_region_param": {
+    "message0": "Sentry2 %1 установить область распознавания цвета %2 центральной горизонтальной %3 центральной вертикальной оси %4 ширину %5 высоту %6",
+    "tooltip": "Задайте положение и размер области распознавания цвета"
+  },
+  "sentry2_set_blob_param": {
+    "message0": "Sentry2 %1 задать параметры цветовых блоков %2 минимальную ширину %3 минимальную высоту %4 цветовой %5",
+    "tooltip": "Задайте условия фильтрации размеров и целевые цвета для обнаружения цветовых блоков",
     "args0": [
+      null,
+      null,
+      null,
+      null,
       {
         "options": [
           [
             "Черный",
-            "Sentry1::kColorBlack"
+            "1"
           ],
           [
             "Белый",
-            "Sentry1::kColorWhite"
+            "2"
           ],
           [
             "Красный",
-            "Sentry1::kColorRed"
+            "3"
           ],
           [
-            "Зеленый",
-            "Sentry1::kColorGreen"
+            "Зелёный",
+            "4"
           ],
           [
             "Синий",
-            "Sentry1::kColorBlue"
+            "5"
           ],
           [
-            "Желтый",
-            "Sentry1::kColorYellow"
+            "Жёлтый",
+            "6"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_label_param": {
+    "message0": "Sentry2 %1 Функция распознавания множества %2 Группа параметров %3 Значение тега %4",
+    "tooltip": "Пишите параметры тегов для глубокого обучения, карт или других алгоритмов, требующих маркировки",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry2_set_mode": {
+    "message0": "Sentry2 %1 Функция распознавания множества %2 Значения режимов %3",
+    "tooltip": "Задайте режим алгоритма; Значение значений шаблонов в алгоритмах, таких как метки, штрихкоды и текст, различается",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_card": {
-    "message0": "Sentry1 распознана карточка %1 индекс %2",
-    "tooltip": "Возвращает True при обнаружении, иначе False",
+  "sentry2_set_apriltag_mode": {
+    "message0": "Sentry2 %1 Set Tag Encoding Format %2",
+    "tooltip": "Установите формат кодирования, используемый для идентификации меток",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Вперед",
-            "Sentry1::kCardForward"
+            "Кодирование 16H5",
+            "0"
           ],
           [
-            "Поворот налево",
-            "Sentry1::kCardLeft"
+            "Кодирование 25H9",
+            "1"
           ],
           [
-            "Поворот направо",
-            "Sentry1::kCardRight"
+            "Код 36H11",
+            "2"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_level": {
+    "message0": "Sentry2 %1 Функция распознавания множества %2 Приоритет производительности %3",
+    "tooltip": "Задайте предпочтения по скорости и точности алгоритма",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
           ],
           [
-            "Разворот",
-            "Sentry1::kCardTurnAround"
+            "Область",
+            "2"
           ],
           [
-            "Парковка",
-            "Sentry1::kCardPark"
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "по умолчанию",
+            "kLevelDefault"
+          ],
+          [
+            "Сначала скорость",
+            "kLevelSpeed"
+          ],
+          [
+            "Баланс",
+            "kLevelBalance"
+          ],
+          [
+            "На первом месте стоит точность",
+            "kLevelAccuracy"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_camera_zoom": {
+    "message0": "Sentry2 %1 Set Camera Zoom %2",
+    "tooltip": "Настройте цифровой зум камеры",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "по умолчанию",
+            "kZoomDefault"
+          ],
+          [
+            "1 раз",
+            "kZoom1"
+          ],
+          [
+            "Вдвое больше",
+            "kZoom2"
+          ],
+          [
+            "3 раза",
+            "kZoom3"
+          ],
+          [
+            "4 раза",
+            "kZoom4"
+          ],
+          [
+            "5 раз",
+            "kZoom5"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_camera_awb": {
+    "message0": "Sentry2 %1 Set White Balance %2",
+    "tooltip": "Установите режим баланса белого на камере",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Авто",
+            "kAutoWhiteBalance"
+          ],
+          [
+            "Заблокировать текущее значение",
+            "kLockWhiteBalance"
+          ],
+          [
+            "Белый свет",
+            "kWhiteLight"
+          ],
+          [
+            "Жёлтый свет",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_coordinate": {
+    "message0": "Sentry2 %1 Задать тип координат %2",
+    "tooltip": "Результаты выбора используют абсолютные пиксельные или процентные координаты",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Абсолютные пиксели",
+            "kAbsoluteCoordinate"
+          ],
+          [
+            "Процент",
+            "kPercentageCoordinate"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_vision_default": {
+    "message0": "Sentry2 %1 Восстановить функцию распознавания %2 настройки по умолчанию",
+    "tooltip": "Восстановить параметры по умолчанию для заданных функций распознавания",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_screen_config": {
+    "message0": "Sentry2 %1 экране On%2 показывает только пользовательское изображение %3",
+    "tooltip": "Настройка состояния отображения сенсорного экрана"
+  },
+  "sentry2_screen_fill": {
+    "message0": "Заполняющее изображение Sentry2 %1 Number%2 красным %3 зелёным %4 синим %5",
+    "tooltip": "Заполните слой изображения экрана заданными цветами"
+  },
+  "sentry2_snapshot": {
+    "message0": "Sentry2 %1 скриншот %2 источника: %3 format%4",
+    "tooltip": "Сохраняйте или отправляйте изображения с камеры или экрана назначенным целям",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Карта памяти",
+            "kSnapshot2SD"
+          ],
+          [
+            "Последовательный порт",
+            "kSnapshot2Uart"
+          ],
+          [
+            "Универсальный последовательный интерфейс",
+            "kSnapshot2Usb"
+          ],
+          [
+            "Беспроводная сеть",
+            "kSnapshot2Wifi"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "камера",
+            "kSnapshotFromCamera"
+          ],
+          [
+            "экран",
+            "kSnapshotFromScreen"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Оригинальный цветовой формат",
+            "kSnapshotTypeRGB565"
+          ],
+          [
+            "Сжать изображение",
+            "kSnapshotTypeJPEG"
+          ],
+          [
+            "Изображения, закодированные текстом",
+            "kSnapshotTypeJPEGBase64"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_restart": {
+    "message0": "Sentry2 %1 перезагрузить устройство",
+    "tooltip": "Запросить перезагрузку датчика; После перезагрузки связь должна быть переинициализована"
+  },
+  "sentry2_sensor_default": {
+    "message0": "Sentry2 %1 Восстановить настройки по умолчанию Восстановить распознавание только %2",
+    "tooltip": "Восстановить настройки по умолчанию; Конфигурация связи сохраняется только после восстановления функции распознавания"
+  },
+  "sentry2_detected_count": {
+    "message0": "Sentry2 %1 функция распознавания %2 количество обнаруженных целей",
+    "tooltip": "Обновите и верните целевую сумму",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_get_value": {
+    "message0": "Sentry2 %1 читать режим %2 цель %3 %4",
+    "tooltip": "Sentry2 читать режим цель",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "x-координата (x-координата).",
+            "kXValue"
+          ],
+          [
+            "Вертикальные координаты",
+            "kYValue"
+          ],
+          [
+            "width",
+            "kWidthValue"
+          ],
+          [
+            "Высота",
+            "kHeightValue"
+          ],
+          [
+            "этикетка",
+            "kLabel"
+          ],
+          [
+            "Красное значение",
+            "kRValue"
+          ],
+          [
+            "Зелёное значение",
+            "kGValue"
+          ],
+          [
+            "Синее значение",
+            "kBValue"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_detected_label": {
+    "message0": "Sentry2 %1 функция распознавания %2 метка цели %3 равно %4",
+    "tooltip": "Проверьте, соответствует ли классификационная метка для указанной цели заданному значению",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry2_get_qrcode": {
+    "message0": "Sentry2 %1 Чтение текста с QR-кодом",
+    "tooltip": "Прочитайте самый свежий QR-код, чтобы определить текст"
+  },
+  "sentry2_vision_status": {
+    "message0": "Функция распознавания %1 Sentry2 %2 включена?",
+    "tooltip": "Проверьте, включена ли функция распознавания",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_update_result": {
+    "message0": "Sentry2 %1 настроить режим %2 результат",
+    "tooltip": "Sentry2 настроить режим результат",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Карточка",
+            "6"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "20 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Пользовательские особенности",
+            "10"
+          ],
+          [
+            "Движение",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_image_rows": {
+    "message0": "Sentry2 %1 Высота изображения",
+    "tooltip": "Прочитайте высоту изображения"
+  },
+  "sentry2_image_cols": {
+    "message0": "Sentry2 %1 ширина изображения",
+    "tooltip": "Ширина изображения для чтения"
+  },
+  "sentry3_init_i2c": {
+    "message0": "Инициализировать переменную Sentry3 %1 двухпроводный адрес связи %2",
+    "tooltip": "Используйте стандартную двухпроводную шину платы разработки для инициализации Sentry3 и автоматически повторяйте до успешного соединения"
+  },
+  "sentry3_init_uart": {
+    "message0": "Инициализация переменной Sentry3 %1 аппаратного последовательного порта %2 скорость передачи передачи %3",
+    "tooltip": "Инициализируйте Sentry3 с помощью выбранного аппаратного последовательного порта и автоматически повторяйте до успешного соединения"
+  },
+  "sentry3_set_led": {
+    "message0": "Sentry3 %1 Индикаторный свет при обнаружении цели %2 %3 яркость, когда не detected%4",
+    "tooltip": "Установите цвет и яркость индикатора, соответствующие статусу обнаружения (от 0 до 15).",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Выкл",
+            "kLedClose"
+          ],
+          [
+            "Красный",
+            "kLedRed"
+          ],
+          [
+            "Зелёный",
+            "kLedGreen"
+          ],
+          [
+            "Жёлтый",
+            "kLedYellow"
+          ],
+          [
+            "Синий",
+            "kLedBlue"
+          ],
+          [
+            "Фиолетовый",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Белый",
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Выкл",
+            "kLedClose"
+          ],
+          [
+            "Красный",
+            "kLedRed"
+          ],
+          [
+            "Зелёный",
+            "kLedGreen"
+          ],
+          [
+            "Жёлтый",
+            "kLedYellow"
+          ],
+          [
+            "Синий",
+            "kLedBlue"
+          ],
+          [
+            "Фиолетовый",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Белый",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_ball": {
-    "message0": "Sentry1 распознан мяч %1 индекс %2",
-    "tooltip": "Возвращает True при обнаружении, иначе False",
+  "sentry3_vision_control": {
+    "message0": "Sentry3 %1 запустить %2 режим %3",
+    "tooltip": "Sentry3 запустить режим",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Мяч для пинг-понга",
-            "Sentry1::kBallTableTennis"
+            "Старт",
+            "BEGIN"
           ],
           [
-            "Теннисный мяч",
-            "Sentry1::kBallTennis"
+            "Стоп",
+            "END"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_param_num": {
+    "message0": "Sentry3 %1 Функция распознавания множеств %2 Максимальное количество targets%3",
+    "tooltip": "Установите максимальное количество возвращенных голов",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
           ]
         ]
       },
       null
     ]
+  },
+  "sentry3_set_region_param": {
+    "message0": "Sentry3 %1 установить область распознавания цвета %2 центральной горизонтальной %3 центральной вертикальной оси %4 ширину %5 высоту %6",
+    "tooltip": "Задайте положение и размер области распознавания цвета"
+  },
+  "sentry3_set_blob_param": {
+    "message0": "Sentry3 %1 задать параметры цветовых блоков %2 минимальную ширину %3 минимальную высоту %4 цветовой %5",
+    "tooltip": "Задайте условия фильтрации размеров и целевые цвета для обнаружения цветовых блоков",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Черный",
+            "1"
+          ],
+          [
+            "Белый",
+            "2"
+          ],
+          [
+            "Красный",
+            "3"
+          ],
+          [
+            "Зелёный",
+            "4"
+          ],
+          [
+            "Синий",
+            "5"
+          ],
+          [
+            "Жёлтый",
+            "6"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_label_param": {
+    "message0": "Sentry3 %1 Функция распознавания множества %2 Группа параметров %3 Значение тега %4",
+    "tooltip": "Пишите параметры тегов для глубокого обучения, карт или других алгоритмов, требующих маркировки",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry3_set_mode": {
+    "message0": "Sentry3 %1 Функция распознавания множества %2 значения режимов %3",
+    "tooltip": "Задайте режим алгоритма; Значение значений шаблонов в алгоритмах, таких как метки, штрихкоды и текст, различается",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "sentry3_set_apriltag_mode": {
+    "message0": "Sentry3 %1 Set Tag Encoding Format %2",
+    "tooltip": "Установите формат кодирования, используемый для идентификации меток",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Кодирование 16H5",
+            "0"
+          ],
+          [
+            "Кодирование 25H9",
+            "1"
+          ],
+          [
+            "Код 36H11",
+            "2"
+          ],
+          [
+            "Код 41H12",
+            "3"
+          ],
+          [
+            "Циркулярный код 21H7",
+            "4"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_barcode_mode": {
+    "message0": "Sentry3 %1 Set Format штрихкод %2",
+    "tooltip": "Установите форматы кодирования, позволяющие распознавать штрихкоды",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Кодирование EAN13",
+            "2"
+          ],
+          [
+            "Код Code128",
+            "4"
+          ],
+          [
+            "Кодирование Code39",
+            "8"
+          ],
+          [
+            "Все форматы",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_ocr_mode": {
+    "message0": "Sentry3 %1 Настроить режим распознавания текста %2",
+    "tooltip": "Настройте распознавание текста с помощью быстрых базовых моделей или точных моделей",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Базовый режим",
+            "0"
+          ],
+          [
+            "Режим точности",
+            "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_face_mode": {
+    "message0": "Sentry3 %1 настройка режима расширения лиц %2",
+    "tooltip": "Установите расширенные свойства, возвращаемые с помощью распознавания лиц",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Выражения лица и состояние глаз и рта",
+            "1"
+          ],
+          [
+            "Положение головы",
+            "2"
+          ],
+          [
+            "Распознавание эмоций",
+            "4"
+          ],
+          [
+            "Расширяй всё",
+            "7"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_level": {
+    "message0": "Sentry3 %1 функция распознавания множества %2 приоритета производительности %3",
+    "tooltip": "Задайте предпочтения по скорости и точности алгоритма",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "по умолчанию",
+            "kLevelDefault"
+          ],
+          [
+            "Сначала скорость",
+            "kLevelSpeed"
+          ],
+          [
+            "Баланс",
+            "kLevelBalance"
+          ],
+          [
+            "На первом месте стоит точность",
+            "kLevelAccuracy"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_camera_zoom": {
+    "message0": "Sentry3 %1 Set Camera Zoom %2",
+    "tooltip": "Настройте цифровой зум камеры",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "по умолчанию",
+            "kZoomDefault"
+          ],
+          [
+            "1 раз",
+            "kZoom1"
+          ],
+          [
+            "Вдвое больше",
+            "kZoom2"
+          ],
+          [
+            "3 раза",
+            "kZoom3"
+          ],
+          [
+            "4 раза",
+            "kZoom4"
+          ],
+          [
+            "5 раз",
+            "kZoom5"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_camera_awb": {
+    "message0": "Sentry3 %1 Установить баланс белого %2",
+    "tooltip": "Установите режим баланса белого на камере",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Авто",
+            "kAutoWhiteBalance"
+          ],
+          [
+            "Заблокировать текущее значение",
+            "kLockWhiteBalance"
+          ],
+          [
+            "Белый свет",
+            "kWhiteLight"
+          ],
+          [
+            "Жёлтый свет",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_coordinate": {
+    "message0": "Sentry3 %1 Задать тип координат %2",
+    "tooltip": "Результаты выбора используют абсолютные пиксельные или процентные координаты",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Абсолютные пиксели",
+            "kAbsoluteCoordinate"
+          ],
+          [
+            "Процент",
+            "kPercentageCoordinate"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_vision_default": {
+    "message0": "Sentry3 %1 восстанавливает функцию распознавания в настройках по умолчанию %2",
+    "tooltip": "Восстановить параметры по умолчанию для заданных функций распознавания",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_screen_config": {
+    "message0": "Sentry3 %1 экране On%2 показывает только пользовательское изображение %3",
+    "tooltip": "Настройка состояния отображения сенсорного экрана"
+  },
+  "sentry3_screen_fill": {
+    "message0": "Sentry3 %1 Заполняющее изображение Number%2 Красный %3 Зелёный %4 Синий, %5",
+    "tooltip": "Заполните слой изображения экрана заданными цветами"
+  },
+  "sentry3_snapshot": {
+    "message0": "Sentry3 %1 скриншот %2 исходный %3 format%4",
+    "tooltip": "Сохраняйте или отправляйте изображения с камеры или экрана назначенным целям",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Карта памяти",
+            "kSnapshot2SD"
+          ],
+          [
+            "Последовательный порт",
+            "kSnapshot2Uart"
+          ],
+          [
+            "Универсальный последовательный интерфейс",
+            "kSnapshot2Usb"
+          ],
+          [
+            "Беспроводная сеть",
+            "kSnapshot2Wifi"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "камера",
+            "kSnapshotFromCamera"
+          ],
+          [
+            "экран",
+            "kSnapshotFromScreen"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Оригинальный цветовой формат",
+            "kSnapshotTypeRGB565"
+          ],
+          [
+            "Сжать изображение",
+            "kSnapshotTypeJPEG"
+          ],
+          [
+            "Изображения, закодированные текстом",
+            "kSnapshotTypeJPEGBase64"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_restart": {
+    "message0": "Sentry3 %1 перезагрузка устройства.",
+    "tooltip": "Запросить перезагрузку датчика; После перезагрузки связь должна быть переинициализована"
+  },
+  "sentry3_sensor_default": {
+    "message0": "Sentry3 %1 Восстановить настройки по умолчанию Восстановить только распознавание %2",
+    "tooltip": "Восстановить настройки по умолчанию; Конфигурация связи сохраняется только после восстановления функции распознавания"
+  },
+  "sentry3_detected_count": {
+    "message0": "Sentry3 %1 функция распознавания %2 количество обнаруженных целей",
+    "tooltip": "Обновите и верните целевую сумму",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_get_value": {
+    "message0": "Sentry3 %1 читать режим %2 цель %3 %4",
+    "tooltip": "Sentry3 читать режим цель",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "x-координата (x-координата).",
+            "kXValue"
+          ],
+          [
+            "Вертикальные координаты",
+            "kYValue"
+          ],
+          [
+            "width",
+            "kWidthValue"
+          ],
+          [
+            "Высота",
+            "kHeightValue"
+          ],
+          [
+            "этикетка",
+            "kLabel"
+          ],
+          [
+            "Красное значение",
+            "kRValue"
+          ],
+          [
+            "Зелёное значение",
+            "kGValue"
+          ],
+          [
+            "Синее значение",
+            "kBValue"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_detected_label": {
+    "message0": "Sentry3 %1 функция распознавания %2 целевой %3 тег равен %4",
+    "tooltip": "Проверьте, соответствует ли классификационная метка для указанной цели заданному значению",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry3_get_string": {
+    "message0": "Sentry3 %1 читает текст %2 целевой %3",
+    "tooltip": "Читайте QR-коды, штрихкоды, тексты, характеристики лица или текст на номерных знаках",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Черты лица",
+            "7"
+          ],
+          [
+            "Текст QR-кода",
+            "9"
+          ],
+          [
+            "Текст штрих-кода",
+            "10"
+          ],
+          [
+            "Текст для распознавания текста",
+            "12"
+          ],
+          [
+            "Текст номерного знака",
+            "14"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "sentry3_vision_status": {
+    "message0": "Функция распознавания %1 Sentry3 %2 включена?",
+    "tooltip": "Проверьте, включена ли функция распознавания",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_update_result": {
+    "message0": "Sentry3 %1 настроить режим %2 результат",
+    "tooltip": "Sentry3 настроить режим результат",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Цвет",
+            "1"
+          ],
+          [
+            "Область",
+            "2"
+          ],
+          [
+            "Признание лейбла",
+            "3"
+          ],
+          [
+            "Линия",
+            "4"
+          ],
+          [
+            "Обучение",
+            "5"
+          ],
+          [
+            "Лицо",
+            "7"
+          ],
+          [
+            "80 классов",
+            "8"
+          ],
+          [
+            "QR-код",
+            "9"
+          ],
+          [
+            "Штрихкод",
+            "10"
+          ],
+          [
+            "Текст",
+            "12"
+          ],
+          [
+            "Жест",
+            "13"
+          ],
+          [
+            "Номер",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_image_rows": {
+    "message0": "Sentry3 %1 Высота изображения",
+    "tooltip": "Прочитайте высоту изображения"
+  },
+  "sentry3_image_cols": {
+    "message0": "Sentry3 %1 ширину изображения",
+    "tooltip": "Ширина изображения для чтения"
+  },
+  "sentry3_wifi_connect": {
+    "message0": "Sentry3 %1 Подключиться к беспроводной сети — имя %2 пароль %3",
+    "tooltip": "Настройте беспроводную сеть и ждите успешного соединения; Доступна только инициализация последовательных портов"
+  },
+  "sentry3_wifi_close": {
+    "message0": "Sentry3 %1 Отключить беспроводную сеть",
+    "tooltip": "Отключите беспроводную сеть датчика"
+  },
+  "sentry3_llm_mode": {
+    "message0": "Sentry3 %1 Настройка режима большой модели %2",
+    "tooltip": "Настройте режим работы большой модели; Распознавание голосовых разговоров и речи зависит от поддержки прошивки",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Выкл",
+            "kModeClose"
+          ],
+          [
+            "Текстуальное рассуждение",
+            "kModeChat"
+          ],
+          [
+            "Образовое рассуждение",
+            "kModeImage"
+          ],
+          [
+            "Голосовой разговор",
+            "kModeTalk"
+          ],
+          [
+            "распознавание речи",
+            "kModeASR"
+          ],
+          [
+            "синтез речи",
+            "kModeTTS"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_llm_model": {
+    "message0": "Sentry3 %1 Set Large Model Name %2",
+    "tooltip": "Задайте название модели облака с большим размером"
+  },
+  "sentry3_llm_api_key": {
+    "message0": "Sentry3 %1 Set Large Model Key %2",
+    "tooltip": "Задайте сервисный ключ для большой модели"
+  },
+  "sentry3_llm_prompt": {
+    "message0": "Sentry3 %1 Set System Prompts %2",
+    "tooltip": "Задайте запрос для системы больших моделей"
+  },
+  "sentry3_llm_voice": {
+    "message0": "Sentry3 %1 Set Синтезированный вокал %2",
+    "tooltip": "Задайте название голоса, используемого для синтеза речи"
+  },
+  "sentry3_llm_thinking": {
+    "message0": "Sentry3 %1 Глубокое мышление %2",
+    "tooltip": "Включите или отключите глубокое мышление для больших моделей"
+  },
+  "sentry3_llm_chat": {
+    "message0": "Sentry3 %1 большой модели вводит текст %2 возвращает ответы",
+    "tooltip": "Текст отправляется на текущую большую модель, и возвращается ответ"
+  },
+  "sentry3_llm_tts": {
+    "message0": "Текст синтеза речи %1 Sentry3 %2",
+    "tooltip": "Текст синтезируется в речь и воспроизводится через сенсорные динамики"
   }
 }

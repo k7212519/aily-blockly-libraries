@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "Initialize EEPROM size %1 bytes",
+    "tooltip": "Allocate EEPROM emulation storage area."
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM read byte address %1",
+    "tooltip": "Read a byte at the specified address."
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM write byte address %1 value %2",
+    "tooltip": "Write a byte, which needs to be submitted later."
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM reads %1 address %2",
+    "tooltip": "Read the value according to the specified type.",
+    "args0": [
+      {
+        "options": [
+          [
+            "integer",
+            "readInt"
+          ],
+          [
+            "Unsigned integer",
+            "readUInt"
+          ],
+          [
+            "Long integer",
+            "readLong64"
+          ],
+          [
+            "Floating point number",
+            "readFloat"
+          ],
+          [
+            "Double precision",
+            "readDouble"
+          ],
+          [
+            "Boolean value",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM writes %1 address %2 value %3",
+    "tooltip": "Write a value according to the specified type.",
+    "args0": [
+      {
+        "options": [
+          [
+            "integer",
+            "writeInt"
+          ],
+          [
+            "Unsigned integer",
+            "writeUInt"
+          ],
+          [
+            "Long integer",
+            "writeLong64"
+          ],
+          [
+            "Floating point number",
+            "writeFloat"
+          ],
+          [
+            "Double precision",
+            "writeDouble"
+          ],
+          [
+            "Boolean value",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM read string address %1",
+    "tooltip": "Read a zero-terminated string."
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM write string address %1 text %2",
+    "tooltip": "Writes a string and returns the written length."
+  },
+  "esp32_eeprom_commit": {
+    "message0": "Commit EEPROM changes",
+    "tooltip": "Write cached changes to Flash."
+  },
+  "esp32_eeprom_end": {
+    "message0": "End EEPROM",
+    "tooltip": "Commit and release the EEPROM buffer."
+  },
+  "esp32_eeprom_length": {
+    "message0": "EEPROM capacity",
+    "tooltip": "Returns the current EEPROM capacity."
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM has uncommitted changes",
+    "tooltip": "Check cache for uncommitted changes."
+  }
+}

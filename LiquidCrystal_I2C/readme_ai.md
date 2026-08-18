@@ -8,16 +8,16 @@ LCD1602/2004 I2C display control support library supports Arduino UNO, MEGA, ESP
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `lcd_i2c_init` | Statement | ADDRESS(dropdown), COLS(field_number), ROWS(field_number) | `lcd_i2c_init("0x27", 16, 2)` | lcd.init();\n |
-| `lcd_i2c_clear` | Statement | (none) | `lcd_i2c_clear()` | lcd.clear();\n |
-| `lcd_i2c_set_cursor` | Statement | COL(input_value), ROW(input_value) | `lcd_i2c_set_cursor(math_number(0), math_number(0))` | lcd.setCursor( |
-| `lcd_i2c_print` | Statement | TEXT(input_value) | `lcd_i2c_print(text("value"))` | lcd.write(...);\n |
-| `lcd_i2c_print_position` | Statement | COL(input_value), ROW(input_value), TEXT(input_value) | `lcd_i2c_print_position(math_number(0), math_number(0), text("value"))` | lcd.setCursor( |
-| `lcd_i2c_backlight_on` | Statement | (none) | `lcd_i2c_backlight_on()` | lcd.backlight();\n |
-| `lcd_i2c_backlight_off` | Statement | (none) | `lcd_i2c_backlight_off()` | lcd.noBacklight();\n |
-| `lcd_i2c_custom_char` | Value | CUSTOM_CHAR(field_bitmap), CHAR_INDEX(dropdown) | `lcd_i2c_custom_char("0")` | Dynamic code |
+| `lcd_i2c_init` | Statement | ADDRESS(dropdown), COLS(field_number), ROWS(field_number) | `lcd_i2c_init("0x27", 16, 2)` | `lcd.init(); ↵ lcd.backlight();` |
+| `lcd_i2c_clear` | Statement | (none) | `lcd_i2c_clear()` | `lcd.clear();` |
+| `lcd_i2c_set_cursor` | Statement | COL(input_value), ROW(input_value) | `lcd_i2c_set_cursor(math_number(0), math_number(0))` | `lcd.setCursor(1, 1);` |
+| `lcd_i2c_print` | Statement | TEXT(input_value) | `lcd_i2c_print(text("value"))` | `lcd.print(1);` |
+| `lcd_i2c_print_position` | Statement | COL(input_value), ROW(input_value), TEXT(input_value) | `lcd_i2c_print_position(math_number(0), math_number(0), text("value"))` | `lcd.setCursor(1, 1); ↵ lcd.print(1);` |
+| `lcd_i2c_backlight_on` | Statement | (none) | `lcd_i2c_backlight_on()` | `lcd.backlight();` |
+| `lcd_i2c_backlight_off` | Statement | (none) | `lcd_i2c_backlight_off()` | `lcd.noBacklight();` |
+| `lcd_i2c_custom_char` | Value | CUSTOM_CHAR(field_bitmap), CHAR_INDEX(dropdown) | `lcd_i2c_custom_char([[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]], 0)` | `0` |
 
 ## Parameter Options
 
@@ -35,7 +35,7 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, lcd_i2c_custom_char("0"))
+    serial_println(Serial, lcd_i2c_custom_char([[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]], 0))
     time_delay(math_number(1000))
 ```
 

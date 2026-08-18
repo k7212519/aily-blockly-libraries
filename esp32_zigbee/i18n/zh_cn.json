@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 Zigbee",
+  "esp32_zigbee_begin": {
+    "message0": "启动 Zigbee 角色 %1 擦除配置 %2",
+    "tooltip": "以指定角色启动 Zigbee。",
+    "args0": [
+      {
+        "options": [
+          [
+            "终端设备",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "路由器",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "协调器",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee 已连接",
+    "tooltip": "检查 Zigbee 是否已加入网络。"
+  },
+  "esp32_zigbee_network": {
+    "message0": "Zigbee 网络 %1 超时 %2 秒",
+    "tooltip": "控制设备加入网络。",
+    "args0": [
+      {
+        "options": [
+          [
+            "开放入网",
+            "openNetwork"
+          ],
+          [
+            "关闭入网",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Zigbee 恢复出厂",
+    "tooltip": "清除 Zigbee 网络配置并重启。"
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "创建 Zigbee 灯 %1 端点 %2",
+    "tooltip": "创建开关灯端点并加入 Zigbee。"
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Zigbee 灯 %1 设置 %2",
+    "tooltip": "更新 Zigbee 灯状态。"
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "Zigbee 灯 %1 状态",
+    "tooltip": "读取 Zigbee 灯当前状态。"
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "创建 Zigbee 温度传感器 %1 端点 %2",
+    "tooltip": "创建温度传感器端点并加入 Zigbee。"
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "Zigbee 温度传感器 %1 更新 %2 ℃ 并上报",
+    "tooltip": "设置并上报温度。"
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "创建 Zigbee 占用传感器 %1 端点 %2",
+    "tooltip": "创建占用传感器端点并加入 Zigbee。"
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Zigbee 占用传感器 %1 更新 %2 并上报",
+    "tooltip": "设置并上报占用状态。"
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "创建 Zigbee 接触传感器 %1 端点 %2",
+    "tooltip": "创建接触传感器端点并加入 Zigbee。"
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Zigbee 接触传感器 %1 状态 %2",
+    "tooltip": "设置并上报接触状态。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "闭合",
+            "setClosed"
+          ],
+          [
+            "打开",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

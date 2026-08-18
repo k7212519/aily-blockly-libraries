@@ -8,12 +8,12 @@ Blockly library for Seeed Tca9548a.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tca9548a_init` | Statement | ADDRESS(dropdown) | `tca9548a_init("0x70")` | Wire.begin();\ntca9548a_mux.begin(Wire, |
-| `tca9548a_open_channel` | Statement | CHANNEL(dropdown) | `tca9548a_open_channel(TCA_CHANNEL_0)` | tca9548a_mux.openChannel( |
-| `tca9548a_close_channel` | Statement | CHANNEL(dropdown) | `tca9548a_close_channel(TCA_CHANNEL_0)` | tca9548a_mux.closeChannel( |
-| `tca9548a_close_all` | Statement | (none) | `tca9548a_close_all()` | tca9548a_mux.closeAll();\n |
+| `tca9548a_init` | Statement | ADDRESS(dropdown) | `tca9548a_init("0x70")` | `Wire.begin(); ↵ tca9548a_mux.begin(Wire, 0x70);` |
+| `tca9548a_open_channel` | Statement | CHANNEL(dropdown) | `tca9548a_open_channel(TCA_CHANNEL_0)` | `tca9548a_mux.openChannel(TCA_CHANNEL_0);` |
+| `tca9548a_close_channel` | Statement | CHANNEL(dropdown) | `tca9548a_close_channel(TCA_CHANNEL_0)` | `tca9548a_mux.closeChannel(TCA_CHANNEL_0);` |
+| `tca9548a_close_all` | Statement | (none) | `tca9548a_close_all()` | `tca9548a_mux.closeAll();` |
 
 ## Parameter Options
 

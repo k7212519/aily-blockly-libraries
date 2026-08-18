@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "初期化 Arduino GFX %1 表示 %2 DC %3 CS %4 リセット %5 回転 %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "ハードウェア SPI バスと共通 Arduino_GFX ディスプレイ ドライバーを作成します。"
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 全画面カラー %2",
+    "tooltip": "ディスプレイ全体を RGB565 カラーで塗りつぶします。"
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 ライン x0 %2 y0 %3 x1 %4 y1 %5 カラー %6",
+    "tooltip": "線分を描きます。"
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 長方形 x %3 y %4 幅 %5 高さ %6 色 %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "輪郭形状",
+            "drawRect"
+          ],
+          [
+            "塗りつぶされた形状",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "アウトラインまたは塗りつぶされた長方形を描きます。"
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 円 x %3 y %4 半径 %5 カラー %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "輪郭形状",
+            "drawCircle"
+          ],
+          [
+            "塗りつぶされた形状",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "白抜きまたは塗りつぶされた円を描きます。"
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 文字色 %2 背景 %3 サイズ %4 ラップ %5",
+    "tooltip": "テキストの色、背景、スケール、折り返しを設定します。"
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 で x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "改行なしで印刷する",
+            "print"
+          ],
+          [
+            "改行を入れて印刷する",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "カーソルを配置してテキストを描画します。"
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "回転を設定する",
+            "setRotation"
+          ],
+          [
+            "反転表示",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "表示の回転や反転を変更します。"
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "幅",
+            "width"
+          ],
+          [
+            "身長",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "現在の論理表示ディメンションを読み取ります。"
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 赤 %1 緑 %2 青 %3",
+    "tooltip": "8 ビット RGB コンポーネントを RGB565 カラーに変換します。"
+  }
+}

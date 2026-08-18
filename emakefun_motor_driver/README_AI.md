@@ -8,17 +8,17 @@ Emakefun motor driver board supports 4-channel DC motors, 8-channel servos, 2-ch
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `emakefun_md_init` | Statement | VAR(field_input), ADDR(dropdown), FREQ(dropdown) | `emakefun_md_init("mMotor", "0x60", "50")` | Dynamic code |
-| `emakefun_md_dc_run` | Statement | VAR(field_variable), MOTOR(dropdown), SPEED(input_value), DIR(dropdown) | `emakefun_md_dc_run(variables_get($mMotor), "1", math_number(9600), FORWARD)` | Dynamic code |
-| `emakefun_md_dc_stop` | Statement | VAR(field_variable), MOTOR(dropdown), ACTION(dropdown) | `emakefun_md_dc_stop(variables_get($mMotor), "1", BRAKE)` | Dynamic code |
-| `emakefun_md_servo_write` | Statement | VAR(field_variable), SERVO(dropdown), ANGLE(input_value) | `emakefun_md_servo_write(variables_get($mMotor), "1", math_number(90))` | Dynamic code |
-| `emakefun_md_servo_write_speed` | Statement | VAR(field_variable), SERVO(dropdown), ANGLE(input_value), SPEED(input_value) | `emakefun_md_servo_write_speed(variables_get($mMotor), "1", math_number(90), math_number(9600))` | Dynamic code |
-| `emakefun_md_servo_read` | Value | VAR(field_variable), SERVO(dropdown) | `emakefun_md_servo_read(variables_get($mMotor), "1")` | Dynamic code |
-| `emakefun_md_stepper_speed` | Statement | VAR(field_variable), STEPPER(dropdown), RPM(input_value) | `emakefun_md_stepper_speed(variables_get($mMotor), "1", math_number(0))` | Dynamic code |
-| `emakefun_md_stepper_step` | Statement | VAR(field_variable), STEPPER(dropdown), STEPS(input_value), DIR(dropdown), STYLE(dropdown) | `emakefun_md_stepper_step(variables_get($mMotor), "1", math_number(0), FORWARD, SINGLE)` | Dynamic code |
-| `emakefun_md_stepper_release` | Statement | VAR(field_variable), STEPPER(dropdown) | `emakefun_md_stepper_release(variables_get($mMotor), "1")` | Dynamic code |
+| `emakefun_md_init` | Statement | VAR(field_input), ADDR(dropdown), FREQ(dropdown) | `emakefun_md_init("mMotor", "0x60", "50")` | `Emakefun_MotorDriver mMotor = Emakefun_MotorDriver(0x60); ↵ mMotor.begin(50);` |
+| `emakefun_md_dc_run` | Statement | VAR(field_variable), MOTOR(dropdown), SPEED(input_value), DIR(dropdown) | `emakefun_md_dc_run($mMotor, "1", math_number(9600), FORWARD)` | `mMotor_dc1->setSpeed(1); ↵ mMotor_dc1->run(FORWARD);` |
+| `emakefun_md_dc_stop` | Statement | VAR(field_variable), MOTOR(dropdown), ACTION(dropdown) | `emakefun_md_dc_stop($mMotor, "1", BRAKE)` | `mMotor_dc1->run(BRAKE);` |
+| `emakefun_md_servo_write` | Statement | VAR(field_variable), SERVO(dropdown), ANGLE(input_value) | `emakefun_md_servo_write($mMotor, "1", math_number(90))` | `mMotor_servo1->writeServo(1);` |
+| `emakefun_md_servo_write_speed` | Statement | VAR(field_variable), SERVO(dropdown), ANGLE(input_value), SPEED(input_value) | `emakefun_md_servo_write_speed($mMotor, "1", math_number(90), math_number(9600))` | `mMotor_servo1->writeServo(1, 1);` |
+| `emakefun_md_servo_read` | Value | VAR(field_variable), SERVO(dropdown) | `emakefun_md_servo_read($mMotor, "1")` | `mMotor_servo1->readDegrees()` |
+| `emakefun_md_stepper_speed` | Statement | VAR(field_variable), STEPPER(dropdown), RPM(input_value) | `emakefun_md_stepper_speed($mMotor, "1", math_number(0))` | `mMotor_stepper1->setSpeed(1);` |
+| `emakefun_md_stepper_step` | Statement | VAR(field_variable), STEPPER(dropdown), STEPS(input_value), DIR(dropdown), STYLE(dropdown) | `emakefun_md_stepper_step($mMotor, "1", math_number(0), FORWARD, SINGLE)` | `mMotor_stepper1->step(1, FORWARD, SINGLE);` |
+| `emakefun_md_stepper_release` | Statement | VAR(field_variable), STEPPER(dropdown) | `emakefun_md_stepper_release($mMotor, "1")` | `mMotor_stepper1->release();` |
 
 ## Parameter Options
 
@@ -42,12 +42,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, emakefun_md_servo_read(variables_get($mMotor), "1"))
+    serial_println(Serial, emakefun_md_servo_read($mMotor, "1"))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `emakefun_md_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `emakefun_md_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

@@ -1,0 +1,2618 @@
+{
+  "kind": "category",
+  "name": "Xiaomi MiMo AI",
+  "colour": "#2563EB",
+  "contents": [
+    {
+      "kind": "category",
+      "name": "初始化",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "mimo_init",
+          "inputs": {
+            "API_KEY": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "YOUR_MIMO_API_KEY"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_speaker_init_i2s",
+          "inputs": {
+            "BCLK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 39
+                }
+              }
+            },
+            "LRC": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 40
+                }
+              }
+            },
+            "DIN": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 38
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_init",
+          "inputs": {
+            "SDA": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 8
+                }
+              }
+            },
+            "SCL": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 9
+                }
+              }
+            },
+            "MCK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 16
+                }
+              }
+            },
+            "BCK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 4
+                }
+              }
+            },
+            "WS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 5
+                }
+              }
+            },
+            "DOUT": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 6
+                }
+              }
+            },
+            "DIN": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 7
+                }
+              }
+            },
+            "DURATION": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 5
+                }
+              }
+            },
+            "PA_EN": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": -1
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_init_profile",
+          "inputs": {
+            "QUALITY": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 12
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_init_i2s_preset",
+          "inputs": {
+            "BCLK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 41
+                }
+              }
+            },
+            "WS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 42
+                }
+              }
+            },
+            "DATA": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 2
+                }
+              }
+            },
+            "RATE": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 16000
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_init_i2s",
+          "inputs": {
+            "BCLK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 41
+                }
+              }
+            },
+            "WS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 42
+                }
+              }
+            },
+            "DATA": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 2
+                }
+              }
+            },
+            "RATE": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 16000
+                }
+              }
+            },
+            "GAIN": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 4
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_init_pdm",
+          "inputs": {
+            "CLK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 42
+                }
+              }
+            },
+            "DATA": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 41
+                }
+              }
+            },
+            "RATE": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 16000
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_init_custom",
+          "inputs": {
+            "QUALITY": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 12
+                }
+              }
+            },
+            "PWDN": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": -1
+                }
+              }
+            },
+            "RESET": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": -1
+                }
+              }
+            },
+            "XCLK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "SIOD": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 40
+                }
+              }
+            },
+            "SIOC": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 39
+                }
+              }
+            },
+            "Y2": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 15
+                }
+              }
+            },
+            "Y3": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 17
+                }
+              }
+            },
+            "Y4": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 18
+                }
+              }
+            },
+            "Y5": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 16
+                }
+              }
+            },
+            "Y6": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 14
+                }
+              }
+            },
+            "Y7": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 12
+                }
+              }
+            },
+            "Y8": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 11
+                }
+              }
+            },
+            "Y9": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 48
+                }
+              }
+            },
+            "VSYNC": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 38
+                }
+              }
+            },
+            "HREF": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 47
+                }
+              }
+            },
+            "PCLK": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 13
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "功能设置",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "mimo_set_ca_certificate",
+          "inputs": {
+            "CERT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_set_model"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_set_system_prompt",
+          "inputs": {
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你是小米公司研发的 MiMo AI 智能助手。"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_set_generation",
+          "inputs": {
+            "MAX_TOKENS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 128
+                }
+              }
+            },
+            "TEMPERATURE": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 0.8
+                }
+              }
+            },
+            "TOP_P": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 0.95
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_set_json_mode",
+          "inputs": {
+            "ENABLED": {
+              "shadow": {
+                "type": "logic_boolean",
+                "fields": {
+                  "BOOL": "TRUE"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_clear_messages"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_add_user_message",
+          "inputs": {
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "用户消息"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_add_assistant_message",
+          "inputs": {
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "助手消息"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_chat",
+          "inputs": {
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你好，请介绍一下自己"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_chat_with_tools",
+          "inputs": {
+            "TOOLS": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "[]"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "查询当前信息"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_when_tool_called",
+          "inputs": {
+            "NAME": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "get_weather"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_tool_arguments"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_continue_tool",
+          "inputs": {
+            "RESULT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "工具执行结果"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_web_search",
+          "inputs": {
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "今天的天气怎么样？"
+                }
+              }
+            },
+            "FORCE": {
+              "shadow": {
+                "type": "logic_boolean",
+                "fields": {
+                  "BOOL": "TRUE"
+                }
+              }
+            },
+            "MAX_KEYWORD": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 3
+                }
+              }
+            },
+            "LIMIT": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 1
+                }
+              }
+            },
+            "COUNTRY": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "China"
+                }
+              }
+            },
+            "REGION": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            },
+            "CITY": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_image_url",
+          "inputs": {
+            "URL": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "https://example.com/image.jpg"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述图片内容"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_image_base64",
+          "inputs": {
+            "DATA": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "BASE64_IMAGE"
+                }
+              }
+            },
+            "MIME": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "image/jpeg"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述图片内容"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_audio_url",
+          "inputs": {
+            "URL": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "https://example.com/audio.wav"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述音频内容"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_audio_base64",
+          "inputs": {
+            "DATA": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "BASE64_AUDIO"
+                }
+              }
+            },
+            "MIME": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "audio/wav"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述音频内容"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_video_url",
+          "inputs": {
+            "URL": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "https://example.com/video.mp4"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述视频内容"
+                }
+              }
+            },
+            "FPS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 2
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_video_base64",
+          "inputs": {
+            "DATA": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "BASE64_VIDEO"
+                }
+              }
+            },
+            "MIME": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "video/mp4"
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述视频内容"
+                }
+              }
+            },
+            "FPS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 2
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_asr_base64",
+          "inputs": {
+            "DATA": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "BASE64_WAV"
+                }
+              }
+            },
+            "MIME": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "audio/wav"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_tts_preset",
+          "inputs": {
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你好，欢迎使用 MiMo。"
+                }
+              }
+            },
+            "STYLE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "温柔、自然、语速适中"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_tts_speak_i2s",
+          "inputs": {
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你好，欢迎使用 MiMo。"
+                }
+              }
+            },
+            "STYLE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "快速清楚朗读。"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_tts_speak_es8311",
+          "inputs": {
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你好，欢迎使用 ES8311。"
+                }
+              }
+            },
+            "STYLE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "快速清楚朗读。"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_tts_voice_design",
+          "inputs": {
+            "DESCRIPTION": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "温暖自信的青年女声"
+                }
+              }
+            },
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你好，欢迎使用 MiMo。"
+                }
+              }
+            },
+            "OPTIMIZE": {
+              "shadow": {
+                "type": "logic_boolean",
+                "fields": {
+                  "BOOL": "TRUE"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_tts_voice_clone",
+          "inputs": {
+            "SAMPLE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "BASE64_VOICE_SAMPLE"
+                }
+              }
+            },
+            "MIME": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "audio/wav"
+                }
+              }
+            },
+            "TEXT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "你好，欢迎使用 MiMo。"
+                }
+              }
+            },
+            "STYLE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "自然表达"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_speaker_tone",
+          "inputs": {
+            "FREQ": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 880
+                }
+              }
+            },
+            "MS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 180
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_set_volume",
+          "inputs": {
+            "VOLUME": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 75
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_set_mic_gain",
+          "inputs": {
+            "GAIN": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 4
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_tone",
+          "inputs": {
+            "FREQ": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 880
+                }
+              }
+            },
+            "MS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 180
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_capture"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_ask",
+          "inputs": {
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述摄像头拍摄的画面"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_end"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_record",
+          "inputs": {
+            "SECONDS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 3
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_transcribe",
+          "inputs": {
+            "SECONDS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 3
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_analyze",
+          "inputs": {
+            "SECONDS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 3
+                }
+              }
+            },
+            "PROMPT": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": "描述录音内容"
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_record",
+          "inputs": {
+            "SECONDS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 3
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_transcribe",
+          "inputs": {
+            "SECONDS": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 3
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_end"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_end"
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "状态诊断",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "mimo_ok"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_last_reasoning"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_last_error"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_http_status"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_token_usage"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_raw_response"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_ready"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_camera_error"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_ready"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_mic_error"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_speaker_ready"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_speaker_error"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_ready"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_error"
+        },
+        {
+          "kind": "block",
+          "type": "mimo_es8311_sound_level"
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "串口问答示例",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "变量声明"
+        },
+        {
+          "kind": "label",
+          "text": "提示：请手动将变量类型改为字符串型"
+        },
+        {
+          "kind": "block",
+          "type": "variable_define",
+          "fields": {
+            "VAR": "mimoQuestion",
+            "TYPE": "String"
+          },
+          "inputs": {
+            "VALUE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "variable_define",
+              "fields": {
+                "VAR": "mimoReply",
+                "TYPE": "String"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "初始化"
+        },
+        {
+          "kind": "block",
+          "type": "serial_begin",
+          "fields": {
+            "SERIAL": "Serial",
+            "SPEED": "115200"
+          },
+          "next": {
+            "block": {
+              "type": "esp32_wifi_begin",
+              "inputs": {
+                "SSID": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": "YOUR_WIFI_SSID"
+                    }
+                  }
+                },
+                "PASSWORD": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": "YOUR_WIFI_PASSWORD"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "mimo_init",
+                  "inputs": {
+                    "API_KEY": {
+                      "shadow": {
+                        "type": "text",
+                        "fields": {
+                          "TEXT": "YOUR_MIMO_API_KEY"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "mimo_set_model",
+                      "fields": {
+                        "MODEL": "mimo-v2.5"
+                      },
+                      "next": {
+                        "block": {
+                          "type": "mimo_set_system_prompt",
+                          "inputs": {
+                            "PROMPT": {
+                              "shadow": {
+                                "type": "text",
+                                "fields": {
+                                  "TEXT": "你是一个简短自然的中文助手。"
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "mimo_set_generation",
+                              "fields": {
+                                "THINKING": "disabled"
+                              },
+                              "inputs": {
+                                "MAX_TOKENS": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 128
+                                    }
+                                  }
+                                },
+                                "TEMPERATURE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 0.8
+                                    }
+                                  }
+                                },
+                                "TOP_P": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 0.95
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "serial_println",
+                                  "fields": {
+                                    "SERIAL": "Serial"
+                                  },
+                                  "inputs": {
+                                    "VAR": {
+                                      "shadow": {
+                                        "type": "text",
+                                        "fields": {
+                                          "TEXT": "Ready. Type a message."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "loop"
+        },
+        {
+          "kind": "block",
+          "type": "controls_if",
+          "inputs": {
+            "IF0": {
+              "block": {
+                "type": "serial_available",
+                "fields": {
+                  "SERIAL": "Serial"
+                }
+              }
+            },
+            "DO0": {
+              "block": {
+                "type": "variables_set",
+                "fields": {
+                  "VAR": "mimoQuestion"
+                },
+                "inputs": {
+                  "VALUE": {
+                    "block": {
+                      "type": "serial_read_string",
+                      "fields": {
+                        "SERIAL": "Serial"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "variables_set",
+                    "fields": {
+                      "VAR": "mimoReply"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "block": {
+                          "type": "mimo_chat",
+                          "inputs": {
+                            "PROMPT": {
+                              "block": {
+                                "type": "variables_get",
+                                "fields": {
+                                  "VAR": "mimoQuestion"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "serial_println",
+                        "fields": {
+                          "SERIAL": "Serial"
+                        },
+                        "inputs": {
+                          "VAR": {
+                            "block": {
+                              "type": "variables_get",
+                              "fields": {
+                                "VAR": "mimoReply"
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "serial_println",
+                            "fields": {
+                              "SERIAL": "Serial"
+                            },
+                            "inputs": {
+                              "VAR": {
+                                "block": {
+                                  "type": "mimo_last_error",
+                                  "fields": {
+                                    "VAR": "mimo"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "串口朗读示例",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "变量声明"
+        },
+        {
+          "kind": "label",
+          "text": "提示：请手动将变量类型改为字符串型"
+        },
+        {
+          "kind": "block",
+          "type": "variable_define",
+          "fields": {
+            "VAR": "mimoQuestion",
+            "TYPE": "String"
+          },
+          "inputs": {
+            "VALUE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "variable_define",
+              "fields": {
+                "VAR": "mimoReply",
+                "TYPE": "String"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "初始化"
+        },
+        {
+          "kind": "block",
+          "type": "serial_begin",
+          "fields": {
+            "SERIAL": "Serial",
+            "SPEED": "115200"
+          },
+          "next": {
+            "block": {
+              "type": "esp32_wifi_begin",
+              "inputs": {
+                "SSID": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": "YOUR_WIFI_SSID"
+                    }
+                  }
+                },
+                "PASSWORD": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": "YOUR_WIFI_PASSWORD"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "mimo_init",
+                  "inputs": {
+                    "API_KEY": {
+                      "shadow": {
+                        "type": "text",
+                        "fields": {
+                          "TEXT": "YOUR_MIMO_API_KEY"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "mimo_set_system_prompt",
+                      "inputs": {
+                        "PROMPT": {
+                          "shadow": {
+                            "type": "text",
+                            "fields": {
+                              "TEXT": "你是一个简短自然的中文语音助手。请用一句话回答。"
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "mimo_set_generation",
+                          "fields": {
+                            "THINKING": "disabled"
+                          },
+                          "inputs": {
+                            "MAX_TOKENS": {
+                              "shadow": {
+                                "type": "math_number",
+                                "fields": {
+                                  "NUM": 128
+                                }
+                              }
+                            },
+                            "TEMPERATURE": {
+                              "shadow": {
+                                "type": "math_number",
+                                "fields": {
+                                  "NUM": 0.8
+                                }
+                              }
+                            },
+                            "TOP_P": {
+                              "shadow": {
+                                "type": "math_number",
+                                "fields": {
+                                  "NUM": 0.95
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "mimo_speaker_init_i2s",
+                              "inputs": {
+                                "BCLK": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 39
+                                    }
+                                  }
+                                },
+                                "LRC": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 40
+                                    }
+                                  }
+                                },
+                                "DIN": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 38
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "serial_println",
+                                  "fields": {
+                                    "SERIAL": "Serial"
+                                  },
+                                  "inputs": {
+                                    "VAR": {
+                                      "shadow": {
+                                        "type": "text",
+                                        "fields": {
+                                          "TEXT": "Ready. Type a message and press Enter."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "loop"
+        },
+        {
+          "kind": "block",
+          "type": "controls_if",
+          "inputs": {
+            "IF0": {
+              "block": {
+                "type": "serial_available",
+                "fields": {
+                  "SERIAL": "Serial"
+                }
+              }
+            },
+            "DO0": {
+              "block": {
+                "type": "variables_set",
+                "fields": {
+                  "VAR": "mimoQuestion"
+                },
+                "inputs": {
+                  "VALUE": {
+                    "block": {
+                      "type": "serial_read_string",
+                      "fields": {
+                        "SERIAL": "Serial"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "variables_set",
+                    "fields": {
+                      "VAR": "mimoReply"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "block": {
+                          "type": "mimo_chat",
+                          "inputs": {
+                            "PROMPT": {
+                              "block": {
+                                "type": "variables_get",
+                                "fields": {
+                                  "VAR": "mimoQuestion"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "serial_println",
+                        "fields": {
+                          "SERIAL": "Serial"
+                        },
+                        "inputs": {
+                          "VAR": {
+                            "block": {
+                              "type": "variables_get",
+                              "fields": {
+                                "VAR": "mimoReply"
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "mimo_tts_speak_i2s",
+                            "inputs": {
+                              "TEXT": {
+                                "block": {
+                                  "type": "variables_get",
+                                  "fields": {
+                                    "VAR": "mimoReply"
+                                  }
+                                }
+                              },
+                              "STYLE": {
+                                "shadow": {
+                                  "type": "text",
+                                  "fields": {
+                                    "TEXT": "自然清晰朗读。"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "语音对话示例",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "变量声明"
+        },
+        {
+          "kind": "label",
+          "text": "提示：请手动将变量类型改为字符串型"
+        },
+        {
+          "kind": "block",
+          "type": "variable_define",
+          "fields": {
+            "VAR": "mimoTranscript",
+            "TYPE": "String"
+          },
+          "inputs": {
+            "VALUE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "variable_define",
+              "fields": {
+                "VAR": "mimoReply",
+                "TYPE": "String"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "text",
+                    "fields": {
+                      "TEXT": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "初始化"
+        },
+        {
+          "kind": "block",
+          "type": "serial_begin",
+          "fields": {
+            "SERIAL": "Serial",
+            "SPEED": "115200"
+          },
+          "next": {
+            "block": {
+              "type": "io_pinmode",
+              "inputs": {
+                "PIN": {
+                  "block": {
+                    "type": "io_pin_digi",
+                    "fields": {
+                      "PIN": "0"
+                    }
+                  }
+                },
+                "MODE": {
+                  "block": {
+                    "type": "io_mode",
+                    "fields": {
+                      "MODE": "INPUT_PULLUP"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "esp32_wifi_begin",
+                  "inputs": {
+                    "SSID": {
+                      "shadow": {
+                        "type": "text",
+                        "fields": {
+                          "TEXT": "YOUR_WIFI_SSID"
+                        }
+                      }
+                    },
+                    "PASSWORD": {
+                      "shadow": {
+                        "type": "text",
+                        "fields": {
+                          "TEXT": "YOUR_WIFI_PASSWORD"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "mimo_init",
+                      "inputs": {
+                        "API_KEY": {
+                          "shadow": {
+                            "type": "text",
+                            "fields": {
+                              "TEXT": "YOUR_MIMO_API_KEY"
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "mimo_set_system_prompt",
+                          "inputs": {
+                            "PROMPT": {
+                              "shadow": {
+                                "type": "text",
+                                "fields": {
+                                  "TEXT": "你是一个简短自然的中文语音助手。请用一句话回答。"
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "mimo_set_generation",
+                              "fields": {
+                                "THINKING": "disabled"
+                              },
+                              "inputs": {
+                                "MAX_TOKENS": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 128
+                                    }
+                                  }
+                                },
+                                "TEMPERATURE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 0.8
+                                    }
+                                  }
+                                },
+                                "TOP_P": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 0.95
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "mimo_mic_init_i2s_preset",
+                                  "fields": {
+                                    "MODEL": "MSM261S4030H0R"
+                                  },
+                                  "inputs": {
+                                    "BCLK": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "fields": {
+                                          "NUM": 41
+                                        }
+                                      }
+                                    },
+                                    "WS": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "fields": {
+                                          "NUM": 42
+                                        }
+                                      }
+                                    },
+                                    "DATA": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "fields": {
+                                          "NUM": 2
+                                        }
+                                      }
+                                    },
+                                    "RATE": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "fields": {
+                                          "NUM": 16000
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "mimo_speaker_init_i2s",
+                                      "inputs": {
+                                        "BCLK": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "fields": {
+                                              "NUM": 39
+                                            }
+                                          }
+                                        },
+                                        "LRC": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "fields": {
+                                              "NUM": 40
+                                            }
+                                          }
+                                        },
+                                        "DIN": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "fields": {
+                                              "NUM": 38
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "serial_println",
+                                          "fields": {
+                                            "SERIAL": "Serial"
+                                          },
+                                          "inputs": {
+                                            "VAR": {
+                                              "block": {
+                                                "type": "mimo_mic_ready",
+                                                "fields": {
+                                                  "VAR": "microphone"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "loop"
+        },
+        {
+          "kind": "block",
+          "type": "controls_if",
+          "inputs": {
+            "IF0": {
+              "block": {
+                "type": "logic_compare",
+                "fields": {
+                  "OP": "EQ"
+                },
+                "inputs": {
+                  "A": {
+                    "block": {
+                      "type": "io_digitalread",
+                      "inputs": {
+                        "PIN": {
+                          "block": {
+                            "type": "io_pin_digi",
+                            "fields": {
+                              "PIN": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "B": {
+                    "block": {
+                      "type": "io_state",
+                      "fields": {
+                        "STATE": "LOW"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "DO0": {
+              "block": {
+                "type": "mimo_speaker_tone",
+                "inputs": {
+                  "FREQ": {
+                    "shadow": {
+                      "type": "math_number",
+                      "fields": {
+                        "NUM": 880
+                      }
+                    }
+                  },
+                  "MS": {
+                    "shadow": {
+                      "type": "math_number",
+                      "fields": {
+                        "NUM": 180
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "variables_set",
+                    "fields": {
+                      "VAR": "mimoTranscript"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "block": {
+                          "type": "mimo_mic_transcribe",
+                          "fields": {
+                            "LANGUAGE": "zh"
+                          },
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "math_number",
+                                "fields": {
+                                  "NUM": 3
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "serial_println",
+                        "fields": {
+                          "SERIAL": "Serial"
+                        },
+                        "inputs": {
+                          "VAR": {
+                            "block": {
+                              "type": "variables_get",
+                              "fields": {
+                                "VAR": "mimoTranscript"
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "variables_set",
+                            "fields": {
+                              "VAR": "mimoReply"
+                            },
+                            "inputs": {
+                              "VALUE": {
+                                "block": {
+                                  "type": "mimo_chat",
+                                  "inputs": {
+                                    "PROMPT": {
+                                      "block": {
+                                        "type": "variables_get",
+                                        "fields": {
+                                          "VAR": "mimoTranscript"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "next": {
+                              "block": {
+                                "type": "serial_println",
+                                "fields": {
+                                  "SERIAL": "Serial"
+                                },
+                                "inputs": {
+                                  "VAR": {
+                                    "block": {
+                                      "type": "variables_get",
+                                      "fields": {
+                                        "VAR": "mimoReply"
+                                      }
+                                    }
+                                  }
+                                },
+                                "next": {
+                                  "block": {
+                                    "type": "mimo_tts_speak_i2s",
+                                    "inputs": {
+                                      "TEXT": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": "mimoReply"
+                                          }
+                                        }
+                                      },
+                                      "STYLE": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "自然清晰朗读。"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "next": {
+                                      "block": {
+                                        "type": "time_delay",
+                                        "inputs": {
+                                          "DELAY_TIME": {
+                                            "shadow": {
+                                              "type": "math_number",
+                                              "fields": {
+                                                "NUM": 1000
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "拍照识别示例",
+      "contents": [
+        {
+          "kind": "label",
+          "text": "变量声明"
+        },
+        {
+          "kind": "label",
+          "text": "提示：请手动将变量类型改为字符串型"
+        },
+        {
+          "kind": "block",
+          "type": "variable_define",
+          "fields": {
+            "VAR": "analysisText",
+            "TYPE": "String"
+          },
+          "inputs": {
+            "VALUE": {
+              "shadow": {
+                "type": "text",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "初始化"
+        },
+        {
+          "kind": "block",
+          "type": "serial_begin",
+          "fields": {
+            "SERIAL": "Serial",
+            "SPEED": "115200"
+          },
+          "next": {
+            "block": {
+              "type": "io_pinmode",
+              "inputs": {
+                "PIN": {
+                  "block": {
+                    "type": "io_pin_digi",
+                    "fields": {
+                      "PIN": "0"
+                    }
+                  }
+                },
+                "MODE": {
+                  "block": {
+                    "type": "io_mode",
+                    "fields": {
+                      "MODE": "INPUT_PULLUP"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "esp32_wifi_begin",
+                  "inputs": {
+                    "SSID": {
+                      "shadow": {
+                        "type": "text",
+                        "fields": {
+                          "TEXT": "YOUR_WIFI_SSID"
+                        }
+                      }
+                    },
+                    "PASSWORD": {
+                      "shadow": {
+                        "type": "text",
+                        "fields": {
+                          "TEXT": "YOUR_WIFI_PASSWORD"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "mimo_init",
+                      "inputs": {
+                        "API_KEY": {
+                          "shadow": {
+                            "type": "text",
+                            "fields": {
+                              "TEXT": "YOUR_MIMO_API_KEY"
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "mimo_set_system_prompt",
+                          "inputs": {
+                            "PROMPT": {
+                              "shadow": {
+                                "type": "text",
+                                "fields": {
+                                  "TEXT": "你是一个视觉助手，请用简短、自然的中文描述照片内容。"
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "mimo_set_generation",
+                              "fields": {
+                                "THINKING": "disabled"
+                              },
+                              "inputs": {
+                                "MAX_TOKENS": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 128
+                                    }
+                                  }
+                                },
+                                "TEMPERATURE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 0.8
+                                    }
+                                  }
+                                },
+                                "TOP_P": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "fields": {
+                                      "NUM": 0.95
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "mimo_camera_init_profile",
+                                  "fields": {
+                                    "PROFILE": "ESP32S3_RGB565",
+                                    "FRAME_SIZE": "FRAMESIZE_QVGA"
+                                  },
+                                  "inputs": {
+                                    "QUALITY": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "fields": {
+                                          "NUM": 12
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "mimo_speaker_init_i2s",
+                                      "inputs": {
+                                        "BCLK": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "fields": {
+                                              "NUM": 39
+                                            }
+                                          }
+                                        },
+                                        "LRC": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "fields": {
+                                              "NUM": 40
+                                            }
+                                          }
+                                        },
+                                        "DIN": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "fields": {
+                                              "NUM": 38
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "serial_println",
+                                          "fields": {
+                                            "SERIAL": "Serial"
+                                          },
+                                          "inputs": {
+                                            "VAR": {
+                                              "block": {
+                                                "type": "mimo_camera_ready",
+                                                "fields": {
+                                                  "VAR": "camera"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "label",
+          "text": "loop"
+        },
+        {
+          "kind": "block",
+          "type": "controls_if",
+          "inputs": {
+            "IF0": {
+              "block": {
+                "type": "logic_compare",
+                "fields": {
+                  "OP": "EQ"
+                },
+                "inputs": {
+                  "A": {
+                    "block": {
+                      "type": "io_digitalread",
+                      "inputs": {
+                        "PIN": {
+                          "block": {
+                            "type": "io_pin_digi",
+                            "fields": {
+                              "PIN": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "B": {
+                    "block": {
+                      "type": "io_state",
+                      "fields": {
+                        "STATE": "LOW"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "DO0": {
+              "block": {
+                "type": "serial_println",
+                "fields": {
+                  "SERIAL": "Serial"
+                },
+                "inputs": {
+                  "VAR": {
+                    "shadow": {
+                      "type": "text",
+                      "fields": {
+                        "TEXT": "Taking photo and analyzing..."
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "variables_set",
+                    "fields": {
+                      "VAR": "analysisText"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "block": {
+                          "type": "mimo_camera_ask",
+                          "inputs": {
+                            "PROMPT": {
+                              "shadow": {
+                                "type": "text",
+                                "fields": {
+                                  "TEXT": "请分析这张照片的主要内容，用简短中文回答。"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "serial_println",
+                        "fields": {
+                          "SERIAL": "Serial"
+                        },
+                        "inputs": {
+                          "VAR": {
+                            "block": {
+                              "type": "variables_get",
+                              "fields": {
+                                "VAR": "analysisText"
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "mimo_tts_speak_i2s",
+                            "inputs": {
+                              "TEXT": {
+                                "block": {
+                                  "type": "variables_get",
+                                  "fields": {
+                                    "VAR": "analysisText"
+                                  }
+                                }
+                              },
+                              "STYLE": {
+                                "shadow": {
+                                  "type": "text",
+                                  "fields": {
+                                    "TEXT": "自然清晰朗读。"
+                                  }
+                                }
+                              }
+                            },
+                            "next": {
+                              "block": {
+                                "type": "time_delay",
+                                "inputs": {
+                                  "DELAY_TIME": {
+                                    "shadow": {
+                                      "type": "math_number",
+                                      "fields": {
+                                        "NUM": 1000
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

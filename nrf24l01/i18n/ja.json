@@ -1,0 +1,76 @@
+{
+  "toolbox_name": "nRF24L01 無線通信",
+  "toolbox_labels": {
+    "Setup": "初期化と設定",
+    "Addresses": "通信アドレス",
+    "Send and receive": "送受信",
+    "Status and power": "状態と電源"
+  },
+  "nrf24l01_init": {
+    "message0": "nRF24L01 %1 を初期化 CE ピン %2 CSN ピン %3",
+    "tooltip": "RF24 オブジェクトを作成し、SPI 無線を初期化して動的ペイロードを有効にします。モジュールは 3.3 V で給電してください。"
+  },
+  "nrf24l01_set_radio_parameters": {
+    "message0": "nRF24L01 %1 チャンネル %2 データレート %3 送信出力 %4 を設定",
+    "tooltip": "RF チャンネル（0-125）、データレート、送信出力を設定します。両方の無線でチャンネルとレートを一致させてください。",
+    "args0": [null, null, {"options": [["250 kbps", "RF24_250KBPS"], ["1 Mbps", "RF24_1MBPS"], ["2 Mbps", "RF24_2MBPS"]]}, {"options": [["最小（-18 dBm）", "RF24_PA_MIN"], ["低（-12 dBm）", "RF24_PA_LOW"], ["高（-6 dBm）", "RF24_PA_HIGH"], ["最大（0 dBm）", "RF24_PA_MAX"]]}]
+  },
+  "nrf24l01_set_retries": {
+    "message0": "nRF24L01 %1 再送遅延 %2 回数 %3 を設定",
+    "tooltip": "自動再送の遅延と回数を設定します。各値の範囲は 0-15 です。"
+  },
+  "nrf24l01_set_auto_ack": {
+    "message0": "nRF24L01 %1 自動確認応答 %2",
+    "tooltip": "すべての受信パイプで自動確認応答を有効または無効にします。"
+  },
+  "nrf24l01_open_writing_pipe": {
+    "message0": "nRF24L01 %1 送信先アドレス %2 を設定",
+    "tooltip": "送信先アドレスを設定して送信モードにします。先頭 5 バイトを使用し、短い場合は補完します。"
+  },
+  "nrf24l01_open_reading_pipe": {
+    "message0": "nRF24L01 %1 受信パイプ %2 アドレス %3 を開く",
+    "tooltip": "5 バイトのアドレスで受信パイプ 0-5 を開きます。パイプ 2-5 の末尾 4 バイトはパイプ 1 と共通にしてください。"
+  },
+  "nrf24l01_set_listening": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "受信モードと送信モードを切り替えます。受信開始前に受信パイプを開いてください。",
+    "args0": [null, {"options": [["受信を開始", "START"], ["受信を停止", "STOP"]]}]
+  },
+  "nrf24l01_send_text": {
+    "message0": "nRF24L01 %1 文字列 %2 を送信",
+    "tooltip": "最大 31 文字バイトと終端文字を送信し、確認応答の結果を保存します。"
+  },
+  "nrf24l01_send_number": {
+    "message0": "nRF24L01 %1 数値 %2 を送信",
+    "tooltip": "数値を 32 ビット浮動小数点ペイロードとして送信し、確認応答の結果を保存します。"
+  },
+  "nrf24l01_available": {
+    "message0": "nRF24L01 %1 に受信データがある",
+    "tooltip": "読み取るペイロードがある場合は真を返し、受信パイプ番号を記録します。"
+  },
+  "nrf24l01_read_text": {
+    "message0": "nRF24L01 %1 文字列を読み取る",
+    "tooltip": "次のペイロードを文字列として読み取り消費します。先に受信データを確認してください。"
+  },
+  "nrf24l01_read_number": {
+    "message0": "nRF24L01 %1 数値を読み取る",
+    "tooltip": "次の 32 ビット浮動小数点ペイロードを読み取り消費します。先に受信データを確認してください。"
+  },
+  "nrf24l01_last_send_succeeded": {
+    "message0": "nRF24L01 %1 前回の送信が成功",
+    "tooltip": "直前の文字列または数値送信の確認応答結果を返します。"
+  },
+  "nrf24l01_received_pipe": {
+    "message0": "nRF24L01 %1 前回の受信パイプ",
+    "tooltip": "直前の受信データ確認で記録したパイプ番号を返します。"
+  },
+  "nrf24l01_is_chip_connected": {
+    "message0": "nRF24L01 %1 ハードウェア接続済み",
+    "tooltip": "マイコンが SPI 経由で無線モジュールと通信できるか確認します。"
+  },
+  "nrf24l01_set_power_mode": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "無線を起動または低消費電力モードにします。電源ダウン中も設定は保持されます。",
+    "args0": [null, {"options": [["電源オン", "UP"], ["電源ダウン", "DOWN"]]}]
+  }
+}

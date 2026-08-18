@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "initialize ElegantOTA server %1 mode %2 port %3 username %4 password %5 auto reboot %6",
+    "tooltip": "Create a web server and expose the ElegantOTA update portal at /update."
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA set username %1 password %2",
+    "tooltip": "Change update portal authentication."
+  },
+  "elegant_ota_on_start": {
+    "message0": "when ElegantOTA update starts %1",
+    "tooltip": "Run code when an OTA upload starts."
+  },
+  "elegant_ota_on_progress": {
+    "message0": "while ElegantOTA update progresses %1",
+    "tooltip": "Run code when OTA progress changes."
+  },
+  "elegant_ota_on_end": {
+    "message0": "when ElegantOTA update ends %1",
+    "tooltip": "Run code when an OTA update succeeds or fails."
+  },
+  "elegant_ota_callback_value": {
+    "message0": "ElegantOTA callback %1",
+    "tooltip": "Read values available inside OTA callback blocks."
+  }
+}

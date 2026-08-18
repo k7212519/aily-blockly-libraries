@@ -4,30 +4,30 @@ The GRB light strip driver library based on FastLed supports the control of vari
 
 ## Library Info
 - **Name**: @aily-project/lib-fastled
-- **Version**: 1.0.2
+- **Version**: 1.0.4
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `fastled_init` | Statement | DATA_PIN(dropdown), TYPE(dropdown), NUM_LEDS(field_number) | `fastled_init(DATA_PIN, WS2812B, 30)` | Dynamic code |
-| `fastled_draw_bar` | Statement | DATA_PIN(dropdown), START(input_value), END(input_value), LEVEL(input_value), FOREGROUND(input_value), BACKGROUND(input_value) | `fastled_draw_bar(DATA_PIN, math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | int ... = (int)(...) - (int)(...) + 1;\n |
-| `fastled_set_pixel` | Statement | DATA_PIN(dropdown), PIXEL(input_value), COLOR(input_value) | `fastled_set_pixel(DATA_PIN, math_number(0), math_number(0))` | leds_...[...] = ...;\n |
-| `fastled_set_range` | Statement | DATA_PIN(dropdown), START(input_value), END(input_value), COLOR(input_value) | `fastled_set_range(DATA_PIN, math_number(0), math_number(0), math_number(0))` | for (int ... = (int)(...); ... <= (int)(...); ...++) {\n |
-| `fastled_refresh` | Statement | (none) | `fastled_refresh()` | FastLED.show();\n |
-| `fastled_show` | Statement | (none) | `fastled_show()` | FastLED.show();\n |
-| `fastled_clear` | Statement | DATA_PIN(dropdown) | `fastled_clear(DATA_PIN)` | fill_solid(leds_..., NUM_LEDS_..., CRGB::Black);\n |
-| `fastled_brightness` | Statement | BRIGHTNESS(input_value) | `fastled_brightness(math_number(0))` | FastLED.setBrightness(...);\n |
-| `fastled_rgb` | Value | RED(input_value), GREEN(input_value), BLUE(input_value) | `fastled_rgb(math_number(0), math_number(0), math_number(0))` | CRGB(..., ..., ...) |
-| `fastled_preset_color` | Value | COLOR(field_colour_hsv_sliders) | `fastled_preset_color()` | CHSV(..., ..., ...) |
-| `fastled_fill_solid` | Statement | DATA_PIN(dropdown), COLOR(input_value) | `fastled_fill_solid(DATA_PIN, math_number(0))` | fill_solid(leds_..., NUM_LEDS_..., ...);\n |
-| `fastled_hsv` | Value | HUE(input_value), SATURATION(input_value), VALUE(input_value) | `fastled_hsv(math_number(0), math_number(0), math_number(0))` | CHSV(..., ..., ...) |
-| `fastled_rainbow` | Statement | DATA_PIN(dropdown), INITIAL_HUE(input_value), DELTA_HUE(input_value) | `fastled_rainbow(DATA_PIN, math_number(0), math_number(0))` | fill_rainbow(leds_..., NUM_LEDS_..., ..., ...);\n |
-| `fastled_fire_effect` | Statement | DATA_PIN(dropdown), HEAT(input_value), COOLING(input_value) | `fastled_fire_effect(DATA_PIN, math_number(0), math_number(0))` | Fire2012_...(leds_..., ..., ...);\n |
-| `fastled_meteor` | Statement | DATA_PIN(dropdown), COLOR(input_value), SIZE(input_value), DECAY(input_value), SPEED(input_value) | `fastled_meteor(DATA_PIN, math_number(0), math_number(0), math_number(0), math_number(9600))` | meteorEffect_...(leds_..., ..., ..., ..., ...);\n |
-| `fastled_palette_cycle` | Statement | DATA_PIN(dropdown), PALETTE(dropdown), SPEED(input_value) | `fastled_palette_cycle(DATA_PIN, RainbowColors_p, math_number(9600))` | cyclePalette_...(leds_..., ..., ..., paletteIndex_...);\n |
-| `fastled_breathing` | Statement | DATA_PIN(dropdown), COLOR(input_value), SPEED(input_value) | `fastled_breathing(DATA_PIN, math_number(0), math_number(9600))` | breathingEffect_...(leds_..., ..., ..., breathBrightness_..., breathDirection_...);\n |
-| `fastled_twinkle` | Statement | DATA_PIN(dropdown), COUNT(input_value), BACKGROUND(input_value), COLOR(input_value) | `fastled_twinkle(DATA_PIN, math_number(0), math_number(0), math_number(0))` | twinkleEffect_...(leds_..., ..., ..., ...);\n |
+| `fastled_init` | Statement | DATA_PIN(dropdown), TYPE(dropdown), NUM_LEDS(field_number) | `fastled_init(DATA_PIN, WS2812B, 30)` | `FastLED.addLeds<WS2812B, DATA_PIN_DATA_PIN, GRB>(leds_DATA_PIN, NUM_LEDS_DATA_PIN);` |
+| `fastled_draw_bar` | Statement | DATA_PIN(dropdown), START(input_value), END(input_value), LEVEL(input_value), FOREGROUND(input_value), BACKGROUND(input_value) | `fastled_draw_bar(DATA_PIN, math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `int _band_size_DATA_PIN_generator_coverage_fastled_draw_bar = (int)(1) - (int)(1) + 1; ↵ if (_band_size_DATA_PIN_generator_coverage_fastled_draw_bar < 0) { _band_size_DATA_PIN_generator_coverage_fastled_draw_bar = 0; } ↵ int _active_DATA_PIN_generator_coverage_fastled_draw_bar = constrain((int)(1), 0, _band_size_DATA_PIN_generator_coverage_fastled_draw_bar); ↵ for (int _led_bar_DATA_PIN_generator_coverage_fastled_draw_bar = 0; _led_bar_DATA_PIN_generator_coverage_fastled_draw_bar < _band_size_DATA_PIN_generator_coverage_fastled_draw_bar; _led_bar_DATA_PIN_generator_coverage_fastled_draw_bar++) { ↵ int __idx = (int)(1) + _led_bar_DATA_PIN_generator_coverage_fastled_draw_bar; ↵ if (__idx >= 0 && __idx < NUM_LEDS_DATA_PIN) { ↵ leds_DATA_PIN[__idx] = (_led_bar_DATA_PIN_generator_coverage_fastled_draw_bar < _active_DATA_PIN_generator_coverage_fastled_draw_bar) ? 1 : 1; ↵ } ↵ } ↵ FastLED.show();` |
+| `fastled_set_pixel` | Statement | DATA_PIN(dropdown), PIXEL(input_value), COLOR(input_value) | `fastled_set_pixel(DATA_PIN, math_number(0), math_number(0))` | `leds_DATA_PIN[1] = 1; ↵ FastLED.show();` |
+| `fastled_set_range` | Statement | DATA_PIN(dropdown), START(input_value), END(input_value), COLOR(input_value) | `fastled_set_range(DATA_PIN, math_number(0), math_number(0), math_number(0))` | `for (int _led_idx_DATA_PIN = (int)(1); _led_idx_DATA_PIN <= (int)(1); _led_idx_DATA_PIN++) { ↵ if (_led_idx_DATA_PIN >= 0 && _led_idx_DATA_PIN < NUM_LEDS_DATA_PIN) { ↵ leds_DATA_PIN[_led_idx_DATA_PIN] = 1; ↵ } ↵ } ↵ FastLED.show();` |
+| `fastled_refresh` | Statement | (none) | `fastled_refresh()` | `FastLED.show();` |
+| `fastled_show` | Statement | (none) | `fastled_show()` | `FastLED.show();` |
+| `fastled_clear` | Statement | DATA_PIN(dropdown) | `fastled_clear(DATA_PIN)` | `fill_solid(leds_DATA_PIN, NUM_LEDS_DATA_PIN, CRGB::Black);` |
+| `fastled_brightness` | Statement | BRIGHTNESS(input_value) | `fastled_brightness(math_number(0))` | `FastLED.setBrightness(1); ↵ FastLED.show();` |
+| `fastled_rgb` | Value | RED(input_value), GREEN(input_value), BLUE(input_value) | `fastled_rgb(math_number(0), math_number(0), math_number(0))` | `CRGB(1, 1, 1)` |
+| `fastled_preset_color` | Value | COLOR(field_colour_hsv_sliders) | `fastled_preset_color("#ffffff")` | `CHSV(0, 0, 255)` |
+| `fastled_fill_solid` | Statement | DATA_PIN(dropdown), COLOR(input_value) | `fastled_fill_solid(DATA_PIN, math_number(0))` | `fill_solid(leds_DATA_PIN, NUM_LEDS_DATA_PIN, 1); ↵ FastLED.show();` |
+| `fastled_hsv` | Value | HUE(input_value), SATURATION(input_value), VALUE(input_value) | `fastled_hsv(math_number(0), math_number(0), math_number(0))` | `CHSV(1, 1, 1)` |
+| `fastled_rainbow` | Statement | DATA_PIN(dropdown), INITIAL_HUE(input_value), DELTA_HUE(input_value) | `fastled_rainbow(DATA_PIN, math_number(0), math_number(0))` | `fill_rainbow(leds_DATA_PIN, NUM_LEDS_DATA_PIN, 1, 1); ↵ FastLED.show();` |
+| `fastled_fire_effect` | Statement | DATA_PIN(dropdown), HEAT(input_value), COOLING(input_value) | `fastled_fire_effect(DATA_PIN, math_number(0), math_number(0))` | `Fire2012_DATA_PIN(leds_DATA_PIN, 1, 1); ↵ FastLED.show();` |
+| `fastled_meteor` | Statement | DATA_PIN(dropdown), COLOR(input_value), SIZE(input_value), DECAY(input_value), SPEED(input_value) | `fastled_meteor(DATA_PIN, math_number(0), math_number(0), math_number(0), math_number(9600))` | `meteorEffect_DATA_PIN(leds_DATA_PIN, 1, 1, 1, 1); ↵ FastLED.show();` |
+| `fastled_palette_cycle` | Statement | DATA_PIN(dropdown), PALETTE(dropdown), SPEED(input_value) | `fastled_palette_cycle(DATA_PIN, RainbowColors_p, math_number(9600))` | `cyclePalette_DATA_PIN(leds_DATA_PIN, RainbowColors_p, 1, paletteIndex_DATA_PIN); ↵ FastLED.show();` |
+| `fastled_breathing` | Statement | DATA_PIN(dropdown), COLOR(input_value), SPEED(input_value) | `fastled_breathing(DATA_PIN, math_number(0), math_number(9600))` | `breathingEffect_DATA_PIN(leds_DATA_PIN, 1, 1, breathBrightness_DATA_PIN, breathDirection_DATA_PIN); ↵ FastLED.show();` |
+| `fastled_twinkle` | Statement | DATA_PIN(dropdown), COUNT(input_value), BACKGROUND(input_value), COLOR(input_value) | `fastled_twinkle(DATA_PIN, math_number(0), math_number(0), math_number(0))` | `twinkleEffect_DATA_PIN(leds_DATA_PIN, 1, 1, 1); ↵ FastLED.show();` |
 
 ## Parameter Options
 

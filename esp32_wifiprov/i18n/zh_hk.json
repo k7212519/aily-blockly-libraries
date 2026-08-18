@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "ESP32 Wi-Fi 配網",
+  "esp32_wifiprov_begin_softap": {
+    "message0": "啟動 SoftAP 配網 服務名稱 %1 POP %2 服務密碼 %3 重設已有設定 %4",
+    "tooltip": "啟動 SoftAP 配網服務。"
+  },
+  "esp32_wifiprov_begin_ble": {
+    "message0": "啟動 BLE 配網 服務名 %1 POP %2 重設已有組態 %3",
+    "tooltip": "啟動 BLE 配網服務（晶片需支援 BLE）。"
+  },
+  "esp32_wifiprov_end": {
+    "message0": "停止 Wi-Fi 配網",
+    "tooltip": "停止並清理配網服務。"
+  },
+  "esp32_wifiprov_disable_auto_stop": {
+    "message0": "配網成功後不自動停止 清理延遲 %1 ms",
+    "tooltip": "停用成功後的自動停止並設定延時。"
+  },
+  "esp32_wifiprov_print_qr": {
+    "message0": "列印配網二維碼 服務名稱 %1 POP %2 傳輸 %3",
+    "tooltip": "向 Serial 列印二維碼連結與負載。",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "SoftAP",
+            "softap"
+          ],
+          [
+            "BLE",
+            "ble"
+          ]
+        ]
+      }
+    ]
+  }
+}

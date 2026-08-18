@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "micro-ROS 노드 초기화 %1 이름 %2 네임스페이스 %3 실행 프로그램이 %4를 처리합니다.",
+    "tooltip": "기본 micro-ROS 전송, 지원, 노드 및 실행기를 초기화합니다."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "micro-ROS Int32 게시자 %1 노드 %2 주제 %3 만들기",
+    "tooltip": "std_msgs/Int32 게시자를 만듭니다."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "micro-ROS 게시자 %1 게시 Int32 %2",
+    "tooltip": "하나의 std_msgs/Int32 값을 게시합니다."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "데이터가 도착할 때 micro-ROS Int32 구독자 %1 노드 %2 주제 %3 생성 %4",
+    "tooltip": "std_msgs/Int32 구독 및 콜백을 만듭니다."
+  },
+  "micro_ros_received_int32": {
+    "message0": "micro-ROS 가입자 %1가 Int32를 받았습니다.",
+    "tooltip": "콜백 내부 또는 이후에 최신 Int32 메시지를 읽습니다."
+  },
+  "micro_ros_spin": {
+    "message0": "%2 ms 동안 micro-ROS 노드 %1 스핀",
+    "tooltip": "rclc 실행기를 한 번 실행합니다. 노드 초기화는 이미 루프에 기본 스핀을 추가합니다."
+  }
+}

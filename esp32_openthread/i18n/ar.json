@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 OpenThread",
+  "esp32_openthread_begin": {
+    "message0": "تهيئة OpenThread لبدء %1 تلقائيًا",
+    "tooltip": "تهيئة مكدس OpenThread."
+  },
+  "esp32_openthread_end": {
+    "message0": "إنهاء الموضوع المفتوح",
+    "tooltip": "أغلق مكدس OpenThread."
+  },
+  "esp32_openthread_control": {
+    "message0": "فتح الموضوع %1",
+    "tooltip": "التحكم في شبكة أو واجهة الموضوع.",
+    "args0": [
+      {
+        "options": [
+          [
+            "ابدأ الشبكة",
+            "start"
+          ],
+          [
+            "أوقف الشبكة",
+            "stop"
+          ],
+          [
+            "الواجهة عبر الإنترنت",
+            "networkInterfaceUp"
+          ],
+          [
+            "الواجهة غير متصلة بالإنترنت",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread قيد التشغيل",
+    "tooltip": "تحقق مما إذا كان مكدس OpenThread قيد التشغيل."
+  },
+  "esp32_openthread_role": {
+    "message0": "دور OpenThread الحالي",
+    "tooltip": "إرجاع معطل/منفصل/تابع/جهاز توجيه/قائد."
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "يحتوي OpenThread على مجموعة بيانات نشطة",
+    "tooltip": "تحقق مما إذا كان قد تم إرسال مجموعة البيانات النشطة."
+  },
+  "esp32_openthread_dataset": {
+    "message0": "إنشاء وإرسال مجموعة بيانات الموضوع %1 الاسم %2 القناة %3 معرف PAN %4",
+    "tooltip": "أنشئ مجموعة بيانات نشطة جديدة وأرسلها."
+  },
+  "esp32_openthread_network_number": {
+    "message0": "قيمة شبكة OpenThread %1",
+    "tooltip": "اقرأ قيمة شبكة الموضوع.\nقناة",
+    "args0": [
+      {
+        "options": [
+          [
+            "信道",
+            "getChannel"
+          ],
+          [
+            "معرف PAN",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "عدد عناوين البث الأحادي",
+            "getUnicastAddressCount"
+          ],
+          [
+            "عدد عناوين البث المتعدد",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "نص شبكة OpenThread %1",
+    "tooltip": "اقرأ اسم الشبكة أو عنوان IPv6.",
+    "args0": [
+      {
+        "options": [
+          [
+            "اسم الشبكة",
+            "getNetworkName"
+          ],
+          [
+            "شبكة EID المحلية",
+            "getMeshLocalEid"
+          ],
+          [
+            "القائد RLOC",
+            "getLeaderRloc"
+          ],
+          [
+            "RLOC الأصلي",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

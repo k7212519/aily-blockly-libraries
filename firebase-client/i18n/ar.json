@@ -1,0 +1,136 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "تهيئة Firebase %1 API مفتاح %2 البريد الإلكتروني %3 كلمة المرور %4 قاعدة البيانات URL %5",
+    "tooltip": "قم بمصادقة المستخدم وربط Firebase Realtime Database."
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1 جاهز",
+    "tooltip": "تحقق مما إذا كانت المصادقة جاهزة."
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1 قم بتعيين %2 على المسار %3 إلى %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "نص",
+            "String"
+          ],
+          [
+            "عدد صحيح",
+            "int"
+          ],
+          [
+            "رقم الفاصلة العائمة",
+            "double"
+          ],
+          [
+            "منطقية",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "اكتب قيمة بشكل متزامن إلى Realtime Database."
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 احصل على %2 من المسار %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "نص",
+            "String"
+          ],
+          [
+            "عدد صحيح",
+            "int"
+          ],
+          [
+            "رقم الفاصلة العائمة",
+            "double"
+          ],
+          [
+            "منطقية",
+            "bool"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "قراءة القيمة المكتوبة من Realtime Database بشكل متزامن."
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1 ادفع %2 في المسار قيمة %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "نص",
+            "String"
+          ],
+          [
+            "عدد صحيح",
+            "int"
+          ],
+          [
+            "رقم الفاصلة العائمة",
+            "double"
+          ],
+          [
+            "منطقية",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "ادفع قيمة فرعية جديدة إلى Realtime Database."
+  },
+  "firebase_client_path_action": {
+    "message0": "مسار Firebase %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إزالة",
+            "remove"
+          ],
+          [
+            "الشيك موجود",
+            "exists"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "قم بإزالة المسار أو التحقق من وجوده."
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 الخطأ الأخير %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "كود",
+            "code"
+          ],
+          [
+            "رسالة خطأ",
+            "message"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "اقرأ آخر خطأ عميل متزامن."
+  }
+}

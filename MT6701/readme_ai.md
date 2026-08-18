@@ -8,18 +8,18 @@ MT6701 magnetic rotary encoder library, supports angle reading, RPM calculation 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `mt6701_init` | Statement | OBJECT(field_variable) | `mt6701_init(variables_get($encoder))` | Dynamic code |
-| `mt6701_init_advanced` | Statement | OBJECT(field_variable), ADDRESS(dropdown), INTERVAL(input_value) | `mt6701_init_advanced(variables_get($encoder), "0x06", math_number(1000))` | Dynamic code |
-| `mt6701_get_angle_radians` | Value | OBJECT(field_variable) | `mt6701_get_angle_radians(variables_get($encoder))` | Dynamic code |
-| `mt6701_get_angle_degrees` | Value | OBJECT(field_variable) | `mt6701_get_angle_degrees(variables_get($encoder))` | Dynamic code |
-| `mt6701_get_rpm` | Value | OBJECT(field_variable) | `mt6701_get_rpm(variables_get($encoder))` | Dynamic code |
-| `mt6701_get_count` | Value | OBJECT(field_variable) | `mt6701_get_count(variables_get($encoder))` | Dynamic code |
-| `mt6701_get_full_turns` | Value | OBJECT(field_variable) | `mt6701_get_full_turns(variables_get($encoder))` | Dynamic code |
-| `mt6701_get_turns` | Value | OBJECT(field_variable) | `mt6701_get_turns(variables_get($encoder))` | Dynamic code |
-| `mt6701_get_accumulator` | Value | OBJECT(field_variable) | `mt6701_get_accumulator(variables_get($encoder))` | Dynamic code |
-| `mt6701_update_count` | Statement | OBJECT(field_variable) | `mt6701_update_count(variables_get($encoder))` | Dynamic code |
+| `mt6701_init` | Statement | OBJECT(field_variable) | `mt6701_init($encoder)` | `MT6701 encoder; ↵ encoder.begin();` |
+| `mt6701_init_advanced` | Statement | OBJECT(field_variable), ADDRESS(dropdown), INTERVAL(input_value) | `mt6701_init_advanced($encoder, "0x06", math_number(1000))` | `MT6701 encoder(0x06, 1); ↵ encoder.begin();` |
+| `mt6701_get_angle_radians` | Value | OBJECT(field_variable) | `mt6701_get_angle_radians($encoder)` | `encoder.getAngleRadians()` |
+| `mt6701_get_angle_degrees` | Value | OBJECT(field_variable) | `mt6701_get_angle_degrees($encoder)` | `encoder.getAngleDegrees()` |
+| `mt6701_get_rpm` | Value | OBJECT(field_variable) | `mt6701_get_rpm($encoder)` | `encoder.getRPM()` |
+| `mt6701_get_count` | Value | OBJECT(field_variable) | `mt6701_get_count($encoder)` | `encoder.getCount()` |
+| `mt6701_get_full_turns` | Value | OBJECT(field_variable) | `mt6701_get_full_turns($encoder)` | `encoder.getFullTurns()` |
+| `mt6701_get_turns` | Value | OBJECT(field_variable) | `mt6701_get_turns($encoder)` | `encoder.getTurns()` |
+| `mt6701_get_accumulator` | Value | OBJECT(field_variable) | `mt6701_get_accumulator($encoder)` | `encoder.getAccumulator()` |
+| `mt6701_update_count` | Statement | OBJECT(field_variable) | `mt6701_update_count($encoder)` | `encoder.updateCount();` |
 
 ## Parameter Options
 
@@ -32,11 +32,11 @@ MT6701 magnetic rotary encoder library, supports angle reading, RPM calculation 
 ### Basic Usage
 ```
 arduino_setup()
-    mt6701_init(variables_get($encoder))
+    mt6701_init($encoder)
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, mt6701_get_angle_radians(variables_get($encoder)))
+    serial_println(Serial, mt6701_get_angle_radians($encoder))
     time_delay(math_number(1000))
 ```
 

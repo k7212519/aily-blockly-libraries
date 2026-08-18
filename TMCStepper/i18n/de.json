@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "Initialisieren Sie TMC2209 %1 seriell %2 Baud %3 Adresse %4 Messwiderstand Ohm %5",
+    "tooltip": "Initialisieren Sie einen Schrittmotortreiber TMC2209 UART."
+  },
+  "tmc2130_init": {
+    "message0": "Initialisieren Sie TMC2130 %1 CS Pin %2 Messwiderstand Ohm %3",
+    "tooltip": "Initialisieren Sie einen TMC2130-Hardware-SPI-Schrittmotortreiber."
+  },
+  "tmc_set_current": {
+    "message0": "TMC-Treiber %1 RMS Strom %2 mA-Haltemultiplikator %3",
+    "tooltip": "Stellen Sie den Motorstrom RMS und den Haltestrommultiplikator ein."
+  },
+  "tmc_set_motion": {
+    "message0": "TMC-Treiber %1 Mikroschritte %2 Chopper-Off-Zeit %3",
+    "tooltip": "Stellen Sie die Mikroschrittauflösung ein und aktivieren Sie den Chopper."
+  },
+  "tmc2209_mode": {
+    "message0": "TMC2209 %1 Modus %2 automatische Stromskalierung %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Wählen Sie für den TMC2209 den leisen oder drehmomentstarken Chopper-Modus."
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard Schwelle %2 Kühlschwelle %3",
+    "tooltip": "Konfigurieren Sie sensorlose Referenzierungsschwellenwerte auf TMC2209."
+  },
+  "tmc_read": {
+    "message0": "TMC-Treiber %1 liest %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Fahrerstatusregister",
+            "DRV_STATUS"
+          ],
+          [
+            "Schrittperiode",
+            "TSTEP"
+          ],
+          [
+            "Mikroschritte",
+            "microsteps"
+          ],
+          [
+            "tatsächlicher Strom mA",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie die Diagnosen und die aktuelle Konfiguration, die den unterstützten Treibern gemeinsam sind."
+  },
+  "tmc_connection": {
+    "message0": "TMC-Treiber %1 Verbindungstestergebnis",
+    "tooltip": "Geben Sie den Verbindungstestcode TMCStepper zurück."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "@aily-project/lib-micro-ros-arduino",
+  "nickname": "micro-ROS Arduino",
+  "nickname_en": "micro-ROS Arduino",
+  "author": "micro-ROS",
+  "description": "micro-ROS node, executor, and std_msgs Int32 publish/subscribe blocks.",
+  "description_en": "micro-ROS node, executor, and std_msgs Int32 publish/subscribe blocks.",
+  "version": "0.1.0",
+  "url": "https://github.com/micro-ROS/micro_ros_arduino",
+  "license": "Apache-2.0",
+  "compatibility": {
+    "core": [
+      "esp32:esp32",
+      "arduino:samd",
+      "arduino:sam",
+      "arduino:renesas_uno"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "micro-ros",
+    "ros2",
+    "robotics",
+    "rclc"
+  ],
+  "bundledDependencies": {
+    "micro_ros_arduino": "2.0.8-kilted"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "robotics",
+    "communication"
+  ],
+  "nickname_zh_cn": "micro-ROS Arduino",
+  "description_zh_cn": "micro-ROS 节点、执行器和 std_msgs Int32 发布/订阅块。",
+  "nickname_zh_hk": "micro-ROS Arduino",
+  "description_zh_hk": "micro-ROS 節點、執行器和 std_msgs Int32 發布/訂閱區塊。",
+  "nickname_ja": "micro-ROS Arduino",
+  "description_ja": "micro-ROS ノード、エグゼキューター、および std_msgs Int32 パブリッシュ/サブスクライブ ブロック。",
+  "nickname_ko": "micro-ROS Arduino",
+  "description_ko": "micro-ROS 노드, 실행기 및 std_msgs Int32 게시/구독 블록.",
+  "nickname_de": "micro-ROS Arduino",
+  "description_de": "micro-ROS-Knoten, Executor und std_msgs Int32-Publish/Subscribe-Blöcke.",
+  "nickname_fr": "micro-ROS Arduino",
+  "description_fr": "Nœud micro-ROS, exécuteur et blocs de publication/abonnement std_msgs Int32.",
+  "nickname_es": "micro-ROS Arduino",
+  "description_es": "Nodo micro-ROS, ejecutor y bloques de publicación/suscripción std_msgs Int32.",
+  "nickname_pt": "micro-ROS Arduino",
+  "description_pt": "Nó micro-ROS, executor e blocos de publicação/assinatura std_msgs Int32.",
+  "nickname_ru": "micro-ROS Arduino",
+  "description_ru": "Узел micro-ROS, исполнитель и блоки публикации/подписки std_msgs Int32.",
+  "nickname_ar": "micro-ROS Arduino",
+  "description_ar": "عقدة micro-ROS والمنفذ وكتل النشر/الاشتراك std_msgs Int32."
+}

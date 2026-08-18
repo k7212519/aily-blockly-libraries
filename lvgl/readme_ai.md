@@ -18,90 +18,90 @@ LVGL 图形界面库。该库负责生成 LVGL 控件和事件代码，但显示
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `lvgl_init` | Statement | DRIVER(dropdown), WIDTH(input_value), HEIGHT(input_value), ROTATION(dropdown) | `lvgl_init(TFT_eSPI, math_number(240), math_number(240), LV_DISPLAY_ROTATION_0)` | `lv_init(); lv_tick_set_cb(millis); lv_tft_espi_create(...); lv_display_set_rotation(...);` |
-| `lvgl_indev_create` | Statement | SCOPE(dropdown), VAR(field_input), TYPE(dropdown), HANDLER(input_statement) | `lvgl_indev_create(global, "indev", LV_INDEV_TYPE_POINTER)` | `lv_indev_t *` |
-| `lvgl_indev_data_param_set` | Statement | PARAM(dropdown), VALUE(input_value) | `lvgl_indev_data_param_set(state, lvgl_indev_state_param(LV_INDEV_STATE_PR))` | `data->... = ...;` |
+| `lvgl_init` | Statement | DRIVER(dropdown), WIDTH(input_value), HEIGHT(input_value), ROTATION(dropdown) | `lvgl_init(TFT_eSPI, math_number(240), math_number(240), LV_DISPLAY_ROTATION_0)` | `lv_init(); ↵ lv_tick_set_cb(millis); ↵ static uint32_t draw_buf[1 * 1 / 10 * (LV_COLOR_DEPTH / 8) / 4]; ↵ lv_display_t * disp; ↵ disp = lv_tft_espi_create(1, 1, draw_buf, sizeof(draw_buf)); ↵ lv_display_set_rotation(disp, LV_DISPLAY_ROTATION_0);` |
+| `lvgl_indev_create` | Statement | SCOPE(dropdown), VAR(field_input), TYPE(dropdown), HANDLER(input_statement) | `lvgl_indev_create(global, "indev", LV_INDEV_TYPE_POINTER)` | `indev = lv_indev_create(); ↵ lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER); ↵ lv_indev_set_read_cb(indev, indev_read_cb);` |
+| `lvgl_indev_data_param_set` | Statement | PARAM(dropdown), VALUE(input_value) | `lvgl_indev_data_param_set(state, lvgl_indev_state_param(LV_INDEV_STATE_PR))` | `data->state = 1;` |
 | `lvgl_indev_state_param` | Value | STATE(dropdown) | `lvgl_indev_state_param(LV_INDEV_STATE_REL)` | `LV_INDEV_STATE_REL` |
-| `lvgl_label_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_label_create(global, "label", $screen)` | `lv_obj_t *` |
-| `lvgl_label_set_text` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_label_set_text($label, text("hello"))` | `lv_label_set_text(...);` |
-| `lv_label_set_text_fmt` | Statement | VAR(field_variable), FMT(input_value), ARGS(input_value) | `lv_label_set_text_fmt($label, text("Button: %d"), variables_get($count))` | `lv_label_set_text_fmt(...);` |
-| `lvgl_label_set_long_mode` | Statement | VAR(field_variable), MODE(dropdown) | `lvgl_label_set_long_mode($label, LV_LABEL_LONG_MODE_WRAP)` | `lv_label_set_long_mode(...);` |
-| `lvgl_button_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_button_create(global, "btn", $screen)` | `lv_obj_t *` |
-| `lvgl_slider_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_slider_create(global, "slider", $screen)` | `lv_obj_t *` |
-| `lvgl_slider_set_value` | Statement | VAR(field_variable), VALUE(input_value), ANIM(dropdown) | `lvgl_slider_set_value($slider, math_number(50), LV_ANIM_ON)` | `lv_slider_set_value(...);` |
-| `lvgl_slider_set_range` | Statement | VAR(field_variable), MIN(input_value), MAX(input_value) | `lvgl_slider_set_range($slider, math_number(0), math_number(100))` | `lv_slider_set_range(...);` |
-| `lvgl_slider_get_value` | Value | VAR(field_variable) | `lvgl_slider_get_value($slider)` | `lv_slider_get_value(...)` |
-| `lvgl_switch_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_switch_create(global, "sw1", $screen)` | `lv_obj_t *` |
-| `lvgl_checkbox_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable), TEXT(input_value) | `lvgl_checkbox_create(global, "cb", $screen, text("hello"))` | `lv_obj_t *` |
-| `lvgl_bar_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_bar_create(global, "bar", $screen)` | `lv_obj_t *` |
-| `lvgl_bar_set_value` | Statement | VAR(field_variable), VALUE(input_value), ANIM(dropdown) | `lvgl_bar_set_value($bar, math_number(75), LV_ANIM_ON)` | `lv_bar_set_value(...);` |
-| `lvgl_bar_set_range` | Statement | VAR(field_variable), MIN(input_value), MAX(input_value) | `lvgl_bar_set_range($bar, math_number(0), math_number(100))` | `lv_bar_set_range(...);` |
-| `lvgl_arc_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_arc_create(global, "arc", $screen)` | `lv_obj_t *` |
-| `lvgl_arc_set_value` | Statement | VAR(field_variable), VALUE(input_value) | `lvgl_arc_set_value($arc, math_number(30))` | `lv_arc_set_value(...);` |
-| `lvgl_arc_set_range` | Statement | VAR(field_variable), MIN(input_value), MAX(input_value) | `lvgl_arc_set_range($arc, math_number(0), math_number(100))` | `lv_arc_set_range(...);` |
-| `lvgl_spinner_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_spinner_create(global, "spinner", $screen)` | `lv_obj_t *` |
-| `lvgl_spinner_set_anim_params` | Statement | VAR(field_variable), TIME(input_value), ANGLE(input_value) | `lvgl_spinner_set_anim_params($spinner, math_number(1000), math_number(60))` | `lv_spinner_set_anim_params(...);` |
-| `lvgl_dropdown_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_dropdown_create(global, "dropdown", $screen)` | `lv_obj_t *` |
-| `lvgl_dropdown_set_options` | Statement | VAR(field_variable), OPTIONS(input_value) | `lvgl_dropdown_set_options($dropdown, text("A\nB\nC"))` | `lv_dropdown_set_options(...);` |
-| `lvgl_dropdown_get_selected` | Value | VAR(field_variable) | `lvgl_dropdown_get_selected($dropdown)` | `lv_dropdown_get_selected(...)` |
-| `lvgl_textarea_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_textarea_create(global, "textarea1", $screen)` | `lv_obj_t *` |
-| `lvgl_textarea_set_text` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_textarea_set_text($textarea1, text("hello"))` | `lv_textarea_set_text(...);` |
-| `lvgl_textarea_get_text` | Value | VAR(field_variable) | `lvgl_textarea_get_text($textarea1)` | `lv_textarea_get_text(...)` |
-| `lvgl_textarea_set_placeholder` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_textarea_set_placeholder($textarea1, text("input here"))` | `lv_textarea_set_placeholder_text(...);` |
-| `lvgl_obj_set_pos` | Statement | VAR(field_variable), X(input_value), Y(input_value) | `lvgl_obj_set_pos($obj, math_number(10), math_number(20))` | `lv_obj_set_pos(...);` |
-| `lvgl_obj_set_size` | Statement | VAR(field_variable), WIDTH(input_value), HEIGHT(input_value) | `lvgl_obj_set_size($obj, math_number(120), math_number(60))` | `lv_obj_set_size(...);` |
-| `lvgl_obj_align` | Statement | VAR(field_variable), ALIGN(dropdown), X_OFS(input_value), Y_OFS(input_value) | `lvgl_obj_align($obj, LV_ALIGN_CENTER, math_number(0), math_number(0))` | `lv_obj_align(...);` |
-| `lvgl_obj_center` | Statement | VAR(field_variable) | `lvgl_obj_center($obj)` | `lv_obj_center(...);` |
-| `lvgl_obj_add_flag` | Statement | VAR(field_variable), FLAG(dropdown) | `lvgl_obj_add_flag($obj, LV_OBJ_FLAG_HIDDEN)` | `lv_obj_add_flag(...);` |
-| `lvgl_obj_remove_flag` | Statement | VAR(field_variable), FLAG(dropdown) | `lvgl_obj_remove_flag($obj, LV_OBJ_FLAG_HIDDEN)` | `lv_obj_remove_flag(...);` |
-| `lvgl_obj_add_state` | Statement | VAR(field_variable), STATE(dropdown) | `lvgl_obj_add_state($obj, LV_STATE_CHECKED)` | `lv_obj_add_state(...);` |
-| `lvgl_obj_remove_state` | Statement | VAR(field_variable), STATE(dropdown) | `lvgl_obj_remove_state($obj, LV_STATE_CHECKED)` | `lv_obj_remove_state(...);` |
-| `lvgl_obj_has_state` | Value | VAR(field_variable), STATE(dropdown) | `lvgl_obj_has_state($obj, LV_STATE_CHECKED)` | `lv_obj_has_state(...)` |
-| `lvgl_obj_delete` | Statement | VAR(field_variable) | `lvgl_obj_delete($obj)` | `lv_obj_delete(...);` |
-| `lvgl_obj_set_style_text_font` | Statement | VAR(field_variable), FONT(dropdown) | `lvgl_obj_set_style_text_font($label, LV_FONT_SOURCE_HAN_SANS_SC_14_CJK)` | `lv_obj_set_style_text_font(..., ..., 0);` |
-| `lvgl_obj_set_style_bg_color` | Statement | VAR(field_variable), COLOR(field_colour_hsv_sliders) | `lvgl_obj_set_style_bg_color($obj)` | `lv_obj_set_style_bg_color(..., lv_color_make(...), 0);` |
-| `lvgl_obj_set_style_text_color` | Statement | VAR(field_variable), COLOR(field_colour_hsv_sliders) | `lvgl_obj_set_style_text_color($obj)` | `lv_obj_set_style_text_color(..., lv_color_make(...), 0);` |
-| `lvgl_obj_set_style_border_color` | Statement | VAR(field_variable), COLOR(field_colour_hsv_sliders) | `lvgl_obj_set_style_border_color($obj)` | `lv_obj_set_style_border_color(..., lv_color_make(...), 0);` |
-| `lvgl_obj_set_style_border_width` | Statement | VAR(field_variable), WIDTH(input_value) | `lvgl_obj_set_style_border_width($obj, math_number(2))` | `lv_obj_set_style_border_width(...);` |
-| `lvgl_obj_set_style_radius` | Statement | VAR(field_variable), RADIUS(input_value) | `lvgl_obj_set_style_radius($obj, math_number(8))` | `lv_obj_set_style_radius(...);` |
-| `lvgl_obj_set_style_pad_all` | Statement | VAR(field_variable), PAD(input_value) | `lvgl_obj_set_style_pad_all($obj, math_number(10))` | `lv_obj_set_style_pad_all(...);` |
-| `lvgl_obj_set_style_bg_opa` | Statement | VAR(field_variable), OPA(dropdown) | `lvgl_obj_set_style_bg_opa($obj, LV_OPA_COVER)` | `lv_obj_set_style_bg_opa(...);` |
-| `lvgl_event_add_cb` | Statement | VAR(field_variable), EVENT(dropdown), HANDLER(input_statement) | `lvgl_event_add_cb($btn, LV_EVENT_CLICKED)` | `lv_obj_add_event_cb(...);` |
-| `lvgl_event_code` | Value | EVENT(dropdown) | `lvgl_event_code(LV_EVENT_CLICKED)` | `LV_EVENT_CLICKED` |
-| `lvgl_obj_get_child` | Statement | VAR(field_input), VAR_PARENT(field_variable), INDEX(input_value) | `lvgl_obj_get_child("label", $btn, math_number(0))` | `lv_obj_t *` |
+| `lvgl_label_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_label_create(global, "label", $screen)` | `label = lv_label_create(screen);` |
+| `lvgl_label_set_text` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_label_set_text($label, text("hello"))` | `lv_label_set_text(label, String("value").c_str());` |
+| `lv_label_set_text_fmt` | Statement | VAR(field_variable), FMT(input_value), ARGS(input_value) | `lv_label_set_text_fmt($label, text("Button: %d"), variables_get($count))` | `lv_label_set_text_fmt(label, "value", 1);` |
+| `lvgl_label_set_long_mode` | Statement | VAR(field_variable), MODE(dropdown) | `lvgl_label_set_long_mode($label, LV_LABEL_LONG_MODE_WRAP)` | `lv_label_set_long_mode(label, LV_LABEL_LONG_MODE_WRAP);` |
+| `lvgl_button_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_button_create(global, "btn", $screen)` | `btn = lv_button_create(screen);` |
+| `lvgl_slider_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_slider_create(global, "slider", $screen)` | `slider = lv_slider_create(screen);` |
+| `lvgl_slider_set_value` | Statement | VAR(field_variable), VALUE(input_value), ANIM(dropdown) | `lvgl_slider_set_value($slider, math_number(50), LV_ANIM_ON)` | `lv_slider_set_value(slider, 1, LV_ANIM_ON);` |
+| `lvgl_slider_set_range` | Statement | VAR(field_variable), MIN(input_value), MAX(input_value) | `lvgl_slider_set_range($slider, math_number(0), math_number(100))` | `lv_slider_set_range(slider, 1, 1);` |
+| `lvgl_slider_get_value` | Value | VAR(field_variable) | `lvgl_slider_get_value($slider)` | `lv_slider_get_value(slider)` |
+| `lvgl_switch_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_switch_create(global, "sw1", $screen)` | `sw1 = lv_switch_create(screen);` |
+| `lvgl_checkbox_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable), TEXT(input_value) | `lvgl_checkbox_create(global, "cb", $screen, text("hello"))` | `cb = lv_checkbox_create(screen); ↵ lv_checkbox_set_text(cb, "value");` |
+| `lvgl_bar_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_bar_create(global, "bar", $screen)` | `bar = lv_bar_create(screen);` |
+| `lvgl_bar_set_value` | Statement | VAR(field_variable), VALUE(input_value), ANIM(dropdown) | `lvgl_bar_set_value($bar, math_number(75), LV_ANIM_ON)` | `lv_bar_set_value(bar, 1, LV_ANIM_ON);` |
+| `lvgl_bar_set_range` | Statement | VAR(field_variable), MIN(input_value), MAX(input_value) | `lvgl_bar_set_range($bar, math_number(0), math_number(100))` | `lv_bar_set_range(bar, 1, 1);` |
+| `lvgl_arc_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_arc_create(global, "arc", $screen)` | `arc = lv_arc_create(screen);` |
+| `lvgl_arc_set_value` | Statement | VAR(field_variable), VALUE(input_value) | `lvgl_arc_set_value($arc, math_number(30))` | `lv_arc_set_value(arc, 1);` |
+| `lvgl_arc_set_range` | Statement | VAR(field_variable), MIN(input_value), MAX(input_value) | `lvgl_arc_set_range($arc, math_number(0), math_number(100))` | `lv_arc_set_range(arc, 1, 1);` |
+| `lvgl_spinner_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_spinner_create(global, "spinner", $screen)` | `spinner = lv_spinner_create(screen);` |
+| `lvgl_spinner_set_anim_params` | Statement | VAR(field_variable), TIME(input_value), ANGLE(input_value) | `lvgl_spinner_set_anim_params($spinner, math_number(1000), math_number(60))` | `lv_spinner_set_anim_params(spinner, 1, 1);` |
+| `lvgl_dropdown_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_dropdown_create(global, "dropdown", $screen)` | `dropdown = lv_dropdown_create(screen);` |
+| `lvgl_dropdown_set_options` | Statement | VAR(field_variable), OPTIONS(input_value) | `lvgl_dropdown_set_options($dropdown, text("A\nB\nC"))` | `lv_dropdown_set_options(dropdown, "value");` |
+| `lvgl_dropdown_get_selected` | Value | VAR(field_variable) | `lvgl_dropdown_get_selected($dropdown)` | `lv_dropdown_get_selected(dropdown)` |
+| `lvgl_textarea_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_textarea_create(global, "textarea1", $screen)` | `textarea1 = lv_textarea_create(screen);` |
+| `lvgl_textarea_set_text` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_textarea_set_text($textarea1, text("hello"))` | `lv_textarea_set_text(textarea, "value");` |
+| `lvgl_textarea_get_text` | Value | VAR(field_variable) | `lvgl_textarea_get_text($textarea1)` | `lv_textarea_get_text(textarea)` |
+| `lvgl_textarea_set_placeholder` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_textarea_set_placeholder($textarea1, text("input here"))` | `lv_textarea_set_placeholder_text(textarea, "value");` |
+| `lvgl_obj_set_pos` | Statement | VAR(field_variable), X(input_value), Y(input_value) | `lvgl_obj_set_pos($obj, math_number(10), math_number(20))` | `lv_obj_set_pos(obj, 1, 1);` |
+| `lvgl_obj_set_size` | Statement | VAR(field_variable), WIDTH(input_value), HEIGHT(input_value) | `lvgl_obj_set_size($obj, math_number(120), math_number(60))` | `lv_obj_set_size(obj, 1, 1);` |
+| `lvgl_obj_align` | Statement | VAR(field_variable), ALIGN(dropdown), X_OFS(input_value), Y_OFS(input_value) | `lvgl_obj_align($obj, LV_ALIGN_CENTER, math_number(0), math_number(0))` | `lv_obj_align(obj, LV_ALIGN_CENTER, 1, 1);` |
+| `lvgl_obj_center` | Statement | VAR(field_variable) | `lvgl_obj_center($obj)` | `lv_obj_center(obj);` |
+| `lvgl_obj_add_flag` | Statement | VAR(field_variable), FLAG(dropdown) | `lvgl_obj_add_flag($obj, LV_OBJ_FLAG_HIDDEN)` | `lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);` |
+| `lvgl_obj_remove_flag` | Statement | VAR(field_variable), FLAG(dropdown) | `lvgl_obj_remove_flag($obj, LV_OBJ_FLAG_HIDDEN)` | `lv_obj_remove_flag(obj, LV_OBJ_FLAG_HIDDEN);` |
+| `lvgl_obj_add_state` | Statement | VAR(field_variable), STATE(dropdown) | `lvgl_obj_add_state($obj, LV_STATE_CHECKED)` | `lv_obj_add_state(obj, LV_STATE_CHECKED);` |
+| `lvgl_obj_remove_state` | Statement | VAR(field_variable), STATE(dropdown) | `lvgl_obj_remove_state($obj, LV_STATE_CHECKED)` | `lv_obj_remove_state(obj, LV_STATE_CHECKED);` |
+| `lvgl_obj_has_state` | Value | VAR(field_variable), STATE(dropdown) | `lvgl_obj_has_state($obj, LV_STATE_CHECKED)` | `lv_obj_has_state(obj, LV_STATE_CHECKED)` |
+| `lvgl_obj_delete` | Statement | VAR(field_variable) | `lvgl_obj_delete($obj)` | `lv_obj_delete(obj);` |
+| `lvgl_obj_set_style_text_font` | Statement | VAR(field_variable), FONT(dropdown) | `lvgl_obj_set_style_text_font($label, LV_FONT_SOURCE_HAN_SANS_SC_14_CJK)` | `lv_obj_set_style_text_font(obj, &lv_font_montserrat_8, LV_PART_MAIN);` |
+| `lvgl_obj_set_style_bg_color` | Statement | VAR(field_variable), COLOR(field_colour_hsv_sliders) | `lvgl_obj_set_style_bg_color($obj, "#ffffff")` | `lv_obj_set_style_bg_color(obj, lv_color_make(255, 255, 255), LV_PART_MAIN);` |
+| `lvgl_obj_set_style_text_color` | Statement | VAR(field_variable), COLOR(field_colour_hsv_sliders) | `lvgl_obj_set_style_text_color($obj, "#000000")` | `lv_obj_set_style_text_color(obj, lv_color_make(0, 0, 0), LV_PART_MAIN);` |
+| `lvgl_obj_set_style_border_color` | Statement | VAR(field_variable), COLOR(field_colour_hsv_sliders) | `lvgl_obj_set_style_border_color($obj, "#000000")` | `lv_obj_set_style_border_color(obj, lv_color_make(0, 0, 0), LV_PART_MAIN);` |
+| `lvgl_obj_set_style_border_width` | Statement | VAR(field_variable), WIDTH(input_value) | `lvgl_obj_set_style_border_width($obj, math_number(2))` | `lv_obj_set_style_border_width(obj, 1, LV_PART_MAIN);` |
+| `lvgl_obj_set_style_radius` | Statement | VAR(field_variable), RADIUS(input_value) | `lvgl_obj_set_style_radius($obj, math_number(8))` | `lv_obj_set_style_radius(obj, 1, LV_PART_MAIN);` |
+| `lvgl_obj_set_style_pad_all` | Statement | VAR(field_variable), PAD(input_value) | `lvgl_obj_set_style_pad_all($obj, math_number(10))` | `lv_obj_set_style_pad_all(obj, 1, LV_PART_MAIN);` |
+| `lvgl_obj_set_style_bg_opa` | Statement | VAR(field_variable), OPA(dropdown) | `lvgl_obj_set_style_bg_opa($obj, LV_OPA_COVER)` | `lv_obj_set_style_bg_opa(obj, LV_OPA_TRANSP, LV_PART_MAIN);` |
+| `lvgl_event_add_cb` | Statement | VAR(field_variable), EVENT(dropdown), HANDLER(input_statement) | `lvgl_event_add_cb($btn, LV_EVENT_CLICKED)` | `lv_obj_add_event_cb(obj, lvgl_event_cb_obj_all, LV_EVENT_ALL, NULL);` |
+| `lvgl_event_code` | Value | EVENT(dropdown) | `lvgl_event_code(LV_EVENT_CLICKED)` | `LV_EVENT_ALL` |
+| `lvgl_obj_get_child` | Statement | VAR(field_input), VAR_PARENT(field_variable), INDEX(input_value) | `lvgl_obj_get_child("label", $btn, math_number(0))` | `lv_obj_t *child_obj = lv_obj_get_child(obj, 1);` |
 | `lvgl_screen_active` | Value | (none) | `lvgl_screen_active()` | `lv_screen_active()` |
-| `lvgl_screen_load` | Statement | VAR(field_variable) | `lvgl_screen_load($screen)` | `lv_screen_load(...);` |
-| `lvgl_obj_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_obj_create(global, "obj", $screen)` | `lv_obj_t *` |
-| `lvgl_screen_create` | Statement | SCOPE(dropdown), VAR(field_input) | `lvgl_screen_create(global, "screen")` | `lv_obj_t *` |
-| `lvgl_image_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_image_create(global, "img", $screen)` | `lv_obj_t *` |
-| `lvgl_image_set_src` | Statement | VAR(field_variable), SRC(input_value) | `lvgl_image_set_src($img, text("A:/image.bin"))` | `lv_image_set_src(...);` |
-| `lvgl_image_set_zoom` | Statement | VAR(field_variable), ZOOM(input_value) | `lvgl_image_set_zoom($img, math_number(256))` | `lv_img_set_zoom(...);` |
-| `lvgl_image_set_angle` | Statement | VAR(field_variable), ANGLE(input_value) | `lvgl_image_set_angle($img, math_number(900))` | `lv_image_set_angle(...);` |
-| `lvgl_image_set_offset` | Statement | VAR(field_variable), X(input_value), Y(input_value) | `lvgl_image_set_offset($img, math_number(0), math_number(0))` | `lv_image_set_offset_x/y(...);` |
-| `lvgl_chart_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_chart_create(global, "chart", $screen)` | `lv_obj_t *` |
-| `lvgl_chart_set_type` | Statement | VAR(field_variable), TYPE(dropdown) | `lvgl_chart_set_type($chart, LV_CHART_TYPE_BAR)` | `lv_chart_set_type(...);` |
-| `lvgl_chart_set_point_count` | Statement | VAR(field_variable), COUNT(input_value) | `lvgl_chart_set_point_count($chart, math_number(10))` | `lv_chart_set_point_count(...);` |
-| `lvgl_chart_add_series` | Statement | VAR(field_variable), SERIES(field_input), COLOR(dropdown) | `lvgl_chart_add_series($chart, "series1", lv_palette_main(LV_PALETTE_RED))` | `lv_chart_series_t *` |
-| `lvgl_chart_set_next_value` | Statement | VAR(field_variable), SERIES(field_input), VALUE(input_value) | `lvgl_chart_set_next_value($chart, "series1", math_number(42))` | `lv_chart_set_next_value(...);` |
-| `lvgl_chart_set_range` | Statement | VAR(field_variable), SERIES(field_input), MIN(input_value), MAX(input_value) | `lvgl_chart_set_range($chart, "series1", math_number(0), math_number(100))` | `lv_chart_set_range(...);` |
-| `lvgl_chart_set_update_mode` | Statement | VAR(field_variable), MODE(dropdown) | `lvgl_chart_set_update_mode($chart, LV_CHART_UPDATE_MODE_SHIFT)` | `lv_chart_set_update_mode(...);` |
-| `lvgl_chart_refresh` | Statement | VAR(field_variable) | `lvgl_chart_refresh($chart)` | `lv_chart_refresh(...);` |
-| `lvgl_keyboard_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_keyboard_create(global, "keyboard", $screen)` | `lv_obj_t *` |
-| `lvgl_keyboard_set_textarea` | Statement | VAR(field_variable), TEXTAREA(field_variable) | `lvgl_keyboard_set_textarea($keyboard, $textarea1)` | `lv_keyboard_set_textarea(...);` |
-| `lvgl_keyboard_set_mode` | Statement | VAR(field_variable), MODE(dropdown) | `lvgl_keyboard_set_mode($keyboard, LV_KEYBOARD_MODE_TEXT_LOWER)` | `lv_keyboard_set_mode(...);` |
-| `lvgl_keyboard_set_popovers` | Statement | VAR(field_variable), ENABLE(dropdown) | `lvgl_keyboard_set_popovers($keyboard, true)` | `lv_keyboard_set_popovers(...);` |
-| `lvgl_list_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_list_create(global, "list", $screen)` | `lv_obj_t *` |
-| `lvgl_list_add_text` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_list_add_text($list, text("hello"))` | `lv_list_add_text(...);` |
-| `lvgl_list_add_btn` | Statement | VAR(field_variable), TEXT(input_value), ICON(dropdown) | `lvgl_list_add_btn($list, text("Play"), LV_SYMBOL_PLAY)` | `lv_list_add_btn(...);` |
-| `lvgl_tabview_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_tabview_create(global, "tabview", $screen)` | `lv_obj_t *` |
-| `lvgl_tabview_add_tab` | Value | VAR(field_variable), TEXT(input_value) | `lvgl_tabview_add_tab($tabview, text("Tab1"))` | `lv_tabview_add_tab(...)` |
+| `lvgl_screen_load` | Statement | VAR(field_variable) | `lvgl_screen_load($screen)` | `lv_screen_load(screen);` |
+| `lvgl_obj_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_obj_create(global, "obj", $screen)` | `obj = lv_obj_create(screen);` |
+| `lvgl_screen_create` | Statement | SCOPE(dropdown), VAR(field_input) | `lvgl_screen_create(global, "screen")` | `screen = lv_obj_create(NULL);` |
+| `lvgl_image_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_image_create(global, "img", $screen)` | `img = lv_image_create(screen);` |
+| `lvgl_image_set_src` | Statement | VAR(field_variable), SRC(input_value) | `lvgl_image_set_src($img, text("A:/image.bin"))` | `lv_image_set_src(img, String("value").c_str());` |
+| `lvgl_image_set_zoom` | Statement | VAR(field_variable), ZOOM(input_value) | `lvgl_image_set_zoom($img, math_number(256))` | `lv_img_set_zoom(img, 1);` |
+| `lvgl_image_set_angle` | Statement | VAR(field_variable), ANGLE(input_value) | `lvgl_image_set_angle($img, math_number(900))` | `lv_image_set_angle(img, 1);` |
+| `lvgl_image_set_offset` | Statement | VAR(field_variable), X(input_value), Y(input_value) | `lvgl_image_set_offset($img, math_number(0), math_number(0))` | `lv_image_set_offset_x(img, 1); ↵ lv_image_set_offset_y(img, 1);` |
+| `lvgl_chart_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_chart_create(global, "chart", $screen)` | `chart = lv_chart_create(screen);` |
+| `lvgl_chart_set_type` | Statement | VAR(field_variable), TYPE(dropdown) | `lvgl_chart_set_type($chart, LV_CHART_TYPE_BAR)` | `lv_chart_set_type(chart, LV_CHART_TYPE_BAR);` |
+| `lvgl_chart_set_point_count` | Statement | VAR(field_variable), COUNT(input_value) | `lvgl_chart_set_point_count($chart, math_number(10))` | `lv_chart_set_point_count(chart, 1);` |
+| `lvgl_chart_add_series` | Statement | VAR(field_variable), SERIES(field_input), COLOR(dropdown) | `lvgl_chart_add_series($chart, "series1", "lv_palette_main(LV_PALETTE_RED)")` | `lv_chart_series_t *series1 = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_RED), LV_AXIS_PRIMARY_Y);` |
+| `lvgl_chart_set_next_value` | Statement | VAR(field_variable), SERIES(field_input), VALUE(input_value) | `lvgl_chart_set_next_value($chart, "series1", math_number(42))` | `lv_chart_set_next_value(chart, series1, 1);` |
+| `lvgl_chart_set_range` | Statement | VAR(field_variable), SERIES(field_input), MIN(input_value), MAX(input_value) | `lvgl_chart_set_range($chart, "series1", math_number(0), math_number(100))` | `lv_chart_set_range(chart, LV_AXIS_PRIMARY_Y, 1, 1);` |
+| `lvgl_chart_set_update_mode` | Statement | VAR(field_variable), MODE(dropdown) | `lvgl_chart_set_update_mode($chart, LV_CHART_UPDATE_MODE_SHIFT)` | `lv_chart_set_update_mode(chart, LV_CHART_UPDATE_MODE_SHIFT);` |
+| `lvgl_chart_refresh` | Statement | VAR(field_variable) | `lvgl_chart_refresh($chart)` | `lv_chart_refresh(chart);` |
+| `lvgl_keyboard_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_keyboard_create(global, "keyboard", $screen)` | `keyboard = lv_keyboard_create(screen);` |
+| `lvgl_keyboard_set_textarea` | Statement | VAR(field_variable), TEXTAREA(field_variable) | `lvgl_keyboard_set_textarea($keyboard, $textarea1)` | `lv_keyboard_set_textarea(keyboard, textarea);` |
+| `lvgl_keyboard_set_mode` | Statement | VAR(field_variable), MODE(dropdown) | `lvgl_keyboard_set_mode($keyboard, LV_KEYBOARD_MODE_TEXT_LOWER)` | `lv_keyboard_set_mode(keyboard, LV_KEYBOARD_MODE_TEXT_LOWER);` |
+| `lvgl_keyboard_set_popovers` | Statement | VAR(field_variable), ENABLE(dropdown) | `lvgl_keyboard_set_popovers($keyboard, true)` | `lv_keyboard_set_popovers(keyboard, true);` |
+| `lvgl_list_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_list_create(global, "list", $screen)` | `list = lv_list_create(screen);` |
+| `lvgl_list_add_text` | Statement | VAR(field_variable), TEXT(input_value) | `lvgl_list_add_text($list, text("hello"))` | `lv_list_add_text(list, String("value").c_str());` |
+| `lvgl_list_add_btn` | Statement | VAR(field_variable), TEXT(input_value), ICON(dropdown) | `lvgl_list_add_btn($list, text("Play"), LV_SYMBOL_PLAY)` | `lv_list_add_btn(list, NULL, String("value").c_str());` |
+| `lvgl_tabview_create` | Statement | SCOPE(dropdown), VAR(field_input), PARENT(field_variable) | `lvgl_tabview_create(global, "tabview", $screen)` | `tabview = lv_tabview_create(screen);` |
+| `lvgl_tabview_add_tab` | Value | VAR(field_variable), TEXT(input_value) | `lvgl_tabview_add_tab($tabview, text("Tab1"))` | `lv_tabview_add_tab(tabview, String("value").c_str())` |
 | `lvgl_set_img_font` | Statement | ENABLE(dropdown) | `lvgl_set_img_font(true)` | `#define LV_USE_IMGFONT 1` |
-| `lvgl_set_stdlib_malloc` | Statement | LIB(dropdown) | `lvgl_set_stdlib_malloc(LV_STDLIB_BUILTIN)` | `#define LV_USE_STDLIB_MALLOC ...` |
-| `lvgl_set_stdlib_string` | Statement | LIB(dropdown) | `lvgl_set_stdlib_string(LV_STDLIB_BUILTIN)` | `#define LV_USE_STDLIB_STRING ...` |
-| `lvgl_set_stdlib_sprintf` | Statement | LIB(dropdown) | `lvgl_set_stdlib_sprintf(LV_STDLIB_BUILTIN)` | `#define LV_USE_STDLIB_SPRINTF ...` |
-| `lvgl_set_theme` | Statement | THEME(dropdown) | `lvgl_set_theme(light)` | `#define LV_THEME_DEFAULT_DARK 0/1` |
+| `lvgl_set_stdlib_malloc` | Statement | LIB(dropdown) | `lvgl_set_stdlib_malloc(LV_STDLIB_BUILTIN)` | `#define LV_USE_STDLIB_MALLOC LV_STDLIB_BUILTIN` |
+| `lvgl_set_stdlib_string` | Statement | LIB(dropdown) | `lvgl_set_stdlib_string(LV_STDLIB_BUILTIN)` | `#define LV_USE_STDLIB_STRING LV_STDLIB_BUILTIN` |
+| `lvgl_set_stdlib_sprintf` | Statement | LIB(dropdown) | `lvgl_set_stdlib_sprintf(LV_STDLIB_BUILTIN)` | `#define LV_USE_STDLIB_SPRINTF LV_STDLIB_BUILTIN` |
+| `lvgl_set_theme` | Statement | THEME(dropdown) | `lvgl_set_theme(light)` | `#define LV_THEME_DEFAULT_DARK 0` |
 
 ## Parameter Options
 
@@ -167,7 +167,7 @@ LVGL 图形界面库。该库负责生成 LVGL 控件和事件代码，但显示
 ### Recipe 1: TFT_eSPI + LVGL 文本标签
 ```
 arduino_setup()
-    tftespi_setup("tft", ST7789_DRIVER, 40000000, math_number(172), math_number(320), math_number(-1), math_number(10), math_number(12), math_number(13), math_number(11), math_number(14), math_number(3), HIGH, TFT_RGB)
+    tftespi_setup("tft", ST7789_DRIVER, "172", "320", "-1", "10", "12", "13", "11", "14", "3", HIGH, TFT_RGB, 40000000)
     lvgl_init(TFT_eSPI, math_number(172), math_number(320), LV_DISPLAY_ROTATION_90)
     lvgl_screen_create(global, "screen")
     lvgl_label_create(global, "label", $screen)
@@ -183,7 +183,7 @@ arduino_loop()
 ### Recipe 2: Seeed GFX + LVGL 触摸按钮
 ```
 arduino_setup()
-    seeed_gfx_init("tft", 501)
+    seeed_gfx_init("tft", 501, 20000000)
     chsc6x_setup("touch", Wire, math_number(46), io_pin_digi(D7), math_number(240), math_number(240), 3)
     lvgl_init(TFT_eSPI, math_number(240), math_number(240), LV_DISPLAY_ROTATION_270)
     lvgl_indev_create(global, "indev", LV_INDEV_TYPE_POINTER)
@@ -201,7 +201,7 @@ arduino_setup()
     lvgl_button_create(global, "btn", $screen)
     lvgl_obj_align($btn, LV_ALIGN_CENTER, math_number(0), math_number(15))
     lvgl_event_add_cb($btn, LV_EVENT_CLICKED)
-        variable_define_advanced(static, , "count", uint8_t)
+        variable_define_advanced(static, "", "count", uint8_t, math_number(0))
         variables_set($count, math_arithmetic(variables_get($count), ADD, math_number(1)))
         lvgl_obj_get_child("label", $btn, math_number(0))
         lvgl_label_set_text($label, text_join(text("Button: "), variables_get($count)))
@@ -220,7 +220,7 @@ arduino_loop()
 ### Minimal object creation pattern
 ```
 arduino_setup()
-    tftespi_setup("tft", ST7789_DRIVER, 40000000, math_number(240), math_number(240), math_number(-1), math_number(10), math_number(12), math_number(13), math_number(11), math_number(14), math_number(3), HIGH, TFT_RGB)
+    tftespi_setup("tft", ST7789_DRIVER, "240", "240", "-1", "10", "12", "13", "11", "14", "3", HIGH, TFT_RGB, 40000000)
     lvgl_init(TFT_eSPI, math_number(240), math_number(240), LV_DISPLAY_ROTATION_0)
     lvgl_screen_create(global, "screen")
     lvgl_obj_create(global, "panel", $screen)

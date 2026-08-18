@@ -8,16 +8,16 @@ Blockly wrapper for the MAX30102 pulse oximeter library. It wraps MAX30102_by_RF
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `max30102_init` | Statement | SDA_PIN(dropdown), SCL_PIN(dropdown), INT_PIN(dropdown) | `max30102_init(SDA_PIN, SCL_PIN, INT_PIN)` | ailyMax30102Begin( |
-| `max30102_measure` | Statement | TIMEOUT(input_value) | `max30102_measure(math_number(1000))` | ailyMax30102Measure( |
-| `max30102_get_value` | Value | VALUE(dropdown) | `max30102_get_value(SPO2)` | Dynamic code |
-| `max30102_is_valid` | Value | TARGET(dropdown) | `max30102_is_valid(MEASURE)` | Dynamic code |
-| `max30102_reset` | Statement | (none) | `max30102_reset()` | maxim_max30102_reset();\n |
-| `max30102_set_led_amplitude` | Statement | LED1(input_value), LED2(input_value) | `max30102_set_led_amplitude(math_number(0), math_number(0))` | setLED1PulseAmplitude((uint8_t)( |
-| `max30102_config_spo2` | Statement | AVERAGING(dropdown), ADC_RANGE(dropdown), SAMPLE_RATE(dropdown), PULSE_WIDTH(dropdown) | `max30102_config_spo2(NO_AVERAGING, ADC_RANGE_2048, SPO2_RATE_50, PW_69)` | ailyMax30102SetSpO2Config( |
-| `max30102_set_finger_threshold` | Statement | THRESHOLD(input_value) | `max30102_set_finger_threshold(math_number(0))` | _ailyMax30102FingerThreshold = (uint32_t)( |
+| `max30102_init` | Statement | SDA_PIN(dropdown), SCL_PIN(dropdown), INT_PIN(dropdown) | `max30102_init(SDA_PIN, SCL_PIN, INT_PIN)` | `ailyMax30102Begin(SDA_PIN, SCL_PIN, INT_PIN);` |
+| `max30102_measure` | Statement | TIMEOUT(input_value) | `max30102_measure(math_number(1000))` | `ailyMax30102Measure(1);` |
+| `max30102_get_value` | Value | VALUE(dropdown) | `max30102_get_value(SPO2)` | `_ailyMax30102SpO2` |
+| `max30102_is_valid` | Value | TARGET(dropdown) | `max30102_is_valid(MEASURE)` | `_ailyMax30102LastOK` |
+| `max30102_reset` | Statement | (none) | `max30102_reset()` | `maxim_max30102_reset();` |
+| `max30102_set_led_amplitude` | Statement | LED1(input_value), LED2(input_value) | `max30102_set_led_amplitude(math_number(0), math_number(0))` | `setLED1PulseAmplitude((uint8_t)(1)); ↵ setLED2PulseAmplitude((uint8_t)(1));` |
+| `max30102_config_spo2` | Statement | AVERAGING(dropdown), ADC_RANGE(dropdown), SAMPLE_RATE(dropdown), PULSE_WIDTH(dropdown) | `max30102_config_spo2(NO_AVERAGING, ADC_RANGE_2048, SPO2_RATE_50, PW_69)` | `ailyMax30102SetSpO2Config(NO_AVERAGING, ADC_RANGE_2048, SPO2_RATE_50, PW_69);` |
+| `max30102_set_finger_threshold` | Statement | THRESHOLD(input_value) | `max30102_set_finger_threshold(math_number(0))` | `_ailyMax30102FingerThreshold = (uint32_t)(1);` |
 
 ## Parameter Options
 

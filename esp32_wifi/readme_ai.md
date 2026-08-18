@@ -8,38 +8,39 @@ ESP32 WiFi library includes basic WiFi functions such as WiFi connection, SmartC
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_wifi_begin` | Statement | SSID(input_value), PASSWORD(input_value) | `esp32_wifi_begin(text("value"), text("value"))` | WiFi.begin( |
-| `esp32_wifi_begin_advanced` | Statement | SSID(input_value), PASSWORD(input_value), CHANNEL(input_value), BSSID(input_value) | `esp32_wifi_begin_advanced(text("value"), text("value"), math_number(0), text("value"))` | WiFi.begin( |
-| `esp32_wifi_disconnect` | Statement | ERASE_AP(dropdown) | `esp32_wifi_disconnect(FALSE)` | WiFi.disconnect( |
-| `esp32_wifi_status` | Value | (none) | `esp32_wifi_status()` | WiFi.status() |
-| `esp32_wifi_status_type` | Value | STATUS(dropdown) | `esp32_wifi_status_type(WL_NO_SHIELD)` | Dynamic code |
-| `esp32_wifi_is_connected` | Value | (none) | `esp32_wifi_is_connected()` | WiFi.isConnected() |
-| `esp32_wifi_local_ip` | Value | (none) | `esp32_wifi_local_ip()` | WiFi.localIP().toString() |
-| `esp32_wifi_mac_address` | Value | (none) | `esp32_wifi_mac_address()` | WiFi.macAddress() |
-| `esp32_wifi_rssi` | Value | (none) | `esp32_wifi_rssi()` | WiFi.RSSI() |
-| `esp32_wifi_ssid` | Value | (none) | `esp32_wifi_ssid()` | WiFi.SSID() |
-| `esp32_wifi_scan_networks` | Value | ASYNC(dropdown) | `esp32_wifi_scan_networks(FALSE)` | WiFi.scanNetworks( |
-| `esp32_wifi_get_ssid` | Value | INDEX(input_value) | `esp32_wifi_get_ssid(math_number(0))` | WiFi.SSID( |
-| `esp32_wifi_get_rssi` | Value | INDEX(input_value) | `esp32_wifi_get_rssi(math_number(0))` | WiFi.RSSI( |
-| `esp32_wifi_get_encryption_type` | Value | INDEX(input_value) | `esp32_wifi_get_encryption_type(math_number(0))` | WiFi.encryptionType( |
-| `esp32_wifi_encryption_type` | Value | TYPE(dropdown) | `esp32_wifi_encryption_type(WIFI_AUTH_OPEN)` | Dynamic code |
-| `esp32_wifi_scan_complete` | Value | (none) | `esp32_wifi_scan_complete()` | WiFi.scanComplete() |
-| `esp32_wifi_scan_delete` | Statement | (none) | `esp32_wifi_scan_delete()` | WiFi.scanDelete();\n |
-| `esp32_wifi_softap` | Statement | SSID(input_value), PASSWORD(input_value), CHANNEL(input_value) | `esp32_wifi_softap(text("value"), text("value"), math_number(0))` | WiFi.softAP( |
-| `esp32_wifi_softap_config` | Statement | IP(field_input), GATEWAY(field_input), SUBNET(field_input) | `esp32_wifi_softap_config("192.168.4.1", "192.168.4.1", "255.255.255.0")` | WiFi.softAPConfig( |
-| `esp32_wifi_softap_disconnect` | Statement | WIFI_OFF(dropdown) | `esp32_wifi_softap_disconnect(FALSE)` | WiFi.softAPdisconnect( |
-| `esp32_wifi_softap_station_count` | Value | (none) | `esp32_wifi_softap_station_count()` | WiFi.softAPgetStationNum() |
-| `esp32_wifi_softap_ip` | Value | (none) | `esp32_wifi_softap_ip()` | WiFi.softAPIP().toString() |
-| `esp32_wifi_set_mode` | Statement | MODE(dropdown) | `esp32_wifi_set_mode(WIFI_STA)` | WiFi.mode( |
-| `esp32_wifi_get_mode` | Value | (none) | `esp32_wifi_get_mode()` | WiFi.getMode() |
-| `esp32_wifi_mode` | Value | MODE(dropdown) | `esp32_wifi_mode(WIFI_MODE_STA)` | Dynamic code |
-| `esp32_wifi_set_auto_reconnect` | Statement | AUTO_RECONNECT(dropdown) | `esp32_wifi_set_auto_reconnect(TRUE)` | WiFi.setAutoReconnect( |
-| `esp32_wifi_wait_for_connect_result` | Value | TIMEOUT(input_value) | `esp32_wifi_wait_for_connect_result(math_number(1000))` | WiFi.waitForConnectResult( |
-| `esp32_wifi_smartconfig_start` | Statement | (none) | `esp32_wifi_smartconfig_start()` | WiFi.beginSmartConfig();\n |
-| `esp32_wifi_smartconfig_stop` | Statement | (none) | `esp32_wifi_smartconfig_stop()` | WiFi.stopSmartConfig();\n |
-| `esp32_wifi_smartconfig_done` | Value | (none) | `esp32_wifi_smartconfig_done()` | WiFi.smartConfigDone() |
+| `esp32_wifi_begin` | Statement | SSID(input_value), PASSWORD(input_value) | `esp32_wifi_begin(text("value"), text("value"))` | `WiFi.begin(1, 1);` |
+| `esp32_wifi_begin_advanced` | Statement | SSID(input_value), PASSWORD(input_value), CHANNEL(input_value), BSSID(input_value) | `esp32_wifi_begin_advanced(text("value"), text("value"), math_number(0), text("value"))` | `WiFi.begin(1, 1, 1, 1);` |
+| `esp32_wifi_disconnect` | Statement | ERASE_AP(dropdown) | `esp32_wifi_disconnect(FALSE)` | `WiFi.disconnect(false);` |
+| `esp32_wifi_status` | Value | (none) | `esp32_wifi_status()` | `WiFi.status()` |
+| `esp32_wifi_status_type` | Value | STATUS(dropdown) | `esp32_wifi_status_type(WL_NO_SHIELD)` | `WL_NO_SHIELD` |
+| `esp32_wifi_is_connected` | Value | (none) | `esp32_wifi_is_connected()` | `WiFi.isConnected()` |
+| `esp32_wifi_local_ip` | Value | (none) | `esp32_wifi_local_ip()` | `WiFi.localIP().toString()` |
+| `esp32_wifi_mac_address` | Value | (none) | `esp32_wifi_mac_address()` | `WiFi.macAddress()` |
+| `esp32_wifi_rssi` | Value | (none) | `esp32_wifi_rssi()` | `WiFi.RSSI()` |
+| `esp32_wifi_ssid` | Value | (none) | `esp32_wifi_ssid()` | `WiFi.SSID()` |
+| `esp32_wifi_scan_networks` | Value | ASYNC(dropdown) | `esp32_wifi_scan_networks(FALSE)` | `WiFi.scanNetworks(false)` |
+| `esp32_wifi_get_ssid` | Value | INDEX(input_value) | `esp32_wifi_get_ssid(math_number(0))` | `WiFi.SSID(1)` |
+| `esp32_wifi_get_rssi` | Value | INDEX(input_value) | `esp32_wifi_get_rssi(math_number(0))` | `WiFi.RSSI(1)` |
+| `esp32_wifi_get_encryption_type` | Value | INDEX(input_value) | `esp32_wifi_get_encryption_type(math_number(0))` | `WiFi.encryptionType(1)` |
+| `esp32_wifi_encryption_type` | Value | TYPE(dropdown) | `esp32_wifi_encryption_type(WIFI_AUTH_OPEN)` | `WIFI_AUTH_OPEN` |
+| `esp32_wifi_scan_complete` | Value | (none) | `esp32_wifi_scan_complete()` | `WiFi.scanComplete()` |
+| `esp32_wifi_scan_delete` | Statement | (none) | `esp32_wifi_scan_delete()` | `WiFi.scanDelete();` |
+| `esp32_wifi_softap` | Statement | SSID(input_value), PASSWORD(input_value), CHANNEL(input_value) | `esp32_wifi_softap(text("value"), text("value"), math_number(0))` | `WiFi.softAP(1, 1, 1);` |
+| `esp32_wifi_softap_config` | Statement | IP(field_input), GATEWAY(field_input), SUBNET(field_input) | `esp32_wifi_softap_config("192.168.4.1", "192.168.4.1", "255.255.255.0")` | `WiFi.softAPConfig(IPAddress(192, 168, 4, 1), IPAddress(192, 168, 4, 1), IPAddress(255, 255, 255, 0));` |
+| `esp32_wifi_softap_disconnect` | Statement | WIFI_OFF(dropdown) | `esp32_wifi_softap_disconnect(FALSE)` | `WiFi.softAPdisconnect(false);` |
+| `esp32_wifi_softap_station_count` | Value | (none) | `esp32_wifi_softap_station_count()` | `WiFi.softAPgetStationNum()` |
+| `esp32_wifi_softap_ip` | Value | (none) | `esp32_wifi_softap_ip()` | `WiFi.softAPIP().toString()` |
+| `esp32_wifi_set_mode` | Statement | MODE(dropdown) | `esp32_wifi_set_mode(WIFI_STA)` | `WiFi.mode(WIFI_STA);` |
+| `esp32_wifi_get_mode` | Value | (none) | `esp32_wifi_get_mode()` | `WiFi.getMode()` |
+| `esp32_wifi_mode` | Value | MODE(dropdown) | `esp32_wifi_mode(WIFI_MODE_STA)` | `WIFI_MODE_STA` |
+| `esp32_wifi_set_auto_reconnect` | Statement | AUTO_RECONNECT(dropdown) | `esp32_wifi_set_auto_reconnect(TRUE)` | `WiFi.setAutoReconnect(true);` |
+| `esp32_wifi_wait_for_connect_result` | Value | TIMEOUT(input_value) | `esp32_wifi_wait_for_connect_result(math_number(1000))` | `WiFi.waitForConnectResult(1)` |
+| `esp32_wifi_smartconfig_start` | Statement | (none) | `esp32_wifi_smartconfig_start()` | `WiFi.beginSmartConfig();` |
+| `esp32_wifi_smartconfig_stop` | Statement | (none) | `esp32_wifi_smartconfig_stop()` | `WiFi.stopSmartConfig();` |
+| `esp32_wifi_smartconfig_done` | Value | (none) | `esp32_wifi_smartconfig_done()` | `WiFi.smartConfigDone()` |
+| `esp32_wifi_reconnect` | Statement | (none) | `esp32_wifi_reconnect()` | `WiFi.reconnect();` |
 
 ## Parameter Options
 

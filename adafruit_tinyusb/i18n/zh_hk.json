@@ -1,0 +1,96 @@
+{
+  "toolbox_name": "Adafruit TinyUSB",
+  "tinyusb_device_init": {
+    "message0": "初始化 TinyUSB 設備 VID %1 PID %2 製造商 %3 產品 %4",
+    "tooltip": "配置並初始化 TinyUSB 設備描述符。"
+  },
+  "tinyusb_webusb_init": {
+    "message0": "初始化 WebUSB %1 登陸主機 %2",
+    "tooltip": "建立具有 HTTPS 登入頁面的 WebUSB 序列介面。"
+  },
+  "tinyusb_webusb_write": {
+    "message0": "WebUSB %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "列印",
+            "print"
+          ],
+          [
+            "列印並換行",
+            "println"
+          ],
+          [
+            "寫入位元組",
+            "write"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "將資料寫入瀏覽器WebUSB介面。"
+  },
+  "tinyusb_webusb_data": {
+    "message0": "WebUSB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "可用位元組",
+            "available"
+          ],
+          [
+            "讀取位元組",
+            "read"
+          ],
+          [
+            "已連接",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "讀取WebUSB資料或連線狀態。"
+  },
+  "tinyusb_midi_init": {
+    "message0": "初始化 TinyUSB MIDI %1",
+    "tooltip": "建立 USB MIDI 傳輸和 MIDI 介面。"
+  },
+  "tinyusb_midi_note": {
+    "message0": "TinyUSB MIDI %1 傳送 %2 音符 %3 力度 %4 通道 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "音符開啟",
+            "sendNoteOn"
+          ],
+          [
+            "音符關閉",
+            "sendNoteOff"
+          ],
+          [
+            "複音觸後",
+            "sendPolyPressure"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "傳送一則 USB MIDI 音符訊息。"
+  },
+  "tinyusb_midi_control": {
+    "message0": "TinyUSB MIDI %1 傳送控制改變 %2 值 %3 頻道 %4",
+    "tooltip": "發送 USB MIDI 控制變更訊息。"
+  },
+  "tinyusb_mounted": {
+    "message0": "TinyUSB 裝置已被主機掛載",
+    "tooltip": "檢查主機是否枚舉了USB設備。"
+  }
+}

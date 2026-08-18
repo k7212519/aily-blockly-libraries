@@ -1,0 +1,14 @@
+{
+  "toolbox_name": "NESエミュレータ",
+  "toolbox_labels": {
+    "NES模拟器": "NESエミュレータ"
+  },
+  "nofrendo_start": {
+    "message0": "NES エミュレータがゲーム ROM %1 をロードしています",
+    "tooltip": "NES エミュレータを起動し、指定した ROM パス (/sdcard/game.nes など) をロードします。最初に SD カードと TFT スクリーンを初期化する必要があります。"
+  },
+  "nofrendo_find_rom": {
+    "message0": "SD カード上の .nes ゲーム ファイルを探す",
+    "tooltip": "SD カードのルート ディレクトリで最初の .nes ファイルを検索し、フル パスを返します。見つからない場合は、空の文字列が返されます。"
+  }
+}

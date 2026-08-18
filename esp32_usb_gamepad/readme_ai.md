@@ -8,17 +8,17 @@ Simulate ESP32 as a USB game controller, supporting button, joystick, trigger an
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `gamepad_begin` | Statement | (none) | `gamepad_begin()` | Dynamic code |
-| `gamepad_press_button` | Statement | BUTTON(input_value) | `gamepad_press_button(math_number(0))` | Gamepad.pressButton( |
-| `gamepad_release_button` | Statement | BUTTON(input_value) | `gamepad_release_button(math_number(0))` | Gamepad.releaseButton( |
-| `gamepad_left_stick` | Statement | X(input_value), Y(input_value) | `gamepad_left_stick(math_number(0), math_number(0))` | Gamepad.leftStick( |
-| `gamepad_right_stick` | Statement | X(input_value), Y(input_value) | `gamepad_right_stick(math_number(0), math_number(0))` | Gamepad.rightStick( |
-| `gamepad_left_trigger` | Statement | VALUE(input_value) | `gamepad_left_trigger(math_number(0))` | Gamepad.leftTrigger( |
-| `gamepad_right_trigger` | Statement | VALUE(input_value) | `gamepad_right_trigger(math_number(0))` | Gamepad.rightTrigger( |
-| `gamepad_hat` | Statement | DIRECTION(dropdown) | `gamepad_hat(HAT_CENTER)` | Gamepad.hat( |
-| `gamepad_reset` | Statement | (none) | `gamepad_reset()` | Gamepad.releaseButton(0);\nGamepad.leftStick(0, 0);\nGamepad.rightStick(0, 0);\nGamepad.le |
+| `gamepad_begin` | Statement | (none) | `gamepad_begin()` | `#ifndef ARDUINO_USB_MODE ↵ #error This ESP32 SoC has no Native USB interface ↵ #elif ARDUINO_USB_MODE == 1 ↵ #warning This sketch should be used when USB is in OTG mode ↵ #endif ↵ USBHIDGamepad Gamepad; ↵ Gamepad.begin(); ↵ USB.begin();` |
+| `gamepad_press_button` | Statement | BUTTON(input_value) | `gamepad_press_button(math_number(0))` | `Gamepad.pressButton(1);` |
+| `gamepad_release_button` | Statement | BUTTON(input_value) | `gamepad_release_button(math_number(0))` | `Gamepad.releaseButton(1);` |
+| `gamepad_left_stick` | Statement | X(input_value), Y(input_value) | `gamepad_left_stick(math_number(0), math_number(0))` | `Gamepad.leftStick(1, 1);` |
+| `gamepad_right_stick` | Statement | X(input_value), Y(input_value) | `gamepad_right_stick(math_number(0), math_number(0))` | `Gamepad.rightStick(1, 1);` |
+| `gamepad_left_trigger` | Statement | VALUE(input_value) | `gamepad_left_trigger(math_number(0))` | `Gamepad.leftTrigger(1);` |
+| `gamepad_right_trigger` | Statement | VALUE(input_value) | `gamepad_right_trigger(math_number(0))` | `Gamepad.rightTrigger(1);` |
+| `gamepad_hat` | Statement | DIRECTION(dropdown) | `gamepad_hat(HAT_CENTER)` | `Gamepad.hat(HAT_CENTER);` |
+| `gamepad_reset` | Statement | (none) | `gamepad_reset()` | `Gamepad.releaseButton(0); ↵ Gamepad.leftStick(0, 0); ↵ Gamepad.rightStick(0, 0); ↵ Gamepad.leftTrigger(0); ↵ Gamepad.rightTrigger(0); ↵ Gamepad.hat(HAT_CENTER);` |
 
 ## Parameter Options
 

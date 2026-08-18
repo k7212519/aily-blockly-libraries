@@ -8,19 +8,19 @@ ADXL345 three-axis acceleration sensor library, I2C communication, can read X/Y/
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `adxl345_init` | Statement | SENSOR_ID(field_number) | `adxl345_init(12345)` | Dynamic code |
-| `adxl345_read_x` | Value | (none) | `adxl345_read_x()` | adxl345_getX() |
-| `adxl345_read_y` | Value | (none) | `adxl345_read_y()` | adxl345_getY() |
-| `adxl345_read_z` | Value | (none) | `adxl345_read_z()` | adxl345_getZ() |
-| `adxl345_read_xyz` | Statement | VAR_X(field_variable), VAR_Y(field_variable), VAR_Z(field_variable) | `adxl345_read_xyz(variables_get($accel_x), variables_get($accel_y), variables_get($accel_z))` | sensors_event_t event;\n |
-| `adxl345_set_range` | Statement | RANGE(dropdown) | `adxl345_set_range(ADXL345_RANGE_2_G)` | accel.setRange( |
-| `adxl345_set_data_rate` | Statement | DATA_RATE(dropdown) | `adxl345_set_data_rate(ADXL345_DATARATE_0_10_HZ)` | accel.setDataRate( |
-| `adxl345_get_range` | Value | (none) | `adxl345_get_range()` | accel.getRange() |
-| `adxl345_get_data_rate` | Value | (none) | `adxl345_get_data_rate()` | accel.getDataRate() |
-| `adxl345_display_sensor_details` | Statement | (none) | `adxl345_display_sensor_details()` | adxl345_displaySensorDetails();\n |
-| `adxl345_check_connection` | Value | (none) | `adxl345_check_connection()` | adxl345_checkConnection() |
+| `adxl345_init` | Statement | SENSOR_ID(field_number) | `adxl345_init(12345)` | `Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345); ↵ if(!accel.begin()) { ↵ Serial.println("Ooops, no ADXL345 detected ... Check your wiring!"); ↵ while(1); ↵ } ↵ accel.setRange(ADXL345_RANGE_16_G);` |
+| `adxl345_read_x` | Value | (none) | `adxl345_read_x()` | `adxl345_getX()` |
+| `adxl345_read_y` | Value | (none) | `adxl345_read_y()` | `adxl345_getY()` |
+| `adxl345_read_z` | Value | (none) | `adxl345_read_z()` | `adxl345_getZ()` |
+| `adxl345_read_xyz` | Statement | VAR_X(field_variable), VAR_Y(field_variable), VAR_Z(field_variable) | `adxl345_read_xyz($accel_x, $accel_y, $accel_z)` | `sensors_event_t event; ↵ accel.getEvent(&event); ↵ accel_x = event.acceleration.x; ↵ accel_y = event.acceleration.y; ↵ accel_z = event.acceleration.z;` |
+| `adxl345_set_range` | Statement | RANGE(dropdown) | `adxl345_set_range(ADXL345_RANGE_2_G)` | `accel.setRange(ADXL345_RANGE_2_G);` |
+| `adxl345_set_data_rate` | Statement | DATA_RATE(dropdown) | `adxl345_set_data_rate(ADXL345_DATARATE_0_10_HZ)` | `accel.setDataRate(ADXL345_DATARATE_0_10_HZ);` |
+| `adxl345_get_range` | Value | (none) | `adxl345_get_range()` | `accel.getRange()` |
+| `adxl345_get_data_rate` | Value | (none) | `adxl345_get_data_rate()` | `accel.getDataRate()` |
+| `adxl345_display_sensor_details` | Statement | (none) | `adxl345_display_sensor_details()` | `adxl345_displaySensorDetails();` |
+| `adxl345_check_connection` | Value | (none) | `adxl345_check_connection()` | `adxl345_checkConnection()` |
 
 ## Parameter Options
 

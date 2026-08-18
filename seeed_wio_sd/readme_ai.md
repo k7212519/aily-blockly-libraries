@@ -8,25 +8,25 @@ SD card storage library dedicated to the Wio Terminal onboard SD slot. Supports 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `seeed_fs_sd_begin` | Statement | None | `seeed_fs_sd_begin()` | `SD.begin(SDCARD_SS_PIN, SDCARD_SPI, 24000000UL)` |
-| `seeed_fs_sd_card_info` | Value | INFO(dropdown) | `seeed_fs_sd_card_info(cardType)` | Dynamic code |
-| `seeed_fs_file_exists` | Value | PATH(input_value) | `seeed_fs_file_exists(text("value"))` | SD.exists( |
-| `seeed_fs_open_file` | Value | VAR(field_variable), PATH(input_value), MODE(dropdown) | `seeed_fs_open_file(variables_get($file), text("value"), FILE_READ)` | Dynamic code |
-| `seeed_fs_close_file` | Statement | VAR(field_variable) | `seeed_fs_close_file(variables_get($file))` | Dynamic code |
-| `seeed_fs_write_file` | Statement | VAR(field_variable), CONTENT(input_value) | `seeed_fs_write_file(variables_get($file), text("value"))` | Dynamic code |
-| `seeed_fs_read_file` | Value | VAR(field_variable) | `seeed_fs_read_file(variables_get($file))` | seeedReadFileContent( |
-| `seeed_fs_file_available` | Value | VAR(field_variable) | `seeed_fs_file_available(variables_get($file))` | Dynamic code |
-| `seeed_fs_file_size` | Value | VAR(field_variable) | `seeed_fs_file_size(variables_get($file))` | Dynamic code |
-| `seeed_fs_write_quick` | Statement | PATH(input_value), CONTENT(input_value) | `seeed_fs_write_quick(text("value"), text("value"))` | seeedWriteFile( |
-| `seeed_fs_read_quick` | Value | PATH(input_value) | `seeed_fs_read_quick(text("value"))` | seeedReadFile( |
-| `seeed_fs_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `seeed_fs_append_file(text("value"), text("value"))` | seeedAppendFile( |
-| `seeed_fs_delete_file` | Statement | PATH(input_value) | `seeed_fs_delete_file(text("value"))` | Dynamic code |
-| `seeed_fs_rename_file` | Statement | OLD_PATH(input_value), NEW_PATH(input_value) | `seeed_fs_rename_file(text("value"), text("value"))` | Dynamic code |
-| `seeed_fs_create_dir` | Statement | PATH(input_value) | `seeed_fs_create_dir(text("value"))` | Dynamic code |
-| `seeed_fs_remove_dir` | Statement | PATH(input_value) | `seeed_fs_remove_dir(text("value"))` | Dynamic code |
-| `seeed_fs_list_dir` | Statement | PATH(input_value), LEVELS(input_value) | `seeed_fs_list_dir(text("value"), math_number(0))` | seeedListDir(SD, |
+| `seeed_fs_sd_begin` | Statement | (none); runtime variants: current: (none); legacy-frequency: FREQUENCY(input_value) | `seeed_fs_sd_begin()` | `if (!SD.begin(SDCARD_SS_PIN, SDCARD_SPI, 24000000UL)) { ↵ Serial.println("Card Mount Failed"); ↵ return; ↵ } ↵ Serial.println("SD card initialized.");` |
+| `seeed_fs_sd_card_info` | Value | INFO(dropdown) | `seeed_fs_sd_card_info(cardType)` | `SD.cardType()` |
+| `seeed_fs_file_exists` | Value | PATH(input_value) | `seeed_fs_file_exists(text("value"))` | `SD.exists("value")` |
+| `seeed_fs_open_file` | Value | VAR(field_variable), PATH(input_value), MODE(dropdown) | `seeed_fs_open_file($file, text("value"), FILE_READ)` | `file = SD.open("value", FILE_READ)` |
+| `seeed_fs_close_file` | Statement | VAR(field_variable) | `seeed_fs_close_file($file)` | `file.close();` |
+| `seeed_fs_write_file` | Statement | VAR(field_variable), CONTENT(input_value) | `seeed_fs_write_file($file, text("value"))` | `file.print(String("value").c_str());` |
+| `seeed_fs_read_file` | Value | VAR(field_variable) | `seeed_fs_read_file($file)` | `seeedReadFileContent(file)` |
+| `seeed_fs_file_available` | Value | VAR(field_variable) | `seeed_fs_file_available($file)` | `file.available()` |
+| `seeed_fs_file_size` | Value | VAR(field_variable) | `seeed_fs_file_size($file)` | `file.size()` |
+| `seeed_fs_write_quick` | Statement | PATH(input_value), CONTENT(input_value) | `seeed_fs_write_quick(text("value"), text("value"))` | `seeedWriteFile("value", String("value").c_str());` |
+| `seeed_fs_read_quick` | Value | PATH(input_value) | `seeed_fs_read_quick(text("value"))` | `seeedReadFile("value")` |
+| `seeed_fs_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `seeed_fs_append_file(text("value"), text("value"))` | `seeedAppendFile("value", String("value").c_str());` |
+| `seeed_fs_delete_file` | Statement | PATH(input_value) | `seeed_fs_delete_file(text("value"))` | `if (SD.remove("value")) { ↵ Serial.println("File deleted"); ↵ } else { ↵ Serial.println("Delete failed"); ↵ }` |
+| `seeed_fs_rename_file` | Statement | OLD_PATH(input_value), NEW_PATH(input_value) | `seeed_fs_rename_file(text("value"), text("value"))` | `if (SD.rename("value", "value")) { ↵ Serial.println("File renamed"); ↵ } else { ↵ Serial.println("Rename failed"); ↵ }` |
+| `seeed_fs_create_dir` | Statement | PATH(input_value) | `seeed_fs_create_dir(text("value"))` | `if (SD.mkdir("value")) { ↵ Serial.println("Dir created"); ↵ } else { ↵ Serial.println("mkdir failed"); ↵ }` |
+| `seeed_fs_remove_dir` | Statement | PATH(input_value) | `seeed_fs_remove_dir(text("value"))` | `if (SD.rmdir("value")) { ↵ Serial.println("Dir removed"); ↵ } else { ↵ Serial.println("rmdir failed"); ↵ }` |
+| `seeed_fs_list_dir` | Statement | PATH(input_value), LEVELS(input_value) | `seeed_fs_list_dir(text("value"), math_number(0))` | `seeedListDir(SD, "value", 1);` |
 
 ## Parameter Options
 

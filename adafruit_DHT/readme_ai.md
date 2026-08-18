@@ -8,35 +8,50 @@ DHT11/DHT22(AM2302)/DHT21(AM2301)/DHT20(I2C) temperature and humidity sensor lib
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `dht_init` | Statement | VAR(field_input), TYPE(dropdown) | `dht_init("dht", DHT11)` | Dynamic code |
-| `dht_read_temperature` | Value | VAR(field_variable) | `dht_read_temperature(variables_get($dht))` | Dynamic code |
-| `dht_read_humidity` | Value | VAR(field_variable) | `dht_read_humidity(variables_get($dht))` | Dynamic code |
-| `dht_read_success` | Value | VAR(field_variable) | `dht_read_success(variables_get($dht))` | Dynamic code |
+| `dht_init` | Statement | VAR(field_input), TYPE(dropdown); runtime variants: single-wire-pin: PIN(dropdown); dht20-i2c: WIRE(dropdown) | `dht_init("dht", DHT11, 2)` | `dht.begin();` |
+| `dht_read_temperature` | Value | VAR(field_variable) | `dht_read_temperature($dht)` | `dht.readTemperature()` |
+| `dht_read_humidity` | Value | VAR(field_variable) | `dht_read_humidity($dht)` | `dht.readHumidity()` |
+| `dht_read_success` | Value | VAR(field_variable) | `dht_read_success($dht)` | `!isnan(dht.readTemperature()) && !isnan(dht.readHumidity())` |
 
 ## Parameter Options
 
 | Parameter | Values | Description |
 |-----------|--------|-------------|
 | TYPE | DHT11, DHT22, DHT21, DHT20 | dht_init |
+| PIN | A board digital-pin value such as `2` | Required third argument for DHT11, DHT21, and DHT22 |
+| WIRE | A board I2C interface such as `Wire` | Required third argument for DHT20 |
 
 ## ABS Examples
 
 ### Basic Usage
 ```
 arduino_setup()
-    dht_init("dht", DHT11)
     serial_begin(Serial, 9600)
+    dht_init("dht", DHT11, 2)
 
 arduino_loop()
-    serial_println(Serial, dht_read_temperature(variables_get($dht)))
+    serial_println(Serial, dht_read_temperature($dht))
+    serial_println(Serial, dht_read_humidity($dht))
+    time_delay(math_number(1000))
+```
+
+### DHT20 over I2C
+```
+arduino_setup()
+    serial_begin(Serial, 9600)
+    dht_init("dht", DHT20, Wire)
+
+arduino_loop()
+    serial_println(Serial, dht_read_temperature($dht))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `dht_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `dht_init("dht", DHT11, 2)` creates `$dht`; pass `$dht` directly to DHT field_variable slots. Use `variables_get($dht)` only when a different block expects an input_value.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.
-4. **Dynamic fields**: `dht_init` may add fields at runtime through Blockly extensions.
+4. **Dynamic fields**: the third positional argument is `PIN` for DHT11/DHT21/DHT22 and `WIRE` for DHT20; it is required even though it is injected by a Blockly extension rather than listed in static `args0`.
+5. **Custom names**: custom sensor names are supported, but the initializer and every later field-variable reference must match exactly, for example `dht_init("roomSensor", DHT20, Wire)` with `$roomSensor`.

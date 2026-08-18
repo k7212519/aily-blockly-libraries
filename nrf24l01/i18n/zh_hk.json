@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "nRF24L01 無線通訊",
+  "toolbox_labels": {
+    "Setup": "初始化與設定",
+    "Addresses": "通訊位址",
+    "Send and receive": "傳送與接收",
+    "Status and power": "狀態與電源"
+  },
+  "nrf24l01_init": {
+    "message0": "初始化 nRF24L01 %1 CE 接腳 %2 CSN 接腳 %3",
+    "tooltip": "建立 RF24 物件、初始化 SPI 無線模組並啟用動態載荷。模組 VCC 必須連接 3.3 V。"
+  },
+  "nrf24l01_set_radio_parameters": {
+    "message0": "nRF24L01 %1 設定頻道 %2 空中速率 %3 發射功率 %4",
+    "tooltip": "設定射頻頻道（0-125）、空中速率和發射功率。收發雙方的頻道與速率必須一致。",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["250 kbps", "RF24_250KBPS"],
+          ["1 Mbps", "RF24_1MBPS"],
+          ["2 Mbps", "RF24_2MBPS"]
+        ]
+      },
+      {
+        "options": [
+          ["最小（-18 dBm）", "RF24_PA_MIN"],
+          ["低（-12 dBm）", "RF24_PA_LOW"],
+          ["高（-6 dBm）", "RF24_PA_HIGH"],
+          ["最大（0 dBm）", "RF24_PA_MAX"]
+        ]
+      }
+    ]
+  },
+  "nrf24l01_set_retries": {
+    "message0": "nRF24L01 %1 設定重試延遲 %2 重試次數 %3",
+    "tooltip": "設定自動重發延遲和次數，兩個數值的範圍均為 0-15。"
+  },
+  "nrf24l01_set_auto_ack": {
+    "message0": "nRF24L01 %1 自動回應 %2",
+    "tooltip": "啟用或關閉所有接收管道的自動回應。"
+  },
+  "nrf24l01_open_writing_pipe": {
+    "message0": "nRF24L01 %1 設定傳送位址 %2",
+    "tooltip": "設定目標位址並進入傳送模式。使用前 5 個位元組，不足 5 個時自動補齊。"
+  },
+  "nrf24l01_open_reading_pipe": {
+    "message0": "nRF24L01 %1 開啟接收管道 %2 位址 %3",
+    "tooltip": "用 5 位元組位址開啟 0-5 號接收管道。2-5 號管道應與 1 號管道共用後 4 個位元組。"
+  },
+  "nrf24l01_set_listening": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "切換接收或傳送模式。開始監聽前應先開啟接收管道。",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["開始監聽", "START"],
+          ["停止監聽", "STOP"]
+        ]
+      }
+    ]
+  },
+  "nrf24l01_send_text": {
+    "message0": "nRF24L01 %1 傳送文字 %2",
+    "tooltip": "傳送最多 31 個文字位元組和一個結束符，並儲存資料包是否得到回應。"
+  },
+  "nrf24l01_send_number": {
+    "message0": "nRF24L01 %1 傳送數值 %2",
+    "tooltip": "以 32 位元浮點數載荷傳送數值，並儲存資料包是否得到回應。"
+  },
+  "nrf24l01_available": {
+    "message0": "nRF24L01 %1 有資料可接收",
+    "tooltip": "有載荷等待讀取時傳回真，並記錄收到資料的管道編號。"
+  },
+  "nrf24l01_read_text": {
+    "message0": "nRF24L01 %1 讀取文字",
+    "tooltip": "將下一份載荷作為文字讀取並移出緩衝區，請先檢查是否有資料。"
+  },
+  "nrf24l01_read_number": {
+    "message0": "nRF24L01 %1 讀取數值",
+    "tooltip": "將下一份載荷作為 32 位元浮點數讀取並移出緩衝區，請先檢查是否有資料。"
+  },
+  "nrf24l01_last_send_succeeded": {
+    "message0": "nRF24L01 %1 上次傳送成功",
+    "tooltip": "傳回最近一次文字或數值傳送的回應結果。"
+  },
+  "nrf24l01_received_pipe": {
+    "message0": "nRF24L01 %1 最近接收管道",
+    "tooltip": "傳回最近一次檢查接收資料時記錄的管道編號。"
+  },
+  "nrf24l01_is_chip_connected": {
+    "message0": "nRF24L01 %1 硬體已連接",
+    "tooltip": "檢查主控能否透過 SPI 與無線模組通訊。"
+  },
+  "nrf24l01_set_power_mode": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "喚醒無線模組或進入低功耗模式，掉電模式下仍會保留設定。",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["上電喚醒", "UP"],
+          ["低功耗掉電", "DOWN"]
+        ]
+      }
+    ]
+  }
+}

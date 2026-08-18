@@ -8,15 +8,15 @@ ESP32 mDNS multicast DNS service, supporting hostname resolution and service dis
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_mdns_begin` | Statement | HOSTNAME(input_value) | `esp32_mdns_begin(text("value"))` | if (!MDNS.begin( |
-| `esp32_mdns_end` | Statement | (none) | `esp32_mdns_end()` | MDNS.end();\n |
-| `esp32_mdns_add_service` | Statement | SERVICE(input_value), PROTO(dropdown), PORT(input_value) | `esp32_mdns_add_service(text("value"), tcp, math_number(0))` | MDNS.addService( |
-| `esp32_mdns_add_service_txt` | Statement | SERVICE(input_value), PROTO(dropdown), KEY(input_value), VALUE(input_value) | `esp32_mdns_add_service_txt(text("value"), tcp, text("value"), text("value"))` | MDNS.addServiceTxt( |
-| `esp32_mdns_query_host` | Value | HOST(input_value) | `esp32_mdns_query_host(text("value"))` | MDNS.queryHost( |
-| `esp32_mdns_query_service` | Value | SERVICE(input_value), PROTO(dropdown) | `esp32_mdns_query_service(text("value"), tcp)` | MDNS.queryService( |
-| `esp32_mdns_result` | Value | INDEX(input_value), ATTR(dropdown) | `esp32_mdns_result(math_number(0), hostname)` | Dynamic code |
+| `esp32_mdns_begin` | Statement | HOSTNAME(input_value) | `esp32_mdns_begin(text("value"))` | `if (!MDNS.begin("value")) { ↵ Serial.println("Error starting mDNS"); ↵ }` |
+| `esp32_mdns_end` | Statement | (none) | `esp32_mdns_end()` | `MDNS.end();` |
+| `esp32_mdns_add_service` | Statement | SERVICE(input_value), PROTO(dropdown), PORT(input_value) | `esp32_mdns_add_service(text("value"), tcp, math_number(0))` | `MDNS.addService("value", "tcp", 1);` |
+| `esp32_mdns_add_service_txt` | Statement | SERVICE(input_value), PROTO(dropdown), KEY(input_value), VALUE(input_value) | `esp32_mdns_add_service_txt(text("value"), tcp, text("value"), text("value"))` | `MDNS.addServiceTxt("value", "tcp", "value", "value");` |
+| `esp32_mdns_query_host` | Value | HOST(input_value) | `esp32_mdns_query_host(text("value"))` | `MDNS.queryHost("value").toString()` |
+| `esp32_mdns_query_service` | Value | SERVICE(input_value), PROTO(dropdown) | `esp32_mdns_query_service(text("value"), tcp)` | `MDNS.queryService("value", "tcp")` |
+| `esp32_mdns_result` | Value | INDEX(input_value), ATTR(dropdown) | `esp32_mdns_result(math_number(0), hostname)` | `MDNS.hostname(1)` |
 
 ## Parameter Options
 

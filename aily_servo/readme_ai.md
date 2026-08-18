@@ -8,22 +8,28 @@ Servo control support library based on Servo library package, suitable for Ardui
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `servo_attach` | Statement | PIN(dropdown) | `servo_attach(PIN)` | Dynamic code |
-| `servo_attach_advanced` | Statement | PIN(dropdown), MIN_PULSE_WIDTH(input_value), MAX_PULSE_WIDTH(input_value) | `servo_attach_advanced(PIN, math_number(0), math_number(0))` | Dynamic code |
-| `servo_attach_full` | Statement | PIN(dropdown), MIN_ANGLE(input_value), MAX_ANGLE(input_value), MIN_PULSE_WIDTH(input_value), MAX_PULSE_WIDTH(input_value) | `servo_attach_full(PIN, math_number(90), math_number(90), math_number(0), math_number(0))` | Dynamic code |
-| `servo_write` | Statement | PIN(dropdown), ANGLE(input_value) | `servo_write(PIN, math_number(90))` | Dynamic code |
-| `servo_write_float` | Statement | PIN(dropdown), ANGLE(input_value) | `servo_write_float(PIN, math_number(90))` | Dynamic code |
-| `servo_write_microseconds` | Statement | PIN(dropdown), MICROSECONDS(input_value) | `servo_write_microseconds(PIN, math_number(0))` | Dynamic code |
-| `servo_read` | Value | PIN(dropdown) | `servo_read(PIN)` | Dynamic code |
-| `servo_read_microseconds` | Value | PIN(dropdown) | `servo_read_microseconds(PIN)` | Dynamic code |
-| `servo_attached` | Value | PIN(dropdown) | `servo_attached(PIN)` | Dynamic code |
-| `servo_detach` | Statement | PIN(dropdown) | `servo_detach(PIN)` | Dynamic code |
-| `servo_get_pin` | Value | PIN(dropdown) | `servo_get_pin(PIN)` | Dynamic code |
-| `servo_map_angle` | Value | VALUE(input_value), FROM_MIN(input_value), FROM_MAX(input_value), TO_MIN(input_value), TO_MAX(input_value) | `servo_map_angle(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | map( |
-| `servo_sweep` | Statement | PIN(dropdown), START_ANGLE(input_value), END_ANGLE(input_value), DELAY_MS(input_value) | `servo_sweep(PIN, math_number(90), math_number(90), math_number(1000))` | Dynamic code |
-| `servo_angle` | Value | ANGLE(field_angle) | `servo_angle(90)` | Dynamic code |
+| `servo_attach` | Statement | PIN(dropdown) | `servo_attach(PIN)` | `// 引脚 PIN 舵机已初始化` |
+| `servo_attach_advanced` | Statement | PIN(dropdown), MIN_PULSE_WIDTH(input_value), MAX_PULSE_WIDTH(input_value) | `servo_attach_advanced(PIN, math_number(0), math_number(0))` | `// 引脚 PIN 舵机已初始化 (脉宽范围: 1-1μs)` |
+| `servo_attach_full` | Statement | PIN(dropdown), MIN_ANGLE(input_value), MAX_ANGLE(input_value), MIN_PULSE_WIDTH(input_value), MAX_PULSE_WIDTH(input_value) | `servo_attach_full(PIN, math_number(90), math_number(90), math_number(0), math_number(0))` | `// 引脚 PIN 舵机已初始化 (完整模式: 脉宽1-1μs)` |
+| `servo_write` | Statement | PIN(dropdown), ANGLE(input_value) | `servo_write(PIN, math_number(90))` | `servo_pin_PIN.write(1);` |
+| `servo_write_float` | Statement | PIN(dropdown), ANGLE(input_value) | `servo_write_float(PIN, math_number(90))` | `servo_pin_PIN.write(1);` |
+| `servo_write_microseconds` | Statement | PIN(dropdown), MICROSECONDS(input_value) | `servo_write_microseconds(PIN, math_number(0))` | `servo_pin_PIN.writeMicroseconds(1);` |
+| `servo_read` | Value | PIN(dropdown) | `servo_read(PIN)` | `servo_pin_PIN.read()` |
+| `servo_read_microseconds` | Value | PIN(dropdown) | `servo_read_microseconds(PIN)` | `servo_pin_PIN.readMicroseconds()` |
+| `servo_attached` | Value | PIN(dropdown) | `servo_attached(PIN)` | `servo_pin_PIN.attached()` |
+| `servo_detach` | Statement | PIN(dropdown) | `servo_detach(PIN)` | `servo_pin_PIN.detach();` |
+| `servo_get_pin` | Value | PIN(dropdown) | `servo_get_pin(PIN)` | `PIN` |
+| `servo_map_angle` | Value | VALUE(input_value), FROM_MIN(input_value), FROM_MAX(input_value), TO_MIN(input_value), TO_MAX(input_value) | `servo_map_angle(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `map(1, 1, 1, 1, 1)` |
+| `servo_sweep` | Statement | PIN(dropdown), START_ANGLE(input_value), END_ANGLE(input_value), DELAY_MS(input_value) | `servo_sweep(PIN, math_number(90), math_number(90), math_number(1000))` | `// 引脚 PIN 舵机扫描从 1 度到 1 度 ↵ for (int angle = 1; angle <= 1; angle++) { ↵ servo_pin_PIN.write(angle); ↵ delay(1); ↵ } ↵ for (int angle = 1; angle >= 1; angle--) { ↵ servo_pin_PIN.write(angle); ↵ delay(1); ↵ }` |
+| `servo_angle` | Value | ANGLE(field_angle) | `servo_angle(90)` | `ANGLE` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| PIN | ${board.servoPins} | servo_attach |
 
 ## ABS Examples
 

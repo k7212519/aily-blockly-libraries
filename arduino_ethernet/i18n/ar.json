@@ -1,0 +1,163 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "تهيئة وضع Ethernet MAC %1 %2 IP %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "DHCP",
+            "dhcp"
+          ],
+          [
+            "ثابت IP",
+            "static"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "قم بتهيئة شبكة Ethernet باستخدام DHCP أو عنوان ثابت."
+  },
+  "ethernet_network_info": {
+    "message0": "إيثرنت %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "IP المحلي",
+            "localIP"
+          ],
+          [
+            "بوابة IP",
+            "gatewayIP"
+          ],
+          [
+            "قناع الشبكة الفرعية",
+            "subnetMask"
+          ],
+          [
+            "خادم DNS IP",
+            "dnsServerIP"
+          ],
+          [
+            "الرابط قيد التشغيل",
+            "link"
+          ],
+          [
+            "الأجهزة موجودة",
+            "hardware"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة شبكة إيثرنت أو حالة الأجهزة."
+  },
+  "ethernet_client_create": {
+    "message0": "إنشاء عميل إيثرنت %1",
+    "tooltip": "قم بإنشاء كائن EthernetClient."
+  },
+  "ethernet_client_connect": {
+    "message0": "عميل Ethernet %1 توصيل المضيف %2 المنفذ %3",
+    "tooltip": "قم بتوصيل العميل بالمضيف والمنفذ."
+  },
+  "ethernet_client_write": {
+    "message0": "عميل إيثرنت %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الطباعة بدون سطر جديد",
+            "print"
+          ],
+          [
+            "الطباعة مع السطر الجديد",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "إرسال البيانات من خلال عميل Ethernet."
+  },
+  "ethernet_client_data": {
+    "message0": "عميل إيثرنت %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "البايتات المتاحة",
+            "available"
+          ],
+          [
+            "قراءة البايت",
+            "read"
+          ],
+          [
+            "قراءة الخط",
+            "line"
+          ],
+          [
+            "متصل",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة بيانات العميل أو حالة الاتصال."
+  },
+  "ethernet_client_stop": {
+    "message0": "إيقاف عميل إيثرنت %1",
+    "tooltip": "أغلق اتصال عميل Ethernet."
+  },
+  "ethernet_server_create": {
+    "message0": "إنشاء خادم إيثرنت %1 بمنفذ %2",
+    "tooltip": "قم بإنشاء وبدء تشغيل EthernetServer."
+  },
+  "ethernet_server_accept": {
+    "message0": "خادم إيثرنت %1 يقبل العميل",
+    "tooltip": "قبول عميل متصل حديثا."
+  },
+  "ethernet_udp_create": {
+    "message0": "إنشاء منفذ إيثرنت UDP %1 المحلي %2",
+    "tooltip": "قم بإنشاء مقبس EthernetUDP وربط المنفذ."
+  },
+  "ethernet_udp_send": {
+    "message0": "إيثرنت UDP %1 أرسل %2 لاستضافة منفذ %3 %4",
+    "tooltip": "أرسل حزمة UDP واحدة."
+  },
+  "ethernet_udp_data": {
+    "message0": "إيثرنت UDP %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "حزمة التحليل",
+            "parsePacket"
+          ],
+          [
+            "البايتات المتاحة",
+            "available"
+          ],
+          [
+            "قراءة البايت",
+            "read"
+          ],
+          [
+            "جهاز التحكم عن بعد IP",
+            "remoteIP"
+          ],
+          [
+            "المنفذ البعيد",
+            "remotePort"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة بيانات حزمة UDP أو معلومات المرسل."
+  }
+}

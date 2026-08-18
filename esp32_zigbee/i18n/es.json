@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 Zigbee",
+  "esp32_zigbee_begin": {
+    "message0": "Iniciar rol Zigbee %1 Borrar configuración %2",
+    "tooltip": "Inicia Zigbee con el rol especificado.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Equipo terminal",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "enrutador",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "Coordinador",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee está conectado",
+    "tooltip": "Verifique si Zigbee se ha unido a la red."
+  },
+  "esp32_zigbee_network": {
+    "message0": "Red Zigbee %1 tiempo de espera %2 segundos",
+    "tooltip": "Controla el dispositivo para unirse a la red.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Acceso a la red abierta",
+            "openNetwork"
+          ],
+          [
+            "Cerrar acceso a la red",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Restablecimiento de fábrica de Zigbee",
+    "tooltip": "Borrar la configuración de red Zigbee y reiniciar."
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "Crear luz Zigbee %1 punto final %2",
+    "tooltip": "Crea el punto final de la luz del interruptor y únete a Zigbee."
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Luz Zigbee %1 configuración %2",
+    "tooltip": "Actualizar estado de luz Zigbee."
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "Estado de la luz Zigbee %1",
+    "tooltip": "Lee el estado actual de la luz Zigbee."
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "Crear sensor de temperatura Zigbee %1 punto final %2",
+    "tooltip": "Cree un punto final de sensor de temperatura y únase a Zigbee."
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "El sensor de temperatura Zigbee %1 actualiza %2 ℃ e informa",
+    "tooltip": "Establece y reporta la temperatura."
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "Crear sensor de ocupación Zigbee %1 punto final %2",
+    "tooltip": "Cree un punto final de sensor de ocupación y únase a Zigbee."
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "El sensor de ocupación Zigbee %1 actualiza %2 e informa",
+    "tooltip": "Establecer y reportar el estado de ocupación."
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "Crear sensor de contacto Zigbee %1 punto final %2",
+    "tooltip": "Cree un punto final de sensor de contacto y únase a Zigbee."
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Sensor de contacto Zigbee %1 Estado %2",
+    "tooltip": "Establecer e informar el estado del contacto.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Cerrar",
+            "setClosed"
+          ],
+          [
+            "Abrir",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -8,19 +8,19 @@ ESP32 SD_MMC (SDIO mode) reads and writes SD cards, supports 1-bit and 4-bit mod
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_sd_mmc_begin` | Statement | MODE(dropdown) | `esp32_sd_mmc_begin(false)` | if (!SD_MMC.begin( |
-| `esp32_sd_mmc_set_pins` | Statement | CLK(input_value), CMD(input_value), D0(input_value) | `esp32_sd_mmc_set_pins(math_number(0), math_number(0), math_number(0))` | SD_MMC.setPins( |
-| `esp32_sd_mmc_end` | Statement | (none) | `esp32_sd_mmc_end()` | SD_MMC.end();\n |
-| `esp32_sd_mmc_info` | Value | INFO(dropdown) | `esp32_sd_mmc_info(cardType)` | Dynamic code |
-| `esp32_sd_mmc_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_sd_mmc_write_file(text("value"), text("value"))` | sdmmc_writeFile( |
-| `esp32_sd_mmc_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_sd_mmc_append_file(text("value"), text("value"))` | sdmmc_appendFile( |
-| `esp32_sd_mmc_read_file` | Value | PATH(input_value) | `esp32_sd_mmc_read_file(text("value"))` | sdmmc_readFile( |
-| `esp32_sd_mmc_delete_file` | Statement | PATH(input_value) | `esp32_sd_mmc_delete_file(text("value"))` | SD_MMC.remove( |
-| `esp32_sd_mmc_exists` | Value | PATH(input_value) | `esp32_sd_mmc_exists(text("value"))` | SD_MMC.exists( |
-| `esp32_sd_mmc_mkdir` | Statement | PATH(input_value) | `esp32_sd_mmc_mkdir(text("value"))` | SD_MMC.mkdir( |
-| `esp32_sd_mmc_rmdir` | Statement | PATH(input_value) | `esp32_sd_mmc_rmdir(text("value"))` | SD_MMC.rmdir( |
+| `esp32_sd_mmc_begin` | Statement | MODE(dropdown) | `esp32_sd_mmc_begin(false)` | `if (!SD_MMC.begin("/sdcard", false)) { ↵ Serial.println("SD_MMC Mount Failed"); ↵ return; ↵ }` |
+| `esp32_sd_mmc_set_pins` | Statement | CLK(input_value), CMD(input_value), D0(input_value) | `esp32_sd_mmc_set_pins(math_number(0), math_number(0), math_number(0))` | `SD_MMC.setPins(1, 1, 1);` |
+| `esp32_sd_mmc_end` | Statement | (none) | `esp32_sd_mmc_end()` | `SD_MMC.end();` |
+| `esp32_sd_mmc_info` | Value | INFO(dropdown) | `esp32_sd_mmc_info(cardType)` | `SD_MMC.cardType()` |
+| `esp32_sd_mmc_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_sd_mmc_write_file(text("value"), text("value"))` | `sdmmc_writeFile("value", String("value").c_str());` |
+| `esp32_sd_mmc_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_sd_mmc_append_file(text("value"), text("value"))` | `sdmmc_appendFile("value", String("value").c_str());` |
+| `esp32_sd_mmc_read_file` | Value | PATH(input_value) | `esp32_sd_mmc_read_file(text("value"))` | `sdmmc_readFile("value")` |
+| `esp32_sd_mmc_delete_file` | Statement | PATH(input_value) | `esp32_sd_mmc_delete_file(text("value"))` | `SD_MMC.remove("value");` |
+| `esp32_sd_mmc_exists` | Value | PATH(input_value) | `esp32_sd_mmc_exists(text("value"))` | `SD_MMC.exists("value")` |
+| `esp32_sd_mmc_mkdir` | Statement | PATH(input_value) | `esp32_sd_mmc_mkdir(text("value"))` | `SD_MMC.mkdir("value");` |
+| `esp32_sd_mmc_rmdir` | Statement | PATH(input_value) | `esp32_sd_mmc_rmdir(text("value"))` | `SD_MMC.rmdir("value");` |
 
 ## Parameter Options
 

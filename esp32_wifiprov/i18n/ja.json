@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "ESP32 Wi-Fi 配信ネットワーク",
+  "esp32_wifiprov_begin_softap": {
+    "message0": "SoftAP 配布ネットワークの開始 サービス名 %1 POP %2 サービス パスワード %3 既存の構成のリセット %4",
+    "tooltip": "SoftAP配信ネットワークサービスを開始します。"
+  },
+  "esp32_wifiprov_begin_ble": {
+    "message0": "BLE 配布ネットワーク サービス名を開始します %1 POP %2 既存の構成をリセットします %3",
+    "tooltip": "BLE 配布ネットワーク サービスを開始します (チップが BLE をサポートしている必要があります)。"
+  },
+  "esp32_wifiprov_end": {
+    "message0": "Wi-Fi配信を停止する",
+    "tooltip": "配信ネットワーク サービスを停止してクリーンアップします。"
+  },
+  "esp32_wifiprov_disable_auto_stop": {
+    "message0": "ネットワーク構成が成功した後、自動的に停止しません。クリーニング遅延 %1 ミリ秒",
+    "tooltip": "成功後の自動停止を無効にし、遅延を設定します。"
+  },
+  "esp32_wifiprov_print_qr": {
+    "message0": "印刷物配信ネットワーク QRコード サービス名 %1 POP %2 送信 %3",
+    "tooltip": "QR コードのリンクとペイロードをシリアルに印刷します。",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "ソフトAP",
+            "softap"
+          ],
+          [
+            "BLE",
+            "ble"
+          ]
+        ]
+      }
+    ]
+  }
+}

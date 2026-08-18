@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32の件",
+  "esp32_matter_begin": {
+    "message0": "スタートマター",
+    "tooltip": "Matter ノードを開始します。最初にエンドポイントを作成する必要があります。"
+  },
+  "esp32_matter_status": {
+    "message0": "案件ステータス %1",
+    "tooltip": "問題の配布ネットワークまたは接続ステータスを照会します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "ネットワークが構成されました",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi 接続しました",
+            "isWiFiConnected"
+          ],
+          [
+            "スレッドが接続されました",
+            "isThreadConnected"
+          ],
+          [
+            "デバイスが接続されました",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "事項のペアリング情報 %1",
+    "tooltip": "Matter ペアリング コードまたは QR コード URL を取得します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "手動ペアリングコード",
+            "getManualPairingCode"
+          ],
+          [
+            "QRコードURL",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "マタークリア配信ネットワーク",
+    "tooltip": "現在の Matter Fabric 配布ネットワーク情報をクリアします。"
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "クリエイトマタースイッチライト %1 初期状態 %2",
+    "tooltip": "スイッチ ライト エンドポイントを作成します。"
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "マター調光ライトの作成 %1 ステータス %2 明るさ %3",
+    "tooltip": "調光ライトのエンドポイントを作成します。"
+  },
+  "esp32_matter_light_set": {
+    "message0": "マターライト %1 は %2 を %3 に設定します",
+    "tooltip": "ライトのスイッチや明るさを設定します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "スイッチ",
+            "setOnOff"
+          ],
+          [
+            "明るさ",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "マターランプ %1 読み取り %2",
+    "tooltip": "ライトのスイッチまたは明るさを読み取ります。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "スイッチ",
+            "getOnOff"
+          ],
+          [
+            "明るさ",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "物質数値センサーの作成 %1 タイプ %2 初期値 %3",
+    "tooltip": "共通の数値センサー エンドポイントを作成します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "温度",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "湿度",
+            "MatterHumiditySensor"
+          ],
+          [
+            "イルミネーション",
+            "MatterLightSensor"
+          ],
+          [
+            "圧力",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "物質数値センサー %1 タイプ %2 更新 %3",
+    "tooltip": "センサーの数値を更新して報告します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "温度",
+            "setTemperature"
+          ],
+          [
+            "湿度",
+            "setHumidity"
+          ],
+          [
+            "イルミネーション",
+            "setIlluminance"
+          ],
+          [
+            "圧力",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "マターブールセンサーの作成 %1 タイプ %2 初期値 %3",
+    "tooltip": "共通のブール センサー エンドポイントを作成します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "連絡先",
+            "MatterContactSensor"
+          ],
+          [
+            "が占領されました",
+            "MatterOccupancySensor"
+          ],
+          [
+            "雨",
+            "MatterRainSensor"
+          ],
+          [
+            "水漏れ",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Matter ブールセンサー %1 タイプ %2 更新 %3",
+    "tooltip": "ブールセンサー値を更新して報告します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "連絡先",
+            "setContact"
+          ],
+          [
+            "が占領されました",
+            "setOccupancy"
+          ],
+          [
+            "雨",
+            "setRain"
+          ],
+          [
+            "水漏れ",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

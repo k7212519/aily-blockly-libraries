@@ -1,0 +1,217 @@
+{
+  "toolbox_name": "淘晶驰 Serielles Display",
+  "toolbox_labels": {
+    "Initialization": "Initialisierung",
+    "Screen control": "Bildschirmsteuerung",
+    "Communication and returns": "Kommunikation und Rückmeldungen"
+  },
+  "tjc_begin_hardware": {
+    "message0": "淘晶驰 Hardware-Seriellschnittstelle %1 mit %2 Baud initialisieren",
+    "tooltip": "Starten Sie die ausgewählte Board-Hardware UART. Verdrahten Sie Schirm TX mit Platine RX und Schirm RX mit Platine TX, verwenden Sie die gleiche Baudrate wie der Schirm und platzieren Sie diese vor Befehlen oder Frame-Analyse.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_begin_software": {
+    "message0": "淘晶驰 Software-Seriellschnittstelle %1 mit %2 Baud initialisieren, RX %3 TX %4",
+    "tooltip": "Erstellen Sie SoftwareSerial mit dem gewählten Namen, den RX/TX-Pins und der Baudrate. Verbinden Sie die Schirmdrähte über Kreuz. Dies ist für Platinen im UNO/Nano-Stil ohne Ersatzhardware UART gedacht.",
+    "args0": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "tjc_clear_startup": {
+    "message0": "Startdaten von 淘晶驰 auf %1 löschen",
+    "tooltip": "Verwerfen Sie die im UART wartenden Bytes, einschließlich des allgemeinen Einschaltrahmens 0x88 FF FF FF. Wird nach der seriellen Initialisierung und vor der Frame-Analyse ausgeführt.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_set_brightness": {
+    "message0": "Hintergrundbeleuchtung von 淘晶驰 an %1 auf %2 setzen",
+    "tooltip": "Senden Sie dim mit einer Laufzeithelligkeit normalerweise von 0 bis 100. Dadurch werden keine dauerhaften Flash-Einstellungen geschrieben, daher ist es für gelegentliche Anpassungen geeignet.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_page": {
+    "message0": "Seite 淘晶驰 auf %1 auf %2 umstellen",
+    "tooltip": "Nach einem Seitennamen wie main oder einer numerischen Seiten-ID navigieren. Nur den Wert eingeben; der Befehlsabschluss wird automatisch angefügt.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_variable": {
+    "message0": "Setzen Sie die 淘晶驰-Variable %1 auf %2",
+    "tooltip": "Weisen Sie eine System-, globale oder Seitenvariable wie sys0 oder va0 zu. Zahlen bleiben ohne Anführungszeichen und Text wird automatisch in Anführungszeichen gesetzt. Fügen Sie keine FF-Bytes hinzu.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_property": {
+    "message0": "An der seriellen Schnittstelle %1 die Eigenschaft %3 der Komponente %2 auf %4 setzen",
+    "tooltip": "Schreiben Sie eine Komponenteneigenschaft wie p0.pic=2, n0.val=100 oder t0.txt=\"Ready\". Der serielle Selektor steht an erster Stelle, sodass das Ziel UART klar ist. Wählen Sie die Eigenschaftsbezeichnung Chinesisch/Englisch aus und ordnen Sie Texteigenschaften Textwerten und numerischen Eigenschaften Zahlen zu.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Text (txt)",
+            "txt"
+          ],
+          [
+            "Wert (val)",
+            "val"
+          ],
+          [
+            "Bildnummer (pic)",
+            "pic"
+          ],
+          [
+            "Sichtbar (vis)",
+            "vis"
+          ],
+          [
+            "Berührung aktiviert (tsw)",
+            "tsw"
+          ],
+          [
+            "Hintergrundfarbe (bco)",
+            "bco"
+          ],
+          [
+            "Vordergrundfarbe (pco)",
+            "pco"
+          ],
+          [
+            "Schriftart (font)",
+            "font"
+          ],
+          [
+            "X (x)",
+            "x"
+          ],
+          [
+            "Y (y)",
+            "y"
+          ],
+          [
+            "Breite (w)",
+            "w"
+          ],
+          [
+            "Höhe (h)",
+            "h"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "tjc_send_command": {
+    "message0": "Senden Sie den 淘晶驰-Befehl %1 an %2",
+    "tooltip": "Senden Sie rohe 淘晶驰 ASCII wie page main, ref t0 oder get sys0. Geben Sie nur Befehlstext ein; Drei 0xFF-Terminatorbytes werden automatisch angehängt.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_bkcmd": {
+    "message0": "淘晶驰 bkcmd an %1 auf %2 setzen",
+    "tooltip": "Wählen Sie den Feedback-Modus 0 Keine, 1 Erfolg und Fehler, 2 Nur Fehler oder 3 Alle. Aktivieren Sie den Return-Frame-Parser separat, wenn das Programm Antworten prüfen muss.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "0 - keine Rückmeldung",
+            "0"
+          ],
+          [
+            "1 - Erfolg und Fehler",
+            "1"
+          ],
+          [
+            "2 - nur Fehler",
+            "2"
+          ],
+          [
+            "3 - alle Rückmeldungen",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "tjc_enable_frame_parser": {
+    "message0": "Aktivieren Sie den 淘晶驰-Return-Frame-Parser auf %1",
+    "tooltip": "Installieren Sie einen loop-Leser, der Bytes bei FF FF FF aufteilt und das erste Byte als Frame-Typ speichert. Verwendung nach der seriellen Initialisierung und vor Rahmenereignissen oder Wertblöcken.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_event": {
+    "message0": "Wenn 淘晶驰 Frame %1 auf %2 empfangen wird",
+    "message1": "%1 ausführen",
+    "tooltip": "Führen Sie den Handler für Frame 65 Touch, 66 Page, 67 Koordinaten, 70 String, 71 Number, 88 Startup oder einen beliebigen Frame aus. Der Parser muss zuerst initialisiert werden und der Handler wird in loop ausgeführt.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Berührungsereignis (65)",
+            "65"
+          ],
+          [
+            "Seiten-ID (66)",
+            "66"
+          ],
+          [
+            "Berührungskoordinaten (67)",
+            "67"
+          ],
+          [
+            "Zeichenfolge (70)",
+            "70"
+          ],
+          [
+            "Zahl (71)",
+            "71"
+          ],
+          [
+            "Start (88)",
+            "88"
+          ],
+          [
+            "beliebiger Frame",
+            "ANY"
+          ]
+        ]
+      },
+      null
+    ],
+    "args1": [
+      null
+    ]
+  },
+  "tjc_frame_type": {
+    "message0": "淘晶驰 letzter Frame-Typ auf %1",
+    "tooltip": "Gibt das erste Byte des letzten vollständigen Frames zurück, z. B. 65 für Touch oder 71 für Number. Vor dem ersten Frame ist es 0; Aktivieren Sie zuerst den Parser.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_available": {
+    "message0": "淘晶驰-Frame an %1 verfügbar",
+    "tooltip": "Gib true zurück, wenn ein vollständiger FF FF FF-terminierter Frame angekommen ist. Verwenden Sie es in einer if-Bedingung mit Frame-Typ oder verwenden Sie ein Frame-Ereignis, um unvollständige Daten zu vermeiden.",
+    "args0": [
+      null
+    ]
+  }
+}

@@ -8,10 +8,10 @@ PAJ7620 I2C 手势识别传感器库，支持 9 种手势检测。
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `paj7620_init` | Statement | (none) | `paj7620_init()` | `Wire.begin(); paj7620Init();` |
-| `paj7620_get_gesture` | Value | (none) | `paj7620_get_gesture()` | `paj7620GetGesture()` returns `String` |
+| `paj7620_init` | Statement | (none) | `paj7620_init()` | `paj7620Init();` |
+| `paj7620_get_gesture` | Value | (none) | `paj7620_get_gesture()` | `paj7620GetGesture()` |
 
 ## Gesture Return Values
 

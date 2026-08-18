@@ -8,13 +8,13 @@ UNIHIKER K10 onboard sensor library, supports accelerometer, light intensity and
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `k10_get_accelerometer` | Value | AXIS(dropdown) | `k10_get_accelerometer(X)` | `(k10.getAccelerometerX/Y/Z())` |
-| `k10_get_strength` | Value | (none) | `k10_get_strength()` | (k10.readALS()) |
-| `k10_aht20_measure` | Value | CRC(dropdown) | `k10_aht20_measure(true)` | (aht20.startMeasurementReady( |
-| `k10_aht20_get_temperature` | Value | UNIT(dropdown) | `k10_aht20_get_temperature(C)` | `k10Aht20Read(aht20, 0/1)` |
-| `k10_aht20_get_humidity` | Value | (none) | `k10_aht20_get_humidity()` | `k10Aht20Read(aht20, 2)` |
+| `k10_get_accelerometer` | Value | AXIS(dropdown) | `k10_get_accelerometer(X)` | `(k10.getAccelerometerX())` |
+| `k10_get_strength` | Value | (none) | `k10_get_strength()` | `(k10.readALS())` |
+| `k10_aht20_measure` | Value | CRC(dropdown) | `k10_aht20_measure(true)` | `(aht20.startMeasurementReady(true))` |
+| `k10_aht20_get_temperature` | Value | UNIT(dropdown) | `k10_aht20_get_temperature(C)` | `(k10Aht20Read(aht20, 0))` |
+| `k10_aht20_get_humidity` | Value | (none) | `k10_aht20_get_humidity()` | `(k10Aht20Read(aht20, 2))` |
 
 ## Parameter Options
 

@@ -1,0 +1,127 @@
+{
+  "toolbox_name": "ESP32 PPP Cellular Network",
+  "esp32_ppp_set_apn": {
+    "message0": "PPP settings APN %1 SIM PIN %2",
+    "tooltip": "Set cellular APN and optional SIM PIN."
+  },
+  "esp32_ppp_set_pins": {
+    "message0": "PPP serial port pin TX %1 RX %2 RTS %3 CTS %4",
+    "tooltip": "Set the modem UART and flow control pins."
+  },
+  "esp32_ppp_set_reset": {
+    "message0": "PPP reset pin %1 active low %2",
+    "tooltip": "Sets the modem hardware reset pin."
+  },
+  "esp32_ppp_begin": {
+    "message0": "Start PPP model %1 UART %2 Baud rate %3",
+    "tooltip": "Start the PPP modem.",
+    "args0": [
+      {
+        "options": [
+          [
+            "General",
+            "PPP_MODEM_GENERIC"
+          ],
+          [
+            "SIM7600",
+            "PPP_MODEM_SIM7600"
+          ],
+          [
+            "SIM7070",
+            "PPP_MODEM_SIM7070"
+          ],
+          [
+            "SIM7000",
+            "PPP_MODEM_SIM7000"
+          ],
+          [
+            "BG96",
+            "PPP_MODEM_BG96"
+          ],
+          [
+            "SIM800",
+            "PPP_MODEM_SIM800"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_ppp_end": {
+    "message0": "Stop PPP",
+    "tooltip": "Stop PPP data connection."
+  },
+  "esp32_ppp_attached": {
+    "message0": "PPP cellular network attached",
+    "tooltip": "Check whether the modem is attached to the network."
+  },
+  "esp32_ppp_sync": {
+    "message0": "PPP AT communication is normal",
+    "tooltip": "Check whether the modem responds to AT."
+  },
+  "esp32_ppp_info_number": {
+    "message0": "PPP value information %1",
+    "tooltip": "Read the modem numerical status.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Signal RSSI",
+            "RSSI"
+          ],
+          [
+            "Bit error rate BER",
+            "BER"
+          ],
+          [
+            "Network mode",
+            "networkMode"
+          ],
+          [
+            "Battery voltage",
+            "batteryVoltage"
+          ],
+          [
+            "Battery power",
+            "batteryLevel"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_info_text": {
+    "message0": "PPP text message %1",
+    "tooltip": "Read modem identity or carrier text.",
+    "args0": [
+      {
+        "options": [
+          [
+            "IMEI",
+            "IMEI"
+          ],
+          [
+            "IMSI",
+            "IMSI"
+          ],
+          [
+            "Module name",
+            "moduleName"
+          ],
+          [
+            "Operator",
+            "operatorName"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_sms": {
+    "message0": "PPP sends SMS to %1 content %2",
+    "tooltip": "Send SMS text message."
+  },
+  "esp32_ppp_at": {
+    "message0": "PPP AT command %1 timeout %2 ms",
+    "tooltip": "Send AT command and return text response."
+  }
+}

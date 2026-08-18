@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "初始化 InfluxDB %1 URL %2 組織 %3 儲存桶 %4 令牌 %5",
+    "tooltip": "建立 InfluxDB 2 客戶端。"
+  },
+  "influxdb_point_init": {
+    "message0": "建立 InfluxDB 資料點 %1 測量名稱 %2",
+    "tooltip": "建立線路協定測量點。"
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB 點 %1 新增 %2 金鑰 %3 值 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "標籤",
+            "addTag"
+          ],
+          [
+            "資料欄位",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "將標籤或鍵入的欄位新增至點。"
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB 點 %1 清除 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "資料欄位",
+            "clearFields"
+          ],
+          [
+            "標籤",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "清除累積點欄位或標籤。"
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 寫入點 %2",
+    "tooltip": "向 InfluxDB 寫入一個點。"
+  },
+  "influxdb_validate": {
+    "message0": "InfluxDB %1 連線有效",
+    "tooltip": "驗證伺服器連線和憑證。"
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "最後的錯誤訊息",
+            "getLastErrorMessage"
+          ],
+          [
+            "伺服器 URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "讀取連接資訊或最後一個錯誤。"
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 資料點 %2 的行協議",
+    "tooltip": "將點預覽為線協定。"
+  }
+}

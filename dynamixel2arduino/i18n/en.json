@@ -1,0 +1,31 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "initialize Dynamixel %1 serial %2 direction pin %3 baud %4 protocol %5",
+    "tooltip": "Initialize a DYNAMIXEL serial bus."
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel %1 ID %2 configure %3 mode",
+    "tooltip": "Disable torque, set an operating mode, then enable torque."
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel %1 ID %2 set goal %3 value %4 unit %5",
+    "tooltip": "Set a target position, velocity, current, or PWM."
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 ID %2 read %3 unit %4",
+    "tooltip": "Read live actuator feedback."
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel %1 ID %2 %3",
+    "tooltip": "Control torque, indicator LED, or device state."
+  },
+  "dynamixel_ping": {
+    "message0": "Dynamixel %1 ID %2 responds",
+    "tooltip": "Ping an actuator ID."
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 ID %2 write control item %3 value %4",
+    "tooltip": "Write a common DYNAMIXEL control-table item."
+  }
+}

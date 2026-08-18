@@ -1,0 +1,96 @@
+{
+  "toolbox_name": "Adafruit TinyUSB",
+  "tinyusb_device_init": {
+    "message0": "TinyUSB デバイスの初期化 VID %1 PID %2 メーカー %3 製品 %4",
+    "tooltip": "TinyUSB デバイス記述子を構成して初期化します。"
+  },
+  "tinyusb_webusb_init": {
+    "message0": "WebUSB %1 ランディングホスト %2 を初期化します",
+    "tooltip": "HTTPS ランディング ページを使用して WebUSB シリアル インターフェイスを作成します。"
+  },
+  "tinyusb_webusb_write": {
+    "message0": "WebUSB %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "改行なしで印刷する",
+            "print"
+          ],
+          [
+            "改行を入れて印刷する",
+            "println"
+          ],
+          [
+            "バイトを書き込む",
+            "write"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "ブラウザの WebUSB インターフェイスにデータを書き込みます。"
+  },
+  "tinyusb_webusb_data": {
+    "message0": "WebUSB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "利用可能なバイト数",
+            "available"
+          ],
+          [
+            "バイトを読む",
+            "read"
+          ],
+          [
+            "接続されています",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "WebUSB データまたは接続状態を読み取ります。"
+  },
+  "tinyusb_midi_init": {
+    "message0": "TinyUSB MIDI %1 を初期化します",
+    "tooltip": "USB MIDI トランスポートと MIDI インターフェイスを作成します。"
+  },
+  "tinyusb_midi_note": {
+    "message0": "TinyUSB MIDI %1 送信 %2 メモ %3 速度 %4 チャネル %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "MIDI に関する注意事項",
+            "sendNoteOn"
+          ],
+          [
+            "MIDI ノートオフ",
+            "sendNoteOff"
+          ],
+          [
+            "MIDI ポリフォニックキープレッシャー",
+            "sendPolyPressure"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "USB MIDI メモ メッセージを送信します。"
+  },
+  "tinyusb_midi_control": {
+    "message0": "TinyUSB MIDI %1 送信制御変更 %2 値 %3 チャネル %4",
+    "tooltip": "USB MIDI コントロール変更メッセージを送信します。"
+  },
+  "tinyusb_mounted": {
+    "message0": "TinyUSB デバイスは USB ホストによってマウントされます",
+    "tooltip": "ホストが USB デバイスを列挙したかどうかを確認します。"
+  }
+}

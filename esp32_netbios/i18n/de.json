@@ -1,0 +1,11 @@
+{
+  "toolbox_name": "ESP32 NetBIOS",
+  "esp32_netbios_begin": {
+    "message0": "NetBIOS-Name starten %1",
+    "tooltip": "Starten Sie NBNS und registrieren Sie den LAN-Namen."
+  },
+  "esp32_netbios_end": {
+    "message0": "NetBIOS stoppen",
+    "tooltip": "Stoppen Sie den NBNS-Dienst."
+  }
+}

@@ -1,0 +1,97 @@
+[
+  {
+    "type": "sdfat_init",
+    "message0": "initialize SdFat %1 CS pin %2 max SPI MHz %3",
+    "args0": [
+      {"type": "field_input", "name": "VAR", "text": "sd"},
+      {"type": "field_dropdown", "name": "CS", "options": "${board.digitalPins}"},
+      {"type": "input_value", "name": "MHZ", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2E7D32",
+    "tooltip": "Mount a FAT or exFAT SD card over SPI.",
+    "icon": "fa-light fa-sd-card"
+  },
+  {
+    "type": "sdfat_file_open",
+    "message0": "open SdFat file %1 on %2 path %3 mode %4",
+    "args0": [
+      {"type": "field_input", "name": "FILE", "text": "sdFile"},
+      {"type": "field_variable", "name": "SD", "variable": "sd", "variableTypes": ["SdFs"], "defaultType": "SdFs"},
+      {"type": "input_value", "name": "PATH", "check": "String"},
+      {"type": "field_dropdown", "name": "MODE", "options": [["read", "O_RDONLY"], ["write/append", "O_WRONLY | O_CREAT | O_APPEND"], ["write/truncate", "O_WRONLY | O_CREAT | O_TRUNC"], ["read/write", "O_RDWR | O_CREAT"]]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2E7D32",
+    "tooltip": "Create an FsFile object and open a path.",
+    "icon": "fa-light fa-file"
+  },
+  {
+    "type": "sdfat_file_write",
+    "message0": "SdFat file %1 %2 %3",
+    "args0": [
+      {"type": "field_variable", "name": "FILE", "variable": "sdFile", "variableTypes": ["FsFile"], "defaultType": "FsFile"},
+      {"type": "field_dropdown", "name": "OP", "options": [["print", "print"], ["println", "println"]]},
+      {"type": "input_value", "name": "DATA"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2E7D32",
+    "tooltip": "Write a value to an open file.",
+    "icon": "fa-light fa-pen-to-square"
+  },
+  {
+    "type": "sdfat_file_control",
+    "message0": "SdFat file %1 %2 %3",
+    "args0": [
+      {"type": "field_variable", "name": "FILE", "variable": "sdFile", "variableTypes": ["FsFile"], "defaultType": "FsFile"},
+      {"type": "field_dropdown", "name": "OP", "options": [["seek to", "seek"], ["truncate at", "truncate"], ["flush", "flush"], ["close", "close"]]},
+      {"type": "input_value", "name": "VALUE", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2E7D32",
+    "tooltip": "Seek, truncate, flush, or close an open file.",
+    "icon": "fa-light fa-sliders"
+  },
+  {
+    "type": "sdfat_file_read",
+    "message0": "SdFat file %1 read %2",
+    "args0": [
+      {"type": "field_variable", "name": "FILE", "variable": "sdFile", "variableTypes": ["FsFile"], "defaultType": "FsFile"},
+      {"type": "field_dropdown", "name": "DATA", "options": [["next byte", "read"], ["line", "line"], ["all text", "string"], ["available bytes", "available"], ["size", "size"], ["position", "position"], ["is open", "open"]]}
+    ],
+    "output": ["Number", "String", "Boolean"],
+    "colour": "#2E7D32",
+    "tooltip": "Read data or state from an open file.",
+    "icon": "fa-light fa-file-magnifying-glass"
+  },
+  {
+    "type": "sdfat_fs_operation",
+    "message0": "SdFat %1 %2 path %3",
+    "args0": [
+      {"type": "field_variable", "name": "SD", "variable": "sd", "variableTypes": ["SdFs"], "defaultType": "SdFs"},
+      {"type": "field_dropdown", "name": "OP", "options": [["create directory", "mkdir"], ["remove directory", "rmdir"], ["remove file", "remove"]]},
+      {"type": "input_value", "name": "PATH", "check": "String"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2E7D32",
+    "tooltip": "Modify the SD card file system.",
+    "icon": "fa-light fa-folder-tree"
+  },
+  {
+    "type": "sdfat_exists",
+    "message0": "SdFat %1 path %2 exists",
+    "args0": [
+      {"type": "field_variable", "name": "SD", "variable": "sd", "variableTypes": ["SdFs"], "defaultType": "SdFs"},
+      {"type": "input_value", "name": "PATH", "check": "String"}
+    ],
+    "output": "Boolean",
+    "colour": "#2E7D32",
+    "tooltip": "Check whether a path exists.",
+    "icon": "fa-light fa-folder-check"
+  }
+]

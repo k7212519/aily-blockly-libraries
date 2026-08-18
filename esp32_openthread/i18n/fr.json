@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 OpenThread",
+  "esp32_openthread_begin": {
+    "message0": "Initialisez OpenThread pour démarrer automatiquement %1",
+    "tooltip": "Initialisez la pile OpenThread."
+  },
+  "esp32_openthread_end": {
+    "message0": "Fin d'OpenThread",
+    "tooltip": "Fermez la pile OpenThread."
+  },
+  "esp32_openthread_control": {
+    "message0": "OpenThread %1",
+    "tooltip": "Contrôlez le réseau ou l'interface Thread.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Démarrer le réseau",
+            "start"
+          ],
+          [
+            "Arrêter le réseau",
+            "stop"
+          ],
+          [
+            "Interface en ligne",
+            "networkInterfaceUp"
+          ],
+          [
+            "Interface hors ligne",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread est en cours d'exécution",
+    "tooltip": "Vérifiez si la pile OpenThread est en cours d'exécution."
+  },
+  "esp32_openthread_role": {
+    "message0": "Rôle actuel OpenThread",
+    "tooltip": "Retour désactivé/détaché/enfant/routeur/leader."
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "OpenThread a un ensemble de données actif",
+    "tooltip": "Vérifiez si l'ensemble de données actif a été soumis."
+  },
+  "esp32_openthread_dataset": {
+    "message0": "Créer et soumettre un ensemble de données de thread %1 Nom %2 Canal %3 ID PAN %4",
+    "tooltip": "Créez un nouvel ensemble de données actives et soumettez-le."
+  },
+  "esp32_openthread_network_number": {
+    "message0": "Valeur du réseau OpenThread %1",
+    "tooltip": "Lire la valeur du réseau Thread.\ncanal",
+    "args0": [
+      {
+        "options": [
+          [
+            "信道",
+            "getChannel"
+          ],
+          [
+            "ID PAN",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "Nombre d'adresses unicast",
+            "getUnicastAddressCount"
+          ],
+          [
+            "Nombre d'adresses multicast",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "Texte du réseau OpenThread %1",
+    "tooltip": "Lisez le nom du réseau ou l'adresse IPv6.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Nom du réseau",
+            "getNetworkName"
+          ],
+          [
+            "EID local de maillage",
+            "getMeshLocalEid"
+          ],
+          [
+            "Chef RLOC",
+            "getLeaderRloc"
+          ],
+          [
+            "RLOC natif",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

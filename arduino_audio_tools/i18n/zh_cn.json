@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "初始化 Audio Tools I2S %1 模式 %2 采样率 %3 声道数 %4 位深 %5 BCLK %6 WS %7 数据 TX %8 数据 RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "输出",
+            "TX_MODE"
+          ],
+          [
+            "输入",
+            "RX_MODE"
+          ],
+          [
+            "输入和输出",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "配置 I2S 音频流。"
+  },
+  "audio_tools_copy_init": {
+    "message0": "创建音频复制器 %1 输出 %2 输入 %3 循环自动复制 %4",
+    "tooltip": "在两个 I2S 流之间创建 StreamCopy 管道。"
+  },
+  "audio_tools_copy": {
+    "message0": "音频复制器 %1 复制下一个缓冲区",
+    "tooltip": "复制下一个可用的音频缓冲区。"
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 写入 16 位样本 %2",
+    "tooltip": "写入一个带符号的 16 位样本。"
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 读取 16 位样本",
+    "tooltip": "读取一个有符号 16 位音频样本。"
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 可用字节",
+    "tooltip": "返回可读音频字节数。"
+  },
+  "audio_tools_end": {
+    "message0": "结束 Audio Tools I2S %1",
+    "tooltip": "停止 I2S 流。"
+  }
+}

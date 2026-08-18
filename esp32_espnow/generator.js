@@ -1323,6 +1323,15 @@ Arduino.forBlock['esp_now_serial_read_string'] = function(block, generator) {
   return [varName + '.readString()', generator.ORDER_FUNCTION_CALL];
 };
 
+// ESP-NOW串口读取字符串，直到遇到指定终止字符
+Arduino.forBlock['esp_now_serial_read_string_until'] = function(block, generator) {
+  const varField = block.getField('VAR');
+  const varName = varField ? varField.getText() : 'nowSerial';
+  const terminator = generator.valueToCode(block, 'TERMINATOR', generator.ORDER_ATOMIC) || "'\\n'";
+
+  return [varName + '.readStringUntil(' + terminator + ')', generator.ORDER_FUNCTION_CALL];
+};
+
 // ESP-NOW串口发送数据
 Arduino.forBlock['esp_now_serial_print'] = function(block, generator) {
   const varField = block.getField('VAR');

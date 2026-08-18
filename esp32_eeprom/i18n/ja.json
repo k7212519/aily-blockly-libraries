@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "EEPROM サイズ %1 バイトを初期化します",
+    "tooltip": "EEPROMエミュレーション記憶領域を割り当てます。"
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM 読み取りバイト アドレス %1",
+    "tooltip": "指定されたアドレスのバイトを読み取ります。"
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM 書き込みバイト アドレス %1 値 %2",
+    "tooltip": "バイトを書き込みます。後で送信する必要があります。"
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM が %1 アドレス %2 を読み取ります",
+    "tooltip": "指定された型に従って値を読み取ります。",
+    "args0": [
+      {
+        "options": [
+          [
+            "整数",
+            "readInt"
+          ],
+          [
+            "符号なし整数",
+            "readUInt"
+          ],
+          [
+            "長整数",
+            "readLong64"
+          ],
+          [
+            "浮動小数点数",
+            "readFloat"
+          ],
+          [
+            "倍精度",
+            "readDouble"
+          ],
+          [
+            "ブール値",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM は %1 アドレス %2 値 %3 を書き込みます",
+    "tooltip": "指定された型に従って値を書き込みます。",
+    "args0": [
+      {
+        "options": [
+          [
+            "整数",
+            "writeInt"
+          ],
+          [
+            "符号なし整数",
+            "writeUInt"
+          ],
+          [
+            "長整数",
+            "writeLong64"
+          ],
+          [
+            "浮動小数点数",
+            "writeFloat"
+          ],
+          [
+            "倍精度",
+            "writeDouble"
+          ],
+          [
+            "ブール値",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM 読み取り文字列アドレス %1",
+    "tooltip": "ゼロで終わる文字列を読み取ります。"
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM 書き込み文字列アドレス %1 テキスト %2",
+    "tooltip": "文字列を書き込み、書き込まれた長さを返します。"
+  },
+  "esp32_eeprom_commit": {
+    "message0": "EEPROM の変更をコミット",
+    "tooltip": "キャッシュされた変更をフラッシュに書き込みます。"
+  },
+  "esp32_eeprom_end": {
+    "message0": "EEPROMの終了",
+    "tooltip": "EEPROM バッファをコミットして解放します。"
+  },
+  "esp32_eeprom_length": {
+    "message0": "EEPROM容量",
+    "tooltip": "現在の EEPROM 容量を返します。"
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM にコミットされていない変更があります",
+    "tooltip": "キャッシュにコミットされていない変更がないか確認します。"
+  }
+}

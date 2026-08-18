@@ -1,0 +1,96 @@
+{
+  "toolbox_name": "Adafruit TinyUSB",
+  "tinyusb_device_init": {
+    "message0": "Initialisieren Sie das TinyUSB-Gerät VID %1 PID %2 Hersteller %3 Produkt %4",
+    "tooltip": "Konfigurieren und initialisieren Sie den Gerätedeskriptor TinyUSB."
+  },
+  "tinyusb_webusb_init": {
+    "message0": "Initialisieren Sie den Landehost WebUSB %1 %2",
+    "tooltip": "Erstellen Sie eine serielle WebUSB-Schnittstelle mit einer HTTPS-Landingpage."
+  },
+  "tinyusb_webusb_write": {
+    "message0": "WebUSB %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ohne Zeilenumbruch drucken",
+            "print"
+          ],
+          [
+            "mit einer neuen Zeile drucken",
+            "println"
+          ],
+          [
+            "Byte schreiben",
+            "write"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Schreiben Sie Daten in die Browser-WebUSB-Schnittstelle."
+  },
+  "tinyusb_webusb_data": {
+    "message0": "WebUSB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "verfügbare Bytes",
+            "available"
+          ],
+          [
+            "Byte lesen",
+            "read"
+          ],
+          [
+            "verbunden",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie WebUSB-Daten oder Verbindungsstatus."
+  },
+  "tinyusb_midi_init": {
+    "message0": "Initialisieren Sie TinyUSB MIDI %1",
+    "tooltip": "Erstellen Sie einen USB MIDI-Transport und eine MIDI-Schnittstelle."
+  },
+  "tinyusb_midi_note": {
+    "message0": "TinyUSB MIDI %1 senden %2 Notiz %3 Geschwindigkeit %4 Kanal %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "MIDI Hinweis auf",
+            "sendNoteOn"
+          ],
+          [
+            "MIDI Hinweis aus",
+            "sendNoteOff"
+          ],
+          [
+            "MIDI polyphoner Tastendruck",
+            "sendPolyPressure"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Senden Sie eine USB MIDI-Notiznachricht."
+  },
+  "tinyusb_midi_control": {
+    "message0": "TinyUSB MIDI %1 Steueränderung senden %2 Wert %3 Kanal %4",
+    "tooltip": "Senden Sie eine USB MIDI Control-Change-Nachricht."
+  },
+  "tinyusb_mounted": {
+    "message0": "Das TinyUSB-Gerät wird vom USB-Host bereitgestellt",
+    "tooltip": "Überprüfen Sie, ob der Host das USB-Gerät aufgelistet hat."
+  }
+}

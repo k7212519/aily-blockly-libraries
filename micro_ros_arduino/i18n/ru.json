@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "инициализировать узел micro-ROS %1 имя %2 пространство имен %3 дескрипторы исполнителя %4",
+    "tooltip": "Инициализируйте транспорт, поддержку, узел и исполнителя micro-ROS по умолчанию."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "создать micro-ROS Int32 издатель %1 узел %2 тема %3",
+    "tooltip": "Создайте издателя std_msgs/Int32."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "micro-ROS издатель %1 опубликовать Int32 %2",
+    "tooltip": "Опубликуйте одно значение std_msgs/Int32."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "создать подписчика micro-ROS Int32 узла %1 %2 темы %3 при поступлении данных %4",
+    "tooltip": "Создайте подписку std_msgs/Int32 и обратный вызов."
+  },
+  "micro_ros_received_int32": {
+    "message0": "Абонент micro-ROS %1 получил Int32",
+    "tooltip": "Прочитайте последнее сообщение Int32 внутри или после обратного вызова."
+  },
+  "micro_ros_spin": {
+    "message0": "Узел micro-ROS %1 вращение для %2 мс",
+    "tooltip": "Запустите исполнитель rclc один раз. Инициализация узла уже добавляет в цикл вращение по умолчанию."
+  }
+}

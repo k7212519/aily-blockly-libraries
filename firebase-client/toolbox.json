@@ -1,0 +1,9 @@
+{"kind":"category","name":"FirebaseClient","colour":"#F57C00","icon":"fa-light fa-fire","contents":[
+  {"kind":"block","type":"firebase_client_init","inputs":{"API_KEY":{"shadow":{"type":"text","fields":{"TEXT":"WEB_API_KEY"}}},"EMAIL":{"shadow":{"type":"text","fields":{"TEXT":"user@example.com"}}},"PASSWORD":{"shadow":{"type":"text","fields":{"TEXT":"password"}}},"URL":{"shadow":{"type":"text","fields":{"TEXT":"https://project-default-rtdb.firebaseio.com"}}}}},
+  {"kind":"block","type":"firebase_client_ready"},
+  {"kind":"block","type":"firebase_client_set","inputs":{"PATH":{"shadow":{"type":"text","fields":{"TEXT":"/data/value"}}},"VALUE":{"shadow":{"type":"text","fields":{"TEXT":"hello"}}}}},
+  {"kind":"block","type":"firebase_client_get","inputs":{"PATH":{"shadow":{"type":"text","fields":{"TEXT":"/data/value"}}}}},
+  {"kind":"block","type":"firebase_client_push","inputs":{"PATH":{"shadow":{"type":"text","fields":{"TEXT":"/data/items"}}},"VALUE":{"shadow":{"type":"text","fields":{"TEXT":"item"}}}}},
+  {"kind":"block","type":"firebase_client_path_action","inputs":{"PATH":{"shadow":{"type":"text","fields":{"TEXT":"/data/value"}}}}},
+  {"kind":"block","type":"firebase_client_last_error"}
+]}

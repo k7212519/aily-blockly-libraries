@@ -161,31 +161,6 @@
     "message0": "get total frame count of K10 animation %1",
     "tooltip": "Get the total frame count of a K10 animation"
   },
-  "k10_step_animation_frame": {
-    "message0": "move frame variable %1 one step toward target frame %2 frame count %3 direction %4",
-    "tooltip": "Move a frame variable by one frame; forward and backward wrap around, and auto chooses the direction",
-    "args0": [
-      null,
-      null,
-      null,
-      {
-        "options": [
-          [
-            "Auto",
-            "AUTO"
-          ],
-          [
-            "Forward",
-            "FORWARD"
-          ],
-          [
-            "Backward",
-            "BACKWARD"
-          ]
-        ]
-      }
-    ]
-  },
   "k10_screen_size": {
     "message0": "screen %1",
     "tooltip": "K10 screen resolution: 240x320 (portrait)",

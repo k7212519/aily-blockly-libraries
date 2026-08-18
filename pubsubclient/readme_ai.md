@@ -8,23 +8,23 @@ MQTT support library based on PubSubClient, suitable for Arduino UNO R4 WiFi, ES
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `pubsub_create` | Statement | VAR(field_input), CLIENT(field_input), SSL(dropdown), SERVER(input_value), PORT(input_value) | `pubsub_create("mqttClient", "client", FALSE, text("value"), math_number(0))` | Dynamic code |
-| `pubsub_set_callback` | Hat | VAR(field_variable), HANDLER(input_statement) | `pubsub_set_callback(variables_get($mqttClient)) @HANDLER: child_block()` | Dynamic code |
-| `pubsub_set_callback_with_topic` | Statement | TOPIC(input_value), HANDLER(input_statement) | `pubsub_set_callback_with_topic(text("value")) @HANDLER: child_block()` | Dynamic code |
-| `pubsub_get_topic_callback_payload` | Value | (none) | `pubsub_get_topic_callback_payload()` | payload_str |
-| `pubsub_connect` | Value | VAR(field_variable), CLIENT_ID(input_value) | `pubsub_connect(variables_get($mqttClient), text("value"))` | Dynamic code |
-| `pubsub_connect_auth` | Value | VAR(field_variable), CLIENT_ID(input_value), USERNAME(input_value), PASSWORD(input_value) | `pubsub_connect_auth(variables_get($mqttClient), text("value"), text("value"), text("value"))` | Dynamic code |
-| `pubsub_publish` | Statement | VAR(field_variable), TOPIC(input_value), PAYLOAD(input_value) | `pubsub_publish(variables_get($mqttClient), text("value"), text("value"))` | Dynamic code |
-| `pubsub_subscribe` | Statement | VAR(field_variable), TOPIC(input_value) | `pubsub_subscribe(variables_get($mqttClient), text("value"))` | Dynamic code |
-| `pubsub_unsubscribe` | Statement | VAR(field_variable), TOPIC(input_value) | `pubsub_unsubscribe(variables_get($mqttClient), text("value"))` | Dynamic code |
-| `pubsub_loop` | Statement | VAR(field_variable) | `pubsub_loop(variables_get($mqttClient))` | Dynamic code |
-| `pubsub_connected` | Value | VAR(field_variable) | `pubsub_connected(variables_get($mqttClient))` | Dynamic code |
-| `pubsub_state` | Value | VAR(field_variable) | `pubsub_state(variables_get($mqttClient))` | Dynamic code |
-| `pubsub_state_code` | Value | STATE(dropdown) | `pubsub_state_code(MQTT_CONNECTED)` | Dynamic code |
-| `pubsub_disconnect` | Statement | VAR(field_variable) | `pubsub_disconnect(variables_get($mqttClient))` | Dynamic code |
-| `pubsub_setBufferSize` | Statement | VAR(field_variable), SIZE(input_value) | `pubsub_setBufferSize(variables_get($mqttClient), math_number(0))` | Dynamic code |
+| `pubsub_create` | Statement | VAR(field_input), CLIENT(field_input), SSL(dropdown), SERVER(input_value), PORT(input_value) | `pubsub_create("mqttClient", "client", FALSE, text("value"), math_number(0))` | `mqttClient.setServer("value", 1);` |
+| `pubsub_set_callback` | Hat | VAR(field_variable), HANDLER(input_statement) | `pubsub_set_callback($mqttClient)` | `void mqtt_callback_mqttClient(char* topic, byte* payload, unsigned int length) { ↵ String payload_str(payload, length); ↵ } ↵ mqttClient.setCallback(mqtt_callback_mqttClient);` |
+| `pubsub_set_callback_with_topic` | Statement | TOPIC(input_value), HANDLER(input_statement) | `pubsub_set_callback_with_topic(text("value"))` | `if (strcmp(topic, "value") == 0) { ↵ mqtt_sub__value__callback(payload_str); ↵ }` |
+| `pubsub_get_topic_callback_payload` | Value | (none) | `pubsub_get_topic_callback_payload()` | `payload_str` |
+| `pubsub_connect` | Value | VAR(field_variable), CLIENT_ID(input_value) | `pubsub_connect($mqttClient, text("value"))` | `mqttClient.connect("value")` |
+| `pubsub_connect_auth` | Value | VAR(field_variable), CLIENT_ID(input_value), USERNAME(input_value), PASSWORD(input_value) | `pubsub_connect_auth($mqttClient, text("value"), text("value"), text("value"))` | `mqttClient.connect("value", "value", "value")` |
+| `pubsub_publish` | Statement | VAR(field_variable), TOPIC(input_value), PAYLOAD(input_value) | `pubsub_publish($mqttClient, text("value"), text("value"))` | `mqttClient.publish("value", "value");` |
+| `pubsub_subscribe` | Statement | VAR(field_variable), TOPIC(input_value) | `pubsub_subscribe($mqttClient, text("value"))` | `mqttClient.subscribe("value");` |
+| `pubsub_unsubscribe` | Statement | VAR(field_variable), TOPIC(input_value) | `pubsub_unsubscribe($mqttClient, text("value"))` | `mqttClient.unsubscribe("value");` |
+| `pubsub_loop` | Statement | VAR(field_variable) | `pubsub_loop($mqttClient)` | `mqttClient.loop();` |
+| `pubsub_connected` | Value | VAR(field_variable) | `pubsub_connected($mqttClient)` | `mqttClient.connected()` |
+| `pubsub_state` | Value | VAR(field_variable) | `pubsub_state($mqttClient)` | `mqttClient.state()` |
+| `pubsub_state_code` | Value | STATE(dropdown) | `pubsub_state_code(MQTT_CONNECTED)` | `MQTT_CONNECTED` |
+| `pubsub_disconnect` | Statement | VAR(field_variable) | `pubsub_disconnect($mqttClient)` | `mqttClient.disconnect();` |
+| `pubsub_setBufferSize` | Statement | VAR(field_variable), SIZE(input_value) | `pubsub_setBufferSize($mqttClient, math_number(0))` | `mqttClient.setBufferSize(1);` |
 
 ## Parameter Options
 
@@ -48,6 +48,6 @@ arduino_loop()
 
 ## Notes
 
-1. **Variable**: `pubsub_create("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `pubsub_create("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

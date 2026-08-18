@@ -8,14 +8,14 @@ Used to read BMM150 three-axis magnetic data and compass heading angle
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `bmm150_init` | Statement | (none) | `bmm150_init()` | Dynamic code |
-| `bmm150_read_x` | Value | (none) | `bmm150_read_x()` | (bmm150.read_mag_data(), bmm150.mag_data.x) |
-| `bmm150_read_y` | Value | (none) | `bmm150_read_y()` | (bmm150.read_mag_data(), bmm150.mag_data.y) |
-| `bmm150_read_z` | Value | (none) | `bmm150_read_z()` | (bmm150.read_mag_data(), bmm150.mag_data.z) |
-| `bmm150_read_heading` | Value | (none) | `bmm150_read_heading()` | bmm150_getHeading() |
-| `bmm150_set_preset_mode` | Statement | MODE(dropdown) | `bmm150_set_preset_mode(BMM150_PRESETMODE_LOWPOWER)` | bmm150.set_presetmode( |
+| `bmm150_init` | Statement | (none) | `bmm150_init()` | `BMM150 bmm150 = BMM150(); ↵ Serial.begin(9600); ↵ if (bmm150.initialize() == BMM150_E_ID_NOT_CONFORM) { ↵ Serial.println("BMM150 chip ID error!"); ↵ while (1); ↵ }` |
+| `bmm150_read_x` | Value | (none) | `bmm150_read_x()` | `(bmm150.read_mag_data(), bmm150.mag_data.x)` |
+| `bmm150_read_y` | Value | (none) | `bmm150_read_y()` | `(bmm150.read_mag_data(), bmm150.mag_data.y)` |
+| `bmm150_read_z` | Value | (none) | `bmm150_read_z()` | `(bmm150.read_mag_data(), bmm150.mag_data.z)` |
+| `bmm150_read_heading` | Value | (none) | `bmm150_read_heading()` | `bmm150_getHeading()` |
+| `bmm150_set_preset_mode` | Statement | MODE(dropdown) | `bmm150_set_preset_mode(BMM150_PRESETMODE_LOWPOWER)` | `bmm150.set_presetmode(BMM150_PRESETMODE_LOWPOWER);` |
 
 ## Parameter Options
 

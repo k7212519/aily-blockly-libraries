@@ -8,22 +8,22 @@ Robot control library based on Arduino UNO R3, supporting dual motor drive, serv
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `robotxlab_motor` | Statement | DIRECTION(dropdown), SPEED(input_value) | `robotxlab_motor("0", math_number(255))` | run( |
-| `robotxlab_servo` | Statement | ANGLE(input_value) | `robotxlab_servo(math_number(90))` | myservo.write( |
-| `robotxlab_servo_pulse` | Statement | ANGLE(input_value) | `robotxlab_servo_pulse(math_number(90))` | servopulse( |
-| `robotxlab_led` | Statement | STATE(dropdown) | `robotxlab_led(HIGH)` | digitalWrite(led, |
-| `robotxlab_buzzer` | Statement | STATE(dropdown) | `robotxlab_buzzer(HIGH)` | digitalWrite(buzz, |
-| `robotxlab_ultrasonic` | Value | (none) | `robotxlab_ultrasonic()` | sr04.Distance() |
-| `robotxlab_button` | Value | STATE(dropdown) | `robotxlab_button("1")` | My_click() == |
-| `robotxlab_line_tracking` | Value | PORT(dropdown), VALUE(dropdown) | `robotxlab_line_tracking("2", "1")` | digitalRead(Sensor_ |
-| `robotxlab_light_analog` | Value | PORT(dropdown) | `robotxlab_light_analog("4")` | analogRead(LightSensor_ |
-| `robotxlab_light_digital` | Value | PORT(dropdown), VALUE(dropdown) | `robotxlab_light_digital("4", "0")` | digitalRead(LightSensor_ |
-| `robotxlab_ir_obstacle` | Value | PORT(dropdown), VALUE(dropdown) | `robotxlab_ir_obstacle("4", "0")` | digitalRead(RedSensor_ |
-| `robotxlab_ir_remote` | Value | KEY(dropdown) | `robotxlab_ir_remote("1")` | Get_IRremote() == IR_ |
-| `robotxlab_ps2_button` | Value | KEY(dropdown) | `robotxlab_ps2_button("1")` | Get_PS2_key() == SP2Key_ |
-| `robotxlab_ps2_rocker` | Value | ROCKER(dropdown), DIR(dropdown) | `robotxlab_ps2_rocker("0", "0")` | Get_PS2_rocker( |
+| `robotxlab_motor` | Statement | DIRECTION(dropdown), SPEED(input_value) | `robotxlab_motor("0", math_number(255))` | `run(0, 1);` |
+| `robotxlab_servo` | Statement | ANGLE(input_value) | `robotxlab_servo(math_number(90))` | `myservo.write(1);` |
+| `robotxlab_servo_pulse` | Statement | ANGLE(input_value) | `robotxlab_servo_pulse(math_number(90))` | `servopulse(1);` |
+| `robotxlab_led` | Statement | STATE(dropdown) | `robotxlab_led(HIGH)` | `digitalWrite(led, HIGH);` |
+| `robotxlab_buzzer` | Statement | STATE(dropdown) | `robotxlab_buzzer(HIGH)` | `digitalWrite(buzz, HIGH);` |
+| `robotxlab_ultrasonic` | Value | (none) | `robotxlab_ultrasonic()` | `sr04.Distance()` |
+| `robotxlab_button` | Value | STATE(dropdown) | `robotxlab_button("1")` | `My_click() == 1` |
+| `robotxlab_line_tracking` | Value | PORT(dropdown), VALUE(dropdown) | `robotxlab_line_tracking("2", "1")` | `digitalRead(Sensor_2) == 1` |
+| `robotxlab_light_analog` | Value | PORT(dropdown) | `robotxlab_light_analog("4")` | `analogRead(LightSensor_4)` |
+| `robotxlab_light_digital` | Value | PORT(dropdown), VALUE(dropdown) | `robotxlab_light_digital("4", "0")` | `digitalRead(LightSensor_4) == 0` |
+| `robotxlab_ir_obstacle` | Value | PORT(dropdown), VALUE(dropdown) | `robotxlab_ir_obstacle("4", "0")` | `digitalRead(RedSensor_4) == 0` |
+| `robotxlab_ir_remote` | Value | KEY(dropdown) | `robotxlab_ir_remote("1")` | `Get_IRremote() == IR_1` |
+| `robotxlab_ps2_button` | Value | KEY(dropdown) | `robotxlab_ps2_button("1")` | `Get_PS2_key() == SP2Key_1` |
+| `robotxlab_ps2_rocker` | Value | ROCKER(dropdown), DIR(dropdown) | `robotxlab_ps2_rocker("0", "0")` | `Get_PS2_rocker(0, 0)` |
 
 ## Parameter Options
 

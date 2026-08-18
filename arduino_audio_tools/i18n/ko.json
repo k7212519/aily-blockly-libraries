@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "Audio Tools I2S %1 모드 %2 속도 %3 채널 %4 비트 초기화 %5 BCLK %6 WS %7 데이터 TX %8 데이터 RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "출력",
+            "TX_MODE"
+          ],
+          [
+            "입력",
+            "RX_MODE"
+          ],
+          [
+            "입력과 출력",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "I2S 오디오 스트림을 구성합니다."
+  },
+  "audio_tools_copy_init": {
+    "message0": "오디오 복사기 생성 %1 출력 %2 입력 %3 루프 %4에서 자동 복사",
+    "tooltip": "두 I2S 스트림 사이에 StreamCopy 파이프라인을 만듭니다."
+  },
+  "audio_tools_copy": {
+    "message0": "오디오 복사기 %1 다음 버퍼 복사",
+    "tooltip": "사용 가능한 다음 오디오 버퍼를 복사합니다."
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 16비트 샘플 쓰기 %2",
+    "tooltip": "하나의 부호 있는 16비트 샘플을 작성합니다."
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 16비트 샘플 읽기",
+    "tooltip": "하나의 서명된 16비트 오디오 샘플을 읽습니다."
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 사용 가능한 바이트",
+    "tooltip": "읽을 수 있는 오디오 바이트 수를 반환합니다."
+  },
+  "audio_tools_end": {
+    "message0": "끝 Audio Tools I2S %1",
+    "tooltip": "I2S 스트림을 중지합니다."
+  }
+}

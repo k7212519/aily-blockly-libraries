@@ -8,14 +8,14 @@ Blockly wrapper for the SparkFun VCNL4040 I2C proximity and ambient light sensor
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `vcnl4040_init` | Statement | VAR(field_input) | `vcnl4040_init("prox")` | Wire.begin();\n |
-| `vcnl4040_get_proximity` | Value | VAR(field_variable) | `vcnl4040_get_proximity(variables_get($prox))` | Dynamic code |
-| `vcnl4040_get_ambient` | Value | VAR(field_variable) | `vcnl4040_get_ambient(variables_get($prox))` | Dynamic code |
-| `vcnl4040_get_white` | Value | VAR(field_variable) | `vcnl4040_get_white(variables_get($prox))` | Dynamic code |
-| `vcnl4040_power_proximity` | Statement | VAR(field_variable), STATE(dropdown) | `vcnl4040_power_proximity(variables_get($prox), ON)` | Dynamic code |
-| `vcnl4040_power_ambient` | Statement | VAR(field_variable), STATE(dropdown) | `vcnl4040_power_ambient(variables_get($prox), ON)` | Dynamic code |
+| `vcnl4040_init` | Statement | VAR(field_input) | `vcnl4040_init("prox")` | `Wire.begin(); ↵ prox.begin(); ↵ prox.powerOnProximity(); ↵ prox.powerOnAmbient();` |
+| `vcnl4040_get_proximity` | Value | VAR(field_variable) | `vcnl4040_get_proximity($prox)` | `prox.getProximity()` |
+| `vcnl4040_get_ambient` | Value | VAR(field_variable) | `vcnl4040_get_ambient($prox)` | `prox.getAmbient()` |
+| `vcnl4040_get_white` | Value | VAR(field_variable) | `vcnl4040_get_white($prox)` | `prox.getWhite()` |
+| `vcnl4040_power_proximity` | Statement | VAR(field_variable), STATE(dropdown) | `vcnl4040_power_proximity($prox, ON)` | `prox.powerOnProximity();` |
+| `vcnl4040_power_ambient` | Statement | VAR(field_variable), STATE(dropdown) | `vcnl4040_power_ambient($prox, ON)` | `prox.powerOnAmbient();` |
 
 ## Parameter Options
 
@@ -32,12 +32,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, vcnl4040_get_proximity(variables_get($prox)))
+    serial_println(Serial, vcnl4040_get_proximity($prox))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `vcnl4040_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `vcnl4040_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

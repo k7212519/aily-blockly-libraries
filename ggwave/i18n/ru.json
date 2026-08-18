@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "инициализировать ggwave режим %1 %2 частота дискретизации %3 выборок/кадр %4 длина полезной нагрузки %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "кодировать и декодировать",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "кодировать только",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "только декодировать",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Создайте экземпляр кодека данных-над звуком ggwave, используя подписанный 16-битный звук."
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 кодирование текста %2 протокол %3 том %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "слышимость нормальная",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "слышно быстро",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "слышно быстрее всего",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "УЗИ в норме",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "УЗИ быстро",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "УЗИ самый быстрый",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "двухтональный быстрый",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "многотональный быстрый",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Кодируйте текст в управляемый буфер сигналов."
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 закодирован %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "указатель буфера формы сигнала",
+            "waveform"
+          ],
+          [
+            "байты сигнала",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Доступ к последней закодированной форме сигнала и ее длине в байтах."
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 декодирование аудиобуфера %2 байтов %3",
+    "tooltip": "Подайте захваченные 16-битные аудиосэмплы со знаком и верните количество декодированных байтов."
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 декодированный %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "текст",
+            "text"
+          ],
+          [
+            "количество байтов",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Прочитайте последнюю декодированную полезную нагрузку."
+  },
+  "ggwave_free": {
+    "message0": "выпустить ggwave %1",
+    "tooltip": "Освободите кодек и память сигналов."
+  }
+}

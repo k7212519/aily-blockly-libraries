@@ -8,13 +8,13 @@ DFRobot_ASR_M speech recognition module control library, suitable for Arduino, E
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `dfrobot_asr_init` | Statement | MODE(dropdown), MIC_MODE(dropdown), ADDRESS(field_input), WIRE(dropdown) | `dfrobot_asr_init(LOOP, MIC, "0x4F", WIRE)` | Dynamic code |
-| `dfrobot_asr_add_command` | Statement | WORDS(field_input), ID(field_input) | `dfrobot_asr_add_command("kai deng", "1")` | asr.addCommand( |
-| `dfrobot_asr_start` | Statement | (none) | `dfrobot_asr_start()` | asr.start();\n |
-| `dfrobot_asr_read` | Value | (none) | `dfrobot_asr_read()` | asr.read() |
-| `dfrobot_asr_set_i2c_addr` | Statement | ADDR(field_input) | `dfrobot_asr_set_i2c_addr("0x4F")` | asr.setI2CAddr( |
+| `dfrobot_asr_init` | Statement | MODE(dropdown), MIC_MODE(dropdown), ADDRESS(field_input), WIRE(dropdown) | `dfrobot_asr_init(LOOP, MIC, "0x4F", WIRE)` | `// 初始化DFRobot语音识别模块 asr ↵ if (asr.begin(LOOP, MIC) == 0) { ↵ Serial.println("DFRobot语音识别模块 asr 初始化成功!"); ↵ } else { ↵ Serial.println("警告: DFRobot语音识别模块 asr 初始化失败，请检查接线!"); ↵ }` |
+| `dfrobot_asr_add_command` | Statement | WORDS(field_input), ID(field_input) | `dfrobot_asr_add_command("kai deng", "1")` | `asr.addCommand("kai deng", 1);` |
+| `dfrobot_asr_start` | Statement | (none) | `dfrobot_asr_start()` | `asr.start();` |
+| `dfrobot_asr_read` | Value | (none) | `dfrobot_asr_read()` | `asr.read()` |
+| `dfrobot_asr_set_i2c_addr` | Statement | ADDR(field_input) | `dfrobot_asr_set_i2c_addr("0x4F")` | `asr.setI2CAddr(0x4F);` |
 
 ## Parameter Options
 

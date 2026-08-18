@@ -1,0 +1,115 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "初期化 ESP TFLite Micro %1 モデルヘッダー %2 モデルシンボル %3 テンソルメモリアリーナバイト %4",
+    "tooltip": "一般的に使用される組み込み演算子を使用して TensorFlow Lite Micro インタープリターを作成します。"
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 入力インデックス %2 セット %3 値 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8生",
+            "int8"
+          ],
+          [
+            "uint8生",
+            "uint8"
+          ],
+          [
+            "float を int8 に量子化する",
+            "quantized"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "1 つのモデル入力テンソル要素を作成します。"
+  },
+  "esp_tflite_invoke": {
+    "message0": "TFLite %1 の呼び出しが成功しました",
+    "tooltip": "1 つの推論を実行し、それが成功したかどうかを返します。"
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 出力インデックス %2 読み取り %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8生",
+            "int8"
+          ],
+          [
+            "uint8生",
+            "uint8"
+          ],
+          [
+            "逆量子化された int8",
+            "dequantized"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "1 つのモデル出力テンソル要素を読み取ります。"
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "TFLite %1 %2 テンソル %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "入力",
+            "input"
+          ],
+          [
+            "出力",
+            "output"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "バイトサイズ",
+            "bytes"
+          ],
+          [
+            "要素数",
+            "count"
+          ],
+          [
+            "列挙型",
+            "type"
+          ],
+          [
+            "量子化スケール",
+            "scale"
+          ],
+          [
+            "ゼロ点",
+            "zero_point"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "モデルの入力テンソルまたは出力テンソルを検査します。"
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1 は準備完了です",
+    "tooltip": "モデルの解析とテンソルの割り当てが成功したかどうかを確認します。"
+  }
+}

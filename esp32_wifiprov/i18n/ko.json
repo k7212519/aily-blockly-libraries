@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "ESP32 Wi-Fi 배포 네트워크",
+  "esp32_wifiprov_begin_softap": {
+    "message0": "SoftAP 배포 네트워크 시작 서비스 이름 %1 POP %2 서비스 비밀번호 %3 기존 구성 재설정 %4",
+    "tooltip": "SoftAP 배포 네트워크 서비스를 시작합니다."
+  },
+  "esp32_wifiprov_begin_ble": {
+    "message0": "BLE 분배망 서비스 이름 시작 %1 POP %2 기존 구성 재설정 %3",
+    "tooltip": "BLE 분배 네트워크 서비스를 시작합니다(칩이 BLE를 지원해야 함)."
+  },
+  "esp32_wifiprov_end": {
+    "message0": "Wi-Fi 배포 중지",
+    "tooltip": "배전망 서비스를 중지하고 정리합니다."
+  },
+  "esp32_wifiprov_disable_auto_stop": {
+    "message0": "네트워크 구성이 성공한 후에도 자동으로 중지되지 않습니다. 청소 지연 %1ms",
+    "tooltip": "성공 후 자동 중지를 비활성화하고 지연을 설정합니다."
+  },
+  "esp32_wifiprov_print_qr": {
+    "message0": "인쇄 유통망 QR 코드 서비스 이름 %1 POP %2 전송 %3",
+    "tooltip": "QR 코드 링크와 페이로드를 직렬로 인쇄합니다.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "소프트AP",
+            "softap"
+          ],
+          [
+            "BLE",
+            "ble"
+          ]
+        ]
+      }
+    ]
+  }
+}

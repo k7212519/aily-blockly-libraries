@@ -1,0 +1,31 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "initialize Firebase %1 API key %2 email %3 password %4 database URL %5",
+    "tooltip": "Authenticate a user and bind a Firebase Realtime Database."
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1 is ready",
+    "tooltip": "Check whether authentication is ready."
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1 set %2 at path %3 to %4",
+    "tooltip": "Synchronously write a value to Realtime Database."
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 get %2 from path %3",
+    "tooltip": "Synchronously read a typed value from Realtime Database."
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1 push %2 at path %3 value %4",
+    "tooltip": "Push a new child value to Realtime Database."
+  },
+  "firebase_client_path_action": {
+    "message0": "Firebase %1 %2 path %3",
+    "tooltip": "Remove a path or check whether it exists."
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 last error %2",
+    "tooltip": "Read the last synchronous client error."
+  }
+}

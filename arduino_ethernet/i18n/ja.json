@@ -1,0 +1,163 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "イーサネットの初期化 MAC %1 モード %2 IP %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "DHCP",
+            "dhcp"
+          ],
+          [
+            "静的 IP",
+            "static"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "DHCP または静的アドレスを使用してイーサネットを初期化します。"
+  },
+  "ethernet_network_info": {
+    "message0": "イーサネット %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "ローカル IP",
+            "localIP"
+          ],
+          [
+            "ゲートウェイ IP",
+            "gatewayIP"
+          ],
+          [
+            "サブネットマスク",
+            "subnetMask"
+          ],
+          [
+            "DNS サーバー IP",
+            "dnsServerIP"
+          ],
+          [
+            "リンクがオンになっています",
+            "link"
+          ],
+          [
+            "ハードウェアが存在する",
+            "hardware"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "イーサネット ネットワークまたはハードウェアの状態を読み取ります。"
+  },
+  "ethernet_client_create": {
+    "message0": "イーサネットクライアント %1 を作成する",
+    "tooltip": "EthernetClient オブジェクトを作成します。"
+  },
+  "ethernet_client_connect": {
+    "message0": "イーサネットクライアント %1 ホスト %2 ポート %3 に接続",
+    "tooltip": "クライアントをホストとポートに接続します。"
+  },
+  "ethernet_client_write": {
+    "message0": "イーサネットクライアント %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "改行なしで印刷する",
+            "print"
+          ],
+          [
+            "改行を入れて印刷する",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "イーサネット クライアント経由でデータを送信します。"
+  },
+  "ethernet_client_data": {
+    "message0": "イーサネットクライアント %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "利用可能なバイト数",
+            "available"
+          ],
+          [
+            "バイトを読む",
+            "read"
+          ],
+          [
+            "行を読む",
+            "line"
+          ],
+          [
+            "接続されています",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "クライアント データまたは接続状態を読み取ります。"
+  },
+  "ethernet_client_stop": {
+    "message0": "イーサネットクライアント %1 を停止します",
+    "tooltip": "イーサネット クライアント接続を閉じます。"
+  },
+  "ethernet_server_create": {
+    "message0": "イーサネットサーバー %1 ポート %2 を作成します",
+    "tooltip": "EthernetServer を作成して開始します。"
+  },
+  "ethernet_server_accept": {
+    "message0": "イーサネットサーバー %1 クライアントを受け入れる",
+    "tooltip": "新しく接続されたクライアントを受け入れます。"
+  },
+  "ethernet_udp_create": {
+    "message0": "イーサネット UDP %1 ローカル ポート %2 を作成します",
+    "tooltip": "EthernetUDP ソケットを作成し、ポートをバインドします。"
+  },
+  "ethernet_udp_send": {
+    "message0": "イーサネット UDP %1 %2 をホスト %3 ポート %4 に送信",
+    "tooltip": "UDP パケットを 1 つ送信します。"
+  },
+  "ethernet_udp_data": {
+    "message0": "イーサネット UDP %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "パケットを解析する",
+            "parsePacket"
+          ],
+          [
+            "利用可能なバイト数",
+            "available"
+          ],
+          [
+            "バイトを読む",
+            "read"
+          ],
+          [
+            "リモート IP",
+            "remoteIP"
+          ],
+          [
+            "リモートポート",
+            "remotePort"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "UDP パケット データまたは送信者情報を読み取ります。"
+  }
+}

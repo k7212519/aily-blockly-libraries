@@ -1,19 +1,24 @@
 {
   "toolbox_name": "TFT_eSPI",
   "toolbox_labels": {
-    "初始化": "initialization",
-    "基本图形": "basic graphics",
-    "矩形": "Rectangle",
-    "圆形": "round",
-    "椭圆": "ellipse",
-    "三角形": "triangle",
-    "文字": "text",
-    "颜色": "color",
-    "动画": "animation"
+    "屏幕控制": "Display Control",
+    "颜色": "Colors",
+    "基础图形": "Basic Shapes",
+    "矩形": "Rectangles",
+    "圆形与椭圆": "Circles & Ellipses",
+    "三角形": "Triangles",
+    "图像": "Images",
+    "动画": "Animation",
+    "Sprite 画布": "Sprite Canvas"
   },
+  "toolbox_categories": [
+    "Basic Settings",
+    "Graphics",
+    "Text",
+    "Images & Animation"
+  ],
   "tftespi_setup": {
-    "message0": "初始化TFT屏幕 %1 型号 %2 SPI频率 %3 宽度 %4 高度 %5\n MISO %6 MOSI %7 SCLK %8 CS %9 DC %10 \nRST %11 BL %12 背光 %13 颜色模式 %14",
-    "tooltip": "创建并初始化TFT对象",
+    "message0": "Initialize TFT display %1\nBasic settings: driver %2 width %3 height %4\n SPI pins: MISO %5 MOSI %6 SCLK %7 CS %8 DC %9 RST %10 BL %11\nOther settings: backlight mode %12 color order %13 SPI frequency %14\nCH13613 QSPI: CS %15 SCLK %16 D0 %17 D1 %18 D2 %19 D3 %20 RST %21 TE %22",
     "args0": [
       null,
       {
@@ -25,6 +30,10 @@
           [
             "ILI9341_2",
             "ILI9341_2_DRIVER"
+          ],
+          [
+            "ILI9342",
+            "ILI9342_DRIVER"
           ],
           [
             "ST7735",
@@ -41,6 +50,14 @@
           [
             "RPI_ILI9486",
             "RPI_ILI9486_DRIVER"
+          ],
+          [
+            "HX8357B",
+            "HX8357B_DRIVER"
+          ],
+          [
+            "HX8357C",
+            "HX8357C_DRIVER"
           ],
           [
             "HX8357D",
@@ -71,6 +88,10 @@
             "R61581_DRIVER"
           ],
           [
+            "RM68120",
+            "RM68120_DRIVER"
+          ],
+          [
             "RM68140",
             "RM68140_DRIVER"
           ],
@@ -81,6 +102,10 @@
           [
             "SSD1351",
             "SSD1351_DRIVER"
+          ],
+          [
+            "SSD1331",
+            "SSD1331_DRIVER"
           ],
           [
             "SSD1963 480",
@@ -103,8 +128,181 @@
             "GC9A01_DRIVER"
           ],
           [
+            "GC9107",
+            "GC9107_DRIVER"
+          ],
+          [
             "GC9D01",
             "GC9D01_DRIVER"
+          ],
+          [
+            "AXS15231B",
+            "AXS15231B_DRIVER"
+          ],
+          [
+            "CH13613",
+            "CH13613_DRIVER"
+          ],
+          [
+            "CO5300",
+            "CO5300_DRIVER"
+          ],
+          [
+            "GC9106",
+            "GC9106_DRIVER"
+          ],
+          [
+            "GC9C01",
+            "GC9C01_DRIVER"
+          ],
+          [
+            "HX8347C",
+            "HX8347C_DRIVER"
+          ],
+          [
+            "HX8347D",
+            "HX8347D_DRIVER"
+          ],
+          [
+            "HX8352C",
+            "HX8352C_DRIVER"
+          ],
+          [
+            "HX8357A",
+            "HX8357A_DRIVER"
+          ],
+          [
+            "HX8369A",
+            "HX8369A_DRIVER"
+          ],
+          [
+            "ILI9331",
+            "ILI9331_DRIVER"
+          ],
+          [
+            "ILI9806",
+            "ILI9806_DRIVER"
+          ],
+          [
+            "JBT6K71",
+            "JBT6K71_DRIVER"
+          ],
+          [
+            "JD9613",
+            "JD9613_DRIVER"
+          ],
+          [
+            "NT35310",
+            "NT35310_DRIVER"
+          ],
+          [
+            "NT35510",
+            "NT35510_DRIVER"
+          ],
+          [
+            "NT39125",
+            "NT39125_DRIVER"
+          ],
+          [
+            "NV3001B",
+            "NV3001B_DRIVER"
+          ],
+          [
+            "NV3007",
+            "NV3007_DRIVER"
+          ],
+          [
+            "NV3023",
+            "NV3023_DRIVER"
+          ],
+          [
+            "NV3041A",
+            "NV3041A_DRIVER"
+          ],
+          [
+            "OTM8009A",
+            "OTM8009A_DRIVER"
+          ],
+          [
+            "R61529",
+            "R61529_DRIVER"
+          ],
+          [
+            "RM67162",
+            "RM67162_DRIVER"
+          ],
+          [
+            "RM690B0",
+            "RM690B0_DRIVER"
+          ],
+          [
+            "SEPS525",
+            "SEPS525_DRIVER"
+          ],
+          [
+            "SH1106",
+            "SH1106_DRIVER"
+          ],
+          [
+            "SH8601",
+            "SH8601_DRIVER"
+          ],
+          [
+            "SPD2010",
+            "SPD2010_DRIVER"
+          ],
+          [
+            "SSD1283A",
+            "SSD1283A_DRIVER"
+          ],
+          [
+            "SSD1306",
+            "SSD1306_DRIVER"
+          ],
+          [
+            "SSD1357",
+            "SSD1357_DRIVER"
+          ],
+          [
+            "ST77916",
+            "ST77916_DRIVER"
+          ],
+          [
+            "WEA2012",
+            "WEA2012_DRIVER"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "High level lights up",
+            "HIGH"
+          ],
+          [
+            "Low level lights up",
+            "LOW"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "RGB color mode",
+            "TFT_RGB"
+          ],
+          [
+            "BGR color mode",
+            "TFT_BGR"
           ]
         ]
       },
@@ -143,167 +341,251 @@
       null,
       null,
       null,
-      null,
-      null,
-      {
-        "options": [
-          [
-            "高电平点亮",
-            "HIGH"
-          ],
-          [
-            "低电平点亮",
-            "LOW"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "RGB颜色模式",
-            "TFT_RGB"
-          ],
-          [
-            "BGR颜色模式",
-            "TFT_BGR"
-          ]
-        ]
-      }
-    ]
+      null
+    ],
+    "tooltip": "Create and initialize a TFT display object"
   },
   "tftespi_set_rotation": {
-    "message0": "设置TFT屏幕 %1 旋转 %2",
-    "tooltip": "设置屏幕旋转方向",
+    "message0": "Set TFT screen %1 Rotate %2",
     "args0": [
       null,
       {
         "options": [
           [
-            "0度",
+            "0 degrees",
             "0"
           ],
           [
-            "90度",
+            "90 degrees",
             "1"
           ],
           [
-            "180度",
+            "180 degrees",
             "2"
           ],
           [
-            "270度",
+            "270 degrees",
             "3"
           ],
           [
-            "水平镜像",
+            "Horizontal mirroring",
             "4"
           ],
           [
-            "横屏镜像",
+            "Horizontal screen mirroring",
             "5"
           ],
           [
-            "反向水平镜像",
+            "Reverse horizontal mirroring",
             "6"
           ],
           [
-            "反向横屏镜像",
+            "Reverse landscape mirroring",
             "7"
           ]
         ]
       }
-    ]
+    ],
+    "tooltip": "Set screen rotation direction"
   },
   "tftespi_invert_display": {
-    "message0": "TFT屏幕 %1 反转显示 %2",
-    "tooltip": "反转屏幕显示颜色",
+    "message0": "TFT screen %1 Reverse display %2",
     "args0": [
       null,
       {
         "options": [
           [
-            "开启",
+            "turn on",
             "true"
           ],
           [
-            "关闭",
+            "Close",
             "false"
           ]
         ]
       }
-    ]
+    ],
+    "tooltip": "Invert screen display colors"
+  },
+  "tftespi_get_dimension": {
+    "message0": "Get %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Width",
+            "WIDTH"
+          ],
+          [
+            "Height",
+            "HEIGHT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Get the width or height for the current display orientation"
   },
   "tftespi_fill_screen": {
-    "message0": "TFT %1 填充屏幕颜色 %2",
-    "tooltip": "用指定颜色填充整个屏幕"
+    "message0": "TFT %1 fill screen color %2",
+    "tooltip": "Fill the entire screen with the specified color"
   },
   "tftespi_draw_pixel": {
-    "message0": "在屏幕 %1 画点 X:%2 Y:%3 颜色:%4",
-    "tooltip": "在指定位置画一个像素点"
+    "message0": "Draw points on the screen %1 X:%2 Y: %3 Color: %4",
+    "tooltip": "Draw a pixel at the specified position"
   },
   "tftespi_draw_line": {
-    "message0": "在屏幕 %1 画线 从X:%2 Y:%3 到X:%4 Y:%5 颜色:%6",
-    "tooltip": "在两点之间画一条线"
+    "message0": "On the screen %1 draw lines from X:%2 Y:%3 to X:%4 Y:%5 Color:%6",
+    "tooltip": "draw a line between two points"
   },
   "tftespi_draw_rect": {
-    "message0": "在屏幕 %1 画矩形 X:%2 Y:%3 宽:%4 高:%5 颜色:%6",
-    "tooltip": "画一个矩形边框"
+    "message0": "On the screen %1, draw a rectangle X:%2 Y:%3 width:%4 height:%5 color:%6",
+    "tooltip": "Draw a rectangular border"
   },
   "tftespi_fill_rect": {
-    "message0": "在屏幕 %1 填充矩形 X:%2 Y:%3 宽:%4 高:%5 颜色:%6",
-    "tooltip": "填充一个矩形区域"
+    "message0": "On the screen %1, fill rectangles X:%2 Y:%3 Width:%4 Height:%5 Color:%6",
+    "tooltip": "Fill a rectangular area"
   },
   "tftespi_draw_round_rect": {
-    "message0": "在屏幕 %1 画圆角矩形 X:%2 Y:%3 宽:%4 高:%5 圆角半径:%6 颜色:%7",
-    "tooltip": "画一个圆角矩形边框"
+    "message0": "On the screen %1, draw rounded rectangles X:%2 Y:%3 Width:%4 Height:%5 Fillet radius:%6 Color:%7",
+    "tooltip": "Draw a rounded rectangular border"
   },
   "tftespi_fill_round_rect": {
-    "message0": "在屏幕 %1 填充圆角矩形 X:%2 Y:%3 宽:%4 高:%5 圆角半径:%6 颜色:%7",
-    "tooltip": "填充一个圆角矩形区域"
+    "message0": "On the screen %1 fill the fillet rectangle X:%2 Y:%3 Width:%4 Height:%5 Fillet radius:%6 Color:%7",
+    "tooltip": "Fill a rounded rectangular area"
   },
   "tftespi_fill_rect_v_gradient": {
-    "message0": "在屏幕 %1 垂直渐变填充矩形 X:%2 Y:%3 宽:%4 高:%5 起始颜色:%6 结束颜色:%7",
-    "tooltip": "用垂直渐变填充矩形区域"
+    "message0": "On the screen %1, vertical gradient fills rectangles X:%2 Y:%3 Width:%4 Height:%5 Starting color: %6 End color: %7",
+    "tooltip": "Fill a rectangular area with a vertical gradient"
   },
   "tftespi_fill_rect_h_gradient": {
-    "message0": "在屏幕 %1 水平渐变填充矩形 X:%2 Y:%3 宽:%4 高:%5 起始颜色:%6 结束颜色:%7",
-    "tooltip": "用水平渐变填充矩形区域"
+    "message0": "On the screen %1 Horizontal gradient fills rectangles X:%2 Y:%3 Width:%4 Height:%5 Starting color:%6 End color:%7",
+    "tooltip": "Fill a rectangular area with a horizontal gradient"
   },
   "tftespi_draw_circle": {
-    "message0": "在屏幕 %1 画圆 中心X:%2 Y:%3 半径:%4 颜色:%5",
-    "tooltip": "画一个空心圆"
+    "message0": "On the screen %1, draw a circle, center X:%2, Y:%3, radius:%4, color:%5",
+    "tooltip": "draw a hollow circle"
   },
   "tftespi_fill_circle": {
-    "message0": "在屏幕 %1 填充圆 中心X:%2 Y:%3 半径:%4 颜色:%5",
-    "tooltip": "填充一个圆形区域"
+    "message0": "On the screen %1 Fill circle Center X:%2 Y:%3 Radius:%4 Color:%5",
+    "tooltip": "fill a circular area"
+  },
+  "tftespi_draw_arc": {
+    "message0": "On %1 draw anti-aliased arc center X:%2 Y:%3 outer radius:%4 inner radius:%5",
+    "message1": "start angle:%1 end angle:%2 foreground:%3 background:%4 ends:%5",
+    "args1": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Rounded",
+            "true"
+          ],
+          [
+            "Square",
+            "false"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Draw an anti-aliased arc or gauge ring; 0 degrees is at 6 o’clock and angles increase clockwise"
   },
   "tftespi_draw_ellipse": {
-    "message0": "在屏幕 %1 画椭圆 中心X:%2 Y:%3 半径X:%4 半径Y:%5 颜色:%6",
-    "tooltip": "画一个椭圆边框"
+    "message0": "On the screen %1 draw an ellipse, center X:%2 Y:%3 radius X:%4 radius Y:%5 Color:%6",
+    "tooltip": "Draw an elliptical border"
   },
   "tftespi_fill_ellipse": {
-    "message0": "在屏幕 %1 填充椭圆 中心X:%2 Y:%3 半径X:%4 半径Y:%5 颜色:%6",
-    "tooltip": "填充一个椭圆区域"
+    "message0": "On the screen %1 fill the ellipse Center X:%2 Y:%3 Radius X:%4 Radius Y:%5 Color:%6",
+    "tooltip": "Fill an elliptical area"
   },
   "tftespi_draw_triangle": {
-    "message0": "在屏幕 %1 画三角形 点1X:%2 Y:%3 点2X:%4 Y:%5 点3X:%6 Y:%7 颜色:%8",
-    "tooltip": "画一个三角形边框"
+    "message0": "Draw a triangle on the screen %1 Point 1X: %2 Y: %3 Point 2X: %4 Y: %5 Point 3X: %6 Y:%7 Color:%8",
+    "tooltip": "Draw a triangular border"
   },
   "tftespi_fill_triangle": {
-    "message0": "在屏幕 %1 填充三角形 点1X:%2 Y:%3 点2X:%4 Y:%5 点3X:%6 Y:%7 颜色:%8",
-    "tooltip": "填充一个三角形区域"
+    "message0": "Filled triangle in screen %1 Point 1X: %2 Y: %3 Point 2X: %4 Y: %5 Point 3X: %6 Y:%7 Color:%8",
+    "tooltip": "Fill a triangular area"
   },
   "tftespi_draw_string": {
-    "message0": "在屏幕 %1 位置 X:%2 Y:%3 显示文字 %4",
-    "tooltip": "在指定位置显示文字"
+    "message0": "On %1 at X:%2 Y:%3 display %4",
+    "tooltip": "Display text, an integer, or a decimal value at the specified position"
   },
   "tftespi_set_text_color": {
-    "message0": "设置屏幕 %1 文字颜色 %2",
-    "tooltip": "设置文字颜色"
+    "message0": "Settings screen %1 Text color %2",
+    "tooltip": "Set text color"
+  },
+  "tftespi_set_text_colors": {
+    "message0": "Set %1 text color %2 background color %3",
+    "tooltip": "Set both the text foreground color and the background color used to overwrite the character area"
+  },
+  "tftespi_set_text_datum": {
+    "message0": "Set %1 text alignment %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Top left",
+            "TL_DATUM"
+          ],
+          [
+            "Top center",
+            "TC_DATUM"
+          ],
+          [
+            "Top right",
+            "TR_DATUM"
+          ],
+          [
+            "Middle left",
+            "ML_DATUM"
+          ],
+          [
+            "Center",
+            "MC_DATUM"
+          ],
+          [
+            "Middle right",
+            "MR_DATUM"
+          ],
+          [
+            "Bottom left",
+            "BL_DATUM"
+          ],
+          [
+            "Bottom center",
+            "BC_DATUM"
+          ],
+          [
+            "Bottom right",
+            "BR_DATUM"
+          ],
+          [
+            "Left baseline",
+            "L_BASELINE"
+          ],
+          [
+            "Center baseline",
+            "C_BASELINE"
+          ],
+          [
+            "Right baseline",
+            "R_BASELINE"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Set the alignment reference point used by text drawing operations"
+  },
+  "tftespi_set_text_padding": {
+    "message0": "Set %1 text overwrite width to %2 pixels",
+    "tooltip": "Set the text background overwrite width to clear remnants of longer previous values; use 0 to disable"
   },
   "tftespi_set_text_size": {
-    "message0": "设置屏幕 %1 文字大小 %2",
-    "tooltip": "设置文字大小(1-7)",
+    "message0": "Settings screen %1 Text size %2",
     "args0": [
       null,
       {
@@ -338,11 +620,11 @@
           ]
         ]
       }
-    ]
+    ],
+    "tooltip": "Set text size (1-7)"
   },
   "tftespi_set_text_font": {
-    "message0": "设置屏幕 %1 字体 %2",
-    "tooltip": "设置字体类型",
+    "message0": "Settings screen %1 Font %2",
     "args0": [
       null,
       {
@@ -373,7 +655,16 @@
           ]
         ]
       }
-    ]
+    ],
+    "tooltip": "Set font type"
+  },
+  "tftespi_image": {
+    "message0": "TFT image %1",
+    "tooltip": "Upload a PNG, JPEG, WebP, or BMP image and convert it to RGB565/RGB332 pixel data"
+  },
+  "tftespi_draw_image": {
+    "message0": "On TFT display %1 at X:%2 Y:%3 draw image %4",
+    "tooltip": "Draw converted RGB565/RGB332 image data at the specified coordinates"
   },
   "tftespi_animation": {
     "message0": "TFT animation %1",
@@ -381,9 +672,26 @@
   },
   "tftespi_play_animation": {
     "message0": "TFT display %1 play animation x%2 y%3 animation %4 mode %5",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Blocking playback",
+            "BLOCKING"
+          ],
+          [
+            "Non-blocking playback",
+            "NON_BLOCKING"
+          ]
+        ]
+      }
+    ],
     "message1": "Loop playback %1",
-    "tooltip": "Play a TFT_eSPI animation; in non-blocking mode, the next frame is rendered when loop reaches the frame interval",
-    "args0": [null, null, null, null, {"options": [["Blocking playback", "BLOCKING"], ["Non-blocking playback", "NON_BLOCKING"]]}]
+    "tooltip": "Play a TFT_eSPI animation; in non-blocking mode, the next frame is rendered when loop reaches the frame interval"
   },
   "tftespi_draw_animation_frame": {
     "message0": "TFT display %1 draw animation frame x%2 y%3 animation %4 frame %5",
@@ -393,67 +701,107 @@
     "message0": "Get total frame count of TFT animation %1",
     "tooltip": "Get the total frame count of a TFT_eSPI animation"
   },
-  "tftespi_step_animation_frame": {
-    "message0": "Move frame variable %1 one step toward target frame %2 frame count %3 direction %4",
-    "tooltip": "Move a frame variable by one frame; forward and backward wrap around, and auto chooses the direction",
-    "args0": [null, null, null, {"options": [["Auto", "AUTO"], ["Forward", "FORWARD"], ["Backward", "BACKWARD"]]}]
+  "tftespi_sprite_create": {
+    "message0": "Create Sprite %1 for display %2",
+    "message1": "width %1 height %2 color depth %3",
+    "args1": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "16-bit",
+            "16"
+          ],
+          [
+            "8-bit",
+            "8"
+          ],
+          [
+            "4-bit",
+            "4"
+          ],
+          [
+            "1-bit",
+            "1"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Create an in-memory Sprite; lower color depths use less memory"
+  },
+  "tftespi_sprite_push": {
+    "message0": "Show Sprite %1 on display at X:%2 Y:%3",
+    "tooltip": "Push the complete Sprite to its associated display"
+  },
+  "tftespi_sprite_push_transparent": {
+    "message0": "Show Sprite %1 transparently on display at X:%2 Y:%3 transparent color:%4",
+    "tooltip": "Push the Sprite while skipping pixels that match the transparent color"
+  },
+  "tftespi_sprite_delete": {
+    "message0": "Delete Sprite %1",
+    "tooltip": "Delete the Sprite and release its allocated memory"
   },
   "tftespi_color_rgb565": {
-    "message0": "%1 颜色转换 %2",
-    "tooltip": "将RGB颜色转换为565格式"
+    "message0": "%1 Color conversion %2",
+    "tooltip": "Convert RGB colors to 565 format"
   },
   "tftespi_color": {
-    "message0": "颜色 %1",
-    "tooltip": "预设颜色",
+    "message0": "Color %1",
     "args0": [
       {
         "options": [
           [
-            "黑色",
+            "black",
             "TFT_BLACK"
           ],
           [
-            "白色",
+            "white",
             "TFT_WHITE"
           ],
           [
-            "红色",
+            "red",
             "TFT_RED"
           ],
           [
-            "绿色",
+            "green",
             "TFT_GREEN"
           ],
           [
-            "蓝色",
+            "blue",
             "TFT_BLUE"
           ],
           [
-            "黄色",
+            "yellow",
             "TFT_YELLOW"
           ],
           [
-            "青色",
+            "cyan",
             "TFT_CYAN"
           ],
           [
-            "洋红色",
+            "magenta",
             "TFT_MAGENTA"
           ],
           [
-            "橙色",
+            "orange",
             "TFT_ORANGE"
           ],
           [
-            "灰色",
+            "gray",
             "TFT_LIGHTGREY"
           ],
           [
-            "深灰色",
+            "dark gray",
             "TFT_DARKGREY"
           ]
         ]
       }
-    ]
+    ],
+    "tooltip": "Default color"
+  },
+  "extensions": {
+    "tftespi_board_display_config": {},
+    "tftespi_animation_play_dynamic_inputs": {}
   }
 }

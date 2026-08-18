@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "تهيئة العقدة micro-ROS اسم %1 %2 مساحة الاسم %3 مقابض المنفذ %4",
+    "tooltip": "قم بتهيئة النقل والدعم والعقدة والمنفذ micro-ROS الافتراضي."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "إنشاء ناشر micro-ROS Int32 عقدة %1 موضوع %2 %3",
+    "tooltip": "قم بإنشاء ناشر std_msgs/Int32."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "ناشر micro-ROS %1 ينشر Int32 %2",
+    "tooltip": "نشر قيمة std_msgs/Int32 واحدة."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "إنشاء مشترك micro-ROS Int32 عقدة %1 موضوع %2 %3 عند وصول البيانات %4",
+    "tooltip": "قم بإنشاء اشتراك std_msgs/Int32 ورد الاتصال."
+  },
+  "micro_ros_received_int32": {
+    "message0": "تلقى المشترك micro-ROS %1 Int32",
+    "tooltip": "اقرأ أحدث رسالة Int32 داخل رد الاتصال أو بعده."
+  },
+  "micro_ros_spin": {
+    "message0": "عقدة micro-ROS تدور %1 لـ %2 مللي ثانية",
+    "tooltip": "قم بتشغيل المنفذ rclc مرة واحدة. تضيف تهيئة العقدة بالفعل دورانًا افتراضيًا للحلقة."
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "инициализировать Arduino GFX %1 дисплей %2 DC %3 CS %4 сброс %5 вращение %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Создайте аппаратную шину SPI и общий драйвер дисплея Arduino_GFX."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 цвет заливки экрана %2",
+    "tooltip": "Заполните весь дисплей цветом RGB565."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 линия x0 %2 y0 %3 x1 %4 y1 %5 цвет %6",
+    "tooltip": "Нарисуйте отрезок линии."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 прямоугольник x %3 y %4 ширина %5 высота %6 цвет %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "контурная форма",
+            "drawRect"
+          ],
+          [
+            "заполненная форма",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Нарисуйте обведенный или закрашенный прямоугольник."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 круг x %3 y %4 радиус %5 цвет %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "контурная форма",
+            "drawCircle"
+          ],
+          [
+            "заполненная форма",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Нарисуйте очерченный или закрашенный круг."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 цвет текста %2 фон %3 размер %4 перенос %5",
+    "tooltip": "Установите цвет текста, фон, масштаб и перенос."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 в точке x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "печатать без новой строки",
+            "print"
+          ],
+          [
+            "печатать с новой строкой",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Установите курсор и нарисуйте текст."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "установить вращение",
+            "setRotation"
+          ],
+          [
+            "инвертировать отображение",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Измените поворот или инверсию дисплея."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ширина",
+            "width"
+          ],
+          [
+            "высота",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Считайте текущий размер логического дисплея."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 красный %1 зеленый %2 синий %3",
+    "tooltip": "Преобразуйте 8-битные компоненты RGB в цвет RGB565."
+  }
+}

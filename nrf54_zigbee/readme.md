@@ -7,7 +7,7 @@ Zigbee Home Automation library for nRF54L15, supporting End Device and Router ro
 | Field | Value |
 |-------|-------|
 | Package | @aily-project/lib-nrf54-zigbee |
-| Version | 0.6.7 |
+| Version | 0.6.81 |
 | Author | lolren |
 | Source | https://github.com/xiao-nrf54l15/Nrf54L15-Clean-Implementation |
 | License | Original license |

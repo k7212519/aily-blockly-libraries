@@ -1,0 +1,235 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "initialiser Dynamixel %1 série %2 broche de direction %3 bauds protocole %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "2.0",
+            "2.0"
+          ],
+          [
+            "1.0",
+            "1.0"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Initialisez un bus série DYNAMIXEL."
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel %1 ID %2 configurer le mode %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "poste",
+            "OP_POSITION"
+          ],
+          [
+            "position étendue",
+            "OP_EXTENDED_POSITION"
+          ],
+          [
+            "vitesse",
+            "OP_VELOCITY"
+          ],
+          [
+            "PWM",
+            "OP_PWM"
+          ],
+          [
+            "courant électrique",
+            "OP_CURRENT"
+          ],
+          [
+            "mode de position basé sur le courant électrique",
+            "OP_CURRENT_BASED_POSITION"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Désactivez le couple, définissez un mode de fonctionnement, puis activez le couple."
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel %1 ID %2 objectif défini valeur %3 unité %4 %5",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "poste",
+            "setGoalPosition"
+          ],
+          [
+            "vitesse",
+            "setGoalVelocity"
+          ],
+          [
+            "courant électrique",
+            "setGoalCurrent"
+          ],
+          [
+            "PWM",
+            "setGoalPWM"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "cru",
+            "UNIT_RAW"
+          ],
+          [
+            "degrés",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "pour cent",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Définissez une position cible, une vitesse, un courant ou un PWM."
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 ID %2 lire unité %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "poste",
+            "getPresentPosition"
+          ],
+          [
+            "vitesse",
+            "getPresentVelocity"
+          ],
+          [
+            "courant électrique",
+            "getPresentCurrent"
+          ],
+          [
+            "PWM",
+            "getPresentPWM"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "cru",
+            "UNIT_RAW"
+          ],
+          [
+            "degrés",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "pour cent",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez les commentaires en direct de l'actionneur."
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel %1 ID %2 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "couple activé",
+            "torqueOn"
+          ],
+          [
+            "couple coupé",
+            "torqueOff"
+          ],
+          [
+            "LED allumée",
+            "ledOn"
+          ],
+          [
+            "LED éteinte",
+            "ledOff"
+          ],
+          [
+            "redémarrer",
+            "reboot"
+          ],
+          [
+            "réinitialisation d'usine",
+            "factoryReset"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Contrôlez le couple, l'indicateur LED ou l'état de l'appareil."
+  },
+  "dynamixel_ping": {
+    "message0": "Dynamixel %1 ID %2 répond",
+    "tooltip": "Ping un ID d’actionneur."
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 ID %2 élément de contrôle d'écriture valeur %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "vitesse du profil de mouvement",
+            "PROFILE_VELOCITY"
+          ],
+          [
+            "accélération du profil de mouvement",
+            "PROFILE_ACCELERATION"
+          ],
+          [
+            "gain position P",
+            "POSITION_P_GAIN"
+          ],
+          [
+            "limite de vitesse",
+            "VELOCITY_LIMIT"
+          ],
+          [
+            "limite actuelle",
+            "CURRENT_LIMIT"
+          ],
+          [
+            "limite de température",
+            "TEMPERATURE_LIMIT"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Écrivez un élément de table de contrôle DYNAMIXEL commun."
+  }
+}

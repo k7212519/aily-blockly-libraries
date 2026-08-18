@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 RainMaker",
+  "esp32_rainmaker_init_node": {
+    "message0": "初始化 RainMaker 節點 %1 名稱 %2",
+    "tooltip": "建立 RainMaker 節點。"
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "RainMaker 節點 %1 新增 %2 裝置 %3 名稱 %4 初值 %5",
+    "tooltip": "建立標準設備並新增至節點。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "開關",
+            "Switch"
+          ],
+          [
+            "燈",
+            "LightBulb"
+          ],
+          [
+            "風扇",
+            "Fan"
+          ],
+          [
+            "溫度感測器",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker 啟用服務 %1",
+    "tooltip": "啟用 RainMaker 標準服務。",
+    "args0": [
+      {
+        "options": [
+          [
+            "OTA",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "時區",
+            "enableTZService()"
+          ],
+          [
+            "計劃",
+            "enableSchedule()"
+          ],
+          [
+            "場景",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "啟動 RainMaker",
+    "tooltip": "啟動 RainMaker 雲端服務。"
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "停止 RainMaker",
+    "tooltip": "停止 RainMaker 雲端服務。"
+  },
+  "esp32_rainmaker_report": {
+    "message0": "RainMaker 裝置 %1 回報參數 %2 值 %3",
+    "tooltip": "更新並上報設備參數。"
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 延遲 %2 秒",
+    "tooltip": "延時執行 RainMaker 恢復原廠或 Wi-Fi 重設。",
+    "args0": [
+      {
+        "options": [
+          [
+            "恢復出廠",
+            "RMakerFactoryReset"
+          ],
+          [
+            "重設 Wi-Fi",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "RainMaker 節點 %1 ID",
+    "tooltip": "讀取 RainMaker 節點 ID。"
+  }
+}

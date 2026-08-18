@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "inicializar InfluxDB %1 URL %2 org %3 depósito %4 token %5",
+    "tooltip": "Cree un cliente InfluxDB 2."
+  },
+  "influxdb_point_init": {
+    "message0": "crear punto InfluxDB medición %1 %2",
+    "tooltip": "Cree un punto de medición de protocolo de línea."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB punto %1 agregar clave %2 valor %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "etiqueta",
+            "addTag"
+          ],
+          [
+            "campo de datos",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Agregue una etiqueta o campo escrito a un punto."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB punto %1 claro %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "campos de datos",
+            "clearFields"
+          ],
+          [
+            "etiquetas",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Borrar campos o etiquetas de puntos acumulados."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 punto de escritura %2",
+    "tooltip": "Escribe un punto en InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "La conexión InfluxDB %1 es válida",
+    "tooltip": "Validar la conectividad y las credenciales del servidor."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "último mensaje de error",
+            "getLastErrorMessage"
+          ],
+          [
+            "servidor URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea la información de conexión o el último error."
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 protocolo de línea para el punto %2",
+    "tooltip": "Vista previa de un punto como protocolo de línea."
+  }
+}

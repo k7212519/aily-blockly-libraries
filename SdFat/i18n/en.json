@@ -1,0 +1,31 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "initialize SdFat %1 CS pin %2 max SPI MHz %3",
+    "tooltip": "Mount a FAT or exFAT SD card over SPI."
+  },
+  "sdfat_file_open": {
+    "message0": "open SdFat file %1 on %2 path %3 mode %4",
+    "tooltip": "Create an FsFile object and open a path."
+  },
+  "sdfat_file_write": {
+    "message0": "SdFat file %1 %2 %3",
+    "tooltip": "Write a value to an open file."
+  },
+  "sdfat_file_control": {
+    "message0": "SdFat file %1 %2 %3",
+    "tooltip": "Seek, truncate, flush, or close an open file."
+  },
+  "sdfat_file_read": {
+    "message0": "SdFat file %1 read %2",
+    "tooltip": "Read data or state from an open file."
+  },
+  "sdfat_fs_operation": {
+    "message0": "SdFat %1 %2 path %3",
+    "tooltip": "Modify the SD card file system."
+  },
+  "sdfat_exists": {
+    "message0": "SdFat %1 path %2 exists",
+    "tooltip": "Check whether a path exists."
+  }
+}

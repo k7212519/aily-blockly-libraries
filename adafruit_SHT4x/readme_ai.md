@@ -8,19 +8,19 @@ SHT40/SHT41/SHT45 temperature and humidity sensor support library supports high-
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `sht4x_init` | Statement | ADDRESS(dropdown) | `sht4x_init("0x44")` | Dynamic code |
-| `sht4x_read_temperature` | Value | (none) | `sht4x_read_temperature()` | ({ sht4.getEvent(&humidity, &temp); temp.temperature; }) |
-| `sht4x_read_humidity` | Value | (none) | `sht4x_read_humidity()` | ({ sht4.getEvent(&humidity, &temp); humidity.relative_humidity; }) |
-| `sht4x_read_both` | Statement | (none) | `sht4x_read_both()` | sht4.getEvent(&humidity, &temp);\n |
-| `sht4x_get_last_temperature` | Value | (none) | `sht4x_get_last_temperature()` | sht4x_last_temperature |
-| `sht4x_get_last_humidity` | Value | (none) | `sht4x_get_last_humidity()` | sht4x_last_humidity |
-| `sht4x_set_precision` | Statement | PRECISION(dropdown) | `sht4x_set_precision(SHT4X_HIGH_PRECISION)` | sht4.setPrecision( |
-| `sht4x_set_heater` | Statement | HEATER(dropdown) | `sht4x_set_heater(SHT4X_NO_HEATER)` | sht4.setHeater( |
-| `sht4x_read_serial` | Value | (none) | `sht4x_read_serial()` | sht4.readSerial() |
-| `sht4x_reset` | Statement | (none) | `sht4x_reset()` | sht4.reset(); |
-| `sht4x_simple_read` | Value | TYPE(dropdown), ADDRESS(dropdown) | `sht4x_simple_read(temperature, "0x44")` | Dynamic code |
+| `sht4x_init` | Statement | ADDRESS(dropdown) | `sht4x_init("0x44")` | `Adafruit_SHT4x sht4; ↵ if (!sht4.begin(0x44)) { ↵ Serial.println("找不到SHT4x传感器!"); ↵ while (1) delay(1); ↵ }` |
+| `sht4x_read_temperature` | Value | (none) | `sht4x_read_temperature()` | `({ sht4.getEvent(&humidity, &temp); temp.temperature; })` |
+| `sht4x_read_humidity` | Value | (none) | `sht4x_read_humidity()` | `({ sht4.getEvent(&humidity, &temp); humidity.relative_humidity; })` |
+| `sht4x_read_both` | Statement | (none) | `sht4x_read_both()` | `sht4.getEvent(&humidity, &temp); ↵ sht4x_last_temperature = temp.temperature; ↵ sht4x_last_humidity = humidity.relative_humidity;` |
+| `sht4x_get_last_temperature` | Value | (none) | `sht4x_get_last_temperature()` | `sht4x_last_temperature` |
+| `sht4x_get_last_humidity` | Value | (none) | `sht4x_get_last_humidity()` | `sht4x_last_humidity` |
+| `sht4x_set_precision` | Statement | PRECISION(dropdown) | `sht4x_set_precision(SHT4X_HIGH_PRECISION)` | `sht4.setPrecision(SHT4X_HIGH_PRECISION);` |
+| `sht4x_set_heater` | Statement | HEATER(dropdown) | `sht4x_set_heater(SHT4X_NO_HEATER)` | `sht4.setHeater(SHT4X_NO_HEATER);` |
+| `sht4x_read_serial` | Value | (none) | `sht4x_read_serial()` | `sht4.readSerial()` |
+| `sht4x_reset` | Statement | (none) | `sht4x_reset()` | `sht4.reset();` |
+| `sht4x_simple_read` | Value | TYPE(dropdown), ADDRESS(dropdown) | `sht4x_simple_read(temperature, "0x44")` | `({ sht4_44.getEvent(&humidity_sht4_44, &temp_sht4_44); temp_sht4_44.temperature; })` |
 
 ## Parameter Options
 

@@ -1,0 +1,58 @@
+{
+  "name": "@aily-project/lib-dynamixel2arduino",
+  "nickname": "Dynamixel2Arduino",
+  "nickname_en": "Dynamixel2Arduino",
+  "author": "ROBOTIS",
+  "description": "DYNAMIXEL bus setup, operating modes, goals, feedback, and control items.",
+  "description_en": "DYNAMIXEL bus setup, operating modes, goals, feedback, and control items.",
+  "version": "0.1.0",
+  "url": "https://github.com/ROBOTIS-GIT/Dynamixel2Arduino",
+  "license": "Apache-2.0",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "dynamixel",
+    "robot",
+    "servo",
+    "uart"
+  ],
+  "bundledDependencies": {
+    "Dynamixel2Arduino": "0.8.1"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "robotics",
+    "motor"
+  ],
+  "nickname_zh_cn": "Dynamixel2Arduino",
+  "description_zh_cn": "DYNAMIXEL 总线设置、操作模式、目标、反馈和控制项。",
+  "nickname_zh_hk": "Dynamixel2Arduino",
+  "description_zh_hk": "DYNAMIXEL 匯流排設定、操作模式、目標、回饋與控制項。",
+  "nickname_ja": "Dynamixel2Arduino",
+  "description_ja": "DYNAMIXEL バスのセットアップ、動作モード、目標、フィードバック、および制御項目。",
+  "nickname_ko": "Dynamixel2Arduino",
+  "description_ko": "DYNAMIXEL 버스 설정, 작동 모드, 목표, 피드백 및 제어 항목.",
+  "nickname_de": "Dynamixel2Arduino",
+  "description_de": "DYNAMIXEL-Bus-Setup, Betriebsmodi, Ziele, Feedback und Steuerelemente.",
+  "nickname_fr": "Dynamixel2Arduino",
+  "description_fr": "Configuration du bus DYNAMIXEL, modes de fonctionnement, objectifs, commentaires et éléments de contrôle.",
+  "nickname_es": "Dynamixel2Arduino",
+  "description_es": "Configuración del bus DYNAMIXEL, modos de funcionamiento, objetivos, retroalimentación y elementos de control.",
+  "nickname_pt": "Dynamixel2Arduino",
+  "description_pt": "Configuração do barramento DYNAMIXEL, modos de operação, objetivos, feedback e itens de controle.",
+  "nickname_ru": "Dynamixel2Arduino",
+  "description_ru": "Настройка шины DYNAMIXEL, режимы работы, цели, обратная связь и элементы управления.",
+  "nickname_ar": "Dynamixel2Arduino",
+  "description_ar": "إعداد الناقل DYNAMIXEL وأوضاع التشغيل والأهداف والتعليقات وعناصر التحكم."
+}

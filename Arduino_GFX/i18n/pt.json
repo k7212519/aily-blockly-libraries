@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "inicializar Arduino GFX %1 exibir %2 DC %3 CS %4 redefinir rotação %5 %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Crie um barramento SPI de hardware e um driver de vídeo Arduino_GFX comum."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 cor da tela de preenchimento %2",
+    "tooltip": "Preencha todo o display com uma cor RGB565."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 linha x0 %2 y0 %3 x1 %4 y1 %5 cor %6",
+    "tooltip": "Desenhe um segmento de linha."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 retângulo x %3 y %4 largura %5 altura %6 cor %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "forma de contorno",
+            "drawRect"
+          ],
+          [
+            "forma preenchida",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Desenhe um retângulo contornado ou preenchido."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 círculo x %3 y %4 raio %5 cor %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "forma de contorno",
+            "drawCircle"
+          ],
+          [
+            "forma preenchida",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Desenhe um círculo contornado ou preenchido."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 cor do texto %2 fundo %3 tamanho %4 envoltório %5",
+    "tooltip": "Defina a cor do texto, plano de fundo, escala e quebra automática."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 em x %2 e %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "imprimir sem nova linha",
+            "print"
+          ],
+          [
+            "imprimir com uma nova linha",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Posicione o cursor e desenhe o texto."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "definir rotação",
+            "setRotation"
+          ],
+          [
+            "exibição invertida",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Altere a rotação ou inversão da tela."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "largura",
+            "width"
+          ],
+          [
+            "altura",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia a dimensão de exibição lógica atual."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 vermelho %1 verde %2 azul %3",
+    "tooltip": "Converta componentes RGB de 8 bits em uma cor RGB565."
+  }
+}

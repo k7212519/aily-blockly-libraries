@@ -1,0 +1,63 @@
+{
+  "name": "@aily-project/lib-u8g2-robot-eyes",
+  "nickname": "U8g2 机器人眼睛",
+  "nickname_zh_cn": "U8g2 机器人眼睛",
+  "nickname_en": "U8g2 Robot Eyes",
+  "nickname_zh_hk": "U8g2 機器人眼睛",
+  "nickname_ja": "U8g2 ロボットアイ",
+  "nickname_ko": "U8g2 로봇 눈",
+  "nickname_de": "U8g2 Roboteraugen",
+  "nickname_fr": "Yeux de robot U8g2",
+  "nickname_es": "Ojos de robot U8g2",
+  "nickname_pt": "Olhos de robô U8g2",
+  "nickname_ru": "Глаза робота U8g2",
+  "nickname_ar": "عيون الروبوت U8g2",
+  "description": "基于 U8g2 的平滑方形或圆形单色机器人眼睛动画库",
+  "description_zh_cn": "基于 U8g2 的平滑方形或圆形单色机器人眼睛动画库",
+  "description_en": "Smooth square or round monochrome robot eye animations based on U8g2.",
+  "description_zh_hk": "基於 U8g2 的平滑方形或圓形單色機器人眼睛動畫庫",
+  "description_ja": "U8g2 ベースの滑らかな四角形または円形のモノクロロボットアイアニメーション。",
+  "description_ko": "U8g2 기반의 부드러운 사각형 또는 원형 단색 로봇 눈 애니메이션입니다.",
+  "description_de": "Flüssige quadratische oder runde monochrome Roboteraugen-Animationen auf Basis von U8g2.",
+  "description_fr": "Animations fluides d'yeux de robot monochromes carrés ou ronds basées sur U8g2.",
+  "description_es": "Animaciones fluidas de ojos de robot monocromos cuadrados o redondos basadas en U8g2.",
+  "description_pt": "Animações suaves de olhos robóticos monocromáticos quadrados ou redondos baseadas em U8g2.",
+  "description_ru": "Плавная анимация квадратных или круглых монохромных глаз робота на базе U8g2.",
+  "description_ar": "رسوم متحركة سلسة لعيون روبوت أحادية اللون مربعة أو دائرية مبنية على U8g2.",
+  "version": "1.2.16",
+  "author": "U8g2RobotEyes contributors",
+  "license": "MIT",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "arduino",
+    "u8g2",
+    "oled",
+    "robot-eyes",
+    "animation",
+    "display"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@aily-project/lib-u8g2": "1.0.10"
+  },
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "url": "https://github.com/coloz/U8g2RobotEyes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coloz/U8g2RobotEyes.git"
+  },
+  "tags": [
+    "display",
+    "robot"
+  ]
+}

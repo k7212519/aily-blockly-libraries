@@ -104,6 +104,36 @@ Arduino.forBlock['pid_control_loop'] = function(block, generator) {
     return `${readInput}${pidName}.Compute();\n${writeOutput}`;
 };
 
+// 执行一次PID计算
+Arduino.forBlock['pid_compute'] = function(block, generator) {
+    const pidName = getVariableName(block, 'PID_NAME');
+    return `${pidName}.Compute();\n`;
+};
+
+// 设置PID工作模式
+Arduino.forBlock['pid_set_mode'] = function(block, generator) {
+    const pidName = getVariableName(block, 'PID_NAME');
+    const mode = block.getFieldValue('MODE');
+    return `${pidName}.SetMode(${mode});\n`;
+};
+
+// 设置PID参数
+Arduino.forBlock['pid_set_tunings'] = function(block, generator) {
+    const pidName = getVariableName(block, 'PID_NAME');
+    const kp = generator.valueToCode(block, 'KP', Arduino.ORDER_ATOMIC) || '2';
+    const ki = generator.valueToCode(block, 'KI', Arduino.ORDER_ATOMIC) || '5';
+    const kd = generator.valueToCode(block, 'KD', Arduino.ORDER_ATOMIC) || '1';
+    return `${pidName}.SetTunings(${kp}, ${ki}, ${kd});\n`;
+};
+
+// 设置PID输出范围
+Arduino.forBlock['pid_set_output_limits'] = function(block, generator) {
+    const pidName = getVariableName(block, 'PID_NAME');
+    const min = generator.valueToCode(block, 'MIN', Arduino.ORDER_ATOMIC) || '0';
+    const max = generator.valueToCode(block, 'MAX', Arduino.ORDER_ATOMIC) || '255';
+    return `${pidName}.SetOutputLimits(${min}, ${max});\n`;
+};
+
 // 温度PID控制
 Arduino.forBlock['pid_temperature_control'] = function(block, generator) {
     const tempPin = block.getFieldValue('TEMP_PIN');

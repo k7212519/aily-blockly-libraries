@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "initialiser InfluxDB %1 URL %2 org %3 bucket %4 jeton %5",
+    "tooltip": "Créez un client InfluxDB 2."
+  },
+  "influxdb_point_init": {
+    "message0": "créer un point InfluxDB mesure %1 %2",
+    "tooltip": "Créez un point de mesure de protocole de ligne."
+  },
+  "influxdb_point_add": {
+    "message0": "Point InfluxDB %1 ajouter clé %2 valeur %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "étiquette",
+            "addTag"
+          ],
+          [
+            "champ de données",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Ajoutez une balise ou un champ saisi à un point."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB point %1 clair %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "champs de données",
+            "clearFields"
+          ],
+          [
+            "balises",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Effacez les champs ou les balises de points accumulés."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 point d'écriture %2",
+    "tooltip": "Écrivez un point sur InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "La connexion InfluxDB %1 est valide",
+    "tooltip": "Validez la connectivité et les informations d'identification du serveur."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "dernier message d'erreur",
+            "getLastErrorMessage"
+          ],
+          [
+            "serveur URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez les informations de connexion ou la dernière erreur."
+  },
+  "influxdb_line_protocol": {
+    "message0": "Protocole de ligne InfluxDB %1 pour le point %2",
+    "tooltip": "Prévisualisez un protocole de point sous forme de ligne."
+  }
+}

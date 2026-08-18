@@ -1,0 +1,115 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "initialiser ESP TFLite Micro %1 en-tête de modèle %2 symbole de modèle %3 mémoire tenseur octets d'arène %4",
+    "tooltip": "Créez un interpréteur TensorFlow Lite Micro avec des opérateurs intégrés couramment utilisés."
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 indice d'entrée %2 définir la valeur %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 brut",
+            "int8"
+          ],
+          [
+            "uint8 brut",
+            "uint8"
+          ],
+          [
+            "quantifier le flotteur en int8",
+            "quantized"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Écrivez un élément tensoriel d'entrée du modèle."
+  },
+  "esp_tflite_invoke": {
+    "message0": "L'appel TFLite %1 a réussi",
+    "tooltip": "Exécutez une inférence et indiquez si elle a réussi."
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 indice de sortie %2 lecture %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 brut",
+            "int8"
+          ],
+          [
+            "uint8 brut",
+            "uint8"
+          ],
+          [
+            "déquantifié int8",
+            "dequantized"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez un élément tenseur de sortie du modèle."
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "Tenseur TFLite %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "entrée",
+            "input"
+          ],
+          [
+            "sortie",
+            "output"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "taille d'octet",
+            "bytes"
+          ],
+          [
+            "nombre d'éléments",
+            "count"
+          ],
+          [
+            "tapez énumération",
+            "type"
+          ],
+          [
+            "échelle de quantification",
+            "scale"
+          ],
+          [
+            "point zéro",
+            "zero_point"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Inspectez un tenseur d’entrée ou de sortie de modèle."
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1 est prêt",
+    "tooltip": "Vérifiez si l'analyse du modèle et l'allocation du tenseur ont réussi."
+  }
+}

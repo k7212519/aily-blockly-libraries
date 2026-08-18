@@ -1,0 +1,163 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "初始化以太网 MAC %1 模式 %2 IP %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "DHCP",
+            "dhcp"
+          ],
+          [
+            "静态 IP",
+            "static"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "使用 DHCP 或静态地址初始化以太网。"
+  },
+  "ethernet_network_info": {
+    "message0": "以太网%1",
+    "args0": [
+      {
+        "options": [
+          [
+            "本地 IP",
+            "localIP"
+          ],
+          [
+            "网关IP",
+            "gatewayIP"
+          ],
+          [
+            "子网掩码",
+            "subnetMask"
+          ],
+          [
+            "DNS 服务器 IP",
+            "dnsServerIP"
+          ],
+          [
+            "链路已连接",
+            "link"
+          ],
+          [
+            "硬件已连接",
+            "hardware"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取以太网或硬件状态。"
+  },
+  "ethernet_client_create": {
+    "message0": "创建以太网客户端%1",
+    "tooltip": "创建一个 EthernetClient 对象。"
+  },
+  "ethernet_client_connect": {
+    "message0": "以太网客户端%1连接主机%2端口%3",
+    "tooltip": "将客户端连接到主机和端口。"
+  },
+  "ethernet_client_write": {
+    "message0": "以太网客户端 %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "打印",
+            "print"
+          ],
+          [
+            "打印并换行",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "通过以太网客户端发送数据。"
+  },
+  "ethernet_client_data": {
+    "message0": "以太网客户端 %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "可用字节",
+            "available"
+          ],
+          [
+            "读取字节",
+            "read"
+          ],
+          [
+            "读行",
+            "line"
+          ],
+          [
+            "已连接",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取客户端数据或连接状态。"
+  },
+  "ethernet_client_stop": {
+    "message0": "停止以太网客户端%1",
+    "tooltip": "关闭以太网客户端连接。"
+  },
+  "ethernet_server_create": {
+    "message0": "创建以太网服务器%1端口%2",
+    "tooltip": "创建并启动 EthernetServer。"
+  },
+  "ethernet_server_accept": {
+    "message0": "以太网服务器%1接受客户端",
+    "tooltip": "接受新连接的客户端。"
+  },
+  "ethernet_udp_create": {
+    "message0": "创建以太网UDP %1本地端口%2",
+    "tooltip": "创建EthernetUDP套接字并绑定端口。"
+  },
+  "ethernet_udp_send": {
+    "message0": "以太网 UDP %1 发送 %2 到主机 %3 端口 %4",
+    "tooltip": "发送一个 UDP 数据包。"
+  },
+  "ethernet_udp_data": {
+    "message0": "以太网 UDP %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "解析数据包",
+            "parsePacket"
+          ],
+          [
+            "可用字节",
+            "available"
+          ],
+          [
+            "读取字节",
+            "read"
+          ],
+          [
+            "远程IP",
+            "remoteIP"
+          ],
+          [
+            "远程端口",
+            "remotePort"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取UDP数据包数据或发送者信息。"
+  }
+}

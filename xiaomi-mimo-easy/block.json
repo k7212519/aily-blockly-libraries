@@ -1,0 +1,2390 @@
+[
+  {
+    "type": "mimo_init",
+    "message0": "初始化 MiMo 客户端 %1 API Key %2 接入方式 %3",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "mimo"
+      },
+      {
+        "type": "input_value",
+        "name": "API_KEY",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "PLAN",
+        "options": [
+          [
+            "按量付费",
+            "PAYG"
+          ],
+          [
+            "Token Plan",
+            "TOKEN_PLAN"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2563EB",
+    "tooltip": "创建 MiMo 客户端并配置 API Key 和官方 Base URL；需先连接 Wi-Fi"
+  },
+  {
+    "type": "mimo_set_ca_certificate",
+    "message0": "MiMo %1 设置 TLS 根证书 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "CERT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2563EB",
+    "tooltip": "设置 PEM 根证书以验证服务器；未设置时客户端使用不验证证书的兼容模式"
+  },
+  {
+    "type": "mimo_set_model",
+    "message0": "MiMo %1 使用模型 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODEL",
+        "options": [
+          [
+            "MiMo V2.5 全模态",
+            "mimo-v2.5"
+          ],
+          [
+            "MiMo V2.5 Pro",
+            "mimo-v2.5-pro"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2563EB",
+    "tooltip": "选择通用文本模型；多模态快捷积木会自动使用 mimo-v2.5"
+  },
+  {
+    "type": "mimo_set_system_prompt",
+    "message0": "MiMo %1 设置系统提示词 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2563EB",
+    "tooltip": "设置后续文本和多模态请求使用的系统消息"
+  },
+  {
+    "type": "mimo_set_generation",
+    "message0": "MiMo %1 最大输出 %2 深度思考 %3 temperature %4 top_p %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "MAX_TOKENS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "THINKING",
+        "options": [
+          [
+            "开启",
+            "enabled"
+          ],
+          [
+            "关闭",
+            "disabled"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TEMPERATURE",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TOP_P",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#0F766E",
+    "tooltip": "设置生成参数；深度思考开启时模型会强制使用推荐的 temperature 与 top_p"
+  },
+  {
+    "type": "mimo_set_json_mode",
+    "message0": "MiMo %1 JSON 输出模式 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "ENABLED",
+        "check": [
+          "Boolean"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#0F766E",
+    "tooltip": "启用 response_format json_object；提示词仍需完整描述所需 JSON 结构"
+  },
+  {
+    "type": "mimo_clear_messages",
+    "message0": "MiMo %1 清空对话历史",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#0F766E",
+    "tooltip": "清除客户端保存的用户、助手和工具消息"
+  },
+  {
+    "type": "mimo_add_user_message",
+    "message0": "MiMo %1 添加用户消息 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#0F766E",
+    "tooltip": "向多轮对话历史添加一条用户消息，不立即请求"
+  },
+  {
+    "type": "mimo_add_assistant_message",
+    "message0": "MiMo %1 添加助手消息 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#0F766E",
+    "tooltip": "向多轮对话历史添加一条助手消息，不立即请求"
+  },
+  {
+    "type": "mimo_chat",
+    "message0": "MiMo %1 提问 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#0F766E",
+    "tooltip": "发送阻塞式文本请求，保存多轮上下文并返回最终回答"
+  },
+  {
+    "type": "mimo_chat_with_tools",
+    "message0": "MiMo %1 使用工具定义 %2 提问 %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "TOOLS",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#9C27B0",
+    "tooltip": "使用 OpenAI tools JSON 数组请求；可通过工具状态积木处理模型调用"
+  },
+  {
+    "type": "mimo_continue_tool",
+    "message0": "MiMo %1 返回工具结果 %2 并继续",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "RESULT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#9C27B0",
+    "tooltip": "把当前工具调用结果写回对话，并保留 reasoning_content 后继续生成"
+  },
+  {
+    "type": "mimo_when_tool_called",
+    "message0": "当 MiMo %1 调用工具 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "NAME",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "message1": "执行 %1",
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "HANDLER"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#9C27B0",
+    "tooltip": "在正常程序流中检查当前工具名称并执行内部积木"
+  },
+  {
+    "type": "mimo_tool_arguments",
+    "message0": "MiMo %1 当前工具参数 JSON",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "output": "String",
+    "colour": "#9C27B0",
+    "tooltip": "返回当前第一个工具调用的 arguments JSON 字符串"
+  },
+  {
+    "type": "mimo_web_search",
+    "message0": "MiMo %1 联网提问 %2 强制搜索 %3 最大关键词 %4 每词结果 %5 国家 %6 地区 %7 城市 %8",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "FORCE",
+        "check": [
+          "Boolean"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MAX_KEYWORD",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "LIMIT",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "COUNTRY",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "REGION",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "CITY",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#9C27B0",
+    "tooltip": "调用已在控制台开通的联网搜索插件并返回带实时信息的回答"
+  },
+  {
+    "type": "mimo_image_url",
+    "message0": "MiMo %1 理解图片 URL %2 提问 %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "URL",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#7C3AED",
+    "tooltip": "使用 mimo-v2.5 分析公网可访问的图片 URL"
+  },
+  {
+    "type": "mimo_image_base64",
+    "message0": "MiMo %1 理解 Base64 图片 %2 MIME %3 提问 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MIME",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#7C3AED",
+    "tooltip": "使用 mimo-v2.5 分析纯 Base64 图片数据并自动添加 Data URL 前缀"
+  },
+  {
+    "type": "mimo_audio_url",
+    "message0": "MiMo %1 理解音频 URL %2 提问 %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "URL",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#7C3AED",
+    "tooltip": "使用 mimo-v2.5 分析公网可访问的音频 URL"
+  },
+  {
+    "type": "mimo_audio_base64",
+    "message0": "MiMo %1 理解 Base64 音频 %2 MIME %3 提问 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MIME",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#7C3AED",
+    "tooltip": "使用 mimo-v2.5 分析纯 Base64 音频并自动添加 Data URL 前缀"
+  },
+  {
+    "type": "mimo_video_url",
+    "message0": "MiMo %1 理解视频 URL %2 提问 %3 FPS %4 清晰度 %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "URL",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "FPS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "RESOLUTION",
+        "options": [
+          [
+            "默认",
+            "default"
+          ],
+          [
+            "最高",
+            "max"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#7C3AED",
+    "tooltip": "分析视频 URL；FPS 会限制在 0.1 至 10"
+  },
+  {
+    "type": "mimo_video_base64",
+    "message0": "MiMo %1 理解 Base64 视频 %2 MIME %3 提问 %4 FPS %5 清晰度 %6",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MIME",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "FPS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "RESOLUTION",
+        "options": [
+          [
+            "默认",
+            "default"
+          ],
+          [
+            "最高",
+            "max"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#7C3AED",
+    "tooltip": "分析纯 Base64 视频；大型视频不适合直接存入 ESP32 内存"
+  },
+  {
+    "type": "mimo_asr_base64",
+    "message0": "MiMo %1 识别 Base64 音频 %2 MIME %3 语言 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MIME",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "LANGUAGE",
+        "options": [
+          [
+            "自动",
+            "auto"
+          ],
+          [
+            "中文",
+            "zh"
+          ],
+          [
+            "英文",
+            "en"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#C2410C",
+    "tooltip": "使用 mimo-v2.5-asr 转写 WAV 或 MP3 Base64 音频，大小不得超过 10 MB"
+  },
+  {
+    "type": "mimo_tts_preset",
+    "message0": "MiMo %1 预置音色合成 文本 %2 风格 %3 音色 %4 格式 %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "STYLE",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "VOICE",
+        "options": [
+          [
+            "默认",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "FORMAT",
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#C2410C",
+    "tooltip": "使用 mimo-v2.5-tts 返回音频 Base64；流式拼接场景应选择 PCM16"
+  },
+  {
+    "type": "mimo_speaker_init_i2s",
+    "message0": "初始化 MiMo I2S功放 %1 BCLK %2 LRC %3 DIN %4",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "speaker"
+      },
+      {
+        "type": "input_value",
+        "name": "BCLK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "LRC",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DIN",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "初始化 I2S 数字功放输出引脚；ESP32-S3 实测默认 BCLK=39、LRC=40、DIN=38"
+  },
+  {
+    "type": "mimo_speaker_tone",
+    "message0": "MiMo 功放 %1 播放提示音 频率 %2 Hz 时长 %3 ms",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "speaker",
+        "variableTypes": [
+          "MiMoSpeaker"
+        ],
+        "defaultType": "MiMoSpeaker"
+      },
+      {
+        "type": "input_value",
+        "name": "FREQ",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MS",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "播放本地 I2S 方波提示音，用于测试功放接线或录音前提示"
+  },
+  {
+    "type": "mimo_tts_speak_i2s",
+    "message0": "MiMo %1 用功放 %2 流式朗读 文本 %3 风格 %4 音色 %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "CLIENT",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_variable",
+        "name": "SPEAKER",
+        "variable": "speaker",
+        "variableTypes": [
+          "MiMoSpeaker"
+        ],
+        "defaultType": "MiMoSpeaker"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "STYLE",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "VOICE",
+        "options": [
+          [
+            "默认",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "低内存 TTS：请求 PCM16 流，边接收 audio.data、边 Base64 解码、边通过 I2S 功放缓冲播放"
+  },
+  {
+    "type": "mimo_es8311_init",
+    "message0": "初始化 MiMo ES8311音频 %1 SDA %2 SCL %3 地址 %4 MCK %5 BCK %6 WS %7 DOUT %8 DIN %9 最长录音秒 %10 PA_EN %11",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "es8311"
+      },
+      {
+        "type": "input_value",
+        "name": "SDA",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "SCL",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "ADDRESS",
+        "options": [
+          [
+            "自动扫描",
+            "0"
+          ],
+          [
+            "0x18",
+            "0x18"
+          ],
+          [
+            "0x30",
+            "0x30"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MCK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "BCK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "WS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DOUT",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DIN",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DURATION",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PA_EN",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "初始化 ES8311 编解码器，集成麦克风输入和扬声器输出；PA_EN 填功放使能脚，未使用填 -1"
+  },
+  {
+    "type": "mimo_es8311_set_volume",
+    "message0": "MiMo ES8311 %1 设置扬声器音量 %2 %%",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "VOLUME",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "设置 ES8311 DAC 输出音量，建议 50 到 90"
+  },
+  {
+    "type": "mimo_es8311_set_mic_gain",
+    "message0": "MiMo ES8311 %1 设置麦克风增益 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "GAIN",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "设置 ES8311 ADC 麦克风增益，范围 0 到 7；识别偏小可调高"
+  },
+  {
+    "type": "mimo_es8311_tone",
+    "message0": "MiMo ES8311 %1 播放提示音 频率 %2 Hz 时长 %3 ms",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "FREQ",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MS",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "通过 ES8311 播放本地提示音，用于测试声卡和录音前提示"
+  },
+  {
+    "type": "mimo_es8311_record",
+    "message0": "MiMo ES8311 %1 录制 %2 秒 WAV Base64",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "SECONDS",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#C2410C",
+    "tooltip": "使用 ES8311 麦克风录制短音频，封装为 WAV 并返回 Base64"
+  },
+  {
+    "type": "mimo_es8311_transcribe",
+    "message0": "MiMo %1 用 ES8311 %2 录制 %3 秒并识别 语言 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "CLIENT",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_variable",
+        "name": "AUDIO",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "SECONDS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "LANGUAGE",
+        "options": [
+          [
+            "自动",
+            "auto"
+          ],
+          [
+            "中文",
+            "zh"
+          ],
+          [
+            "英文",
+            "en"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#C2410C",
+    "tooltip": "使用 ES8311 录音后上传到 mimo-v2.5-asr 识别，返回文字"
+  },
+  {
+    "type": "mimo_tts_speak_es8311",
+    "message0": "MiMo %1 用 ES8311 %2 流式朗读 文本 %3 风格 %4 音色 %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "CLIENT",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_variable",
+        "name": "AUDIO",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "STYLE",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "VOICE",
+        "options": [
+          [
+            "默认",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "请求 PCM16 流，边接收 TTS 音频边通过 ES8311 播放，并等待音频尾部播完"
+  },
+  {
+    "type": "mimo_es8311_end",
+    "message0": "停止 MiMo ES8311 %1 音频",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#C2410C",
+    "tooltip": "停止 ES8311 当前录音、播放或直通音频"
+  },
+  {
+    "type": "mimo_tts_voice_design",
+    "message0": "MiMo %1 设计音色 描述 %2 文本 %3 自动润色 %4 格式 %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "DESCRIPTION",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "OPTIMIZE",
+        "check": [
+          "Boolean"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "FORMAT",
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#C2410C",
+    "tooltip": "使用 mimo-v2.5-tts-voicedesign 根据文本描述生成音色和音频 Base64"
+  },
+  {
+    "type": "mimo_tts_voice_clone",
+    "message0": "MiMo %1 克隆音色 样本 %2 MIME %3 文本 %4 风格 %5 格式 %6",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "input_value",
+        "name": "SAMPLE",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "MIME",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "STYLE",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "FORMAT",
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#C2410C",
+    "tooltip": "使用 mimo-v2.5-tts-voiceclone 克隆 WAV/MP3 样本音色并返回音频 Base64"
+  },
+  {
+    "type": "mimo_camera_init_profile",
+    "message0": "初始化 MiMo 摄像头 %1 板型 %2 分辨率 %3 JPEG质量 %4",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "camera"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "PROFILE",
+        "options": [
+          [
+            "ESP32S3 RGB565 摄像头",
+            "ESP32S3_RGB565"
+          ],
+          [
+            "AI Thinker ESP32-CAM",
+            "AI_THINKER"
+          ],
+          [
+            "XIAO ESP32S3 Sense",
+            "XIAO_ESP32S3"
+          ],
+          [
+            "ESP32-S3-EYE",
+            "ESP32S3_EYE"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "FRAME_SIZE",
+        "options": [
+          [
+            "QVGA 320x240",
+            "FRAMESIZE_QVGA"
+          ],
+          [
+            "VGA 640x480",
+            "FRAMESIZE_VGA"
+          ],
+          [
+            "SVGA 800x600",
+            "FRAMESIZE_SVGA"
+          ],
+          [
+            "XGA 1024x768",
+            "FRAMESIZE_XGA"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "QUALITY",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "按已知板型初始化摄像头；不支持 JPEG 的传感器会自动使用 RGB565 并软件转 JPEG"
+  },
+  {
+    "type": "mimo_camera_init_custom",
+    "message0": "初始化自定义 MiMo 摄像头 %1 分辨率 %2 JPEG质量 %3",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "camera"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "FRAME_SIZE",
+        "options": [
+          [
+            "QVGA 320x240",
+            "FRAMESIZE_QVGA"
+          ],
+          [
+            "VGA 640x480",
+            "FRAMESIZE_VGA"
+          ],
+          [
+            "SVGA 800x600",
+            "FRAMESIZE_SVGA"
+          ],
+          [
+            "XGA 1024x768",
+            "FRAMESIZE_XGA"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "QUALITY",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "message1": "PWDN %1 RESET %2 XCLK %3 SIOD %4 SIOC %5",
+    "args1": [
+      {
+        "type": "input_value",
+        "name": "PWDN",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RESET",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "XCLK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "SIOD",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "SIOC",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "message2": "Y2 %1 Y3 %2 Y4 %3 Y5 %4 Y6 %5 Y7 %6 Y8 %7 Y9 %8",
+    "args2": [
+      {
+        "type": "input_value",
+        "name": "Y2",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y3",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y4",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y5",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y6",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y7",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y8",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "Y9",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "message3": "VSYNC %1 HREF %2 PCLK %3",
+    "args3": [
+      {
+        "type": "input_value",
+        "name": "VSYNC",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "HREF",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PCLK",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "使用完整 DVP 摄像头引脚表初始化自定义 ESP32 摄像头板"
+  },
+  {
+    "type": "mimo_camera_capture",
+    "message0": "MiMo 摄像头 %1 拍照为 Base64",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "camera",
+        "variableTypes": [
+          "MiMoCamera"
+        ],
+        "defaultType": "MiMoCamera"
+      }
+    ],
+    "output": "String",
+    "colour": "#B45309",
+    "tooltip": "拍摄 JPEG、编码为 Base64，并立即归还摄像头帧缓冲"
+  },
+  {
+    "type": "mimo_camera_ask",
+    "message0": "MiMo %1 用摄像头 %2 拍照并提问 %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "CLIENT",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_variable",
+        "name": "CAMERA",
+        "variable": "camera",
+        "variableTypes": [
+          "MiMoCamera"
+        ],
+        "defaultType": "MiMoCamera"
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#B45309",
+    "tooltip": "完成拍照、Base64 编码、mimo-v2.5 图片理解和帧缓冲释放"
+  },
+  {
+    "type": "mimo_camera_end",
+    "message0": "关闭 MiMo 摄像头 %1",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "camera",
+        "variableTypes": [
+          "MiMoCamera"
+        ],
+        "defaultType": "MiMoCamera"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "反初始化摄像头并释放驱动资源"
+  },
+  {
+    "type": "mimo_mic_init_i2s_preset",
+    "message0": "初始化 MiMo 常见I2S麦克风 %1 型号 %2 BCLK %3 WS %4 DATA %5 采样率 %6",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "microphone"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODEL",
+        "options": [
+          [
+            "通用 I2S",
+            "COMMON_I2S"
+          ],
+          [
+            "MSM261S4030H0R",
+            "MSM261S4030H0R"
+          ],
+          [
+            "INMP441",
+            "INMP441"
+          ],
+          [
+            "ICS-43434",
+            "ICS43434"
+          ],
+          [
+            "SPH0645LM4H",
+            "SPH0645LM4H"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "BCLK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "WS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RATE",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "按常见 I2S 数字麦克风的 32 位采样方式初始化；引脚仍按你的接线填写"
+  },
+  {
+    "type": "mimo_mic_init_i2s",
+    "message0": "初始化 MiMo I2S麦克风 %1 BCLK %2 WS %3 DATA %4 采样率 %5 声道 %6 增益 %7",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "microphone"
+      },
+      {
+        "type": "input_value",
+        "name": "BCLK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "WS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RATE",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "CHANNEL",
+        "options": [
+          [
+            "左声道",
+            "LEFT"
+          ],
+          [
+            "右声道",
+            "RIGHT"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "GAIN",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "初始化 32 位标准 I2S 数字麦克风；MSM261S4030H0R L/R 接 GND 时选择左声道"
+  },
+  {
+    "type": "mimo_mic_init_pdm",
+    "message0": "初始化 MiMo PDM麦克风 %1 CLK %2 DATA %3 采样率 %4",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "microphone"
+      },
+      {
+        "type": "input_value",
+        "name": "CLK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DATA",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RATE",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "初始化 16 位单声道 PDM 麦克风；不支持 PDM RX 的芯片会返回初始化失败"
+  },
+  {
+    "type": "mimo_mic_record",
+    "message0": "MiMo 麦克风 %1 录制 %2 秒 WAV Base64",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "microphone",
+        "variableTypes": [
+          "MiMoMicrophone"
+        ],
+        "defaultType": "MiMoMicrophone"
+      },
+      {
+        "type": "input_value",
+        "name": "SECONDS",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#B45309",
+    "tooltip": "录制短音频、自动封装 WAV 和 Base64；时长向上取整到整秒"
+  },
+  {
+    "type": "mimo_mic_transcribe",
+    "message0": "MiMo %1 用麦克风 %2 录制 %3 秒并识别 语言 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "CLIENT",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_variable",
+        "name": "MIC",
+        "variable": "microphone",
+        "variableTypes": [
+          "MiMoMicrophone"
+        ],
+        "defaultType": "MiMoMicrophone"
+      },
+      {
+        "type": "input_value",
+        "name": "SECONDS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "LANGUAGE",
+        "options": [
+          [
+            "自动",
+            "auto"
+          ],
+          [
+            "中文",
+            "zh"
+          ],
+          [
+            "英文",
+            "en"
+          ]
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#B45309",
+    "tooltip": "完成录音、WAV 封装，并以低内存流式 Base64 上传到 mimo-v2.5-asr 转写"
+  },
+  {
+    "type": "mimo_mic_analyze",
+    "message0": "MiMo %1 用麦克风 %2 录制 %3 秒并分析 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "CLIENT",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_variable",
+        "name": "MIC",
+        "variable": "microphone",
+        "variableTypes": [
+          "MiMoMicrophone"
+        ],
+        "defaultType": "MiMoMicrophone"
+      },
+      {
+        "type": "input_value",
+        "name": "SECONDS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "PROMPT",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "output": "String",
+    "colour": "#B45309",
+    "tooltip": "完成短录音并使用 mimo-v2.5 理解音频内容"
+  },
+  {
+    "type": "mimo_mic_end",
+    "message0": "关闭 MiMo 麦克风 %1",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "microphone",
+        "variableTypes": [
+          "MiMoMicrophone"
+        ],
+        "defaultType": "MiMoMicrophone"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#B45309",
+    "tooltip": "停止 I2S/PDM 麦克风并释放驱动资源"
+  },
+  {
+    "type": "mimo_ok",
+    "message0": "MiMo %1 上次请求成功",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#475569",
+    "tooltip": "上次请求收到 2xx 响应且成功解析时返回真"
+  },
+  {
+    "type": "mimo_last_reasoning",
+    "message0": "MiMo %1 上次思考内容",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回上次响应的 reasoning_content"
+  },
+  {
+    "type": "mimo_last_error",
+    "message0": "MiMo %1 上次错误",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回网络、HTTP、JSON 或 API 错误信息"
+  },
+  {
+    "type": "mimo_http_status",
+    "message0": "MiMo %1 HTTP 状态码",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "output": "Number",
+    "colour": "#475569",
+    "tooltip": "返回上次 HTTPS 请求的 HTTP 状态码或负数网络错误码"
+  },
+  {
+    "type": "mimo_token_usage",
+    "message0": "MiMo %1 上次 %2 Token 数",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "METRIC",
+        "options": [
+          [
+            "输入",
+            "PROMPT"
+          ],
+          [
+            "输出",
+            "COMPLETION"
+          ],
+          [
+            "总计",
+            "TOTAL"
+          ]
+        ]
+      }
+    ],
+    "output": "Number",
+    "colour": "#475569",
+    "tooltip": "返回上次响应 usage 中的输入、输出或总 Token 数"
+  },
+  {
+    "type": "mimo_raw_response",
+    "message0": "MiMo %1 上次原始响应",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "mimo",
+        "variableTypes": [
+          "MiMoClient"
+        ],
+        "defaultType": "MiMoClient"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回上次 API 响应的完整 JSON，便于读取引用和高级字段"
+  },
+  {
+    "type": "mimo_camera_ready",
+    "message0": "MiMo 摄像头 %1 已就绪",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "camera",
+        "variableTypes": [
+          "MiMoCamera"
+        ],
+        "defaultType": "MiMoCamera"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#475569",
+    "tooltip": "摄像头驱动初始化成功时返回真"
+  },
+  {
+    "type": "mimo_camera_error",
+    "message0": "MiMo 摄像头 %1 上次错误",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "camera",
+        "variableTypes": [
+          "MiMoCamera"
+        ],
+        "defaultType": "MiMoCamera"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回摄像头初始化、拍摄或编码错误"
+  },
+  {
+    "type": "mimo_mic_ready",
+    "message0": "MiMo 麦克风 %1 已就绪",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "microphone",
+        "variableTypes": [
+          "MiMoMicrophone"
+        ],
+        "defaultType": "MiMoMicrophone"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#475569",
+    "tooltip": "I2S 或 PDM 麦克风初始化成功时返回真"
+  },
+  {
+    "type": "mimo_mic_error",
+    "message0": "MiMo 麦克风 %1 上次错误",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "microphone",
+        "variableTypes": [
+          "MiMoMicrophone"
+        ],
+        "defaultType": "MiMoMicrophone"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回麦克风初始化、录音或编码错误"
+  },
+  {
+    "type": "mimo_speaker_ready",
+    "message0": "MiMo 功放 %1 已就绪",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "speaker",
+        "variableTypes": [
+          "MiMoSpeaker"
+        ],
+        "defaultType": "MiMoSpeaker"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#475569",
+    "tooltip": "I2S 功放引脚已初始化时返回真"
+  },
+  {
+    "type": "mimo_speaker_error",
+    "message0": "MiMo 功放 %1 上次错误",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "speaker",
+        "variableTypes": [
+          "MiMoSpeaker"
+        ],
+        "defaultType": "MiMoSpeaker"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回功放初始化、提示音或 TTS 播放错误"
+  },
+  {
+    "type": "mimo_es8311_ready",
+    "message0": "MiMo ES8311 %1 已就绪",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#475569",
+    "tooltip": "ES8311 编解码器 I2C 与 I2S 初始化成功时返回真"
+  },
+  {
+    "type": "mimo_es8311_error",
+    "message0": "MiMo ES8311 %1 上次错误",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      }
+    ],
+    "output": "String",
+    "colour": "#475569",
+    "tooltip": "返回 ES8311 初始化、录音或播放错误"
+  },
+  {
+    "type": "mimo_es8311_sound_level",
+    "message0": "MiMo ES8311 %1 当前声音电平",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "es8311",
+        "variableTypes": [
+          "MiMoES8311"
+        ],
+        "defaultType": "MiMoES8311"
+      }
+    ],
+    "output": "Number",
+    "colour": "#475569",
+    "tooltip": "读取 ES8311 麦克风的当前声音电平，范围约 0 到 100"
+  }
+]

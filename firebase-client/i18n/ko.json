@@ -1,0 +1,136 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "Firebase %1 API 키 %2 이메일 %3 비밀번호 %4 데이터베이스 URL %5 초기화",
+    "tooltip": "사용자를 인증하고 Firebase Realtime Database를 바인딩합니다."
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1가 준비되었습니다",
+    "tooltip": "인증이 준비되었는지 확인하세요."
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1는 %3 경로에서 %2를 %4로 설정합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "텍스트",
+            "String"
+          ],
+          [
+            "정수",
+            "int"
+          ],
+          [
+            "부동 소수점 숫자",
+            "double"
+          ],
+          [
+            "부울",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Realtime Database에 값을 동기적으로 씁니다."
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 %3 경로에서 %2 가져오기",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "텍스트",
+            "String"
+          ],
+          [
+            "정수",
+            "int"
+          ],
+          [
+            "부동 소수점 숫자",
+            "double"
+          ],
+          [
+            "부울",
+            "bool"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Realtime Database에서 입력된 값을 동기적으로 읽습니다."
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1는 %3 값 %4 경로에서 %2를 푸시합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "텍스트",
+            "String"
+          ],
+          [
+            "정수",
+            "int"
+          ],
+          [
+            "부동 소수점 숫자",
+            "double"
+          ],
+          [
+            "부울",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "새 하위 값을 Realtime Database에 푸시합니다."
+  },
+  "firebase_client_path_action": {
+    "message0": "Firebase %1 %2 경로 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "제거하다",
+            "remove"
+          ],
+          [
+            "수표가 존재합니다",
+            "exists"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "경로를 제거하거나 경로가 존재하는지 확인하세요."
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 마지막 오류 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "코드",
+            "code"
+          ],
+          [
+            "오류 메시지",
+            "message"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "마지막 동기 클라이언트 오류를 읽습니다."
+  }
+}

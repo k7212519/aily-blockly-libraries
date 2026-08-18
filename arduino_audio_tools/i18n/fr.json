@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "initialiser le mode Audio Tools I2S %1 Taux %2 Canaux %3 Bits %4 %5 BCLK %6 WS Données %7 TX Données %8 RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "sortie",
+            "TX_MODE"
+          ],
+          [
+            "entrée",
+            "RX_MODE"
+          ],
+          [
+            "entrée et sortie",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Configurez un flux audio I2S."
+  },
+  "audio_tools_copy_init": {
+    "message0": "créer un copieur audio Sortie %1 Entrée %2 Copie automatique %3 en boucle %4",
+    "tooltip": "Créez un pipeline StreamCopy entre deux flux I2S."
+  },
+  "audio_tools_copy": {
+    "message0": "copieur audio %1 copier le tampon suivant",
+    "tooltip": "Copiez le prochain tampon audio disponible."
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 écrire un échantillon 16 bits %2",
+    "tooltip": "Écrivez un échantillon signé de 16 bits."
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 lire un échantillon de 16 bits",
+    "tooltip": "Lisez un échantillon audio 16 bits signé."
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 octets disponibles",
+    "tooltip": "Renvoie le nombre d'octets audio lisibles."
+  },
+  "audio_tools_end": {
+    "message0": "fin Audio Tools I2S %1",
+    "tooltip": "Arrêtez un flux I2S."
+  }
+}

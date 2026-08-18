@@ -8,12 +8,12 @@ Color recognition sensor library, supports Arduino UNO, MEGA and other developme
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tcs34725_init` | Statement | TCS34725NAME(field_variable) | `tcs34725_init(variables_get($tcs))` | Dynamic code |
-| `tcs34725_led_ctrl` | Statement | TCS34725NAME(field_variable), TCSLEDSTATE(dropdown) | `tcs34725_led_ctrl(variables_get($tcs), false)` | Dynamic code |
-| `tcs34725_get_rgb` | Statement | TCS34725NAME(field_variable) | `tcs34725_get_rgb(variables_get($tcs))` | Dynamic code |
-| `tcs34725_rgb_value` | Value | TCSRGBVALUE(dropdown) | `tcs34725_rgb_value(red)` | Dynamic code |
+| `tcs34725_init` | Statement | TCS34725NAME(field_variable) | `tcs34725_init($tcs)` | `Adafruit_TCS34725 tcs= Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X); ↵ float red, green, blue; ↵ tcs.begin();` |
+| `tcs34725_led_ctrl` | Statement | TCS34725NAME(field_variable), TCSLEDSTATE(dropdown) | `tcs34725_led_ctrl($tcs, false)` | `tcs.setInterrupt(false);` |
+| `tcs34725_get_rgb` | Statement | TCS34725NAME(field_variable) | `tcs34725_get_rgb($tcs)` | `tcs.getRGB(&red, &green, &blue);` |
+| `tcs34725_rgb_value` | Value | TCSRGBVALUE(dropdown) | `tcs34725_rgb_value(red)` | `red` |
 
 ## Parameter Options
 
@@ -27,7 +27,7 @@ Color recognition sensor library, supports Arduino UNO, MEGA and other developme
 ### Basic Usage
 ```
 arduino_setup()
-    tcs34725_init(variables_get($tcs))
+    tcs34725_init($tcs)
     serial_begin(Serial, 9600)
 
 arduino_loop()

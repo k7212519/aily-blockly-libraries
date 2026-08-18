@@ -11,14 +11,14 @@ DFRobot SFA40 I2C formaldehyde, humidity, and temperature sensor blocks.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `sfa40_init_i2c` | Statement | `VAR(field_input)`, `WIRE(field_dropdown)` | `sfa40_init_i2c("sfa40", Wire)` | Declares `DFRobot_SFA40 sfa40(&Wire);` and waits for `begin() == 0`. |
-| `sfa40_measurement` | Statement | `VAR(field_variable)`, `ACTION(field_dropdown)` | `sfa40_measurement($sfa40, START)` | Calls `startMeasurement()` or `stopMeasurement()`. |
-| `sfa40_read_data` | Value Number | `VAR(field_variable)` | `sfa40_read_data($sfa40)` | `sfa40.readMeasurementData()` |
-| `sfa40_value` | Value Number | `VAR(field_variable)`, `DATA(field_dropdown)` | `sfa40_value($sfa40, HCHO)` | Returns cached `HCHO`, `humidity`, `temperatureC`, or `temperatureF`. |
-| `sfa40_read_serial` | Statement | `VAR(field_variable)` | `sfa40_read_serial($sfa40)` | Calls `getSerialNumber()` to update `serialNumberLen`. |
-| `sfa40_serial_length` | Value Number | `VAR(field_variable)` | `sfa40_serial_length($sfa40)` | `sfa40.serialNumberLen` |
+| `sfa40_init_i2c` | Statement | VAR(field_input), WIRE(dropdown) | `sfa40_init_i2c("sfa40", Wire)` | `while (sfa40.begin() != 0) { ↵ delay(1000); ↵ }` |
+| `sfa40_measurement` | Statement | VAR(field_variable), ACTION(dropdown) | `sfa40_measurement($sfa40, START)` | `sfa40.startMeasurement();` |
+| `sfa40_read_data` | Value Number | VAR(field_variable) | `sfa40_read_data($sfa40)` | `sfa40.readMeasurementData()` |
+| `sfa40_value` | Value Number | VAR(field_variable), DATA(dropdown) | `sfa40_value($sfa40, HCHO)` | `sfa40.HCHO` |
+| `sfa40_read_serial` | Statement | VAR(field_variable) | `sfa40_read_serial($sfa40)` | `sfa40.getSerialNumber();` |
+| `sfa40_serial_length` | Value Number | VAR(field_variable) | `sfa40_serial_length($sfa40)` | `sfa40.serialNumberLen` |
 
 ## Parameter Options
 

@@ -8,11 +8,11 @@ Blockly library for Seeed Adxl345.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `adxl345_init` | Statement | (none) | `adxl345_init()` | adxl345_accel.powerOn();\n |
-| `adxl345_read_axis` | Value | AXIS(dropdown) | `adxl345_read_axis("0")` | adxl345_getAxis( |
-| `adxl345_read_raw` | Value | AXIS(dropdown) | `adxl345_read_raw("0")` | adxl345_getRaw( |
+| `adxl345_init` | Statement | (none) | `adxl345_init()` | `adxl345_accel.powerOn();` |
+| `adxl345_read_axis` | Value | AXIS(dropdown) | `adxl345_read_axis("0")` | `adxl345_getAxis(0)` |
+| `adxl345_read_raw` | Value | AXIS(dropdown) | `adxl345_read_raw("0")` | `adxl345_getRaw(0)` |
 
 ## Parameter Options
 

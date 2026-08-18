@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "affaire ESP32",
+  "esp32_matter_begin": {
+    "message0": "Début du sujet",
+    "tooltip": "Démarrez le nœud Matter ; le point de terminaison doit être créé en premier."
+  },
+  "esp32_matter_status": {
+    "message0": "Statut du dossier %1",
+    "tooltip": "Réseau de distribution ou état de connexion de Query Matter.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Réseau configuré",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi connecté",
+            "isWiFiConnected"
+          ],
+          [
+            "Le fil de discussion est connecté",
+            "isThreadConnected"
+          ],
+          [
+            "L'appareil est connecté",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "Informations sur l'appariement du sujet %1",
+    "tooltip": "Obtenez le code de couplage Matter ou l'URL du code QR.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Code d'appairage manuel",
+            "getManualPairingCode"
+          ],
+          [
+            "URL du code QR",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "Matière réseau de distribution clair",
+    "tooltip": "Effacer les informations actuelles du réseau de distribution Matter Fabric."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "Lumière de commutation de création de matière %1 état initial %2",
+    "tooltip": "Créez le point de terminaison de l'éclairage du commutateur."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "Créer une lumière de gradation de matière %1 état %2 luminosité %3",
+    "tooltip": "Créez un point de terminaison de lumière plus faible."
+  },
+  "esp32_matter_light_set": {
+    "message0": "La lumière de matière %1 règle %2 sur %3",
+    "tooltip": "Réglez l'interrupteur d'éclairage ou la luminosité.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "开关",
+            "setOnOff"
+          ],
+          [
+            "Luminosité",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "Lampe matière %1 lire %2",
+    "tooltip": "Lire l'interrupteur ou la luminosité.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "开关",
+            "getOnOff"
+          ],
+          [
+            "Luminosité",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "Capteur numérique Create Matter %1 type %2 valeur initiale %3",
+    "tooltip": "Créer des points de terminaison de capteur numériques communs.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Température",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "Humidité",
+            "MatterHumiditySensor"
+          ],
+          [
+            "Éclairage",
+            "MatterLightSensor"
+          ],
+          [
+            "Pression",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "Capteur numérique matière %1 type %2 mise à jour %3",
+    "tooltip": "Mettre à jour et rapporter les valeurs numériques du capteur.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Température",
+            "setTemperature"
+          ],
+          [
+            "Humidité",
+            "setHumidity"
+          ],
+          [
+            "Éclairage",
+            "setIlluminance"
+          ],
+          [
+            "Pression",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "Créer matière Capteur booléen %1 type %2 valeur initiale %3",
+    "tooltip": "Créez des points de terminaison de capteur booléens communs.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Contacter",
+            "MatterContactSensor"
+          ],
+          [
+            "occupé",
+            "MatterOccupancySensor"
+          ],
+          [
+            "Pluie",
+            "MatterRainSensor"
+          ],
+          [
+            "Fuite d'eau",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Capteur booléen matière %1 type %2 mise à jour %3",
+    "tooltip": "Mettre à jour et rapporter les valeurs booléennes du capteur.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Contacter",
+            "setContact"
+          ],
+          [
+            "occupé",
+            "setOccupancy"
+          ],
+          [
+            "Pluie",
+            "setRain"
+          ],
+          [
+            "Fuite d'eau",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

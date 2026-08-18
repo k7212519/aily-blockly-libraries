@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "ESP32 Wi-Fi-Verteilungsnetzwerk",
+  "esp32_wifiprov_begin_softap": {
+    "message0": "SoftAP-Verteilungsnetzwerk starten Dienstname %1 POP %2 Dienstkennwort %3 Vorhandene Konfiguration zurücksetzen %4",
+    "tooltip": "Starten Sie den SoftAP-Verteilungsnetzwerkdienst."
+  },
+  "esp32_wifiprov_begin_ble": {
+    "message0": "Name des BLE-Verteilungsnetzwerkdienstes starten %1 POP %2 Vorhandene Konfiguration zurücksetzen %3",
+    "tooltip": "Starten Sie den BLE-Verteilungsnetzwerkdienst (der Chip muss BLE unterstützen)."
+  },
+  "esp32_wifiprov_end": {
+    "message0": "WLAN-Verbreitung stoppen",
+    "tooltip": "Stoppen und bereinigen Sie den Verteilungsnetzwerkdienst."
+  },
+  "esp32_wifiprov_disable_auto_stop": {
+    "message0": "Stoppt nach erfolgreicher Netzwerkkonfiguration nicht automatisch. Reinigungsverzögerung %1 ms",
+    "tooltip": "Automatischen Stopp nach Erfolg deaktivieren und Verzögerung einstellen."
+  },
+  "esp32_wifiprov_print_qr": {
+    "message0": "QR-Code des Vertriebsnetzwerks drucken Dienstname %1 POP %2 Übertragung %3",
+    "tooltip": "Drucken Sie den QR-Code-Link und die Payload an Serial.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "SoftAP",
+            "softap"
+          ],
+          [
+            "BLE",
+            "ble"
+          ]
+        ]
+      }
+    ]
+  }
+}

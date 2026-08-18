@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "initialiser TMC2209 %1 série %2 baud %3 adresse %4 résistance de détection ohm %5",
+    "tooltip": "Initialisez un pilote pas à pas TMC2209 UART."
+  },
+  "tmc2130_init": {
+    "message0": "initialiser la broche TMC2130 %1 CS %2 résistance de détection ohm %3",
+    "tooltip": "Initialisez un pilote pas à pas matériel TMC2130 SPI."
+  },
+  "tmc_set_current": {
+    "message0": "Pilote TMC %1 RMS courant %2 multiplicateur de maintien mA %3",
+    "tooltip": "Réglez le courant du moteur RMS et le multiplicateur de courant de maintien."
+  },
+  "tmc_set_motion": {
+    "message0": "Pilote TMC %1 micropas %2 temps d'arrêt du hacheur %3",
+    "tooltip": "Définissez la résolution des micropas et activez le hacheur."
+  },
+  "tmc2209_mode": {
+    "message0": "Mode TMC2209 %1 %2 mise à l'échelle automatique du courant %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Sélectionnez le mode hacheur silencieux ou à couple élevé pour le TMC2209."
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard seuil %2 seuil de refroidissement %3",
+    "tooltip": "Configurez les seuils de référencement sans capteur sur TMC2209."
+  },
+  "tmc_read": {
+    "message0": "Pilote TMC %1 lire %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "registre du statut du conducteur",
+            "DRV_STATUS"
+          ],
+          [
+            "période d'étape",
+            "TSTEP"
+          ],
+          [
+            "micropas",
+            "microsteps"
+          ],
+          [
+            "courant réel mA",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez les diagnostics et la configuration actuelle communs aux pilotes pris en charge."
+  },
+  "tmc_connection": {
+    "message0": "Résultat du test de connexion du pilote TMC %1",
+    "tooltip": "Renvoyez le code de test de connexion TMCStepper."
+  }
+}

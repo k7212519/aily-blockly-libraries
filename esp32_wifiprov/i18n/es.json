@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "ESP32 Red de distribución Wi-Fi",
+  "esp32_wifiprov_begin_softap": {
+    "message0": "Iniciar red de distribución SoftAP Nombre del servicio %1 POP %2 Contraseña del servicio %3 Restablecer configuración existente %4",
+    "tooltip": "Inicia el servicio de red de distribución de SoftAP."
+  },
+  "esp32_wifiprov_begin_ble": {
+    "message0": "Iniciar nombre del servicio de red de distribución BLE %1 POP %2 Restablecer la configuración existente %3",
+    "tooltip": "Inicie el servicio de red de distribución BLE (el chip debe admitir BLE)."
+  },
+  "esp32_wifiprov_end": {
+    "message0": "Detener la distribución de Wi-Fi",
+    "tooltip": "Detener y limpiar el servicio de la red de distribución."
+  },
+  "esp32_wifiprov_disable_auto_stop": {
+    "message0": "No se detiene automáticamente después de una configuración de red exitosa. Retardo de limpieza %1 ms",
+    "tooltip": "Deshabilite la parada automática después del éxito y establezca el retraso."
+  },
+  "esp32_wifiprov_print_qr": {
+    "message0": "Red de distribución de impresión Código QR Nombre del servicio %1 POP %2 Transmisión %3",
+    "tooltip": "Imprime el enlace del código QR y cárgalo en serie.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "SoftAP",
+            "softap"
+          ],
+          [
+            "BLE",
+            "ble"
+          ]
+        ]
+      }
+    ]
+  }
+}

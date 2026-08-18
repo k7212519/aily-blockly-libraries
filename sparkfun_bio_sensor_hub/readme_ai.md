@@ -8,18 +8,18 @@ Blockly wrapper for the SparkFun MAX32664 Bio Sensor Hub and MAX30101 pulse oxim
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `biohub_init` | Statement | VAR(field_input), RESET_PIN(field_number), MFIO_PIN(field_number) | `biohub_init("bioHub", 4, 13)` | Wire.begin();\n |
-| `biohub_is_ready` | Value | VAR(field_variable) | `biohub_is_ready(variables_get($bioHub))` | Dynamic code |
-| `biohub_config_bpm` | Statement | VAR(field_variable), MODE(dropdown) | `biohub_config_bpm(variables_get($bioHub), MODE_ONE)` | Dynamic code |
-| `biohub_config_sensor_bpm` | Statement | VAR(field_variable), MODE(dropdown) | `biohub_config_sensor_bpm(variables_get($bioHub), MODE_ONE)` | Dynamic code |
-| `biohub_read_bpm` | Statement | VAR(field_variable) | `biohub_read_bpm(variables_get($bioHub))` | Dynamic code |
-| `biohub_read_sensor_bpm` | Statement | VAR(field_variable) | `biohub_read_sensor_bpm(variables_get($bioHub))` | Dynamic code |
-| `biohub_value` | Value | VAR(field_variable), FIELD(dropdown) | `biohub_value(variables_get($bioHub), heartRate)` | Dynamic code |
-| `biohub_set_pulse_width` | Statement | VAR(field_variable), WIDTH(dropdown) | `biohub_set_pulse_width(variables_get($bioHub), "69")` | Dynamic code |
-| `biohub_set_sample_rate` | Statement | VAR(field_variable), RATE(dropdown) | `biohub_set_sample_rate(variables_get($bioHub), "50")` | Dynamic code |
-| `biohub_set_adc_range` | Statement | VAR(field_variable), RANGE(dropdown) | `biohub_set_adc_range(variables_get($bioHub), "2048")` | Dynamic code |
+| `biohub_init` | Statement | VAR(field_input), RESET_PIN(field_number), MFIO_PIN(field_number) | `biohub_init("bioHub", 4, 13)` | `Wire.begin(); ↵ bioHub_status = bioHub.begin(Wire, 4, 13); ↵ bioHub_ready = (bioHub_status == SFE_BIO_SUCCESS);` |
+| `biohub_is_ready` | Value | VAR(field_variable) | `biohub_is_ready($bioHub)` | `bioHub_ready` |
+| `biohub_config_bpm` | Statement | VAR(field_variable), MODE(dropdown) | `biohub_config_bpm($bioHub, MODE_ONE)` | `bioHub_status = bioHub.configBpm(MODE_ONE);` |
+| `biohub_config_sensor_bpm` | Statement | VAR(field_variable), MODE(dropdown) | `biohub_config_sensor_bpm($bioHub, MODE_ONE)` | `bioHub_status = bioHub.configSensorBpm(MODE_ONE);` |
+| `biohub_read_bpm` | Statement | VAR(field_variable) | `biohub_read_bpm($bioHub)` | `bioHub_data = bioHub.readBpm();` |
+| `biohub_read_sensor_bpm` | Statement | VAR(field_variable) | `biohub_read_sensor_bpm($bioHub)` | `bioHub_data = bioHub.readSensorBpm();` |
+| `biohub_value` | Value | VAR(field_variable), FIELD(dropdown) | `biohub_value($bioHub, heartRate)` | `bioHub_data.heartRate` |
+| `biohub_set_pulse_width` | Statement | VAR(field_variable), WIDTH(dropdown) | `biohub_set_pulse_width($bioHub, "69")` | `bioHub_status = bioHub.setPulseWidth(69);` |
+| `biohub_set_sample_rate` | Statement | VAR(field_variable), RATE(dropdown) | `biohub_set_sample_rate($bioHub, "50")` | `bioHub_status = bioHub.setSampleRate(50);` |
+| `biohub_set_adc_range` | Statement | VAR(field_variable), RANGE(dropdown) | `biohub_set_adc_range($bioHub, "2048")` | `bioHub_status = bioHub.setAdcRange(2048);` |
 
 ## Parameter Options
 
@@ -40,12 +40,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, biohub_is_ready(variables_get($bioHub)))
+    serial_println(Serial, biohub_is_ready($bioHub))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `biohub_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `biohub_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

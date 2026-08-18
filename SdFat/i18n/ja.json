@@ -1,0 +1,151 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "初期化 SdFat %1 CS ピン %2 最大 SPI MHz %3",
+    "tooltip": "FAT または exFAT SD カードを SPI 上にマウントします。"
+  },
+  "sdfat_file_open": {
+    "message0": "SdFat ファイル %1 を %2 パス %3 モード %4 で開きます",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "読む",
+            "O_RDONLY"
+          ],
+          [
+            "書く/追加する",
+            "O_WRONLY | O_CREAT | O_APPEND"
+          ],
+          [
+            "書き込み/切り捨て",
+            "O_WRONLY | O_CREAT | O_TRUNC"
+          ],
+          [
+            "読み取り/書き込み",
+            "O_RDWR | O_CREAT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "FsFile オブジェクトを作成し、パスを開きます。"
+  },
+  "sdfat_file_write": {
+    "message0": "SdFat ファイル %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "改行なしで印刷する",
+            "print"
+          ],
+          [
+            "改行を入れて印刷する",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "開いているファイルに値を書き込みます。"
+  },
+  "sdfat_file_control": {
+    "message0": "SdFat ファイル %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ファイル位置をシークする",
+            "seek"
+          ],
+          [
+            "ファイルを切り捨てる",
+            "truncate"
+          ],
+          [
+            "ファイルバッファをフラッシュする",
+            "flush"
+          ],
+          [
+            "閉じる",
+            "close"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "開いているファイルをシーク、切り詰め、フラッシュ、または閉じます。"
+  },
+  "sdfat_file_read": {
+    "message0": "SdFat ファイル %1 読み取り %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "次のバイト",
+            "read"
+          ],
+          [
+            "テキスト行",
+            "line"
+          ],
+          [
+            "すべてのファイルテキスト",
+            "string"
+          ],
+          [
+            "利用可能なバイト数",
+            "available"
+          ],
+          [
+            "サイズ",
+            "size"
+          ],
+          [
+            "位置",
+            "position"
+          ],
+          [
+            "ファイルが開いています",
+            "open"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "開いているファイルからデータまたは状態を読み取ります。"
+  },
+  "sdfat_fs_operation": {
+    "message0": "SdFat %1 %2 パス %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ディレクトリを作成する",
+            "mkdir"
+          ],
+          [
+            "ディレクトリを削除する",
+            "rmdir"
+          ],
+          [
+            "ファイルを削除する",
+            "remove"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "SD カード ファイル システムを変更します。"
+  },
+  "sdfat_exists": {
+    "message0": "SdFat %1 パス %2 が存在します",
+    "tooltip": "パスが存在するかどうかを確認します。"
+  }
+}

@@ -25,6 +25,10 @@ Seeed graphics display library supports the drawing functions of various TFT and
 1. Enable `@aily-project/lib-seeed-gfx` in Aily Blockly.
 2. Add the library blocks, initialize hardware in `arduino_setup()`, then use read/write blocks in `arduino_loop()`.
 
+## Static Images
+
+Upload PNG, JPEG, WebP, or BMP images and convert them to RGB565 or RGB332 pixel data. Images are embedded in `PROGMEM` and rendered on TFT displays with `pushImage()`. The source image is retained by the editor so changing width, height, or colour format always reconverts from the original file.
+
 ## GIF and MP4 Animation
 
 Upload GIF/MP4 and choose RGB565 for higher colour fidelity or RGB332 for roughly twice the frame capacity. The generated `PROGMEM` frames use the matching `pushImage()` overload automatically. TFT supports blocking, non-blocking, looping, and selected-frame playback. Keep clips short; audio is ignored.

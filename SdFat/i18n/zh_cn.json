@@ -1,0 +1,151 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "初始化 SdFat %1 CS 引脚 %2 最大 SPI MHz %3",
+    "tooltip": "通过 SPI 挂载 FAT 或 exFAT SD 卡。"
+  },
+  "sdfat_file_open": {
+    "message0": "在 %2 上打开 SdFat 文件 %1 路径 %3 模式 %4",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "读",
+            "O_RDONLY"
+          ],
+          [
+            "写入并追加",
+            "O_WRONLY | O_CREAT | O_APPEND"
+          ],
+          [
+            "写入并截断",
+            "O_WRONLY | O_CREAT | O_TRUNC"
+          ],
+          [
+            "读写",
+            "O_RDWR | O_CREAT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "创建 FsFile 对象并打开路径。"
+  },
+  "sdfat_file_write": {
+    "message0": "SdFat 文件 %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "打印",
+            "print"
+          ],
+          [
+            "打印并换行",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "将值写入打开的文件。"
+  },
+  "sdfat_file_control": {
+    "message0": "SdFat 文件 %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "定位到",
+            "seek"
+          ],
+          [
+            "截断至",
+            "truncate"
+          ],
+          [
+            "刷新缓冲区",
+            "flush"
+          ],
+          [
+            "关闭",
+            "close"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "查找、截断、刷新或关闭打开的文件。"
+  },
+  "sdfat_file_read": {
+    "message0": "SdFat 文件 %1 读取 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "下一个字节",
+            "read"
+          ],
+          [
+            "一行文本",
+            "line"
+          ],
+          [
+            "全部文本",
+            "string"
+          ],
+          [
+            "可用字节",
+            "available"
+          ],
+          [
+            "文件大小",
+            "size"
+          ],
+          [
+            "位置",
+            "position"
+          ],
+          [
+            "是否已打开",
+            "open"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "从打开的文件中读取数据或状态。"
+  },
+  "sdfat_fs_operation": {
+    "message0": "SdFat %1 %2 路径 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "创建目录",
+            "mkdir"
+          ],
+          [
+            "删除目录",
+            "rmdir"
+          ],
+          [
+            "删除文件",
+            "remove"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "修改SD卡文件系统。"
+  },
+  "sdfat_exists": {
+    "message0": "SdFat %1 路径 %2 存在",
+    "tooltip": "检查路径是否存在。"
+  }
+}

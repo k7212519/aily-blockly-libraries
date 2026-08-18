@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "تهيئة ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 حجم %5",
+    "tooltip": "قم بتهيئة وحدة فك ترميز الصوت ESP32 وإخراج I2S."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 تشغيل الصوت من الشبكة URL %2",
+    "tooltip": "قم بتشغيل دفق صوتي HTTP أو HTTPS."
+  },
+  "esp_audio_file": {
+    "message0": "تشغيل ESP32 Audio %1 من مسار %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "قم بتشغيل ملف صوتي من نظام الملفات المثبت."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "وقفة أو استئناف",
+            "pauseResume"
+          ],
+          [
+            "توقف",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "التحكم في التشغيل الحالي."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 اضبط %2 على %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "حجم الصوت 0-21",
+            "setVolume"
+          ],
+          [
+            "توازن الصوت -16 إلى 16",
+            "setBalance"
+          ],
+          [
+            "موضع التشغيل في ثواني",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "تغيير حجم التشغيل أو التوازن أو موضع الملف."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "قيد التشغيل",
+            "isRunning"
+          ],
+          [
+            "وقت التشغيل الحالي بالثواني",
+            "getAudioCurrentTime"
+          ],
+          [
+            "مدة الصوت بالثواني",
+            "getAudioFileDuration"
+          ],
+          [
+            "الحجم الحالي",
+            "getVolume"
+          ],
+          [
+            "معدل البت",
+            "getBitRate"
+          ],
+          [
+            "معدل العينة",
+            "getSampleRate"
+          ],
+          [
+            "القنوات الصوتية",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة حالة التشغيل ودفق البيانات الوصفية."
+  }
+}

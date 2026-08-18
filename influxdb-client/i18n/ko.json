@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "InfluxDB %1 URL %2 org %3 버킷 %4 토큰 %5 초기화",
+    "tooltip": "InfluxDB 2 클라이언트를 만듭니다."
+  },
+  "influxdb_point_init": {
+    "message0": "InfluxDB 점 %1 측정 %2 생성",
+    "tooltip": "라인 프로토콜 측정 지점을 만듭니다."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB 포인트 %1 %2 키 %3 값 %4 추가",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "태그",
+            "addTag"
+          ],
+          [
+            "데이터 필드",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "태그나 입력된 필드를 포인트에 추가합니다."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB 포인트 %1 클리어 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "데이터 필드",
+            "clearFields"
+          ],
+          [
+            "태그",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "누적 포인트 필드 또는 태그를 지웁니다."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 쓰기 포인트 %2",
+    "tooltip": "InfluxDB에 점을 씁니다."
+  },
+  "influxdb_validate": {
+    "message0": "InfluxDB %1 연결이 유효합니다",
+    "tooltip": "서버 연결 및 자격 증명을 확인합니다."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "마지막 오류 메시지",
+            "getLastErrorMessage"
+          ],
+          [
+            "서버 URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "연결 정보 또는 마지막 오류를 읽습니다."
+  },
+  "influxdb_line_protocol": {
+    "message0": "%2 포인트에 대한 InfluxDB %1 라인 프로토콜",
+    "tooltip": "포인트를 라인 프로토콜로 미리 봅니다."
+  }
+}

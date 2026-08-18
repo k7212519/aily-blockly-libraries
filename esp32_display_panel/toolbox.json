@@ -1,0 +1,119 @@
+{
+  "kind": "category",
+  "icon": "fa-regular fa-display",
+  "name": "ESP32 Display Panel",
+  "colour": "#E7352C",
+  "contents": [
+    {
+      "kind": "category",
+      "name": "Display",
+      "colour": "#E7352C",
+      "contents": [
+        {"kind": "block", "type": "esp_panel_board_init"},
+        {"kind": "block", "type": "esp_panel_board_ready"},
+        {"kind": "block", "type": "esp_panel_has_device"},
+        {"kind": "block", "type": "esp_panel_board_delete"}
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "LCD",
+      "colour": "#EF6C00",
+      "contents": [
+        {"kind": "block", "type": "esp_panel_lcd_color_bar"},
+        {"kind": "block", "type": "esp_panel_lcd_display"},
+        {"kind": "block", "type": "esp_panel_lcd_invert"},
+        {"kind": "block", "type": "esp_panel_lcd_transform"},
+        {
+          "kind": "block",
+          "type": "esp_panel_lcd_set_gap",
+          "inputs": {
+            "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+            "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}
+          }
+        },
+        {
+          "kind": "block",
+          "type": "esp_panel_lcd_draw_bitmap",
+          "inputs": {
+            "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+            "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+            "W": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+            "H": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+            "DATA": {"shadow": {"type": "esp_panel_bitmap_data", "fields": {"DATA": "rgb565_data"}}},
+            "TIMEOUT": {"shadow": {"type": "math_number", "fields": {"NUM": -1}}}
+          }
+        },
+        {
+          "kind": "block",
+          "type": "esp_panel_lcd_fill_screen",
+          "inputs": {
+            "COLOR": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}
+          }
+        },
+        {
+          "kind": "block",
+          "type": "esp_panel_lcd_fill_rect",
+          "inputs": {
+            "X": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+            "Y": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+            "W": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+            "H": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}},
+            "COLOR": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}
+          }
+        },
+        {
+          "kind": "block",
+          "type": "esp_panel_rgb565",
+          "inputs": {
+            "R": {"shadow": {"type": "math_number", "fields": {"NUM": 255}}},
+            "G": {"shadow": {"type": "math_number", "fields": {"NUM": 255}}},
+            "B": {"shadow": {"type": "math_number", "fields": {"NUM": 255}}}
+          }
+        },
+        {"kind": "block", "type": "esp_panel_lcd_info"}
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Touch",
+      "colour": "#00897B",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "esp_panel_touch_read",
+          "inputs": {
+            "TIMEOUT": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}
+          }
+        },
+        {"kind": "block", "type": "esp_panel_touch_value"},
+        {"kind": "block", "type": "esp_panel_touch_transform"},
+        {"kind": "block", "type": "esp_panel_touch_interrupt"},
+        {
+          "kind": "block",
+          "type": "esp_panel_touch_button",
+          "inputs": {
+            "INDEX": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}},
+            "TIMEOUT": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}
+          }
+        }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Backlight",
+      "colour": "#5E35B1",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "esp_panel_backlight_set",
+          "inputs": {
+            "BRIGHTNESS": {"shadow": {"type": "math_number", "fields": {"NUM": 100}}}
+          }
+        },
+        {"kind": "block", "type": "esp_panel_backlight_switch"},
+        {"kind": "block", "type": "esp_panel_backlight_get"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "初始化 Dynamixel %1 串口 %2 方向腳 %3 波特率 %4 協定 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "2.0",
+            "2.0"
+          ],
+          [
+            "1.0",
+            "1.0"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "初始化 DYNAMIXEL 序列匯流排。"
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel %1 ID %2 設定 %3 模式",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "位置",
+            "OP_POSITION"
+          ],
+          [
+            "伸展位置",
+            "OP_EXTENDED_POSITION"
+          ],
+          [
+            "速度",
+            "OP_VELOCITY"
+          ],
+          [
+            "PWM",
+            "OP_PWM"
+          ],
+          [
+            "電流",
+            "OP_CURRENT"
+          ],
+          [
+            "基於電流的位置控制",
+            "OP_CURRENT_BASED_POSITION"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "停用扭矩，設定操作模式，然後啟用扭矩。"
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel %1 ID %2 設定目標 %3 值 %4 單位 %5",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "位置",
+            "setGoalPosition"
+          ],
+          [
+            "速度",
+            "setGoalVelocity"
+          ],
+          [
+            "電流",
+            "setGoalCurrent"
+          ],
+          [
+            "PWM",
+            "setGoalPWM"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "原始值",
+            "UNIT_RAW"
+          ],
+          [
+            "度",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "百分比",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "設定目標位置、速度、電流或 PWM。"
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 ID %2 讀取 %3 單位 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "位置",
+            "getPresentPosition"
+          ],
+          [
+            "速度",
+            "getPresentVelocity"
+          ],
+          [
+            "電流",
+            "getPresentCurrent"
+          ],
+          [
+            "PWM",
+            "getPresentPWM"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "原始值",
+            "UNIT_RAW"
+          ],
+          [
+            "度",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "百分比",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "讀取即時執行器回饋。"
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel %1 ID %2 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "扭力開啟",
+            "torqueOn"
+          ],
+          [
+            "扭力關閉",
+            "torqueOff"
+          ],
+          [
+            "LED 亮起",
+            "ledOn"
+          ],
+          [
+            "LED 關閉",
+            "ledOff"
+          ],
+          [
+            "重新啟動",
+            "reboot"
+          ],
+          [
+            "恢復出廠設定",
+            "factoryReset"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "控制扭力、LED 指示燈或設備狀態。"
+  },
+  "dynamixel_ping": {
+    "message0": "Dynamixel %1 ID %2 回應",
+    "tooltip": "Ping 執行器 ID。"
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 ID %2 寫入控制項 %3 值 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "軌跡速度",
+            "PROFILE_VELOCITY"
+          ],
+          [
+            "軌跡加速度",
+            "PROFILE_ACCELERATION"
+          ],
+          [
+            "位置P增益",
+            "POSITION_P_GAIN"
+          ],
+          [
+            "速度限制",
+            "VELOCITY_LIMIT"
+          ],
+          [
+            "電流限制",
+            "CURRENT_LIMIT"
+          ],
+          [
+            "溫度限制",
+            "TEMPERATURE_LIMIT"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "編寫一個通用的 DYNAMIXEL 控製表項。"
+  }
+}

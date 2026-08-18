@@ -1,0 +1,235 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "Dynamixel %1 직렬 %2 방향 핀 %3 보드 %4 프로토콜 %5 초기화",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "2.0",
+            "2.0"
+          ],
+          [
+            "1.0",
+            "1.0"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "DYNAMIXEL 직렬 버스를 초기화합니다."
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel %1 ID %2 %3 모드 구성",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "위치",
+            "OP_POSITION"
+          ],
+          [
+            "확장된 위치",
+            "OP_EXTENDED_POSITION"
+          ],
+          [
+            "속도",
+            "OP_VELOCITY"
+          ],
+          [
+            "PWM",
+            "OP_PWM"
+          ],
+          [
+            "전류",
+            "OP_CURRENT"
+          ],
+          [
+            "전류 기반 위치 모드",
+            "OP_CURRENT_BASED_POSITION"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "토크를 비활성화하고 작동 모드를 설정한 다음 토크를 활성화하십시오."
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel %1 ID %2 목표 설정 %3 값 %4 단위 %5",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "위치",
+            "setGoalPosition"
+          ],
+          [
+            "속도",
+            "setGoalVelocity"
+          ],
+          [
+            "전류",
+            "setGoalCurrent"
+          ],
+          [
+            "PWM",
+            "setGoalPWM"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "원시",
+            "UNIT_RAW"
+          ],
+          [
+            "도",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "퍼센트",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "목표 위치, 속도, 전류 또는 PWM를 설정합니다."
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 ID %2 읽기 %3 유닛 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "위치",
+            "getPresentPosition"
+          ],
+          [
+            "속도",
+            "getPresentVelocity"
+          ],
+          [
+            "전류",
+            "getPresentCurrent"
+          ],
+          [
+            "PWM",
+            "getPresentPWM"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "원시",
+            "UNIT_RAW"
+          ],
+          [
+            "도",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "퍼센트",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "실시간 액추에이터 피드백을 읽어보세요."
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel %1 ID %2 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "토크 온",
+            "torqueOn"
+          ],
+          [
+            "토크 오프",
+            "torqueOff"
+          ],
+          [
+            "LED 켜짐",
+            "ledOn"
+          ],
+          [
+            "LED 꺼짐",
+            "ledOff"
+          ],
+          [
+            "재부팅",
+            "reboot"
+          ],
+          [
+            "공장 초기화",
+            "factoryReset"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "토크, 표시기 LED 또는 장치 상태를 제어합니다."
+  },
+  "dynamixel_ping": {
+    "message0": "Dynamixel %1 ID %2가 응답합니다.",
+    "tooltip": "액추에이터 ID를 핑합니다."
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 ID %2 쓰기 제어 항목 %3 값 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "모션 프로파일 속도",
+            "PROFILE_VELOCITY"
+          ],
+          [
+            "모션 프로파일 가속",
+            "PROFILE_ACCELERATION"
+          ],
+          [
+            "위치 P 게인",
+            "POSITION_P_GAIN"
+          ],
+          [
+            "속도 제한",
+            "VELOCITY_LIMIT"
+          ],
+          [
+            "현재 한도",
+            "CURRENT_LIMIT"
+          ],
+          [
+            "온도 제한",
+            "TEMPERATURE_LIMIT"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "공통 DYNAMIXEL 제어 테이블 항목을 작성합니다."
+  }
+}

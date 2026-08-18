@@ -1,0 +1,217 @@
+{
+  "toolbox_name": "Pantalla serie 淘晶驰",
+  "toolbox_labels": {
+    "Initialization": "Inicialización",
+    "Screen control": "Control de pantalla",
+    "Communication and returns": "Comunicación y respuestas"
+  },
+  "tjc_begin_hardware": {
+    "message0": "Inicializar el puerto serie hardware 淘晶驰 %1 a %2 baudios",
+    "tooltip": "Inicia el hardware de la placa seleccionada UART. Conecte la pantalla TX a la placa RX y la pantalla RX a la placa TX, use la misma velocidad en baudios que la pantalla y colóquela antes de los comandos o el análisis de cuadros.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_begin_software": {
+    "message0": "Inicializar el puerto serie software 淘晶驰 %1 a %2 baudios, RX %3 TX %4",
+    "tooltip": "Cree SoftwareSerial con el nombre elegido, los pines RX/TX y la velocidad en baudios. Conecte de forma cruzada los cables de la pantalla; Esto está destinado a placas estilo UNO/Nano sin hardware de repuesto UART.",
+    "args0": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "tjc_clear_startup": {
+    "message0": "Borrar datos de inicio de 淘晶驰 en %1",
+    "tooltip": "Descartar bytes en espera en el UART, incluido el marco de encendido común 0x88 FF FF FF. Ejecutar después de la inicialización en serie y antes del análisis de fotogramas.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_set_brightness": {
+    "message0": "Establecer el brillo de la retroiluminación de 淘晶驰 en %1 a %2",
+    "tooltip": "Envía dim con un brillo de tiempo de ejecución normalmente de 0 a 100. Esto no escribe configuraciones de flash persistentes, por lo que es adecuado para ajustes ocasionales.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_page": {
+    "message0": "Cambiar la página 淘晶驰 en %1 a %2",
+    "tooltip": "Navegar por un nombre de página como main o por un ID de página numérico. Introduzca solo el valor; el terminador del comando se añade automáticamente.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_variable": {
+    "message0": "Establezca la variable 淘晶驰 %1 en %2",
+    "tooltip": "Asigne una variable de sistema, global o de página como sys0 o va0. Los números no están entrecomillados y el texto se entrecomilla automáticamente; no agregue bytes FF.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_property": {
+    "message0": "En el puerto serie %1, establecer la propiedad %3 del componente %2 en %4",
+    "tooltip": "Escriba una propiedad de componente como p0.pic=2, n0.val=100 o t0.txt=\"Ready\". El selector de serie es el primero, por lo que el objetivo UART está claro; seleccione la etiqueta de propiedad chino/inglés y haga coincidir las propiedades de texto con valores de texto y las propiedades numéricas con números.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Texto (txt)",
+            "txt"
+          ],
+          [
+            "Valor (val)",
+            "val"
+          ],
+          [
+            "Número de imagen (pic)",
+            "pic"
+          ],
+          [
+            "Visible (vis)",
+            "vis"
+          ],
+          [
+            "Táctil habilitado (tsw)",
+            "tsw"
+          ],
+          [
+            "Color de fondo (bco)",
+            "bco"
+          ],
+          [
+            "Color de primer plano (pco)",
+            "pco"
+          ],
+          [
+            "Fuente (font)",
+            "font"
+          ],
+          [
+            "X (x)",
+            "x"
+          ],
+          [
+            "Y (y)",
+            "y"
+          ],
+          [
+            "Ancho (w)",
+            "w"
+          ],
+          [
+            "Alto (h)",
+            "h"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "tjc_send_command": {
+    "message0": "Enviar comando 淘晶驰 %1 en %2",
+    "tooltip": "Envía 淘晶驰 ASCII sin formato, como page main, ref t0 o get sys0. Introduzca sólo el texto del comando; Se añaden automáticamente tres bytes de terminador 0xFF.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_bkcmd": {
+    "message0": "Establecer bkcmd de 淘晶驰 en %1 a %2",
+    "tooltip": "Elija el modo de retroalimentación 0 ninguno, 1 éxito y errores, 2 solo errores o 3 todos. Habilite el analizador de fotogramas de retorno por separado cuando el programa deba inspeccionar las respuestas.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "0 - sin respuesta",
+            "0"
+          ],
+          [
+            "1 - éxito y error",
+            "1"
+          ],
+          [
+            "2 - solo errores",
+            "2"
+          ],
+          [
+            "3 - todas las respuestas",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "tjc_enable_frame_parser": {
+    "message0": "Habilitar el analizador de tramas de retorno 淘晶驰 en %1",
+    "tooltip": "Instale un lector loop que divide bytes en FF FF FF y almacena el primer byte como tipo de trama. Úselo después de la inicialización en serie y antes de eventos de cuadro o bloques de valores.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_event": {
+    "message0": "Cuando se recibe la trama 淘晶驰 %1 el %2",
+    "message1": "ejecutar %1",
+    "tooltip": "Ejecute el controlador para el cuadro 65 táctil, 66 página, 67 coordenadas, 70 cadenas, 71 números, 88 inicio o cualquier cuadro. Primero se debe inicializar el analizador y el controlador se ejecuta en loop.",
+    "args0": [
+      {
+        "options": [
+          [
+            "evento táctil (65)",
+            "65"
+          ],
+          [
+            "ID de página (66)",
+            "66"
+          ],
+          [
+            "coordenadas táctiles (67)",
+            "67"
+          ],
+          [
+            "cadena (70)",
+            "70"
+          ],
+          [
+            "número (71)",
+            "71"
+          ],
+          [
+            "inicio (88)",
+            "88"
+          ],
+          [
+            "cualquier trama",
+            "ANY"
+          ]
+        ]
+      },
+      null
+    ],
+    "args1": [
+      null
+    ]
+  },
+  "tjc_frame_type": {
+    "message0": "淘晶驰 último tipo de trama en %1",
+    "tooltip": "Devuelve el primer byte del fotograma completo más reciente, como 65 para toque o 71 para número. Antes del primer cuadro es 0; habilite el analizador primero.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_available": {
+    "message0": "Trama 淘晶驰 disponible en %1",
+    "tooltip": "Devuelve true cuando llega una trama completa terminada en FF FF FF. Úselo en una condición if con tipo de marco o use un evento de marco para evitar datos incompletos.",
+    "args0": [
+      null
+    ]
+  }
+}

@@ -8,16 +8,16 @@ CST816S capacitive touch screen driver library, supports gesture recognition, to
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `cst816s_init` | Statement | VAR(field_input), WIRE(dropdown), RST(input_value), IRQ(input_value) | `cst816s_init("touch", WIRE, 4, 5)` | Dynamic code |
-| `cst816s_read_gesture` | Value | VAR(field_variable) | `cst816s_read_gesture(variables_get($touch))` | Dynamic code |
-| `cst816s_read_position` | Value | VAR(field_variable), TYPE(dropdown) | `cst816s_read_position(variables_get($touch), x)` | Dynamic code |
-| `cst816s_is_available` | Value | VAR(field_variable) | `cst816s_is_available(variables_get($touch))` | Dynamic code |
-| `cst816s_enable_double_click` | Statement | VAR(field_variable) | `cst816s_enable_double_click(variables_get($touch))` | Dynamic code |
-| `cst816s_enable_auto_sleep` | Statement | VAR(field_variable) | `cst816s_enable_auto_sleep(variables_get($touch))` | Dynamic code |
-| `cst816s_disable_auto_sleep` | Statement | VAR(field_variable) | `cst816s_disable_auto_sleep(variables_get($touch))` | Dynamic code |
-| `cst816s_sleep` | Statement | VAR(field_variable) | `cst816s_sleep(variables_get($touch))` | Dynamic code |
+| `cst816s_init` | Statement | VAR(field_input), WIRE(dropdown), RST(input_value), IRQ(input_value) | `cst816s_init("touch", WIRE, 4, 5)` | `touch.begin(1, 1, &WIRE);` |
+| `cst816s_read_gesture` | Value | VAR(field_variable) | `cst816s_read_gesture($touch)` | `touch.gesture()` |
+| `cst816s_read_position` | Value | VAR(field_variable), TYPE(dropdown) | `cst816s_read_position($touch, x)` | `touch.data.x` |
+| `cst816s_is_available` | Value | VAR(field_variable) | `cst816s_is_available($touch)` | `touch.available()` |
+| `cst816s_enable_double_click` | Statement | VAR(field_variable) | `cst816s_enable_double_click($touch)` | `touch.enable_double_click();` |
+| `cst816s_enable_auto_sleep` | Statement | VAR(field_variable) | `cst816s_enable_auto_sleep($touch)` | `touch.enable_auto_sleep();` |
+| `cst816s_disable_auto_sleep` | Statement | VAR(field_variable) | `cst816s_disable_auto_sleep($touch)` | `touch.disable_auto_sleep();` |
+| `cst816s_sleep` | Statement | VAR(field_variable) | `cst816s_sleep($touch)` | `touch.sleep();` |
 
 ## Parameter Options
 
@@ -47,17 +47,17 @@ arduino_setup()
     serial_begin(Serial, 115200)
 
 arduino_loop()
-    if(cst816s_is_available(variables_get($touch)))
+    if(cst816s_is_available($touch))
         serial_print(Serial, text("Gesture: "))
-        serial_println(Serial, cst816s_read_gesture(variables_get($touch)))
+        serial_println(Serial, cst816s_read_gesture($touch))
         serial_print(Serial, text("X: "))
-        serial_println(Serial, cst816s_read_position(variables_get($touch), x))
+        serial_println(Serial, cst816s_read_position($touch, x))
     time_delay(math_number(100))
 ```
 
 ## Notes
 
-1. **Variable**: `cst816s_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `cst816s_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Pin Configuration**: RST and IRQ pins must be specified during initialization.
 3. **Gesture Recognition**: Returns gesture string (e.g., "SWIPE_LEFT", "SINGLE_CLICK").
 4. **Coordinates**: X and Y coordinates range from 0 to screen resolution.

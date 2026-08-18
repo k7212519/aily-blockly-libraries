@@ -1,0 +1,136 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "инициализировать Firebase %1 API ключ %2 электронная почта %3 пароль %4 база данных URL %5",
+    "tooltip": "Аутентифицируйте пользователя и привяжите Firebase Realtime Database."
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1 готов.",
+    "tooltip": "Проверьте, готова ли аутентификация."
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1 устанавливает %2 по пути %3 на %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "текст",
+            "String"
+          ],
+          [
+            "целое число",
+            "int"
+          ],
+          [
+            "число с плавающей запятой",
+            "double"
+          ],
+          [
+            "логическое значение",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Синхронно записать значение в Realtime Database."
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 получить %2 по пути %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "текст",
+            "String"
+          ],
+          [
+            "целое число",
+            "int"
+          ],
+          [
+            "число с плавающей запятой",
+            "double"
+          ],
+          [
+            "логическое значение",
+            "bool"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Синхронно прочитать введенное значение из Realtime Database."
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1 отправить %2 по пути %3, значение %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "текст",
+            "String"
+          ],
+          [
+            "целое число",
+            "int"
+          ],
+          [
+            "число с плавающей запятой",
+            "double"
+          ],
+          [
+            "логическое значение",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Отправьте новое дочернее значение в Realtime Database."
+  },
+  "firebase_client_path_action": {
+    "message0": "Firebase %1 %2 путь %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "удалить",
+            "remove"
+          ],
+          [
+            "чек существует",
+            "exists"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Удалите путь или проверьте, существует ли он."
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 последняя ошибка %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "код",
+            "code"
+          ],
+          [
+            "сообщение об ошибке",
+            "message"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Прочтите последнюю синхронную ошибку клиента."
+  }
+}

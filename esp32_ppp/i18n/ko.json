@@ -1,0 +1,127 @@
+{
+  "toolbox_name": "ESP32 PPP 셀룰러 네트워크",
+  "esp32_ppp_set_apn": {
+    "message0": "PPP 설정 APN %1 SIM PIN %2",
+    "tooltip": "셀룰러 APN 및 SIM PIN(옵션)을 설정하세요."
+  },
+  "esp32_ppp_set_pins": {
+    "message0": "PPP 직렬 포트 핀 TX %1 RX %2 RTS %3 CTS %4",
+    "tooltip": "모뎀 UART 및 흐름 제어 핀을 설정하세요."
+  },
+  "esp32_ppp_set_reset": {
+    "message0": "PPP 리셋 핀 %1 액티브 로우 %2",
+    "tooltip": "모뎀 하드웨어 리셋 핀을 설정합니다."
+  },
+  "esp32_ppp_begin": {
+    "message0": "PPP 모델 시작 %1 UART %2 전송 속도 %3",
+    "tooltip": "PPP 모뎀을 시작합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "장군",
+            "PPP_MODEM_GENERIC"
+          ],
+          [
+            "SIM7600",
+            "PPP_MODEM_SIM7600"
+          ],
+          [
+            "SIM7070",
+            "PPP_MODEM_SIM7070"
+          ],
+          [
+            "SIM7000",
+            "PPP_MODEM_SIM7000"
+          ],
+          [
+            "BG96",
+            "PPP_MODEM_BG96"
+          ],
+          [
+            "SIM800",
+            "PPP_MODEM_SIM800"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_ppp_end": {
+    "message0": "PPP 중지",
+    "tooltip": "PPP 데이터 연결을 중지합니다."
+  },
+  "esp32_ppp_attached": {
+    "message0": "PPP 셀룰러 네트워크 연결됨",
+    "tooltip": "모뎀이 네트워크에 연결되어 있는지 확인하세요."
+  },
+  "esp32_ppp_sync": {
+    "message0": "PPP AT통신이 정상입니다",
+    "tooltip": "모뎀이 AT에 응답하는지 확인하세요."
+  },
+  "esp32_ppp_info_number": {
+    "message0": "PPP 값 정보 %1",
+    "tooltip": "모뎀 수치 상태를 읽습니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "RSSI 신호",
+            "RSSI"
+          ],
+          [
+            "비트 오류율 BER",
+            "BER"
+          ],
+          [
+            "네트워크 모드",
+            "networkMode"
+          ],
+          [
+            "배터리 전압",
+            "batteryVoltage"
+          ],
+          [
+            "배터리 전원",
+            "batteryLevel"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_info_text": {
+    "message0": "PPP 문자 메시지 %1",
+    "tooltip": "모뎀 ID 또는 통신업체 텍스트를 읽습니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "IMEI",
+            "IMEI"
+          ],
+          [
+            "IMSI",
+            "IMSI"
+          ],
+          [
+            "모듈 이름",
+            "moduleName"
+          ],
+          [
+            "오퍼레이터",
+            "operatorName"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_sms": {
+    "message0": "PPP가 %1 콘텐츠 %2에 SMS를 보냅니다.",
+    "tooltip": "SMS 문자 메시지를 보냅니다."
+  },
+  "esp32_ppp_at": {
+    "message0": "PPP AT 명령 %1 시간 초과 %2 ms",
+    "tooltip": "AT 명령을 보내고 텍스트 응답을 보냅니다."
+  }
+}

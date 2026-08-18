@@ -8,17 +8,17 @@ ESP32 Arduino OTA wireless update supports WiFi network OTA firmware update
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_ota_begin` | Statement | (none) | `esp32_ota_begin()` | ArduinoOTA.begin();\n |
-| `esp32_ota_handle` | Statement | (none) | `esp32_ota_handle()` | ArduinoOTA.handle();\n |
-| `esp32_ota_set_hostname` | Statement | HOSTNAME(input_value) | `esp32_ota_set_hostname(text("value"))` | ArduinoOTA.setHostname( |
-| `esp32_ota_set_password` | Statement | PASSWORD(input_value) | `esp32_ota_set_password(text("value"))` | ArduinoOTA.setPassword( |
-| `esp32_ota_set_port` | Statement | PORT(input_value) | `esp32_ota_set_port(math_number(0))` | ArduinoOTA.setPort( |
-| `esp32_ota_on_start` | Hat | HANDLER(input_statement) | `esp32_ota_on_start() @HANDLER: child_block()` | Dynamic code |
-| `esp32_ota_on_end` | Hat | HANDLER(input_statement) | `esp32_ota_on_end() @HANDLER: child_block()` | Dynamic code |
-| `esp32_ota_on_progress` | Hat | CUR_VAR(field_input), TOTAL_VAR(field_input), HANDLER(input_statement) | `esp32_ota_on_progress("progress", "total") @HANDLER: child_block()` | Dynamic code |
-| `esp32_ota_on_error` | Hat | ERR_VAR(field_input), HANDLER(input_statement) | `esp32_ota_on_error("error") @HANDLER: child_block()` | Dynamic code |
+| `esp32_ota_begin` | Statement | (none) | `esp32_ota_begin()` | `ArduinoOTA.begin();` |
+| `esp32_ota_handle` | Statement | (none) | `esp32_ota_handle()` | `ArduinoOTA.handle();` |
+| `esp32_ota_set_hostname` | Statement | HOSTNAME(input_value) | `esp32_ota_set_hostname(text("value"))` | `ArduinoOTA.setHostname("value");` |
+| `esp32_ota_set_password` | Statement | PASSWORD(input_value) | `esp32_ota_set_password(text("value"))` | `ArduinoOTA.setPassword("value");` |
+| `esp32_ota_set_port` | Statement | PORT(input_value) | `esp32_ota_set_port(math_number(0))` | `ArduinoOTA.setPort(1);` |
+| `esp32_ota_on_start` | Hat | HANDLER(input_statement) | `esp32_ota_on_start()` | `void ota_on_start_callback() { ↵ } ↵ ArduinoOTA.onStart(ota_on_start_callback);` |
+| `esp32_ota_on_end` | Hat | HANDLER(input_statement) | `esp32_ota_on_end()` | `void ota_on_end_callback() { ↵ } ↵ ArduinoOTA.onEnd(ota_on_end_callback);` |
+| `esp32_ota_on_progress` | Hat | CUR_VAR(field_input), TOTAL_VAR(field_input), HANDLER(input_statement) | `esp32_ota_on_progress("progress", "total")` | `void ota_on_progress_callback(unsigned int progress, unsigned int total) { ↵ } ↵ ArduinoOTA.onProgress(ota_on_progress_callback);` |
+| `esp32_ota_on_error` | Hat | ERR_VAR(field_input), HANDLER(input_statement) | `esp32_ota_on_error("error")` | `void ota_on_error_callback(ota_error_t error) { ↵ } ↵ ArduinoOTA.onError(ota_on_error_callback);` |
 
 ## ABS Examples
 

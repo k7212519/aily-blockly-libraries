@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "inicializar IR remetente %1 pino %2",
+    "tooltip": "Crie e inicie um transmissor infravermelho."
+  },
+  "ir_esp_send_code": {
+    "message0": "IR remetente %1 envia código %2 %3 bits %4 repete %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Envie um código infravermelho numérico usando um protocolo comum."
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR remetente %1 enviar matriz bruta %2 comprimento %3 frequência kHz %4",
+    "tooltip": "Envie uma matriz de temporização uint16_t."
+  },
+  "ir_esp_recv_init": {
+    "message0": "inicializar IR receptor %1 pino %2 buffer %3 tempo limite ms %4",
+    "tooltip": "Crie e habilite um receptor infravermelho."
+  },
+  "ir_esp_when_received": {
+    "message0": "quando o receptor IR %1 recebe %2 do %3",
+    "tooltip": "Decodifique uma mensagem, execute o corpo e retome a recepção."
+  },
+  "ir_esp_received_data": {
+    "message0": "Receptor IR %1 recebeu %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "valor numérico",
+            "value"
+          ],
+          [
+            "contagem de bits",
+            "bits"
+          ],
+          [
+            "enum de protocolo",
+            "decode_type"
+          ],
+          [
+            "repetir bandeira",
+            "repeat"
+          ],
+          [
+            "sinalizador de estouro",
+            "overflow"
+          ],
+          [
+            "texto legível por humanos",
+            "text"
+          ],
+          [
+            "texto do código fonte",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia a mensagem decodificada mais recentemente."
+  }
+}

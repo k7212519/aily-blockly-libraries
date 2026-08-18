@@ -810,6 +810,9 @@ var functionCallSyncHelper = function() {
   // FieldVariable 变量选择变化时同步参数
   funcField.setValidator(function(newValue) {
     if (block.workspace && block.workspace.isFlyout) return newValue;
+    if (typeof newValue === 'string' && newValue) {
+      block._funcVarIdForLoad = newValue;
+    }
     var currentValue = typeof funcField.getValue === 'function' ? funcField.getValue() : null;
     if (!block.hasInitialized_) {
       block.hasInitialized_ = true;

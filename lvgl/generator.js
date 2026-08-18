@@ -210,7 +210,7 @@ Arduino.forBlock['lvgl_init'] = function(block, generator) {
           console.log('LVGL macro added')
         })
         .catch(err => console.error('Failed to add LVGL macro:', err));
-    } else {
+    } else if (window['projectService']) {
       window['projectService'].removeMacro('LV_USE_TFT_ESPI')
         .then(() => console.log('LVGL macro removed'))
         .catch(err => console.error('Failed to remove LVGL macro:', err));

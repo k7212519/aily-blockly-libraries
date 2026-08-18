@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "تهيئة TMC2209 %1 المسلسل %2 باود %3 عنوان %4 بمعنى المقاوم أوم %5",
+    "tooltip": "تهيئة برنامج تشغيل السائر TMC2209 UART."
+  },
+  "tmc2130_init": {
+    "message0": "تهيئة TMC2130 %1 CS دبوس %2 بمعنى المقاوم أوم %3",
+    "tooltip": "تهيئة برنامج تشغيل السائر TMC2130 لجهاز SPI."
+  },
+  "tmc_set_current": {
+    "message0": "سائق TMC %1 RMS الحالي %2 مللي أمبير عقد مضاعف %3",
+    "tooltip": "ضبط المحرك RMS على مضاعف التيار والثبات."
+  },
+  "tmc_set_motion": {
+    "message0": "سائق TMC %1 microsteps %2 المروحية خارج الوقت %3",
+    "tooltip": "ضبط دقة microstep وتمكين المروحية."
+  },
+  "tmc2209_mode": {
+    "message0": "وضع TMC2209 %1 %2 مقياس التيار التلقائي %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "حدد وضع المروحية الهادئة أو ذات عزم الدوران العالي لـ TMC2209."
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard عتبة %2 عتبة باردة %3",
+    "tooltip": "قم بتكوين عتبات التوجيه بدون مستشعر على TMC2209."
+  },
+  "tmc_read": {
+    "message0": "برنامج تشغيل TMC %1 يقرأ %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "سجل حالة السائق",
+            "DRV_STATUS"
+          ],
+          [
+            "فترة الخطوة",
+            "TSTEP"
+          ],
+          [
+            "com.microsteps",
+            "microsteps"
+          ],
+          [
+            "التيار الفعلي مللي أمبير",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "اقرأ التشخيصات والتكوين الحالي المشترك لبرامج التشغيل المدعومة."
+  },
+  "tmc_connection": {
+    "message0": "نتيجة اختبار الاتصال لبرنامج تشغيل TMC %1",
+    "tooltip": "قم بإرجاع رمز اختبار الاتصال TMCStepper."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "initialize InfluxDB %1 URL %2 org %3 bucket %4 token %5",
+    "tooltip": "Create an InfluxDB 2 client."
+  },
+  "influxdb_point_init": {
+    "message0": "create InfluxDB point %1 measurement %2",
+    "tooltip": "Create a line-protocol measurement point."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB point %1 add %2 key %3 value %4",
+    "tooltip": "Add a tag or typed field to a point."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB point %1 clear %2",
+    "tooltip": "Clear accumulated point fields or tags."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 write point %2",
+    "tooltip": "Write a point to InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "InfluxDB %1 connection is valid",
+    "tooltip": "Validate server connectivity and credentials."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "tooltip": "Read connection information or the last error."
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 line protocol for point %2",
+    "tooltip": "Preview a point as line protocol."
+  }
+}

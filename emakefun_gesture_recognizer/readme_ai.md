@@ -8,11 +8,11 @@ Emakefun gesture recognition module library supports recognition of right move, 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `gesture_recognizer_setup` | Statement | VAR(field_input), I2C_ADDRESS(field_input) | `gesture_recognizer_setup("gesture", "0x39")` | if ( |
-| `gesture_recognizer_get_gesture` | Value | VAR(field_variable) | `gesture_recognizer_get_gesture(variables_get($gesture))` | Dynamic code |
-| `gesture_recognizer_gesture_type` | Value | GESTURE_TYPE(dropdown) | `gesture_recognizer_gesture_type("0")` | Dynamic code |
+| `gesture_recognizer_setup` | Statement | VAR(field_input), I2C_ADDRESS(field_input) | `gesture_recognizer_setup("gesture", "0x39")` | `if (gesture.Initialize() != 0) { ↵ Serial.println(F("手势识别传感器初始化失败")); ↵ }` |
+| `gesture_recognizer_get_gesture` | Value | VAR(field_variable) | `gesture_recognizer_get_gesture($gesture)` | `gesture.GetGesture()` |
+| `gesture_recognizer_gesture_type` | Value | GESTURE_TYPE(dropdown) | `gesture_recognizer_gesture_type("0")` | `0` |
 
 ## Parameter Options
 
@@ -29,12 +29,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, gesture_recognizer_get_gesture(variables_get($gesture)))
+    serial_println(Serial, gesture_recognizer_get_gesture($gesture))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `gesture_recognizer_setup("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `gesture_recognizer_setup("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

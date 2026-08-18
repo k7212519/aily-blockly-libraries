@@ -1,0 +1,304 @@
+[
+  {
+    "type": "nofrendo_browser",
+    "message0": "NES ROM浏览器 选择游戏",
+    "output": "String",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-gamepad",
+    "tooltip": "打开NES游戏ROM浏览器界面（蓝色列表），用方向键选择游戏，A键确认。返回选中的ROM完整路径，未找到游戏返回空字符串。"
+  },
+  {
+    "type": "nofrendo_start",
+    "message0": "NES模拟器 加载游戏ROM %1",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "ROM_PATH",
+        "check": [
+          "String"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-gamepad",
+    "tooltip": "启动NES模拟器并加载指定ROM路径。须先初始化SD卡和TFT屏幕。"
+  },
+  {
+    "type": "nofrendo_find_rom",
+    "message0": "在SD卡上查找.nes游戏文件",
+    "output": "String",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-gamepad",
+    "tooltip": "搜索SD卡根目录下的第一个.nes文件并返回完整路径。"
+  },
+  {
+    "type": "nes_audio_config",
+    "message0": "NES音频 设置I2S引脚 BCK %1 WS %2 DOUT %3",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "BCK",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "WS",
+        "check": [
+          "Number"
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DOUT",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-volume-high",
+    "tooltip": "设置NES模拟器I2S音频输出引脚。默认BCK=25,WS=32,DOUT=33。须在启动模拟器前调用。"
+  },
+  {
+    "type": "nes_volume_set",
+    "message0": "NES音频 设置音量 %1 (0-8)",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "VOL",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-volume-high",
+    "tooltip": "设置NES模拟器音量（0=静音,8=最大），持久化到NVS。"
+  },
+  {
+    "type": "nes_volume_get",
+    "message0": "NES音频 当前音量",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-volume-high",
+    "tooltip": "获取NES模拟器当前音量（0-8）。"
+  },
+  {
+    "type": "nes_scanline_set",
+    "message0": "NES显示 设置扫描线 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          [
+            "关闭",
+            "0"
+          ],
+          [
+            "开启",
+            "1"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-tv",
+    "tooltip": "设置NES扫描线效果（CRT复古风格），持久化到NVS。"
+  },
+  {
+    "type": "nes_scanline_get",
+    "message0": "NES显示 当前扫描线状态",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-tv",
+    "tooltip": "获取当前扫描线状态（0=关闭,1=开启）。"
+  },
+  {
+    "type": "nes_fullscreen_set",
+    "message0": "NES显示 设置全屏 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          [
+            "原始256x240居中",
+            "0"
+          ],
+          [
+            "拉伸320x240全屏",
+            "1"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-tv",
+    "tooltip": "设置NES画面显示模式，持久化到NVS。"
+  },
+  {
+    "type": "nes_fullscreen_get",
+    "message0": "NES显示 当前全屏状态",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-tv",
+    "tooltip": "获取当前全屏状态（0=原始,1=全屏）。"
+  },
+  {
+    "type": "nes_speed_set",
+    "message0": "NES模拟 设置游戏速度 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SPEED",
+        "options": [
+          [
+            "1x 正常",
+            "0"
+          ],
+          [
+            "1.5x",
+            "1"
+          ],
+          [
+            "2x",
+            "2"
+          ],
+          [
+            "3x",
+            "3"
+          ],
+          [
+            "4x",
+            "4"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-forward",
+    "tooltip": "设置NES游戏运行速度倍率，持久化到NVS。"
+  },
+  {
+    "type": "nes_speed_get",
+    "message0": "NES模拟 当前游戏速度档位",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-forward",
+    "tooltip": "获取当前速度档位（0=1x,1=1.5x,2=2x,3=3x,4=4x）。"
+  },
+  {
+    "type": "nes_overclock_set",
+    "message0": "NES模拟 设置CPU频率 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "FREQ",
+        "options": [
+          [
+            "240MHz",
+            "0"
+          ],
+          [
+            "260MHz (默认)",
+            "1"
+          ],
+          [
+            "267MHz",
+            "2"
+          ],
+          [
+            "280MHz",
+            "3"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-microchip",
+    "tooltip": "设置ESP32 CPU超频频率，提高游戏帧率。持久化到NVS。"
+  },
+  {
+    "type": "nes_overclock_get",
+    "message0": "NES模拟 当前CPU频率档位",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-microchip",
+    "tooltip": "获取当前CPU频率档位（0=240,1=260,2=267,3=280MHz）。"
+  },
+  {
+    "type": "nes_color_set",
+    "message0": "NES显示 设置色彩 %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "COLOR",
+        "options": [
+          [
+            "标准",
+            "0"
+          ],
+          [
+            "鲜艳",
+            "1"
+          ],
+          [
+            "柔和",
+            "2"
+          ],
+          [
+            "亮丽",
+            "3"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-palette",
+    "tooltip": "设置NES色彩预设方案，持久化到NVS。"
+  },
+  {
+    "type": "nes_color_get",
+    "message0": "NES显示 当前色彩档位",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-palette",
+    "tooltip": "获取当前色彩档位（0=标准,1=鲜艳,2=柔和,3=亮丽）。"
+  },
+  {
+    "type": "nes_playtime_get",
+    "message0": "NES模拟 累计游戏时长(秒)",
+    "output": "Number",
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-clock",
+    "tooltip": "获取NES累计游戏时长（单位：秒）。"
+  },
+  {
+    "type": "nes_flush_sram",
+    "message0": "NES模拟 保存游戏存档(SRAM)到SD卡",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E91E63",
+    "icon": "fa-solid fa-floppy-disk",
+    "tooltip": "将NES游戏存档(SRAM)手动保存到SD卡。通常退出模拟器时自动保存。"
+  }
+]

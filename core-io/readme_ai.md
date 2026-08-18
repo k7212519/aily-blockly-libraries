@@ -8,18 +8,18 @@ Core library for basic I/O control, supporting development boards using the Ardu
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `io_pinmode` | Statement | PIN(input_value), MODE(input_value) | `io_pinmode(math_number(2), math_number(0))` | pinMode(..., ...);\n |
-| `io_digitalwrite` | Statement | PIN(input_value), STATE(input_value) | `io_digitalwrite(math_number(2), math_number(0))` | pinMode(..., OUTPUT);\n |
-| `io_digitalread` | Value | PIN(input_value) | `io_digitalread(math_number(2))` | (pinMode(..., INPUT), digitalRead(...)) |
-| `io_analogwrite` | Statement | PIN(input_value), PWM(input_value) | `io_analogwrite(math_number(2), math_number(0))` | analogWrite(..., ...);\n |
-| `io_analogread` | Value | PIN(input_value) | `io_analogread(math_number(2))` | analogRead(...) |
-| `io_pin_digi` | Value | PIN(dropdown) | `io_pin_digi(PIN)` | Dynamic code |
-| `io_pin_adc` | Value | PIN(dropdown) | `io_pin_adc(PIN)` | Dynamic code |
-| `io_pin_pwm` | Value | PIN(dropdown) | `io_pin_pwm(PIN)` | Dynamic code |
-| `io_mode` | Value | MODE(dropdown) | `io_mode(INPUT)` | Dynamic code |
-| `io_state` | Value | STATE(dropdown) | `io_state(LOW)` | Dynamic code |
+| `io_pinmode` | Statement | PIN(input_value), MODE(input_value) | `io_pinmode(math_number(2), math_number(0))` | `pinMode(1, 1);` |
+| `io_digitalwrite` | Statement | PIN(input_value), STATE(input_value) | `io_digitalwrite(math_number(2), math_number(0))` | `pinMode(1, OUTPUT); ↵ digitalWrite(1, 1);` |
+| `io_digitalread` | Value | PIN(input_value) | `io_digitalread(math_number(2))` | `(pinMode(1, INPUT), digitalRead(1))` |
+| `io_analogwrite` | Statement | PIN(input_value), PWM(input_value) | `io_analogwrite(math_number(2), math_number(0))` | `analogWrite(1, 1);` |
+| `io_analogread` | Value | PIN(input_value) | `io_analogread(math_number(2))` | `analogRead(1)` |
+| `io_pin_digi` | Value | PIN(dropdown) | `io_pin_digi(PIN)` | `PIN` |
+| `io_pin_adc` | Value | PIN(dropdown) | `io_pin_adc(PIN)` | `PIN` |
+| `io_pin_pwm` | Value | PIN(dropdown) | `io_pin_pwm(PIN)` | `PIN` |
+| `io_mode` | Value | MODE(dropdown) | `io_mode(INPUT)` | `INPUT` |
+| `io_state` | Value | STATE(dropdown) | `io_state(LOW)` | `LOW` |
 
 ## Parameter Options
 

@@ -8,14 +8,14 @@ UNIHIKER K10 speech recognition and synthesis library, supports Chinese/English 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `k10_asr_init` | Statement | MODE(dropdown), LANGUAGE(dropdown), WAKEUP_TIME(input_value) | `k10_asr_init(CONTINUOUS, CN_MODE, math_number(6000))` | `asr.asrInit(CONTINUOUS, CN_MODE, 6000)` plus a bounded 15-second readiness wait |
-| `k10_asr_add_command` | Statement | ID(input_value), KEYWORD(input_value) | `k10_asr_add_command(math_number(1), text("kai deng"))` | Adds the command only after ASR is ready |
-| `k10_asr_is_wakeup` | Value | (none) | `k10_asr_is_wakeup()` | `k10_asr_ready && asr.isWakeUp()` |
-| `k10_asr_is_detected` | Value | ID(input_value) | `k10_asr_is_detected(math_number(1))` | `k10_asr_ready && asr.isDetectCmdID(id)` |
-| `k10_asr_speak` | Statement | TEXT(input_value), INTERVAL(field_number) | `k10_asr_speak(text("value"), 1)` | `k10AsrSpeakSafe(asr, text, intervalSeconds, lastSpeakTime)` |
-| `k10_asr_set_speed` | Statement | SPEED(dropdown) | `k10_asr_set_speed(1)` | Sets TTS speed only after ASR is ready |
+| `k10_asr_init` | Statement | MODE(dropdown), LANGUAGE(dropdown), WAKEUP_TIME(input_value) | `k10_asr_init(CONTINUOUS, CN_MODE, math_number(6000))` | `UNIHIKER_K10 k10; ↵ k10.begin(); ↵ ASR asr; ↵ asr.asrInit(CONTINUOUS, CN_MODE, 1); ↵ bool k10AsrWaitReady(ASR &asrObj, uint32_t timeoutMs) { ↵ uint32_t start = millis(); ↵ while (asrObj._asrState == 0 && (uint32_t)(millis() - start) < timeoutMs) { ↵ delay(100); ↵ } ↵ if (asrObj._asrState == 0) { ↵ Serial.println("[K10-ASR] init timeout; check the K10 speech Model option and upload again"); ↵ return false; ↵ } ↵ Serial.println("[K10-ASR] ready"); ↵ return true; ↵ } ↵ bool k10_asr_ready = false; ↵ k10_asr_ready = k10AsrWaitReady(asr, 15000);` |
+| `k10_asr_add_command` | Statement | ID(input_value), KEYWORD(input_value) | `k10_asr_add_command(math_number(1), text("kai deng"))` | `if (k10_asr_ready) { asr.addASRCommand(1, "value"); }` |
+| `k10_asr_is_wakeup` | Value | (none) | `k10_asr_is_wakeup()` | `(k10_asr_ready && asr.isWakeUp())` |
+| `k10_asr_is_detected` | Value | ID(input_value) | `k10_asr_is_detected(math_number(1))` | `(k10_asr_ready && asr.isDetectCmdID(1))` |
+| `k10_asr_speak` | Statement | TEXT(input_value), INTERVAL(field_number) | `k10_asr_speak(text("value"), 1)` | `k10AsrSpeakSafe(asr, "value", 1, k10_asr_last_speak_generator_coverage_k10_asr_speak);` |
+| `k10_asr_set_speed` | Statement | SPEED(dropdown) | `k10_asr_set_speed(1)` | `if (k10_asr_ready) { asr.setAsrSpeed(0); }` |
 
 ## Parameter Options
 

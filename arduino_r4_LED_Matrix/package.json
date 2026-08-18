@@ -26,6 +26,7 @@
   "description_ru": "Для Arduino UNO R4 Wi-Fi светодиодная матрица поддерживает отображение текста, рисунка и анимации.",
   "description_ar": "بالنسبة لمصفوفة Arduino UNO R4 Wifi LED، تدعم عرض النص والنمط والرسوم المتحركة",
   "version": "0.0.1",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:unor4wifi"

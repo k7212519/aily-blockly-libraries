@@ -1,0 +1,75 @@
+{
+  "toolbox_name": "TTS sin conexión ESP32",
+  "toolbox_labels": {
+    "初始化": "Inicialización",
+    "语音合成": "Síntesis de voz",
+    "状态与控制": "Estado y control"
+  },
+  "esp32_tts_init": {
+    "message0": "inicializar TTS sin conexión %1 modelo %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "tooltip": "Crea el TTS chino sin conexión ESP32-S3 y la salida I2S; use -1 si MCLK no está conectado",
+    "args0": [
+      null,
+      { "options": [["Pequeño (predeterminado, unos 2,78 MiB)", "0"], ["Estándar (unos 3,64 MiB)", "1"]] },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_tts_speak": {
+    "message0": "TTS sin conexión %1 hablar chino %2",
+    "tooltip": "Sintetiza chino UTF-8 de forma bloqueante hacia la salida I2S configurada"
+  },
+  "esp32_tts_speak_pinyin": {
+    "message0": "TTS sin conexión %1 hablar pinyin %2",
+    "tooltip": "Habla pinyin separado por espacios con dígitos de tono de 0 a 5, como da4 jia1 hao3"
+  },
+  "esp32_tts_speak_money": {
+    "message0": "TTS sin conexión %1 hablar importe yuan %2 jiao %3 fen %4 modo %5",
+    "tooltip": "Sintetiza un importe no negativo; jiao y fen deben estar entre 0 y 9",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      { "options": [["Solo importe", "ESP32TTSPayMode::NumberOnly"], ["Pago Alipay recibido", "ESP32TTSPayMode::Alipay"], ["Pago WeChat recibido", "ESP32TTSPayMode::WeChat"]] }
+    ]
+  },
+  "esp32_tts_set_speed": {
+    "message0": "TTS sin conexión %1 establecer velocidad %2",
+    "tooltip": "Establece la velocidad de 0 (más lenta) a 5 (más rápida)",
+    "args0": [
+      null,
+      { "options": [["0 (más lenta)", "0"], ["1", "1"], ["2", "2"], ["3 (predeterminada)", "3"], ["4", "4"], ["5 (más rápida)", "5"]] }
+    ]
+  },
+  "esp32_tts_get_speed": {
+    "message0": "TTS sin conexión %1 velocidad actual",
+    "tooltip": "Devuelve la velocidad actual de 0 a 5"
+  },
+  "esp32_tts_is_ready": {
+    "message0": "TTS sin conexión %1 está listo",
+    "tooltip": "Comprueba si el motor TTS se inicializó correctamente"
+  },
+  "esp32_tts_is_speaking": {
+    "message0": "TTS sin conexión %1 está hablando",
+    "tooltip": "Comprueba si TTS está sintetizando y emitiendo voz"
+  },
+  "esp32_tts_last_error": {
+    "message0": "TTS sin conexión %1 último código de error",
+    "tooltip": "Devuelve el último código de error numérico; 0 significa sin error"
+  },
+  "esp32_tts_last_error_message": {
+    "message0": "TTS sin conexión %1 último mensaje de error",
+    "tooltip": "Devuelve la descripción en inglés del último error"
+  },
+  "esp32_tts_stop": {
+    "message0": "TTS sin conexión %1 solicitar parada",
+    "tooltip": "Solicita desde otra tarea FreeRTOS detener la locución bloqueante actual"
+  },
+  "esp32_tts_end": {
+    "message0": "TTS sin conexión %1 liberar recursos",
+    "tooltip": "Libera los recursos del motor TTS para poder inicializarlo de nuevo"
+  }
+}

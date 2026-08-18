@@ -8,14 +8,14 @@ Blockly library for Seeed Bme68x.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `bme68x_init` | Statement | ADDRESS(dropdown) | `bme68x_init("0x76")` | Wire.begin();\nbme68x_sensor.init();\n |
-| `bme68x_read_temperature` | Value | (none) | `bme68x_read_temperature()` | bme68x_sensor.read_temperature() |
-| `bme68x_read_humidity` | Value | (none) | `bme68x_read_humidity()` | bme68x_sensor.read_humidity() |
-| `bme68x_read_pressure` | Value | (none) | `bme68x_read_pressure()` | (bme68x_sensor.read_pressure() / 100.0) |
-| `bme68x_read_gas` | Value | (none) | `bme68x_read_gas()` | bme68x_sensor.read_gas() |
-| `bme68x_update` | Statement | (none) | `bme68x_update()` | bme68x_sensor.read_sensor_data();\n |
+| `bme68x_init` | Statement | ADDRESS(dropdown) | `bme68x_init("0x76")` | `Wire.begin(); ↵ bme68x_sensor.init();` |
+| `bme68x_read_temperature` | Value | (none) | `bme68x_read_temperature()` | `bme68x_sensor.read_temperature()` |
+| `bme68x_read_humidity` | Value | (none) | `bme68x_read_humidity()` | `bme68x_sensor.read_humidity()` |
+| `bme68x_read_pressure` | Value | (none) | `bme68x_read_pressure()` | `(bme68x_sensor.read_pressure() / 100.0)` |
+| `bme68x_read_gas` | Value | (none) | `bme68x_read_gas()` | `bme68x_sensor.read_gas()` |
+| `bme68x_update` | Statement | (none) | `bme68x_update()` | `bme68x_sensor.read_sensor_data();` |
 
 ## Parameter Options
 

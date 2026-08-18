@@ -8,13 +8,13 @@ SHT30/SHT31/SHT35 temperature and humidity sensor library, I2C communication, in
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `sht31_init` | Statement | VAR(field_input), ADDRESS(dropdown), WIRE(dropdown) | `sht31_init("sht31", "0x44", WIRE)` | Dynamic code |
-| `sht31_heater_control` | Statement | VAR(field_variable), STATE(dropdown) | `sht31_heater_control(variables_get($sht31), true)` | ....heater(...);\n |
-| `sht31_is_heater_enabled` | Value | VAR(field_variable) | `sht31_is_heater_enabled(variables_get($sht31))` | Dynamic code |
-| `sht31_reset` | Statement | VAR(field_variable) | `sht31_reset(variables_get($sht31))` | Dynamic code |
-| `sht31_simple_read` | Value | VAR(field_variable), TYPE(dropdown) | `sht31_simple_read(variables_get($sht31), temperature)` | Dynamic code |
+| `sht31_init` | Statement | VAR(field_input), ADDRESS(dropdown), WIRE(dropdown) | `sht31_init("sht31", "0x44", WIRE)` | `Adafruit_SHT31 sht31; ↵ // SHT3x I2C连接: 使用默认I2C引脚 ↵ WIRE.begin(); ↵ if (!sht31.begin(0x44)) { ↵ while (1) delay(1); ↵ }` |
+| `sht31_heater_control` | Statement | VAR(field_variable), STATE(dropdown) | `sht31_heater_control($sht31, true)` | `sht31.heater(true);` |
+| `sht31_is_heater_enabled` | Value | VAR(field_variable) | `sht31_is_heater_enabled($sht31)` | `sht31.isHeaterEnabled()` |
+| `sht31_reset` | Statement | VAR(field_variable) | `sht31_reset($sht31)` | `sht31.reset();` |
+| `sht31_simple_read` | Value | VAR(field_variable), TYPE(dropdown) | `sht31_simple_read($sht31, temperature)` | `sht31.readTemperature()` |
 
 ## Parameter Options
 
@@ -30,15 +30,15 @@ SHT30/SHT31/SHT35 temperature and humidity sensor library, I2C communication, in
 ```
 arduino_setup()
     sht31_init("sht31", "0x44", WIRE)
-    sht31_heater_control(variables_get($sht31), false)
+    sht31_heater_control($sht31, false)
 
 arduino_loop()
-    sht31_simple_read(variables_get($sht31), temperature)
+    sht31_simple_read($sht31, temperature)
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `sht31_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `sht31_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

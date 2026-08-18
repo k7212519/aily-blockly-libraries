@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "inicializar Arduino GFX %1 pantalla %2 DC %3 CS %4 restablecer %5 rotación %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Cree un bus de hardware SPI y un controlador de pantalla común Arduino_GFX."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 color de pantalla de relleno %2",
+    "tooltip": "Llene toda la pantalla con un color RGB565."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 línea x0 %2 y0 %3 x1 %4 y1 %5 color %6",
+    "tooltip": "Dibuja un segmento de línea."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 rectángulo x %3 y %4 ancho %5 alto %6 color %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "forma de contorno",
+            "drawRect"
+          ],
+          [
+            "forma rellena",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Dibuja un rectángulo delineado o relleno."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 círculo x %3 y %4 radio %5 color %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "forma de contorno",
+            "drawCircle"
+          ],
+          [
+            "forma rellena",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Dibuja un círculo delineado o relleno."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 color de texto %2 fondo %3 tamaño %4 envoltura %5",
+    "tooltip": "Establezca el color, el fondo, la escala y el ajuste del texto."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 en x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "imprimir sin una nueva línea",
+            "print"
+          ],
+          [
+            "imprimir con una nueva línea",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Coloque el cursor y dibuje el texto."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "establecer la rotación",
+            "setRotation"
+          ],
+          [
+            "pantalla invertida",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Cambie la rotación o inversión de la pantalla."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ancho",
+            "width"
+          ],
+          [
+            "altura",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea la dimensión de visualización lógica actual."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 rojo %1 verde %2 azul %3",
+    "tooltip": "Convierta componentes RGB de 8 bits a un color RGB565."
+  }
+}

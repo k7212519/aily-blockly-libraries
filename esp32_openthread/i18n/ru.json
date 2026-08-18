@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 OpenThread",
+  "esp32_openthread_begin": {
+    "message0": "Инициализируйте OpenThread для автоматического запуска %1",
+    "tooltip": "Инициализируйте стек OpenThread."
+  },
+  "esp32_openthread_end": {
+    "message0": "Завершить OpenThread",
+    "tooltip": "Закройте стек OpenThread."
+  },
+  "esp32_openthread_control": {
+    "message0": "OpenThread %1",
+    "tooltip": "Управление сетью или интерфейсом потока.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Запустить сеть",
+            "start"
+          ],
+          [
+            "Остановить сеть",
+            "stop"
+          ],
+          [
+            "Интерфейс онлайн",
+            "networkInterfaceUp"
+          ],
+          [
+            "Интерфейс отключен",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread запущен",
+    "tooltip": "Проверьте, работает ли стек OpenThread."
+  },
+  "esp32_openthread_role": {
+    "message0": "Текущая роль OpenThread",
+    "tooltip": "Возврат отключен/отсоединен/дочернего/маршрутизатора/лидера."
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "OpenThread имеет активный набор данных",
+    "tooltip": "Проверьте, отправлен ли активный набор данных."
+  },
+  "esp32_openthread_dataset": {
+    "message0": "Создать и отправить набор данных потока %1 Имя %2 Канал %3 PAN ID %4",
+    "tooltip": "Создайте новый активный набор данных и отправьте его."
+  },
+  "esp32_openthread_network_number": {
+    "message0": "Сетевое значение OpenThread %1",
+    "tooltip": "Прочитайте значение сети потока.",
+    "args0": [
+      {
+        "options": [
+          [
+            "канал",
+            "getChannel"
+          ],
+          [
+            "PAN-идентификатор",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "Количество одноадресных адресов",
+            "getUnicastAddressCount"
+          ],
+          [
+            "Количество адресов многоадресной рассылки",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "Сетевой текст OpenThread %1",
+    "tooltip": "Прочитайте имя сети или IPv6-адрес.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Имя сети",
+            "getNetworkName"
+          ],
+          [
+            "Локальный EID сетки",
+            "getMeshLocalEid"
+          ],
+          [
+            "Лидер РЛОК",
+            "getLeaderRloc"
+          ],
+          [
+            "Нативный RLOC",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

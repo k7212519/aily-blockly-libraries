@@ -8,15 +8,15 @@ MPU6050 six-axis (accelerometer + gyroscope) sensor library for Arduino UNO R3
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `mpu6050_begin` | Statement | (none) | `mpu6050_begin()` | Dynamic code |
-| `mpu6050_get_accel` | Value | AXIS(dropdown) | `mpu6050_get_accel(x)` | mpu.getEvent(&a, &g, &temp); a.acceleration. |
-| `mpu6050_get_gyro` | Value | AXIS(dropdown) | `mpu6050_get_gyro(x)` | mpu.getEvent(&a, &g, &temp); (g.gyro. |
-| `mpu6050_get_temp` | Value | (none) | `mpu6050_get_temp()` | mpu.getEvent(&a, &g, &temp); temp.temperature |
-| `mpu6050_set_accel_range` | Statement | RANGE(dropdown) | `mpu6050_set_accel_range(MPU6050_RANGE_2_G)` | mpu.setAccelerometerRange( |
-| `mpu6050_set_gyro_range` | Statement | RANGE(dropdown) | `mpu6050_set_gyro_range(MPU6050_RANGE_250_DEG)` | mpu.setGyroRange( |
-| `mpu6050_set_filter_bandwidth` | Statement | BANDWIDTH(dropdown) | `mpu6050_set_filter_bandwidth(MPU6050_BAND_260_HZ)` | mpu.setFilterBandwidth( |
+| `mpu6050_begin` | Statement | (none) | `mpu6050_begin()` | `Adafruit_MPU6050 mpu; ↵ sensors_event_t a, g, temp; ↵ if (!mpu.begin()) { ↵ Serial.println("Failed to find MPU6050 chip"); ↵ while (1) { ↵ delay(10); ↵ } ↵ } ↵ // 设置默认参数 ↵ mpu.setAccelerometerRange(MPU6050_RANGE_8_G); ↵ mpu.setGyroRange(MPU6050_RANGE_500_DEG); ↵ mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);` |
+| `mpu6050_get_accel` | Value | AXIS(dropdown) | `mpu6050_get_accel(x)` | `mpu.getEvent(&a, &g, &temp); a.acceleration.x` |
+| `mpu6050_get_gyro` | Value | AXIS(dropdown) | `mpu6050_get_gyro(x)` | `mpu.getEvent(&a, &g, &temp); (g.gyro.x * 57.2958)` |
+| `mpu6050_get_temp` | Value | (none) | `mpu6050_get_temp()` | `mpu.getEvent(&a, &g, &temp); temp.temperature` |
+| `mpu6050_set_accel_range` | Statement | RANGE(dropdown) | `mpu6050_set_accel_range(MPU6050_RANGE_2_G)` | `mpu.setAccelerometerRange(MPU6050_RANGE_2_G);` |
+| `mpu6050_set_gyro_range` | Statement | RANGE(dropdown) | `mpu6050_set_gyro_range(MPU6050_RANGE_250_DEG)` | `mpu.setGyroRange(MPU6050_RANGE_250_DEG);` |
+| `mpu6050_set_filter_bandwidth` | Statement | BANDWIDTH(dropdown) | `mpu6050_set_filter_bandwidth(MPU6050_BAND_260_HZ)` | `mpu.setFilterBandwidth(MPU6050_BAND_260_HZ);` |
 
 ## Parameter Options
 

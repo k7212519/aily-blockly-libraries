@@ -1,0 +1,235 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "تهيئة Dynamixel %1 التسلسلي %2 دبوس الاتجاه %3 بروتوكول الباود %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "2.0",
+            "2.0"
+          ],
+          [
+            "1.0",
+            "1.0"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "تهيئة الناقل التسلسلي DYNAMIXEL."
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel معرف %1 %2 تكوين وضع %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "الموقف",
+            "OP_POSITION"
+          ],
+          [
+            "موقف ممتد",
+            "OP_EXTENDED_POSITION"
+          ],
+          [
+            "السرعة",
+            "OP_VELOCITY"
+          ],
+          [
+            "PWM",
+            "OP_PWM"
+          ],
+          [
+            "التيار الكهربائي",
+            "OP_CURRENT"
+          ],
+          [
+            "وضع الموقف القائم على التيار الكهربائي",
+            "OP_CURRENT_BASED_POSITION"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قم بتعطيل عزم الدوران، واضبط وضع التشغيل، ثم قم بتمكين عزم الدوران."
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel معرف %1 %2 تحديد الهدف قيمة %3 وحدة %4 %5",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "الموقف",
+            "setGoalPosition"
+          ],
+          [
+            "السرعة",
+            "setGoalVelocity"
+          ],
+          [
+            "التيار الكهربائي",
+            "setGoalCurrent"
+          ],
+          [
+            "PWM",
+            "setGoalPWM"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "الخام",
+            "UNIT_RAW"
+          ],
+          [
+            "درجات",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "بالمائة",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قم بتعيين موضع الهدف أو السرعة أو التيار أو PWM."
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 معرف %2 قراءة وحدة %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "الموقف",
+            "getPresentPosition"
+          ],
+          [
+            "السرعة",
+            "getPresentVelocity"
+          ],
+          [
+            "التيار الكهربائي",
+            "getPresentCurrent"
+          ],
+          [
+            "PWM",
+            "getPresentPWM"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "الخام",
+            "UNIT_RAW"
+          ],
+          [
+            "درجات",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "بالمائة",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة ردود فعل المحرك الحية."
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel معرف %1 %2 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "عزم الدوران على",
+            "torqueOn"
+          ],
+          [
+            "عزم الدوران قبالة",
+            "torqueOff"
+          ],
+          [
+            "تشغيل الصمام",
+            "ledOn"
+          ],
+          [
+            "إيقاف تشغيل الصمام",
+            "ledOff"
+          ],
+          [
+            "إعادة التشغيل",
+            "reboot"
+          ],
+          [
+            "إعادة ضبط المصنع",
+            "factoryReset"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "التحكم في عزم الدوران أو مؤشر LED أو حالة الجهاز."
+  },
+  "dynamixel_ping": {
+    "message0": "يستجيب Dynamixel معرف %1 %2",
+    "tooltip": "قم باختبار اتصال معرف المشغل."
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 معرف %2 كتابة عنصر التحكم قيمة %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "سرعة ملف تعريف الحركة",
+            "PROFILE_VELOCITY"
+          ],
+          [
+            "تسريع ملف تعريف الحركة",
+            "PROFILE_ACCELERATION"
+          ],
+          [
+            "كسب الموقف P",
+            "POSITION_P_GAIN"
+          ],
+          [
+            "حد السرعة",
+            "VELOCITY_LIMIT"
+          ],
+          [
+            "الحد الحالي",
+            "CURRENT_LIMIT"
+          ],
+          [
+            "حد درجة الحرارة",
+            "TEMPERATURE_LIMIT"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "اكتب عنصر جدول التحكم DYNAMIXEL الشائع."
+  }
+}

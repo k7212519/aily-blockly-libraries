@@ -1,21 +1,21 @@
-# BLE bluetooth mouse
+# BLE bluetooth mouse (ESP32 SDK)
 
 BLE mouse library for ESP32, supporting mouse movement, click, wheel and other operations
 
 ## Library Info
 - **Name**: @aily-project/lib-esp32-ble-mouse
-- **Version**: 1.0.0
+- **Version**: 2.0.0
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ble_mouse_init` | Statement | DEVICE_NAME(input_value), MANUFACTURER(input_value), BATTERY(input_value) | `ble_mouse_init(text("value"), text("value"), math_number(0))` | Dynamic code |
-| `ble_mouse_is_connected` | Value | (none) | `ble_mouse_is_connected()` | compositeHID.isConnected() |
-| `ble_mouse_move` | Statement | X(input_value), Y(input_value) | `ble_mouse_move(math_number(0), math_number(0))` | if(mouse != nullptr && compositeHID.isConnected()) {\n |
-| `ble_mouse_click` | Statement | BUTTON(dropdown), ACTION(dropdown) | `ble_mouse_click(MOUSE_LOGICAL_LEFT_BUTTON, press)` | if(mouse != nullptr && compositeHID.isConnected()) {\n |
-| `ble_mouse_scroll` | Statement | SCROLL(input_value) | `ble_mouse_scroll(math_number(0))` | if(mouse != nullptr && compositeHID.isConnected()) {\n |
-| `ble_mouse_send_report` | Statement | (none) | `ble_mouse_send_report()` | if(mouse != nullptr && compositeHID.isConnected()) {\n |
+| `ble_mouse_init` | Statement | DEVICE_NAME(input_value), MANUFACTURER(input_value), BATTERY(input_value) | `ble_mouse_init(text("value"), text("value"), math_number(0))` | `MouseDevice* mouse = nullptr; ↵ BleCompositeHID compositeHID("value", "value", 1); ↵ mouse = new MouseDevice(); ↵ compositeHID.addDevice(mouse); ↵ compositeHID.begin();` |
+| `ble_mouse_is_connected` | Value | (none) | `ble_mouse_is_connected()` | `compositeHID.isConnected()` |
+| `ble_mouse_move` | Statement | X(input_value), Y(input_value) | `ble_mouse_move(math_number(0), math_number(0))` | `if(mouse != nullptr && compositeHID.isConnected()) { ↵ mouse->mouseMove(1, 1); ↵ mouse->sendMouseReport(); ↵ }` |
+| `ble_mouse_click` | Statement | BUTTON(dropdown), ACTION(dropdown) | `ble_mouse_click(MOUSE_LOGICAL_LEFT_BUTTON, press)` | `if(mouse != nullptr && compositeHID.isConnected()) { ↵ mouse->mousePress(MOUSE_LOGICAL_LEFT_BUTTON); ↵ mouse->sendMouseReport(); ↵ }` |
+| `ble_mouse_scroll` | Statement | SCROLL(input_value) | `ble_mouse_scroll(math_number(0))` | `if(mouse != nullptr && compositeHID.isConnected()) { ↵ mouse->mouseScroll(1); ↵ mouse->sendMouseReport(); ↵ }` |
+| `ble_mouse_send_report` | Statement | (none) | `ble_mouse_send_report()` | `if(mouse != nullptr && compositeHID.isConnected()) { ↵ mouse->sendMouseReport(); ↵ }` |
 
 ## Parameter Options
 
@@ -41,3 +41,4 @@ arduino_loop()
 
 1. **Parameter order**: ABS parameters follow `block.json` args order.
 2. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.
+3. **BLE backend**: uses ESP32 Arduino SDK 3.3.11 `BLEDevice`/`BLEHIDDevice` and does not bundle NimBLE-Arduino.

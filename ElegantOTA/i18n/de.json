@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "ElegantOTA-Server %1 initialisieren Modus %2 Port %3 Benutzername %4 Passwort %5 automatischer Neustart %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "synchroner Webserver",
+            "sync"
+          ],
+          [
+            "AsyncWebServer",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Erstellen Sie einen Webserver und stellen Sie das Update-Portal ElegantOTA unter /update bereit."
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA Benutzername festlegen %1 Passwort %2",
+    "tooltip": "Ändern Sie die Authentifizierung des Update-Portals."
+  },
+  "elegant_ota_on_start": {
+    "message0": "wenn das ElegantOTA-Update startet %1",
+    "tooltip": "Führen Sie den Code aus, wenn ein OTA-Upload beginnt."
+  },
+  "elegant_ota_on_progress": {
+    "message0": "während das ElegantOTA-Update fortschreitet, %1",
+    "tooltip": "Führen Sie den Code aus, wenn sich der Fortschritt von OTA ändert."
+  },
+  "elegant_ota_on_end": {
+    "message0": "wenn das Update ElegantOTA endet %1",
+    "tooltip": "Führen Sie Code aus, wenn ein OTA-Update erfolgreich ist oder fehlschlägt."
+  },
+  "elegant_ota_callback_value": {
+    "message0": "ElegantOTA Rückruf %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "empfangene Bytes",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "Gesamtbytes",
+            "_ailyOtaFinal"
+          ],
+          [
+            "Fortschritt in Prozent",
+            "percent"
+          ],
+          [
+            "Erfolg",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Liest Werte, die in OTA-Callback-Blöcken verfügbar sind."
+  }
+}

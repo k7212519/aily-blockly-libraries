@@ -8,22 +8,22 @@ Blockly wrapper for the SparkFun BQ27441 LiPo fuel gauge.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `bq27441_begin` | Statement | CAPACITY(input_value) | `bq27441_begin(math_number(0))` | bq27441_ready = lipo.begin();\nif (bq27441_ready) {\n lipo.setCapacity( |
-| `bq27441_is_ready` | Value | (none) | `bq27441_is_ready()` | bq27441_ready |
-| `bq27441_set_capacity` | Statement | CAPACITY(input_value) | `bq27441_set_capacity(math_number(0))` | lipo.setCapacity( |
-| `bq27441_voltage` | Value | (none) | `bq27441_voltage()` | lipo.voltage() |
-| `bq27441_current` | Value | TYPE(dropdown) | `bq27441_current(AVG)` | lipo.current( |
-| `bq27441_capacity` | Value | TYPE(dropdown) | `bq27441_capacity(REMAIN)` | lipo.capacity( |
-| `bq27441_power` | Value | (none) | `bq27441_power()` | lipo.power() |
-| `bq27441_soc` | Value | TYPE(dropdown) | `bq27441_soc(FILTERED)` | lipo.soc( |
-| `bq27441_soh` | Value | TYPE(dropdown) | `bq27441_soh(PERCENT)` | lipo.soh( |
-| `bq27441_temperature` | Value | TYPE(dropdown) | `bq27441_temperature(BATTERY)` | lipo.temperature( |
-| `bq27441_flags` | Value | (none) | `bq27441_flags()` | lipo.flags() |
-| `bq27441_status` | Value | (none) | `bq27441_status()` | lipo.status() |
-| `bq27441_set_gpout_function` | Statement | FUNCTION(dropdown) | `bq27441_set_gpout_function(SOC_INT)` | lipo.setGPOUTFunction( |
-| `bq27441_set_gpout_polarity` | Statement | ACTIVE_HIGH(dropdown) | `bq27441_set_gpout_polarity(TRUE)` | lipo.setGPOUTPolarity( |
+| `bq27441_begin` | Statement | CAPACITY(input_value) | `bq27441_begin(math_number(0))` | `bq27441_ready = lipo.begin(); ↵ if (bq27441_ready) { ↵ lipo.setCapacity(1); ↵ }` |
+| `bq27441_is_ready` | Value | (none) | `bq27441_is_ready()` | `bq27441_ready` |
+| `bq27441_set_capacity` | Statement | CAPACITY(input_value) | `bq27441_set_capacity(math_number(0))` | `lipo.setCapacity(1);` |
+| `bq27441_voltage` | Value | (none) | `bq27441_voltage()` | `lipo.voltage()` |
+| `bq27441_current` | Value | TYPE(dropdown) | `bq27441_current(AVG)` | `lipo.current(AVG)` |
+| `bq27441_capacity` | Value | TYPE(dropdown) | `bq27441_capacity(REMAIN)` | `lipo.capacity(REMAIN)` |
+| `bq27441_power` | Value | (none) | `bq27441_power()` | `lipo.power()` |
+| `bq27441_soc` | Value | TYPE(dropdown) | `bq27441_soc(FILTERED)` | `lipo.soc(FILTERED)` |
+| `bq27441_soh` | Value | TYPE(dropdown) | `bq27441_soh(PERCENT)` | `lipo.soh(PERCENT)` |
+| `bq27441_temperature` | Value | TYPE(dropdown) | `bq27441_temperature(BATTERY)` | `lipo.temperature(BATTERY)` |
+| `bq27441_flags` | Value | (none) | `bq27441_flags()` | `lipo.flags()` |
+| `bq27441_status` | Value | (none) | `bq27441_status()` | `lipo.status()` |
+| `bq27441_set_gpout_function` | Statement | FUNCTION(dropdown) | `bq27441_set_gpout_function(SOC_INT)` | `lipo.setGPOUTFunction(SOC_INT);` |
+| `bq27441_set_gpout_polarity` | Statement | ACTIVE_HIGH(dropdown) | `bq27441_set_gpout_polarity(TRUE)` | `lipo.setGPOUTPolarity(true);` |
 
 ## Parameter Options
 

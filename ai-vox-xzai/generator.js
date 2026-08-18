@@ -2642,9 +2642,9 @@ Arduino.forBlock['aivox3_set_es8311_volume'] = function(block, generator) {
 };
 
 Arduino.forBlock['aivox3_set_screen_light'] = function(block, generator) {
-    aivox3_screen_light = generator.valueToCode(block, 'aivox3_screen_light', generator.ORDER_ATOMIC) || '""';
+    const aivox3_screen_light = generator.valueToCode(block, 'aivox3_screen_light', generator.ORDER_ATOMIC) || '""';
     // generator.addSetup("aivox3_setup_es8311", `  g_audio_device_es8311 = std::make_shared<ai_vox::AudioDeviceEs8311>(g_i2c_master_bus_handle, ${es8311_i2c_address}, I2C_NUM_1, ${es8311_rate}, GPIO_NUM_${es8311_mclk}, GPIO_NUM_${es8311_sclk}, GPIO_NUM_${es8311_lrck}, GPIO_NUM_${es8311_dsdout}, GPIO_NUM_${es8311_dsdin});`);
-    return ``;
+    return `if (kDisplayBacklightPin != GPIO_NUM_NC) {\n  analogWrite(kDisplayBacklightPin, ${aivox3_screen_light});\n}\n`;
 };
 
 // 实现esp32ai_selget_mcp_control块的代码生成逻辑
@@ -3424,7 +3424,7 @@ Arduino.forBlock['aivox_mcp_register_control_command'] = function(block, generat
     });
 
     generator.addObject('ai_vox_engine', `auto& ai_vox_engine = ai_vox::Engine::GetInstance();`, true);
-    generator.addSetupbegin(`aivox_instance`, `ai_vox_engine.SetObserver(g_observer);\n`, true);
+    generator.addSetupBegin(`aivox_instance`, `ai_vox_engine.SetObserver(g_observer);\n`, true);
     // generator.addObject(`ai_vox_mcp_${name}_count`, `int ${name}_count = ${count};`, true);
     
     // Generate code based on the selected mode
@@ -4467,4 +4467,4 @@ Blockly.Extensions.registerMutator('custom_dynamic_mutator', {
   }
 });
 
-//  
+//

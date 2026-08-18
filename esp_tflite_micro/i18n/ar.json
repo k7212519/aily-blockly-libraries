@@ -1,0 +1,115 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "تهيئة ESP TFLite Micro %1 رأس النموذج %2 رمز النموذج %3 بايت ساحة ذاكرة الموتر %4",
+    "tooltip": "قم بإنشاء مترجم TensorFlow Lite Micro باستخدام عوامل تشغيل مدمجة شائعة الاستخدام."
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 مؤشر الإدخال %2 تعيين قيمة %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 الخام",
+            "int8"
+          ],
+          [
+            "uint8 الخام",
+            "uint8"
+          ],
+          [
+            "تكميم التعويم إلى int8",
+            "quantized"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "اكتب عنصر موتر إدخال نموذج واحد."
+  },
+  "esp_tflite_invoke": {
+    "message0": "نجح استدعاء TFLite %1",
+    "tooltip": "قم بتشغيل استدلال واحد وإرجاع ما إذا كان قد نجح."
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 مؤشر الإخراج %2 قراءة %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 الخام",
+            "int8"
+          ],
+          [
+            "uint8 الخام",
+            "uint8"
+          ],
+          [
+            "int8",
+            "dequantized"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة عنصر موتر إخراج نموذج واحد."
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "TFLite %1 %2 موتر %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إدخال",
+            "input"
+          ],
+          [
+            "الإخراج",
+            "output"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "حجم البايت",
+            "bytes"
+          ],
+          [
+            "عدد العناصر",
+            "count"
+          ],
+          [
+            "اكتب التعداد",
+            "type"
+          ],
+          [
+            "مقياس الكمي",
+            "scale"
+          ],
+          [
+            "نقطة الصفر",
+            "zero_point"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "فحص موتر الإدخال أو الإخراج النموذجي."
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1 جاهز",
+    "tooltip": "تحقق من نجاح تحليل النموذج وتخصيص الموتر."
+  }
+}

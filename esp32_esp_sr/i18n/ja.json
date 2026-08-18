@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "ESP32 音声認識",
+  "esp32_esp_sr_begin": {
+    "message0": "音声認識開始 I2S %1 コマンド 1 %2 コマンド 2 %3 コマンド 3 %4 コマンド 4 %5 チャネル %6 入力形式 %7",
+    "tooltip": "オフライン音声認識を開始し、4 つのフレーズにコマンド ID 1 ～ 4 を割り当てます。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "モノ",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "ステレオ",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "音声認識 %1",
+    "tooltip": "音声認識を終了、一時停止、または再開します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "終わり",
+            "end"
+          ],
+          [
+            "一時停止",
+            "pause"
+          ],
+          [
+            "復元",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "音声認識モード %1",
+    "tooltip": "ウェイクワードまたはコマンド認識モードを切り替えます。",
+    "args0": [
+      {
+        "options": [
+          [
+            "ウェイクワード",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "コマンドワード",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "音声認識の最近の出来事",
+    "tooltip": "最新の sr_event_t 値を返します。"
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "音声認識最近のコマンド ID",
+    "tooltip": "最後に認識されたコマンド ID を返します。"
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "音声認識の最近のフレーズ ID",
+    "tooltip": "最後に認識されたフレーズ ID を返します。"
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "ボイスイベント %1",
+    "tooltip": "音声イベント定数を返します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "ウェイクワード",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "ウェイクアップチャンネル",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "コマンド",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "タイムアウト",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

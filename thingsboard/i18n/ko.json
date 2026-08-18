@@ -1,0 +1,60 @@
+{
+  "toolbox_name": "ThingsBoard",
+  "thingsboard_init": {
+    "message0": "ThingsBoard %1 서버 %2 토큰 %3 포트 %4 메시지 바이트 %5 초기화",
+    "tooltip": "MQTT 클라이언트를 생성하고 ThingsBoard에 연결합니다."
+  },
+  "thingsboard_connect": {
+    "message0": "ThingsBoard %1 연결 서버 %2 토큰 %3 포트 %4",
+    "tooltip": "ThingsBoard에 연결하거나 다시 연결하세요."
+  },
+  "thingsboard_send": {
+    "message0": "ThingsBoard %1 %2 키 %3 값 %4 보내기",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "원격 측정",
+            "sendTelemetryData"
+          ],
+          [
+            "클라이언트 속성",
+            "sendAttributeData"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "하나의 원격 분석 또는 클라이언트 속성 값을 보냅니다."
+  },
+  "thingsboard_send_json": {
+    "message0": "ThingsBoard %1 %2 JSON %3 보내기",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "원격 측정",
+            "sendTelemetryString"
+          ],
+          [
+            "클라이언트 속성",
+            "sendAttributeString"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "미리 빌드된 JSON 개체 문자열을 보냅니다."
+  },
+  "thingsboard_connected": {
+    "message0": "ThingsBoard %1가 연결되었습니다",
+    "tooltip": "MQTT 연결을 확인하세요."
+  },
+  "thingsboard_disconnect": {
+    "message0": "ThingsBoard %1 연결 해제",
+    "tooltip": "ThingsBoard MQTT 클라이언트의 연결을 끊습니다."
+  }
+}

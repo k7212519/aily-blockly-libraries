@@ -1,0 +1,163 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "Initialisieren Sie den Ethernet-Modus MAC %1 %2 IP %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "DHCP",
+            "dhcp"
+          ],
+          [
+            "statisch IP",
+            "static"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Initialisieren Sie Ethernet mit DHCP oder einer statischen Adresse."
+  },
+  "ethernet_network_info": {
+    "message0": "Ethernet %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "lokal IP",
+            "localIP"
+          ],
+          [
+            "Gateway IP",
+            "gatewayIP"
+          ],
+          [
+            "Subnetzmaske",
+            "subnetMask"
+          ],
+          [
+            "DNS-Server IP",
+            "dnsServerIP"
+          ],
+          [
+            "Link ist aktiv",
+            "link"
+          ],
+          [
+            "Hardware vorhanden ist",
+            "hardware"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie den Status des Ethernet-Netzwerks oder der Hardware."
+  },
+  "ethernet_client_create": {
+    "message0": "Erstellen Sie den Ethernet-Client %1",
+    "tooltip": "Erstellen Sie ein EthernetClient-Objekt."
+  },
+  "ethernet_client_connect": {
+    "message0": "Ethernet-Client %1 verbindet Host %2-Port %3",
+    "tooltip": "Verbinden Sie einen Client mit einem Host und Port."
+  },
+  "ethernet_client_write": {
+    "message0": "Ethernet-Client %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ohne Zeilenumbruch drucken",
+            "print"
+          ],
+          [
+            "mit einer neuen Zeile drucken",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Senden Sie Daten über einen Ethernet-Client."
+  },
+  "ethernet_client_data": {
+    "message0": "Ethernet-Client %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "verfügbare Bytes",
+            "available"
+          ],
+          [
+            "Byte lesen",
+            "read"
+          ],
+          [
+            "Zeile lesen",
+            "line"
+          ],
+          [
+            "verbunden ist",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Clientdaten oder Verbindungsstatus lesen."
+  },
+  "ethernet_client_stop": {
+    "message0": "Stoppen Sie den Ethernet-Client %1",
+    "tooltip": "Schließen Sie eine Ethernet-Client-Verbindung."
+  },
+  "ethernet_server_create": {
+    "message0": "Erstellen Sie den Ethernet-Server %1-Port %2",
+    "tooltip": "Erstellen und starten Sie ein EthernetServer."
+  },
+  "ethernet_server_accept": {
+    "message0": "Der Ethernet-Server %1 akzeptiert den Client",
+    "tooltip": "Akzeptieren Sie einen neu verbundenen Client."
+  },
+  "ethernet_udp_create": {
+    "message0": "Erstellen Sie einen lokalen Ethernet-Port UDP %1 %2",
+    "tooltip": "Erstellen Sie einen EthernetUDP-Socket und binden Sie einen Port."
+  },
+  "ethernet_udp_send": {
+    "message0": "Ethernet UDP %1 sendet %2 an den Host-%3-Port %4",
+    "tooltip": "Senden Sie ein UDP-Paket."
+  },
+  "ethernet_udp_data": {
+    "message0": "Ethernet UDP %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Paket analysieren",
+            "parsePacket"
+          ],
+          [
+            "verfügbare Bytes",
+            "available"
+          ],
+          [
+            "Byte lesen",
+            "read"
+          ],
+          [
+            "Fernbedienung IP",
+            "remoteIP"
+          ],
+          [
+            "Remote-Port",
+            "remotePort"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie UDP-Paketdaten oder Absenderinformationen."
+  }
+}

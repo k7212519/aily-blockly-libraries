@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "初始化 Audio Tools I2S %1 模式 %2 取樣率 %3 聲道數 %4 位元深度 %5 BCLK %6 WS %7 資料 TX %8 資料 RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "輸出",
+            "TX_MODE"
+          ],
+          [
+            "輸入",
+            "RX_MODE"
+          ],
+          [
+            "輸入和輸出",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "配置 I2S 音訊串流。"
+  },
+  "audio_tools_copy_init": {
+    "message0": "建立音訊複製器 %1 輸出 %2 輸入 %3 迴圈自動複製 %4",
+    "tooltip": "在兩個 I2S 流之間建立 StreamCopy 管道。"
+  },
+  "audio_tools_copy": {
+    "message0": "音訊複製器 %1 複製下一個緩衝區",
+    "tooltip": "複製下一個可用的音訊緩衝區。"
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 寫入 16 位元樣本 %2",
+    "tooltip": "寫入一個帶符號的 16 位元樣本。"
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 讀取 16 位元樣本",
+    "tooltip": "讀取一個有符號 16 位元音訊樣本。"
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 可用位元組",
+    "tooltip": "返回可讀音頻位元組數。"
+  },
+  "audio_tools_end": {
+    "message0": "結束 Audio Tools I2S %1",
+    "tooltip": "停止 I2S 流。"
+  }
+}

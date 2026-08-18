@@ -1,0 +1,75 @@
+{
+  "toolbox_name": "ESP32 오프라인 TTS",
+  "toolbox_labels": {
+    "初始化": "초기화",
+    "语音合成": "음성 합성",
+    "状态与控制": "상태 및 제어"
+  },
+  "esp32_tts_init": {
+    "message0": "오프라인 TTS %1 초기화 모델 %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "tooltip": "ESP32-S3 오프라인 중국어 TTS와 I2S 출력을 만듭니다. MCLK를 사용하지 않으면 -1로 설정합니다",
+    "args0": [
+      null,
+      { "options": [["소형 모델(기본값, 약 2.78 MiB)", "0"], ["표준 모델(약 3.64 MiB)", "1"]] },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_tts_speak": {
+    "message0": "오프라인 TTS %1 중국어 말하기 %2",
+    "tooltip": "UTF-8 중국어를 블로킹 방식으로 합성하여 설정된 I2S 출력으로 보냅니다"
+  },
+  "esp32_tts_speak_pinyin": {
+    "message0": "오프라인 TTS %1 병음 말하기 %2",
+    "tooltip": "da4 jia1 hao3처럼 공백으로 구분하고 0~5 성조 숫자가 붙은 병음을 말합니다"
+  },
+  "esp32_tts_speak_money": {
+    "message0": "오프라인 TTS %1 금액 말하기 위안 %2 자오 %3 펀 %4 모드 %5",
+    "tooltip": "0 이상의 금액을 합성합니다. 자오와 펀은 0~9여야 합니다",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      { "options": [["금액만", "ESP32TTSPayMode::NumberOnly"], ["Alipay 입금", "ESP32TTSPayMode::Alipay"], ["WeChat Pay 입금", "ESP32TTSPayMode::WeChat"]] }
+    ]
+  },
+  "esp32_tts_set_speed": {
+    "message0": "오프라인 TTS %1 속도 설정 %2",
+    "tooltip": "음성 속도를 0(가장 느림)부터 5(가장 빠름)까지 설정합니다",
+    "args0": [
+      null,
+      { "options": [["0(가장 느림)", "0"], ["1", "1"], ["2", "2"], ["3(기본값)", "3"], ["4", "4"], ["5(가장 빠름)", "5"]] }
+    ]
+  },
+  "esp32_tts_get_speed": {
+    "message0": "오프라인 TTS %1 현재 속도",
+    "tooltip": "현재 음성 속도 0~5를 반환합니다"
+  },
+  "esp32_tts_is_ready": {
+    "message0": "오프라인 TTS %1 준비됨",
+    "tooltip": "TTS 엔진이 성공적으로 초기화되었는지 확인합니다"
+  },
+  "esp32_tts_is_speaking": {
+    "message0": "오프라인 TTS %1 말하는 중",
+    "tooltip": "TTS가 음성을 합성하고 출력하는지 확인합니다"
+  },
+  "esp32_tts_last_error": {
+    "message0": "오프라인 TTS %1 마지막 오류 코드",
+    "tooltip": "최근 숫자 오류 코드를 반환합니다. 0은 오류 없음을 뜻합니다"
+  },
+  "esp32_tts_last_error_message": {
+    "message0": "오프라인 TTS %1 마지막 오류 메시지",
+    "tooltip": "최근 오류의 영어 설명을 반환합니다"
+  },
+  "esp32_tts_stop": {
+    "message0": "오프라인 TTS %1 중지 요청",
+    "tooltip": "다른 FreeRTOS 태스크에서 현재 블로킹 음성의 중지를 요청합니다"
+  },
+  "esp32_tts_end": {
+    "message0": "오프라인 TTS %1 리소스 해제",
+    "tooltip": "TTS 엔진 리소스를 해제하여 다시 초기화할 수 있게 합니다"
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32 Matter",
+  "esp32_matter_begin": {
+    "message0": "啟動 Matter",
+    "tooltip": "啟動 Matter 節點；端點需先建立。"
+  },
+  "esp32_matter_status": {
+    "message0": "Matter 狀態 %1",
+    "tooltip": "查詢 Matter 配網或連線狀態。",
+    "args0": [
+      {
+        "options": [
+          [
+            "已配網",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi 已連接",
+            "isWiFiConnected"
+          ],
+          [
+            "Thread 已連接",
+            "isThreadConnected"
+          ],
+          [
+            "設備已連接",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "Matter 配對資訊 %1",
+    "tooltip": "取得 Matter 配對碼或二維碼 URL。",
+    "args0": [
+      {
+        "options": [
+          [
+            "手動配對碼",
+            "getManualPairingCode"
+          ],
+          [
+            "二維碼 URL",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "Matter 清除配網",
+    "tooltip": "清除目前 Matter Fabric 配網資訊。"
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "建立 Matter 開關燈 %1 初始狀態 %2",
+    "tooltip": "建立開關燈端點。"
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "建立 Matter 調光燈 %1 狀態 %2 亮度 %3",
+    "tooltip": "建立調光燈端點。"
+  },
+  "esp32_matter_light_set": {
+    "message0": "Matter 燈 %1 設定 %2 為 %3",
+    "tooltip": "設定燈的開關或亮度。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "開關",
+            "setOnOff"
+          ],
+          [
+            "亮度",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "Matter 燈 %1 讀取 %2",
+    "tooltip": "讀取燈的開關或亮度。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "開關",
+            "getOnOff"
+          ],
+          [
+            "亮度",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "建立 Matter 數值感測器 %1 類型 %2 初值 %3",
+    "tooltip": "建立常用數值感測器端點。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "溫度",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "濕度",
+            "MatterHumiditySensor"
+          ],
+          [
+            "照度",
+            "MatterLightSensor"
+          ],
+          [
+            "壓力",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "Matter 數值感測器 %1 類型 %2 更新 %3",
+    "tooltip": "更新並回報數值感測器值。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "溫度",
+            "setTemperature"
+          ],
+          [
+            "濕度",
+            "setHumidity"
+          ],
+          [
+            "照度",
+            "setIlluminance"
+          ],
+          [
+            "壓力",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "建立 Matter 布林感測器 %1 類型 %2 初值 %3",
+    "tooltip": "建立常用布林感測器端點。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "接觸",
+            "MatterContactSensor"
+          ],
+          [
+            "佔用",
+            "MatterOccupancySensor"
+          ],
+          [
+            "雨水",
+            "MatterRainSensor"
+          ],
+          [
+            "漏水",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Matter 布林感測器 %1 類型 %2 更新 %3",
+    "tooltip": "更新並回報布林感測器值。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "接觸",
+            "setContact"
+          ],
+          [
+            "佔用",
+            "setOccupancy"
+          ],
+          [
+            "雨水",
+            "setRain"
+          ],
+          [
+            "漏水",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

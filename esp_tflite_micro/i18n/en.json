@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "initialize ESP TFLite Micro %1 model header %2 model symbol %3 tensor arena bytes %4",
+    "tooltip": "Create a TensorFlow Lite Micro interpreter with common built-in operators."
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 input index %2 set %3 value %4",
+    "tooltip": "Write one model input tensor element."
+  },
+  "esp_tflite_invoke": {
+    "message0": "TFLite %1 invoke succeeded",
+    "tooltip": "Run one inference and return whether it succeeded."
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 output index %2 read %3",
+    "tooltip": "Read one model output tensor element."
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "TFLite %1 %2 tensor %3",
+    "tooltip": "Inspect a model input or output tensor."
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1 is ready",
+    "tooltip": "Check whether model parsing and tensor allocation succeeded."
+  }
+}

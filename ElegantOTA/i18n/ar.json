@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "تهيئة خادم ElegantOTA وضع %1 منفذ %2 %3 اسم المستخدم %4 كلمة المرور %5 إعادة التشغيل التلقائي %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خادم الويب المتزامن",
+            "sync"
+          ],
+          [
+            "AsyncWebServer",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "قم بإنشاء خادم ويب واكشف عن بوابة تحديث ElegantOTA على /update."
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA قم بتعيين اسم المستخدم %1 كلمة المرور %2",
+    "tooltip": "تغيير مصادقة بوابة التحديث."
+  },
+  "elegant_ota_on_start": {
+    "message0": "عندما يبدأ تحديث ElegantOTA %1",
+    "tooltip": "قم بتشغيل التعليمات البرمجية عند بدء تحميل OTA."
+  },
+  "elegant_ota_on_progress": {
+    "message0": "بينما يتقدم تحديث ElegantOTA %1",
+    "tooltip": "قم بتشغيل التعليمات البرمجية عندما يتغير تقدم OTA."
+  },
+  "elegant_ota_on_end": {
+    "message0": "عندما ينتهي تحديث ElegantOTA %1",
+    "tooltip": "قم بتشغيل التعليمات البرمجية عند نجاح أو فشل تحديث OTA."
+  },
+  "elegant_ota_callback_value": {
+    "message0": "رد الاتصال ElegantOTA %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "البايتات المستلمة",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "إجمالي البايتات",
+            "_ailyOtaFinal"
+          ],
+          [
+            "نسبة التقدم",
+            "percent"
+          ],
+          [
+            "النجاح",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة القيم المتاحة داخل كتل رد الاتصال OTA."
+  }
+}

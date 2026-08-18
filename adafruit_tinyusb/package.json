@@ -1,0 +1,65 @@
+{
+  "name": "@aily-project/lib-adafruit-tinyusb",
+  "nickname": "Adafruit TinyUSB",
+  "nickname_en": "Adafruit TinyUSB",
+  "author": "Adafruit",
+  "description": "USB device descriptors, WebUSB serial, MIDI, and enumeration state.",
+  "description_en": "USB device descriptors, WebUSB serial, MIDI, and enumeration state.",
+  "version": "0.1.0",
+  "url": "https://github.com/adafruit/Adafruit_TinyUSB_Arduino",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "arduino:samd",
+      "rp2040:rp2040",
+      "esp32:esp32"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "tinyusb",
+    "usb",
+    "webusb",
+    "midi"
+  ],
+  "bundledDependencies": {
+    "Adafruit TinyUSB Library": "3.7.7",
+    "Adafruit SPIFlash": "5.1.1",
+    "MIDI Library": "5.0.2",
+    "SdFat - Adafruit Fork": "2.3.103",
+    "Adafruit NeoPixel": "1.15.5"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "usb",
+    "communication"
+  ],
+  "nickname_zh_cn": "Adafruit TinyUSB",
+  "description_zh_cn": "USB 设备描述符、WebUSB 串行、MIDI 和枚举状态。",
+  "nickname_zh_hk": "Adafruit TinyUSB",
+  "description_zh_hk": "USB 裝置描述子、WebUSB 串列、MIDI 和枚舉狀態。",
+  "nickname_ja": "Adafruit TinyUSB",
+  "description_ja": "USB デバイス記述子、WebUSB シリアル、MIDI、および列挙状態。",
+  "nickname_ko": "Adafruit TinyUSB",
+  "description_ko": "USB 장치 설명자, WebUSB 직렬, MIDI 및 열거 상태.",
+  "nickname_de": "Adafruit TinyUSB",
+  "description_de": "USB-Gerätedeskriptoren, WebUSB seriell, MIDI und Aufzählungsstatus.",
+  "nickname_fr": "Adafruit TinyUSB",
+  "description_fr": "Descripteurs de périphérique USB, série WebUSB, MIDI et état d'énumération.",
+  "nickname_es": "Adafruit TinyUSB",
+  "description_es": "Descriptores de dispositivo USB, serie WebUSB, MIDI y estado de enumeración.",
+  "nickname_pt": "Adafruit TinyUSB",
+  "description_pt": "Descritores de dispositivo USB, serial WebUSB, MIDI e estado de enumeração.",
+  "nickname_ru": "Adafruit TinyUSB",
+  "description_ru": "Дескрипторы устройств USB, серийный номер WebUSB, MIDI и состояние перечисления.",
+  "nickname_ar": "Adafruit TinyUSB",
+  "description_ar": "واصفات جهاز USB، وWebUSB التسلسلي، وMIDI، وحالة التعداد."
+}

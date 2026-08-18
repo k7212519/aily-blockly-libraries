@@ -8,30 +8,29 @@ UNIHIKER K10 screen display library with drawing, text, image, animation, and QR
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `k10_init_screen` | Statement | DIR(dropdown) | `k10_init_screen("2")` | Dynamic code |
-| `k10_set_background` | Statement | COLOR(field_colour_hsv_sliders) | `k10_set_background()` | k10.setScreenBackground( |
-| `k10_draw_point` | Statement | X(input_value), Y(input_value), COLOR(field_colour_hsv_sliders) | `k10_draw_point(math_number(0), math_number(0))` | k10.canvas->canvasPoint( |
-| `k10_draw_line` | Statement | X1(input_value), Y1(input_value), X2(input_value), Y2(input_value), COLOR(field_colour_hsv_sliders) | `k10_draw_line(math_number(0), math_number(0), math_number(0), math_number(0))` | k10.canvas->canvasLine( |
-| `k10_set_line_width` | Statement | WIDTH(field_number) | `k10_set_line_width(1)` | k10.canvas->canvasSetLineWidth( |
-| `k10_draw_circle` | Statement | X(input_value), Y(input_value), R(input_value), BORDER_COLOR(field_colour_hsv_sliders), FILL_COLOR(field_colour_hsv_sliders), FILLED(field_checkbox) | `k10_draw_circle(math_number(0), math_number(0), math_number(0), TRUE)` | k10.canvas->canvasCircle( |
-| `k10_draw_rectangle` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), BORDER_COLOR(field_colour_hsv_sliders), FILL_COLOR(field_colour_hsv_sliders), FILLED(field_ch... | `k10_draw_rectangle(math_number(0), math_number(0), math_number(0), math_number(0), TRUE)` | k10.canvas->canvasRectangle( |
-| `k10_draw_text_simple` | Statement | LINE(field_number), TEXT(input_value), COLOR(field_colour_hsv_sliders) | `k10_draw_text_simple(1, text("value"))` | k10.canvas->canvasText( |
-| `k10_draw_text` | Statement | TEXT(input_value), X(input_value), Y(input_value), COLOR(field_colour_hsv_sliders), FONT(dropdown), LINE_CHARS(field_number) | `k10_draw_text(text("value"), math_number(0), math_number(0), eCNAndENFont16, 25)` | k10.canvas->canvasText( |
-| `k10_draw_bitmap` | Statement | IMAGE(field_input), X(input_value), Y(input_value), W(input_value), H(input_value) | `k10_draw_bitmap("image_data1", math_number(0), math_number(0), math_number(0), math_number(0))` | k10.canvas->canvasDrawBitmap( |
-| `k10_draw_image` | Statement | PATH(input_value), X(input_value), Y(input_value) | `k10_draw_image(text("value"), math_number(0), math_number(0))` | k10.canvas->canvasDrawImage( |
-| `k10_draw_qrcode` | Statement | CONTENT(input_value) | `k10_draw_qrcode(text("value"))` | k10.canvasDrawCode( |
-| `k10_update_canvas` | Statement | (none) | `k10_update_canvas()` | k10.canvas->updateCanvas();\n |
-| `k10_clear_canvas` | Statement | MODE(dropdown) | `k10_clear_canvas("0")` | k10.canvas->canvasClear();\n |
+| `k10_init_screen` | Statement | DIR(dropdown) | `k10_init_screen("2")` | `UNIHIKER_K10 k10; ↵ k10.begin(); ↵ uint8_t screen_dir = 2; ↵ k10.initScreen(screen_dir); ↵ k10.creatCanvas();` |
+| `k10_set_background` | Statement | COLOR(field_colour_hsv_sliders) | `k10_set_background("#ffffff")` | `k10.setScreenBackground(0xFFFFFF);` |
+| `k10_draw_point` | Statement | X(input_value), Y(input_value), COLOR(field_colour_hsv_sliders) | `k10_draw_point(math_number(0), math_number(0), "#0000ff")` | `k10.canvas->canvasPoint(1, 1, 0x0000FF);` |
+| `k10_draw_line` | Statement | X1(input_value), Y1(input_value), X2(input_value), Y2(input_value), COLOR(field_colour_hsv_sliders) | `k10_draw_line(math_number(0), math_number(0), math_number(0), math_number(0), "#ff0000")` | `k10.canvas->canvasLine(1, 1, 1, 1, 0xFF0000);` |
+| `k10_set_line_width` | Statement | WIDTH(field_number) | `k10_set_line_width(1)` | `k10.canvas->canvasSetLineWidth(1);` |
+| `k10_draw_circle` | Statement | X(input_value), Y(input_value), R(input_value), BORDER_COLOR(field_colour_hsv_sliders), FILL_COLOR(field_colour_hsv_sliders), FILLED(field_checkbox) | `k10_draw_circle(math_number(0), math_number(0), math_number(0), "#ffcc33", "#ffcc33", TRUE)` | `k10.canvas->canvasCircle(1, 1, 1, 0xFFCC33, 0xFFCC33, true);` |
+| `k10_draw_rectangle` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), BORDER_COLOR(field_colour_hsv_sliders), FILL_COLOR(field_colour_hsv_sliders), FILLED(field_checkbox) | `k10_draw_rectangle(math_number(0), math_number(0), math_number(0), math_number(0), "#ff0000", "#ffffff", TRUE)` | `k10.canvas->canvasRectangle(1, 1, 1, 1, 0xFF0000, 0xFFFFFF, true);` |
+| `k10_draw_text_simple` | Statement | LINE(field_number), TEXT(input_value), COLOR(field_colour_hsv_sliders) | `k10_draw_text_simple(1, text("value"), "#0000ff")` | `k10.canvas->canvasText("value", 1, 0x0000FF);` |
+| `k10_draw_text` | Statement | TEXT(input_value), X(input_value), Y(input_value), COLOR(field_colour_hsv_sliders), FONT(dropdown), LINE_CHARS(field_number) | `k10_draw_text(text("value"), math_number(0), math_number(0), "#0000ff", eCNAndENFont16, 25)` | `k10.canvas->canvasText("value", 1, 1, 0x0000FF, k10.canvas->eCNAndENFont16, 25, true);` |
+| `k10_draw_bitmap` | Statement | IMAGE(field_input), X(input_value), Y(input_value), W(input_value), H(input_value) | `k10_draw_bitmap("image_data1", math_number(0), math_number(0), math_number(0), math_number(0))` | `k10.canvas->canvasDrawBitmap(1, 1, 1, 1, image_data1);` |
+| `k10_draw_image` | Statement | PATH(input_value), X(input_value), Y(input_value) | `k10_draw_image(text("value"), math_number(0), math_number(0))` | `k10.canvas->canvasDrawImage(1, 1, "value");` |
+| `k10_draw_qrcode` | Statement | CONTENT(input_value) | `k10_draw_qrcode(text("value"))` | `k10.canvasDrawCode("value");` |
+| `k10_update_canvas` | Statement | (none) | `k10_update_canvas()` | `k10.canvas->updateCanvas();` |
+| `k10_clear_canvas` | Statement | MODE(dropdown) | `k10_clear_canvas("0")` | `k10.canvas->canvasClear();` |
 | `k10_clear_canvas_row` | Statement | LINE(input_value) | `k10_clear_canvas_row(math_number(1))` | `k10.canvas->canvasClear(1);` |
 | `k10_clear_qrcode` | Statement | (none) | `k10_clear_qrcode()` | `k10.clearCode();` |
-| `k10_animation` | Value (K10Animation) | CUSTOM_ANIMATION(field_tftespi_animation) | `k10_animation()` | RGB565 `PROGMEM` frame arrays |
-| `k10_play_animation` | Statement | X, Y, ANIMATION(input_value), PLAY_MODE(dropdown), LOOP(field_checkbox) | `k10_play_animation(math_number(0), math_number(0), k10_animation(), BLOCKING, FALSE)` | Blocking or non-blocking playback with automatic canvas refresh |
-| `k10_draw_animation_frame` | Statement | X, Y, ANIMATION, FRAME(input_value) | `k10_draw_animation_frame(math_number(0), math_number(0), k10_animation(), math_number(0))` | Draw and refresh one clamped animation frame |
-| `k10_animation_frame_count` | Value (Number) | ANIMATION(input_value) | `k10_animation_frame_count(k10_animation())` | Animation frame count |
-| `k10_step_animation_frame` | Statement | FRAME_VAR(field_variable), TARGET, FRAME_COUNT(input_value), DIRECTION(dropdown) | `k10_step_animation_frame(variables_get($k10AnimationFrame), math_number(0), math_number(1), AUTO)` | Move a frame variable one step |
-| `k10_screen_size` | Value | WHICH(dropdown) | `k10_screen_size(W)` | Dynamic code |
+| `k10_animation` | Value (K10Animation) | CUSTOM_ANIMATION(field_tftespi_animation) | `k10_animation({"schemaVersion":1,"format":"rgb565","encoding":"rgb565-be","width":240,"height":320,"fps":10,"maxFrames":10,"frameCount":0,"frames":null})` | `No direct code emitted while the custom animation field has no frame data.` |
+| `k10_play_animation` | Statement | X(input_value), Y(input_value), ANIMATION(input_value), PLAY_MODE(dropdown), LOOP(field_checkbox) | `k10_play_animation(math_number(0), math_number(0), k10_animation(), BLOCKING, FALSE)` | `// No K10 animation data` |
+| `k10_draw_animation_frame` | Statement | X(input_value), Y(input_value), ANIMATION(input_value), FRAME(input_value) | `k10_draw_animation_frame(math_number(0), math_number(0), k10_animation(), math_number(0))` | `// No K10 animation data` |
+| `k10_animation_frame_count` | Value (Number) | ANIMATION(input_value) | `k10_animation_frame_count(k10_animation())` | `0` |
+| `k10_screen_size` | Value | WHICH(dropdown) | `k10_screen_size(W)` | `240` |
 
 ## Parameter Options
 
@@ -41,7 +40,6 @@ UNIHIKER K10 screen display library with drawing, text, image, animation, and QR
 | FONT | eCNAndENFont16, eCNAndENFont24 | k10_draw_text |
 | MODE | 0, 1 | Clear all rows or clear row 1; saved value `1` remains compatible |
 | PLAY_MODE | BLOCKING, NON_BLOCKING | Play the whole animation at once or advance it from repeated loop execution |
-| DIRECTION | AUTO, FORWARD, BACKWARD | Direction used when stepping a frame variable |
 | WHICH | W, H | k10_screen_size |
 
 ## ABS Examples

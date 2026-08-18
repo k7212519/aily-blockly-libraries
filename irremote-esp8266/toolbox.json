@@ -1,0 +1,4 @@
+{"kind":"category","name":"IRremoteESP8266","colour":"#C62828","icon":"fa-light fa-signal-stream","contents":[
+  {"kind":"block","type":"ir_esp_send_init"},{"kind":"block","type":"ir_esp_send_code","inputs":{"CODE":{"shadow":{"type":"math_number","fields":{"NUM":16711680}}},"BITS":{"shadow":{"type":"math_number","fields":{"NUM":32}}},"REPEATS":{"shadow":{"type":"math_number","fields":{"NUM":0}}}}},{"kind":"block","type":"ir_esp_send_raw","inputs":{"LENGTH":{"shadow":{"type":"math_number","fields":{"NUM":67}}},"KHZ":{"shadow":{"type":"math_number","fields":{"NUM":38}}}}},{"kind":"sep"},
+  {"kind":"block","type":"ir_esp_recv_init","inputs":{"BUFFER":{"shadow":{"type":"math_number","fields":{"NUM":1024}}},"TIMEOUT":{"shadow":{"type":"math_number","fields":{"NUM":50}}}}},{"kind":"block","type":"ir_esp_when_received"},{"kind":"block","type":"ir_esp_received_data"}
+]}

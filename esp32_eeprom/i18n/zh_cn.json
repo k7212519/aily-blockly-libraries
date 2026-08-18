@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "初始化 EEPROM 大小 %1 字节",
+    "tooltip": "分配 EEPROM 模拟存储区。"
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM 读取字节 地址 %1",
+    "tooltip": "读取指定地址的一个字节。"
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM 写入字节 地址 %1 值 %2",
+    "tooltip": "写入一个字节，之后需要提交。"
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM 读取 %1 地址 %2",
+    "tooltip": "按指定类型读取数值。",
+    "args0": [
+      {
+        "options": [
+          [
+            "整数",
+            "readInt"
+          ],
+          [
+            "无符号整数",
+            "readUInt"
+          ],
+          [
+            "长整数",
+            "readLong64"
+          ],
+          [
+            "浮点数",
+            "readFloat"
+          ],
+          [
+            "双精度",
+            "readDouble"
+          ],
+          [
+            "布尔值",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM 写入 %1 地址 %2 值 %3",
+    "tooltip": "按指定类型写入数值。",
+    "args0": [
+      {
+        "options": [
+          [
+            "整数",
+            "writeInt"
+          ],
+          [
+            "无符号整数",
+            "writeUInt"
+          ],
+          [
+            "长整数",
+            "writeLong64"
+          ],
+          [
+            "浮点数",
+            "writeFloat"
+          ],
+          [
+            "双精度",
+            "writeDouble"
+          ],
+          [
+            "布尔值",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM 读取字符串 地址 %1",
+    "tooltip": "读取以零结尾的字符串。"
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM 写入字符串 地址 %1 文本 %2",
+    "tooltip": "写入字符串并返回写入长度。"
+  },
+  "esp32_eeprom_commit": {
+    "message0": "提交 EEPROM 更改",
+    "tooltip": "把缓存中的更改写入 Flash。"
+  },
+  "esp32_eeprom_end": {
+    "message0": "结束 EEPROM",
+    "tooltip": "提交并释放 EEPROM 缓冲区。"
+  },
+  "esp32_eeprom_length": {
+    "message0": "EEPROM 容量",
+    "tooltip": "返回当前 EEPROM 容量。"
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM 有未提交更改",
+    "tooltip": "检查缓存是否有未提交更改。"
+  }
+}

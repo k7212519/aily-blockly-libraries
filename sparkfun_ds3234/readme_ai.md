@@ -8,14 +8,14 @@ Blockly wrapper for the SparkFun DS3234 SPI real-time clock module.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ds3234_begin` | Statement | CS_PIN(field_number) | `ds3234_begin(10)` | rtc.begin( |
-| `ds3234_auto_time` | Statement | (none) | `ds3234_auto_time()` | rtc.autoTime();\n |
-| `ds3234_set_time` | Statement | SEC(input_value), MIN(input_value), HOUR(input_value), DAY(input_value), DATE(input_value), MONTH(input_value), YEAR(input_value) | `ds3234_set_time(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | rtc.setTime( |
-| `ds3234_update` | Statement | (none) | `ds3234_update()` | rtc.update();\n |
-| `ds3234_get_time` | Value | FIELD(dropdown) | `ds3234_get_time(second)` | rtc. |
-| `ds3234_get_temperature` | Value | (none) | `ds3234_get_temperature()` | rtc.temperature() |
+| `ds3234_begin` | Statement | CS_PIN(field_number) | `ds3234_begin(10)` | `rtc.begin(10);` |
+| `ds3234_auto_time` | Statement | (none) | `ds3234_auto_time()` | `rtc.autoTime();` |
+| `ds3234_set_time` | Statement | SEC(input_value), MIN(input_value), HOUR(input_value), DAY(input_value), DATE(input_value), MONTH(input_value), YEAR(input_value) | `ds3234_set_time(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `rtc.setTime(1, 1, 1, 1, 1, 1, 1);` |
+| `ds3234_update` | Statement | (none) | `ds3234_update()` | `rtc.update();` |
+| `ds3234_get_time` | Value | FIELD(dropdown) | `ds3234_get_time(second)` | `rtc.second()` |
+| `ds3234_get_temperature` | Value | (none) | `ds3234_get_temperature()` | `rtc.temperature()` |
 
 ## Parameter Options
 

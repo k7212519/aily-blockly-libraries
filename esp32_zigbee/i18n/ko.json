@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 지그비",
+  "esp32_zigbee_begin": {
+    "message0": "Zigbee 역할 시작 %1 구성 삭제 %2",
+    "tooltip": "지정된 역할로 지그비를 시작합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "단말장비",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "라우터",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "코디네이터",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "지그비가 연결되었습니다",
+    "tooltip": "지그비가 네트워크에 접속되어 있는지 확인하세요."
+  },
+  "esp32_zigbee_network": {
+    "message0": "Zigbee 네트워크 %1 시간 초과 %2초",
+    "tooltip": "네트워크에 접속할 장치를 제어합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "네트워크 접속 개방형",
+            "openNetwork"
+          ],
+          [
+            "네트워크 접근을 차단하세요",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "지그비 공장초기화",
+    "tooltip": "Zigbee 네트워크 구성을 지우고 재부팅하세요."
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "Zigbee 조명 %1 끝점 %2 생성",
+    "tooltip": "스위치 조명 끝점을 생성하고 Zigbee에 가입합니다."
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "지그비 조명 %1 설정 %2",
+    "tooltip": "Zigbee 조명 상태를 업데이트합니다."
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "지그비 조명 %1 상태",
+    "tooltip": "지그비 라이트의 현재 상태를 읽는다."
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "Zigbee 온도 센서 %1 엔드포인트 %2 생성",
+    "tooltip": "온도 센서 엔드포인트를 생성하고 Zigbee에 가입하세요."
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "지그비 온도 센서 %1이 %2 ℃를 업데이트하고 보고합니다.",
+    "tooltip": "온도를 설정하고 보고합니다."
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "Zigbee 점유 센서 %1 엔드포인트 %2 생성",
+    "tooltip": "점유 센서 엔드포인트를 생성하고 Zigbee에 가입하세요."
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Zigbee 점유 센서 %1이 %2을 업데이트하고 보고합니다.",
+    "tooltip": "점유현황을 설정하여 보고합니다."
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "Zigbee 접촉 센서 %1 엔드포인트 %2 생성",
+    "tooltip": "접촉식 센서 엔드포인트를 생성하고 Zigbee에 가입하세요."
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "지그비 접촉 센서 %1 상태 %2",
+    "tooltip": "연락처 상태를 설정하고 보고합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "닫기",
+            "setClosed"
+          ],
+          [
+            "열기",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

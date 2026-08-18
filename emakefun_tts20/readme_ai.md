@@ -8,16 +8,16 @@ Easy Space TTS20 speech synthesis module library supports text-to-speech playbac
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `emakefun_tts20_init` | Statement | VAR(field_input), I2C_ADDRESS(dropdown), WIRE(dropdown) | `emakefun_tts20_init("tts20", "0x40", WIRE)` | Dynamic code |
-| `emakefun_tts20_play` | Statement | VAR(field_variable), TEXT(input_value) | `emakefun_tts20_play(variables_get($tts20), text("value"))` | Dynamic code |
-| `emakefun_tts20_play_sound` | Statement | VAR(field_variable), SOUND(dropdown) | `emakefun_tts20_play_sound(variables_get($tts20), ring_1)` | Dynamic code |
-| `emakefun_tts20_is_busy` | Value | VAR(field_variable) | `emakefun_tts20_is_busy(variables_get($tts20))` | Dynamic code |
-| `emakefun_tts20_wait_finish` | Statement | VAR(field_variable) | `emakefun_tts20_wait_finish(variables_get($tts20))` | while ( |
-| `emakefun_tts20_stop` | Statement | VAR(field_variable) | `emakefun_tts20_stop(variables_get($tts20))` | Dynamic code |
-| `emakefun_tts20_pause` | Statement | VAR(field_variable) | `emakefun_tts20_pause(variables_get($tts20))` | Dynamic code |
-| `emakefun_tts20_resume` | Statement | VAR(field_variable) | `emakefun_tts20_resume(variables_get($tts20))` | Dynamic code |
+| `emakefun_tts20_init` | Statement | VAR(field_input), I2C_ADDRESS(dropdown), WIRE(dropdown) | `emakefun_tts20_init("tts20", "0x40", WIRE)` | `tts20.Init();` |
+| `emakefun_tts20_play` | Statement | VAR(field_variable), TEXT(input_value) | `emakefun_tts20_play($tts20, text("value"))` | `tts20.Play("value");` |
+| `emakefun_tts20_play_sound` | Statement | VAR(field_variable), SOUND(dropdown) | `emakefun_tts20_play_sound($tts20, ring_1)` | `tts20.Play(F("ring_1"));` |
+| `emakefun_tts20_is_busy` | Value | VAR(field_variable) | `emakefun_tts20_is_busy($tts20)` | `tts20.IsBusy()` |
+| `emakefun_tts20_wait_finish` | Statement | VAR(field_variable) | `emakefun_tts20_wait_finish($tts20)` | `while (tts20.IsBusy());` |
+| `emakefun_tts20_stop` | Statement | VAR(field_variable) | `emakefun_tts20_stop($tts20)` | `tts20.Stop();` |
+| `emakefun_tts20_pause` | Statement | VAR(field_variable) | `emakefun_tts20_pause($tts20)` | `tts20.Pause();` |
+| `emakefun_tts20_resume` | Statement | VAR(field_variable) | `emakefun_tts20_resume($tts20)` | `tts20.Resume();` |
 
 ## Parameter Options
 
@@ -35,12 +35,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, emakefun_tts20_is_busy(variables_get($tts20)))
+    serial_println(Serial, emakefun_tts20_is_busy($tts20))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `emakefun_tts20_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `emakefun_tts20_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

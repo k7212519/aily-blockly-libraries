@@ -8,9 +8,9 @@ Ultrasonic sensor, the driver library supports SR04, achieves non-contact distan
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ultrasonic_ranging` | Value | PIN1(input_value), PIN2(input_value) | `ultrasonic_ranging(math_number(2), math_number(2))` | Dynamic code |
+| `ultrasonic_ranging` | Value | PIN1(input_value), PIN2(input_value) | `ultrasonic_ranging(math_number(2), math_number(2))` | `checkdistance_1_1()` |
 
 ## ABS Examples
 

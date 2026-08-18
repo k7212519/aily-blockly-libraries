@@ -1,0 +1,60 @@
+{
+  "toolbox_name": "ThingsBoard",
+  "thingsboard_init": {
+    "message0": "初始化 ThingsBoard %1 伺服器 %2 令牌 %3 連接埠 %4 訊息位元組 %5",
+    "tooltip": "建立MQTT客戶端並連接到ThingsBoard。"
+  },
+  "thingsboard_connect": {
+    "message0": "ThingsBoard %1 連接伺服器 %2 令牌 %3 連接埠 %4",
+    "tooltip": "連接或重新連接到 ThingsBoard。"
+  },
+  "thingsboard_send": {
+    "message0": "ThingsBoard %1 傳送 %2 金鑰 %3 值 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "遙測",
+            "sendTelemetryData"
+          ],
+          [
+            "用戶端屬性",
+            "sendAttributeData"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "發送一項遙測或客戶端屬性值。"
+  },
+  "thingsboard_send_json": {
+    "message0": "ThingsBoard %1 傳送 %2 JSON %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "遙測",
+            "sendTelemetryString"
+          ],
+          [
+            "用戶端屬性",
+            "sendAttributeString"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "傳送預先建置的 JSON 物件字串。"
+  },
+  "thingsboard_connected": {
+    "message0": "ThingsBoard %1 已連接",
+    "tooltip": "檢查 MQTT 連接。"
+  },
+  "thingsboard_disconnect": {
+    "message0": "斷開 ThingsBoard %1",
+    "tooltip": "中斷 ThingsBoard MQTT 用戶端的連線。"
+  }
+}

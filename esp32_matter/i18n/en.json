@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32 Matter",
+  "esp32_matter_begin": {
+    "message0": "Start Matter",
+    "tooltip": "Start the Matter node; the endpoint needs to be created first."
+  },
+  "esp32_matter_status": {
+    "message0": "Matter status %1",
+    "tooltip": "Query Matter distribution network or connection status.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Network configured",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi connected",
+            "isWiFiConnected"
+          ],
+          [
+            "Thread is connected",
+            "isThreadConnected"
+          ],
+          [
+            "Device is connected",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "Matter pairing information %1",
+    "tooltip": "Get Matter pairing code or QR code URL.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Manual pairing code",
+            "getManualPairingCode"
+          ],
+          [
+            "QR code URL",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "Matter clear distribution network",
+    "tooltip": "Clear the current Matter Fabric distribution network information."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "Create Matter switch light %1 initial state %2",
+    "tooltip": "Create the switch light endpoint."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "Create Matter dimming light %1 status %2 brightness %3",
+    "tooltip": "Create a dimmer light endpoint."
+  },
+  "esp32_matter_light_set": {
+    "message0": "Matter light %1 sets %2 to %3",
+    "tooltip": "Set the light switch or brightness.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "switch",
+            "setOnOff"
+          ],
+          [
+            "Brightness",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "Matter lamp %1 read %2",
+    "tooltip": "Read the light switch or brightness.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "switch",
+            "getOnOff"
+          ],
+          [
+            "Brightness",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "Create Matter numerical sensor %1 type %2 initial value %3",
+    "tooltip": "Create common numerical sensor endpoints.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Temperature",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "Humidity",
+            "MatterHumiditySensor"
+          ],
+          [
+            "Illumination",
+            "MatterLightSensor"
+          ],
+          [
+            "Pressure",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "Matter numerical sensor %1 type %2 update %3",
+    "tooltip": "Update and report numerical sensor values.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Temperature",
+            "setTemperature"
+          ],
+          [
+            "Humidity",
+            "setHumidity"
+          ],
+          [
+            "Illumination",
+            "setIlluminance"
+          ],
+          [
+            "Pressure",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "Create Matter Boolean sensor %1 type %2 initial value %3",
+    "tooltip": "Create common Boolean sensor endpoints.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Contact",
+            "MatterContactSensor"
+          ],
+          [
+            "occupied",
+            "MatterOccupancySensor"
+          ],
+          [
+            "Rain",
+            "MatterRainSensor"
+          ],
+          [
+            "Water leakage",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Matter Boolean sensor %1 type %2 update %3",
+    "tooltip": "Update and report Boolean sensor values.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Contact",
+            "setContact"
+          ],
+          [
+            "occupied",
+            "setOccupancy"
+          ],
+          [
+            "Rain",
+            "setRain"
+          ],
+          [
+            "Water leakage",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

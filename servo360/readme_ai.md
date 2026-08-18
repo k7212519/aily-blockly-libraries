@@ -8,10 +8,10 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `servo360_write` | Statement | PIN(dropdown), SPEED(input_value), DIRECTION(dropdown) | `servo360_write(PIN, math_number(9600), true)` | Dynamic code |
-| `servo360_speed` | Value | SPEED(field_slider) | `servo360_speed()` | Dynamic code |
+| `servo360_write` | Statement | PIN(dropdown), SPEED(input_value), DIRECTION(dropdown) | `servo360_write(PIN, math_number(9600), true)` | `servo_PIN.writeMicroseconds(1500 - (1 * 10));` |
+| `servo360_speed` | Value | SPEED(field_slider) | `servo360_speed(90)` | `90` |
 
 ## Parameter Options
 
@@ -28,7 +28,7 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, servo360_speed())
+    serial_println(Serial, servo360_speed(90))
     time_delay(math_number(1000))
 ```
 

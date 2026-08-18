@@ -25,6 +25,7 @@
   "description_ru": "Библиотека кнопок и 5-позиционного переключателя Wio Terminal с событиями OneButton",
   "description_ar": "مكتبة أزرار Wio Terminal والمفتاح خماسي الاتجاهات مع أحداث OneButton",
   "version": "1.0.1",
+  "spec": true,
   "author": "SeeedStudio",
   "license": "MIT",
   "compatibility": {

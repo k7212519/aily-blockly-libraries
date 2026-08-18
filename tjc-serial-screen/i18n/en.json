@@ -1,0 +1,217 @@
+{
+  "toolbox_name": "淘晶驰 Serial Screen",
+  "toolbox_labels": {
+    "Initialization": "Initialization",
+    "Screen control": "Screen control",
+    "Communication and returns": "Communication and returns"
+  },
+  "tjc_begin_hardware": {
+    "message0": "Initialize 淘晶驰 hardware serial %1 at %2 baud",
+    "tooltip": "Start the selected board hardware UART. Wire screen TX to board RX and screen RX to board TX, use the same baud rate as the screen, and place this before commands or frame parsing.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_begin_software": {
+    "message0": "Initialize 淘晶驰 software serial %1 at %2 baud RX %3 TX %4",
+    "tooltip": "Create SoftwareSerial with the chosen name, RX/TX pins, and baud rate. Cross-connect the screen wires; this is intended for UNO/Nano-style boards without a spare hardware UART.",
+    "args0": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "tjc_clear_startup": {
+    "message0": "Clear 淘晶驰 startup data on %1",
+    "tooltip": "Discard bytes waiting in the UART, including the common 0x88 FF FF FF power-on frame. Run after serial initialization and before frame parsing.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_set_brightness": {
+    "message0": "Set 淘晶驰 backlight brightness on %1 to %2",
+    "tooltip": "Send dim with a runtime brightness normally from 0 to 100. This does not write persistent flash settings, so it is suitable for occasional adjustments.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_page": {
+    "message0": "Switch 淘晶驰 page on %1 to %2",
+    "tooltip": "Navigate by page name such as main or by numeric page ID. Enter only the value; the command terminator is appended automatically.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_variable": {
+    "message0": "Set 淘晶驰 variable %1 to %2",
+    "tooltip": "Assign a system, global, or page variable such as sys0 or va0. Numbers stay unquoted and text is quoted automatically; do not add FF bytes.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_property": {
+    "message0": "On serial %1 set component %2 property %3 to %4",
+    "tooltip": "Write a component property such as p0.pic=2, n0.val=100, or t0.txt=\"Ready\". The serial selector is first so the target UART is clear; select the Chinese/English property label and match text properties with text values and numeric properties with numbers.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Text (txt)",
+            "txt"
+          ],
+          [
+            "Value (val)",
+            "val"
+          ],
+          [
+            "Picture (pic)",
+            "pic"
+          ],
+          [
+            "Visible (vis)",
+            "vis"
+          ],
+          [
+            "Touch (tsw)",
+            "tsw"
+          ],
+          [
+            "Background (bco)",
+            "bco"
+          ],
+          [
+            "Foreground (pco)",
+            "pco"
+          ],
+          [
+            "Font (font)",
+            "font"
+          ],
+          [
+            "X (x)",
+            "x"
+          ],
+          [
+            "Y (y)",
+            "y"
+          ],
+          [
+            "Width (w)",
+            "w"
+          ],
+          [
+            "Height (h)",
+            "h"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "tjc_send_command": {
+    "message0": "Send 淘晶驰 command %1 on %2",
+    "tooltip": "Send raw 淘晶驰 ASCII such as page main, ref t0, or get sys0. Enter only command text; three 0xFF terminator bytes are appended automatically.",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_bkcmd": {
+    "message0": "Set 淘晶驰 bkcmd on %1 to %2",
+    "tooltip": "Choose feedback mode 0 none, 1 success and errors, 2 errors only, or 3 all. Enable the return-frame parser separately when the program must inspect replies.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "0 - none",
+            "0"
+          ],
+          [
+            "1 - success and error",
+            "1"
+          ],
+          [
+            "2 - errors only",
+            "2"
+          ],
+          [
+            "3 - all",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "tjc_enable_frame_parser": {
+    "message0": "Enable 淘晶驰 return frame parser on %1",
+    "tooltip": "Install a loop reader that splits bytes at FF FF FF and stores the first byte as frame type. Use after serial initialization and before frame events or value blocks.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_event": {
+    "message0": "When 淘晶驰 frame %1 is received on %2",
+    "message1": "do %1",
+    "tooltip": "Run the handler for frame 65 touch, 66 page, 67 coordinates, 70 string, 71 number, 88 startup, or any frame. The parser must be initialized first and the handler runs in loop.",
+    "args0": [
+      {
+        "options": [
+          [
+            "touch event (65)",
+            "65"
+          ],
+          [
+            "page ID (66)",
+            "66"
+          ],
+          [
+            "touch coordinates (67)",
+            "67"
+          ],
+          [
+            "string (70)",
+            "70"
+          ],
+          [
+            "number (71)",
+            "71"
+          ],
+          [
+            "startup (88)",
+            "88"
+          ],
+          [
+            "any frame",
+            "ANY"
+          ]
+        ]
+      },
+      null
+    ],
+    "args1": [
+      null
+    ]
+  },
+  "tjc_frame_type": {
+    "message0": "淘晶驰 last frame type on %1",
+    "tooltip": "Return the first byte of the most recent complete frame, such as 65 for touch or 71 for number. Before the first frame it is 0; enable the parser first.",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_available": {
+    "message0": "淘晶驰 frame available on %1",
+    "tooltip": "Return true when a complete FF FF FF-terminated frame has arrived. Use in an if condition with frame type, or use a frame event to avoid incomplete data.",
+    "args0": [
+      null
+    ]
+  }
+}

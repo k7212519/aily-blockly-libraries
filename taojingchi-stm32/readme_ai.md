@@ -8,15 +8,15 @@ STM32F103C8专用淘晶驰串口屏驱动，支持硬件串口快速选择（Ser
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `taojingchi_stm32_init` | Statement | SERIAL_PORT(dropdown), BAUD(dropdown) | `taojingchi_stm32_init(Serial1, "9600")` | Serial1.begin(9600); |
-| `taojingchi_stm32_backlight` | Statement | BRIGHTNESS(input_value) | `taojingchi_stm32_backlight(math_number(100))` | Serial1.print("dim=" + String(100)); ...write(0xFF)x3; delay(10); |
-| `taojingchi_stm32_display_page` | Statement | PAGE(input_value) | `taojingchi_stm32_display_page(math_number(0))` | Serial1.print("page" + String(0)); ...write(0xFF)x3; delay(10); |
-| `taojingchi_stm32_set_var` | Statement | VARNAME(dropdown), VALUE(input_value) | `taojingchi_stm32_set_var(data01, math_number(0))` | Serial1.print("data01=" + String((int)0)); ...write(0xFF)x3; delay(10); |
-| `taojingchi_stm32_display_image` | Statement | PAGE(input_value), IMG(input_value), ID(input_value) | `taojingchi_stm32_display_image(math_number(0), math_number(0), math_number(0))` | Serial1.print("page0.p0.pic=0"); ...write(0xFF)x3; delay(10); |
-| `taojingchi_stm32_send_command` | Statement | COMMAND(input_value) | `taojingchi_stm32_send_command(text("CMD"))` | Serial1.print("CMD"); ...write(0xFF)x3; delay(10); |
-| `taojingchi_stm32_send_data` | Statement | COMMAND(input_value), VALUE(input_value) | `taojingchi_stm32_send_data(text("cmd"), math_number(0))` | Serial1.print("cmd"); Serial1.print("="); Serial1.print(String((int)0)); ...write(0xFF)x3; delay(10); |
+| `taojingchi_stm32_init` | Statement | SERIAL_PORT(dropdown), BAUD(dropdown) | `taojingchi_stm32_init(Serial, 4800)` | `Serial.begin(4800);` |
+| `taojingchi_stm32_backlight` | Statement | BRIGHTNESS(input_value) | `taojingchi_stm32_backlight(math_number(100))` | `Serial1.print("dim=" + String(1)); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ delay(10);` |
+| `taojingchi_stm32_display_page` | Statement | PAGE(input_value) | `taojingchi_stm32_display_page(math_number(0))` | `Serial1.print("page" + String(1)); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ delay(10);` |
+| `taojingchi_stm32_set_var` | Statement | VARNAME(dropdown), VALUE(input_value) | `taojingchi_stm32_set_var(data01, math_number(0))` | `Serial1.print("data01=" + String((int)1)); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ delay(10);` |
+| `taojingchi_stm32_display_image` | Statement | PAGE(input_value), IMG(input_value), ID(input_value) | `taojingchi_stm32_display_image(math_number(0), math_number(0), math_number(0))` | `Serial1.print("page" + String(1) + ".p" + String(1) + ".pic=" + String(1)); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ delay(10);` |
+| `taojingchi_stm32_send_command` | Statement | COMMAND(input_value) | `taojingchi_stm32_send_command(text("CMD"))` | `Serial1.print("value"); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ delay(10);` |
+| `taojingchi_stm32_send_data` | Statement | COMMAND(input_value), VALUE(input_value) | `taojingchi_stm32_send_data(text("cmd"), math_number(0))` | `Serial1.print("value"); ↵ Serial1.print("="); ↵ Serial1.print(String((int)1)); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ Serial1.write(0xFF); ↵ delay(10);` |
 
 ## Parameter Options
 
@@ -31,7 +31,7 @@ STM32F103C8专用淘晶驰串口屏驱动，支持硬件串口快速选择（Ser
 ### Basic Usage
 ```
 arduino_setup()
-    taojingchi_stm32_init(Serial1, "9600")
+    taojingchi_stm32_init(Serial, 4800)
     serial_begin(Serial, 115200)
 
 arduino_loop()

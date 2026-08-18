@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "ESP32 음성 인식",
+  "esp32_esp_sr_begin": {
+    "message0": "음성 인식 시작 I2S %1 명령 1 %2 명령 2 %3 명령 3 %4 명령 4 %5 채널 %6 입력 형식 %7",
+    "tooltip": "오프라인 음성 인식을 시작하고 명령 ID 1-4를 4개의 구문에 할당합니다.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "모노",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "스테레오",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "음성 인식 %1",
+    "tooltip": "음성 인식을 종료, 일시 중지 또는 재개합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "끝",
+            "end"
+          ],
+          [
+            "일시 중지",
+            "pause"
+          ],
+          [
+            "복원",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "음성 인식 모드 %1",
+    "tooltip": "깨우기 단어 또는 명령 인식 모드를 전환합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "깨어나는 말",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "명령어",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "음성인식 최근 사건",
+    "tooltip": "최신 sr_event_t 값을 반환합니다."
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "음성인식 최근 명령 ID",
+    "tooltip": "가장 최근에 인식된 명령 ID를 반환합니다."
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "음성인식 최근 문구ID",
+    "tooltip": "가장 최근에 인식된 문구 ID를 반환합니다."
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "음성 이벤트 %1",
+    "tooltip": "음성 이벤트 상수를 반환합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "깨어나는 말",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "깨우기 채널",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "명령",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "시간 초과",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

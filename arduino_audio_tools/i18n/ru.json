@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "инициализировать режим Audio Tools I2S %1 Скорость %2 Каналы %3 %4 Биты %5 BCLK %6 WS Данные %7 TX Данные %8 RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "вывод",
+            "TX_MODE"
+          ],
+          [
+            "ввод",
+            "RX_MODE"
+          ],
+          [
+            "ввод и вывод",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Настройте аудиопоток I2S."
+  },
+  "audio_tools_copy_init": {
+    "message0": "создание копировального устройства %1 выход %2 вход %3 автоматическое копирование в цикле %4",
+    "tooltip": "Создайте конвейер StreamCopy между двумя потоками I2S."
+  },
+  "audio_tools_copy": {
+    "message0": "копировальный аппарат %1 копировать следующий буфер",
+    "tooltip": "Скопируйте следующий доступный аудиобуфер."
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 запись 16-битной выборки %2",
+    "tooltip": "Напишите один подписанный 16-битный образец."
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 прочитать 16-битный образец",
+    "tooltip": "Прочитайте один подписанный 16-битный аудиосэмпл."
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 доступные байты",
+    "tooltip": "Возвращает количество читаемых аудиобайтов."
+  },
+  "audio_tools_end": {
+    "message0": "конец Audio Tools I2S %1",
+    "tooltip": "Остановите поток I2S."
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "U8g2 Robot Eyes",
+  "toolbox_labels": {
+    "初始化与渲染": "Initialization and rendering",
+    "表情与视线": "Expressions and gaze",
+    "自动动画": "Automatic animation",
+    "状态查询": "Status queries"
+  },
+  "u8g2_robot_eyes_init": {
+    "message0": "create U8g2 robot eyes %1 using display object %2 style %3 width %4 height %5 frame rate %6 auto update in loop %7",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          ["square eyes", "U8G2_ROBOT_EYES_STYLE_SQUARE"],
+          ["round eyes", "U8G2_ROBOT_EYES_STYLE_ROUND"]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Create robot eyes with an initialized full-buffer U8g2 object; the style is selected at compile time and one program can use only one style"
+  },
+  "u8g2_robot_eyes_set_expression": {
+    "message0": "%1 set expression %2 transition duration %3 ms",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["neutral", "NEUTRAL"],
+          ["happy", "HAPPY"],
+          ["sad", "SAD"],
+          ["angry", "ANGRY"],
+          ["surprised", "SURPRISED"],
+          ["sleepy", "SLEEPY"],
+          ["suspicious", "SUSPICIOUS"],
+          ["excited", "EXCITED"],
+          ["scared", "SCARED"],
+          ["thinking", "THINKING"],
+          ["love", "LOVE"],
+          ["wink", "WINK"],
+          ["laughing", "LAUGHING"],
+          ["crying", "CRYING"],
+          ["bored", "BORED"],
+          ["determined", "DETERMINED"],
+          ["dizzy", "DIZZY"],
+          ["embarrassed", "EMBARRASSED"],
+          ["curious", "CURIOUS"],
+          ["evil", "EVIL"]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Smoothly transition to the selected expression, continuing from the current pose if another transition is active"
+  },
+  "u8g2_robot_eyes_blink": {
+    "message0": "%1 blink for %2 ms",
+    "tooltip": "Trigger one non-blocking blink animation"
+  },
+  "u8g2_robot_eyes_set_gaze": {
+    "message0": "%1 set gaze X %2 Y %3 transition duration %4 ms",
+    "tooltip": "Move the gaze smoothly; recommended range is -8..8 for X and -7..7 for Y"
+  },
+  "u8g2_robot_eyes_center_gaze": {
+    "message0": "%1 center gaze transition duration %2 ms",
+    "tooltip": "Move the gaze smoothly back to the center"
+  },
+  "u8g2_robot_eyes_set_auto_blink": {
+    "message0": "%1 auto blink enabled %2 base interval %3 random variation %4 ms",
+    "tooltip": "Enable or disable random automatic blinking and configure its base interval and variation"
+  },
+  "u8g2_robot_eyes_set_idle": {
+    "message0": "%1 random gaze enabled %2 interval %3 ms",
+    "tooltip": "Enable or disable non-blocking random gaze motion"
+  },
+  "u8g2_robot_eyes_render": {
+    "message0": "%1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          ["limited-frame update and display", "UPDATE"],
+          ["draw and display immediately", "DRAW"],
+          ["draw to buffer only", "DRAW_TO_BUFFER"]
+        ]
+      }
+    ],
+    "tooltip": "update limits frame rate, clears, and sends the buffer; draw renders and sends immediately; drawToBuffer only draws for composition with other U8g2 content"
+  },
+  "u8g2_robot_eyes_expression": {
+    "message0": "%1 current target expression number",
+    "tooltip": "Return the current target expression number from 0 to 19"
+  },
+  "u8g2_robot_eyes_is_animating": {
+    "message0": "%1 is transition animation active",
+    "tooltip": "Test whether an expression or gaze transition is still active"
+  },
+  "u8g2_robot_eyes_style": {
+    "message0": "%1 eye style number",
+    "tooltip": "Return the compile-time style number: 0 for square eyes and 1 for round eyes"
+  }
+}

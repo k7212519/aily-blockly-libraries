@@ -1,0 +1,63 @@
+{
+  "name": "@aily-project/lib-thingsboard",
+  "nickname": "ThingsBoard",
+  "nickname_en": "ThingsBoard",
+  "author": "ThingsBoard Team",
+  "description": "ThingsBoard MQTT telemetry, attributes, JSON payloads, and connection management.",
+  "description_en": "ThingsBoard MQTT telemetry, attributes, JSON payloads, and connection management.",
+  "version": "0.1.0",
+  "url": "https://github.com/thingsboard/thingsboard-client-sdk",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "esp32:esp32",
+      "esp8266:esp8266"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "thingsboard",
+    "mqtt",
+    "telemetry",
+    "iot"
+  ],
+  "bundledDependencies": {
+    "ThingsBoard": "0.15.0",
+    "ArduinoJson": "6.21.5",
+    "TBPubSubClient": "2.11.0",
+    "ArduinoHttpClient": "0.6.1"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "cloud",
+    "iot"
+  ],
+  "nickname_zh_cn": "ThingsBoard",
+  "description_zh_cn": "ThingsBoard MQTT 遥测、属性、JSON 有效负载和连接管理。",
+  "nickname_zh_hk": "ThingsBoard",
+  "description_zh_hk": "ThingsBoard MQTT 遙測、屬性、JSON 有效負載與連線管理。",
+  "nickname_ja": "ThingsBoard",
+  "description_ja": "ThingsBoard MQTT テレメトリ、属性、JSON ペイロード、および接続管理。",
+  "nickname_ko": "ThingsBoard",
+  "description_ko": "ThingsBoard MQTT 원격 측정, 속성, JSON 페이로드 및 연결 관리.",
+  "nickname_de": "ThingsBoard",
+  "description_de": "ThingsBoard MQTT Telemetrie, Attribute, JSON Nutzlasten und Verbindungsverwaltung.",
+  "nickname_fr": "ThingsBoard",
+  "description_fr": "Télémétrie ThingsBoard MQTT, attributs, charges utiles JSON et gestion des connexions.",
+  "nickname_es": "ThingsBoard",
+  "description_es": "Telemetría ThingsBoard MQTT, atributos, cargas útiles JSON y gestión de conexiones.",
+  "nickname_pt": "ThingsBoard",
+  "description_pt": "Telemetria ThingsBoard MQTT, atributos, cargas úteis JSON e gerenciamento de conexão.",
+  "nickname_ru": "ThingsBoard",
+  "description_ru": "ThingsBoard MQTT телеметрия, атрибуты, полезные данные JSON и управление соединениями.",
+  "nickname_ar": "ThingsBoard",
+  "description_ar": "ThingsBoard MQTT القياس عن بعد والسمات وحمولات JSON وإدارة الاتصال."
+}

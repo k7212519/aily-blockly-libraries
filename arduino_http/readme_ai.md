@@ -8,14 +8,14 @@ Arduino HTTP and WebSocket library, supports WiFi connection and HTTP request op
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wifi_connect` | Statement | SSID(field_input), PASS(field_input) | `wifi_connect("yourSSID", "yourPASS")` | WiFi.begin( |
-| `wifi_ssid` | Value | (none) | `wifi_ssid()` | WiFi.SSID() |
-| `wifi_localip` | Value | (none) | `wifi_localip()` | WiFi.localIP() |
-| `http_get` | Statement | URL(field_input) | `http_get("http://example.com")` | client.beginRequest();\n |
-| `http_post` | Statement | URL(field_input), TYPE(field_input), DATA(field_input) | `http_post("http://example.com", "application/json", "{}")` | client.beginRequest();\n |
-| `analog_read` | Value | PIN(dropdown) | `analog_read(A0)` | analogRead( |
+| `wifi_connect` | Statement | SSID(field_input), PASS(field_input) | `wifi_connect("yourSSID", "yourPASS")` | `WiFi.begin("yourSSID", "yourPASS");` |
+| `wifi_ssid` | Value | (none) | `wifi_ssid()` | `WiFi.SSID()` |
+| `wifi_localip` | Value | (none) | `wifi_localip()` | `WiFi.localIP()` |
+| `http_get` | Statement | URL(field_input) | `http_get("http://example.com")` | `client.beginRequest(); ↵ client.get("http://example.com"); ↵ client.endRequest();` |
+| `http_post` | Statement | URL(field_input), TYPE(field_input), DATA(field_input) | `http_post("http://example.com", "application/json", "{}")` | `client.beginRequest(); ↵ client.post("http://example.com", "application/json", "{}"); ↵ client.endRequest();` |
+| `analog_read` | Value | PIN(dropdown) | `analog_read(A0)` | `analogRead(A0)` |
 
 ## Parameter Options
 

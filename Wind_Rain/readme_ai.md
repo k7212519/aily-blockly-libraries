@@ -8,27 +8,35 @@ Wind speed, wind direction and rain sensor control library, hardware adapted to 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wind_begin` | Statement | SPEED_PIN(dropdown), DIR_PIN(dropdown) | `wind_begin(SPEED_PIN, DIR_PIN)` | Dynamic code |
-| `wind_begin_speed` | Statement | SPEED_PIN(dropdown) | `wind_begin_speed(SPEED_PIN)` | Dynamic code |
-| `wind_begin_direction` | Statement | DIR_PIN(dropdown) | `wind_begin_direction(DIR_PIN)` | Dynamic code |
-| `wind_update` | Statement | (none) | `wind_update()` | WindSpeed::update();\n |
-| `wind_update_speed` | Statement | (none) | `wind_update_speed()` | WindSpeed::updateWindSpeed();\n |
-| `wind_update_direction` | Statement | (none) | `wind_update_direction()` | WindSpeed::updateWindDirection();\n |
-| `wind_get_speed_kmh` | Value | (none) | `wind_get_speed_kmh()` | WindSpeed::getWindSpeed() |
-| `wind_get_speed_mph` | Value | (none) | `wind_get_speed_mph()` | WindSpeed::getWindSpeedMph() |
-| `wind_get_direction` | Value | (none) | `wind_get_direction()` | WindSpeed::getWindDirection() |
-| `wind_get_direction_string` | Value | (none) | `wind_get_direction_string()` | WindSpeed::getWindDirectionString() |
-| `wind_get_direction_adc` | Value | (none) | `wind_get_direction_adc()` | WindSpeed::getWindDirectionADC() |
-| `wind_is_data_ready` | Value | (none) | `wind_is_data_ready()` | WindSpeed::isDataReady() |
-| `rain_init` | Statement | PIN(dropdown) | `rain_init(PIN)` | Dynamic code |
-| `rain_update` | Statement | (none) | `rain_update()` | RainSensor::update();\n |
-| `rain_get_total` | Value | (none) | `rain_get_total()` | RainSensor::getRainfallTotal() |
-| `rain_get_hour` | Value | (none) | `rain_get_hour()` | RainSensor::getRainfallLastHour() |
-| `rain_get_day` | Value | (none) | `rain_get_day()` | RainSensor::getRainfallLastDay() |
-| `rain_get_ticks` | Value | (none) | `rain_get_ticks()` | RainSensor::getRainTicks() |
-| `rain_is_data_ready` | Value | (none) | `rain_is_data_ready()` | RainSensor::isDataReady() |
+| `wind_begin` | Statement | SPEED_PIN(dropdown), DIR_PIN(dropdown) | `wind_begin(SPEED_PIN, DIR_PIN)` | `WindSpeed::begin(SPEED_PIN, DIR_PIN);` |
+| `wind_begin_speed` | Statement | SPEED_PIN(dropdown) | `wind_begin_speed(SPEED_PIN)` | `WindSpeed::beginWindSpeed(SPEED_PIN);` |
+| `wind_begin_direction` | Statement | DIR_PIN(dropdown) | `wind_begin_direction(DIR_PIN)` | `WindSpeed::beginWindDirection(DIR_PIN);` |
+| `wind_update` | Statement | (none) | `wind_update()` | `WindSpeed::update();` |
+| `wind_update_speed` | Statement | (none) | `wind_update_speed()` | `WindSpeed::updateWindSpeed();` |
+| `wind_update_direction` | Statement | (none) | `wind_update_direction()` | `WindSpeed::updateWindDirection();` |
+| `wind_get_speed_kmh` | Value | (none) | `wind_get_speed_kmh()` | `WindSpeed::getWindSpeed()` |
+| `wind_get_speed_mph` | Value | (none) | `wind_get_speed_mph()` | `WindSpeed::getWindSpeedMph()` |
+| `wind_get_direction` | Value | (none) | `wind_get_direction()` | `WindSpeed::getWindDirection()` |
+| `wind_get_direction_string` | Value | (none) | `wind_get_direction_string()` | `WindSpeed::getWindDirectionString()` |
+| `wind_get_direction_adc` | Value | (none) | `wind_get_direction_adc()` | `WindSpeed::getWindDirectionADC()` |
+| `wind_is_data_ready` | Value | (none) | `wind_is_data_ready()` | `WindSpeed::isDataReady()` |
+| `rain_init` | Statement | PIN(dropdown) | `rain_init(PIN)` | `RainSensor::begin(PIN);` |
+| `rain_update` | Statement | (none) | `rain_update()` | `RainSensor::update();` |
+| `rain_get_total` | Value | (none) | `rain_get_total()` | `RainSensor::getRainfallTotal()` |
+| `rain_get_hour` | Value | (none) | `rain_get_hour()` | `RainSensor::getRainfallLastHour()` |
+| `rain_get_day` | Value | (none) | `rain_get_day()` | `RainSensor::getRainfallLastDay()` |
+| `rain_get_ticks` | Value | (none) | `rain_get_ticks()` | `RainSensor::getRainTicks()` |
+| `rain_is_data_ready` | Value | (none) | `rain_is_data_ready()` | `RainSensor::isDataReady()` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| SPEED_PIN | ${board.digitalPins} | wind_begin |
+| DIR_PIN | ${board.analogPins} | wind_begin |
+| PIN | ${board.digitalPins} | rain_init |
 
 ## ABS Examples
 

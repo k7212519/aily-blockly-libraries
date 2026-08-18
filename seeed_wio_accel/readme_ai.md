@@ -8,16 +8,16 @@ Blockly library for the Wio Terminal built-in LIS3DHTR 3-axis accelerometer.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|-------------------------|------------|----------------|
-| `wio_accel_init` | Statement | DATARATE(dropdown), RANGE(dropdown) | `wio_accel_init(LIS3DHTR_DATARATE_25HZ, LIS3DHTR_RANGE_2G)` | `begin(Wire1)` + data rate + range |
-| `wio_accel_set_datarate` | Statement | DATARATE(dropdown) | `wio_accel_set_datarate(LIS3DHTR_DATARATE_100HZ)` | `ailyWioAccel.setOutputDataRate(...)` |
-| `wio_accel_set_range` | Statement | RANGE(dropdown) | `wio_accel_set_range(LIS3DHTR_RANGE_4G)` | `ailyWioAccel.setFullScaleRange(...)` |
+| `wio_accel_init` | Statement | DATARATE(dropdown), RANGE(dropdown) | `wio_accel_init(LIS3DHTR_DATARATE_25HZ, LIS3DHTR_RANGE_2G)` | `ailyWioAccel.begin(Wire1); ↵ ailyWioAccel.setOutputDataRate(LIS3DHTR_DATARATE_1HZ); ↵ ailyWioAccel.setFullScaleRange(LIS3DHTR_RANGE_2G);` |
+| `wio_accel_set_datarate` | Statement | DATARATE(dropdown) | `wio_accel_set_datarate(LIS3DHTR_DATARATE_100HZ)` | `ailyWioAccel.setOutputDataRate(LIS3DHTR_DATARATE_POWERDOWN);` |
+| `wio_accel_set_range` | Statement | RANGE(dropdown) | `wio_accel_set_range(LIS3DHTR_RANGE_4G)` | `ailyWioAccel.setFullScaleRange(LIS3DHTR_RANGE_2G);` |
 | `wio_accel_read_axis` | Value | AXIS(dropdown) | `wio_accel_read_axis(X)` | `ailyWioAccel.getAccelerationX()` |
-| `wio_accel_read_xyz` | Statement | X_VAR(variable), Y_VAR(variable), Z_VAR(variable) | `wio_accel_read_xyz($accelX, $accelY, $accelZ)` | `ailyWioAccel.getAcceleration(&accelX, &accelY, &accelZ)` |
-| `wio_accel_data_ready` | Value | none | `wio_accel_data_ready()` | `ailyWioAccel.available()` |
-| `wio_accel_is_connected` | Value | none | `wio_accel_is_connected()` | `ailyWioAccel.isConnection()` |
-| `wio_accel_on_tap` | Hat | CLICK_TYPE(dropdown), THRESHOLD(value), HANDLER(statement) | `wio_accel_on_tap(1, math_number(40))` | `click()` + `GYROSCOPE_INT1` interrupt + loop dispatch |
+| `wio_accel_read_xyz` | Statement | X_VAR(field_variable), Y_VAR(field_variable), Z_VAR(field_variable) | `wio_accel_read_xyz($accelX, $accelY, $accelZ)` | `ailyWioAccel.getAcceleration(&accelX, &accelY, &accelZ);` |
+| `wio_accel_data_ready` | Value | (none) | `wio_accel_data_ready()` | `ailyWioAccel.available()` |
+| `wio_accel_is_connected` | Value | (none) | `wio_accel_is_connected()` | `ailyWioAccel.isConnection()` |
+| `wio_accel_on_tap` | Hat | CLICK_TYPE(dropdown), THRESHOLD(input_value), HANDLER(input_statement) | `wio_accel_on_tap(1, math_number(40))` | `LIS3DHTR<TwoWire> ailyWioAccel; ↵ volatile bool ailyWioAccelTapPending = false; ↵ void ailyWioAccelTapISR() { ↵ ailyWioAccelTapPending = true; ↵ } ↵ void ailyWioAccelTapHandler() { ↵ } ↵ ailyWioAccel.click(1, 1); ↵ pinMode(GYROSCOPE_INT1, INPUT); ↵ attachInterrupt(digitalPinToInterrupt(GYROSCOPE_INT1), ailyWioAccelTapISR, RISING); ↵ if (ailyWioAccelTapPending) { ↵ noInterrupts(); ↵ ailyWioAccelTapPending = false; ↵ interrupts(); ↵ ailyWioAccelTapHandler(); ↵ }` |
 
 ## Parameter Options
 

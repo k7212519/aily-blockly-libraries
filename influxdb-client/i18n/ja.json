@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "初期化 InfluxDB %1 URL %2 組織 %3 バケット %4 トークン %5",
+    "tooltip": "InfluxDB 2 クライアントを作成します。"
+  },
+  "influxdb_point_init": {
+    "message0": "InfluxDB ポイントの作成 %1 測定 %2",
+    "tooltip": "ラインプロトコル測定ポイントを作成します。"
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB ポイント %1 追加 %2 キー %3 値 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "タグ",
+            "addTag"
+          ],
+          [
+            "データフィールド",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "タグまたは入力フィールドをポイントに追加します。"
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB ポイント %1 クリア %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "データフィールド",
+            "clearFields"
+          ],
+          [
+            "タグ",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "蓄積されたポイントフィールドまたはタグをクリアします。"
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 ライトポイント %2",
+    "tooltip": "InfluxDB にポイントを書き込みます。"
+  },
+  "influxdb_validate": {
+    "message0": "InfluxDB %1 接続は有効です",
+    "tooltip": "サーバーの接続と資格情報を検証します。"
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "最後のエラーメッセージ",
+            "getLastErrorMessage"
+          ],
+          [
+            "サーバー URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "接続情報または最後のエラーを読み取ります。"
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 ポイント %2 の回線プロトコル",
+    "tooltip": "ポイントをラインプロトコルとしてプレビューします。"
+  }
+}

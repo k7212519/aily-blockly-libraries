@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "GPIO Viewer",
+  "gpio_viewer_init": {
+    "message0": "GPIO ビューアの初期化 %1 ポート %2 サンプリング ms %3 ペリフェラル ピンのスキップ %4",
+    "tooltip": "ESP32 GPIO Viewer Web アプリケーションを構成して開始します。"
+  },
+  "gpio_viewer_wifi": {
+    "message0": "GPIO ビューアー %1 Wi-Fi に接続 SSID %2 パスワード %3",
+    "tooltip": "GPIO Viewer にステーション モード Wi-Fi 接続を確立させます。"
+  },
+  "gpio_viewer_set": {
+    "message0": "GPIO ビューア %1 が %2 を %3 に設定",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "HTTPポート",
+            "setPort"
+          ],
+          [
+            "サンプリング間隔 ms",
+            "setSamplingInterval"
+          ],
+          [
+            "周辺ピンをスキップする",
+            "setSkipPeripheralPins"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "GPIO Viewer の設定を開始する前に調整します。"
+  },
+  "gpio_viewer_begin": {
+    "message0": "GPIO ビューア %1 を起動します",
+    "tooltip": "ネットワークとアプリケーションのセットアップ後に GPIO Viewer を起動します。"
+  }
+}

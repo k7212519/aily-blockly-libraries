@@ -4,34 +4,34 @@ ES8388 stereo audio codec library supporting recording, playback and real-time a
 
 ## Library Info
 - **Name**: @aily-project/lib-es8388
-- **Version**: 1.0.0
+- **Version**: 1.0.1
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `es8388_create` | Statement | VAR(field_input), SDA(input_value), SCL(input_value), SPEED(input_value) | `es8388_create("es8388", math_number(0), math_number(0), math_number(9600))` | Dynamic code |
-| `es8388_begin` | Statement | VAR(field_variable), SAMPLE_RATE(input_value), MCK_PIN(input_value), BCK_PIN(input_value), WS_PIN(input_value), DATA_OUT_PIN(input_value), DATA_IN_PIN(input_... | `es8388_begin(variables_get($es8388), math_number(0), math_number(2), math_number(2), math_number(2), math_number(2), math_number(2))` | if (! |
-| `es8388_set_input_gain` | Statement | VAR(field_variable), GAIN(input_value) | `es8388_set_input_gain(variables_get($es8388), math_number(0))` | Dynamic code |
-| `es8388_set_output_volume` | Statement | VAR(field_variable), VOLUME(input_value) | `es8388_set_output_volume(variables_get($es8388), math_number(0))` | Dynamic code |
-| `es8388_dac_mute` | Statement | VAR(field_variable), MUTE(dropdown) | `es8388_dac_mute(variables_get($es8388), TRUE)` | Dynamic code |
-| `es8388_start_recording` | Statement | VAR(field_variable), DURATION(input_value) | `es8388_start_recording(variables_get($es8388), math_number(1000))` | Dynamic code |
-| `es8388_stop_recording` | Statement | VAR(field_variable) | `es8388_stop_recording(variables_get($es8388))` | Dynamic code |
-| `es8388_start_playback` | Statement | VAR(field_variable) | `es8388_start_playback(variables_get($es8388))` | Dynamic code |
-| `es8388_stop_playback` | Statement | VAR(field_variable) | `es8388_stop_playback(variables_get($es8388))` | Dynamic code |
-| `es8388_record_and_play` | Statement | VAR(field_variable), DURATION(input_value) | `es8388_record_and_play(variables_get($es8388), math_number(1000))` | Dynamic code |
-| `es8388_enable_passthrough` | Statement | VAR(field_variable) | `es8388_enable_passthrough(variables_get($es8388))` | Dynamic code |
-| `es8388_disable_passthrough` | Statement | VAR(field_variable) | `es8388_disable_passthrough(variables_get($es8388))` | Dynamic code |
-| `es8388_process_audio` | Statement | VAR(field_variable) | `es8388_process_audio(variables_get($es8388))` | Dynamic code |
-| `es8388_is_recording` | Value | VAR(field_variable) | `es8388_is_recording(variables_get($es8388))` | Dynamic code |
-| `es8388_is_playing` | Value | VAR(field_variable) | `es8388_is_playing(variables_get($es8388))` | Dynamic code |
-| `es8388_get_recorded_samples` | Value | VAR(field_variable) | `es8388_get_recorded_samples(variables_get($es8388))` | Dynamic code |
-| `es8388_get_recorded_duration` | Value | VAR(field_variable) | `es8388_get_recorded_duration(variables_get($es8388))` | Dynamic code |
-| `es8388_set_input_select` | Statement | VAR(field_variable), INPUT(dropdown) | `es8388_set_input_select(variables_get($es8388), IN1)` | Dynamic code |
-| `es8388_set_output_select` | Statement | VAR(field_variable), OUTPUT(dropdown) | `es8388_set_output_select(variables_get($es8388), OUT1)` | Dynamic code |
-| `es8388_set_alc_mode` | Statement | VAR(field_variable), ALC_MODE(dropdown) | `es8388_set_alc_mode(variables_get($es8388), DISABLE)` | Dynamic code |
-| `es8388_analog_bypass` | Statement | VAR(field_variable), BYPASS(dropdown) | `es8388_analog_bypass(variables_get($es8388), TRUE)` | Dynamic code |
-| `es8388_scan_i2c` | Statement | VAR(field_variable) | `es8388_scan_i2c(variables_get($es8388))` | Dynamic code |
+| `es8388_create` | Statement | VAR(field_input), SDA(input_value), SCL(input_value), SPEED(input_value) | `es8388_create("es8388", math_number(0), math_number(0), math_number(9600))` | `ES8388 es8388(1, 1, ((uint32_t)((1) * 1000.0)));` |
+| `es8388_begin` | Statement | VAR(field_variable), SAMPLE_RATE(input_value), MCK_PIN(input_value), BCK_PIN(input_value), WS_PIN(input_value), DATA_OUT_PIN(input_value), DATA_IN_PIN(input_value) | `es8388_begin($es8388, math_number(0), math_number(2), math_number(2), math_number(2), math_number(2), math_number(2))` | `delay(1000); ↵ if (!es8388.begin(1, 1, 1, 1, 1, 1, I2S_NUM_0)) { ↵ Serial.println("Audio initialization failed!"); ↵ return; ↵ }` |
+| `es8388_set_input_gain` | Statement | VAR(field_variable), GAIN(input_value) | `es8388_set_input_gain($es8388, math_number(0))` | `es8388.setInputGain(1);` |
+| `es8388_set_output_volume` | Statement | VAR(field_variable), VOLUME(input_value) | `es8388_set_output_volume($es8388, math_number(0))` | `es8388.setOutputVolume(1);` |
+| `es8388_dac_mute` | Statement | VAR(field_variable), MUTE(dropdown) | `es8388_dac_mute($es8388, TRUE)` | `es8388.DACmute(true);` |
+| `es8388_start_recording` | Statement | VAR(field_variable), DURATION(input_value) | `es8388_start_recording($es8388, math_number(1000))` | `es8388.startRecording(1);` |
+| `es8388_stop_recording` | Statement | VAR(field_variable) | `es8388_stop_recording($es8388)` | `es8388.stopRecording();` |
+| `es8388_start_playback` | Statement | VAR(field_variable) | `es8388_start_playback($es8388)` | `es8388.startPlayback();` |
+| `es8388_stop_playback` | Statement | VAR(field_variable) | `es8388_stop_playback($es8388)` | `es8388.stopPlayback();` |
+| `es8388_record_and_play` | Statement | VAR(field_variable), DURATION(input_value) | `es8388_record_and_play($es8388, math_number(1000))` | `es8388.recordAndPlay(1);` |
+| `es8388_enable_passthrough` | Statement | VAR(field_variable) | `es8388_enable_passthrough($es8388)` | `es8388.enablePassthrough();` |
+| `es8388_disable_passthrough` | Statement | VAR(field_variable) | `es8388_disable_passthrough($es8388)` | `es8388.disablePassthrough();` |
+| `es8388_process_audio` | Statement | VAR(field_variable) | `es8388_process_audio($es8388)` | `es8388.processAudio();` |
+| `es8388_is_recording` | Value | VAR(field_variable) | `es8388_is_recording($es8388)` | `es8388.isRecording()` |
+| `es8388_is_playing` | Value | VAR(field_variable) | `es8388_is_playing($es8388)` | `es8388.isPlaying()` |
+| `es8388_get_recorded_samples` | Value | VAR(field_variable) | `es8388_get_recorded_samples($es8388)` | `es8388.getRecordedSamples()` |
+| `es8388_get_recorded_duration` | Value | VAR(field_variable) | `es8388_get_recorded_duration($es8388)` | `es8388.getRecordedDuration()` |
+| `es8388_set_input_select` | Statement | VAR(field_variable), INPUT(dropdown) | `es8388_set_input_select($es8388, IN1)` | `es8388.inputSelect(IN1);` |
+| `es8388_set_output_select` | Statement | VAR(field_variable), OUTPUT(dropdown) | `es8388_set_output_select($es8388, OUT1)` | `es8388.outputSelect(OUT1);` |
+| `es8388_set_alc_mode` | Statement | VAR(field_variable), ALC_MODE(dropdown) | `es8388_set_alc_mode($es8388, DISABLE)` | `es8388.setALCmode(DISABLE);` |
+| `es8388_analog_bypass` | Statement | VAR(field_variable), BYPASS(dropdown) | `es8388_analog_bypass($es8388, TRUE)` | `es8388.analogBypass(true);` |
+| `es8388_scan_i2c` | Statement | VAR(field_variable) | `es8388_scan_i2c($es8388)` | `es8388.scanI2C();` |
 
 ## Parameter Options
 
@@ -52,12 +52,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, es8388_is_recording(variables_get($es8388)))
+    serial_println(Serial, es8388_is_recording($es8388))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `es8388_create("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `es8388_create("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

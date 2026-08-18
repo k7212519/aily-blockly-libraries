@@ -4,6 +4,10 @@
     "message0": "시리얼%1 초기화 보드레이트 %2",
     "tooltip": "지정된 시리얼 포트를 보드레이트로 초기화"
   },
+  "serial_wait_for_connection": {
+    "message0": "시리얼%1 연결 대기",
+    "tooltip": "지정된 시리얼 포트가 연결될 때까지 실행을 중지"
+  },
   "serial_available": {
     "message0": "시리얼%1 버퍼에 데이터 있음",
     "tooltip": "시리얼 버퍼에 읽을 수 있는 데이터가 있는지 확인"
@@ -12,17 +16,43 @@
     "message0": "시리얼%1 데이터 읽기 %2",
     "tooltip": "시리얼 포트에서 데이터 읽기",
     "args0": [
-      null,
+      {
+        "options": "${board.serialPort}"
+      },
       {
         "options": [
-          ["읽기", "read()"],
-          ["미리보기", "peek()"],
-          ["정수 파싱", "parseInt()"],
-          ["실수 파싱", "parseFloat()"],
-          ["문자열 읽기", "readString()"],
-          ["복귀'\\r'까지 읽기", "readStringUntil('\\r')"],
-          ["개행'\\n'까지 읽기", "readStringUntil('\\n')"],
-          ["널'\\0'까지 읽기", "readStringUntil('\\0')"]
+          [
+            "읽기",
+            "read()"
+          ],
+          [
+            "미리보기",
+            "peek()"
+          ],
+          [
+            "정수 파싱",
+            "parseInt()"
+          ],
+          [
+            "실수 파싱",
+            "parseFloat()"
+          ],
+          [
+            "문자열 읽기",
+            "readString()"
+          ],
+          [
+            "복귀'\\r'까지 읽기",
+            "readStringUntil('\\r')"
+          ],
+          [
+            "개행'\\n'까지 읽기",
+            "readStringUntil('\\n')"
+          ],
+          [
+            "널'\\0'까지 읽기",
+            "readStringUntil('\\0')"
+          ]
         ]
       }
     ]
@@ -54,13 +84,25 @@
       null,
       {
         "options": [
-          ["UART0", "UART0"],
-          ["UART1", "UART1"]
+          [
+            "UART0",
+            "UART0"
+          ],
+          [
+            "UART1",
+            "UART1"
+          ]
         ]
       },
-      null,
-      null,
-      null
+      {
+        "options": "${board.serialSpeed}"
+      },
+      {
+        "options": "${board.digitalPins}"
+      },
+      {
+        "options": "${board.digitalPins}"
+      }
     ]
   },
   "serial_begin_software": {

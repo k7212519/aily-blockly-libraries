@@ -8,12 +8,12 @@ Applicable to AHT10, AHT20 temperature and humidity sensors
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ahtx0_begin` | Statement | (none) | `ahtx0_begin()` | Dynamic code |
-| `ahtx0_read` | Statement | (none) | `ahtx0_read()` | aht.getEvent(&humidity, &temp);\n |
-| `ahtx0_get_temperature` | Value | (none) | `ahtx0_get_temperature()` | temp.temperature |
-| `ahtx0_get_humidity` | Value | (none) | `ahtx0_get_humidity()` | humidity.relative_humidity |
+| `ahtx0_begin` | Statement | (none) | `ahtx0_begin()` | `Adafruit_AHTX0 aht; ↵ if (!aht.begin()) { ↵ Serial.println("Could not find AHT sensor!"); ↵ while (1) delay(10); ↵ }` |
+| `ahtx0_read` | Statement | (none) | `ahtx0_read()` | `aht.getEvent(&humidity, &temp);` |
+| `ahtx0_get_temperature` | Value | (none) | `ahtx0_get_temperature()` | `temp.temperature` |
+| `ahtx0_get_humidity` | Value | (none) | `ahtx0_get_humidity()` | `humidity.relative_humidity` |
 
 ## ABS Examples
 

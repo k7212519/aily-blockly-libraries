@@ -8,19 +8,25 @@ SGP30 gas/air quality sensor support library, which realizes real-time detection
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `sgp30_init` | Statement | WIRE(dropdown) | `sgp30_init(WIRE)` | if (!sgp.begin()) {\n |
-| `sgp30_measure` | Statement | (none) | `sgp30_measure()` | if (!sgp.IAQmeasure()) {\n |
-| `sgp30_get_tvoc` | Value | (none) | `sgp30_get_tvoc()` | sgp.TVOC |
-| `sgp30_get_eco2` | Value | (none) | `sgp30_get_eco2()` | sgp.eCO2 |
-| `sgp30_measure_raw` | Statement | (none) | `sgp30_measure_raw()` | if (!sgp.IAQmeasureRaw()) {\n |
-| `sgp30_get_raw_h2` | Value | (none) | `sgp30_get_raw_h2()` | sgp.rawH2 |
-| `sgp30_get_raw_ethanol` | Value | (none) | `sgp30_get_raw_ethanol()` | sgp.rawEthanol |
-| `sgp30_set_humidity` | Statement | TEMPERATURE(input_value), HUMIDITY(input_value) | `sgp30_set_humidity(math_number(0), math_number(0))` | sgp.setHumidity(getAbsoluteHumidity( |
-| `sgp30_get_baseline` | Statement | ECO2_BASE(field_variable), TVOC_BASE(field_variable) | `sgp30_get_baseline(variables_get($eco2_baseline), variables_get($tvoc_baseline))` | if (!sgp.getIAQBaseline(& |
-| `sgp30_set_baseline` | Statement | ECO2_BASE(input_value), TVOC_BASE(input_value) | `sgp30_set_baseline(math_number(0), math_number(0))` | sgp.setIAQBaseline( |
-| `sgp30_get_serial` | Value | (none) | `sgp30_get_serial()` | String(sgp.serialnumber[0], HEX) + String(sgp.serialnumber[1], HEX) + String(sgp.serialnum |
+| `sgp30_init` | Statement | WIRE(dropdown) | `sgp30_init(WIRE)` | `if (!sgp.begin()) { ↵ Serial.println("SGP30 sensor not found!"); ↵ while(1); ↵ } ↵ Serial.println("SGP30 sensor initialized");` |
+| `sgp30_measure` | Statement | (none) | `sgp30_measure()` | `if (!sgp.IAQmeasure()) { ↵ Serial.println("SGP30 measurement failed"); ↵ }` |
+| `sgp30_get_tvoc` | Value | (none) | `sgp30_get_tvoc()` | `sgp.TVOC` |
+| `sgp30_get_eco2` | Value | (none) | `sgp30_get_eco2()` | `sgp.eCO2` |
+| `sgp30_measure_raw` | Statement | (none) | `sgp30_measure_raw()` | `if (!sgp.IAQmeasureRaw()) { ↵ Serial.println("SGP30 raw measurement failed"); ↵ }` |
+| `sgp30_get_raw_h2` | Value | (none) | `sgp30_get_raw_h2()` | `sgp.rawH2` |
+| `sgp30_get_raw_ethanol` | Value | (none) | `sgp30_get_raw_ethanol()` | `sgp.rawEthanol` |
+| `sgp30_set_humidity` | Statement | TEMPERATURE(input_value), HUMIDITY(input_value) | `sgp30_set_humidity(math_number(0), math_number(0))` | `sgp.setHumidity(getAbsoluteHumidity(1, 1));` |
+| `sgp30_get_baseline` | Statement | ECO2_BASE(field_variable), TVOC_BASE(field_variable) | `sgp30_get_baseline($eco2_baseline, $tvoc_baseline)` | `if (!sgp.getIAQBaseline(&eco2_baseline, &tvoc_baseline)) { ↵ Serial.println("Failed to get baseline readings"); ↵ }` |
+| `sgp30_set_baseline` | Statement | ECO2_BASE(input_value), TVOC_BASE(input_value) | `sgp30_set_baseline(math_number(0), math_number(0))` | `sgp.setIAQBaseline(1, 1);` |
+| `sgp30_get_serial` | Value | (none) | `sgp30_get_serial()` | `String(sgp.serialnumber[0], HEX) + String(sgp.serialnumber[1], HEX) + String(sgp.serialnumber[2], HEX)` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| WIRE | ${board.i2c} | sgp30_init |
 
 ## ABS Examples
 

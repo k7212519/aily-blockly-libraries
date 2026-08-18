@@ -8,16 +8,16 @@ Blockly wrapper for the SparkFun TMP102 I2C digital temperature sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tmp102_init` | Statement | VAR(field_input), ADDR(dropdown) | `tmp102_init("tmp", "0x48")` | Wire.begin();\n |
-| `tmp102_read_temp_c` | Value | VAR(field_variable) | `tmp102_read_temp_c(variables_get($tmp))` | Dynamic code |
-| `tmp102_read_temp_f` | Value | VAR(field_variable) | `tmp102_read_temp_f(variables_get($tmp))` | Dynamic code |
-| `tmp102_sleep` | Statement | VAR(field_variable) | `tmp102_sleep(variables_get($tmp))` | Dynamic code |
-| `tmp102_wakeup` | Statement | VAR(field_variable) | `tmp102_wakeup(variables_get($tmp))` | Dynamic code |
-| `tmp102_alert` | Value | VAR(field_variable) | `tmp102_alert(variables_get($tmp))` | Dynamic code |
-| `tmp102_set_high_temp_c` | Statement | VAR(field_variable), TEMP(input_value) | `tmp102_set_high_temp_c(variables_get($tmp), math_number(0))` | Dynamic code |
-| `tmp102_set_low_temp_c` | Statement | VAR(field_variable), TEMP(input_value) | `tmp102_set_low_temp_c(variables_get($tmp), math_number(0))` | Dynamic code |
+| `tmp102_init` | Statement | VAR(field_input), ADDR(dropdown) | `tmp102_init("tmp", "0x48")` | `Wire.begin(); ↵ tmp.begin(0x48);` |
+| `tmp102_read_temp_c` | Value | VAR(field_variable) | `tmp102_read_temp_c($tmp)` | `tmp.readTempC()` |
+| `tmp102_read_temp_f` | Value | VAR(field_variable) | `tmp102_read_temp_f($tmp)` | `tmp.readTempF()` |
+| `tmp102_sleep` | Statement | VAR(field_variable) | `tmp102_sleep($tmp)` | `tmp.sleep();` |
+| `tmp102_wakeup` | Statement | VAR(field_variable) | `tmp102_wakeup($tmp)` | `tmp.wakeup();` |
+| `tmp102_alert` | Value | VAR(field_variable) | `tmp102_alert($tmp)` | `tmp.alert()` |
+| `tmp102_set_high_temp_c` | Statement | VAR(field_variable), TEMP(input_value) | `tmp102_set_high_temp_c($tmp, math_number(0))` | `tmp.setHighTempC(1);` |
+| `tmp102_set_low_temp_c` | Statement | VAR(field_variable), TEMP(input_value) | `tmp102_set_low_temp_c($tmp, math_number(0))` | `tmp.setLowTempC(1);` |
 
 ## Parameter Options
 
@@ -34,12 +34,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, tmp102_read_temp_c(variables_get($tmp)))
+    serial_println(Serial, tmp102_read_temp_c($tmp))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `tmp102_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `tmp102_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

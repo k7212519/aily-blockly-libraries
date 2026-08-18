@@ -1,0 +1,60 @@
+{
+  "toolbox_name": "ThingsBoard",
+  "thingsboard_init": {
+    "message0": "تهيئة خادم ThingsBoard %1 %2 الرمز المميز %3 منفذ %4 بايت الرسالة %5",
+    "tooltip": "أنشئ عميل MQTT واتصل بـ ThingsBoard."
+  },
+  "thingsboard_connect": {
+    "message0": "ThingsBoard %1 توصيل الخادم %2 الرمز المميز %3 منفذ %4",
+    "tooltip": "قم بالاتصال أو إعادة الاتصال بـ ThingsBoard."
+  },
+  "thingsboard_send": {
+    "message0": "ThingsBoard %1 إرسال مفتاح %2 قيمة %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "القياس عن بعد",
+            "sendTelemetryData"
+          ],
+          [
+            "سمة العميل",
+            "sendAttributeData"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "أرسل قيمة واحدة للقياس عن بعد أو سمة العميل."
+  },
+  "thingsboard_send_json": {
+    "message0": "ThingsBoard %1 إرسال %2 JSON %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "القياس عن بعد",
+            "sendTelemetryString"
+          ],
+          [
+            "سمات العميل",
+            "sendAttributeString"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "إرسال سلسلة كائنات JSON سابقة الإنشاء."
+  },
+  "thingsboard_connected": {
+    "message0": "ThingsBoard %1 متصل",
+    "tooltip": "تحقق من اتصال MQTT."
+  },
+  "thingsboard_disconnect": {
+    "message0": "افصل ThingsBoard %1",
+    "tooltip": "افصل عميل ThingsBoard MQTT."
+  }
+}

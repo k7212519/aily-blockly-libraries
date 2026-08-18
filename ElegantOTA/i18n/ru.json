@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "инициализировать сервер ElegantOTA режим %1 порт %2 %3 имя пользователя %4 пароль %5 автоматическая перезагрузка %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "синхронный веб-сервер",
+            "sync"
+          ],
+          [
+            "Асинхронный веб-сервер",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Создайте веб-сервер и откройте портал обновлений ElegantOTA в /update."
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA установить имя пользователя %1 пароль %2",
+    "tooltip": "Измените аутентификацию портала обновлений."
+  },
+  "elegant_ota_on_start": {
+    "message0": "когда начнется обновление ElegantOTA %1",
+    "tooltip": "Запускайте код при начале загрузки OTA."
+  },
+  "elegant_ota_on_progress": {
+    "message0": "пока идет обновление ElegantOTA %1",
+    "tooltip": "Запускать код при изменении хода выполнения OTA."
+  },
+  "elegant_ota_on_end": {
+    "message0": "когда закончится обновление ElegantOTA %1",
+    "tooltip": "Запускайте код при успешном или неудачном обновлении OTA."
+  },
+  "elegant_ota_callback_value": {
+    "message0": "ElegantOTA обратный вызов %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "полученные байты",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "общее количество байт",
+            "_ailyOtaFinal"
+          ],
+          [
+            "процент прогресса",
+            "percent"
+          ],
+          [
+            "успех",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Считайте значения, доступные внутри блоков обратного вызова OTA."
+  }
+}

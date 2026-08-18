@@ -8,16 +8,16 @@ Blockly wrapper for the SparkFun ESP8266 AT WiFi Shield Arduino Library.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp8266at_begin` | Statement | BAUD(dropdown), PORT(dropdown) | `esp8266at_begin("9600", "0")` | esp8266.begin( |
-| `esp8266at_connect` | Statement | SSID(input_value), PWD(input_value) | `esp8266at_connect(text("value"), text("value"))` | esp8266.connect( |
-| `esp8266at_disconnect` | Statement | (none) | `esp8266at_disconnect()` | esp8266.disconnect();\n |
-| `esp8266at_is_connected` | Value | (none) | `esp8266at_is_connected()` | esp8266.status() == STATION_GOT_IP |
-| `esp8266at_local_ip` | Value | (none) | `esp8266at_local_ip()` | esp8266.localIP().toString() |
-| `esp8266at_tcp_connect` | Statement | LINK_ID(field_number), HOST(input_value), PORT(input_value) | `esp8266at_tcp_connect(0, text("value"), math_number(0))` | esp8266.tcpConnect( |
-| `esp8266at_tcp_send` | Statement | LINK_ID(field_number), DATA(input_value) | `esp8266at_tcp_send(0, text("value"))` | esp8266.print( |
-| `esp8266at_close` | Statement | LINK_ID(field_number) | `esp8266at_close(0)` | esp8266.close( |
+| `esp8266at_begin` | Statement | BAUD(dropdown), PORT(dropdown) | `esp8266at_begin("9600", "0")` | `esp8266.begin(9600, ESP8266_SOFTWARE_SERIAL);` |
+| `esp8266at_connect` | Statement | SSID(input_value), PWD(input_value) | `esp8266at_connect(text("value"), text("value"))` | `esp8266.connect("value", "value");` |
+| `esp8266at_disconnect` | Statement | (none) | `esp8266at_disconnect()` | `esp8266.disconnect();` |
+| `esp8266at_is_connected` | Value | (none) | `esp8266at_is_connected()` | `esp8266.status() == STATION_GOT_IP` |
+| `esp8266at_local_ip` | Value | (none) | `esp8266at_local_ip()` | `esp8266.localIP().toString()` |
+| `esp8266at_tcp_connect` | Statement | LINK_ID(field_number), HOST(input_value), PORT(input_value) | `esp8266at_tcp_connect(0, text("value"), math_number(0))` | `esp8266.tcpConnect(0, "value", 1);` |
+| `esp8266at_tcp_send` | Statement | LINK_ID(field_number), DATA(input_value) | `esp8266at_tcp_send(0, text("value"))` | `esp8266.print(0, "value");` |
+| `esp8266at_close` | Statement | LINK_ID(field_number) | `esp8266at_close(0)` | `esp8266.close(0);` |
 
 ## Parameter Options
 

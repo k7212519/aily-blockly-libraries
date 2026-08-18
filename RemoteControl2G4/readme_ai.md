@@ -8,13 +8,13 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `RemoteControl2g4_init` | Statement | (none) | `RemoteControl2g4_init()` | Dynamic code |
-| `RemoteControl2g4_run` | Statement | (none) | `RemoteControl2g4_run()` | MyCar.OpenJumper_RemoteControl_run();\n |
-| `RemoteControl2g4_RD` | Value | (none) | `RemoteControl2g4_RD()` | MyCar.SerialState() |
-| `RemoteControl_btn` | Value | BUTTON(dropdown) | `RemoteControl_btn(PAD_UP)` | MyCar.Button( |
-| `RemoteControl_joy` | Value | JOY(dropdown) | `RemoteControl_joy(PAD_LX)` | MyCar.Analog( |
+| `RemoteControl2g4_init` | Statement | (none) | `RemoteControl2g4_init()` | `OJPAD MyCar = OJPAD();` |
+| `RemoteControl2g4_run` | Statement | (none) | `RemoteControl2g4_run()` | `MyCar.OpenJumper_RemoteControl_run();` |
+| `RemoteControl2g4_RD` | Value | (none) | `RemoteControl2g4_RD()` | `MyCar.SerialState()` |
+| `RemoteControl_btn` | Value | BUTTON(dropdown) | `RemoteControl_btn(PAD_UP)` | `MyCar.Button(PAD_UP)` |
+| `RemoteControl_joy` | Value | JOY(dropdown) | `RemoteControl_joy(PAD_LX)` | `MyCar.Analog(PAD_LX)` |
 
 ## Parameter Options
 

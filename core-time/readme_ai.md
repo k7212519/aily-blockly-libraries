@@ -8,14 +8,14 @@ Core libraries, usually already integrated into the initial template. Contains d
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `time_delay` | Statement | DELAY_TIME(input_value) | `time_delay(math_number(1000))` | delay( |
-| `time_millis` | Value | (none) | `time_millis()` | millis() |
-| `system_time` | Value | (none) | `system_time()` | __TIME__ |
-| `system_date` | Value | (none) | `system_date()` | __DATE__ |
-| `time_delay_microseconds` | Statement | DELAY_TIME(input_value) | `time_delay_microseconds(math_number(1000))` | delayMicroseconds( |
-| `time_micros` | Value | (none) | `time_micros()` | micros() |
+| `time_delay` | Statement | DELAY_TIME(input_value) | `time_delay(math_number(1000))` | `delay(1);` |
+| `time_millis` | Value | (none) | `time_millis()` | `millis()` |
+| `system_time` | Value | (none) | `system_time()` | `__TIME__` |
+| `system_date` | Value | (none) | `system_date()` | `__DATE__` |
+| `time_delay_microseconds` | Statement | DELAY_TIME(input_value) | `time_delay_microseconds(math_number(1000))` | `delayMicroseconds(1);` |
+| `time_micros` | Value | (none) | `time_micros()` | `micros()` |
 
 ## ABS Examples
 

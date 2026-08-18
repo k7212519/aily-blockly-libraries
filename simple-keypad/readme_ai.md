@@ -8,10 +8,10 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `simple_keypad_init` | Statement | VAR(field_input), LAYOUT(field_dropdown), KEYMAP(field_input) | `simple_keypad_init("keypad", 4x4, "123A456B789C*0#D")` | Declares key/row/col arrays + `SimpleKeypad keypad(...)` |
-| `simple_keypad_get_key` | Value | VAR(field_variable) | `simple_keypad_get_key($keypad)` | `simpleKeypadGetKeyStr(keypad)` returns `String` |
+| `simple_keypad_init` | Statement | VAR(field_input), LAYOUT(dropdown), KEYMAP(field_input); runtime variants: layout-4x4: ROW_0(dropdown), ROW_1(dropdown), ROW_2(dropdown), ROW_3(dropdown), COL_0(dropdown), COL_1(dropdown), COL_2(dropdown), COL_3(dropdown); layout-4x3: ROW_0(dropdown), ROW_1(dropdown), ROW_2(dropdown), ROW_3(dropdown), COL_0(dropdown), COL_1(dropdown), COL_2(dropdown); layout-3x4: ROW_0(dropdown), ROW_1(dropdown), ROW_2(dropdown), COL_0(dropdown), COL_1(dropdown), COL_2(dropdown), COL_3(dropdown); layout-3x3: ROW_0(dropdown), ROW_1(dropdown), ROW_2(dropdown), COL_0(dropdown), COL_1(dropdown), COL_2(dropdown); layout-3x1: ROW_0(dropdown), ROW_1(dropdown), ROW_2(dropdown), COL_0(dropdown); layout-1x3: ROW_0(dropdown), COL_0(dropdown), COL_1(dropdown), COL_2(dropdown) | `simple_keypad_init("keypad", "4x4", "123A456B789C*0#D", ROW_0=2, ROW_1=3, ROW_2=4, ROW_3=5, COL_0=6, COL_1=7, COL_2=8, COL_3=9)` | `char keypad_keys[] = "123A456B789C*0#D"; ↵ byte keypad_rowPins[] = {ROW_0, ROW_1, ROW_2, ROW_3}; ↵ byte keypad_colPins[] = {COL_0, COL_1, COL_2, COL_3}; ↵ SimpleKeypad keypad(keypad_keys, keypad_rowPins, keypad_colPins, 4, 4);` |
+| `simple_keypad_get_key` | Value | VAR(field_variable) | `simple_keypad_get_key($keypad)` | `simpleKeypadGetKeyStr(keypad)` |
 
 ## Parameter Options
 
@@ -29,7 +29,7 @@
 ### Basic Usage
 ```abs
 arduino_setup()
-    simple_keypad_init("keypad", 4x4, "123A456B789C*0#D")
+    simple_keypad_init("keypad", "4x4", "123A456B789C*0#D", ROW_0=2, ROW_1=3, ROW_2=4, ROW_3=5, COL_0=6, COL_1=7, COL_2=8, COL_3=9)
     serial_begin(Serial, 115200)
 
 arduino_loop()
@@ -40,11 +40,20 @@ arduino_loop()
 ### 4×3 Keypad
 ```abs
 arduino_setup()
-    simple_keypad_init("kpad", 4x3, "123456789*0#")
+    simple_keypad_init("kpad", "4x3", "123456789*0#", ROW_0=2, ROW_1=3, ROW_2=4, ROW_3=5, COL_0=6, COL_1=7, COL_2=8)
 
 arduino_loop()
     serial_println(Serial, simple_keypad_get_key($kpad))
     time_delay(math_number(50))
+```
+
+### Other Runtime Layouts
+
+```abs
+simple_keypad_init("keypad34", "3x4", "1234567890AB", ROW_0=2, ROW_1=3, ROW_2=4, COL_0=5, COL_1=6, COL_2=7, COL_3=8)
+simple_keypad_init("keypad33", "3x3", "123456789", ROW_0=2, ROW_1=3, ROW_2=4, COL_0=5, COL_1=6, COL_2=7)
+simple_keypad_init("keypad31", "3x1", "123", ROW_0=2, ROW_1=3, ROW_2=4, COL_0=5)
+simple_keypad_init("keypad13", "1x3", "123", ROW_0=2, COL_0=3, COL_1=4, COL_2=5)
 ```
 
 ## Notes

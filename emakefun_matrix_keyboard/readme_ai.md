@@ -8,16 +8,16 @@ Emakefun matrix keyboard module library supports 4x4 matrix keyboard key detecti
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `matrix_keyboard_init` | Statement | VAR(field_input), I2C_ADDR(field_input) | `matrix_keyboard_init("keyboard", "0x65")` | Wire.begin();\n |
-| `matrix_keyboard_tick` | Statement | VAR(field_variable) | `matrix_keyboard_tick(variables_get($keyboard))` | Dynamic code |
-| `matrix_keyboard_get_current_key` | Value | VAR(field_variable) | `matrix_keyboard_get_current_key(variables_get($keyboard))` | Dynamic code |
-| `matrix_keyboard_key_pressed` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_pressed(variables_get($keyboard), kKey0)` | Dynamic code |
-| `matrix_keyboard_key_pressing` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_pressing(variables_get($keyboard), kKey0)` | Dynamic code |
-| `matrix_keyboard_key_released` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_released(variables_get($keyboard), kKey0)` | Dynamic code |
-| `matrix_keyboard_key_idle` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_idle(variables_get($keyboard), kKey0)` | Dynamic code |
-| `matrix_keyboard_get_key_state` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_get_key_state(variables_get($keyboard), kKey0)` | (int) |
+| `matrix_keyboard_init` | Statement | VAR(field_input), I2C_ADDR(field_input) | `matrix_keyboard_init("keyboard", "0x65")` | `Wire.begin(); ↵ if (keyboard.Initialize() != emakefun::MatrixKeyboard::ErrorCode::kOK) { ↵ Serial.println("Matrix keyboard initialization failed!"); ↵ while(1); ↵ } ↵ Serial.println("Matrix keyboard initialized successfully");` |
+| `matrix_keyboard_tick` | Statement | VAR(field_variable) | `matrix_keyboard_tick($keyboard)` | `keyboard.Tick();` |
+| `matrix_keyboard_get_current_key` | Value | VAR(field_variable) | `matrix_keyboard_get_current_key($keyboard)` | `keyboard.GetCurrentPressedKey()` |
+| `matrix_keyboard_key_pressed` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_pressed($keyboard, kKey0)` | `keyboard.Pressed(emakefun::MatrixKeyboard::kKey0)` |
+| `matrix_keyboard_key_pressing` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_pressing($keyboard, kKey0)` | `keyboard.Pressing(emakefun::MatrixKeyboard::kKey0)` |
+| `matrix_keyboard_key_released` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_released($keyboard, kKey0)` | `keyboard.Released(emakefun::MatrixKeyboard::kKey0)` |
+| `matrix_keyboard_key_idle` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_key_idle($keyboard, kKey0)` | `keyboard.Idle(emakefun::MatrixKeyboard::kKey0)` |
+| `matrix_keyboard_get_key_state` | Value | VAR(field_variable), KEY(dropdown) | `matrix_keyboard_get_key_state($keyboard, kKey0)` | `(int)keyboard.GetKeyState(emakefun::MatrixKeyboard::kKey0)` |
 
 ## Parameter Options
 
@@ -34,12 +34,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, matrix_keyboard_get_current_key(variables_get($keyboard)))
+    serial_println(Serial, matrix_keyboard_get_current_key($keyboard))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `matrix_keyboard_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `matrix_keyboard_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

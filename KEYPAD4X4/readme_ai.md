@@ -8,11 +8,11 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `keypad_initialize` | Statement | ROW1(input_value), ROW2(input_value), ROW3(input_value), ROW4(input_value), COL1(input_value), COL2(input_value), COL3(input_value), COL4(input_value) | `keypad_initialize(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | keypad_initalize(keypad_pins);\n |
-| `keypad_getkey` | Value | (none) | `keypad_getkey()` | keypad_getkey() |
-| `keypad_delete` | Statement | (none) | `keypad_delete()` | keypad_delete();\n |
+| `keypad_initialize` | Statement | ROW1(input_value), ROW2(input_value), ROW3(input_value), ROW4(input_value), COL1(input_value), COL2(input_value), COL3(input_value), COL4(input_value) | `keypad_initialize(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `keypad_initalize(keypad_pins);` |
+| `keypad_getkey` | Value | (none) | `keypad_getkey()` | `keypad_getkey()` |
+| `keypad_delete` | Statement | (none) | `keypad_delete()` | `keypad_delete();` |
 
 ## ABS Examples
 

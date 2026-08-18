@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "GPIO Viewer",
+  "gpio_viewer_init": {
+    "message0": "инициализация GPIO Viewer порт %1 %2 выборка мс %3 пропуск периферийных контактов %4",
+    "tooltip": "Настройте и запустите веб-приложение ESP32 GPIO Viewer."
+  },
+  "gpio_viewer_wifi": {
+    "message0": "GPIO Viewer %1 подключение Wi-Fi SSID %2 пароль %3",
+    "tooltip": "Позвольте GPIO Viewer установить соединение Wi-Fi в режиме станции."
+  },
+  "gpio_viewer_set": {
+    "message0": "Средство просмотра GPIO %1 установило для %2 значение %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Порт HTTP",
+            "setPort"
+          ],
+          [
+            "интервал выборки мс",
+            "setSamplingInterval"
+          ],
+          [
+            "пропустить периферийные контакты",
+            "setSkipPeripheralPins"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Настройте конфигурацию средства просмотра GPIO до его начала."
+  },
+  "gpio_viewer_begin": {
+    "message0": "запустить программу просмотра GPIO %1",
+    "tooltip": "Запустите GPIO Viewer после настройки сети и приложения."
+  }
+}

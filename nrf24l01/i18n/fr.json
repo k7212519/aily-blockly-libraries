@@ -1,0 +1,76 @@
+{
+  "toolbox_name": "Communication radio nRF24L01",
+  "toolbox_labels": {
+    "Setup": "Initialisation et configuration",
+    "Addresses": "Adresses radio",
+    "Send and receive": "Envoi et réception",
+    "Status and power": "État et alimentation"
+  },
+  "nrf24l01_init": {
+    "message0": "initialiser nRF24L01 %1 broche CE %2 broche CSN %3",
+    "tooltip": "Crée l'objet RF24, initialise la radio SPI et active les charges utiles dynamiques. Alimenter le module en 3,3 V."
+  },
+  "nrf24l01_set_radio_parameters": {
+    "message0": "nRF24L01 %1 régler canal %2 débit %3 puissance %4",
+    "tooltip": "Règle le canal RF (0-125), le débit radio et la puissance d'émission. Les deux radios doivent utiliser le même canal et le même débit.",
+    "args0": [null, null, {"options": [["250 kbit/s", "RF24_250KBPS"], ["1 Mbit/s", "RF24_1MBPS"], ["2 Mbit/s", "RF24_2MBPS"]]}, {"options": [["minimum (-18 dBm)", "RF24_PA_MIN"], ["faible (-12 dBm)", "RF24_PA_LOW"], ["élevée (-6 dBm)", "RF24_PA_HIGH"], ["maximum (0 dBm)", "RF24_PA_MAX"]]}]
+  },
+  "nrf24l01_set_retries": {
+    "message0": "nRF24L01 %1 régler délai de reprise %2 nombre %3",
+    "tooltip": "Règle le délai et le nombre de retransmissions automatiques. Chaque valeur est comprise entre 0 et 15."
+  },
+  "nrf24l01_set_auto_ack": {
+    "message0": "nRF24L01 %1 accusé de réception automatique %2",
+    "tooltip": "Active ou désactive l'accusé de réception automatique sur tous les canaux de réception."
+  },
+  "nrf24l01_open_writing_pipe": {
+    "message0": "nRF24L01 %1 définir adresse d'émission %2",
+    "tooltip": "Définit l'adresse de destination et passe en émission. Les 5 premiers octets sont utilisés et les adresses courtes sont complétées."
+  },
+  "nrf24l01_open_reading_pipe": {
+    "message0": "nRF24L01 %1 ouvrir canal de réception %2 adresse %3",
+    "tooltip": "Ouvre le canal de réception 0-5 avec une adresse de 5 octets. Les canaux 2-5 doivent partager leurs 4 derniers octets avec le canal 1."
+  },
+  "nrf24l01_set_listening": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "Bascule entre réception et émission. Ouvrir un canal de réception avant de commencer l'écoute.",
+    "args0": [null, {"options": [["démarrer l'écoute", "START"], ["arrêter l'écoute", "STOP"]]}]
+  },
+  "nrf24l01_send_text": {
+    "message0": "nRF24L01 %1 envoyer texte %2",
+    "tooltip": "Envoie jusqu'à 31 octets de texte avec un terminateur et mémorise l'accusé de réception."
+  },
+  "nrf24l01_send_number": {
+    "message0": "nRF24L01 %1 envoyer nombre %2",
+    "tooltip": "Envoie un nombre sous forme flottante 32 bits et mémorise l'accusé de réception."
+  },
+  "nrf24l01_available": {
+    "message0": "nRF24L01 %1 a des données reçues",
+    "tooltip": "Renvoie vrai si une charge utile attend et mémorise le numéro du canal de réception."
+  },
+  "nrf24l01_read_text": {
+    "message0": "nRF24L01 %1 lire texte",
+    "tooltip": "Lit et consomme la prochaine charge utile comme texte. Vérifier d'abord la présence de données."
+  },
+  "nrf24l01_read_number": {
+    "message0": "nRF24L01 %1 lire nombre",
+    "tooltip": "Lit et consomme la prochaine charge utile flottante 32 bits. Vérifier d'abord la présence de données."
+  },
+  "nrf24l01_last_send_succeeded": {
+    "message0": "nRF24L01 %1 dernier envoi réussi",
+    "tooltip": "Renvoie le résultat d'accusé de réception du dernier envoi de texte ou de nombre."
+  },
+  "nrf24l01_received_pipe": {
+    "message0": "nRF24L01 %1 dernier canal de réception",
+    "tooltip": "Renvoie le numéro de canal mémorisé lors de la dernière vérification de réception."
+  },
+  "nrf24l01_is_chip_connected": {
+    "message0": "nRF24L01 %1 matériel connecté",
+    "tooltip": "Vérifie si le microcontrôleur peut communiquer avec la radio par SPI."
+  },
+  "nrf24l01_set_power_mode": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "Réveille la radio ou la place en basse consommation. La configuration est conservée à l'arrêt.",
+    "args0": [null, {"options": [["mettre sous tension", "UP"], ["mettre hors tension", "DOWN"]]}]
+  }
+}

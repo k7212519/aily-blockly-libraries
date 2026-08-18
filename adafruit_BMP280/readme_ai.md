@@ -8,13 +8,13 @@ Used for BMP280 air pressure sensor to achieve high-precision measurement of tem
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `bmp280_init` | Statement | ADDR(dropdown), WIRE(dropdown) | `bmp280_init("0x76", WIRE)` | Dynamic code |
-| `bmp280_read_temperature` | Value | (none) | `bmp280_read_temperature()` | bmp.readTemperature() |
-| `bmp280_read_pressure` | Value | (none) | `bmp280_read_pressure()` | (bmp.readPressure() / 100.0F) |
-| `bmp280_read_altitude` | Value | SEAPRESSURE(field_number) | `bmp280_read_altitude(1013.25)` | bmp.readAltitude( |
-| `bmp280_set_sampling` | Statement | MODE(dropdown), TEMP_OS(dropdown), PRES_OS(dropdown), FILTER(dropdown), DURATION(dropdown) | `bmp280_set_sampling(MODE_NORMAL, SAMPLING_X4, SAMPLING_X4, FILTER_X4, STANDBY_MS_1)` | bmp.setSampling(Adafruit_BMP280:: |
+| `bmp280_init` | Statement | ADDR(dropdown), WIRE(dropdown) | `bmp280_init("0x76", WIRE)` | `Adafruit_BMP280 bmp; ↵ if (!bmp.begin(0x76)) { ↵ Serial.println("Could not find a valid BMP280 sensor, check wiring!"); ↵ while (1); ↵ } ↵ Wire.begin();` |
+| `bmp280_read_temperature` | Value | (none) | `bmp280_read_temperature()` | `bmp.readTemperature()` |
+| `bmp280_read_pressure` | Value | (none) | `bmp280_read_pressure()` | `(bmp.readPressure() / 100.0F)` |
+| `bmp280_read_altitude` | Value | SEAPRESSURE(field_number) | `bmp280_read_altitude(1013.25)` | `bmp.readAltitude(1013.25F)` |
+| `bmp280_set_sampling` | Statement | MODE(dropdown), TEMP_OS(dropdown), PRES_OS(dropdown), FILTER(dropdown), DURATION(dropdown) | `bmp280_set_sampling(MODE_NORMAL, SAMPLING_X4, SAMPLING_X4, FILTER_X4, STANDBY_MS_1)` | `bmp.setSampling(Adafruit_BMP280::MODE_NORMAL, Adafruit_BMP280::SAMPLING_X4, Adafruit_BMP280::SAMPLING_X4, Adafruit_BMP280::FILTER_X4, Adafruit_BMP280::STANDBY_MS_1);` |
 
 ## Parameter Options
 

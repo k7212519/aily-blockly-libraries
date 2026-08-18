@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "инициализировать InfluxDB %1 URL %2 org %3 сегмент %4 токен %5",
+    "tooltip": "Создайте клиент InfluxDB 2."
+  },
+  "influxdb_point_init": {
+    "message0": "создать точку InfluxDB, измерение %1, %2",
+    "tooltip": "Создайте точку измерения линейного протокола."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB точка %1 добавить ключ %2 значение %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "тег",
+            "addTag"
+          ],
+          [
+            "поле данных",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Добавьте тег или введенное поле в точку."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB точка %1 очистить %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "поля данных",
+            "clearFields"
+          ],
+          [
+            "теги",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Очистите поля или теги накопленных баллов."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 точка записи %2",
+    "tooltip": "Напишите точку на InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "InfluxDB Соединение %1 действительно",
+    "tooltip": "Проверьте подключение к серверу и учетные данные."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "последнее сообщение об ошибке",
+            "getLastErrorMessage"
+          ],
+          [
+            "сервер URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Прочитайте информацию о соединении или последнюю ошибку."
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 Линейный протокол для точки %2",
+    "tooltip": "Предварительный просмотр точки как линейного протокола."
+  }
+}

@@ -1,4 +1,4 @@
-# BLE bluetooth mouse
+# BLE bluetooth mouse (ESP32 SDK)
 
 BLE mouse library for ESP32, supporting mouse movement, click, wheel and other operations
 
@@ -7,9 +7,9 @@ BLE mouse library for ESP32, supporting mouse movement, click, wheel and other o
 | Field | Value |
 |-------|-------|
 | Package | @aily-project/lib-esp32-ble-mouse |
-| Version | 1.0.0 |
+| Version | 2.0.0 |
 | Author | ailyProject |
-| Source | N/A |
+| Source | ESP32 Arduino SDK 3.3.11 BLE |
 | License | Original license |
 
 ## Supported Boards
@@ -19,6 +19,10 @@ ESP32
 ## Description
 
 BLE mouse library for ESP32, supporting mouse movement, click, wheel and other operations
+
+## BLE Backend
+
+Uses `BLEDevice` and `BLEHIDDevice` from ESP32 Arduino SDK 3.3.11. The package does not bundle NimBLE-Arduino. The SDK uses Bluedroid on the classic ESP32 and its built-in NimBLE host on newer ESP32 targets.
 
 ## Quick Start
 

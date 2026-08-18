@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 RainMaker",
+  "esp32_rainmaker_init_node": {
+    "message0": "Initialize RainMaker node %1 name %2",
+    "tooltip": "Create a RainMaker node."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "RainMaker node %1 Add %2 Device %3 Name %4 Initial value %5",
+    "tooltip": "Create standard devices and add them to nodes.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "switch",
+            "Switch"
+          ],
+          [
+            "Light",
+            "LightBulb"
+          ],
+          [
+            "Fan",
+            "Fan"
+          ],
+          [
+            "Temperature sensor",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker enable service %1",
+    "tooltip": "Enable RainMaker standard service.",
+    "args0": [
+      {
+        "options": [
+          [
+            "OTA",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "Time zone",
+            "enableTZService()"
+          ],
+          [
+            "Plan",
+            "enableSchedule()"
+          ],
+          [
+            "scene",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "Start RainMaker",
+    "tooltip": "Start the RainMaker cloud service."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "Stop RainMaker",
+    "tooltip": "Stop the RainMaker cloud service."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "RainMaker device %1 reports parameter %2 value %3",
+    "tooltip": "Update and report device parameters."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 delay %2 seconds",
+    "tooltip": "Delay the execution of RainMaker factory restore or Wi-Fi reset.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Restore factory settings",
+            "RMakerFactoryReset"
+          ],
+          [
+            "Reset Wi-Fi",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "RainMaker node %1 ID",
+    "tooltip": "Read RainMaker node ID."
+  }
+}

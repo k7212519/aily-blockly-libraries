@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "Initialisieren Sie die EEPROM-Größe %1 Bytes",
+    "tooltip": "EEPROM-Emulationsspeicherbereich zuweisen."
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM-Lese-Byte-Adresse %1",
+    "tooltip": "Ein Byte an der angegebenen Adresse lesen."
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM-Schreibbyteadresse %1 Wert %2",
+    "tooltip": "Schreiben Sie ein Byte, das später übermittelt werden muss."
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM liest %1 Adresse %2",
+    "tooltip": "Lesen Sie den Wert gemäß dem angegebenen Typ.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Ganzzahl",
+            "readInt"
+          ],
+          [
+            "Ganzzahl ohne Vorzeichen",
+            "readUInt"
+          ],
+          [
+            "Lange Ganzzahl",
+            "readLong64"
+          ],
+          [
+            "Gleitkommazahl",
+            "readFloat"
+          ],
+          [
+            "Doppelte Präzision",
+            "readDouble"
+          ],
+          [
+            "Boolescher Wert",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM schreibt %1 Adresse %2 Wert %3",
+    "tooltip": "Schreiben Sie einen Wert entsprechend dem angegebenen Typ.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Ganzzahl",
+            "writeInt"
+          ],
+          [
+            "Ganzzahl ohne Vorzeichen",
+            "writeUInt"
+          ],
+          [
+            "Lange Ganzzahl",
+            "writeLong64"
+          ],
+          [
+            "Gleitkommazahl",
+            "writeFloat"
+          ],
+          [
+            "Doppelte Präzision",
+            "writeDouble"
+          ],
+          [
+            "Boolescher Wert",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM-Lesezeichenfolgenadresse %1",
+    "tooltip": "Liest eine nullterminierte Zeichenfolge."
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM schreibt String-Adresse %1 Text %2",
+    "tooltip": "Schreibt einen String und gibt die geschriebene Länge zurück."
+  },
+  "esp32_eeprom_commit": {
+    "message0": "EEPROM-Änderungen übernehmen",
+    "tooltip": "Zwischengespeicherte Änderungen in Flash schreiben."
+  },
+  "esp32_eeprom_end": {
+    "message0": "Ende EEPROM",
+    "tooltip": "Den EEPROM-Puffer festschreiben und freigeben."
+  },
+  "esp32_eeprom_length": {
+    "message0": "EEPROM-Kapazität",
+    "tooltip": "Gibt die aktuelle EEPROM-Kapazität zurück."
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM hat nicht festgeschriebene Änderungen",
+    "tooltip": "Überprüfen Sie den Cache auf nicht festgeschriebene Änderungen."
+  }
+}

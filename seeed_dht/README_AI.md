@@ -8,11 +8,11 @@ Blockly library for Seeed DHT.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `dht_init` | Statement | PIN(input_value), TYPE(dropdown) | `dht_init(math_number(2), DHT11)` | dht_sensor.begin();\n |
-| `dht_read_temperature` | Value | UNIT(dropdown) | `dht_read_temperature(C)` | dht_sensor.readTemperature( |
-| `dht_read_humidity` | Value | (none) | `dht_read_humidity()` | dht_sensor.readHumidity() |
+| `dht_init` | Statement | PIN(input_value), TYPE(dropdown) | `dht_init(math_number(2), DHT11)` | `dht_sensor.begin();` |
+| `dht_read_temperature` | Value | UNIT(dropdown) | `dht_read_temperature(C)` | `dht_sensor.readTemperature(false)` |
+| `dht_read_humidity` | Value | (none) | `dht_read_humidity()` | `dht_sensor.readHumidity()` |
 
 ## Parameter Options
 

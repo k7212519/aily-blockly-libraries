@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "initialize fast stepper %1 step pin %2 direction pin %3 enable pin %4",
+    "tooltip": "Connect a FastAccelStepper instance and enable automatic motor power."
+  },
+  "fast_stepper_set_profile": {
+    "message0": "fast stepper %1 set speed %2 steps/s acceleration %3 steps/s2",
+    "tooltip": "Set maximum speed and acceleration."
+  },
+  "fast_stepper_move": {
+    "message0": "fast stepper %1 move %2 %3 steps",
+    "tooltip": "Queue a relative or absolute move."
+  },
+  "fast_stepper_run": {
+    "message0": "fast stepper %1 %2",
+    "tooltip": "Run continuously or stop the motor."
+  },
+  "fast_stepper_position": {
+    "message0": "fast stepper %1 set current position %2",
+    "tooltip": "Reset the logical position while the motor is stopped."
+  },
+  "fast_stepper_state": {
+    "message0": "fast stepper %1 %2",
+    "tooltip": "Read stepper position or motion state."
+  }
+}

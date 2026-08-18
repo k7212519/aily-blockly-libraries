@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "IR 발신자 %1 핀 %2 초기화",
+    "tooltip": "적외선 송신기를 만들고 시작합니다."
+  },
+  "ir_esp_send_code": {
+    "message0": "IR 발신자 %1 %2 코드 %3 비트 전송 %4 %5 반복",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "공통 프로토콜을 사용하여 숫자 적외선 코드를 보냅니다."
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR 발신자 %1 원시 배열 전송 %2 길이 %3 주파수 kHz %4",
+    "tooltip": "uint16_t 타이밍 배열을 보냅니다."
+  },
+  "ir_esp_recv_init": {
+    "message0": "IR 수신기 초기화 %1 핀 %2 버퍼 %3 시간 초과 ms %4",
+    "tooltip": "적외선 수신기를 만들고 활성화합니다."
+  },
+  "ir_esp_when_received": {
+    "message0": "IR 수신기 %1가 %2를 수신하면 %3를 수행합니다.",
+    "tooltip": "하나의 메시지를 디코딩하고 본문을 실행한 다음 수신을 재개합니다."
+  },
+  "ir_esp_received_data": {
+    "message0": "IR 수신기 %1 수신 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "숫자 값",
+            "value"
+          ],
+          [
+            "비트 수",
+            "bits"
+          ],
+          [
+            "프로토콜 열거형",
+            "decode_type"
+          ],
+          [
+            "반복 플래그",
+            "repeat"
+          ],
+          [
+            "오버플로 플래그",
+            "overflow"
+          ],
+          [
+            "사람이 읽을 수 있는 텍스트",
+            "text"
+          ],
+          [
+            "소스코드 텍스트",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "가장 최근에 디코딩된 메시지를 읽습니다."
+  }
+}

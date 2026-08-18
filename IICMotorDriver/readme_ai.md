@@ -8,16 +8,16 @@ Adapted to the openjumper IIC-MS driver board, it realizes 4-channel adjustable 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `iicmd_init` | Statement | (none) | `iicmd_init()` | Dynamic code |
-| `iicmd_dirinit` | Statement | DIR_TYPE_M1(dropdown), DIR_TYPE_M2(dropdown), DIR_TYPE_M3(dropdown), DIR_TYPE_M4(dropdown) | `iicmd_dirinit(DIRP, DIRP, DIRP, DIRP)` | pwm.motorConfig(...,...,...,...);\n |
-| `iicmd_stop` | Statement | MOTOR_NUMBER(dropdown) | `iicmd_stop(M1)` | pwm.stopMotor(...);\n |
-| `iicmd_runone` | Statement | MOTOR_RUN_NUM(dropdown), RUNONR_SP(input_value) | `iicmd_runone(M1, math_number(0))` | pwm.setMotor(...,...);\n |
-| `iicmd_runall` | Statement | RUNALL_SP(input_value) | `iicmd_runall(math_number(0))` | pwm.setAllMotor(...);\n |
-| `iicmd_runall2` | Statement | M1_SP(input_value), M2_SP(input_value), M3_SP(input_value), M4_SP(input_value) | `iicmd_runall2(math_number(0), math_number(0), math_number(0), math_number(0))` | pwm.setAllMotor(...,...,...,...);\n |
-| `iicmd_digitout` | Statement | IODIGIT(dropdown), OUTSTATE(dropdown) | `iicmd_digitout(S1, HIGH)` | pwm.digitalWrite(...,...);\n |
-| `iicmd_servo` | Statement | IOSERVER(dropdown), SERANGLE(input_value) | `iicmd_servo(S1, math_number(90))` | pwm.setServoAngle(...,...);\n |
+| `iicmd_init` | Statement | (none) | `iicmd_init()` | `Openjumper_IICMotorDriver pwm = Openjumper_IICMotorDriver(); ↵ pwm.begin();` |
+| `iicmd_dirinit` | Statement | DIR_TYPE_M1(dropdown), DIR_TYPE_M2(dropdown), DIR_TYPE_M3(dropdown), DIR_TYPE_M4(dropdown) | `iicmd_dirinit(DIRP, DIRP, DIRP, DIRP)` | `pwm.motorConfig(DIRP,DIRP,DIRP,DIRP);` |
+| `iicmd_stop` | Statement | MOTOR_NUMBER(dropdown) | `iicmd_stop(M1)` | `pwm.stopMotor(M1);` |
+| `iicmd_runone` | Statement | MOTOR_RUN_NUM(dropdown), RUNONR_SP(input_value) | `iicmd_runone(M1, math_number(0))` | `pwm.setMotor(M1,1);` |
+| `iicmd_runall` | Statement | RUNALL_SP(input_value) | `iicmd_runall(math_number(0))` | `pwm.setAllMotor(1);` |
+| `iicmd_runall2` | Statement | M1_SP(input_value), M2_SP(input_value), M3_SP(input_value), M4_SP(input_value) | `iicmd_runall2(math_number(0), math_number(0), math_number(0), math_number(0))` | `pwm.setAllMotor(1,1,1,1);` |
+| `iicmd_digitout` | Statement | IODIGIT(dropdown), OUTSTATE(dropdown) | `iicmd_digitout(S1, HIGH)` | `pwm.digitalWrite(S1,HIGH);` |
+| `iicmd_servo` | Statement | IOSERVER(dropdown), SERANGLE(input_value) | `iicmd_servo(S1, math_number(90))` | `pwm.setServoAngle(S1,1);` |
 
 ## Parameter Options
 

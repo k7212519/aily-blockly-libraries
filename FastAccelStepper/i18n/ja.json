@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "高速ステッパーの初期化 %1 ステップ ピン %2 方向ピン %3 イネーブル ピン %4",
+    "tooltip": "FastAccelStepper インスタンスを接続し、自動モーター電源を有効にします。"
+  },
+  "fast_stepper_set_profile": {
+    "message0": "高速ステッパー %1 設定速度 %2 ステップ/秒 加速度 %3 ステップ/秒2",
+    "tooltip": "最高速度と加速度を設定します。"
+  },
+  "fast_stepper_move": {
+    "message0": "高速ステッパー %1 移動 %2 %3 ステップ",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "相対的に",
+            "move"
+          ],
+          [
+            "絶対的な",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "相対移動または絶対移動をキューに入れます。"
+  },
+  "fast_stepper_run": {
+    "message0": "高速ステッパー %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "継続的に前に走り続ける",
+            "runForward"
+          ],
+          [
+            "連続的に後ろ向きに走る",
+            "runBackward"
+          ],
+          [
+            "減速して停止する",
+            "stopMove"
+          ],
+          [
+            "位置0で強制停止",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "連続運転するか、モーターを停止します。"
+  },
+  "fast_stepper_position": {
+    "message0": "高速ステッパー %1 現在位置を設定 %2",
+    "tooltip": "モータ停止中に論理位置をリセットします。"
+  },
+  "fast_stepper_state": {
+    "message0": "高速ステッパー %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "現在位置",
+            "getCurrentPosition"
+          ],
+          [
+            "目標位置",
+            "targetPos"
+          ],
+          [
+            "実行中です",
+            "isRunning"
+          ],
+          [
+            "継続的に実行されています",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "ステッパーの位置または動作状態を読み取ります。"
+  }
+}

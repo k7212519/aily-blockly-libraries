@@ -1,0 +1,151 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "تهيئة SdFat %1 CS دبوس %2 ماكس SPI ميجا هرتز %3",
+    "tooltip": "قم بتركيب بطاقة FAT أو exFAT SD على SPI."
+  },
+  "sdfat_file_open": {
+    "message0": "افتح ملف SdFat %1 على مسار %2 وضع %3 %4",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "قراءة",
+            "O_RDONLY"
+          ],
+          [
+            "كتابة/إلحاق",
+            "O_WRONLY | O_CREAT | O_APPEND"
+          ],
+          [
+            "الكتابة / اقتطاع",
+            "O_WRONLY | O_CREAT | O_TRUNC"
+          ],
+          [
+            "القراءة/الكتابة",
+            "O_RDWR | O_CREAT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قم بإنشاء كائن FsFile وافتح المسار."
+  },
+  "sdfat_file_write": {
+    "message0": "ملف SdFat %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الطباعة بدون سطر جديد",
+            "print"
+          ],
+          [
+            "الطباعة مع السطر الجديد",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "اكتب قيمة إلى ملف مفتوح."
+  },
+  "sdfat_file_control": {
+    "message0": "ملف SdFat %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "البحث عن موقف الملف ل",
+            "seek"
+          ],
+          [
+            "اقتطاع الملف في",
+            "truncate"
+          ],
+          [
+            "المخزن المؤقت لملف التدفق",
+            "flush"
+          ],
+          [
+            "قريب",
+            "close"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "البحث عن ملف مفتوح أو اقتطاعه أو مسحه أو إغلاقه."
+  },
+  "sdfat_file_read": {
+    "message0": "SdFat ملف %1 قراءة %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "البايت التالي",
+            "read"
+          ],
+          [
+            "سطر النص",
+            "line"
+          ],
+          [
+            "كل نص الملف",
+            "string"
+          ],
+          [
+            "البايتات المتاحة",
+            "available"
+          ],
+          [
+            "الحجم",
+            "size"
+          ],
+          [
+            "الموقف",
+            "position"
+          ],
+          [
+            "الملف مفتوح",
+            "open"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة البيانات أو الحالة من ملف مفتوح."
+  },
+  "sdfat_fs_operation": {
+    "message0": "مسار SdFat %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إنشاء الدليل",
+            "mkdir"
+          ],
+          [
+            "إزالة الدليل",
+            "rmdir"
+          ],
+          [
+            "إزالة الملف",
+            "remove"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "قم بتعديل نظام ملفات البطاقة SD."
+  },
+  "sdfat_exists": {
+    "message0": "مسار SdFat %1 %2 موجود",
+    "tooltip": "التحقق من وجود المسار."
+  }
+}

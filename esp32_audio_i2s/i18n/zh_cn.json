@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "初始化 ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 音量 %5",
+    "tooltip": "初始化ESP32音频解码器和I2S输出。"
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 播放网络音频 URL %2",
+    "tooltip": "播放 HTTP 或 HTTPS 音频流。"
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 从 %2 播放路径 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "从已安装的文件系统播放音频文件。"
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "暂停或恢复",
+            "pauseResume"
+          ],
+          [
+            "停止",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "控制当前播放。"
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 将 %2 设置为 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "音量 0-21",
+            "setVolume"
+          ],
+          [
+            "声道平衡 -16 至 16",
+            "setBalance"
+          ],
+          [
+            "播放位置（秒）",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "更改播放音量、平衡或文件位置。"
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "正在运行",
+            "isRunning"
+          ],
+          [
+            "当前播放时间（秒）",
+            "getAudioCurrentTime"
+          ],
+          [
+            "总时长（秒）",
+            "getAudioFileDuration"
+          ],
+          [
+            "当前音量",
+            "getVolume"
+          ],
+          [
+            "比特率",
+            "getBitRate"
+          ],
+          [
+            "采样率",
+            "getSampleRate"
+          ],
+          [
+            "声道数",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取播放状态和流元数据。"
+  }
+}

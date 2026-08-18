@@ -1,7 +1,7 @@
 [
     {
         "type": "esp32_i2c_begin",
-        "message0": "初始化I2C通信 SDA引脚%1 SCL引脚%2 频率%3Hz",
+        "message0": "初始化I2C通信 SDA引脚%1 SCL引脚%2 频率%3 kHz",
         "args0": [
             {
                 "type": "input_value",
@@ -17,9 +17,9 @@
                 "type": "field_dropdown",
                 "name": "FREQUENCY",
                 "options": [
-                    ["100000 (标准模式)", "100000"],
-                    ["400000 (快速模式)", "400000"],
-                    ["1000000 (快速模式+)", "1000000"]
+                    ["100 (标准模式)", "100000"],
+                    ["400 (快速模式)", "400000"],
+                    ["1000 (快速模式+)", "1000000"]
                 ]
             }
         ],
@@ -227,7 +227,8 @@
         "previousStatement": null,
         "nextStatement": null,
         "colour": "#FF9800",
-        "tooltip": "向指定I2C设备写入数据的简化版本"
+        "tooltip": "向指定I2C设备写入数据的简化版本",
+        "extensions": ["esp32_i2c_address_extension"]
     },
     {
         "type": "esp32_i2c_read_from_device",
@@ -253,6 +254,7 @@
         ],
         "output": "Array",
         "colour": "#FF9800",
-        "tooltip": "从指定I2C设备读取指定字节数的数据"
+        "tooltip": "从指定I2C设备读取指定字节数的数据",
+        "extensions": ["esp32_i2c_address_extension"]
     }
 ]

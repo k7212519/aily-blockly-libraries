@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "初始化 ggwave %1 模式 %2 采样率 %3 样本/帧 %4 有效负载长度 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "编码和解码",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "仅编码",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "仅解码",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "使用签名的 16 位音频创建 ggwave 声音数据编解码器实例。"
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 编码文本 %2 协议 %3 音量 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "声音正常",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "快速可闻",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "听觉最快",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "超声正常",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "超声快速",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "超声波最快",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "双音快速",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "多音快速",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "将文本编码到托管波形缓冲区中。"
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 编码 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "波形缓冲区指针",
+            "waveform"
+          ],
+          [
+            "波形字节",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "访问最后编码的波形及其字节长度。"
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 解码音频缓冲区 %2 字节 %3",
+    "tooltip": "输入采集到的有符号 16 位音频，并返回解码字节数。"
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 解码 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "文本",
+            "text"
+          ],
+          [
+            "字节数",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取最近解码的有效负载。"
+  },
+  "ggwave_free": {
+    "message0": "释放 ggwave %1",
+    "tooltip": "释放编解码器和波形内存。"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "toolbox_name": "ESP32 PPP セルラー ネットワーク",
+  "esp32_ppp_set_apn": {
+    "message0": "PPP 設定 APN %1 SIM PIN %2",
+    "tooltip": "セルラー APN とオプションの SIM PIN を設定します。"
+  },
+  "esp32_ppp_set_pins": {
+    "message0": "PPP シリアル ポート ピン TX %1 RX %2 RTS %3 CTS %4",
+    "tooltip": "モデム UART とフロー制御ピンを設定します。"
+  },
+  "esp32_ppp_set_reset": {
+    "message0": "PPP リセット ピン %1 アクティブ ロー %2",
+    "tooltip": "モデムのハードウェア リセット ピンを設定します。"
+  },
+  "esp32_ppp_begin": {
+    "message0": "PPP モデルの開始 %1 UART %2 ボーレート %3",
+    "tooltip": "PPP モデムを起動します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "全般",
+            "PPP_MODEM_GENERIC"
+          ],
+          [
+            "SIM7600",
+            "PPP_MODEM_SIM7600"
+          ],
+          [
+            "SIM7070",
+            "PPP_MODEM_SIM7070"
+          ],
+          [
+            "SIM7000",
+            "PPP_MODEM_SIM7000"
+          ],
+          [
+            "BG96",
+            "PPP_MODEM_BG96"
+          ],
+          [
+            "SIM800",
+            "PPP_MODEM_SIM800"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_ppp_end": {
+    "message0": "PPP を停止します",
+    "tooltip": "PPP データ接続を停止します。"
+  },
+  "esp32_ppp_attached": {
+    "message0": "PPP セルラー ネットワークが接続されました",
+    "tooltip": "モデムがネットワークに接続されているかどうかを確認してください。"
+  },
+  "esp32_ppp_sync": {
+    "message0": "PPP AT通信は正常です",
+    "tooltip": "モデムが AT に応答するかどうかを確認します。"
+  },
+  "esp32_ppp_info_number": {
+    "message0": "PPP 値情報 %1",
+    "tooltip": "モデムの数値ステータスを読み取ります。",
+    "args0": [
+      {
+        "options": [
+          [
+            "信号 RSSI",
+            "RSSI"
+          ],
+          [
+            "ビット誤り率 BER",
+            "BER"
+          ],
+          [
+            "ネットワークモード",
+            "networkMode"
+          ],
+          [
+            "バッテリー電圧",
+            "batteryVoltage"
+          ],
+          [
+            "バッテリー電源",
+            "batteryLevel"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_info_text": {
+    "message0": "PPP テキスト メッセージ %1",
+    "tooltip": "モデム ID またはキャリア テキストを読み取ります。",
+    "args0": [
+      {
+        "options": [
+          [
+            "IMEI",
+            "IMEI"
+          ],
+          [
+            "IMSI",
+            "IMSI"
+          ],
+          [
+            "モジュール名",
+            "moduleName"
+          ],
+          [
+            "オペレーター",
+            "operatorName"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_sms": {
+    "message0": "PPP が %1 コンテンツ %2 に SMS を送信します",
+    "tooltip": "SMS テキスト メッセージを送信します。"
+  },
+  "esp32_ppp_at": {
+    "message0": "PPP AT コマンド %1 タイムアウト %2 ミリ秒",
+    "tooltip": "AT コマンドを送信し、テキスト応答を返します。"
+  }
+}

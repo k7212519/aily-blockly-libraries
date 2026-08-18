@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 Zigbee",
+  "esp32_zigbee_begin": {
+    "message0": "啟動 Zigbee 角色 %1 擦除設定 %2",
+    "tooltip": "以指定角色啟動 Zigbee。",
+    "args0": [
+      {
+        "options": [
+          [
+            "終端設備",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "路由器",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "協調器",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee 已連接",
+    "tooltip": "檢查 Zigbee 是否已加入網路。"
+  },
+  "esp32_zigbee_network": {
+    "message0": "Zigbee 網路 %1 逾時 %2 秒",
+    "tooltip": "控制設備加入網路。",
+    "args0": [
+      {
+        "options": [
+          [
+            "開放入網",
+            "openNetwork"
+          ],
+          [
+            "關閉入網",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Zigbee 恢復出廠",
+    "tooltip": "清除 Zigbee 網路配置並重新啟動。"
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "建立 Zigbee 燈 %1 端點 %2",
+    "tooltip": "建立開關燈端點並加入 Zigbee。"
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Zigbee 燈 %1 設定 %2",
+    "tooltip": "更新 Zigbee 燈狀態。"
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "Zigbee 燈 %1 狀態",
+    "tooltip": "讀取 Zigbee 燈目前狀態。"
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "建立 Zigbee 溫度感測器 %1 端點 %2",
+    "tooltip": "建立溫度感測器端點並加入 Zigbee。"
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "Zigbee 溫度感測器 %1 更新 %2 ℃ 並上報",
+    "tooltip": "設定並上報溫度。"
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "建立 Zigbee 佔用感測器 %1 端點 %2",
+    "tooltip": "建立佔用感測器端點並加入 Zigbee。"
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Zigbee 佔用感應器 %1 更新 %2 並上報",
+    "tooltip": "設定並回報佔用狀態。"
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "建立 Zigbee 接觸感測器 %1 端點 %2",
+    "tooltip": "建立接觸感測器端點並加入 Zigbee。"
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Zigbee 接觸感測器 %1 狀態 %2",
+    "tooltip": "設定並回報接觸狀態。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "閉合",
+            "setClosed"
+          ],
+          [
+            "打開",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

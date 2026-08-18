@@ -1,0 +1,65 @@
+{
+  "name": "@aily-project/lib-sdfat",
+  "nickname": "SdFat storage",
+  "nickname_zh_cn": "SdFat storage",
+  "nickname_en": "SdFat storage",
+  "nickname_zh_hk": "SdFat storage",
+  "nickname_ja": "SdFat storage",
+  "nickname_ko": "SdFat storage",
+  "nickname_de": "SdFat storage",
+  "nickname_fr": "SdFat storage",
+  "nickname_es": "SdFat storage",
+  "nickname_pt": "SdFat storage",
+  "nickname_ru": "SdFat storage",
+  "nickname_ar": "SdFat storage",
+  "author": "Bill Greiman",
+  "description": "Fast FAT16, FAT32, and exFAT SD card access.",
+  "description_zh_cn": "快速 FAT16、FAT32 和 exFAT SD 卡访问。",
+  "description_en": "Fast FAT16, FAT32, and exFAT SD card access.",
+  "description_zh_hk": "快速 FAT16、FAT32 和 exFAT SD 卡存取。",
+  "description_ja": "FAT16、FAT32、exFAT SD カードへの高速アクセス。",
+  "description_ko": "빠른 FAT16, FAT32 및 exFAT SD 카드 액세스.",
+  "description_de": "Schneller Zugriff auf die Karten FAT16, FAT32 und exFAT SD.",
+  "description_fr": "Accès rapide aux cartes FAT16, FAT32 et exFAT SD.",
+  "description_es": "Acceso rápido a tarjetas FAT16, FAT32 y exFAT SD.",
+  "description_pt": "Acesso rápido ao cartão FAT16, FAT32 e exFAT SD.",
+  "description_ru": "Быстрый доступ к картам FAT16, FAT32 и exFAT SD.",
+  "description_ar": "الوصول السريع إلى بطاقات FAT16 وFAT32 وexFAT SD.",
+  "version": "0.1.0",
+  "url": "https://github.com/greiman/SdFat",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "arduino:samd",
+      "arduino:renesas_uno",
+      "esp32:esp32",
+      "esp8266:esp8266",
+      "rp2040:rp2040"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "sd",
+    "fat",
+    "exfat",
+    "storage"
+  ],
+  "bundledDependencies": {
+    "SdFat": "2.3.1"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "storage",
+    "filesystem"
+  ]
+}

@@ -4,31 +4,31 @@ I2C bus library, used to detect and output the address of the connected device, 
 
 ## Library Info
 - **Name**: @aily-project/lib-core-i2c
-- **Version**: 0.0.1
+- **Version**: 0.0.3
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wire_begin` | Statement | (none) | `wire_begin()` | Dynamic code |
-| `wire_begin_address` | Statement | ADDRESS(input_value) | `wire_begin_address(math_number(0))` | Dynamic code |
-| `wire_set_clock` | Statement | CLOCK(input_value) | `wire_set_clock(math_number(0))` | Dynamic code |
-| `wire_end` | Statement | (none) | `wire_end()` | Wire.end();\n |
-| `wire_begin_transmission` | Statement | ADDRESS(input_value) | `wire_begin_transmission(math_number(0))` | Wire.beginTransmission(...);\n |
-| `wire_end_transmission` | Statement | STOP(dropdown) | `wire_end_transmission(TRUE)` | Wire.endTransmission(...);\n |
-| `wire_end_transmission_result` | Value | STOP(dropdown) | `wire_end_transmission_result(TRUE)` | Wire.endTransmission(...) |
-| `wire_write` | Statement | DATA(input_value) | `wire_write(math_number(0))` | Wire.write(...);\n |
-| `wire_write_bytes` | Statement | DATA(input_value), LENGTH(input_value) | `wire_write_bytes(math_number(0), math_number(0))` | Wire.write(..., ...);\n |
-| `wire_request_from` | Statement | ADDRESS(input_value), QUANTITY(input_value), STOP(dropdown) | `wire_request_from(math_number(0), math_number(0), TRUE)` | Wire.requestFrom(..., ..., ...);\n |
-| `wire_available` | Value | (none) | `wire_available()` | Wire.available() |
-| `wire_read` | Value | (none) | `wire_read()` | Wire.read() |
-| `wire_peek` | Value | (none) | `wire_peek()` | Wire.peek() |
-| `wire_flush` | Statement | (none) | `wire_flush()` | Wire.flush();\n |
-| `wire_on_receive` | Statement | FUNCTION_NAME(field_input), CALLBACK(input_statement) | `wire_on_receive("onReceive") @CALLBACK: child_block()` | Dynamic code |
-| `wire_on_request` | Statement | FUNCTION_NAME(field_input), CALLBACK(input_statement) | `wire_on_request("onRequest") @CALLBACK: child_block()` | Dynamic code |
-| `wire_set_timeout` | Statement | TIMEOUT(input_value), RESET(dropdown) | `wire_set_timeout(math_number(1000), TRUE)` | Wire.setWireTimeout(..., ...);\n |
-| `wire_get_timeout_flag` | Value | (none) | `wire_get_timeout_flag()` | Wire.getWireTimeoutFlag() |
-| `wire_clear_timeout_flag` | Statement | (none) | `wire_clear_timeout_flag()` | Wire.clearWireTimeoutFlag();\n |
+| `wire_begin` | Statement | (none) | `wire_begin()` | `Wire.begin();` |
+| `wire_begin_address` | Statement | ADDRESS(input_value) | `wire_begin_address(math_number(0))` | `Wire.begin(1);` |
+| `wire_set_clock` | Statement | CLOCK(input_value) | `wire_set_clock(math_number(0))` | `Wire.setClock(((uint32_t)((1) * 1000.0)));` |
+| `wire_end` | Statement | (none) | `wire_end()` | `Wire.end();` |
+| `wire_begin_transmission` | Statement | ADDRESS(input_value) | `wire_begin_transmission(math_number(0))` | `Wire.beginTransmission(1);` |
+| `wire_end_transmission` | Statement | STOP(dropdown) | `wire_end_transmission(TRUE)` | `Wire.endTransmission(true);` |
+| `wire_end_transmission_result` | Value | STOP(dropdown) | `wire_end_transmission_result(TRUE)` | `Wire.endTransmission(true)` |
+| `wire_write` | Statement | DATA(input_value) | `wire_write(math_number(0))` | `Wire.write(1);` |
+| `wire_write_bytes` | Statement | DATA(input_value), LENGTH(input_value) | `wire_write_bytes(math_number(0), math_number(0))` | `Wire.write(1, 1);` |
+| `wire_request_from` | Statement | ADDRESS(input_value), QUANTITY(input_value), STOP(dropdown) | `wire_request_from(math_number(0), math_number(0), TRUE)` | `Wire.requestFrom(1, 1, true);` |
+| `wire_available` | Value | (none) | `wire_available()` | `Wire.available()` |
+| `wire_read` | Value | (none) | `wire_read()` | `Wire.read()` |
+| `wire_peek` | Value | (none) | `wire_peek()` | `Wire.peek()` |
+| `wire_flush` | Statement | (none) | `wire_flush()` | `Wire.flush();` |
+| `wire_on_receive` | Statement | FUNCTION_NAME(field_input), CALLBACK(input_statement) | `wire_on_receive("onReceive")` | `void onReceive(int numBytes) { ↵ } ↵ Wire.onReceive(onReceive);` |
+| `wire_on_request` | Statement | FUNCTION_NAME(field_input), CALLBACK(input_statement) | `wire_on_request("onRequest")` | `void onRequest() { ↵ } ↵ Wire.onRequest(onRequest);` |
+| `wire_set_timeout` | Statement | TIMEOUT(input_value), RESET(dropdown) | `wire_set_timeout(math_number(1000), TRUE)` | `Wire.setWireTimeout(1, true);` |
+| `wire_get_timeout_flag` | Value | (none) | `wire_get_timeout_flag()` | `Wire.getWireTimeoutFlag()` |
+| `wire_clear_timeout_flag` | Statement | (none) | `wire_clear_timeout_flag()` | `Wire.clearWireTimeoutFlag();` |
 
 ## Parameter Options
 

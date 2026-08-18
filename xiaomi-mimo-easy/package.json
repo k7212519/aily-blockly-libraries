@@ -1,0 +1,52 @@
+{
+  "name": "@aily-project/lib-xiaomi-mimo-easy",
+  "nickname": "Xiaomi MiMo AI",
+  "description": "ESP32S3多模态与语音AI接口库，基于小米mimo模型制作",
+  "version": "1.0.0",
+  "author": "脆脆鲨",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "esp32:esp32"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "xiaomi",
+    "mimo",
+    "ai",
+    "camera",
+    "speech"
+  ],
+  "tested": false,
+  "tester": "",
+  "url": "https://mimo.mi.com/docs/zh-CN/quick-start/summary/model",
+  "dependencies": {},
+  "bundledSources": [
+    {
+      "name": "AilyMiMo",
+      "version": "1.0.0",
+      "author": "ailyProject",
+      "url": "https://mimo.mi.com/docs/zh-CN/quick-start/summary/model",
+      "license": "MIT",
+      "path": "src/mimo/AilyMiMo.h",
+      "reason": "Self-contained ESP32 client based on the Xiaomi MiMo API documentation"
+    },
+    {
+      "name": "ES8311Audio",
+      "version": "1.0.0",
+      "author": "OpenJumper",
+      "url": "@aily-project/lib-es8311 local package",
+      "license": "Original license",
+      "path": "src/ES8311Audio/ES8311Audio.h",
+      "reason": "Bundled ES8311 codec driver for integrated microphone and speaker support"
+    }
+  ],
+  "platformPrerequisites": [
+    "ESP32 Arduino Core 3.3.10: HTTPClient, NetworkClientSecure, cJSON, Base64, esp_camera, ESP_I2S"
+  ]
+}

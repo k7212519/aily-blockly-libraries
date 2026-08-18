@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 レインメーカー",
+  "esp32_rainmaker_init_node": {
+    "message0": "RainMaker ノード %1 名 %2 を初期化します",
+    "tooltip": "RainMaker ノードを作成します。"
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "RainMaker ノード %1 追加 %2 デバイス %3 名前 %4 初期値 %5",
+    "tooltip": "標準デバイスを作成し、ノードに追加します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "スイッチ",
+            "Switch"
+          ],
+          [
+            "光",
+            "LightBulb"
+          ],
+          [
+            "ファン",
+            "Fan"
+          ],
+          [
+            "温度センサー",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker 有効化サービス %1",
+    "tooltip": "RainMaker 標準サービスを有効にします。",
+    "args0": [
+      {
+        "options": [
+          [
+            "太田",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "タイムゾーン",
+            "enableTZService()"
+          ],
+          [
+            "計画",
+            "enableSchedule()"
+          ],
+          [
+            "シーン",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "RainMakerを起動する",
+    "tooltip": "RainMaker クラウド サービスを開始します。"
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "レインメーカーをやめてください",
+    "tooltip": "RainMaker クラウド サービスを停止します。"
+  },
+  "esp32_rainmaker_report": {
+    "message0": "RainMaker デバイス %1 がパラメータ %2 値 %3 を報告します",
+    "tooltip": "デバイスパラメータを更新して報告します。"
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 遅延 %2 秒",
+    "tooltip": "RainMaker 出荷時設定への復元または Wi-Fi リセットの実行を遅らせます。",
+    "args0": [
+      {
+        "options": [
+          [
+            "工場出荷時の設定に戻す",
+            "RMakerFactoryReset"
+          ],
+          [
+            "Wi-Fiをリセット",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "RainMaker ノード %1 ID",
+    "tooltip": "RainMaker ノード ID を読み取ります。"
+  }
+}

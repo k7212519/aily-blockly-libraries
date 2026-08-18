@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "inicializar passo rápido %1 pino de passo %2 pino de direção %3 habilitar pino %4",
+    "tooltip": "Conecte uma instância FastAccelStepper e habilite a alimentação automática do motor."
+  },
+  "fast_stepper_set_profile": {
+    "message0": "passo rápido %1 velocidade definida %2 passos/s aceleração %3 passos/s2",
+    "tooltip": "Defina velocidade e aceleração máximas."
+  },
+  "fast_stepper_move": {
+    "message0": "passo rápido %1 mover passos %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "relativo por",
+            "move"
+          ],
+          [
+            "absoluto para",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Enfileirar um movimento relativo ou absoluto."
+  },
+  "fast_stepper_run": {
+    "message0": "passo rápido %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "correr para frente continuamente",
+            "runForward"
+          ],
+          [
+            "correr para trás continuamente",
+            "runBackward"
+          ],
+          [
+            "desacelerar e parar",
+            "stopMove"
+          ],
+          [
+            "parada forçada na posição 0",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Execute continuamente ou pare o motor."
+  },
+  "fast_stepper_position": {
+    "message0": "passo rápido %1 definir posição atual %2",
+    "tooltip": "Redefina a posição lógica enquanto o motor estiver parado."
+  },
+  "fast_stepper_state": {
+    "message0": "passo rápido %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "posição atual",
+            "getCurrentPosition"
+          ],
+          [
+            "posição alvo",
+            "targetPos"
+          ],
+          [
+            "está correndo",
+            "isRunning"
+          ],
+          [
+            "está funcionando continuamente",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia a posição do passo ou o estado do movimento."
+  }
+}

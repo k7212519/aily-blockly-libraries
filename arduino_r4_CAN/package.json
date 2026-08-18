@@ -26,6 +26,7 @@
   "description_ru": "Библиотека связи CAN-шины для Arduino UNO R4, поддерживающая отправку и получение сообщений CAN.",
   "description_ar": "مكتبة اتصالات CAN bus لـ Arduino UNO R4، تدعم إرسال واستقبال رسائل CAN",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:minima",

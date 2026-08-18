@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 RainMaker",
+  "esp32_rainmaker_init_node": {
+    "message0": "Инициализировать узел RainMaker %1, имя %2",
+    "tooltip": "Создайте узел RainMaker."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "Узел RainMaker %1 Добавить %2 Устройство %3 Имя %4 Начальное значение %5",
+    "tooltip": "Создайте стандартные устройства и добавьте их в узлы.\nПереключатель",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "开关",
+            "Switch"
+          ],
+          [
+            "Свет",
+            "LightBulb"
+          ],
+          [
+            "Вентилятор",
+            "Fan"
+          ],
+          [
+            "Датчик температуры",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker включает службу %1",
+    "tooltip": "Включите стандартную службу RainMaker.",
+    "args0": [
+      {
+        "options": [
+          [
+            "ОТА",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "Часовой пояс",
+            "enableTZService()"
+          ],
+          [
+            "План",
+            "enableSchedule()"
+          ],
+          [
+            "сцена",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "Запустите RainMaker",
+    "tooltip": "Запустите облачный сервис RainMaker."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "Остановить RainMaker",
+    "tooltip": "Остановите облачную службу RainMaker."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "Устройство RainMaker %1 сообщает значение параметра %2 %3",
+    "tooltip": "Обновите и сообщите параметры устройства."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 задержка %2 секунд",
+    "tooltip": "Отложите выполнение восстановления заводских настроек RainMaker или сброса Wi-Fi.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Восстановить заводские настройки",
+            "RMakerFactoryReset"
+          ],
+          [
+            "Сбросить настройки Wi-Fi",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "Узел RainMaker %1 ID",
+    "tooltip": "Читать идентификатор узла RainMaker."
+  }
+}

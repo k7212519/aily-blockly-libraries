@@ -1,0 +1,61 @@
+{
+  "name": "@aily-project/lib-irremote-esp8266",
+  "nickname": "IRremoteESP8266",
+  "nickname_en": "IRremoteESP8266",
+  "author": "David Conran and contributors",
+  "description": "Send and decode infrared signals on ESP8266 and ESP32.",
+  "description_en": "Send and decode infrared signals on ESP8266 and ESP32.",
+  "version": "0.1.0",
+  "url": "https://github.com/crankyoldgit/IRremoteESP8266",
+  "license": "LGPL-2.1",
+  "compatibility": {
+    "core": [
+      "esp32:esp32",
+      "esp8266:esp8266"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "infrared",
+    "ir",
+    "remote",
+    "esp32",
+    "esp8266"
+  ],
+  "bundledDependencies": {
+    "IRremoteESP8266": "2.9.0"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "communication",
+    "remote-control"
+  ],
+  "nickname_zh_cn": "IRremoteESP8266",
+  "description_zh_cn": "在ESP8266和ESP32上发送和解码红外信号。",
+  "nickname_zh_hk": "IRremoteESP8266",
+  "description_zh_hk": "在ESP8266和ESP32上發送和解碼紅外線訊號。",
+  "nickname_ja": "IRremoteESP8266",
+  "description_ja": "ESP8266 および ESP32 で赤外線信号を送信およびデコードします。",
+  "nickname_ko": "IRremoteESP8266",
+  "description_ko": "ESP8266 및 ESP32에서 적외선 신호를 보내고 디코딩합니다.",
+  "nickname_de": "IRremoteESP8266",
+  "description_de": "Senden und dekodieren Sie Infrarotsignale auf ESP8266 und ESP32.",
+  "nickname_fr": "IRremoteESP8266",
+  "description_fr": "Envoyez et décodez les signaux infrarouges sur ESP8266 et ESP32.",
+  "nickname_es": "IRremoteESP8266",
+  "description_es": "Envíe y decodifique señales infrarrojas en ESP8266 y ESP32.",
+  "nickname_pt": "IRremoteESP8266",
+  "description_pt": "Envie e decodifique sinais infravermelhos em ESP8266 e ESP32.",
+  "nickname_ru": "IRremoteESP8266",
+  "description_ru": "Отправляйте и декодируйте инфракрасные сигналы на ESP8266 и ESP32.",
+  "nickname_ar": "IRremoteESP8266",
+  "description_ar": "إرسال وفك تشفير إشارات الأشعة تحت الحمراء على ESP8266 وESP32."
+}

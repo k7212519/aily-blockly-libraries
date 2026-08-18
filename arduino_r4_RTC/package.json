@@ -26,6 +26,7 @@
   "description_ru": "Библиотека RTC для Arduino UNO R4, обеспечивающая точное отслеживание времени, обратные вызовы по времени и функции форматирования времени.",
   "description_ar": "مكتبة RTC لـ Arduino UNO R4، توفر تتبعًا دقيقًا للوقت وعمليات رد الاتصال الموقوتة ووظائف تنسيق الوقت",
   "version": "1.0.1",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:minima",

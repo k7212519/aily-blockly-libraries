@@ -354,28 +354,6 @@
     },
     {
       "kind": "block",
-      "type": "k10_step_animation_frame",
-      "inputs": {
-        "TARGET": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": 0
-            }
-          }
-        },
-        "FRAME_COUNT": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": 1
-            }
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
       "type": "k10_animation"
     },
     {

@@ -8,12 +8,12 @@ The module communicates with the motherboard through the UART interface. The mod
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ai_assistant_config` | Statement | SERIAL(dropdown), SPEED(dropdown) | `ai_assistant_config(SERIAL, SPEED)` | Dynamic code |
-| `serial_command_handler` | Value | ACTION(dropdown) | `serial_command_handler(MOVE_FORWARD)` | false |
-| `serial_custom_command` | Value | CUSTOM_CMD(field_input) | `serial_custom_command("computer")` | (receivedCommand.indexOf("...") >= 0) |
-| `serial_clear_command` | Statement | (none) | `serial_clear_command()` | receivedCommand = |
+| `ai_assistant_config` | Statement | SERIAL(dropdown), SPEED(dropdown) | `ai_assistant_config(SERIAL, SPEED)` | `String receivedCommand = ""; ↵ int cmdCount = 0; ↵ unsigned long lastCmdTime = 0; ↵ SERIAL.begin(SPEED); ↵ // 从SERIAL获取AI-assistant命令 ↵ if (SERIAL.available()) { ↵ String cmd = ""; ↵ unsigned long startTime = millis(); ↵ // 最多等待100ms来读取全部数据 ↵ while (millis() - startTime < 100) { ↵ if (SERIAL.available()) { ↵ char c = SERIAL.read(); ↵ if (c == 10 &#124;&#124; c == 13) { ↵ break; ↵ } ↵ cmd += c; ↵ delay(2); ↵ } ↵ } ↵ // 清空串口缓冲区的残留换行符 ↵ delay(10); ↵ while (SERIAL.available()) { ↵ char c = SERIAL.peek(); ↵ if (c == 10 &#124;&#124; c == 13) { ↵ SERIAL.read(); ↵ } else { ↵ break; ↵ } ↵ } ↵ if (cmd.length() > 0) { ↵ receivedCommand = cmd; ↵ } ↵ }` |
+| `serial_command_handler` | Value | ACTION(dropdown) | `serial_command_handler(MOVE_FORWARD)` | `(receivedCommand.indexOf("MOVE F") >= 0)` |
+| `serial_custom_command` | Value | CUSTOM_CMD(field_input) | `serial_custom_command("computer")` | `(receivedCommand.indexOf("computer") >= 0)` |
+| `serial_clear_command` | Statement | (none) | `serial_clear_command()` | `receivedCommand = "";` |
 
 ## Parameter Options
 

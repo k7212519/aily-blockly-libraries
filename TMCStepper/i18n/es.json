@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "inicializar TMC2209 %1 serial %2 baudios %3 dirección %4 resistencia de detección ohmios %5",
+    "tooltip": "Inicialice un controlador paso a paso TMC2209 UART."
+  },
+  "tmc2130_init": {
+    "message0": "Inicializar TMC2130 %1 CS pin %2 resistencia de detección ohm %3",
+    "tooltip": "Inicialice un controlador paso a paso SPI de hardware TMC2130."
+  },
+  "tmc_set_current": {
+    "message0": "Controlador TMC %1 RMS corriente %2 multiplicador de retención de mA %3",
+    "tooltip": "Configure la corriente del motor RMS y el multiplicador de corriente de retención."
+  },
+  "tmc_set_motion": {
+    "message0": "Controlador TMC %1 micropasos %2 tiempo de apagado del helicóptero %3",
+    "tooltip": "Establezca la resolución de micropasos y habilite el helicóptero."
+  },
+  "tmc2209_mode": {
+    "message0": "TMC2209 %1 modo %2 escalado automático de corriente %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Seleccione el modo picador silencioso o de alto par para TMC2209."
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard umbral %2 umbral frío %3",
+    "tooltip": "Configure umbrales de referencia sin sensores en TMC2209."
+  },
+  "tmc_read": {
+    "message0": "El controlador TMC %1 lee %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "registro de estado del conductor",
+            "DRV_STATUS"
+          ],
+          [
+            "período de paso",
+            "TSTEP"
+          ],
+          [
+            "micropasos",
+            "microsteps"
+          ],
+          [
+            "corriente real mA",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea los diagnósticos y la configuración actual común a los controladores compatibles."
+  },
+  "tmc_connection": {
+    "message0": "Resultado de la prueba de conexión del controlador TMC %1",
+    "tooltip": "Devuelve el código de prueba de conexión TMCStepper."
+  }
+}

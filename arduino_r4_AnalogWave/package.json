@@ -26,6 +26,7 @@
   "description_ru": "Библиотека генерации аналоговых сигналов для Arduino UNO R4 WiFi, поддерживающая выходы синусоидальных, прямоугольных и пилообразных сигналов.",
   "description_ar": "مكتبة توليد الموجات التناظرية لـ Arduino UNO R4 WiFi، تدعم مخرجات الموجات الجيبية والمربعة والمسننة",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:minima",

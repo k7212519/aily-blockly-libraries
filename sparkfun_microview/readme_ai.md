@@ -8,19 +8,19 @@ Blockly wrapper for the SparkFun MicroView standalone Arduino+OLED module.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `microview_begin` | Statement | (none) | `microview_begin()` | uView.begin();\n |
-| `microview_clear` | Statement | MODE(dropdown) | `microview_clear(PAGE)` | uView.clear( |
-| `microview_display` | Statement | (none) | `microview_display()` | uView.display();\n |
-| `microview_set_cursor` | Statement | X(input_value), Y(input_value) | `microview_set_cursor(math_number(0), math_number(0))` | uView.setCursor( |
-| `microview_print` | Statement | TEXT(input_value) | `microview_print(text("value"))` | uView.print( |
-| `microview_set_font` | Statement | FONT(dropdown) | `microview_set_font("0")` | uView.setFontType( |
-| `microview_pixel` | Statement | X(input_value), Y(input_value) | `microview_pixel(math_number(0), math_number(0))` | uView.pixel( |
-| `microview_line` | Statement | X0(input_value), Y0(input_value), X1(input_value), Y1(input_value) | `microview_line(math_number(0), math_number(0), math_number(0), math_number(0))` | uView.line( |
-| `microview_rect` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), FILL(dropdown) | `microview_rect(math_number(0), math_number(0), math_number(0), math_number(0), "0")` | uView.rectFill( |
-| `microview_circle` | Statement | X(input_value), Y(input_value), R(input_value), FILL(dropdown) | `microview_circle(math_number(0), math_number(0), math_number(0), "0")` | uView.circleFill( |
-| `microview_invert` | Statement | INV(dropdown) | `microview_invert(true)` | uView.invert( |
+| `microview_begin` | Statement | (none) | `microview_begin()` | `uView.begin();` |
+| `microview_clear` | Statement | MODE(dropdown) | `microview_clear(PAGE)` | `uView.clear(PAGE);` |
+| `microview_display` | Statement | (none) | `microview_display()` | `uView.display();` |
+| `microview_set_cursor` | Statement | X(input_value), Y(input_value) | `microview_set_cursor(math_number(0), math_number(0))` | `uView.setCursor(1, 1);` |
+| `microview_print` | Statement | TEXT(input_value) | `microview_print(text("value"))` | `uView.print(1);` |
+| `microview_set_font` | Statement | FONT(dropdown) | `microview_set_font("0")` | `uView.setFontType(0);` |
+| `microview_pixel` | Statement | X(input_value), Y(input_value) | `microview_pixel(math_number(0), math_number(0))` | `uView.pixel(1, 1);` |
+| `microview_line` | Statement | X0(input_value), Y0(input_value), X1(input_value), Y1(input_value) | `microview_line(math_number(0), math_number(0), math_number(0), math_number(0))` | `uView.line(1, 1, 1, 1);` |
+| `microview_rect` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), FILL(dropdown) | `microview_rect(math_number(0), math_number(0), math_number(0), math_number(0), "0")` | `uView.rect(1, 1, 1, 1);` |
+| `microview_circle` | Statement | X(input_value), Y(input_value), R(input_value), FILL(dropdown) | `microview_circle(math_number(0), math_number(0), math_number(0), "0")` | `uView.circle(1, 1, 1);` |
+| `microview_invert` | Statement | INV(dropdown) | `microview_invert(true)` | `uView.invert(true);` |
 
 ## Parameter Options
 

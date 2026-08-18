@@ -12,17 +12,17 @@ Aily Blockly library for the MLX90642 32x24 infrared thermal imaging sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `mlx90642_init` | Statement | VAR(field_input), SDA(input_value), SCL(input_value), ADDRESS(field_input), MODE(field_dropdown), RATE(field_dropdown), FORMAT(field_dropdown) | `mlx90642_init("mlx90642", math_number(16), math_number(15), "0x66", MLX90642_CONT_MEAS_MODE, MLX90642_REF_RATE_8HZ, MLX90642_TEMPERATURE_OUTPUT)` | create address/frame globals, initialize I2C, wake, init, configure mode/rate/format |
-| `mlx90642_data_ready` | Value Boolean | VAR(field_variable) | `mlx90642_data_ready(variables_get($mlx90642))` | `MLX90642_IsDataReady(addr) == MLX90642_YES` |
-| `mlx90642_read_frame` | Statement | VAR(field_variable) | `mlx90642_read_frame(variables_get($mlx90642))` | `MLX90642_GetImage(addr, frame)` |
-| `mlx90642_measure_now` | Value Boolean | VAR(field_variable) | `mlx90642_measure_now(variables_get($mlx90642))` | `MLX90642_MeasureNow(addr, frame) == 0` |
-| `mlx90642_pixel_value` | Value Number | VAR(field_variable), X(input_value), Y(input_value), UNIT(field_dropdown) | `mlx90642_pixel_value(variables_get($mlx90642), math_number(0), math_number(0), C)` | read cached pixel as Celsius or raw value |
-| `mlx90642_frame_stat` | Value Number | VAR(field_variable), STAT(field_dropdown) | `mlx90642_frame_stat(variables_get($mlx90642), MAX)` | compute min/max/average Celsius from cached frame |
-| `mlx90642_progress` | Value Number | VAR(field_variable) | `mlx90642_progress(variables_get($mlx90642))` | `MLX90642_GetProgress(addr)` |
-| `mlx90642_print_frame_csv` | Statement | VAR(field_variable), SERIAL(field_dropdown), BAUD(input_value) | `mlx90642_print_frame_csv(variables_get($mlx90642), Serial, math_number(921600))` | initialize serial and print cached frame as 24 CSV rows |
-| `mlx90642_sleep` | Statement | VAR(field_variable) | `mlx90642_sleep(variables_get($mlx90642))` | `MLX90642_GotoSleep(addr)` |
+| `mlx90642_init` | Statement | VAR(field_input), SDA(input_value), SCL(input_value), ADDRESS(field_input), MODE(dropdown), RATE(dropdown), FORMAT(dropdown) | `mlx90642_init("mlx90642", math_number(16), math_number(15), "0x66", MLX90642_CONT_MEAS_MODE, MLX90642_REF_RATE_8HZ, MLX90642_TEMPERATURE_OUTPUT)` | `MLX90642_I2CInit(1, 1); ↵ MLX90642_WakeUp(mlx90642_addr); ↵ while (MLX90642_Init(mlx90642_addr) != 0) { ↵ delay(500); ↵ } ↵ MLX90642_SetMeasMode(mlx90642_addr, MLX90642_CONT_MEAS_MODE); ↵ MLX90642_SetRefreshRate(mlx90642_addr, MLX90642_REF_RATE_2HZ); ↵ MLX90642_SetOutputFormat(mlx90642_addr, MLX90642_TEMPERATURE_OUTPUT); ↵ delay(300);` |
+| `mlx90642_data_ready` | Value Boolean | VAR(field_variable) | `mlx90642_data_ready($mlx90642)` | `(MLX90642_IsDataReady(mlx90642_addr) == MLX90642_YES)` |
+| `mlx90642_read_frame` | Statement | VAR(field_variable) | `mlx90642_read_frame($mlx90642)` | `MLX90642_GetImage(mlx90642_addr, mlx90642_frame);` |
+| `mlx90642_measure_now` | Value Boolean | VAR(field_variable) | `mlx90642_measure_now($mlx90642)` | `(MLX90642_MeasureNow(mlx90642_addr, mlx90642_frame) == 0)` |
+| `mlx90642_pixel_value` | Value Number | VAR(field_variable), X(input_value), Y(input_value), UNIT(dropdown) | `mlx90642_pixel_value($mlx90642, math_number(0), math_number(0), C)` | `mlx90642PixelC(mlx90642_frame, 1, 1)` |
+| `mlx90642_frame_stat` | Value Number | VAR(field_variable), STAT(dropdown) | `mlx90642_frame_stat($mlx90642, MAX)` | `mlx90642FrameStatC(mlx90642_frame, 0)` |
+| `mlx90642_progress` | Value Number | VAR(field_variable) | `mlx90642_progress($mlx90642)` | `MLX90642_GetProgress(mlx90642_addr)` |
+| `mlx90642_print_frame_csv` | Statement | VAR(field_variable), SERIAL(dropdown), BAUD(input_value) | `mlx90642_print_frame_csv($mlx90642, Serial, math_number(921600))` | `mlx90642PrintFrameCsv(SERIAL, mlx90642_frame);` |
+| `mlx90642_sleep` | Statement | VAR(field_variable) | `mlx90642_sleep($mlx90642)` | `MLX90642_GotoSleep(mlx90642_addr);` |
 
 ## Parameter Options
 
@@ -41,9 +41,9 @@ arduino_setup()
     mlx90642_init("mlx90642", math_number(16), math_number(15), "0x66", MLX90642_CONT_MEAS_MODE, MLX90642_REF_RATE_8HZ, MLX90642_TEMPERATURE_OUTPUT)
 
 arduino_loop()
-    controls_if(mlx90642_data_ready(variables_get($mlx90642)))
-        mlx90642_read_frame(variables_get($mlx90642))
-        serial_println(Serial, mlx90642_frame_stat(variables_get($mlx90642), MAX))
+    controls_if(mlx90642_data_ready($mlx90642))
+        mlx90642_read_frame($mlx90642)
+        serial_println(Serial, mlx90642_frame_stat($mlx90642, MAX))
 ```
 
 ## Notes

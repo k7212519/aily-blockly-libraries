@@ -8,14 +8,14 @@ Emakefun NLCS21 color sensor module supports RGBC color detection, gain and inte
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `nlcs21_init` | Statement | VAR(field_input), GAIN(dropdown), INTEGRATION_TIME(dropdown) | `nlcs21_init("colorSensor", kGain1X, kIntegrationTime2ms)` | Dynamic code |
-| `nlcs21_get_color` | Value | VAR(field_variable) | `nlcs21_get_color(variables_get($colorSensor))` | Dynamic code |
-| `nlcs21_color_value` | Value | VAR(field_variable), CHANNEL(dropdown) | `nlcs21_color_value(variables_get($colorSensor), r)` | Dynamic code |
-| `nlcs21_set_threshold` | Statement | VAR(field_variable), LOW(input_value), HIGH(input_value) | `nlcs21_set_threshold(variables_get($colorSensor), math_number(0), math_number(0))` | Dynamic code |
-| `nlcs21_get_interrupt` | Value | VAR(field_variable) | `nlcs21_get_interrupt(variables_get($colorSensor))` | Dynamic code |
-| `nlcs21_clear_interrupt` | Statement | VAR(field_variable) | `nlcs21_clear_interrupt(variables_get($colorSensor))` | Dynamic code |
+| `nlcs21_init` | Statement | VAR(field_input), GAIN(dropdown), INTEGRATION_TIME(dropdown) | `nlcs21_init("colorSensor", kGain1X, kIntegrationTime2ms)` | `colorSensor.Initialize();` |
+| `nlcs21_get_color` | Value | VAR(field_variable) | `nlcs21_get_color($colorSensor)` | `colorSensor.GetColor(&colorSensor_color)` |
+| `nlcs21_color_value` | Value | VAR(field_variable), CHANNEL(dropdown) | `nlcs21_color_value($colorSensor, r)` | `colorSensor_color.r` |
+| `nlcs21_set_threshold` | Statement | VAR(field_variable), LOW(input_value), HIGH(input_value) | `nlcs21_set_threshold($colorSensor, math_number(0), math_number(0))` | `colorSensor.SetThreshold(1, 1);` |
+| `nlcs21_get_interrupt` | Value | VAR(field_variable) | `nlcs21_get_interrupt($colorSensor)` | `colorSensor.GetInterruptStatus()` |
+| `nlcs21_clear_interrupt` | Statement | VAR(field_variable) | `nlcs21_clear_interrupt($colorSensor)` | `colorSensor.ClearInterrupt();` |
 
 ## Parameter Options
 
@@ -34,12 +34,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, nlcs21_get_color(variables_get($colorSensor)))
+    serial_println(Serial, nlcs21_get_color($colorSensor))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `nlcs21_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `nlcs21_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

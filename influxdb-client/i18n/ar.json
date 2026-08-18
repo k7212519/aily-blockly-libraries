@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "تهيئة InfluxDB %1 URL %2 org %3 دلو %4 الرمز المميز %5",
+    "tooltip": "قم بإنشاء عميل InfluxDB 2."
+  },
+  "influxdb_point_init": {
+    "message0": "إنشاء نقطة InfluxDB قياس %1 %2",
+    "tooltip": "إنشاء نقطة قياس بروتوكول الخط."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB نقطة %1 إضافة مفتاح %2 قيمة %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "علامة",
+            "addTag"
+          ],
+          [
+            "حقل البيانات",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "إضافة علامة أو حقل مكتوب إلى نقطة."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB نقطة %1 واضح %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "حقول البيانات",
+            "clearFields"
+          ],
+          [
+            "العلامات",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "مسح حقول النقاط أو العلامات المتراكمة."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 نقطة الكتابة %2",
+    "tooltip": "اكتب نقطة إلى InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "اتصال InfluxDB %1 صالح",
+    "tooltip": "التحقق من صحة اتصال الخادم وبيانات الاعتماد."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "رسالة الخطأ الأخيرة",
+            "getLastErrorMessage"
+          ],
+          [
+            "الخادم URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة معلومات الاتصال أو الخطأ الأخير."
+  },
+  "influxdb_line_protocol": {
+    "message0": "بروتوكول الخط InfluxDB %1 للنقطة %2",
+    "tooltip": "معاينة نقطة كبروتوكول خط."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "initialize ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 volume %5",
+    "tooltip": "Initialize the ESP32 audio decoder and I2S output."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 play network URL %2",
+    "tooltip": "Play an HTTP or HTTPS audio stream."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 play from %2 path %3",
+    "tooltip": "Play an audio file from a mounted file system."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "tooltip": "Control current playback."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 set %2 to %3",
+    "tooltip": "Change playback volume, balance, or file position."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "tooltip": "Read playback state and stream metadata."
+  }
+}

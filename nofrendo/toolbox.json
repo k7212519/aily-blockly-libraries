@@ -1,0 +1,146 @@
+{
+  "kind": "category",
+  "name": "NES模拟器",
+  "icon": "fa-solid fa-gamepad",
+  "colour": "#E91E63",
+  "contents": [
+    {
+      "kind": "label",
+      "text": "ROM与启动",
+      "colour": "#E91E63"
+    },
+    {
+      "kind": "block",
+      "type": "nofrendo_browser"
+    },
+    {
+      "kind": "block",
+      "type": "nofrendo_start",
+      "inputs": {
+        "ROM_PATH": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "/game.nes"
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "nofrendo_find_rom"
+    },
+    {
+      "kind": "label",
+      "text": "音频设置",
+      "colour": "#E91E63"
+    },
+    {
+      "kind": "block",
+      "type": "nes_audio_config",
+      "inputs": {
+        "BCK": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 25
+            }
+          }
+        },
+        "WS": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 32
+            }
+          }
+        },
+        "DOUT": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 33
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "nes_volume_set",
+      "inputs": {
+        "VOL": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "nes_volume_get"
+    },
+    {
+      "kind": "label",
+      "text": "显示设置",
+      "colour": "#E91E63"
+    },
+    {
+      "kind": "block",
+      "type": "nes_scanline_set"
+    },
+    {
+      "kind": "block",
+      "type": "nes_scanline_get"
+    },
+    {
+      "kind": "block",
+      "type": "nes_fullscreen_set"
+    },
+    {
+      "kind": "block",
+      "type": "nes_fullscreen_get"
+    },
+    {
+      "kind": "block",
+      "type": "nes_color_set"
+    },
+    {
+      "kind": "block",
+      "type": "nes_color_get"
+    },
+    {
+      "kind": "label",
+      "text": "模拟器设置",
+      "colour": "#E91E63"
+    },
+    {
+      "kind": "block",
+      "type": "nes_speed_set"
+    },
+    {
+      "kind": "block",
+      "type": "nes_speed_get"
+    },
+    {
+      "kind": "block",
+      "type": "nes_overclock_set"
+    },
+    {
+      "kind": "block",
+      "type": "nes_overclock_get"
+    },
+    {
+      "kind": "block",
+      "type": "nes_playtime_get"
+    },
+    {
+      "kind": "block",
+      "type": "nes_flush_sram"
+    }
+  ]
+}

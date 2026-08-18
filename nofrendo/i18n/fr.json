@@ -1,0 +1,14 @@
+{
+  "toolbox_name": "émulateur NES",
+  "toolbox_labels": {
+    "NES模拟器": "émulateur NES"
+  },
+  "nofrendo_start": {
+    "message0": "Emulateur NES chargeant la ROM du jeu %1",
+    "tooltip": "Démarrez l'émulateur NES et chargez le chemin ROM spécifié (tel que /sdcard/game.nes). La carte SD et l'écran TFT doivent d'abord être initialisés."
+  },
+  "nofrendo_find_rom": {
+    "message0": "Trouver les fichiers de jeu .nes sur la carte SD",
+    "tooltip": "Recherchez le premier fichier .nes dans le répertoire racine de la carte SD et renvoyez le chemin complet. S'il n'est pas trouvé, une chaîne vide est renvoyée."
+  }
+}

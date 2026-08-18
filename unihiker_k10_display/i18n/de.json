@@ -161,31 +161,6 @@
     "message0": "Gesamtzahl der Bilder von K10-Animation %1 abrufen",
     "tooltip": "Gesamtzahl der Bilder einer K10-Animation abrufen"
   },
-  "k10_step_animation_frame": {
-    "message0": "Bildvariable %1 einen Schritt zu Zielbild %2 bewegen Bildanzahl %3 Richtung %4",
-    "tooltip": "Die Bildvariable um ein Bild bewegen; vorwärts und rückwärts laufen am Ende um, automatisch wählt die Richtung",
-    "args0": [
-      null,
-      null,
-      null,
-      {
-        "options": [
-          [
-            "Automatisch",
-            "AUTO"
-          ],
-          [
-            "Vorwärts",
-            "FORWARD"
-          ],
-          [
-            "Rückwärts",
-            "BACKWARD"
-          ]
-        ]
-      }
-    ]
-  },
   "k10_screen_size": {
     "message0": "Bildschirm %1",
     "tooltip": "K10-Bildschirmauflösung: 240x320 (Hochformat)",

@@ -1,807 +1,29 @@
 {
   "toolbox_name": "Sentry-Bildsensor",
   "toolbox_categories": [
-    "Sentry2",
-    "Setup-Blöcke",
-    "Ausführungsblöcke",
     "Sentry1",
-    "Setup-Blöcke",
-    "Ausführungsblöcke"
+    "Einstellungen",
+    "Betrieb",
+    "Sentry2",
+    "Einstellungen",
+    "Betrieb",
+    "Sentry3",
+    "Einstellungen",
+    "Betrieb"
   ],
-  "sentry2_begin": {
-    "message0": "Initialisiere Sentry2 Port %1 Adresse %2",
-    "tooltip": "Initialisiere Sentry2 Bildsensor",
-    "args0": [
-      {
-        "options": [
-          [
-            "I2C",
-            "Wire"
-          ],
-          [
-            "Serial",
-            "Serial"
-          ],
-          [
-            "Serial1",
-            "Serial1"
-          ],
-          [
-            "Serial2",
-            "Serial2"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "0x60",
-            "0x60"
-          ],
-          [
-            "0x61",
-            "0x61"
-          ],
-          [
-            "0x62",
-            "0x62"
-          ],
-          [
-            "0x63",
-            "0x63"
-          ]
-        ]
-      }
-    ]
+  "sentry1_init_i2c": {
+    "message0": "Initialisieren Sie die Sentry1-Variable %1 Zweidraht-Kommunikationsadresse %2",
+    "tooltip": "Verwenden Sie den Standard-Zwei-Draht-Bus der Entwicklungsplatine, um Sentry1 zu initialisieren, und versuchen Sie es automatisch erneut, bis die Verbindung erfolgreich ist"
   },
-  "sentry2_set_default": {
-    "message0": "Sentry2 Standardparameter wiederherstellen",
-    "tooltip": "Setzt den Algorithmusstatus des Sensors auf Standard zurück"
+  "sentry1_init_uart": {
+    "message0": "Initialisieren Sie die Sentry1-Variable %1 Hardware-Seriellport %2 Baudrate %3",
+    "tooltip": "Initialisiere Sentry1 über den ausgewählten seriellen Hardwareport und versuche es automatisch erneut, bis die Verbindung erfolgreich ist"
   },
-  "sentry2_set_vision_status": {
-    "message0": "Sentry2 %1 Algorithmus %2",
-    "tooltip": "Sentry2 Algorithmus setze",
-    "args0": [
-      {
-        "options": [
-          [
-            "Aktivieren",
-            "Begin"
-          ],
-          [
-            "Deaktivieren",
-            "End"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "Farberkennung",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Blob-Erkennung",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Tag-Erkennung",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "Linienerkennung",
-            "Sentry2::kVisionLine"
-          ],
-          [
-            "Deep Learning",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Kartenerkennung",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "Gesichtserkennung",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "20-Klassen-Objekte",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "QR-Code",
-            "Sentry2::kVisionQrCode"
-          ],
-          [
-            "Benutzerdefiniert",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "Bewegtes Objekt",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_set_awb": {
-    "message0": "Sentry2 Weißabgleichmodus %1",
-    "tooltip": "Sentry2 Weißabgleichmodus",
-    "args0": [
-      {
-        "options": [
-          [
-            "Automatisch",
-            "kAutoWhiteBalance"
-          ],
-          [
-            "Gesperrt",
-            "kLockWhiteBalance"
-          ],
-          [
-            "Weißes Licht",
-            "kWhiteLight"
-          ],
-          [
-            "Gelbes Licht",
-            "kYellowLight"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_set_param_num": {
-    "message0": "Sentry2 Algorithmus %1 setze %2 Parametergruppen",
-    "tooltip": "Sentry2 setze Algorithmus Parametergruppen",
-    "args0": [
-      {
-        "options": [
-          [
-            "Farberkennung",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Blob-Erkennung",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Benutzerdefiniert",
-            "Sentry2::kVisionCustom"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_set_color_param": {
-    "message0": "Sentry2 Farberkennung Mitte X %1 Y %2 Breite %3 Höhe %4 Parametergruppe %5",
-    "tooltip": "Sentry2 Farberkennung Parametergruppe setze"
-  },
-  "sentry2_set_blob_param": {
-    "message0": "Sentry2 Blob-Erkennung min. Breite %1 Höhe %2 Farbe %3 Parametergruppe %4",
-    "tooltip": "Sentry2 Blob-Erkennung Parametergruppe setze",
+  "sentry1_set_led": {
+    "message0": "Sentry1 %1 Indikatorlicht, wenn das Ziel erkannt wird %2 %3 Helligkeit, wenn es nicht detected%4",
+    "tooltip": "Stellen Sie die Farbe und Helligkeit der Anzeige entsprechend dem Erkennungsstatus ein (0 bis 15)",
     "args0": [
       null,
-      null,
-      {
-        "options": [
-          [
-            "Schwarz",
-            "Sentry2::kColorBlack"
-          ],
-          [
-            "Weiß",
-            "Sentry2::kColorWhite"
-          ],
-          [
-            "Rot",
-            "Sentry2::kColorRed"
-          ],
-          [
-            "Grün",
-            "Sentry2::kColorGreen"
-          ],
-          [
-            "Blau",
-            "Sentry2::kColorBlue"
-          ],
-          [
-            "Gelb",
-            "Sentry2::kColorYellow"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_set_custom_param": {
-    "message0": "Sentry2 Algorithmus %1 Parameter 1 %2 Parameter 2 %3 Parameter 3 %4 Parameter 4 %5 Parameter 5 %6 Parametergruppe %7",
-    "tooltip": "Sentry2 benutzerdefiniert Parametergruppe setze",
-    "args0": [
-      {
-        "options": [
-          [
-            "Benutzerdefiniert",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "Farberkennung",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Blob-Erkennung",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Deep Learning",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Gesichtserkennung",
-            "Sentry2::kVisionFace"
-          ]
-        ]
-      },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ]
-  },
-  "sentry2_detected_count": {
-    "message0": "Sentry2 Algorithmus %1 Ergebnisanzahl zurückgeben",
-    "tooltip": "Sentry2 Ergebnisanzahl zurückgeben",
-    "args0": [
-      {
-        "options": [
-          [
-            "Farberkennung",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "Blob-Erkennung",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Tag-Erkennung",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "Linienerkennung",
-            "Sentry2::kVisionLine"
-          ],
-          [
-            "Deep Learning",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Kartenerkennung",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "Gesichtserkennung",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "20-Klassen-Objekte",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "QR-Code",
-            "Sentry2::kVisionQrCode"
-          ],
-          [
-            "Benutzerdefiniert",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "Bewegtes Objekt",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_get_value": {
-    "message0": "Sentry2 Algorithmus %1 gibt %2 Index %3 Wert zurück",
-    "tooltip": "Liest das Ergebnis des ausgewählten Algorithmus",
-    "args0": [
-      {
-        "options": [
-          [
-            "Blob-Erkennung",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "Tag-Erkennung",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "Deep Learning",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "Kartenerkennung",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "Gesichtserkennung",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "20-Klassen-Objekte",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "Bewegtes Objekt",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "X-Koordinate",
-            "kXValue"
-          ],
-          [
-            "Y-Koordinate",
-            "kYValue"
-          ],
-          [
-            "Breite",
-            "kWidthValue"
-          ],
-          [
-            "Höhe",
-            "kHeightValue"
-          ],
-          [
-            "Label",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_color_value": {
-    "message0": "Sentry2 Farberkennung gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry2 Farberkennung gibt Wert zurück",
-    "args0": [
-      {
-        "options": [
-          [
-            "Label",
-            "kLabel"
-          ],
-          [
-            "Rotkanal",
-            "kRValue"
-          ],
-          [
-            "Grünkanal",
-            "kGValue"
-          ],
-          [
-            "Blaukanal",
-            "kBValue"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_line_value": {
-    "message0": "Sentry2 Linienerkennung gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry2 Linienerkennung gibt Wert zurück",
-    "args0": [
-      {
-        "options": [
-          [
-            "Endpunkt X",
-            "kXValue"
-          ],
-          [
-            "Endpunkt Y",
-            "kYValue"
-          ],
-          [
-            "Startpunkt X",
-            "kWidthValue"
-          ],
-          [
-            "Startpunkt Y",
-            "kHeightValue"
-          ],
-          [
-            "Neigungswinkel",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_qr_value": {
-    "message0": "Sentry2 QR-Code Ergebniszeichenfolge zurückgeben",
-    "tooltip": "Sentry2 QR-Code Ergebniszeichenfolge zurückgeben"
-  },
-  "sentry2_get_qr_position": {
-    "message0": "Sentry2 QR-Code gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry2 QR-Code gibt Wert zurück",
-    "args0": [
-      {
-        "options": [
-          [
-            "X-Koordinate",
-            "kXValue"
-          ],
-          [
-            "Y-Koordinate",
-            "kYValue"
-          ],
-          [
-            "Breite",
-            "kWidthValue"
-          ],
-          [
-            "Höhe",
-            "kHeightValue"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_custom_value": {
-    "message0": "Sentry2 benutzerdefiniert gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry2 benutzerdefiniert gibt Wert zurück",
-    "args0": [
-      {
-        "options": [
-          [
-            "Daten 1",
-            "kXValue"
-          ],
-          [
-            "Daten 2",
-            "kYValue"
-          ],
-          [
-            "Daten 3",
-            "kWidthValue"
-          ],
-          [
-            "Daten 4",
-            "kHeightValue"
-          ],
-          [
-            "Daten 5",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_blob_color": {
-    "message0": "Sentry2 Blob erkannt %1 Index %2",
-    "tooltip": "Gibt True zurück, wenn erkannt, sonst False",
-    "args0": [
-      {
-        "options": [
-          [
-            "Schwarz",
-            "Sentry2::kColorBlack"
-          ],
-          [
-            "Weiß",
-            "Sentry2::kColorWhite"
-          ],
-          [
-            "Rot",
-            "Sentry2::kColorRed"
-          ],
-          [
-            "Grün",
-            "Sentry2::kColorGreen"
-          ],
-          [
-            "Blau",
-            "Sentry2::kColorBlue"
-          ],
-          [
-            "Gelb",
-            "Sentry2::kColorYellow"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_card": {
-    "message0": "Sentry2 Karte erkannt %1 Index %2",
-    "tooltip": "Gibt True zurück, wenn erkannt, sonst False",
-    "args0": [
-      {
-        "options": [
-          [
-            "Vorwärts",
-            "Sentry2::kCardForward"
-          ],
-          [
-            "Links abbiegen",
-            "Sentry2::kCardLeft"
-          ],
-          [
-            "Rechts abbiegen",
-            "Sentry2::kCardRight"
-          ],
-          [
-            "Wenden",
-            "Sentry2::kCardTurnAround"
-          ],
-          [
-            "Parken",
-            "Sentry2::kCardPark"
-          ],
-          [
-            "Grünes Licht",
-            "Sentry2::kCardGreenLight"
-          ],
-          [
-            "Rotes Licht",
-            "Sentry2::kCardRedLight"
-          ],
-          [
-            "Tempolimit 40",
-            "Sentry2::kCardSpeed40"
-          ],
-          [
-            "Tempolimit 60",
-            "Sentry2::kCardSpeed60"
-          ],
-          [
-            "Tempolimit 80",
-            "Sentry2::kCardSpeed80"
-          ],
-          [
-            "✔",
-            "Sentry2::kCardCheck"
-          ],
-          [
-            "☓",
-            "Sentry2::kCardCross"
-          ],
-          [
-            "◯",
-            "Sentry2::kCardCircle"
-          ],
-          [
-            "☐",
-            "Sentry2::kCardSquare"
-          ],
-          [
-            "△",
-            "Sentry2::kCardTriangle"
-          ],
-          [
-            "+",
-            "Sentry2::kCardPlus"
-          ],
-          [
-            "-",
-            "Sentry2::kCardMinus"
-          ],
-          [
-            "÷",
-            "Sentry2::kCardDivide"
-          ],
-          [
-            "=",
-            "Sentry2::kCardEqual"
-          ],
-          [
-            "0",
-            "Sentry2::kCardZero"
-          ],
-          [
-            "1",
-            "Sentry2::kCardOne"
-          ],
-          [
-            "2",
-            "Sentry2::kCardTwo"
-          ],
-          [
-            "3",
-            "Sentry2::kCardThree"
-          ],
-          [
-            "4",
-            "Sentry2::kCardFour"
-          ],
-          [
-            "5",
-            "Sentry2::kCardFive"
-          ],
-          [
-            "6",
-            "Sentry2::kCardSix"
-          ],
-          [
-            "7",
-            "Sentry2::kCardSeven"
-          ],
-          [
-            "8",
-            "Sentry2::kCardEight"
-          ],
-          [
-            "9",
-            "Sentry2::kCardNine"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_20class": {
-    "message0": "Sentry2 20-Klassen-Objekt erkannt %1 Index %2",
-    "tooltip": "Gibt True zurück, wenn erkannt, sonst False",
-    "args0": [
-      {
-        "options": [
-          [
-            "Flugzeug",
-            "Sentry2::kAirplane"
-          ],
-          [
-            "Fahrrad",
-            "Sentry2::kBicycle"
-          ],
-          [
-            "Vogel",
-            "Sentry2::kBird"
-          ],
-          [
-            "Boot",
-            "Sentry2::kBoat"
-          ],
-          [
-            "Flasche",
-            "Sentry2::kBottle"
-          ],
-          [
-            "Bus",
-            "Sentry2::kBus"
-          ],
-          [
-            "Auto",
-            "Sentry2::kCar"
-          ],
-          [
-            "Katze",
-            "Sentry2::kCat"
-          ],
-          [
-            "Stuhl",
-            "Sentry2::kChair"
-          ],
-          [
-            "Kuh",
-            "Sentry2::kCow"
-          ],
-          [
-            "Esstisch",
-            "Sentry2::kDiningTable"
-          ],
-          [
-            "Hund",
-            "Sentry2::kDog"
-          ],
-          [
-            "Pferd",
-            "Sentry2::kHorse"
-          ],
-          [
-            "Motorrad",
-            "Sentry2::kMotorBike"
-          ],
-          [
-            "Person",
-            "Sentry2::kPerson"
-          ],
-          [
-            "Topfpflanze",
-            "Sentry2::kPottedPlant"
-          ],
-          [
-            "Schaf",
-            "Sentry2::kSheep"
-          ],
-          [
-            "Sofa",
-            "Sentry2::kSofa"
-          ],
-          [
-            "Zug",
-            "Sentry2::kTrain"
-          ],
-          [
-            "Monitor",
-            "Sentry2::kTvMonitor"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_rows": {
-    "message0": "Sentry2 Bildzeilen",
-    "tooltip": "Sentry2 Bildzeilen"
-  },
-  "sentry2_cols": {
-    "message0": "Sentry2 Bildspalten",
-    "tooltip": "Sentry2 Bildspalten"
-  },
-  "sentry1_begin": {
-    "message0": "Initialisiere Sentry1 Port %1 Adresse %2",
-    "tooltip": "Initialisiere Sentry1 Bildsensor",
-    "args0": [
-      {
-        "options": [
-          [
-            "I2C",
-            "Wire"
-          ],
-          [
-            "Serial",
-            "Serial"
-          ],
-          [
-            "Serial1",
-            "Serial1"
-          ],
-          [
-            "Serial2",
-            "Serial2"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "0x60",
-            "0x60"
-          ],
-          [
-            "0x61",
-            "0x61"
-          ],
-          [
-            "0x62",
-            "0x62"
-          ],
-          [
-            "0x63",
-            "0x63"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry1_set_default": {
-    "message0": "Sentry1 Standardparameter wiederherstellen",
-    "tooltip": "Setzt den Algorithmusstatus des Sensors auf Standard zurück"
-  },
-  "sentry1_led_set_color": {
-    "message0": "Sentry1 LED bei erkanntem Ziel %1 sonst %2 Helligkeit %3",
-    "tooltip": "Schwarz schaltet die LED aus; gleiche Farben aktivieren den manuellen LED-Modus",
-    "args0": [
       {
         "options": [
           [
@@ -825,11 +47,11 @@
             "kLedBlue"
           ],
           [
-            "Violett",
+            "Lila",
             "kLedPurple"
           ],
           [
-            "Cyan",
+            "cyan",
             "kLedCyan"
           ],
           [
@@ -861,11 +83,11 @@
             "kLedBlue"
           ],
           [
-            "Violett",
+            "Lila",
             "kLedPurple"
           ],
           [
-            "Cyan",
+            "cyan",
             "kLedCyan"
           ],
           [
@@ -877,207 +99,278 @@
       null
     ]
   },
-  "sentry1_set_vision_status": {
-    "message0": "Sentry1 %1 Algorithmus %2",
-    "tooltip": "Sentry1 Algorithmus setze",
+  "sentry1_vision_control": {
+    "message0": "Sentry1 %1 ausführen %2 Vision %3",
+    "tooltip": "Sentry1 ausführen Vision",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Aktivieren",
-            "Begin"
+            "Start",
+            "BEGIN"
           ],
           [
-            "Deaktivieren",
-            "End"
+            "Stopp",
+            "END"
           ]
         ]
       },
       {
         "options": [
           [
-            "Farberkennung",
-            "Sentry1::kVisionColor"
+            "Farbe",
+            "1"
           ],
           [
-            "Blob-Erkennung",
-            "Sentry1::kVisionBlob"
+            "Blob",
+            "2"
           ],
           [
-            "Ballerkennung",
-            "Sentry1::kVisionBall"
+            "Ball",
+            "3"
           ],
           [
-            "Linienerkennung",
-            "Sentry1::kVisionLine"
+            "Linie",
+            "4"
           ],
           [
-            "Kartenerkennung",
-            "Sentry1::kVisionCard"
+            "Karte",
+            "6"
           ],
           [
-            "Körpererkennung",
-            "Sentry1::kVisionBody"
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
           ]
         ]
       }
     ]
   },
-  "sentry1_set_awb": {
-    "message0": "Sentry1 Weißabgleichmodus %1",
-    "tooltip": "Sentry1 Weißabgleichmodus",
-    "args0": [
-      {
-        "options": [
-          [
-            "Automatisch",
-            "kAutoWhiteBalance"
-          ],
-          [
-            "Gesperrt",
-            "kLockWhiteBalance"
-          ],
-          [
-            "Weißes Licht",
-            "kWhiteLight"
-          ],
-          [
-            "Gelbes Licht",
-            "kYellowLight"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry1_set_param_num": {
-    "message0": "Sentry1 Algorithmus %1 setze %2 Parametergruppen",
-    "tooltip": "Sentry1 setze Algorithmus Parametergruppen",
-    "args0": [
-      {
-        "options": [
-          [
-            "Farberkennung",
-            "Sentry1::kVisionColor"
-          ],
-          [
-            "Blob-Erkennung",
-            "Sentry1::kVisionBlob"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_set_color_param": {
-    "message0": "Sentry1 Farberkennung Mitte X %1 Y %2 Breite %3 Höhe %4",
-    "tooltip": "Sentry1 Farberkennung Parametergruppe setze"
+  "sentry1_set_region_param": {
+    "message0": "Sentry1 %1 Farberkennungsbereich %2 Zentrum horizontal %3 zentrale vertikale Achse %4 Breite %5 Höhe %6",
+    "tooltip": "Stellen Sie die Position und Größe des Farberkennungsbereichs ein"
   },
   "sentry1_set_blob_param": {
-    "message0": "Sentry1 Blob-Erkennung min. Breite %1 Höhe %2 Farbe %3",
-    "tooltip": "Sentry1 Blob-Erkennung Parametergruppe setze",
+    "message0": "Sentry1 %1 Setze Farbblockparameter %2 Mindestbreite %3 Mindesthöhe %4 Farbe %5",
+    "tooltip": "Stellen Sie die Größenfilterbedingungen und Zielfarben für die Farbblockerkennung ein",
     "args0": [
+      null,
+      null,
       null,
       null,
       {
         "options": [
           [
             "Schwarz",
-            "Sentry1::kColorBlack"
+            "1"
           ],
           [
             "Weiß",
-            "Sentry1::kColorWhite"
+            "2"
           ],
           [
             "Rot",
-            "Sentry1::kColorRed"
+            "3"
           ],
           [
             "Grün",
-            "Sentry1::kColorGreen"
+            "4"
           ],
           [
             "Blau",
-            "Sentry1::kColorBlue"
+            "5"
           ],
           [
             "Gelb",
-            "Sentry1::kColorYellow"
+            "6"
           ]
         ]
       }
     ]
   },
-  "sentry1_detected_count": {
-    "message0": "Sentry1 Algorithmus %1 Ergebnisanzahl zurückgeben",
-    "tooltip": "Sentry1 Ergebnisanzahl zurückgeben",
+  "sentry1_camera_awb": {
+    "message0": "Sentry1 %1 Weißabgleich %2",
+    "tooltip": "Stellen Sie den Weißabgleichsmodus der Kamera ein",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Farberkennung",
-            "Sentry1::kVisionColor"
+            "Automatisch",
+            "kAutoWhiteBalance"
           ],
           [
-            "Blob-Erkennung",
-            "Sentry1::kVisionBlob"
+            "Sperren Sie den aktuellen Wert",
+            "kLockWhiteBalance"
           ],
           [
-            "Ballerkennung",
-            "Sentry1::kVisionBall"
+            "Weißes Licht",
+            "kWhiteLight"
           ],
           [
-            "Linienerkennung",
-            "Sentry1::kVisionLine"
+            "Gelbes Licht",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_vision_default": {
+    "message0": "Sentry1 %1 Stellen Sie die Erkennungsfunktion %2 auf die Standardeinstellungen zurück",
+    "tooltip": "Wiederherstellen Sie Standardparameter für bestimmte Erkennungsfunktionen",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
           ],
           [
-            "Kartenerkennung",
-            "Sentry1::kVisionCard"
+            "Blob",
+            "2"
           ],
           [
-            "Körpererkennung",
-            "Sentry1::kVisionBody"
+            "Ball",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_restart": {
+    "message0": "Sentry1 %1 Neustart des Geräts",
+    "tooltip": "Sensor-Neustart anfordern; Nach dem Neustart muss die Kommunikation neu initialisiert werden"
+  },
+  "sentry1_sensor_default": {
+    "message0": "Sentry1 %1 Standardeinstellungen wiederherstellen, Wiederherstellung der Erkennungsfunktion nur %2",
+    "tooltip": "Standardeinstellungen wiederherstellen; Die Kommunikationskonfiguration bleibt nur erhalten, wenn die Erkennungsfunktion wiederhergestellt wird"
+  },
+  "sentry1_detected_count": {
+    "message0": "Sentry1 %1 Erkennungsfunktion %2 Anzahl der erkannten Ziele",
+    "tooltip": "Aktualisieren Sie und geben Sie den Zielbetrag zurück",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Ball",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
           ]
         ]
       }
     ]
   },
   "sentry1_get_value": {
-    "message0": "Sentry1 Algorithmus %1 gibt %2 Index %3 Wert zurück",
-    "tooltip": "Liest das Ergebnis des ausgewählten Algorithmus",
+    "message0": "Sentry1 %1 lesen Vision %2 Ziel %3 %4",
+    "tooltip": "Sentry1 lesen Vision Ziel",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Blob-Erkennung",
-            "Sentry1::kVisionBlob"
+            "Farbe",
+            "1"
           ],
           [
-            "Ballerkennung",
-            "Sentry1::kVisionBall"
+            "Blob",
+            "2"
           ],
           [
-            "Kartenerkennung",
-            "Sentry1::kVisionCard"
+            "Ball",
+            "3"
           ],
           [
-            "Körpererkennung",
-            "Sentry1::kVisionBody"
+            "Linie",
+            "4"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
           ]
         ]
       },
+      null,
       {
         "options": [
           [
-            "X-Koordinate",
+            "x-Koordinate (x-Koordinate).",
             "kXValue"
           ],
           [
-            "Y-Koordinate",
+            "vertikale Koordinaten",
             "kYValue"
           ],
           [
-            "Breite",
+            "width",
             "kWidthValue"
           ],
           [
@@ -1085,186 +378,2376 @@
             "kHeightValue"
           ],
           [
-            "Label",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_get_color_value": {
-    "message0": "Sentry1 Farberkennung gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry1 Farberkennung gibt Wert zurück",
-    "args0": [
-      {
-        "options": [
-          [
-            "Label",
+            "Etikett",
             "kLabel"
           ],
           [
-            "Rotkanal",
+            "Roter Wert",
             "kRValue"
           ],
           [
-            "Grünkanal",
+            "Grüner Wert",
             "kGValue"
           ],
           [
-            "Blaukanal",
+            "Blauer Wert",
             "kBValue"
           ]
         ]
-      },
-      null
+      }
     ]
   },
-  "sentry1_get_line_value": {
-    "message0": "Sentry1 Linienerkennung gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry1 Linienerkennung gibt Wert zurück",
+  "sentry1_detected_label": {
+    "message0": "Sentry1 %1 Erkennungsfunktion %2 Ziel %3 Tag gleich %4",
+    "tooltip": "Überprüfen Sie, ob das Klassifikationslabel für das angegebene Ziel mit dem angegebenen Wert übereinstimmt",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Endpunkt X",
-            "kXValue"
+            "Farbe",
+            "1"
           ],
           [
-            "Endpunkt Y",
-            "kYValue"
+            "Blob",
+            "2"
           ],
           [
-            "Startpunkt X",
-            "kWidthValue"
+            "Ball",
+            "3"
           ],
           [
-            "Startpunkt Y",
-            "kHeightValue"
+            "Linie",
+            "4"
           ],
           [
-            "Neigungswinkel",
-            "kLabel"
+            "Karte",
+            "6"
+          ],
+          [
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry1_get_qrcode": {
+    "message0": "Sentry1 %1 Lies den QR-Code-Text",
+    "tooltip": "Lesen Sie den aktuellsten QR-Code, um den Text zu identifizieren"
+  },
+  "sentry1_vision_status": {
+    "message0": "Sentry1 %1 Erkennungsfunktion %2 aktiviert?",
+    "tooltip": "Überprüfen Sie, ob die Erkennungsfunktion aktiviert ist",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Ball",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_update_result": {
+    "message0": "Sentry1 %1 setzen Vision %2 Ergebnis",
+    "tooltip": "Sentry1 setzen Vision Ergebnis",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Ball",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Körper",
+            "7"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_init_i2c": {
+    "message0": "Initialisieren Sie die Sentry2-Variable %1 Zweidraht-Kommunikation address%2",
+    "tooltip": "Verwenden Sie den Standard-Zwei-Draht-Bus der Entwicklungsplatine, um Sentry2 zu initialisieren, und versuchen Sie es automatisch erneut, bis die Verbindung erfolgreich ist"
+  },
+  "sentry2_init_uart": {
+    "message0": "Initialisieren Sie Sentry2-Variable %1 Hardware-Seriellport %2 Baudrate %3",
+    "tooltip": "Initialisieren Sie Sentry2 über den ausgewählten seriellen Hardwareport und versuchen Sie es automatisch erneut, bis die Verbindung erfolgreich ist"
+  },
+  "sentry2_set_led": {
+    "message0": "Sentry2 %1 Indikatorlicht, wenn Ziel erkannt wird %2 %3 Helligkeit, wenn es nicht detected%4",
+    "tooltip": "Stellen Sie die Farbe und Helligkeit der Anzeige entsprechend dem Erkennungsstatus ein (0 bis 15)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Aus",
+            "kLedClose"
+          ],
+          [
+            "Rot",
+            "kLedRed"
+          ],
+          [
+            "Grün",
+            "kLedGreen"
+          ],
+          [
+            "Gelb",
+            "kLedYellow"
+          ],
+          [
+            "Blau",
+            "kLedBlue"
+          ],
+          [
+            "Lila",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Weiß",
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Aus",
+            "kLedClose"
+          ],
+          [
+            "Rot",
+            "kLedRed"
+          ],
+          [
+            "Grün",
+            "kLedGreen"
+          ],
+          [
+            "Gelb",
+            "kLedYellow"
+          ],
+          [
+            "Blau",
+            "kLedBlue"
+          ],
+          [
+            "Lila",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Weiß",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_get_qr_value": {
-    "message0": "Sentry1 QR-Code Ergebniszeichenfolge zurückgeben",
-    "tooltip": "Sentry1 QR-Code Ergebniszeichenfolge zurückgeben"
-  },
-  "sentry1_get_qr_position": {
-    "message0": "Sentry1 QR-Code gibt %1 Index %2 Wert zurück",
-    "tooltip": "Sentry1 QR-Code gibt Wert zurück",
+  "sentry2_vision_control": {
+    "message0": "Sentry2 %1 ausführen %2 Vision %3",
+    "tooltip": "Sentry2 ausführen Vision",
     "args0": [
+      null,
       {
         "options": [
           [
-            "X-Koordinate",
-            "kXValue"
+            "Start",
+            "BEGIN"
           ],
           [
-            "Y-Koordinate",
-            "kYValue"
+            "Stopp",
+            "END"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
           ],
           [
-            "Breite",
-            "kWidthValue"
+            "Blob",
+            "2"
           ],
           [
-            "Höhe",
-            "kHeightValue"
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_param_num": {
+    "message0": "Sentry2 %1 Set-Erkennungsfunktion %2 Maximale Anzahl von targets%3",
+    "tooltip": "Setze die maximale Anzahl der erzielten Tore",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_blob_color": {
-    "message0": "Sentry1 Blob erkannt %1 Index %2",
-    "tooltip": "Gibt True zurück, wenn erkannt, sonst False",
+  "sentry2_set_region_param": {
+    "message0": "Sentry2 %1 Farberkennungsbereich %2 Zentrum horizontal %3 zentrale vertikale Achse %4 Breite %5 Höhe %6",
+    "tooltip": "Stellen Sie die Position und Größe des Farberkennungsbereichs ein"
+  },
+  "sentry2_set_blob_param": {
+    "message0": "Sentry2 %1 Farbblockparameter %2 Mindestbreite %3 Mindesthöhe %4 Farbe %5",
+    "tooltip": "Stellen Sie die Größenfilterbedingungen und Zielfarben für die Farbblockerkennung ein",
     "args0": [
+      null,
+      null,
+      null,
+      null,
       {
         "options": [
           [
             "Schwarz",
-            "Sentry1::kColorBlack"
+            "1"
           ],
           [
             "Weiß",
-            "Sentry1::kColorWhite"
+            "2"
           ],
           [
             "Rot",
-            "Sentry1::kColorRed"
+            "3"
           ],
           [
             "Grün",
-            "Sentry1::kColorGreen"
+            "4"
           ],
           [
             "Blau",
-            "Sentry1::kColorBlue"
+            "5"
           ],
           [
             "Gelb",
-            "Sentry1::kColorYellow"
+            "6"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_label_param": {
+    "message0": "Sentry2 %1 Set-Erkennungsfunktion %2 Parametergruppe %3 Tag-Wert %4",
+    "tooltip": "Schreibe Tag-Parameter für Deep Learning, Karten oder andere Algorithmen, die eine Beschriftung erfordern",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry2_set_mode": {
+    "message0": "Sentry2 %1 Set-Erkennungsfunktion %2 Moduswerte %3",
+    "tooltip": "Stellen Sie den Algorithmusmodus ein; Die Bedeutung von Musterwerten in Algorithmen wie Labels, Barcodes und Text unterscheidet sich",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_card": {
-    "message0": "Sentry1 Karte erkannt %1 Index %2",
-    "tooltip": "Gibt True zurück, wenn erkannt, sonst False",
+  "sentry2_set_apriltag_mode": {
+    "message0": "Sentry2 %1 Set Tag-Codierungsformat %2",
+    "tooltip": "Stellen Sie das Kodierungsformat fest, das zur Label-Identifikation verwendet wird",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Vorwärts",
-            "Sentry1::kCardForward"
+            "16H5-Codierung",
+            "0"
           ],
           [
-            "Links abbiegen",
-            "Sentry1::kCardLeft"
+            "25H9-Kodierung",
+            "1"
           ],
           [
-            "Rechts abbiegen",
-            "Sentry1::kCardRight"
+            "36H11-Code",
+            "2"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_level": {
+    "message0": "Sentry2 %1 Set-Erkennungsfunktion %2 Leistungspriorität %3",
+    "tooltip": "Setze Geschwindigkeits- und Genauigkeitspräferenzen für Algorithmen",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
           ],
           [
-            "Wenden",
-            "Sentry1::kCardTurnAround"
+            "Blob",
+            "2"
           ],
           [
-            "Parken",
-            "Sentry1::kCardPark"
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Standard",
+            "kLevelDefault"
+          ],
+          [
+            "Geschwindigkeit zuerst",
+            "kLevelSpeed"
+          ],
+          [
+            "Gleichgewicht",
+            "kLevelBalance"
+          ],
+          [
+            "Genauigkeit steht an erster Stelle",
+            "kLevelAccuracy"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_camera_zoom": {
+    "message0": "Sentry2 %1 Kamera-Zoom %2",
+    "tooltip": "Stellen Sie den digitalen Zoom der Kamera ein",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Standard",
+            "kZoomDefault"
+          ],
+          [
+            "1-mal",
+            "kZoom1"
+          ],
+          [
+            "Doppelt so viel",
+            "kZoom2"
+          ],
+          [
+            "3 Mal",
+            "kZoom3"
+          ],
+          [
+            "4 Mal",
+            "kZoom4"
+          ],
+          [
+            "5 Mal",
+            "kZoom5"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_camera_awb": {
+    "message0": "Sentry2 %1 Weißabgleich %2",
+    "tooltip": "Stellen Sie den Weißabgleichsmodus der Kamera ein",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Automatisch",
+            "kAutoWhiteBalance"
+          ],
+          [
+            "Sperren Sie den aktuellen Wert",
+            "kLockWhiteBalance"
+          ],
+          [
+            "Weißes Licht",
+            "kWhiteLight"
+          ],
+          [
+            "Gelbes Licht",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_coordinate": {
+    "message0": "Sentry2 %1 Set-Koordinatentyp %2",
+    "tooltip": "Auswahlergebnisse verwenden absolute Pixel- oder Prozentkoordinaten",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Absolute Pixel",
+            "kAbsoluteCoordinate"
+          ],
+          [
+            "Prozentsatz",
+            "kPercentageCoordinate"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_vision_default": {
+    "message0": "Sentry2 %1 Stelle die Erkennungsfunktion %2 auf die Standardeinstellungen zurück",
+    "tooltip": "Wiederherstellen Sie Standardparameter für bestimmte Erkennungsfunktionen",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_screen_config": {
+    "message0": "Sentry2 %1 Bildschirm On%2 zeigt nur Benutzerbilder %3",
+    "tooltip": "Konfigurieren Sie den Anzeigestatus des Sensorbildschirms"
+  },
+  "sentry2_screen_fill": {
+    "message0": "Sentry2 %1 Füllbild Number%2 Rot %3 Grün %4 Blau %5",
+    "tooltip": "Füllen Sie die Bildschicht des Bildschirms mit den angegebenen Farben"
+  },
+  "sentry2_snapshot": {
+    "message0": "Sentry2 %1 Screenshot zu %2 Quelle: %3 format%4",
+    "tooltip": "Speichern oder senden Sie Kamera- oder Bildschirmbilder an bestimmte Ziele",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Speicherkarte",
+            "kSnapshot2SD"
+          ],
+          [
+            "Serieller Anschluss",
+            "kSnapshot2Uart"
+          ],
+          [
+            "Universelle serielle Schnittstelle",
+            "kSnapshot2Usb"
+          ],
+          [
+            "Drahtloses Netzwerk",
+            "kSnapshot2Wifi"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Kamera",
+            "kSnapshotFromCamera"
+          ],
+          [
+            "Bildschirm",
+            "kSnapshotFromScreen"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Ursprüngliches Farbformat",
+            "kSnapshotTypeRGB565"
+          ],
+          [
+            "Komprimiere das Bild",
+            "kSnapshotTypeJPEG"
+          ],
+          [
+            "Textcodierte Bilder",
+            "kSnapshotTypeJPEGBase64"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_restart": {
+    "message0": "Sentry2 %1 Neustart des Geräts",
+    "tooltip": "Sensor-Neustart anfordern; Nach dem Neustart muss die Kommunikation neu initialisiert werden"
+  },
+  "sentry2_sensor_default": {
+    "message0": "Sentry2 %1 Standardeinstellungen wiederherstellen, Wiedererkennung nur %2",
+    "tooltip": "Standardeinstellungen wiederherstellen; Die Kommunikationskonfiguration bleibt nur erhalten, wenn die Erkennungsfunktion wiederhergestellt wird"
+  },
+  "sentry2_detected_count": {
+    "message0": "Sentry2 %1 Erkennungsfunktion %2 Anzahl der erkannten Ziele",
+    "tooltip": "Aktualisieren Sie und geben Sie den Zielbetrag zurück",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_get_value": {
+    "message0": "Sentry2 %1 lesen Vision %2 Ziel %3 %4",
+    "tooltip": "Sentry2 lesen Vision Ziel",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "x-Koordinate (x-Koordinate).",
+            "kXValue"
+          ],
+          [
+            "vertikale Koordinaten",
+            "kYValue"
+          ],
+          [
+            "width",
+            "kWidthValue"
+          ],
+          [
+            "Höhe",
+            "kHeightValue"
+          ],
+          [
+            "Etikett",
+            "kLabel"
+          ],
+          [
+            "Roter Wert",
+            "kRValue"
+          ],
+          [
+            "Grüner Wert",
+            "kGValue"
+          ],
+          [
+            "Blauer Wert",
+            "kBValue"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_detected_label": {
+    "message0": "Sentry2 %1 Erkennungsfunktion %2 Ziel-%3-Tag gleich %4",
+    "tooltip": "Überprüfen Sie, ob das Klassifikationslabel für das angegebene Ziel mit dem angegebenen Wert übereinstimmt",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry2_get_qrcode": {
+    "message0": "Sentry2 %1 QR-Code-Text lesen",
+    "tooltip": "Lesen Sie den aktuellsten QR-Code, um den Text zu identifizieren"
+  },
+  "sentry2_vision_status": {
+    "message0": "Sentry2 %1 Erkennungsfunktion %2 aktiviert?",
+    "tooltip": "Überprüfen Sie, ob die Erkennungsfunktion aktiviert ist",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_update_result": {
+    "message0": "Sentry2 %1 setzen Vision %2 Ergebnis",
+    "tooltip": "Sentry2 setzen Vision Ergebnis",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Karte",
+            "6"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "20 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Benutzerdefinierte Funktionen",
+            "10"
+          ],
+          [
+            "Bewegung",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_image_rows": {
+    "message0": "Sentry2 %1 Bildhöhe",
+    "tooltip": "Lesen Sie die Bildgröße"
+  },
+  "sentry2_image_cols": {
+    "message0": "Sentry2 %1 Bildbreite",
+    "tooltip": "Bildbreite lesen"
+  },
+  "sentry3_init_i2c": {
+    "message0": "Initialisieren Sie die Sentry3-Variable %1 Zweidraht-Kommunikationsadresse %2",
+    "tooltip": "Verwenden Sie den Standard-Zwei-Draht-Bus der Entwicklungsplatine, um Sentry3 zu initialisieren, und versuchen Sie es automatisch erneut, bis die Verbindung erfolgreich ist"
+  },
+  "sentry3_init_uart": {
+    "message0": "Initialisieren Sie Sentry3-Variable %1 Hardware-Seriellport %2 Baudrate %3",
+    "tooltip": "Initialisieren Sie Sentry3 über den ausgewählten seriellen Hardware-Port und versuchen Sie es automatisch erneut, bis die Verbindung erfolgreich ist"
+  },
+  "sentry3_set_led": {
+    "message0": "Sentry3 %1 Indikatorlicht, wenn Ziel erkannt wird %2 %3 Helligkeit, wenn es nicht detected%4",
+    "tooltip": "Stellen Sie die Farbe und Helligkeit der Anzeige entsprechend dem Erkennungsstatus ein (0 bis 15)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Aus",
+            "kLedClose"
+          ],
+          [
+            "Rot",
+            "kLedRed"
+          ],
+          [
+            "Grün",
+            "kLedGreen"
+          ],
+          [
+            "Gelb",
+            "kLedYellow"
+          ],
+          [
+            "Blau",
+            "kLedBlue"
+          ],
+          [
+            "Lila",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Weiß",
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Aus",
+            "kLedClose"
+          ],
+          [
+            "Rot",
+            "kLedRed"
+          ],
+          [
+            "Grün",
+            "kLedGreen"
+          ],
+          [
+            "Gelb",
+            "kLedYellow"
+          ],
+          [
+            "Blau",
+            "kLedBlue"
+          ],
+          [
+            "Lila",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "Weiß",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_ball": {
-    "message0": "Sentry1 Ball erkannt %1 Index %2",
-    "tooltip": "Gibt True zurück, wenn erkannt, sonst False",
+  "sentry3_vision_control": {
+    "message0": "Sentry3 %1 ausführen %2 Vision %3",
+    "tooltip": "Sentry3 ausführen Vision",
     "args0": [
+      null,
       {
         "options": [
           [
-            "Tischtennisball",
-            "Sentry1::kBallTableTennis"
+            "Start",
+            "BEGIN"
           ],
           [
-            "Tennisball",
-            "Sentry1::kBallTennis"
+            "Stopp",
+            "END"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_param_num": {
+    "message0": "Sentry3 %1 Set-Erkennungsfunktion %2 maximale Anzahl von targets%3",
+    "tooltip": "Setze die maximale Anzahl der erzielten Tore",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
           ]
         ]
       },
       null
     ]
+  },
+  "sentry3_set_region_param": {
+    "message0": "Sentry3 %1 Farberkennungsbereich %2 Zentrum horizontal %3 zentrale vertikale Achse %4 Breite %5 Höhe %6",
+    "tooltip": "Stellen Sie die Position und Größe des Farberkennungsbereichs ein"
+  },
+  "sentry3_set_blob_param": {
+    "message0": "Sentry3 %1 Farbblockparameter %2 Mindestbreite %3 Mindesthöhe %4 Farbe %5",
+    "tooltip": "Stellen Sie die Größenfilterbedingungen und Zielfarben für die Farbblockerkennung ein",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Schwarz",
+            "1"
+          ],
+          [
+            "Weiß",
+            "2"
+          ],
+          [
+            "Rot",
+            "3"
+          ],
+          [
+            "Grün",
+            "4"
+          ],
+          [
+            "Blau",
+            "5"
+          ],
+          [
+            "Gelb",
+            "6"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_label_param": {
+    "message0": "Sentry3 %1 Set-Erkennungsfunktion %2 Parametergruppe %3 Tag-Wert %4",
+    "tooltip": "Schreibe Tag-Parameter für Deep Learning, Karten oder andere Algorithmen, die eine Beschriftung erfordern",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry3_set_mode": {
+    "message0": "Sentry3 %1 Set-Erkennungsfunktion %2 Moduswerte %3",
+    "tooltip": "Stellen Sie den Algorithmusmodus ein; Die Bedeutung von Musterwerten in Algorithmen wie Labels, Barcodes und Text unterscheidet sich",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "sentry3_set_apriltag_mode": {
+    "message0": "Sentry3 %1 Set-Tag-Codierungsformat %2",
+    "tooltip": "Stellen Sie das Kodierungsformat fest, das zur Label-Identifikation verwendet wird",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "16H5-Codierung",
+            "0"
+          ],
+          [
+            "25H9-Kodierung",
+            "1"
+          ],
+          [
+            "36H11-Code",
+            "2"
+          ],
+          [
+            "41H12-Code",
+            "3"
+          ],
+          [
+            "Zirkulär 21H7-Code",
+            "4"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_barcode_mode": {
+    "message0": "Sentry3 %1 Barcode-Format %2",
+    "tooltip": "Stellen Sie die erlaubten Codierungsformate für die Barcode-Erkennung ein",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "EAN13-Kodierung",
+            "2"
+          ],
+          [
+            "Code128-Code",
+            "4"
+          ],
+          [
+            "Code39-Codierung",
+            "8"
+          ],
+          [
+            "Alle Formate",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_ocr_mode": {
+    "message0": "Sentry3 %1 den Texterkennungsmodus %2",
+    "tooltip": "Richte Texterkennung mit schnellen Basismodellen oder Präzisionsmodellen ein",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Basismodus",
+            "0"
+          ],
+          [
+            "Präzisionsmodus",
+            "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_face_mode": {
+    "message0": "Sentry3 %1 Einstellung des Gesichtserweiterungsmodus %2",
+    "tooltip": "Stellen Sie die erweiterten Eigenschaften ein, die von der Gesichtserkennung zurückgegeben werden",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Gesichtsausdrücke und der Zustand von Augen und Mund",
+            "1"
+          ],
+          [
+            "Kopfhaltung",
+            "2"
+          ],
+          [
+            "Emotionserkennung",
+            "4"
+          ],
+          [
+            "Erweitere alles",
+            "7"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_level": {
+    "message0": "Sentry3 %1 Erkennungsfunktion %2 Leistungspriorität %3",
+    "tooltip": "Setze Geschwindigkeits- und Genauigkeitspräferenzen für Algorithmen",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Standard",
+            "kLevelDefault"
+          ],
+          [
+            "Geschwindigkeit zuerst",
+            "kLevelSpeed"
+          ],
+          [
+            "Gleichgewicht",
+            "kLevelBalance"
+          ],
+          [
+            "Genauigkeit steht an erster Stelle",
+            "kLevelAccuracy"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_camera_zoom": {
+    "message0": "Sentry3 %1 Kamera-Zoom %2",
+    "tooltip": "Stellen Sie den digitalen Zoom der Kamera ein",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Standard",
+            "kZoomDefault"
+          ],
+          [
+            "1-mal",
+            "kZoom1"
+          ],
+          [
+            "Doppelt so viel",
+            "kZoom2"
+          ],
+          [
+            "3 Mal",
+            "kZoom3"
+          ],
+          [
+            "4 Mal",
+            "kZoom4"
+          ],
+          [
+            "5 Mal",
+            "kZoom5"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_camera_awb": {
+    "message0": "Sentry3 %1 Weißabgleich %2",
+    "tooltip": "Stellen Sie den Weißabgleichsmodus der Kamera ein",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Automatisch",
+            "kAutoWhiteBalance"
+          ],
+          [
+            "Sperren Sie den aktuellen Wert",
+            "kLockWhiteBalance"
+          ],
+          [
+            "Weißes Licht",
+            "kWhiteLight"
+          ],
+          [
+            "Gelbes Licht",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_coordinate": {
+    "message0": "Sentry3 %1 Set-Koordinatentyp %2",
+    "tooltip": "Auswahlergebnisse verwenden absolute Pixel- oder Prozentkoordinaten",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Absolute Pixel",
+            "kAbsoluteCoordinate"
+          ],
+          [
+            "Prozentsatz",
+            "kPercentageCoordinate"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_vision_default": {
+    "message0": "Sentry3 stellt %1 die Erkennungsfunktion auf die Standardeinstellung des %2",
+    "tooltip": "Wiederherstellen Sie Standardparameter für bestimmte Erkennungsfunktionen",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_screen_config": {
+    "message0": "Sentry3 %1 Bildschirm On%2 zeigt nur Benutzerbilder %3",
+    "tooltip": "Konfigurieren Sie den Anzeigestatus des Sensorbildschirms"
+  },
+  "sentry3_screen_fill": {
+    "message0": "Sentry3 %1 Füllbild Number%2 Rot %3 Grün %4 Blau, %5",
+    "tooltip": "Füllen Sie die Bildschicht des Bildschirms mit den angegebenen Farben"
+  },
+  "sentry3_snapshot": {
+    "message0": "Sentry3 %1 Screenshot, um %2 Quelle %3 format%4",
+    "tooltip": "Speichern oder senden Sie Kamera- oder Bildschirmbilder an bestimmte Ziele",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Speicherkarte",
+            "kSnapshot2SD"
+          ],
+          [
+            "Serieller Anschluss",
+            "kSnapshot2Uart"
+          ],
+          [
+            "Universelle serielle Schnittstelle",
+            "kSnapshot2Usb"
+          ],
+          [
+            "Drahtloses Netzwerk",
+            "kSnapshot2Wifi"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Kamera",
+            "kSnapshotFromCamera"
+          ],
+          [
+            "Bildschirm",
+            "kSnapshotFromScreen"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "Ursprüngliches Farbformat",
+            "kSnapshotTypeRGB565"
+          ],
+          [
+            "Komprimiere das Bild",
+            "kSnapshotTypeJPEG"
+          ],
+          [
+            "Textcodierte Bilder",
+            "kSnapshotTypeJPEGBase64"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_restart": {
+    "message0": "Sentry3 %1 Neustart des Geräts",
+    "tooltip": "Sensor-Neustart anfordern; Nach dem Neustart muss die Kommunikation neu initialisiert werden"
+  },
+  "sentry3_sensor_default": {
+    "message0": "Sentry3 %1 Standardeinstellungen wiederherstellen, Wiedererkennen nur %2",
+    "tooltip": "Standardeinstellungen wiederherstellen; Die Kommunikationskonfiguration bleibt nur erhalten, wenn die Erkennungsfunktion wiederhergestellt wird"
+  },
+  "sentry3_detected_count": {
+    "message0": "Sentry3 %1 Erkennungsfunktion %2 Anzahl der erkannten Ziele",
+    "tooltip": "Aktualisieren Sie und geben Sie den Zielbetrag zurück",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_get_value": {
+    "message0": "Sentry3 %1 lesen Vision %2 Ziel %3 %4",
+    "tooltip": "Sentry3 lesen Vision Ziel",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "x-Koordinate (x-Koordinate).",
+            "kXValue"
+          ],
+          [
+            "vertikale Koordinaten",
+            "kYValue"
+          ],
+          [
+            "width",
+            "kWidthValue"
+          ],
+          [
+            "Höhe",
+            "kHeightValue"
+          ],
+          [
+            "Etikett",
+            "kLabel"
+          ],
+          [
+            "Roter Wert",
+            "kRValue"
+          ],
+          [
+            "Grüner Wert",
+            "kGValue"
+          ],
+          [
+            "Blauer Wert",
+            "kBValue"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_detected_label": {
+    "message0": "Sentry3 %1 Erkennungsfunktion %2 Ziel %3 Tag gleich %4",
+    "tooltip": "Überprüfen Sie, ob das Klassifikationslabel für das angegebene Ziel mit dem angegebenen Wert übereinstimmt",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry3_get_string": {
+    "message0": "Sentry3 liest %1 den Text %2 Ziel%3",
+    "tooltip": "Lesen Sie QR-Codes, Barcodes, Text, Gesichtsmerkmale oder den Text des Nummernschilds",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Gesichtszüge",
+            "7"
+          ],
+          [
+            "QR-Code-Text",
+            "9"
+          ],
+          [
+            "Barcode-Text",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Text des Kennzeichens",
+            "14"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "sentry3_vision_status": {
+    "message0": "Sentry3 %1 Erkennungsfunktion %2 aktiviert?",
+    "tooltip": "Überprüfen Sie, ob die Erkennungsfunktion aktiviert ist",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_update_result": {
+    "message0": "Sentry3 %1 setzen Vision %2 Ergebnis",
+    "tooltip": "Sentry3 setzen Vision Ergebnis",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Farbe",
+            "1"
+          ],
+          [
+            "Blob",
+            "2"
+          ],
+          [
+            "Labelerkennung",
+            "3"
+          ],
+          [
+            "Linie",
+            "4"
+          ],
+          [
+            "Lernen",
+            "5"
+          ],
+          [
+            "Gesicht",
+            "7"
+          ],
+          [
+            "80 Klassen",
+            "8"
+          ],
+          [
+            "QR-Code",
+            "9"
+          ],
+          [
+            "Strichcode",
+            "10"
+          ],
+          [
+            "Texterkennung",
+            "12"
+          ],
+          [
+            "Handgeste",
+            "13"
+          ],
+          [
+            "Kennzeichen",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_image_rows": {
+    "message0": "Sentry3 %1 Bildhöhe",
+    "tooltip": "Lesen Sie die Bildgröße"
+  },
+  "sentry3_image_cols": {
+    "message0": "Sentry3 %1 Bildbreite",
+    "tooltip": "Bildbreite lesen"
+  },
+  "sentry3_wifi_connect": {
+    "message0": "Sentry3 %1 sich mit drahtlosem Netzwerk verbinden Name %2 Passwort %3",
+    "tooltip": "Konfigurieren Sie das drahtlose Netzwerk und warten Sie auf eine erfolgreiche Verbindung; Es ist nur eine serielle Port-Initialisierung verfügbar"
+  },
+  "sentry3_wifi_close": {
+    "message0": "Sentry3 %1 Schalte das drahtlose Netzwerk aus",
+    "tooltip": "Schalte das drahtlose Netzwerk des Sensors aus"
+  },
+  "sentry3_llm_mode": {
+    "message0": "Sentry3 %1 Einstellung des großen Modellmodus %2",
+    "tooltip": "Stellen Sie den laufenden Modus für das große Modell ein; Sprachkommunikation und Spracherkennung sind auf Firmware-Unterstützung angewiesen",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Aus",
+            "kModeClose"
+          ],
+          [
+            "Textliche Argumentation",
+            "kModeChat"
+          ],
+          [
+            "Bildargumentation",
+            "kModeImage"
+          ],
+          [
+            "Sprachgespräch",
+            "kModeTalk"
+          ],
+          [
+            "Spracherkennung",
+            "kModeASR"
+          ],
+          [
+            "Sprachsynthese",
+            "kModeTTS"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_llm_model": {
+    "message0": "Sentry3 %1 großen Modellnamen festgelegt %2",
+    "tooltip": "Setzen Sie den Namen des Cloud-Großmodells"
+  },
+  "sentry3_llm_api_key": {
+    "message0": "Sentry3 %1 große Modellschlüssel %2",
+    "tooltip": "Setze den Service-Schlüssel für das große Modell"
+  },
+  "sentry3_llm_prompt": {
+    "message0": "Sentry3 %1 Set System-Prompts %2",
+    "tooltip": "Setze die Eingabeaufforderung für das große Modellsystem"
+  },
+  "sentry3_llm_voice": {
+    "message0": "Sentry3 %1 Synthesizer-Gesang %2",
+    "tooltip": "Setze den Namen der für die Sprachsynthese verwendeten Stimme"
+  },
+  "sentry3_llm_thinking": {
+    "message0": "Sentry3 %1 tiefgründiges Nachdenken %2",
+    "tooltip": "Tiefes Denken für große Modelle aktivieren oder deaktivieren"
+  },
+  "sentry3_llm_chat": {
+    "message0": "Sentry3 %1 großes Modell gibt Text ein, %2 Antworten zurückgibt",
+    "tooltip": "Text wird an das aktuelle große Modell gesendet und eine Antwort erhält"
+  },
+  "sentry3_llm_tts": {
+    "message0": "Sentry3 %1 Sprachsynthese-Text %2",
+    "tooltip": "Der Text wird in Sprache synthetisiert und durch Sensorlautsprecher abgespielt"
   }
 }

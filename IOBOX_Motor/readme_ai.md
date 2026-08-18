@@ -8,11 +8,11 @@ IOBOX motor drive control library supports two DC motors, M1 and M2, and is suit
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `iobox_motor_init` | Statement | (none) | `iobox_motor_init()` | Dynamic code |
-| `iobox_motor_run` | Statement | INDEX(dropdown), DIRECTION(dropdown), SPEED(input_value) | `iobox_motor_run("0", "0", math_number(9600))` | motor.motorRun( |
-| `iobox_motor_stop` | Statement | INDEX(dropdown) | `iobox_motor_stop("0")` | motor.motorStop( |
+| `iobox_motor_init` | Statement | (none) | `iobox_motor_init()` | `IOBOX_Motor motor;` |
+| `iobox_motor_run` | Statement | INDEX(dropdown), DIRECTION(dropdown), SPEED(input_value) | `iobox_motor_run("0", "0", math_number(9600))` | `motor.motorRun(0, 0, constrain(1, 0, 255));` |
+| `iobox_motor_stop` | Statement | INDEX(dropdown) | `iobox_motor_stop("0")` | `motor.motorStop(0);` |
 
 ## Parameter Options
 

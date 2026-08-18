@@ -8,11 +8,11 @@ UNIHIKER K10 onboard RGB LED control library, supports brightness and color sett
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `k10_rgb_brightness` | Statement | BRIGHTNESS(field_number) | `k10_rgb_brightness(50)` | k10.rgb->brightness(round( |
-| `k10_rgb_switch` | Statement | INDEX(dropdown), STATE(dropdown) | `k10_rgb_switch("-1", "ON")` | `k10.rgb->write(index, 0xFFFFFF/0x000000);` |
-| `k10_rgb_write` | Statement | INDEX(dropdown), R(input_value), G(input_value), B(input_value) | `k10_rgb_write("-1", math_number(0), math_number(0), math_number(0))` | k10.rgb->write( |
+| `k10_rgb_brightness` | Statement | BRIGHTNESS(field_number) | `k10_rgb_brightness(50)` | `k10.rgb->brightness(round(50));` |
+| `k10_rgb_switch` | Statement | INDEX(dropdown), STATE(dropdown) | `k10_rgb_switch("-1", "ON")` | `k10.rgb->write(-1, 0xFFFFFF);` |
+| `k10_rgb_write` | Statement | INDEX(dropdown), R(input_value), G(input_value), B(input_value) | `k10_rgb_write("-1", math_number(0), math_number(0), math_number(0))` | `k10.rgb->write(-1, 1, 1, 1);` |
 
 ## Parameter Options
 

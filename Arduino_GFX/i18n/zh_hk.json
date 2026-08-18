@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "初始化 Arduino GFX %1 顯示驅動 %2 DC %3 CS %4 重設 %5 旋轉 %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "建立硬體SPI匯流排和通用Arduino_GFX顯示驅動程式。"
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 填滿螢幕顏色 %2",
+    "tooltip": "使用 RGB565 顏色填滿整個顯示器。"
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 線 x0 %2 y0 %3 x1 %4 y1 %5 顏色 %6",
+    "tooltip": "畫一條線段。"
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 矩形 x %3 y %4 寬度 %5 高度 %6 顏色 %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "輪廓",
+            "drawRect"
+          ],
+          [
+            "填滿",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "繪製一個輪廓或填滿的矩形。"
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 圓 x %3 y %4 半徑 %5 顏色 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "輪廓",
+            "drawCircle"
+          ],
+          [
+            "填滿",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "畫一個輪廓或實心圓。"
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 文字顏色 %2 背景 %3 尺寸 %4 換行 %5",
+    "tooltip": "設定文字顏色、背景、比例和換行。"
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 在 x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "列印",
+            "print"
+          ],
+          [
+            "列印並換行",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "定位遊標並繪製文字。"
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "設定旋轉",
+            "setRotation"
+          ],
+          [
+            "反轉顯示",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "更改顯示旋轉或反轉。"
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "寬度",
+            "width"
+          ],
+          [
+            "高度",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "讀取目前邏輯顯示尺寸。"
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 紅色 %1 綠色 %2 藍色 %3",
+    "tooltip": "將 8 位元 RGB 分量轉換為 RGB565 顏色。"
+  }
+}

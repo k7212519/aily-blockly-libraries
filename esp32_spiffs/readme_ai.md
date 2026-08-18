@@ -8,18 +8,18 @@ ESP32 SPIFFS flash file system supports file reading, writing, deletion, renamin
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_spiffs_begin` | Statement | FORMAT(dropdown) | `esp32_spiffs_begin(true)` | Dynamic code |
-| `esp32_spiffs_end` | Statement | (none) | `esp32_spiffs_end()` | SPIFFS.end();\n |
-| `esp32_spiffs_format` | Statement | (none) | `esp32_spiffs_format()` | SPIFFS.format();\n |
-| `esp32_spiffs_info` | Value | INFO(dropdown) | `esp32_spiffs_info(totalBytes)` | SPIFFS. |
-| `esp32_spiffs_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_spiffs_write_file(text("value"), text("value"))` | spiffs_writeFile( |
-| `esp32_spiffs_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_spiffs_append_file(text("value"), text("value"))` | spiffs_appendFile( |
-| `esp32_spiffs_read_file` | Value | PATH(input_value) | `esp32_spiffs_read_file(text("value"))` | spiffs_readFile( |
-| `esp32_spiffs_delete_file` | Statement | PATH(input_value) | `esp32_spiffs_delete_file(text("value"))` | SPIFFS.remove( |
-| `esp32_spiffs_exists` | Value | PATH(input_value) | `esp32_spiffs_exists(text("value"))` | SPIFFS.exists( |
-| `esp32_spiffs_rename` | Statement | OLD_PATH(input_value), NEW_PATH(input_value) | `esp32_spiffs_rename(text("value"), text("value"))` | SPIFFS.rename( |
+| `esp32_spiffs_begin` | Statement | FORMAT(dropdown) | `esp32_spiffs_begin(true)` | `if (!SPIFFS.begin(true)) { ↵ Serial.println("SPIFFS Mount Failed"); ↵ return; ↵ }` |
+| `esp32_spiffs_end` | Statement | (none) | `esp32_spiffs_end()` | `SPIFFS.end();` |
+| `esp32_spiffs_format` | Statement | (none) | `esp32_spiffs_format()` | `SPIFFS.format();` |
+| `esp32_spiffs_info` | Value | INFO(dropdown) | `esp32_spiffs_info(totalBytes)` | `SPIFFS.totalBytes()` |
+| `esp32_spiffs_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_spiffs_write_file(text("value"), text("value"))` | `spiffs_writeFile("value", String("value").c_str());` |
+| `esp32_spiffs_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_spiffs_append_file(text("value"), text("value"))` | `spiffs_appendFile("value", String("value").c_str());` |
+| `esp32_spiffs_read_file` | Value | PATH(input_value) | `esp32_spiffs_read_file(text("value"))` | `spiffs_readFile("value")` |
+| `esp32_spiffs_delete_file` | Statement | PATH(input_value) | `esp32_spiffs_delete_file(text("value"))` | `SPIFFS.remove("value");` |
+| `esp32_spiffs_exists` | Value | PATH(input_value) | `esp32_spiffs_exists(text("value"))` | `SPIFFS.exists("value")` |
+| `esp32_spiffs_rename` | Statement | OLD_PATH(input_value), NEW_PATH(input_value) | `esp32_spiffs_rename(text("value"), text("value"))` | `SPIFFS.rename("value", "value");` |
 
 ## Parameter Options
 

@@ -4,6 +4,7 @@
   "nickname_zh_cn": "R4 FreeRTOS",
   "nickname_en": "R4 FreeRTOS",
   "version": "1.0.0",
+  "spec": true,
   "description": "Arduino UNO R4 多任务实时系统库",
   "description_zh_cn": "Arduino UNO R4 多任务实时系统库",
   "description_en": "FreeRTOS multitasking support for Arduino UNO R4",

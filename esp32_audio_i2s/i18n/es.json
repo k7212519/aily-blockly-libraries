@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "inicializar ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 volumen %5",
+    "tooltip": "Inicialice el decodificador de audio ESP32 y la salida I2S."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 reproducir audio desde la red URL %2",
+    "tooltip": "Reproduzca una transmisión de audio HTTP o HTTPS."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 reproducir desde la ruta %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Reproduzca un archivo de audio desde un sistema de archivos montado."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "pausar o reanudar",
+            "pauseResume"
+          ],
+          [
+            "detenerse",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Controla la reproducción actual."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 establezca %2 en %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "volumen de audio 0-21",
+            "setVolume"
+          ],
+          [
+            "balance de audio -16 a 16",
+            "setBalance"
+          ],
+          [
+            "posición de reproducción en segundos",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Cambie el volumen de reproducción, el equilibrio o la posición del archivo."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "esta corriendo",
+            "isRunning"
+          ],
+          [
+            "tiempo de reproducción actual en segundos",
+            "getAudioCurrentTime"
+          ],
+          [
+            "duración del audio en segundos",
+            "getAudioFileDuration"
+          ],
+          [
+            "volumen actual",
+            "getVolume"
+          ],
+          [
+            "tasa de bits",
+            "getBitRate"
+          ],
+          [
+            "frecuencia de muestreo",
+            "getSampleRate"
+          ],
+          [
+            "canales de audio",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea el estado de reproducción y transmita metadatos."
+  }
+}

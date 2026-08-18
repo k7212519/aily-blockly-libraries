@@ -1,0 +1,127 @@
+{
+  "toolbox_name": "ESP32 PPP-Mobilfunknetz",
+  "esp32_ppp_set_apn": {
+    "message0": "PPP-Einstellungen APN %1 SIM-PIN %2",
+    "tooltip": "Stellen Sie den Mobilfunk-APN und die optionale SIM-PIN ein."
+  },
+  "esp32_ppp_set_pins": {
+    "message0": "Pin des seriellen PPP-Ports TX %1 RX %2 RTS %3 CTS %4",
+    "tooltip": "Stellen Sie die Modem-UART- und Flusskontroll-Pins ein."
+  },
+  "esp32_ppp_set_reset": {
+    "message0": "PPP-Reset-Pin %1 aktiv niedrig %2",
+    "tooltip": "Legt den Modem-Hardware-Reset-Pin fest."
+  },
+  "esp32_ppp_begin": {
+    "message0": "PPP-Modell starten %1 UART %2 Baudrate %3",
+    "tooltip": "Starten Sie das PPP-Modem.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Allgemein",
+            "PPP_MODEM_GENERIC"
+          ],
+          [
+            "SIM7600",
+            "PPP_MODEM_SIM7600"
+          ],
+          [
+            "SIM7070",
+            "PPP_MODEM_SIM7070"
+          ],
+          [
+            "SIM7000",
+            "PPP_MODEM_SIM7000"
+          ],
+          [
+            "BG96",
+            "PPP_MODEM_BG96"
+          ],
+          [
+            "SIM800",
+            "PPP_MODEM_SIM800"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_ppp_end": {
+    "message0": "PPP stoppen",
+    "tooltip": "PPP-Datenverbindung stoppen."
+  },
+  "esp32_ppp_attached": {
+    "message0": "PPP-Mobilfunknetz angeschlossen",
+    "tooltip": "Überprüfen Sie, ob das Modem mit dem Netzwerk verbunden ist."
+  },
+  "esp32_ppp_sync": {
+    "message0": "PPP AT-Kommunikation ist normal",
+    "tooltip": "Prüfen Sie, ob das Modem auf AT reagiert."
+  },
+  "esp32_ppp_info_number": {
+    "message0": "KKP-Wertinformationen %1",
+    "tooltip": "Lesen Sie den numerischen Status des Modems.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Signal RSSI",
+            "RSSI"
+          ],
+          [
+            "Bitfehlerrate BER",
+            "BER"
+          ],
+          [
+            "Netzwerkmodus",
+            "networkMode"
+          ],
+          [
+            "Batteriespannung",
+            "batteryVoltage"
+          ],
+          [
+            "Batterieleistung",
+            "batteryLevel"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_info_text": {
+    "message0": "PPP-Textnachricht %1",
+    "tooltip": "Modemidentität oder Trägertext lesen.",
+    "args0": [
+      {
+        "options": [
+          [
+            "IMEI",
+            "IMEI"
+          ],
+          [
+            "IMSI",
+            "IMSI"
+          ],
+          [
+            "Modulname",
+            "moduleName"
+          ],
+          [
+            "Operator",
+            "operatorName"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_sms": {
+    "message0": "PPP sendet SMS an %1 Inhalt %2",
+    "tooltip": "SMS-Textnachricht senden."
+  },
+  "esp32_ppp_at": {
+    "message0": "PPP AT-Befehl %1 Zeitüberschreitung %2 ms",
+    "tooltip": "AT-Befehl senden und Textantwort zurücksenden."
+  }
+}

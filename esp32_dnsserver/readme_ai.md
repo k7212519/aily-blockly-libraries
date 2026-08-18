@@ -8,13 +8,13 @@ ESP32 DNS server supports applications such as Captive Portal
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_dnsserver_start` | Statement | PORT(input_value), DOMAIN(input_value), IP(input_value) | `esp32_dnsserver_start(math_number(0), text("value"), text("value"))` | Dynamic code |
-| `esp32_dnsserver_start_captive` | Statement | (none) | `esp32_dnsserver_start_captive()` | dnsServer.start(53, |
-| `esp32_dnsserver_stop` | Statement | (none) | `esp32_dnsserver_stop()` | dnsServer.stop();\n |
-| `esp32_dnsserver_process` | Statement | (none) | `esp32_dnsserver_process()` | dnsServer.processNextRequest();\n |
-| `esp32_dnsserver_set_ttl` | Statement | TTL(input_value) | `esp32_dnsserver_set_ttl(math_number(0))` | dnsServer.setTTL( |
+| `esp32_dnsserver_start` | Statement | PORT(input_value), DOMAIN(input_value), IP(input_value) | `esp32_dnsserver_start(math_number(0), text("value"), text("value"))` | `{ ↵ IPAddress resolvedIP; ↵ resolvedIP.fromString("value"); ↵ dnsServer.start(1, "value", resolvedIP); ↵ }` |
+| `esp32_dnsserver_start_captive` | Statement | (none) | `esp32_dnsserver_start_captive()` | `dnsServer.start(53, "*", WiFi.softAPIP());` |
+| `esp32_dnsserver_stop` | Statement | (none) | `esp32_dnsserver_stop()` | `dnsServer.stop();` |
+| `esp32_dnsserver_process` | Statement | (none) | `esp32_dnsserver_process()` | `dnsServer.processNextRequest();` |
+| `esp32_dnsserver_set_ttl` | Statement | TTL(input_value) | `esp32_dnsserver_set_ttl(math_number(0))` | `dnsServer.setTTL(1);` |
 
 ## ABS Examples
 

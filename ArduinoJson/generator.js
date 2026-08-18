@@ -81,7 +81,7 @@ Arduino.forBlock['json_document_add_array'] = function(block, generator) {
 };
 
 Arduino.forBlock['json_document_add_array_value'] = function(block, generator) {
-  const arrayField = block.getField('ARRAY_NAME');
+  const arrayField = block.getField('VAR');
   const arrayName = arrayField ? arrayField.getText() : 'array';
 
   const value = generator.valueToCode(block, 'VALUE', Arduino.ORDER_ATOMIC) || '""';

@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "تهيئة السائر السريع %1 دبوس الخطوة %2 دبوس الاتجاه %3 تمكين دبوس %4",
+    "tooltip": "قم بتوصيل مثيل FastAccelStepper وقم بتمكين طاقة المحرك التلقائية."
+  },
+  "fast_stepper_set_profile": {
+    "message0": "السائر السريع %1 ضبط السرعة %2 خطوات/ثانية تسارع %3 خطوات/s2",
+    "tooltip": "ضبط السرعة القصوى والتسارع."
+  },
+  "fast_stepper_move": {
+    "message0": "السائر السريع %1 خطوات %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "نسبي بواسطة",
+            "move"
+          ],
+          [
+            "مطلق ل",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "طابور خطوة نسبية أو مطلقة."
+  },
+  "fast_stepper_run": {
+    "message0": "السائر السريع %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تشغيل إلى الأمام بشكل مستمر",
+            "runForward"
+          ],
+          [
+            "تشغيل إلى الوراء بشكل مستمر",
+            "runBackward"
+          ],
+          [
+            "التباطؤ والتوقف",
+            "stopMove"
+          ],
+          [
+            "قوة التوقف عند الموضع 0",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "تشغيل مستمر أو إيقاف المحرك."
+  },
+  "fast_stepper_position": {
+    "message0": "السائر السريع %1 يضبط الوضع الحالي %2",
+    "tooltip": "أعد ضبط الوضع المنطقي أثناء توقف المحرك."
+  },
+  "fast_stepper_state": {
+    "message0": "السائر السريع %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الوضع الحالي",
+            "getCurrentPosition"
+          ],
+          [
+            "موقف الهدف",
+            "targetPos"
+          ],
+          [
+            "قيد التشغيل",
+            "isRunning"
+          ],
+          [
+            "يعمل بشكل مستمر",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة موقف السائر أو حالة الحركة."
+  }
+}

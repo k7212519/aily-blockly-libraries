@@ -8,23 +8,23 @@ Library for reading PlayStation 2 controller input, supporting analog sticks, bu
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ps2x_init` | Statement | CLK(dropdown), CMD(dropdown), ATT(dropdown), DAT(dropdown), PRESSURES(dropdown), RUMBLE(dropdown) | `ps2x_init(CLK, CMD, ATT, DAT, true, true)` | Dynamic code |
-| `ps2x_read` | Statement | VIBRATE(input_value) | `ps2x_read(math_number(0))` | if(ps2x_error != 1) {\n |
-| `ps2x_button` | Value | BUTTON(dropdown) | `ps2x_button(PSB_PAD_UP)` | ps2x.Button( |
-| `ps2x_button_pressed` | Value | BUTTON(dropdown) | `ps2x_button_pressed(PSB_PAD_UP)` | ps2x.ButtonPressed( |
-| `ps2x_button_released` | Value | BUTTON(dropdown) | `ps2x_button_released(PSB_PAD_UP)` | ps2x.ButtonReleased( |
-| `ps2x_analog` | Value | ANALOG(dropdown) | `ps2x_analog(PSS_RX)` | ps2x.Analog( |
-| `ps2x_analog_button` | Value | BUTTON(dropdown) | `ps2x_analog_button(PSAB_PAD_UP)` | ps2x.Analog( |
-| `ps2x_controller_type` | Value | (none) | `ps2x_controller_type()` | ps2x_type |
-| `ps2x_new_button_state` | Value | (none) | `ps2x_new_button_state()` | ps2x.NewButtonState() |
-| `ps2x_new_button_state_specific` | Value | BUTTON(dropdown) | `ps2x_new_button_state_specific(PSB_PAD_UP)` | ps2x.NewButtonState( |
-| `ps2x_is_connected` | Value | (none) | `ps2x_is_connected()` | (ps2x_error == 0) |
-| `ps2x_simple_init` | Statement | CLK(dropdown), CMD(dropdown), ATT(dropdown), DAT(dropdown) | `ps2x_simple_init(CLK, CMD, ATT, DAT)` | Dynamic code |
-| `ps2x_simple_read` | Statement | (none) | `ps2x_simple_read()` | if(ps2x_error == 0) {\n |
-| `ps2x_joystick_moved` | Value | STICK(dropdown) | `ps2x_joystick_moved(LEFT)` | Dynamic code |
-| `ps2x_joystick_position` | Value | STICK(dropdown), AXIS(dropdown) | `ps2x_joystick_position(LEFT, X)` | Dynamic code |
+| `ps2x_init` | Statement | CLK(dropdown), CMD(dropdown), ATT(dropdown), DAT(dropdown), PRESSURES(dropdown), RUMBLE(dropdown) | `ps2x_init(CLK, CMD, ATT, DAT, true, true)` | `PS2X ps2x; ↵ int ps2x_error = 0; ↵ byte ps2x_type = 0; ↵ delay(300); ↵ ps2x_error = ps2x.config_gamepad(CLK, CMD, ATT, DAT, true, true); ↵ if(ps2x_error == 0){ ↵ Serial.println("Found Controller, configured successful"); ↵ } else if(ps2x_error == 1){ ↵ Serial.println("No controller found, check wiring"); ↵ } else if(ps2x_error == 2){ ↵ Serial.println("Controller found but not accepting commands"); ↵ } else if(ps2x_error == 3){ ↵ Serial.println("Controller refusing to enter Pressures mode"); ↵ } ↵ ps2x_type = ps2x.readType();` |
+| `ps2x_read` | Statement | VIBRATE(input_value) | `ps2x_read(math_number(0))` | `if(ps2x_error != 1) { ↵ ps2x.read_gamepad(false, 1); ↵ }` |
+| `ps2x_button` | Value | BUTTON(dropdown) | `ps2x_button(PSB_PAD_UP)` | `ps2x.Button(PSB_PAD_UP)` |
+| `ps2x_button_pressed` | Value | BUTTON(dropdown) | `ps2x_button_pressed(PSB_PAD_UP)` | `ps2x.ButtonPressed(PSB_PAD_UP)` |
+| `ps2x_button_released` | Value | BUTTON(dropdown) | `ps2x_button_released(PSB_PAD_UP)` | `ps2x.ButtonReleased(PSB_PAD_UP)` |
+| `ps2x_analog` | Value | ANALOG(dropdown) | `ps2x_analog(PSS_RX)` | `ps2x.Analog(PSS_RX)` |
+| `ps2x_analog_button` | Value | BUTTON(dropdown) | `ps2x_analog_button(PSAB_PAD_UP)` | `ps2x.Analog(PSAB_PAD_UP)` |
+| `ps2x_controller_type` | Value | (none) | `ps2x_controller_type()` | `ps2x_type` |
+| `ps2x_new_button_state` | Value | (none) | `ps2x_new_button_state()` | `ps2x.NewButtonState()` |
+| `ps2x_new_button_state_specific` | Value | BUTTON(dropdown) | `ps2x_new_button_state_specific(PSB_PAD_UP)` | `ps2x.NewButtonState(PSB_PAD_UP)` |
+| `ps2x_is_connected` | Value | (none) | `ps2x_is_connected()` | `(ps2x_error == 0)` |
+| `ps2x_simple_init` | Statement | CLK(dropdown), CMD(dropdown), ATT(dropdown), DAT(dropdown) | `ps2x_simple_init(CLK, CMD, ATT, DAT)` | `PS2X ps2x; ↵ int ps2x_error = 0; ↵ delay(300); ↵ ps2x_error = ps2x.config_gamepad(CLK, CMD, ATT, DAT, false, false); ↵ if(ps2x_error == 0){ ↵ Serial.println("PS2 Controller Ready!"); ↵ } else { ↵ Serial.println("PS2 Controller Error!"); ↵ }` |
+| `ps2x_simple_read` | Statement | (none) | `ps2x_simple_read()` | `if(ps2x_error == 0) { ↵ ps2x.read_gamepad(); ↵ }` |
+| `ps2x_joystick_moved` | Value | STICK(dropdown) | `ps2x_joystick_moved(LEFT)` | `(abs(ps2x.Analog(PSS_LX) - 128) > 30 &#124;&#124; abs(ps2x.Analog(PSS_LY) - 128) > 30)` |
+| `ps2x_joystick_position` | Value | STICK(dropdown), AXIS(dropdown) | `ps2x_joystick_position(LEFT, X)` | `ps2x.Analog(PSS_LX)` |
 
 ## Parameter Options
 

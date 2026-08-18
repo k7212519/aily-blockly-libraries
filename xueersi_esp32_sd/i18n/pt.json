@@ -1,0 +1,215 @@
+{
+  "toolbox_name": "Armazenamento no cartão SD",
+  "toolbox_labels": {
+    "初始化": "inicialização",
+    "卡信息": "Informações do cartão",
+    "快速文件操作": "Operações rápidas de arquivo",
+    "文件操作": "Operações de arquivo",
+    "目录操作": "Operações de diretório",
+    "文件检查": "Verificação de documentos"
+  },
+  "xueersi_esp32_sd_init": {
+    "message0": "inicializar cartão SD",
+    "tooltip": "O cartão SD é inicializado usando o mesmo barramento HSPI do CS22 e TFT, e a frequência mais alta para leitura estável é automaticamente selecionada"
+  },
+  "xueersi_esp32_sd_card_info": {
+    "message0": "Informações do cartão SD %1",
+    "tooltip": "Obtenha informações do cartão SD",
+    "args0": [
+      {
+        "options": [
+          [
+            "tipo de cartão",
+            "cardType"
+          ],
+          [
+            "tamanho do cartão (MB)",
+            "cardSize"
+          ],
+          [
+            "espaço total (MB)",
+            "totalBytes"
+          ],
+          [
+            "espaço usado (MB)",
+            "usedBytes"
+          ],
+          [
+            "Número de setores",
+            "numSectors"
+          ],
+          [
+            "Tamanho do setor (bytes)",
+            "sectorSize"
+          ]
+        ]
+      }
+    ]
+  },
+  "xueersi_esp32_sd_file_exists": {
+    "message0": "Caminho do Arquivo: %1",
+    "tooltip": "Verifique se os documentos existem"
+  },
+  "xueersi_esp32_sd_close_file": {
+    "message0": "Fechar %1",
+    "tooltip": "Feche o arquivo"
+  },
+  "xueersi_esp32_sd_write_file": {
+    "message0": "Conteúdo %1 de gravar arquivo: %2",
+    "tooltip": "Escrever conteúdo em arquivos"
+  },
+  "xueersi_esp32_sd_read_file": {
+    "message0": "Leia o arquivo %1",
+    "tooltip": "Leia o conteúdo do arquivo"
+  },
+  "xueersi_esp32_sd_file_available": {
+    "message0": "Legibilidade de arquivos %1",
+    "tooltip": "Verifique se o documento é legível"
+  },
+  "xueersi_esp32_sd_file_size": {
+    "message0": "Tamanho do arquivo: %1",
+    "tooltip": "Veja o tamanho do arquivo"
+  },
+  "xueersi_esp32_sd_write_file_quick": {
+    "message0": "Caminho do Arquivo de Escrita Rápida: %1 Conteúdo: %2",
+    "tooltip": "Gravações rápidas de arquivos (abertura e fechamento automáticos)"
+  },
+  "xueersi_esp32_sd_read_file_quick": {
+    "message0": "Caminho rápido de leitura do arquivo: %1",
+    "tooltip": "Leitura rápida de arquivos (abertura e fechamento automáticos)"
+  },
+  "xueersi_esp32_sd_append_file": {
+    "message0": "Adicionar Caminho do Arquivo: %1 Conteúdo: %2",
+    "tooltip": "Adicionar conteúdo ao final do documento"
+  },
+  "xueersi_esp32_sd_delete_file": {
+    "message0": "Caminho de exclusão de arquivo: %1",
+    "tooltip": "Exclua o arquivo"
+  },
+  "xueersi_esp32_sd_rename_file": {
+    "message0": "Renomear arquivo Caminho antigo: %1 Novo caminho: %2",
+    "tooltip": "Renomear o arquivo"
+  },
+  "xueersi_esp32_sd_create_dir": {
+    "message0": "Criar caminho de diretório: %1",
+    "tooltip": "Crie um catálogo"
+  },
+  "xueersi_esp32_sd_remove_dir": {
+    "message0": "Caminho de exclusão do diretório: %1",
+    "tooltip": "Exclua o diretório"
+  },
+  "xueersi_esp32_sd_list_dir": {
+    "message0": "Diretório da lista Caminho: %1 Nível: %2",
+    "tooltip": "Liste o conteúdo do sumário"
+  },
+  "xueersi_esp32_sd_end": {
+    "message0": "Desinstale o cartão SD",
+    "tooltip": "Feche e desinstale o sistema de arquivos SD, e pode ser chamado antes de reinicializar"
+  },
+  "xueersi_esp32_sd_card_type_name": {
+    "message0": "Nome do tipo de cartão SD",
+    "tooltip": "Retorna NENHUM, MMC, SDSC, SDHC/SDXC ou DESCONHECIDO"
+  },
+  "xueersi_esp32_sd_mountpoint": {
+    "message0": "Ponto de fixação do cartão SD",
+    "tooltip": "Retorna o ponto de montagem VFS atual; se não montado, retorna uma string vazia"
+  },
+  "xueersi_esp32_sd_open_file_to": {
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "leia",
+            "FILE_READ"
+          ],
+          [
+            "Escrever (Sobrescrever)",
+            "FILE_WRITE"
+          ],
+          [
+            "Adicionado",
+            "FILE_APPEND"
+          ]
+        ]
+      }
+    ],
+    "message0": "Abrir arquivo para %1 caminho: modo %2: %3",
+    "tooltip": "Abra o arquivo e salve-o na variável Arquivo, após o que pode ser lido e escrito em blocos"
+  },
+  "xueersi_esp32_sd_file_is_open": {
+    "args0": [
+      null
+    ],
+    "message0": "O arquivo foi aberto com sucesso %1",
+    "tooltip": "Verifique se o objeto Arquivo é válido"
+  },
+  "xueersi_esp32_sd_read_file_bytes": {
+    "args0": [
+      null,
+      null
+    ],
+    "message0": "Leia até %2 bytes de texto do arquivo %1",
+    "tooltip": "Lê um comprimento especificado a partir da posição atual, adequado para ler arquivos de texto maiores em blocos"
+  },
+  "xueersi_esp32_sd_read_byte": {
+    "args0": [
+      null
+    ],
+    "message0": "Leia um byte de um file%1",
+    "tooltip": "Lê um byte, retorna -1 quando o arquivo termina ou falha"
+  },
+  "xueersi_esp32_sd_peek_byte": {
+    "args0": [
+      null
+    ],
+    "message0": "Veja o próximo byte do arquivo %1",
+    "tooltip": "Retorna o próximo byte sem mover a posição; retorna -1 no final do arquivo"
+  },
+  "xueersi_esp32_sd_file_available_bytes": {
+    "args0": [
+      null
+    ],
+    "message0": "Número de bytes legíveis restantes no arquivo: %1",
+    "tooltip": "Retorna o número de bytes da localização atual até o final do arquivo"
+  },
+  "xueersi_esp32_sd_file_position": {
+    "args0": [
+      null
+    ],
+    "message0": "Arquivo atual location%1",
+    "tooltip": "Retorne a posição atual de leitura/gravação (deslocamento de bytes)"
+  },
+  "xueersi_esp32_sd_seek_file": {
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "No início do documento",
+            "SeekSet"
+          ],
+          [
+            "Localização atual",
+            "SeekCur"
+          ],
+          [
+            "No final do documento",
+            "SeekEnd"
+          ]
+        ]
+      }
+    ],
+    "message0": "Configuração %1 Localização do Arquivo: %2 Referência: %3",
+    "tooltip": "Mova a localização de leitura/gravação do arquivo e verifique se foi bem-sucedido"
+  },
+  "xueersi_esp32_sd_flush_file": {
+    "args0": [
+      null
+    ],
+    "message0": "Atualizar %1 de gravação de arquivos",
+    "tooltip": "Atualize os dados escritos para o sistema de arquivos subjacente"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "GPIO Viewer",
+  "gpio_viewer_init": {
+    "message0": "GPIO 뷰어 초기화 %1 포트 %2 샘플링 ms %3 주변 핀 건너뛰기 %4",
+    "tooltip": "ESP32 GPIO 뷰어 웹 애플리케이션을 구성하고 시작합니다."
+  },
+  "gpio_viewer_wifi": {
+    "message0": "GPIO 뷰어 %1 Wi-Fi SSID %2 비밀번호 %3 연결",
+    "tooltip": "GPIO 뷰어가 스테이션 모드 Wi-Fi 연결을 설정하도록 합니다."
+  },
+  "gpio_viewer_set": {
+    "message0": "GPIO 뷰어 %1는 %2를 %3로 설정합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "HTTP 포트",
+            "setPort"
+          ],
+          [
+            "샘플링 간격(ms)",
+            "setSamplingInterval"
+          ],
+          [
+            "주변 핀 건너뛰기",
+            "setSkipPeripheralPins"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "시작하기 전에 GPIO 뷰어 구성을 조정하십시오."
+  },
+  "gpio_viewer_begin": {
+    "message0": "GPIO 뷰어 %1 시작",
+    "tooltip": "네트워킹 및 애플리케이션 설정 후 GPIO 뷰어를 시작합니다."
+  }
+}

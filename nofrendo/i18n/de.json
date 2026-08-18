@@ -1,0 +1,14 @@
+{
+  "toolbox_name": "NES-Emulator",
+  "toolbox_labels": {
+    "NES模拟器": "NES-Emulator"
+  },
+  "nofrendo_start": {
+    "message0": "NES-Emulator lädt Spiel-ROM %1",
+    "tooltip": "Starten Sie den NES-Emulator und laden Sie den angegebenen ROM-Pfad (z. B. /sdcard/game.nes). Zuerst müssen die SD-Karte und der TFT-Bildschirm initialisiert werden."
+  },
+  "nofrendo_find_rom": {
+    "message0": "Suchen Sie .nes-Spieledateien auf der SD-Karte",
+    "tooltip": "Suchen Sie nach der ersten .nes-Datei im Stammverzeichnis der SD-Karte und geben Sie den vollständigen Pfad zurück. Wenn nicht gefunden, wird eine leere Zeichenfolge zurückgegeben."
+  }
+}

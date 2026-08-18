@@ -1,0 +1,60 @@
+{
+  "toolbox_name": "ThingsBoard",
+  "thingsboard_init": {
+    "message0": "inicializar ThingsBoard servidor %1 token %2 porta %3 bytes de mensagem %4 %5",
+    "tooltip": "Crie um cliente MQTT e conecte-se ao ThingsBoard."
+  },
+  "thingsboard_connect": {
+    "message0": "ThingsBoard %1 conectar servidor token %2 porta %3 %4",
+    "tooltip": "Conecte ou reconecte ao ThingsBoard."
+  },
+  "thingsboard_send": {
+    "message0": "ThingsBoard %1 enviar chave %2 valor %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "telemetria",
+            "sendTelemetryData"
+          ],
+          [
+            "atributo do cliente",
+            "sendAttributeData"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Envie um valor de telemetria ou de atributo do cliente."
+  },
+  "thingsboard_send_json": {
+    "message0": "ThingsBoard %1 enviar %2 JSON %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "telemetria",
+            "sendTelemetryString"
+          ],
+          [
+            "atributos do cliente",
+            "sendAttributeString"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Envie uma string de objeto JSON pré-construída."
+  },
+  "thingsboard_connected": {
+    "message0": "ThingsBoard %1 está conectado",
+    "tooltip": "Verifique a conexão MQTT."
+  },
+  "thingsboard_disconnect": {
+    "message0": "desconectar ThingsBoard %1",
+    "tooltip": "Desconecte o cliente ThingsBoard MQTT."
+  }
+}

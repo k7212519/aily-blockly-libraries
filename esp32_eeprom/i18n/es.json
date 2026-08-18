@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "Inicializa el tamaño de EEPROM %1 bytes",
+    "tooltip": "Asigne el área de almacenamiento de emulación EEPROM."
+  },
+  "esp32_eeprom_read": {
+    "message0": "Dirección de byte de lectura EEPROM %1",
+    "tooltip": "Lee un byte en la dirección especificada."
+  },
+  "esp32_eeprom_write": {
+    "message0": "Dirección de byte de escritura EEPROM %1 valor %2",
+    "tooltip": "Escribe un byte, que debe enviarse más tarde."
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM lee %1 dirección %2",
+    "tooltip": "Lee el valor según el tipo especificado.",
+    "args0": [
+      {
+        "options": [
+          [
+            "entero",
+            "readInt"
+          ],
+          [
+            "Entero sin signo",
+            "readUInt"
+          ],
+          [
+            "Entero largo",
+            "readLong64"
+          ],
+          [
+            "Número de punto flotante",
+            "readFloat"
+          ],
+          [
+            "Doble precisión",
+            "readDouble"
+          ],
+          [
+            "Valor booleano",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM escribe %1 dirección %2 valor %3",
+    "tooltip": "Escribe un valor según el tipo especificado.",
+    "args0": [
+      {
+        "options": [
+          [
+            "entero",
+            "writeInt"
+          ],
+          [
+            "Entero sin signo",
+            "writeUInt"
+          ],
+          [
+            "Entero largo",
+            "writeLong64"
+          ],
+          [
+            "Número de punto flotante",
+            "writeFloat"
+          ],
+          [
+            "Doble precisión",
+            "writeDouble"
+          ],
+          [
+            "Valor booleano",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM lee la dirección de cadena %1",
+    "tooltip": "Lee una cadena terminada en cero."
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM escribe dirección de cadena %1 texto %2",
+    "tooltip": "Escribe una cadena y devuelve la longitud escrita."
+  },
+  "esp32_eeprom_commit": {
+    "message0": "Confirmar cambios de EEPROM",
+    "tooltip": "Escribe cambios almacenados en caché en Flash."
+  },
+  "esp32_eeprom_end": {
+    "message0": "Finalizar EEPROM",
+    "tooltip": "Confirma y libera el buffer EEPROM."
+  },
+  "esp32_eeprom_length": {
+    "message0": "Capacidad EEPROM",
+    "tooltip": "Devuelve la capacidad actual de EEPROM."
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "La EEPROM tiene cambios no confirmados",
+    "tooltip": "Verifica la caché en busca de cambios no confirmados."
+  }
+}

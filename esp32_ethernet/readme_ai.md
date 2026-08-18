@@ -8,15 +8,15 @@ ESP32 Ethernet interface, supports built-in EMAC and SPI Ethernet (W5500, etc.)
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_eth_begin` | Statement | PHY_TYPE(dropdown), ADDR(input_value) | `esp32_eth_begin(ETH_PHY_LAN8720, math_number(0))` | ETH.begin( |
-| `esp32_eth_begin_spi` | Statement | PHY_TYPE(dropdown), CS(input_value), IRQ(input_value), RST(input_value) | `esp32_eth_begin_spi(ETH_PHY_W5500, math_number(0), math_number(0), math_number(0))` | ETH.begin( |
-| `esp32_eth_connected` | Value | (none) | `esp32_eth_connected()` | ETH.connected() |
-| `esp32_eth_local_ip` | Value | (none) | `esp32_eth_local_ip()` | ETH.localIP().toString() |
-| `esp32_eth_mac` | Value | (none) | `esp32_eth_mac()` | ETH.macAddress() |
-| `esp32_eth_full_duplex` | Value | (none) | `esp32_eth_full_duplex()` | ETH.fullDuplex() |
-| `esp32_eth_link_speed` | Value | (none) | `esp32_eth_link_speed()` | ETH.linkSpeed() |
+| `esp32_eth_begin` | Statement | PHY_TYPE(dropdown), ADDR(input_value) | `esp32_eth_begin(ETH_PHY_LAN8720, math_number(0))` | `ETH.begin(ETH_PHY_LAN8720, 1);` |
+| `esp32_eth_begin_spi` | Statement | PHY_TYPE(dropdown), CS(input_value), IRQ(input_value), RST(input_value) | `esp32_eth_begin_spi(ETH_PHY_W5500, math_number(0), math_number(0), math_number(0))` | `ETH.begin(ETH_PHY_W5500, 1, 1, 1, 1, SPI);` |
+| `esp32_eth_connected` | Value | (none) | `esp32_eth_connected()` | `ETH.connected()` |
+| `esp32_eth_local_ip` | Value | (none) | `esp32_eth_local_ip()` | `ETH.localIP().toString()` |
+| `esp32_eth_mac` | Value | (none) | `esp32_eth_mac()` | `ETH.macAddress()` |
+| `esp32_eth_full_duplex` | Value | (none) | `esp32_eth_full_duplex()` | `ETH.fullDuplex()` |
+| `esp32_eth_link_speed` | Value | (none) | `esp32_eth_link_speed()` | `ETH.linkSpeed()` |
 
 ## Parameter Options
 

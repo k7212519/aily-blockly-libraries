@@ -1,0 +1,235 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "инициализировать Dynamixel %1 последовательный %2 вывод направления %3 скорость передачи данных %4 протокол %5",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "2.0",
+            "2.0"
+          ],
+          [
+            "1.0",
+            "1.0"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Инициализируйте последовательную шину DYNAMIXEL."
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel %1 ID %2 настройка режима %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "позиция",
+            "OP_POSITION"
+          ],
+          [
+            "расширенная позиция",
+            "OP_EXTENDED_POSITION"
+          ],
+          [
+            "скорость",
+            "OP_VELOCITY"
+          ],
+          [
+            "PWM",
+            "OP_PWM"
+          ],
+          [
+            "электрический ток",
+            "OP_CURRENT"
+          ],
+          [
+            "режим положения на основе электрического тока",
+            "OP_CURRENT_BASED_POSITION"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Отключите крутящий момент, установите рабочий режим, затем включите крутящий момент."
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel %1 ID %2 заданная цель %3 значение %4 единица измерения %5",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "позиция",
+            "setGoalPosition"
+          ],
+          [
+            "скорость",
+            "setGoalVelocity"
+          ],
+          [
+            "электрический ток",
+            "setGoalCurrent"
+          ],
+          [
+            "PWM",
+            "setGoalPWM"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "сырой",
+            "UNIT_RAW"
+          ],
+          [
+            "степени",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "процент",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Установите целевую позицию, скорость, ток или PWM."
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 ID %2 чтение блока %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "позиция",
+            "getPresentPosition"
+          ],
+          [
+            "скорость",
+            "getPresentVelocity"
+          ],
+          [
+            "электрический ток",
+            "getPresentCurrent"
+          ],
+          [
+            "PWM",
+            "getPresentPWM"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "сырой",
+            "UNIT_RAW"
+          ],
+          [
+            "степени",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "процент",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Прочтите отзывы о приводах в реальном времени."
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel %1 ID %2 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "крутящий момент включен",
+            "torqueOn"
+          ],
+          [
+            "выключение крутящего момента",
+            "torqueOff"
+          ],
+          [
+            "Светодиод горит",
+            "ledOn"
+          ],
+          [
+            "Светодиод выключен",
+            "ledOff"
+          ],
+          [
+            "перезагрузка",
+            "reboot"
+          ],
+          [
+            "сброс настроек к заводским настройкам",
+            "factoryReset"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Контролируйте крутящий момент, светодиодный индикатор или состояние устройства."
+  },
+  "dynamixel_ping": {
+    "message0": "Dynamixel %1 ID %2 отвечает",
+    "tooltip": "Отправьте запрос на идентификатор привода."
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 ID %2 элемент управления записью %3 значение %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "скорость профиля движения",
+            "PROFILE_VELOCITY"
+          ],
+          [
+            "ускорение профиля движения",
+            "PROFILE_ACCELERATION"
+          ],
+          [
+            "усиление положения P",
+            "POSITION_P_GAIN"
+          ],
+          [
+            "предел скорости",
+            "VELOCITY_LIMIT"
+          ],
+          [
+            "текущий предел",
+            "CURRENT_LIMIT"
+          ],
+          [
+            "предел температуры",
+            "TEMPERATURE_LIMIT"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Напишите общий элемент управляющей таблицы DYNAMIXEL."
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "kind": "category",
+  "name": "淘晶驰串口屏",
+  "icon": "fa-light fa-display",
+  "contents": [
+    {
+      "kind": "label",
+      "text": "Initialization"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_begin_hardware"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_begin_software"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_clear_startup"
+    },
+    {
+      "kind": "label",
+      "text": "Screen control"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_set_brightness",
+      "inputs": {
+        "VALUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 80
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "tjc_page",
+      "inputs": {
+        "PAGE": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "main"
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "tjc_set_variable",
+      "inputs": {
+        "VALUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "tjc_set_property",
+      "inputs": {
+        "VALUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "Communication and returns"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_send_command",
+      "inputs": {
+        "COMMAND": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "page main"
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "tjc_set_bkcmd"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_enable_frame_parser"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_frame_event"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_frame_type"
+    },
+    {
+      "kind": "block",
+      "type": "tjc_frame_available"
+    },
+    {
+      "kind": "block",
+      "type": "text"
+    },
+    {
+      "kind": "block",
+      "type": "math_number"
+    }
+  ]
+}

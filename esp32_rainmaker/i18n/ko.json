@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 레인메이커",
+  "esp32_rainmaker_init_node": {
+    "message0": "RainMaker 노드 %1 이름 %2 초기화",
+    "tooltip": "RainMaker 노드를 생성합니다."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "RainMaker 노드 %1 추가 %2 장치 %3 이름 %4 초기 값 %5",
+    "tooltip": "표준 장치를 생성하고 노드에 추가합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "스위치",
+            "Switch"
+          ],
+          [
+            "빛",
+            "LightBulb"
+          ],
+          [
+            "팬",
+            "Fan"
+          ],
+          [
+            "온도센서",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker 활성화 서비스 %1",
+    "tooltip": "RainMaker 표준 서비스를 활성화합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "오타",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "시간대",
+            "enableTZService()"
+          ],
+          [
+            "계획",
+            "enableSchedule()"
+          ],
+          [
+            "장면",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "RainMaker 시작",
+    "tooltip": "RainMaker 클라우드 서비스를 시작합니다."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "레인메이커 중지",
+    "tooltip": "RainMaker 클라우드 서비스를 중지합니다."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "RainMaker 장치 %1은 매개변수 %2 값 %3을 보고합니다.",
+    "tooltip": "장치 매개변수를 업데이트하고 보고합니다."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 지연 %2초",
+    "tooltip": "RainMaker 공장 복원 또는 Wi-Fi 재설정 실행을 지연합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "공장 설정 복원",
+            "RMakerFactoryReset"
+          ],
+          [
+            "와이파이 재설정",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "RainMaker 노드 %1 ID",
+    "tooltip": "RainMaker 노드 ID를 읽습니다."
+  }
+}

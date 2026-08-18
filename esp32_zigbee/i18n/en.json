@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 Zigbee",
+  "esp32_zigbee_begin": {
+    "message0": "Start Zigbee role %1 Erase configuration %2",
+    "tooltip": "Start Zigbee with the specified role.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Terminal equipment",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "router",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "Coordinator",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee is connected",
+    "tooltip": "Check whether Zigbee has joined the network."
+  },
+  "esp32_zigbee_network": {
+    "message0": "Zigbee network %1 timeout %2 seconds",
+    "tooltip": "Control the device to join the network.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Open network access",
+            "openNetwork"
+          ],
+          [
+            "Close network access",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Zigbee factory reset",
+    "tooltip": "Clear Zigbee network configuration and reboot."
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "Create Zigbee light %1 endpoint %2",
+    "tooltip": "Create the switch light endpoint and join Zigbee."
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Zigbee light %1 settings %2",
+    "tooltip": "Update Zigbee light status."
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "Zigbee light %1 status",
+    "tooltip": "Read the current status of the Zigbee light."
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "Create Zigbee temperature sensor %1 endpoint %2",
+    "tooltip": "Create a temperature sensor endpoint and join Zigbee."
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "Zigbee temperature sensor %1 updates %2 ℃ and reports",
+    "tooltip": "Set and report the temperature."
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "Create Zigbee occupancy sensor %1 endpoint %2",
+    "tooltip": "Create an occupancy sensor endpoint and join Zigbee."
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Zigbee occupancy sensor %1 updates %2 and reports",
+    "tooltip": "Set and report the occupancy status."
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "Create Zigbee contact sensor %1 endpoint %2",
+    "tooltip": "Create a contact sensor endpoint and join Zigbee."
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Zigbee Contact Sensor %1 Status %2",
+    "tooltip": "Set and report contact status.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Close",
+            "setClosed"
+          ],
+          [
+            "Open",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

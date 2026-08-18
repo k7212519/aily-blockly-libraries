@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "initialiser le nœud micro-ROS Nom %1 Espace de noms %2 Poignées d'exécuteur %3 %4",
+    "tooltip": "Initialisez le transport, le support, le nœud et l'exécuteur micro-ROS par défaut."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "créer un nœud micro-ROS Int32 éditeur %1 un sujet %2 %3",
+    "tooltip": "Créez un éditeur std_msgs/Int32."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "Éditeur micro-ROS %1 publier Int32 %2",
+    "tooltip": "Publiez une valeur std_msgs/Int32."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "créer un abonné micro-ROS Int32 un nœud %1 un sujet %2 un sujet %3 lorsque les données arrivent %4",
+    "tooltip": "Créez un abonnement et un rappel std_msgs/Int32."
+  },
+  "micro_ros_received_int32": {
+    "message0": "L'abonné micro-ROS %1 a reçu Int32",
+    "tooltip": "Lisez le dernier message Int32 à l'intérieur ou après le rappel."
+  },
+  "micro_ros_spin": {
+    "message0": "Rotation du nœud micro-ROS %1 pour %2 ms",
+    "tooltip": "Exécutez l'exécuteur rclc une fois. L'initialisation du nœud ajoute déjà un spin par défaut à la boucle."
+  }
+}

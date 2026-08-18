@@ -25,6 +25,7 @@
   "description_ru": "Управляет встроенным ИК-передатчиком Wio Terminal и поддерживает протоколы IRLib2 и отправку Raw-таймингов.",
   "description_ar": "تتحكم في مرسل الأشعة تحت الحمراء المدمج في Wio Terminal مع دعم بروتوكولات IRLib2 وإرسال التوقيتات الخام.",
   "version": "1.0.0",
+  "spec": true,
   "author": "Seeed Studio / Chris Young",
   "license": "GPL-3.0-or-later",
   "compatibility": {

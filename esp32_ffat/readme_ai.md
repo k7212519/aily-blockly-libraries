@@ -8,19 +8,19 @@ ESP32 FFat (FAT) flash file system supports file and directory read and write op
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_ffat_begin` | Statement | FORMAT(dropdown) | `esp32_ffat_begin(true)` | if (!FFat.begin( |
-| `esp32_ffat_end` | Statement | (none) | `esp32_ffat_end()` | FFat.end();\n |
-| `esp32_ffat_format` | Statement | (none) | `esp32_ffat_format()` | FFat.format();\n |
-| `esp32_ffat_info` | Value | INFO(dropdown) | `esp32_ffat_info(totalBytes)` | FFat. |
-| `esp32_ffat_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_ffat_write_file(text("value"), text("value"))` | ffat_writeFile( |
-| `esp32_ffat_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_ffat_append_file(text("value"), text("value"))` | ffat_appendFile( |
-| `esp32_ffat_read_file` | Value | PATH(input_value) | `esp32_ffat_read_file(text("value"))` | ffat_readFile( |
-| `esp32_ffat_delete_file` | Statement | PATH(input_value) | `esp32_ffat_delete_file(text("value"))` | FFat.remove( |
-| `esp32_ffat_exists` | Value | PATH(input_value) | `esp32_ffat_exists(text("value"))` | FFat.exists( |
-| `esp32_ffat_mkdir` | Statement | PATH(input_value) | `esp32_ffat_mkdir(text("value"))` | FFat.mkdir( |
-| `esp32_ffat_rmdir` | Statement | PATH(input_value) | `esp32_ffat_rmdir(text("value"))` | FFat.rmdir( |
+| `esp32_ffat_begin` | Statement | FORMAT(dropdown) | `esp32_ffat_begin(true)` | `if (!FFat.begin(true)) { ↵ Serial.println("FFat Mount Failed"); ↵ return; ↵ }` |
+| `esp32_ffat_end` | Statement | (none) | `esp32_ffat_end()` | `FFat.end();` |
+| `esp32_ffat_format` | Statement | (none) | `esp32_ffat_format()` | `FFat.format();` |
+| `esp32_ffat_info` | Value | INFO(dropdown) | `esp32_ffat_info(totalBytes)` | `FFat.totalBytes()` |
+| `esp32_ffat_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_ffat_write_file(text("value"), text("value"))` | `ffat_writeFile("value", String("value").c_str());` |
+| `esp32_ffat_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_ffat_append_file(text("value"), text("value"))` | `ffat_appendFile("value", String("value").c_str());` |
+| `esp32_ffat_read_file` | Value | PATH(input_value) | `esp32_ffat_read_file(text("value"))` | `ffat_readFile("value")` |
+| `esp32_ffat_delete_file` | Statement | PATH(input_value) | `esp32_ffat_delete_file(text("value"))` | `FFat.remove("value");` |
+| `esp32_ffat_exists` | Value | PATH(input_value) | `esp32_ffat_exists(text("value"))` | `FFat.exists("value")` |
+| `esp32_ffat_mkdir` | Statement | PATH(input_value) | `esp32_ffat_mkdir(text("value"))` | `FFat.mkdir("value");` |
+| `esp32_ffat_rmdir` | Statement | PATH(input_value) | `esp32_ffat_rmdir(text("value"))` | `FFat.rmdir("value");` |
 
 ## Parameter Options
 

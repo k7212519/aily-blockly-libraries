@@ -8,25 +8,25 @@ AS5600/AS5600L magnetic rotation angle sensor support library supports angle rea
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `as5600_init` | Statement | ADDRESS(dropdown), DIR_PIN(dropdown) | `as5600_init("0x36", "255")` | Dynamic code |
-| `as5600_read_angle` | Value | UNIT(dropdown) | `as5600_read_angle(degrees)` | Dynamic code |
-| `as5600_read_raw_angle` | Value | (none) | `as5600_read_raw_angle()` | as5600.rawAngle() |
-| `as5600_set_direction` | Statement | DIRECTION(dropdown) | `as5600_set_direction("0")` | as5600.setDirection( |
-| `as5600_set_offset` | Statement | OFFSET(input_value) | `as5600_set_offset(math_number(0))` | as5600.setOffset( |
-| `as5600_get_offset` | Value | (none) | `as5600_get_offset()` | as5600.getOffset() |
-| `as5600_detect_magnet` | Value | (none) | `as5600_detect_magnet()` | as5600.detectMagnet() |
-| `as5600_magnet_status` | Value | STATUS(dropdown) | `as5600_magnet_status(strong)` | Dynamic code |
-| `as5600_read_magnitude` | Value | (none) | `as5600_read_magnitude()` | as5600.readMagnitude() |
-| `as5600_read_agc` | Value | (none) | `as5600_read_agc()` | as5600.readAGC() |
-| `as5600_angular_speed` | Value | UNIT(dropdown) | `as5600_angular_speed(degrees)` | as5600.getAngularSpeed( |
-| `as5600_cumulative_position` | Value | (none) | `as5600_cumulative_position()` | as5600.getCumulativePosition() |
-| `as5600_revolutions` | Value | (none) | `as5600_revolutions()` | as5600.getRevolutions() |
-| `as5600_reset_position` | Statement | POSITION(input_value) | `as5600_reset_position(math_number(0))` | as5600.resetCumulativePosition( |
-| `as5600_set_power_mode` | Statement | MODE(dropdown) | `as5600_set_power_mode("0")` | as5600.setPowerMode( |
-| `as5600_set_output_mode` | Statement | MODE(dropdown) | `as5600_set_output_mode("0")` | as5600.setOutputMode( |
-| `as5600_is_connected` | Value | (none) | `as5600_is_connected()` | as5600.isConnected() |
+| `as5600_init` | Statement | ADDRESS(dropdown), DIR_PIN(dropdown) | `as5600_init("0x36", "255")` | `AS5600 as5600; ↵ Wire.begin(); ↵ as5600.begin();` |
+| `as5600_read_angle` | Value | UNIT(dropdown) | `as5600_read_angle(degrees)` | `as5600.readAngle() * 0.087890625` |
+| `as5600_read_raw_angle` | Value | (none) | `as5600_read_raw_angle()` | `as5600.rawAngle()` |
+| `as5600_set_direction` | Statement | DIRECTION(dropdown) | `as5600_set_direction("0")` | `as5600.setDirection(0);` |
+| `as5600_set_offset` | Statement | OFFSET(input_value) | `as5600_set_offset(math_number(0))` | `as5600.setOffset(1);` |
+| `as5600_get_offset` | Value | (none) | `as5600_get_offset()` | `as5600.getOffset()` |
+| `as5600_detect_magnet` | Value | (none) | `as5600_detect_magnet()` | `as5600.detectMagnet()` |
+| `as5600_magnet_status` | Value | STATUS(dropdown) | `as5600_magnet_status(strong)` | `as5600.magnetTooStrong()` |
+| `as5600_read_magnitude` | Value | (none) | `as5600_read_magnitude()` | `as5600.readMagnitude()` |
+| `as5600_read_agc` | Value | (none) | `as5600_read_agc()` | `as5600.readAGC()` |
+| `as5600_angular_speed` | Value | UNIT(dropdown) | `as5600_angular_speed(degrees)` | `as5600.getAngularSpeed(0)` |
+| `as5600_cumulative_position` | Value | (none) | `as5600_cumulative_position()` | `as5600.getCumulativePosition()` |
+| `as5600_revolutions` | Value | (none) | `as5600_revolutions()` | `as5600.getRevolutions()` |
+| `as5600_reset_position` | Statement | POSITION(input_value) | `as5600_reset_position(math_number(0))` | `as5600.resetCumulativePosition(1);` |
+| `as5600_set_power_mode` | Statement | MODE(dropdown) | `as5600_set_power_mode("0")` | `as5600.setPowerMode(0);` |
+| `as5600_set_output_mode` | Statement | MODE(dropdown) | `as5600_set_output_mode("0")` | `as5600.setOutputMode(0);` |
+| `as5600_is_connected` | Value | (none) | `as5600_is_connected()` | `as5600.isConnected()` |
 
 ## Parameter Options
 

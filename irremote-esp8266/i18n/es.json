@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "inicializar IR remitente %1 pin %2",
+    "tooltip": "Cree e inicie un transmisor de infrarrojos."
+  },
+  "ir_esp_send_code": {
+    "message0": "Remitente IR %1 envía código %2 bits %3 repeticiones %4 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Envía un código infrarrojo numérico utilizando un protocolo común."
+  },
+  "ir_esp_send_raw": {
+    "message0": "Remitente IR %1 envía matriz sin formato %2 longitud %3 frecuencia kHz %4",
+    "tooltip": "Envíe una matriz de temporización uint16_t."
+  },
+  "ir_esp_recv_init": {
+    "message0": "inicializar IR receptor %1 pin %2 buffer %3 tiempo de espera ms %4",
+    "tooltip": "Cree y habilite un receptor de infrarrojos."
+  },
+  "ir_esp_when_received": {
+    "message0": "cuando el receptor IR %1 recibe %2 haga %3",
+    "tooltip": "Decodifica un mensaje, ejecuta el cuerpo y luego reanuda la recepción."
+  },
+  "ir_esp_received_data": {
+    "message0": "Receptor IR %1 recibido %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "valor numérico",
+            "value"
+          ],
+          [
+            "recuento de bits",
+            "bits"
+          ],
+          [
+            "enumeración de protocolo",
+            "decode_type"
+          ],
+          [
+            "repetir bandera",
+            "repeat"
+          ],
+          [
+            "bandera de desbordamiento",
+            "overflow"
+          ],
+          [
+            "texto legible por humanos",
+            "text"
+          ],
+          [
+            "texto del código fuente",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea el mensaje decodificado más recientemente."
+  }
+}

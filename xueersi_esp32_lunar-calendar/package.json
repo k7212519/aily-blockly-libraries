@@ -6,6 +6,7 @@
   "author": "ailyProject",
   "description": "适用于学而思ESP32掌机的公历/农历转换、干支生肖、24节气精确计算、星期/月份工具函数",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [],
     "voltage": []

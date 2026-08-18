@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "ElegantOTA サーバーの初期化 %1 モード %2 ポート %3 ユーザー名 %4 パスワード %5 自動再起動 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "同期Webサーバー",
+            "sync"
+          ],
+          [
+            "非同期Webサーバー",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Web サーバーを作成し、ElegantOTA 更新ポータルを /update で公開します。"
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA ユーザー名 %1 パスワードを設定 %2",
+    "tooltip": "更新ポータルの認証を変更します。"
+  },
+  "elegant_ota_on_start": {
+    "message0": "ElegantOTA アップデート開始時 %1",
+    "tooltip": "OTA アップロードの開始時にコードを実行します。"
+  },
+  "elegant_ota_on_progress": {
+    "message0": "ElegantOTA アップデートが進行する間、%1",
+    "tooltip": "OTA の進行状況が変化したときにコードを実行します。"
+  },
+  "elegant_ota_on_end": {
+    "message0": "ElegantOTA 更新終了時 %1",
+    "tooltip": "OTA 更新が成功または失敗したときにコードを実行します。"
+  },
+  "elegant_ota_callback_value": {
+    "message0": "ElegantOTA コールバック %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "受信バイト数",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "合計バイト数",
+            "_ailyOtaFinal"
+          ],
+          [
+            "進捗率",
+            "percent"
+          ],
+          [
+            "成功",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "OTA コールバック ブロック内で使用可能な値を読み取ります。"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "初期化 TMC2209 %1 シリアル %2 ボー %3 アドレス %4 センス抵抗オーム %5",
+    "tooltip": "TMC2209 UART ステッパー ドライバーを初期化します。"
+  },
+  "tmc2130_init": {
+    "message0": "初期化 TMC2130 %1 CS ピン %2 センス抵抗オーム %3",
+    "tooltip": "TMC2130 ハードウェア SPI ステッパー ドライバーを初期化します。"
+  },
+  "tmc_set_current": {
+    "message0": "TMC ドライバ %1 RMS 電流 %2 mA ホールド乗算器 %3",
+    "tooltip": "モーター RMS の電流と保持電流の乗数を設定します。"
+  },
+  "tmc_set_motion": {
+    "message0": "TMC ドライバー %1 マイクロステップ %2 チョッパー オフ時間 %3",
+    "tooltip": "マイクロステップ分解能を設定し、チョッパーを有効にします。"
+  },
+  "tmc2209_mode": {
+    "message0": "TMC2209 %1 モード %2 自動電流スケーリング %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "TMC2209 の場合は、静かなチョッパー モードまたは高トルク チョッパー モードを選択します。"
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard しきい値 %2 クールしきい値 %3",
+    "tooltip": "TMC2209 でセンサーレスホーミングしきい値を構成します。"
+  },
+  "tmc_read": {
+    "message0": "TMC ドライバー %1 読み取り %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ドライバステータスレジスタ",
+            "DRV_STATUS"
+          ],
+          [
+            "ステップ期間",
+            "TSTEP"
+          ],
+          [
+            "マイクロステップ",
+            "microsteps"
+          ],
+          [
+            "実際の電流 mA",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "サポートされているドライバーに共通の診断と現在の構成を読み取ります。"
+  },
+  "tmc_connection": {
+    "message0": "TMCドライバー %1 接続テスト結果",
+    "tooltip": "TMCStepper 接続テスト コードを返します。"
+  }
+}

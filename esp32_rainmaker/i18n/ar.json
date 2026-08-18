@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 صانع المطر",
+  "esp32_rainmaker_init_node": {
+    "message0": "تهيئة عقدة RainMaker %1 الاسم %2",
+    "tooltip": "إنشاء عقدة RainMaker."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "عقدة RainMaker %1 أضف %2 الجهاز %3 الاسم %4 القيمة الأولية %5",
+    "tooltip": "إنشاء أجهزة قياسية وإضافتها إلى العقد.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "التبديل",
+            "Switch"
+          ],
+          [
+            "الضوء",
+            "LightBulb"
+          ],
+          [
+            "مروحة",
+            "Fan"
+          ],
+          [
+            "حساس درجة الحرارة",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "خدمة تمكين RainMaker %1",
+    "tooltip": "تمكين خدمة RainMaker القياسية.",
+    "args0": [
+      {
+        "options": [
+          [
+            "عبر الهواء",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "المنطقة الزمنية",
+            "enableTZService()"
+          ],
+          [
+            "الخطة",
+            "enableSchedule()"
+          ],
+          [
+            "مشهد",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "بدء تشغيل RainMaker",
+    "tooltip": "بدء تشغيل خدمة RainMaker السحابية."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "أوقف RainMaker",
+    "tooltip": "إيقاف خدمة RainMaker السحابية."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "جهاز RainMaker %1 يُبلغ عن المعلمة %2 القيمة %3",
+    "tooltip": "تحديث معلمات الجهاز والإبلاغ عنها."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 تأخير %2 ثانية",
+    "tooltip": "تأخير تنفيذ استعادة المصنع لـ RainMaker أو إعادة ضبط Wi-Fi.",
+    "args0": [
+      {
+        "options": [
+          [
+            "استعادة إعدادات المصنع",
+            "RMakerFactoryReset"
+          ],
+          [
+            "إعادة ضبط الواي فاي",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "معرف عقدة RainMaker %1",
+    "tooltip": "اقرأ معرف عقدة RainMaker."
+  }
+}

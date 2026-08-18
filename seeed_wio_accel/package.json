@@ -25,6 +25,7 @@
   "description_ru": "Библиотека на основе LIS3DHTR для встроенного 3-осевого акселерометра Wio Terminal с распознаванием одиночного и двойного касания.",
   "description_ar": "مكتبة تعتمد على LIS3DHTR لمقياس التسارع ثلاثي المحاور المدمج في Wio Terminal، مع كشف النقر المفرد والمزدوج.",
   "version": "1.0.0",
+  "spec": true,
   "author": "Seeed Studio",
   "license": "MIT",
   "compatibility": {

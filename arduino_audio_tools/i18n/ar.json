@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "تهيئة Audio Tools I2S %1 الوضع %2 المعدل %3 القنوات %4 البتات %5 BCLK %6 WS %7 بيانات TX %8 بيانات RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الإخراج",
+            "TX_MODE"
+          ],
+          [
+            "إدخال",
+            "RX_MODE"
+          ],
+          [
+            "الإدخال والإخراج",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "قم بتكوين دفق صوتي I2S."
+  },
+  "audio_tools_copy_init": {
+    "message0": "إنشاء ناسخة صوتية مخرج %1 %2 إدخال %3 نسخة تلقائية في الحلقة %4",
+    "tooltip": "قم بإنشاء خط أنابيب StreamCopy بين تيارين I2S."
+  },
+  "audio_tools_copy": {
+    "message0": "ناسخة الصوت %1 نسخ المخزن المؤقت التالي",
+    "tooltip": "انسخ المخزن المؤقت الصوتي التالي المتاح."
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 كتابة عينة 16 بت %2",
+    "tooltip": "اكتب عينة واحدة موقعة بحجم 16 بت."
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 قراءة عينة 16 بت",
+    "tooltip": "اقرأ عينة صوتية موقعة بحجم 16 بت."
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 البايتات المتوفرة",
+    "tooltip": "قم بإرجاع عدد بايتات الصوت القابلة للقراءة."
+  },
+  "audio_tools_end": {
+    "message0": "نهاية Audio Tools I2S %1",
+    "tooltip": "أوقف دفق I2S."
+  }
+}

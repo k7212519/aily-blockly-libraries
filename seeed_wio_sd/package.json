@@ -25,6 +25,7 @@
   "description_ru": "Библиотека хранилища для встроенного слота SD-карты Wio Terminal с операциями над файлами и каталогами.",
   "description_ar": "مكتبة تخزين مخصصة لفتحة بطاقة SD المدمجة في Wio Terminal مع عمليات الملفات والمجلدات.",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "Seeeduino:samd:seeed_wio_terminal"

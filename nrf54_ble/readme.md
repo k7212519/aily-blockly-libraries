@@ -7,9 +7,9 @@ nRF54L15 BLE library with advertising, connections, GATT services, Nordic UART S
 | Field | Value |
 |-------|-------|
 | Package | @aily-project/lib-nrf54-ble |
-| Version | 0.6.7 |
+| Version | 0.6.81 |
 | Author | lolren |
-| Source | N/A |
+| Source | https://github.com/lolren/nrf54-arduino-core |
 | License | Original license |
 
 ## Supported Boards

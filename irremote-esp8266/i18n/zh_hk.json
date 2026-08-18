@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "初始化IR發送器%1接腳%2",
+    "tooltip": "建立並啟動紅外線發射器。"
+  },
+  "ir_esp_send_code": {
+    "message0": "IR 發送者 %1 發送 %2 代碼 %3 位元 %4 重複 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "使用通用協定發送數位紅外線代碼。"
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR 發送方 %1 傳送原始陣列 %2 長度 %3 頻率 kHz %4",
+    "tooltip": "發送 uint16_t 時序陣列。"
+  },
+  "ir_esp_recv_init": {
+    "message0": "初始化 IR 接收器 %1 接腳 %2 緩衝區 %3 逾時 ms %4",
+    "tooltip": "建立並啟用紅外線接收器。"
+  },
+  "ir_esp_when_received": {
+    "message0": "當IR接收器%1接收到%2時做%3",
+    "tooltip": "解碼一則訊息，運行正文，然後恢復接收。"
+  },
+  "ir_esp_received_data": {
+    "message0": "IR 接收器 %1 最近接收的 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "數值",
+            "value"
+          ],
+          [
+            "位數",
+            "bits"
+          ],
+          [
+            "協定枚舉",
+            "decode_type"
+          ],
+          [
+            "重複標誌",
+            "repeat"
+          ],
+          [
+            "溢出標誌",
+            "overflow"
+          ],
+          [
+            "人類可讀的文本",
+            "text"
+          ],
+          [
+            "原始碼文字",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "讀取最近解碼的訊息。"
+  }
+}

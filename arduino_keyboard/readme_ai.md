@@ -8,15 +8,15 @@ Simulate Arduino as a USB keyboard, which can realize keyboard input, key simula
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `keyboard_begin` | Statement | (none) | `keyboard_begin()` | Dynamic code |
-| `keyboard_end` | Statement | (none) | `keyboard_end()` | Keyboard.end();\n |
-| `keyboard_print` | Statement | TEXT(input_value) | `keyboard_print(text("value"))` | Keyboard.print( |
-| `keyboard_press` | Statement | KEY(input_value) | `keyboard_press(text("value"))` | Keyboard.press( |
-| `keyboard_special_key` | Value | KEY(dropdown) | `keyboard_special_key(KEY_RETURN)` | Dynamic code |
-| `keyboard_release` | Statement | KEY(input_value) | `keyboard_release(math_number(0))` | Keyboard.release( |
-| `keyboard_release_all` | Statement | (none) | `keyboard_release_all()` | Keyboard.releaseAll();\n |
+| `keyboard_begin` | Statement | (none) | `keyboard_begin()` | `Keyboard.begin();` |
+| `keyboard_end` | Statement | (none) | `keyboard_end()` | `Keyboard.end();` |
+| `keyboard_print` | Statement | TEXT(input_value) | `keyboard_print(text("value"))` | `Keyboard.print(1);` |
+| `keyboard_press` | Statement | KEY(input_value) | `keyboard_press(text("value"))` | `Keyboard.press('v');` |
+| `keyboard_special_key` | Value | KEY(dropdown) | `keyboard_special_key(KEY_RETURN)` | `KEY_RETURN` |
+| `keyboard_release` | Statement | KEY(input_value) | `keyboard_release(math_number(0))` | `Keyboard.release('\0');` |
+| `keyboard_release_all` | Statement | (none) | `keyboard_release_all()` | `Keyboard.releaseAll();` |
 
 ## Parameter Options
 

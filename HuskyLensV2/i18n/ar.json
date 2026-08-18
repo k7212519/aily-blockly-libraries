@@ -4,272 +4,2585 @@
     "初始化": "التهيئة",
     "算法设置": "إعدادات الخوارزمية",
     "数据获取": "الحصول على البيانات",
-    "结果获取": "اكتساب النتيجة",
-    "学习功能": "وظيفة التعلم",
-    "拍照截图": "التقط لقطة شاشة",
-    "绘图功能": "وظيفة الرسم",
+    "结果获取": "الحصول على النتائج",
+    "巡线分支": "مسار دورية فرعي",
+    "学习功能": "دالة التعلم",
+    "拍照截图": "لقطة شاشة فوتوغرافية",
+    "绘图功能": "دالة الرسم",
     "知识库管理": "إدارة قاعدة المعرفة",
-    "音乐播放": "تشغيل الموسيقى",
-    "设置名称": "تعيين الاسم",
-    "结果属性": "خصائص النتيجة"
+    "音乐与命名": "الموسيقى والتسمية",
+    "算法参数": "معلمات الخوارزمية",
+    "结果属性": "خصائص النتائج",
+    "人脸关键点": "النقاط الرئيسية للوجه",
+    "手势/姿态关键点": "نقاط رئيسية في الإيماءات/الوضعية",
+    "多算法": "خوارزميات متعددة",
+    "媒体录制": "تسجيل الوسائط"
   },
   "huskylensv2_init_i2c_until": {
-    "message0": "初始化 HuskyLensV2 %1 I2C接口 %2 直到成功",
-    "tooltip": "通过I2C接口初始化HuskyLensV2，会一直尝试直到成功",
-    "args0": [
-      null,
-      {
-        "options": "${board.i2c}"
-      }
-    ]
+    "message0": "تهيئة واجهة HuskyLensV2 %1 I2C %2 حتى تنجح",
+    "tooltip": "قم بتهيئة HuskyLens V2 عبر I2C وقم بالتكرار حتى تنجح"
   },
   "huskylensv2_init_i2c": {
-    "message0": "初始化 HuskyLensV2 %1 I2C接口 %2",
-    "tooltip": "通过I2C接口初始化HuskyLensV2 AI摄像头",
-    "args0": [
-      null,
-      {
-        "options": "${board.i2c}"
-      }
-    ]
+    "message0": "تهيئة واجهة HuskyLensV2 %1 I2C %2",
+    "tooltip": "تهيئة HuskyLens V2 عبر I2C"
   },
   "huskylensv2_init_serial": {
-    "message0": "初始化 HuskyLensV2 %1 串口 %2",
-    "tooltip": "通过串口初始化HuskyLensV2 AI摄像头",
-    "args0": [
-      null,
-      {
-        "options": "${board.serialPort}"
-      }
-    ]
+    "message0": "تهيئة منفذ تسلسلي %1 HuskyLensV2 %2",
+    "tooltip": "تهيئة HuskyLens V2 عبر المنفذ التسلسلي (معدل البودي يتم اختياره تلقائيا بواسطة اللوحة)"
   },
   "huskylensv2_set_algorithm": {
-    "message0": "HuskyLensV2 %1 切换算法为 %2",
-    "tooltip": "切换HuskyLensV2的识别算法",
+    "message0": "خوارزمية التبديل %1 في HuskyLensV2 %2",
+    "tooltip": "خوارزميات التعرف على المفاتيح",
     "args0": [
       null,
       {
         "options": [
           [
-            "人脸识别",
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
             "ALGORITHM_FACE_RECOGNITION"
           ],
           [
-            "物体追踪",
-            "ALGORITHM_OBJECT_TRACKING"
-          ],
-          [
-            "物体识别",
+            "التعرف على الكائنات",
             "ALGORITHM_OBJECT_RECOGNITION"
           ],
           [
-            "颜色识别",
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
             "ALGORITHM_COLOR_RECOGNITION"
           ],
           [
-            "物体分类",
+            "تصنيف الكائنات",
             "ALGORITHM_OBJECT_CLASSIFICATION"
           ],
           [
-            "自学习分类",
+            "تصنيف التعلم الذاتي",
             "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
           ],
           [
-            "分割",
+            "انقسام",
             "ALGORITHM_SEGMENT"
           ],
           [
-            "手势识别",
+            "التعرف على الإيماءات",
             "ALGORITHM_HAND_RECOGNITION"
           ],
           [
-            "姿态识别",
+            "التعرف على الوضعية",
             "ALGORITHM_POSE_RECOGNITION"
           ],
           [
-            "车牌识别",
+            "لوحة المركبة",
             "ALGORITHM_LICENSE_RECOGNITION"
           ],
           [
-            "OCR文字识别",
+            "التعرف على النصوص عبر OCR",
             "ALGORITHM_OCR_RECOGNITION"
           ],
           [
-            "巡线追踪",
+            "التتبع والانتقال",
             "ALGORITHM_LINE_TRACKING"
           ],
           [
-            "表情识别",
+            "التعرف على تعبيرات الوجه",
             "ALGORITHM_EMOTION_RECOGNITION"
           ],
           [
-            "视线识别",
+            "التعرف على العين",
             "ALGORITHM_GAZE_RECOGNITION"
           ],
           [
-            "人脸朝向",
+            "الوجه يواجه الأمام",
             "ALGORITHM_FACE_ORIENTATION"
           ],
           [
-            "标签识别",
+            "الاعتراف بالشركة",
             "ALGORITHM_TAG_RECOGNITION"
           ],
           [
-            "条形码识别",
+            "التعرف على الباركود",
             "ALGORITHM_BARCODE_RECOGNITION"
           ],
           [
-            "二维码识别",
+            "مسح QR",
             "ALGORITHM_QRCODE_RECOGNITION"
           ],
           [
-            "跌倒识别",
+            "اكتشاف السقوط",
             "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
           ]
         ]
       }
     ]
   },
   "huskylensv2_set_algorithm_until": {
-    "message0": "HuskyLensV2 %1 切换到 %2 算法 直到成功",
-    "tooltip": "切换HuskyLensV2的识别算法，会一直尝试直到成功",
+    "message0": "%1 تحول HuskyLensV2 إلى خوارزمية %2 حتى نجحت",
+    "tooltip": "تبديل الخوارزميات وتكرار اللعبة حتى تنجح",
     "args0": [
       null,
       {
         "options": [
           [
-            "人脸识别",
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
             "ALGORITHM_FACE_RECOGNITION"
           ],
           [
-            "物体追踪",
-            "ALGORITHM_OBJECT_TRACKING"
-          ],
-          [
-            "物体识别",
+            "التعرف على الكائنات",
             "ALGORITHM_OBJECT_RECOGNITION"
           ],
           [
-            "颜色识别",
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
             "ALGORITHM_COLOR_RECOGNITION"
           ],
           [
-            "物体分类",
+            "تصنيف الكائنات",
             "ALGORITHM_OBJECT_CLASSIFICATION"
           ],
           [
-            "自学习分类",
+            "تصنيف التعلم الذاتي",
             "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
           ],
           [
-            "分割",
+            "انقسام",
             "ALGORITHM_SEGMENT"
           ],
           [
-            "手势识别",
+            "التعرف على الإيماءات",
             "ALGORITHM_HAND_RECOGNITION"
           ],
           [
-            "姿态识别",
+            "التعرف على الوضعية",
             "ALGORITHM_POSE_RECOGNITION"
           ],
           [
-            "车牌识别",
+            "لوحة المركبة",
             "ALGORITHM_LICENSE_RECOGNITION"
           ],
           [
-            "OCR文字识别",
+            "التعرف على النصوص عبر OCR",
             "ALGORITHM_OCR_RECOGNITION"
           ],
           [
-            "巡线追踪",
+            "التتبع والانتقال",
             "ALGORITHM_LINE_TRACKING"
           ],
           [
-            "表情识别",
+            "التعرف على تعبيرات الوجه",
             "ALGORITHM_EMOTION_RECOGNITION"
           ],
           [
-            "视线识别",
+            "التعرف على العين",
             "ALGORITHM_GAZE_RECOGNITION"
           ],
           [
-            "人脸朝向",
+            "الوجه يواجه الأمام",
             "ALGORITHM_FACE_ORIENTATION"
           ],
           [
-            "标签识别",
+            "الاعتراف بالشركة",
             "ALGORITHM_TAG_RECOGNITION"
           ],
           [
-            "条形码识别",
+            "التعرف على الباركود",
             "ALGORITHM_BARCODE_RECOGNITION"
           ],
           [
-            "二维码识别",
+            "مسح QR",
             "ALGORITHM_QRCODE_RECOGNITION"
           ],
           [
-            "跌倒识别",
+            "اكتشاف السقوط",
             "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
           ]
         ]
       }
     ]
   },
   "huskylensv2_get_result": {
-    "message0": "HuskyLensV2 %1 获取结果",
-    "tooltip": "从HuskyLensV2获取识别结果"
-  },
-  "huskylensv2_available": {
-    "message0": "HuskyLensV2 %1 检测到数据数量",
-    "tooltip": "获取HuskyLensV2检测到的数据数量"
-  },
-  "huskylensv2_count_learned": {
-    "message0": "HuskyLensV2 %1 已学习的ID数量",
-    "tooltip": "获取HuskyLensV2已学习的ID数量"
-  },
-  "huskylensv2_count_id": {
-    "message0": "HuskyLensV2 %1 ID %2 的数量",
-    "tooltip": "获取指定ID的检测数量"
-  },
-  "huskylensv2_get_center": {
-    "message0": "HuskyLensV2 %1 获取中心结果",
-    "tooltip": "获取中心位置的结果"
-  },
-  "huskylensv2_get_by_index": {
-    "message0": "HuskyLensV2 %1 获取索引 %2 的结果",
-    "tooltip": "根据索引获取结果"
-  },
-  "huskylensv2_get_by_id": {
-    "message0": "HuskyLensV2 %1 获取ID %2 的结果",
-    "tooltip": "根据ID获取结果"
-  },
-  "huskylensv2_get_by_id_index": {
-    "message0": "HuskyLensV2 %1 获取ID %2 的第 %3 个结果",
-    "tooltip": "根据ID和索引获取结果"
-  },
-  "huskylensv2_learn": {
-    "message0": "HuskyLensV2 %1 学习",
-    "tooltip": "学习当前识别的物体"
-  },
-  "huskylensv2_learn_block": {
-    "message0": "HuskyLensV2 %1 学习区域 X %2 Y %3 宽 %4 高 %5",
-    "tooltip": "学习指定区域"
-  },
-  "huskylensv2_forget": {
-    "message0": "HuskyLensV2 %1 遗忘",
-    "tooltip": "遗忘所有学习的内容"
-  },
-  "huskylensv2_take_photo": {
-    "message0": "HuskyLensV2 %1 拍照 分辨率 %2",
-    "tooltip": "拍摄照片并返回文件名",
+    "message0": "%1 هاسكي لينس V2 للحصول على نتائج %2 الخوارزمية",
+    "tooltip": "طلب تحديد نتائج التعرف على الخوارزمية وتخزينها مؤقتا",
     "args0": [
       null,
       {
         "options": [
           [
-            "默认",
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_get_result_until": {
+    "message0": "%1 HuskyLensV2 الحصول على نتائج %2 الخوارزمية حتى ينجح",
+    "tooltip": "كرر الطلب حتى تحصل على النتيجة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_available": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 والنتائج",
+    "tooltip": "هل لا تزال هناك نتائج ذاكرة مخبأة (bool)؟",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_result_count": {
+    "message0": "خوارزمية هاسكي لينس V2 %1 %2 عدد النتائج",
+    "tooltip": "عدد النتائج المخزنة مؤقتا getCachedResultNum",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_count_learned": {
+    "message0": "عدد %2 التي تعلمتها خوارزمية هاسكي لينس V2 %1",
+    "tooltip": "عدد النتائج المكتسبة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_count_id": {
+    "message0": "عدد %2 ID %3 في خوارزمية HuskyLensV2 %1",
+    "tooltip": "حدد عدد المعرفات التي يجب اكتشافها",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_max_id": {
+    "message0": "خوارزمية هاسكيلينس V2 %1 %2 الحد الأقصى للتعريف",
+    "tooltip": "الحد الأقصى للتعريف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_pop_result": {
+    "message0": "يظهر %1 HuskyLensV2 %2 نتائج الخوارزمية",
+    "tooltip": "popCachedResult، الطريقة الرسمية الموصى بها للاستهلاك",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_get_center": {
+    "message0": "%1 هاسكي لينس V2 للحصول على نتائج %2 المركز",
+    "tooltip": "getCachedCenterResult",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_get_by_index": {
+    "message0": "نتائج %3 %2 خوارزمية HuskyLensV2 %1 خوارزمية",
+    "tooltip": "getCachedResultByIndex",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_get_by_id": {
+    "message0": "نتائج خوارزمية HuskyLensV2 %1 %2 ID %3",
+    "tooltip": "getCachedResultByID",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_get_by_id_index": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 ID %3 %4th نتيجة",
+    "tooltip": "getCachedIndexResultByID",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "huskylensv2_current_branch": {
+    "message0": "خوارزمية هاسكيلينز V2 %1 %2 المسار الحالي",
+    "tooltip": "getCurrentBranch (دورية الطريق)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_upcoming_branch_count": {
+    "message0": "خوارزمية هاسكيلينس V2 %1 %2 عدد التقاطعات أمامك",
+    "tooltip": "getUpcomingBranchCount",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_get_branch": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 فرع %3",
+    "tooltip": "getBranch",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_learn": {
+    "message0": "خوارزمية التعلم %1 HuskyLensV2 %2",
+    "tooltip": "تعلم (خوارزمية)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_learn_value": {
+    "message0": "خوارزمية التعلم %1 هاسكيلينزV2 %2 إرجاع معرف",
+    "tooltip": "learn(algo) يعيد معرف العنصر المتعلم.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_learn_block": {
+    "message0": "خوارزمية هاسكي لينس V2 %1 %2 مساحة التعلم X %3 y %4 العرض %5 الارتفاع %6",
+    "tooltip": "تعلم الكتلة (algo,x,y,w,h)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "huskylensv2_learn_block_value": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 مساحة التعلم X %3 y %4 عرض %5 ارتفاع %6 معرف العودة",
+    "tooltip": "يرجع learnBlock المعرف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "huskylensv2_forget": {
+    "message0": "خوارزمية HuskyLensV2 %1 Forget %2",
+    "tooltip": "نسيان (خوارزمية)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_take_photo": {
+    "message0": "هاسكيلينز V2 %1 التصوير Resolution%2",
+    "tooltip": "takePhoto يعيد اسم الملف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تقصير",
             "RESOLUTION_DEFAULT"
           ],
           [
@@ -289,78 +2602,78 @@
     ]
   },
   "huskylensv2_take_screenshot": {
-    "message0": "HuskyLensV2 %1 截图",
-    "tooltip": "截取屏幕并返回文件名"
+    "message0": "لقطة شاشة للعبة HuskyLensV2 %1",
+    "tooltip": "يقوم takeScreenshot بإعادة اسم الملف"
   },
   "huskylensv2_draw_rect": {
-    "message0": "HuskyLensV2 %1 绘制矩形 颜色 %2 线宽 %3 X %4 Y %5 宽 %6 高 %7",
-    "tooltip": "在屏幕上绘制矩形",
+    "message0": "HuskyLensV2 %1 رسم مستطيلات اللون %2 عرض الخط %3 × %4 y %5 عرض %6 ارتفاع %7",
+    "tooltip": "drawRect",
     "args0": [
       null,
       {
         "options": [
           [
-            "白色",
+            "أبيض",
             "COLOR_WHITE"
           ],
           [
-            "红色",
+            "أحمر",
             "COLOR_RED"
           ],
           [
-            "橙色",
+            "برتقالي",
             "COLOR_ORANGE"
           ],
           [
-            "黄色",
+            "أصفر",
             "COLOR_YELLOW"
           ],
           [
-            "绿色",
+            "أخضر",
             "COLOR_GREEN"
           ],
           [
-            "青色",
+            "cyan",
             "COLOR_CYAN"
           ],
           [
-            "蓝色",
+            "أزرق",
             "COLOR_BLUE"
           ],
           [
-            "紫色",
+            "بنفسجي",
             "COLOR_PURPLE"
           ],
           [
-            "粉色",
+            "وردي",
             "COLOR_PINK"
           ],
           [
-            "灰色",
+            "الرمادي",
             "COLOR_GRAY"
           ],
           [
-            "黑色",
+            "أسود",
             "COLOR_BLACK"
           ],
           [
-            "棕色",
+            "براون",
             "COLOR_BROWN"
           ],
           [
-            "橄榄绿",
+            "أخضر زيتوني",
             "COLOR_OLIVE"
           ],
           [
-            "蓝绿色",
+            "فيروزي",
             "COLOR_TEAL"
           ],
           [
-            "靛蓝色",
+            "النيلي",
             "COLOR_INDIGO"
           ],
           [
-            "洋红色",
+            "ماجنتا",
             "COLOR_MAGENTA"
           ]
         ]
@@ -373,74 +2686,74 @@
     ]
   },
   "huskylensv2_draw_unique_rect": {
-    "message0": "HuskyLensV2 %1 绘制唯一矩形 颜色 %2 线宽 %3 X %4 Y %5 宽 %6 高 %7",
-    "tooltip": "绘制唯一矩形（清除之前的矩形）",
+    "message0": "HuskyLensV2 %1 رسم مستطيل فريد بلون %2 عرض خط %3 × %4 Y %5 عرض %6 ارتفاع %7",
+    "tooltip": "drawUniqueRect",
     "args0": [
       null,
       {
         "options": [
           [
-            "白色",
+            "أبيض",
             "COLOR_WHITE"
           ],
           [
-            "红色",
+            "أحمر",
             "COLOR_RED"
           ],
           [
-            "橙色",
+            "برتقالي",
             "COLOR_ORANGE"
           ],
           [
-            "黄色",
+            "أصفر",
             "COLOR_YELLOW"
           ],
           [
-            "绿色",
+            "أخضر",
             "COLOR_GREEN"
           ],
           [
-            "青色",
+            "cyan",
             "COLOR_CYAN"
           ],
           [
-            "蓝色",
+            "أزرق",
             "COLOR_BLUE"
           ],
           [
-            "紫色",
+            "بنفسجي",
             "COLOR_PURPLE"
           ],
           [
-            "粉色",
+            "وردي",
             "COLOR_PINK"
           ],
           [
-            "灰色",
+            "الرمادي",
             "COLOR_GRAY"
           ],
           [
-            "黑色",
+            "أسود",
             "COLOR_BLACK"
           ],
           [
-            "棕色",
+            "براون",
             "COLOR_BROWN"
           ],
           [
-            "橄榄绿",
+            "أخضر زيتوني",
             "COLOR_OLIVE"
           ],
           [
-            "蓝绿色",
+            "فيروزي",
             "COLOR_TEAL"
           ],
           [
-            "靛蓝色",
+            "النيلي",
             "COLOR_INDIGO"
           ],
           [
-            "洋红色",
+            "ماجنتا",
             "COLOR_MAGENTA"
           ]
         ]
@@ -453,78 +2766,78 @@
     ]
   },
   "huskylensv2_clear_rect": {
-    "message0": "HuskyLensV2 %1 清除矩形",
-    "tooltip": "清除所有矩形"
+    "message0": "HuskyLensV2 %1 يزيل المستطيلات",
+    "tooltip": "clearRect"
   },
   "huskylensv2_draw_text": {
-    "message0": "HuskyLensV2 %1 绘制文本 颜色 %2 字号 %3 X %4 Y %5 内容 %6",
-    "tooltip": "在屏幕上绘制文本",
+    "message0": "HuskyLensV2 %1 رسم النص لون %2 حجم الخط %3 × %4 y %5 المحتوى %6",
+    "tooltip": "drawText",
     "args0": [
       null,
       {
         "options": [
           [
-            "白色",
+            "أبيض",
             "COLOR_WHITE"
           ],
           [
-            "红色",
+            "أحمر",
             "COLOR_RED"
           ],
           [
-            "橙色",
+            "برتقالي",
             "COLOR_ORANGE"
           ],
           [
-            "黄色",
+            "أصفر",
             "COLOR_YELLOW"
           ],
           [
-            "绿色",
+            "أخضر",
             "COLOR_GREEN"
           ],
           [
-            "青色",
+            "cyan",
             "COLOR_CYAN"
           ],
           [
-            "蓝色",
+            "أزرق",
             "COLOR_BLUE"
           ],
           [
-            "紫色",
+            "بنفسجي",
             "COLOR_PURPLE"
           ],
           [
-            "粉色",
+            "وردي",
             "COLOR_PINK"
           ],
           [
-            "灰色",
+            "الرمادي",
             "COLOR_GRAY"
           ],
           [
-            "黑色",
+            "أسود",
             "COLOR_BLACK"
           ],
           [
-            "棕色",
+            "براون",
             "COLOR_BROWN"
           ],
           [
-            "橄榄绿",
+            "أخضر زيتوني",
             "COLOR_OLIVE"
           ],
           [
-            "蓝绿色",
+            "فيروزي",
             "COLOR_TEAL"
           ],
           [
-            "靛蓝色",
+            "النيلي",
             "COLOR_INDIGO"
           ],
           [
-            "洋红色",
+            "ماجنتا",
             "COLOR_MAGENTA"
           ]
         ]
@@ -536,329 +2849,1905 @@
     ]
   },
   "huskylensv2_clear_text": {
-    "message0": "HuskyLensV2 %1 清除文本",
-    "tooltip": "清除所有文本"
+    "message0": "نص واضح %1 HuskyLensV2",
+    "tooltip": "clearText"
   },
   "huskylensv2_save_knowledge": {
-    "message0": "HuskyLensV2 %1 保存知识库到ID %2",
-    "tooltip": "保存知识库到指定ID"
-  },
-  "huskylensv2_load_knowledge": {
-    "message0": "HuskyLensV2 %1 从ID %2 加载知识库",
-    "tooltip": "从指定ID加载知识库"
-  },
-  "huskylensv2_play_music": {
-    "message0": "HuskyLensV2 %1 播放音乐 %2 音量 %3",
-    "tooltip": "播放音乐文件"
-  },
-  "huskylensv2_set_name": {
-    "message0": "HuskyLensV2 %1 设置ID %2 的名称为 %3",
-    "tooltip": "设置指定ID的名称"
-  },
-  "huskylensv2_result_id": {
-    "message0": "结果 %1 ID",
-    "tooltip": "获取结果的ID"
-  },
-  "huskylensv2_result_x": {
-    "message0": "结果 %1 X坐标",
-    "tooltip": "获取结果的X坐标"
-  },
-  "huskylensv2_result_y": {
-    "message0": "结果 %1 Y坐标",
-    "tooltip": "获取结果的Y坐标"
-  },
-  "huskylensv2_result_width": {
-    "message0": "结果 %1 宽度",
-    "tooltip": "获取结果的宽度"
-  },
-  "huskylensv2_result_height": {
-    "message0": "结果 %1 高度",
-    "tooltip": "获取结果的高度"
-  },
-  "huskylensv2_result_name": {
-    "message0": "结果 %1 名称",
-    "tooltip": "获取结果的名称"
-  },
-  "huskylensv2_result_content": {
-    "message0": "结果 %1 内容",
-    "tooltip": "获取结果的内容"
-  },
-  "huskylensv2_result_confidence": {
-    "message0": "结果 %1 置信度",
-    "tooltip": "获取结果的置信度"
-  },
-  "huskylensv2_result_type": {
-    "message0": "结果 %1 类型",
-    "tooltip": "获取结果的类型（0=方框，1=箭头）"
-  },
-  "huskylensv2_is_valid": {
-    "message0": "结果 %1 有效",
-    "tooltip": "检查结果是否有效"
-  },
-  "huskylensv2_set_multi_algorithm": {
-    "message0": "HuskyLensV2 %1 设置多算法 算法1 %2 算法2 %3 算法3 %4",
-    "tooltip": "同时运行多个算法",
+    "message0": "خوارزمية HuskyLensV2 %1 %2 حفظ قاعدة المعرفة إلى ID %3",
+    "tooltip": "saveKnowledges",
     "args0": [
       null,
       {
         "options": [
           [
-            "人脸识别",
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
             "ALGORITHM_FACE_RECOGNITION"
           ],
           [
-            "物体追踪",
-            "ALGORITHM_OBJECT_TRACKING"
-          ],
-          [
-            "物体识别",
+            "التعرف على الكائنات",
             "ALGORITHM_OBJECT_RECOGNITION"
           ],
           [
-            "颜色识别",
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
             "ALGORITHM_COLOR_RECOGNITION"
           ],
           [
-            "物体分类",
+            "تصنيف الكائنات",
             "ALGORITHM_OBJECT_CLASSIFICATION"
           ],
           [
-            "自学习分类",
+            "تصنيف التعلم الذاتي",
             "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
           ],
           [
-            "分割",
+            "انقسام",
             "ALGORITHM_SEGMENT"
           ],
           [
-            "手势识别",
+            "التعرف على الإيماءات",
             "ALGORITHM_HAND_RECOGNITION"
           ],
           [
-            "姿态识别",
+            "التعرف على الوضعية",
             "ALGORITHM_POSE_RECOGNITION"
           ],
           [
-            "车牌识别",
+            "لوحة المركبة",
             "ALGORITHM_LICENSE_RECOGNITION"
           ],
           [
-            "OCR文字识别",
+            "التعرف على النصوص عبر OCR",
             "ALGORITHM_OCR_RECOGNITION"
           ],
           [
-            "巡线追踪",
+            "التتبع والانتقال",
             "ALGORITHM_LINE_TRACKING"
           ],
           [
-            "表情识别",
+            "التعرف على تعبيرات الوجه",
             "ALGORITHM_EMOTION_RECOGNITION"
           ],
           [
-            "视线识别",
+            "التعرف على العين",
             "ALGORITHM_GAZE_RECOGNITION"
           ],
           [
-            "人脸朝向",
+            "الوجه يواجه الأمام",
             "ALGORITHM_FACE_ORIENTATION"
           ],
           [
-            "标签识别",
+            "الاعتراف بالشركة",
             "ALGORITHM_TAG_RECOGNITION"
           ],
           [
-            "条形码识别",
+            "التعرف على الباركود",
             "ALGORITHM_BARCODE_RECOGNITION"
           ],
           [
-            "二维码识别",
+            "مسح QR",
             "ALGORITHM_QRCODE_RECOGNITION"
           ],
           [
-            "跌倒识别",
+            "اكتشاف السقوط",
             "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_load_knowledge": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 تقوم بتحميل قاعدة المعرفة من ID %3",
+    "tooltip": "loadKnowledges",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_play_music": {
+    "message0": "هاسكي لينس V2 %1 تشغيل الموسيقى %2 volume%3",
+    "tooltip": "playMusic"
+  },
+  "huskylensv2_set_name": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 تعيين الاسم %3 المعرف إلى %4",
+    "tooltip": "setNameByID",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "huskylensv2_get_algo_param_bool": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 معلمة بوليان %3",
+    "tooltip": "getAlgoParamBool",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_get_algo_param_float": {
+    "message0": "خوارزمية هاسكيلينس V2 %1 %2 معلمات الفاصلة العائمة %3",
+    "tooltip": "getAlgoParamFloat",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_get_algo_param_string": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 سلسلة معاملات %3",
+    "tooltip": "getAlgoParamString",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "huskylensv2_set_algo_param_bool": {
+    "message0": "خوارزمية هاسكي لينس V2 %1 %2 تعيين المعلمات البوليانية %3 إلى %4",
+    "tooltip": "setAlgoParamBool",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "huskylensv2_set_algo_param_float": {
+    "message0": "خوارزمية هاسكيلينس V2 %1 %2 تعيين معلمات الفاصلة العائمة %3 إلى %4",
+    "tooltip": "setAlgoParamFloat",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "huskylensv2_set_algo_param_string": {
+    "message0": "خوارزمية HuskyLensV2 %1 %2 تعيين معلمات السلاسل النصية %3 إلى %4",
+    "tooltip": "setAlgoParamString",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "huskylensv2_update_algo_params": {
+    "message0": "خوارزمية تطبيق %1 HuskyLensV2 %2 المعلمات",
+    "tooltip": "updateAlgoParams",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_result_id": {
+    "message0": "النتيجة: %1 ID",
+    "tooltip": "ID"
+  },
+  "huskylensv2_result_x": {
+    "message0": "النتيجة: %1 إحداثي X",
+    "tooltip": "xCenter"
+  },
+  "huskylensv2_result_y": {
+    "message0": "النتيجة %1 إحداثيات Y",
+    "tooltip": "yCenter"
+  },
+  "huskylensv2_result_width": {
+    "message0": "والنتيجة %1 العرض",
+    "tooltip": "width"
+  },
+  "huskylensv2_result_height": {
+    "message0": "والنتيجة %1 الارتفاع",
+    "tooltip": "height"
+  },
+  "huskylensv2_result_name": {
+    "message0": "النتيجة %1 الاسم",
+    "tooltip": "name"
+  },
+  "huskylensv2_result_content": {
+    "message0": "والنتيجة %1 المحتوى",
+    "tooltip": "content"
+  },
+  "huskylensv2_result_confidence": {
+    "message0": "النتائج %1 الثقة",
+    "tooltip": "confidence"
+  },
+  "huskylensv2_result_type": {
+    "message0": "والنتيجة هي النوع %1",
+    "tooltip": "صندوق من النوع 0، سهم واحد"
+  },
+  "huskylensv2_result_pitch": {
+    "message0": "والنتيجة %1 الرمية",
+    "tooltip": "pitch"
+  },
+  "huskylensv2_result_yaw": {
+    "message0": "النتيجة: %1 زاوية انحراف",
+    "tooltip": "yaw"
+  },
+  "huskylensv2_result_roll": {
+    "message0": "النتيجة: زاوية الدوران %1",
+    "tooltip": "roll"
+  },
+  "huskylensv2_result_azimuth": {
+    "message0": "والنتيجة %1 زاوية السمت",
+    "tooltip": "azimuth"
+  },
+  "huskylensv2_result_classid": {
+    "message0": "Result%1 معرف الفئة",
+    "tooltip": "classID"
+  },
+  "huskylensv2_result_xtarget": {
+    "message0": "Result%1 الهدف X",
+    "tooltip": "xTarget (خط/سهم)"
+  },
+  "huskylensv2_result_ytarget": {
+    "message0": "Result%1 الهدف Y",
+    "tooltip": "yTarget"
+  },
+  "huskylensv2_result_angle": {
+    "message0": "والنتيجة %1 الزاوية",
+    "tooltip": "angle"
+  },
+  "huskylensv2_result_length": {
+    "message0": "والنتيجة هي %1 الطول",
+    "tooltip": "length"
+  },
+  "huskylensv2_result_level": {
+    "message0": "النتائج %1 المستويات",
+    "tooltip": "level"
+  },
+  "huskylensv2_result_steering": {
+    "message0": "والنتيجة %1 قلب الموازة",
+    "tooltip": "التوجيه (DonkeyCar)"
+  },
+  "huskylensv2_result_throttle": {
+    "message0": "والنتيجة %1 دواسة الوقود",
+    "tooltip": "دواسة الوقود (DonkeyCar)"
+  },
+  "huskylensv2_is_valid": {
+    "message0": "والنتيجة %1 فعالة",
+    "tooltip": "result != NULL"
+  },
+  "huskylensv2_face_leye": {
+    "message0": "نتيجة الوجه %1 العين اليسرى %2",
+    "tooltip": "FaceResult Eye اليسرى (يتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_face_reye": {
+    "message0": "نتائج الوجه %1 %2 العين اليمنى",
+    "tooltip": "FaceResult Right Eye (يتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_face_nose": {
+    "message0": "نتائج الوجه %1 %2 الأنف",
+    "tooltip": "FaceResult Nose (يتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_face_lmouth": {
+    "message0": "نتيجة الوجه %1 الزاوية اليسرى من الفم %2",
+    "tooltip": "FaceResult في الزاوية اليسرى من الفم (يتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_face_rmouth": {
+    "message0": "نتيجة الوجه %1 الزاوية اليمنى من الفم %2",
+    "tooltip": "FaceResult في الزاوية اليمنى من الفم (يتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_hand_point": {
+    "message0": "نتيجة الإيماءة %1 نقاط %2 %3",
+    "tooltip": "نقاط المفاتيح في HandResult (تتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "المعصم",
+            "wrist"
+          ],
+          [
+            "قاعدة الإبهام",
+            "thumb_cmc"
+          ],
+          [
+            "بين الإبهامين",
+            "thumb_mcp"
+          ],
+          [
+            "المفصل الثاني للإبهام",
+            "thumb_ip"
+          ],
+          [
+            "رأس الإبهام",
+            "thumb_tip"
+          ],
+          [
+            "قاعدة إصبع السبابة",
+            "index_finger_mcp"
+          ],
+          [
+            "المفصل الأول للسبابة",
+            "index_finger_pip"
+          ],
+          [
+            "المفصل الثاني للسبابة",
+            "index_finger_dip"
+          ],
+          [
+            "طرف السبابة",
+            "index_finger_tip"
+          ],
+          [
+            "قاعدة الإصبع الأوسط",
+            "middle_finger_mcp"
+          ],
+          [
+            "المفصل الأول للإصبع الأوسط",
+            "middle_finger_pip"
+          ],
+          [
+            "المفصل الثاني للإصبع الأوسط",
+            "middle_finger_dip"
+          ],
+          [
+            "طرف الإصبع الأوسط",
+            "middle_finger_tip"
+          ],
+          [
+            "قاعدة إصبع البنصر",
+            "ring_finger_mcp"
+          ],
+          [
+            "المفصل الأول لإصبع البنصر",
+            "ring_finger_pip"
+          ],
+          [
+            "المفصل الثاني لإصبع البنصر",
+            "ring_finger_dip"
+          ],
+          [
+            "أطراف الأصابع المنخفضة",
+            "ring_finger_tip"
+          ],
+          [
+            "قاعدة الإصبع الصغير",
+            "pinky_finger_mcp"
+          ],
+          [
+            "أول مفصل في الإصبع الصغير",
+            "pinky_finger_pip"
+          ],
+          [
+            "المفصل الثاني للإصبع الصغير",
+            "pinky_finger_dip"
+          ],
+          [
+            "طرف إصبع صغير",
+            "pinky_finger_tip"
           ]
         ]
       },
       {
         "options": [
           [
-            "人脸识别",
-            "ALGORITHM_FACE_RECOGNITION"
+            "X",
+            "x"
           ],
           [
-            "物体追踪",
-            "ALGORITHM_OBJECT_TRACKING"
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_pose_point": {
+    "message0": "نتائج الوضعية %1 نقاط %2 %3",
+    "tooltip": "نقاط المفاتيح في PoseResult (تتطلب لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الأنف",
+            "nose"
           ],
           [
-            "物体识别",
-            "ALGORITHM_OBJECT_RECOGNITION"
+            "العين اليسرى",
+            "leye"
           ],
           [
-            "颜色识别",
-            "ALGORITHM_COLOR_RECOGNITION"
+            "العين اليمنى",
+            "reye"
           ],
           [
-            "物体分类",
-            "ALGORITHM_OBJECT_CLASSIFICATION"
+            "الأذن اليسرى",
+            "lear"
           ],
           [
-            "自学习分类",
-            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+            "الأذن اليمنى",
+            "rear"
           ],
           [
-            "分割",
-            "ALGORITHM_SEGMENT"
+            "الكتف الأيسر",
+            "lshoulder"
           ],
           [
-            "手势识别",
-            "ALGORITHM_HAND_RECOGNITION"
+            "الكتف الأيمن",
+            "rshoulder"
           ],
           [
-            "姿态识别",
-            "ALGORITHM_POSE_RECOGNITION"
+            "الكوع الأيسر",
+            "lelbow"
           ],
           [
-            "车牌识别",
-            "ALGORITHM_LICENSE_RECOGNITION"
+            "الكوع الأيمن",
+            "relbow"
           ],
           [
-            "OCR文字识别",
-            "ALGORITHM_OCR_RECOGNITION"
+            "الذراع اليسرى",
+            "lwrist"
           ],
           [
-            "巡线追踪",
-            "ALGORITHM_LINE_TRACKING"
+            "الذراع اليمنى",
+            "rwrist"
           ],
           [
-            "表情识别",
-            "ALGORITHM_EMOTION_RECOGNITION"
+            "الورك الأيسر",
+            "lhip"
           ],
           [
-            "视线识别",
-            "ALGORITHM_GAZE_RECOGNITION"
+            "الورك الأيمن",
+            "rhip"
           ],
           [
-            "人脸朝向",
-            "ALGORITHM_FACE_ORIENTATION"
+            "الركبة اليسرى",
+            "lknee"
           ],
           [
-            "标签识别",
-            "ALGORITHM_TAG_RECOGNITION"
+            "الركبة اليمنى",
+            "rknee"
           ],
           [
-            "条形码识别",
-            "ALGORITHM_BARCODE_RECOGNITION"
+            "الكاحل الأيسر",
+            "lankle"
           ],
           [
-            "二维码识别",
-            "ALGORITHM_QRCODE_RECOGNITION"
-          ],
-          [
-            "跌倒识别",
-            "ALGORITHM_FALLDOWN_RECOGNITION"
+            "الكاحل الأيمن",
+            "rankle"
           ]
         ]
       },
       {
         "options": [
           [
-            "人脸识别",
+            "X",
+            "x"
+          ],
+          [
+            "Y",
+            "y"
+          ]
+        ]
+      }
+    ]
+  },
+  "huskylensv2_set_multi_algorithm": {
+    "message0": "هاسكيلينس V2 %1 مجموعة خوارزميات متعددة خوارزمية 1 %2 خوارزمية 2 %3 خوارزمية 3 %4",
+    "tooltip": "setMultiAlgorithm (لوحة ذاكرة كبيرة)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
             "ALGORITHM_FACE_RECOGNITION"
           ],
           [
-            "物体追踪",
-            "ALGORITHM_OBJECT_TRACKING"
-          ],
-          [
-            "物体识别",
+            "التعرف على الكائنات",
             "ALGORITHM_OBJECT_RECOGNITION"
           ],
           [
-            "颜色识别",
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
             "ALGORITHM_COLOR_RECOGNITION"
           ],
           [
-            "物体分类",
+            "تصنيف الكائنات",
             "ALGORITHM_OBJECT_CLASSIFICATION"
           ],
           [
-            "自学习分类",
+            "تصنيف التعلم الذاتي",
             "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
           ],
           [
-            "分割",
+            "انقسام",
             "ALGORITHM_SEGMENT"
           ],
           [
-            "手势识别",
+            "التعرف على الإيماءات",
             "ALGORITHM_HAND_RECOGNITION"
           ],
           [
-            "姿态识别",
+            "التعرف على الوضعية",
             "ALGORITHM_POSE_RECOGNITION"
           ],
           [
-            "车牌识别",
+            "لوحة المركبة",
             "ALGORITHM_LICENSE_RECOGNITION"
           ],
           [
-            "OCR文字识别",
+            "التعرف على النصوص عبر OCR",
             "ALGORITHM_OCR_RECOGNITION"
           ],
           [
-            "巡线追踪",
+            "التتبع والانتقال",
             "ALGORITHM_LINE_TRACKING"
           ],
           [
-            "表情识别",
+            "التعرف على تعبيرات الوجه",
             "ALGORITHM_EMOTION_RECOGNITION"
           ],
           [
-            "视线识别",
+            "التعرف على العين",
             "ALGORITHM_GAZE_RECOGNITION"
           ],
           [
-            "人脸朝向",
+            "الوجه يواجه الأمام",
             "ALGORITHM_FACE_ORIENTATION"
           ],
           [
-            "标签识别",
+            "الاعتراف بالشركة",
             "ALGORITHM_TAG_RECOGNITION"
           ],
           [
-            "条形码识别",
+            "التعرف على الباركود",
             "ALGORITHM_BARCODE_RECOGNITION"
           ],
           [
-            "二维码识别",
+            "مسح QR",
             "ALGORITHM_QRCODE_RECOGNITION"
           ],
           [
-            "跌倒识别",
+            "اكتشاف السقوط",
             "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "خوارزمية عشوائية",
+            "ALGORITHM_ANY"
+          ],
+          [
+            "الوجه",
+            "ALGORITHM_FACE_RECOGNITION"
+          ],
+          [
+            "التعرف على الكائنات",
+            "ALGORITHM_OBJECT_RECOGNITION"
+          ],
+          [
+            "تتبع الأجسام",
+            "ALGORITHM_OBJECT_TRACKING"
+          ],
+          [
+            "اللون",
+            "ALGORITHM_COLOR_RECOGNITION"
+          ],
+          [
+            "تصنيف الكائنات",
+            "ALGORITHM_OBJECT_CLASSIFICATION"
+          ],
+          [
+            "تصنيف التعلم الذاتي",
+            "ALGORITHM_SELF_LEARNING_CLASSIFICATION"
+          ],
+          [
+            "انقسام",
+            "ALGORITHM_SEGMENT"
+          ],
+          [
+            "التعرف على الإيماءات",
+            "ALGORITHM_HAND_RECOGNITION"
+          ],
+          [
+            "التعرف على الوضعية",
+            "ALGORITHM_POSE_RECOGNITION"
+          ],
+          [
+            "لوحة المركبة",
+            "ALGORITHM_LICENSE_RECOGNITION"
+          ],
+          [
+            "التعرف على النصوص عبر OCR",
+            "ALGORITHM_OCR_RECOGNITION"
+          ],
+          [
+            "التتبع والانتقال",
+            "ALGORITHM_LINE_TRACKING"
+          ],
+          [
+            "التعرف على تعبيرات الوجه",
+            "ALGORITHM_EMOTION_RECOGNITION"
+          ],
+          [
+            "التعرف على العين",
+            "ALGORITHM_GAZE_RECOGNITION"
+          ],
+          [
+            "الوجه يواجه الأمام",
+            "ALGORITHM_FACE_ORIENTATION"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "ALGORITHM_TAG_RECOGNITION"
+          ],
+          [
+            "التعرف على الباركود",
+            "ALGORITHM_BARCODE_RECOGNITION"
+          ],
+          [
+            "مسح QR",
+            "ALGORITHM_QRCODE_RECOGNITION"
+          ],
+          [
+            "اكتشاف السقوط",
+            "ALGORITHM_FALLDOWN_RECOGNITION"
+          ],
+          [
+            "كاميرا العمق",
+            "ALGORITHM_DEPTH_CAMERA"
+          ],
+          [
+            "DonkeyCar",
+            "ALGORITHM_DONKEYCAR"
+          ],
+          [
+            "كاميرا",
+            "ALGORITHM_CAMERA"
+          ],
+          [
+            "المخصص 0",
+            "ALGORITHM_CUSTOM0"
+          ],
+          [
+            "المخصص 1",
+            "ALGORITHM_CUSTOM1"
+          ],
+          [
+            "كستم 2",
+            "ALGORITHM_CUSTOM2"
           ]
         ]
       }
     ]
   },
   "huskylensv2_set_multi_algorithm_ratio": {
-    "message0": "HuskyLensV2 %1 设置算法优先级 算法1 %2 算法2 %3 算法3 %4",
-    "tooltip": "设置多算法的优先级比例"
+    "message0": "هاسكي لينس V2 %1 تعيين أولوية الخوارزمية نسبة 1 %2 نسبة 2 %3 3 %4",
+    "tooltip": "setMultiAlgorithmRatio"
   },
   "huskylensv2_start_recording": {
-    "message0": "HuskyLensV2 %1 开始录制 %2 时长 %3 秒 文件名 %4 分辨率 %5",
-    "tooltip": "开始录制视频或音频",
+    "message0": "هاسكيلينزV2 %1 ابدأ التسجيل %2 مدة %3 ثانية اسم الملف %4 الدقة %5",
+    "tooltip": "startRecording",
     "args0": [
       null,
       {
         "options": [
           [
-            "视频",
+            "الفيديو",
             "MEDIA_TYPE_VIDEO"
           ],
           [
-            "音频",
+            "الصوت",
             "MEDIA_TYPE_AUDIO"
           ]
         ]
@@ -868,58 +4757,42 @@
       {
         "options": [
           [
-            "320x240",
-            "0"
+            "تقصير",
+            "RESOLUTION_DEFAULT"
           ],
           [
             "640x480",
-            "1"
+            "RESOLUTION_640x480"
           ],
           [
             "1280x720",
-            "2"
+            "RESOLUTION_1280x720"
+          ],
+          [
+            "1920x1080",
+            "RESOLUTION_1920x1080"
           ]
         ]
       }
     ]
   },
   "huskylensv2_stop_recording": {
-    "message0": "HuskyLensV2 %1 停止录制 %2",
-    "tooltip": "停止录制视频或音频",
+    "message0": "هاسكيلينزV2 %1 إيقاف التسجيل %2",
+    "tooltip": "stopRecording",
     "args0": [
       null,
       {
         "options": [
           [
-            "视频",
+            "الفيديو",
             "MEDIA_TYPE_VIDEO"
           ],
           [
-            "音频",
+            "الصوت",
             "MEDIA_TYPE_AUDIO"
           ]
         ]
       }
     ]
-  },
-  "huskylensv2_result_pitch": {
-    "message0": "结果 %1 俯仰角",
-    "tooltip": "获取结果的俯仰角(pitch)"
-  },
-  "huskylensv2_result_yaw": {
-    "message0": "结果 %1 偏航角",
-    "tooltip": "获取结果的偏航角(yaw)"
-  },
-  "huskylensv2_result_roll": {
-    "message0": "结果 %1 横滚角",
-    "tooltip": "获取结果的横滚角(roll)"
-  },
-  "huskylensv2_result_azimuth": {
-    "message0": "结果 %1 方位角",
-    "tooltip": "获取结果的方位角(azimuth)"
-  },
-  "huskylensv2_result_classid": {
-    "message0": "结果 %1 类别ID",
-    "tooltip": "获取结果的类别ID(classID)"
   }
 }

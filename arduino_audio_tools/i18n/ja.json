@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "初期化 Audio Tools I2S %1 モード %2 レート %3 チャネル %4 ビット %5 BCLK %6 WS %7 データ TX %8 データRX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "出力",
+            "TX_MODE"
+          ],
+          [
+            "入力",
+            "RX_MODE"
+          ],
+          [
+            "入力と出力",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "I2S オーディオ ストリームを構成します。"
+  },
+  "audio_tools_copy_init": {
+    "message0": "オーディオコピー機の作成 %1 出力 %2 入力 %3 ループ内の自動コピー %4",
+    "tooltip": "2 つの I2S ストリーム間に StreamCopy パイプラインを作成します。"
+  },
+  "audio_tools_copy": {
+    "message0": "オーディオコピー機 %1 次のバッファをコピーします",
+    "tooltip": "次に利用可能なオーディオ バッファをコピーします。"
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 16 ビット サンプルの書き込み %2",
+    "tooltip": "1 つの符号付き 16 ビット サンプルを書き込みます。"
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 16 ビット サンプルの読み取り",
+    "tooltip": "1 つの署名付き 16 ビット オーディオ サンプルを読み取ります。"
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 使用可能なバイト",
+    "tooltip": "読み取り可能な音声バイト数を返します。"
+  },
+  "audio_tools_end": {
+    "message0": "Audio Tools I2S %1 終了",
+    "tooltip": "I2S ストリームを停止します。"
+  }
+}

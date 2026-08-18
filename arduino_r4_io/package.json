@@ -26,6 +26,7 @@
   "description_ru": "Подходит для специальной библиотеки управления вводом/выводом Arduino UNO R4, такой как АЦП, ЦАП.",
   "description_ar": "مناسبة لمكتبة التحكم في الإدخال/الإخراج الخاصة Arduino UNO R4، مثل ADC وDAC",
   "version": "0.0.1",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:minima",

@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "initialiser l'expéditeur IR broche %1 %2",
+    "tooltip": "Créez et démarrez un émetteur infrarouge."
+  },
+  "ir_esp_send_code": {
+    "message0": "IR expéditeur %1 envoyer le code %2 %3 bits %4 répète %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Envoyez un code infrarouge numérique en utilisant un protocole commun."
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR expéditeur %1 envoyer tableau brut %2 longueur %3 fréquence kHz %4",
+    "tooltip": "Envoyez un tableau de synchronisation uint16_t."
+  },
+  "ir_esp_recv_init": {
+    "message0": "initialiser le récepteur IR broche %1 tampon %2 délai d'attente %3 ms %4",
+    "tooltip": "Créez et activez un récepteur infrarouge."
+  },
+  "ir_esp_when_received": {
+    "message0": "lorsque le récepteur IR %1 reçoit %2 faire %3",
+    "tooltip": "Décodez un message, exécutez le corps, puis reprenez la réception."
+  },
+  "ir_esp_received_data": {
+    "message0": "Récepteur IR %1 reçu %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "valeur numérique",
+            "value"
+          ],
+          [
+            "nombre de bits",
+            "bits"
+          ],
+          [
+            "énumération de protocole",
+            "decode_type"
+          ],
+          [
+            "répéter le drapeau",
+            "repeat"
+          ],
+          [
+            "drapeau de débordement",
+            "overflow"
+          ],
+          [
+            "texte lisible par l'homme",
+            "text"
+          ],
+          [
+            "texte du code source",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez le message le plus récemment décodé."
+  }
+}

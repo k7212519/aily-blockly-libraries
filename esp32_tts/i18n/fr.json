@@ -1,0 +1,75 @@
+{
+  "toolbox_name": "TTS hors ligne ESP32",
+  "toolbox_labels": {
+    "初始化": "Initialisation",
+    "语音合成": "Synthèse vocale",
+    "状态与控制": "État et contrôle"
+  },
+  "esp32_tts_init": {
+    "message0": "initialiser TTS hors ligne %1 modèle %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "tooltip": "Crée le TTS chinois hors ligne ESP32-S3 et la sortie I2S ; utiliser -1 si MCLK n'est pas connecté",
+    "args0": [
+      null,
+      { "options": [["Petit (défaut, environ 2,78 Mio)", "0"], ["Standard (environ 3,64 Mio)", "1"]] },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_tts_speak": {
+    "message0": "TTS hors ligne %1 prononcer le chinois %2",
+    "tooltip": "Synthétise le chinois UTF-8 de façon bloquante vers la sortie I2S configurée"
+  },
+  "esp32_tts_speak_pinyin": {
+    "message0": "TTS hors ligne %1 prononcer le pinyin %2",
+    "tooltip": "Prononce du pinyin séparé par des espaces avec des tons de 0 à 5, par exemple da4 jia1 hao3"
+  },
+  "esp32_tts_speak_money": {
+    "message0": "TTS hors ligne %1 prononcer le montant yuan %2 jiao %3 fen %4 mode %5",
+    "tooltip": "Synthétise un montant positif ou nul ; jiao et fen doivent être compris entre 0 et 9",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      { "options": [["Montant seul", "ESP32TTSPayMode::NumberOnly"], ["Paiement Alipay reçu", "ESP32TTSPayMode::Alipay"], ["Paiement WeChat reçu", "ESP32TTSPayMode::WeChat"]] }
+    ]
+  },
+  "esp32_tts_set_speed": {
+    "message0": "TTS hors ligne %1 régler la vitesse %2",
+    "tooltip": "Règle la vitesse de 0 (la plus lente) à 5 (la plus rapide)",
+    "args0": [
+      null,
+      { "options": [["0 (la plus lente)", "0"], ["1", "1"], ["2", "2"], ["3 (défaut)", "3"], ["4", "4"], ["5 (la plus rapide)", "5"]] }
+    ]
+  },
+  "esp32_tts_get_speed": {
+    "message0": "TTS hors ligne %1 vitesse actuelle",
+    "tooltip": "Renvoie la vitesse actuelle de 0 à 5"
+  },
+  "esp32_tts_is_ready": {
+    "message0": "TTS hors ligne %1 est prêt",
+    "tooltip": "Vérifie si le moteur TTS a été initialisé correctement"
+  },
+  "esp32_tts_is_speaking": {
+    "message0": "TTS hors ligne %1 parle",
+    "tooltip": "Vérifie si le TTS synthétise et produit la parole"
+  },
+  "esp32_tts_last_error": {
+    "message0": "TTS hors ligne %1 dernier code d'erreur",
+    "tooltip": "Renvoie le dernier code d'erreur numérique ; 0 signifie aucune erreur"
+  },
+  "esp32_tts_last_error_message": {
+    "message0": "TTS hors ligne %1 dernier message d'erreur",
+    "tooltip": "Renvoie la description anglaise de la dernière erreur"
+  },
+  "esp32_tts_stop": {
+    "message0": "TTS hors ligne %1 demander l'arrêt",
+    "tooltip": "Demande depuis une autre tâche FreeRTOS l'arrêt de la lecture bloquante en cours"
+  },
+  "esp32_tts_end": {
+    "message0": "TTS hors ligne %1 libérer les ressources",
+    "tooltip": "Libère les ressources TTS afin de permettre une nouvelle initialisation"
+  }
+}

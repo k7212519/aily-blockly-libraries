@@ -1,0 +1,235 @@
+{
+  "toolbox_name": "Dynamixel2Arduino",
+  "dynamixel_init": {
+    "message0": "初期化 Dynamixel %1 シリアル %2 方向ピン %3 ボー %4 プロトコル %5",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "2.0",
+            "2.0"
+          ],
+          [
+            "1.0",
+            "1.0"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "DYNAMIXEL シリアル バスを初期化します。"
+  },
+  "dynamixel_set_mode": {
+    "message0": "Dynamixel %1 ID %2 %3 モードの設定",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "位置",
+            "OP_POSITION"
+          ],
+          [
+            "伸ばした位置",
+            "OP_EXTENDED_POSITION"
+          ],
+          [
+            "速度",
+            "OP_VELOCITY"
+          ],
+          [
+            "PWM",
+            "OP_PWM"
+          ],
+          [
+            "電流",
+            "OP_CURRENT"
+          ],
+          [
+            "電流ベース位置モード",
+            "OP_CURRENT_BASED_POSITION"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "トルクを無効にし、動作モードを設定してから、トルクを有効にします。"
+  },
+  "dynamixel_goal": {
+    "message0": "Dynamixel %1 ID %2 目標設定 %3 値 %4 単位 %5",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "位置",
+            "setGoalPosition"
+          ],
+          [
+            "速度",
+            "setGoalVelocity"
+          ],
+          [
+            "電流",
+            "setGoalCurrent"
+          ],
+          [
+            "PWM",
+            "setGoalPWM"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "生の",
+            "UNIT_RAW"
+          ],
+          [
+            "度",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "パーセント",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "目標位置、速度、電流、またはPWMを設定します。"
+  },
+  "dynamixel_read": {
+    "message0": "Dynamixel %1 ID %2 読み取り %3 ユニット %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "位置",
+            "getPresentPosition"
+          ],
+          [
+            "速度",
+            "getPresentVelocity"
+          ],
+          [
+            "電流",
+            "getPresentCurrent"
+          ],
+          [
+            "PWM",
+            "getPresentPWM"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "生の",
+            "UNIT_RAW"
+          ],
+          [
+            "度",
+            "UNIT_DEGREE"
+          ],
+          [
+            "RPM",
+            "UNIT_RPM"
+          ],
+          [
+            "パーセント",
+            "UNIT_PERCENT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "アクチュエータのライブフィードバックをお読みください。"
+  },
+  "dynamixel_action": {
+    "message0": "Dynamixel %1 ID %2 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "トルクオン",
+            "torqueOn"
+          ],
+          [
+            "トルクオフ",
+            "torqueOff"
+          ],
+          [
+            "LED点灯",
+            "ledOn"
+          ],
+          [
+            "LEDオフ",
+            "ledOff"
+          ],
+          [
+            "再起動",
+            "reboot"
+          ],
+          [
+            "工場出荷時設定にリセットする",
+            "factoryReset"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "トルク、インジケータLED、またはデバイスの状態を制御します。"
+  },
+  "dynamixel_ping": {
+    "message0": "Dynamixel %1 ID %2 が応答します",
+    "tooltip": "アクチュエータ ID を ping します。"
+  },
+  "dynamixel_control_item": {
+    "message0": "Dynamixel %1 ID %2 書き込み制御項目 %3 値 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "モーションプロファイル速度",
+            "PROFILE_VELOCITY"
+          ],
+          [
+            "モーションプロファイルの加速",
+            "PROFILE_ACCELERATION"
+          ],
+          [
+            "位置Pゲイン",
+            "POSITION_P_GAIN"
+          ],
+          [
+            "速度制限",
+            "VELOCITY_LIMIT"
+          ],
+          [
+            "電流制限",
+            "CURRENT_LIMIT"
+          ],
+          [
+            "温度制限",
+            "TEMPERATURE_LIMIT"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "共通の DYNAMIXEL コントロール テーブル項目を書き込みます。"
+  }
+}

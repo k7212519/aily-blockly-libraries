@@ -1,0 +1,127 @@
+{
+  "toolbox_name": "ESP32 PPP 蜂窩網絡",
+  "esp32_ppp_set_apn": {
+    "message0": "PPP 設定 APN %1 SIM PIN %2",
+    "tooltip": "設定蜂窩網路 APN 與選購 SIM PIN。"
+  },
+  "esp32_ppp_set_pins": {
+    "message0": "PPP 串列接腳 TX %1 RX %2 RTS %3 CTS %4",
+    "tooltip": "設定數據機 UART 和流控接腳。"
+  },
+  "esp32_ppp_set_reset": {
+    "message0": "PPP 重設腳位 %1 低有效 %2",
+    "tooltip": "設定調變解調器硬體重設接腳。"
+  },
+  "esp32_ppp_begin": {
+    "message0": "啟動 PPP 型號 %1 UART %2 波特率 %3",
+    "tooltip": "啟動 PPP 數據機。",
+    "args0": [
+      {
+        "options": [
+          [
+            "通用",
+            "PPP_MODEM_GENERIC"
+          ],
+          [
+            "SIM7600",
+            "PPP_MODEM_SIM7600"
+          ],
+          [
+            "SIM7070",
+            "PPP_MODEM_SIM7070"
+          ],
+          [
+            "SIM7000",
+            "PPP_MODEM_SIM7000"
+          ],
+          [
+            "BG96",
+            "PPP_MODEM_BG96"
+          ],
+          [
+            "SIM800",
+            "PPP_MODEM_SIM800"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_ppp_end": {
+    "message0": "停止 PPP",
+    "tooltip": "停止 PPP 資料連線。"
+  },
+  "esp32_ppp_attached": {
+    "message0": "PPP 已附著蜂窩網絡",
+    "tooltip": "檢查數據機是否附著網路。"
+  },
+  "esp32_ppp_sync": {
+    "message0": "PPP AT 通訊正常",
+    "tooltip": "檢查調變解調器是否有回應 AT。"
+  },
+  "esp32_ppp_info_number": {
+    "message0": "PPP 數值資訊 %1",
+    "tooltip": "讀取調變解調器數值狀態。",
+    "args0": [
+      {
+        "options": [
+          [
+            "訊號 RSSI",
+            "RSSI"
+          ],
+          [
+            "誤碼率 BER",
+            "BER"
+          ],
+          [
+            "網路模式",
+            "networkMode"
+          ],
+          [
+            "電池電壓",
+            "batteryVoltage"
+          ],
+          [
+            "電池電量",
+            "batteryLevel"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_info_text": {
+    "message0": "PPP 文字訊息 %1",
+    "tooltip": "讀取調變解調器身分或操作員文字。",
+    "args0": [
+      {
+        "options": [
+          [
+            "IMEI",
+            "IMEI"
+          ],
+          [
+            "IMSI",
+            "IMSI"
+          ],
+          [
+            "模組名稱",
+            "moduleName"
+          ],
+          [
+            "營運商",
+            "operatorName"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_sms": {
+    "message0": "PPP 發送簡訊 到 %1 內容 %2",
+    "tooltip": "發送 SMS 簡訊。"
+  },
+  "esp32_ppp_at": {
+    "message0": "PPP AT 指令 %1 逾時 %2 ms",
+    "tooltip": "發送 AT 命令並返回文字回應。"
+  }
+}

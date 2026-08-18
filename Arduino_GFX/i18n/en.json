@@ -1,0 +1,43 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "initialize Arduino GFX %1 display %2 DC %3 CS %4 reset %5 rotation %6 IPS %7",
+    "tooltip": "Create a hardware SPI bus and common Arduino_GFX display driver."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 fill screen color %2",
+    "tooltip": "Fill the entire display with an RGB565 color."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 line x0 %2 y0 %3 x1 %4 y1 %5 color %6",
+    "tooltip": "Draw a line segment."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 rectangle x %3 y %4 width %5 height %6 color %7",
+    "tooltip": "Draw an outlined or filled rectangle."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 circle x %3 y %4 radius %5 color %6",
+    "tooltip": "Draw an outlined or filled circle."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 text color %2 background %3 size %4 wrap %5",
+    "tooltip": "Set text color, background, scale, and wrapping."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 at x %2 y %3 %4 %5",
+    "tooltip": "Position the cursor and draw text."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "tooltip": "Change display rotation or inversion."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "tooltip": "Read the current logical display dimension."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 red %1 green %2 blue %3",
+    "tooltip": "Convert 8-bit RGB components to an RGB565 color."
+  }
+}

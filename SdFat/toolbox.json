@@ -1,0 +1,15 @@
+{
+  "kind": "category",
+  "name": "SdFat",
+  "colour": "#2E7D32",
+  "icon": "fa-light fa-sd-card",
+  "contents": [
+    {"kind": "block", "type": "sdfat_init", "inputs": {"MHZ": {"shadow": {"type": "math_number", "fields": {"NUM": 25}}}}},
+    {"kind": "block", "type": "sdfat_file_open", "inputs": {"PATH": {"shadow": {"type": "text", "fields": {"TEXT": "/data.txt"}}}}},
+    {"kind": "block", "type": "sdfat_file_write", "inputs": {"DATA": {"shadow": {"type": "text", "fields": {"TEXT": "hello"}}}}},
+    {"kind": "block", "type": "sdfat_file_control", "inputs": {"VALUE": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}}},
+    {"kind": "block", "type": "sdfat_file_read"},
+    {"kind": "block", "type": "sdfat_fs_operation", "inputs": {"PATH": {"shadow": {"type": "text", "fields": {"TEXT": "/data"}}}}},
+    {"kind": "block", "type": "sdfat_exists", "inputs": {"PATH": {"shadow": {"type": "text", "fields": {"TEXT": "/data.txt"}}}}}
+  ]
+}

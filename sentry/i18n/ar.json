@@ -1,807 +1,29 @@
 {
   "toolbox_name": "مستشعر الرؤية Sentry",
   "toolbox_categories": [
-    "Sentry2",
-    "كتل الإعداد",
-    "كتل التشغيل",
     "Sentry1",
-    "كتل الإعداد",
-    "كتل التشغيل"
+    "وحدة الإعداد",
+    "وحدة التشغيل",
+    "Sentry2",
+    "وحدة الإعداد",
+    "وحدة التشغيل",
+    "Sentry3",
+    "وحدة الإعداد",
+    "وحدة التشغيل"
   ],
-  "sentry2_begin": {
-    "message0": "تهيئة Sentry2 المنفذ %1 العنوان %2",
-    "tooltip": "تهيئة Sentry2 مستشعر رؤية",
-    "args0": [
-      {
-        "options": [
-          [
-            "I2C",
-            "Wire"
-          ],
-          [
-            "Serial",
-            "Serial"
-          ],
-          [
-            "Serial1",
-            "Serial1"
-          ],
-          [
-            "Serial2",
-            "Serial2"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "0x60",
-            "0x60"
-          ],
-          [
-            "0x61",
-            "0x61"
-          ],
-          [
-            "0x62",
-            "0x62"
-          ],
-          [
-            "0x63",
-            "0x63"
-          ]
-        ]
-      }
-    ]
+  "sentry1_init_i2c": {
+    "message0": "تهيئة متغير Sentry1 %1 عنوان الاتصال ذو السلكين %2",
+    "tooltip": "استخدم ناقل التطوير الافتراضي ذو السلكين لتهيئة Sentry1 وإعادة المحاولة تلقائيا حتى ينجح الاتصال"
   },
-  "sentry2_set_default": {
-    "message0": "Sentry2 استعادة المعلمات الافتراضية",
-    "tooltip": "استعادة حالة خوارزمية المستشعر إلى الافتراضي"
+  "sentry1_init_uart": {
+    "message0": "تهيئة منفذ تسلسلي متغير %1 الأجهزة Sentry1 %2 معدل بود%3",
+    "tooltip": "قم بتهيئة Sentry1 باستخدام المنفذ التسلسلي المادي المحدد وإعادة المحاولة تلقائيا حتى ينجح الاتصال"
   },
-  "sentry2_set_vision_status": {
-    "message0": "Sentry2 %1 الخوارزمية %2",
-    "tooltip": "Sentry2 الخوارزمية تعيين",
-    "args0": [
-      {
-        "options": [
-          [
-            "تشغيل",
-            "Begin"
-          ],
-          [
-            "إيقاف",
-            "End"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "تمييز الألوان",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "كشف كتلة اللون",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "تمييز العلامة",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "كشف الخط",
-            "Sentry2::kVisionLine"
-          ],
-          [
-            "تعلم عميق",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "تمييز البطاقة",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "تمييز الوجه",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "كائنات 20 فئة",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "رمز QR",
-            "Sentry2::kVisionQrCode"
-          ],
-          [
-            "مخصص",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "كائن متحرك",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_set_awb": {
-    "message0": "Sentry2 وضع توازن الأبيض %1",
-    "tooltip": "Sentry2 وضع توازن الأبيض",
-    "args0": [
-      {
-        "options": [
-          [
-            "تلقائي",
-            "kAutoWhiteBalance"
-          ],
-          [
-            "قفل",
-            "kLockWhiteBalance"
-          ],
-          [
-            "ضوء أبيض",
-            "kWhiteLight"
-          ],
-          [
-            "ضوء أصفر",
-            "kYellowLight"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_set_param_num": {
-    "message0": "Sentry2 الخوارزمية %1 تعيين %2 مجموعات المعلمات",
-    "tooltip": "Sentry2 تعيين الخوارزمية مجموعات المعلمات",
-    "args0": [
-      {
-        "options": [
-          [
-            "تمييز الألوان",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "كشف كتلة اللون",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "مخصص",
-            "Sentry2::kVisionCustom"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_set_color_param": {
-    "message0": "Sentry2 تمييز الألوان المركز X %1 Y %2 العرض %3 الارتفاع %4 مجموعة المعلمات %5",
-    "tooltip": "Sentry2 تمييز الألوان مجموعة المعلمات تعيين"
-  },
-  "sentry2_set_blob_param": {
-    "message0": "Sentry2 كشف كتلة اللون أقل عرض %1 الارتفاع %2 اللون %3 مجموعة المعلمات %4",
-    "tooltip": "Sentry2 كشف كتلة اللون مجموعة المعلمات تعيين",
+  "sentry1_set_led": {
+    "message0": "Sentry1 %1 ضوء مؤشر عند اكتشاف الهدف %2 %3 سطوعه عندما لا يكون detected%4",
+    "tooltip": "اضبط لون ضوء المؤشر وسعوعه التوافقين مع حالة الكشف (من 0 إلى 15)",
     "args0": [
       null,
-      null,
-      {
-        "options": [
-          [
-            "أسود",
-            "Sentry2::kColorBlack"
-          ],
-          [
-            "أبيض",
-            "Sentry2::kColorWhite"
-          ],
-          [
-            "أحمر",
-            "Sentry2::kColorRed"
-          ],
-          [
-            "أخضر",
-            "Sentry2::kColorGreen"
-          ],
-          [
-            "أزرق",
-            "Sentry2::kColorBlue"
-          ],
-          [
-            "أصفر",
-            "Sentry2::kColorYellow"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_set_custom_param": {
-    "message0": "Sentry2 الخوارزمية %1 المعلمة 1 %2 المعلمة 2 %3 المعلمة 3 %4 المعلمة 4 %5 المعلمة 5 %6 مجموعة المعلمات %7",
-    "tooltip": "Sentry2 مخصص مجموعة المعلمات تعيين",
-    "args0": [
-      {
-        "options": [
-          [
-            "مخصص",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "تمييز الألوان",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "كشف كتلة اللون",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "تعلم عميق",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "تمييز الوجه",
-            "Sentry2::kVisionFace"
-          ]
-        ]
-      },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ]
-  },
-  "sentry2_detected_count": {
-    "message0": "Sentry2 الخوارزمية %1 إرجاع عدد النتائج",
-    "tooltip": "Sentry2 إرجاع عدد النتائج",
-    "args0": [
-      {
-        "options": [
-          [
-            "تمييز الألوان",
-            "Sentry2::kVisionColor"
-          ],
-          [
-            "كشف كتلة اللون",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "تمييز العلامة",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "كشف الخط",
-            "Sentry2::kVisionLine"
-          ],
-          [
-            "تعلم عميق",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "تمييز البطاقة",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "تمييز الوجه",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "كائنات 20 فئة",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "رمز QR",
-            "Sentry2::kVisionQrCode"
-          ],
-          [
-            "مخصص",
-            "Sentry2::kVisionCustom"
-          ],
-          [
-            "كائن متحرك",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry2_get_value": {
-    "message0": "Sentry2 الخوارزمية %1 إرجاع %2 الفهرس %3 القيمة",
-    "tooltip": "الحصول على نتيجة الخوارزمية المحددة",
-    "args0": [
-      {
-        "options": [
-          [
-            "كشف كتلة اللون",
-            "Sentry2::kVisionBlob"
-          ],
-          [
-            "تمييز العلامة",
-            "Sentry2::kVisionAprilTag"
-          ],
-          [
-            "تعلم عميق",
-            "Sentry2::kVisionLearning"
-          ],
-          [
-            "تمييز البطاقة",
-            "Sentry2::kVisionCard"
-          ],
-          [
-            "تمييز الوجه",
-            "Sentry2::kVisionFace"
-          ],
-          [
-            "كائنات 20 فئة",
-            "Sentry2::kVision20Classes"
-          ],
-          [
-            "كائن متحرك",
-            "Sentry2::kVisionMotionDetect"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "إحداثي X",
-            "kXValue"
-          ],
-          [
-            "إحداثي Y",
-            "kYValue"
-          ],
-          [
-            "العرض",
-            "kWidthValue"
-          ],
-          [
-            "الارتفاع",
-            "kHeightValue"
-          ],
-          [
-            "الوسم",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_color_value": {
-    "message0": "Sentry2 تمييز الألوان إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry2 تمييز الألوان إرجاع القيمة",
-    "args0": [
-      {
-        "options": [
-          [
-            "الوسم",
-            "kLabel"
-          ],
-          [
-            "قناة الأحمر",
-            "kRValue"
-          ],
-          [
-            "قناة الأخضر",
-            "kGValue"
-          ],
-          [
-            "قناة الأزرق",
-            "kBValue"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_line_value": {
-    "message0": "Sentry2 كشف الخط إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry2 كشف الخط إرجاع القيمة",
-    "args0": [
-      {
-        "options": [
-          [
-            "إحداثي X للنهاية",
-            "kXValue"
-          ],
-          [
-            "إحداثي Y للنهاية",
-            "kYValue"
-          ],
-          [
-            "إحداثي X للبداية",
-            "kWidthValue"
-          ],
-          [
-            "إحداثي Y للبداية",
-            "kHeightValue"
-          ],
-          [
-            "زاوية الميل",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_qr_value": {
-    "message0": "Sentry2 رمز QR إرجاع سلسلة النتيجة",
-    "tooltip": "Sentry2 رمز QR إرجاع سلسلة النتيجة"
-  },
-  "sentry2_get_qr_position": {
-    "message0": "Sentry2 رمز QR إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry2 رمز QR إرجاع القيمة",
-    "args0": [
-      {
-        "options": [
-          [
-            "إحداثي X",
-            "kXValue"
-          ],
-          [
-            "إحداثي Y",
-            "kYValue"
-          ],
-          [
-            "العرض",
-            "kWidthValue"
-          ],
-          [
-            "الارتفاع",
-            "kHeightValue"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_get_custom_value": {
-    "message0": "Sentry2 مخصص إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry2 مخصص إرجاع القيمة",
-    "args0": [
-      {
-        "options": [
-          [
-            "البيانات 1",
-            "kXValue"
-          ],
-          [
-            "البيانات 2",
-            "kYValue"
-          ],
-          [
-            "البيانات 3",
-            "kWidthValue"
-          ],
-          [
-            "البيانات 4",
-            "kHeightValue"
-          ],
-          [
-            "البيانات 5",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_blob_color": {
-    "message0": "Sentry2 تم كشف كتلة اللون %1 الفهرس %2",
-    "tooltip": "يرجع True عند الكشف، وإلا False",
-    "args0": [
-      {
-        "options": [
-          [
-            "أسود",
-            "Sentry2::kColorBlack"
-          ],
-          [
-            "أبيض",
-            "Sentry2::kColorWhite"
-          ],
-          [
-            "أحمر",
-            "Sentry2::kColorRed"
-          ],
-          [
-            "أخضر",
-            "Sentry2::kColorGreen"
-          ],
-          [
-            "أزرق",
-            "Sentry2::kColorBlue"
-          ],
-          [
-            "أصفر",
-            "Sentry2::kColorYellow"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_card": {
-    "message0": "Sentry2 تم تمييز البطاقة %1 الفهرس %2",
-    "tooltip": "يرجع True عند الكشف، وإلا False",
-    "args0": [
-      {
-        "options": [
-          [
-            "تقدم",
-            "Sentry2::kCardForward"
-          ],
-          [
-            "انعطاف يسار",
-            "Sentry2::kCardLeft"
-          ],
-          [
-            "انعطاف يمين",
-            "Sentry2::kCardRight"
-          ],
-          [
-            "استدارة",
-            "Sentry2::kCardTurnAround"
-          ],
-          [
-            "توقف",
-            "Sentry2::kCardPark"
-          ],
-          [
-            "ضوء أخضر",
-            "Sentry2::kCardGreenLight"
-          ],
-          [
-            "ضوء أحمر",
-            "Sentry2::kCardRedLight"
-          ],
-          [
-            "حد السرعة 40",
-            "Sentry2::kCardSpeed40"
-          ],
-          [
-            "حد السرعة 60",
-            "Sentry2::kCardSpeed60"
-          ],
-          [
-            "حد السرعة 80",
-            "Sentry2::kCardSpeed80"
-          ],
-          [
-            "✔",
-            "Sentry2::kCardCheck"
-          ],
-          [
-            "☓",
-            "Sentry2::kCardCross"
-          ],
-          [
-            "◯",
-            "Sentry2::kCardCircle"
-          ],
-          [
-            "☐",
-            "Sentry2::kCardSquare"
-          ],
-          [
-            "△",
-            "Sentry2::kCardTriangle"
-          ],
-          [
-            "+",
-            "Sentry2::kCardPlus"
-          ],
-          [
-            "-",
-            "Sentry2::kCardMinus"
-          ],
-          [
-            "÷",
-            "Sentry2::kCardDivide"
-          ],
-          [
-            "=",
-            "Sentry2::kCardEqual"
-          ],
-          [
-            "0",
-            "Sentry2::kCardZero"
-          ],
-          [
-            "1",
-            "Sentry2::kCardOne"
-          ],
-          [
-            "2",
-            "Sentry2::kCardTwo"
-          ],
-          [
-            "3",
-            "Sentry2::kCardThree"
-          ],
-          [
-            "4",
-            "Sentry2::kCardFour"
-          ],
-          [
-            "5",
-            "Sentry2::kCardFive"
-          ],
-          [
-            "6",
-            "Sentry2::kCardSix"
-          ],
-          [
-            "7",
-            "Sentry2::kCardSeven"
-          ],
-          [
-            "8",
-            "Sentry2::kCardEight"
-          ],
-          [
-            "9",
-            "Sentry2::kCardNine"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_check_20class": {
-    "message0": "Sentry2 تم كشف كائن من 20 فئة %1 الفهرس %2",
-    "tooltip": "يرجع True عند الكشف، وإلا False",
-    "args0": [
-      {
-        "options": [
-          [
-            "طائرة",
-            "Sentry2::kAirplane"
-          ],
-          [
-            "دراجة",
-            "Sentry2::kBicycle"
-          ],
-          [
-            "طائر",
-            "Sentry2::kBird"
-          ],
-          [
-            "قارب",
-            "Sentry2::kBoat"
-          ],
-          [
-            "زجاجة",
-            "Sentry2::kBottle"
-          ],
-          [
-            "حافلة",
-            "Sentry2::kBus"
-          ],
-          [
-            "سيارة",
-            "Sentry2::kCar"
-          ],
-          [
-            "قط",
-            "Sentry2::kCat"
-          ],
-          [
-            "كرسي",
-            "Sentry2::kChair"
-          ],
-          [
-            "بقرة",
-            "Sentry2::kCow"
-          ],
-          [
-            "طاولة طعام",
-            "Sentry2::kDiningTable"
-          ],
-          [
-            "كلب",
-            "Sentry2::kDog"
-          ],
-          [
-            "حصان",
-            "Sentry2::kHorse"
-          ],
-          [
-            "دراجة نارية",
-            "Sentry2::kMotorBike"
-          ],
-          [
-            "شخص",
-            "Sentry2::kPerson"
-          ],
-          [
-            "نبات أصيص",
-            "Sentry2::kPottedPlant"
-          ],
-          [
-            "خروف",
-            "Sentry2::kSheep"
-          ],
-          [
-            "أريكة",
-            "Sentry2::kSofa"
-          ],
-          [
-            "قطار",
-            "Sentry2::kTrain"
-          ],
-          [
-            "شاشة",
-            "Sentry2::kTvMonitor"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry2_rows": {
-    "message0": "Sentry2 صفوف الصورة",
-    "tooltip": "Sentry2 صفوف الصورة"
-  },
-  "sentry2_cols": {
-    "message0": "Sentry2 أعمدة الصورة",
-    "tooltip": "Sentry2 أعمدة الصورة"
-  },
-  "sentry1_begin": {
-    "message0": "تهيئة Sentry1 المنفذ %1 العنوان %2",
-    "tooltip": "تهيئة Sentry1 مستشعر رؤية",
-    "args0": [
-      {
-        "options": [
-          [
-            "I2C",
-            "Wire"
-          ],
-          [
-            "Serial",
-            "Serial"
-          ],
-          [
-            "Serial1",
-            "Serial1"
-          ],
-          [
-            "Serial2",
-            "Serial2"
-          ]
-        ]
-      },
-      {
-        "options": [
-          [
-            "0x60",
-            "0x60"
-          ],
-          [
-            "0x61",
-            "0x61"
-          ],
-          [
-            "0x62",
-            "0x62"
-          ],
-          [
-            "0x63",
-            "0x63"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry1_set_default": {
-    "message0": "Sentry1 استعادة المعلمات الافتراضية",
-    "tooltip": "استعادة حالة خوارزمية المستشعر إلى الافتراضي"
-  },
-  "sentry1_led_set_color": {
-    "message0": "Sentry1 LED عند كشف هدف %1 وإلا %2 السطوع %3",
-    "tooltip": "الأسود يطفئ LED؛ اللونان المتطابقان يفعّلان الوضع اليدوي للـ LED",
-    "args0": [
       {
         "options": [
           [
@@ -829,7 +51,7 @@
             "kLedPurple"
           ],
           [
-            "سماوي",
+            "cyan",
             "kLedCyan"
           ],
           [
@@ -865,7 +87,7 @@
             "kLedPurple"
           ],
           [
-            "سماوي",
+            "cyan",
             "kLedCyan"
           ],
           [
@@ -877,207 +99,278 @@
       null
     ]
   },
-  "sentry1_set_vision_status": {
-    "message0": "Sentry1 %1 الخوارزمية %2",
-    "tooltip": "Sentry1 الخوارزمية تعيين",
+  "sentry1_vision_control": {
+    "message0": "Sentry1 %1 تشغيل %2 الرؤية %3",
+    "tooltip": "Sentry1 تشغيل الرؤية",
     "args0": [
+      null,
       {
         "options": [
           [
-            "تشغيل",
-            "Begin"
+            "بدء",
+            "BEGIN"
           ],
           [
             "إيقاف",
-            "End"
+            "END"
           ]
         ]
       },
       {
         "options": [
           [
-            "تمييز الألوان",
-            "Sentry1::kVisionColor"
+            "اللون",
+            "1"
           ],
           [
-            "كشف كتلة اللون",
-            "Sentry1::kVisionBlob"
+            "الكتلة",
+            "2"
           ],
           [
-            "تمييز الكرة",
-            "Sentry1::kVisionBall"
+            "الكرة",
+            "3"
           ],
           [
-            "كشف الخط",
-            "Sentry1::kVisionLine"
+            "الخط",
+            "4"
           ],
           [
-            "تمييز البطاقة",
-            "Sentry1::kVisionCard"
+            "البطاقة",
+            "6"
           ],
           [
-            "كشف الجسم",
-            "Sentry1::kVisionBody"
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
           ]
         ]
       }
     ]
   },
-  "sentry1_set_awb": {
-    "message0": "Sentry1 وضع توازن الأبيض %1",
-    "tooltip": "Sentry1 وضع توازن الأبيض",
-    "args0": [
-      {
-        "options": [
-          [
-            "تلقائي",
-            "kAutoWhiteBalance"
-          ],
-          [
-            "قفل",
-            "kLockWhiteBalance"
-          ],
-          [
-            "ضوء أبيض",
-            "kWhiteLight"
-          ],
-          [
-            "ضوء أصفر",
-            "kYellowLight"
-          ]
-        ]
-      }
-    ]
-  },
-  "sentry1_set_param_num": {
-    "message0": "Sentry1 الخوارزمية %1 تعيين %2 مجموعات المعلمات",
-    "tooltip": "Sentry1 تعيين الخوارزمية مجموعات المعلمات",
-    "args0": [
-      {
-        "options": [
-          [
-            "تمييز الألوان",
-            "Sentry1::kVisionColor"
-          ],
-          [
-            "كشف كتلة اللون",
-            "Sentry1::kVisionBlob"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_set_color_param": {
-    "message0": "Sentry1 تمييز الألوان المركز X %1 Y %2 العرض %3 الارتفاع %4",
-    "tooltip": "Sentry1 تمييز الألوان مجموعة المعلمات تعيين"
+  "sentry1_set_region_param": {
+    "message0": "Sentry1 %1 تعيين منطقة التعرف على الألوان %2 المركز أفقي %3 المحور الرأسي المركزي %4 العرض %5 الارتفاع %6",
+    "tooltip": "حدد موقع وحجم منطقة التعرف على الألوان"
   },
   "sentry1_set_blob_param": {
-    "message0": "Sentry1 كشف كتلة اللون أقل عرض %1 الارتفاع %2 اللون %3",
-    "tooltip": "Sentry1 كشف كتلة اللون مجموعة المعلمات تعيين",
+    "message0": "Sentry1 %1 تعيين معلمات كتل الألوان %2 الحد الأدنى للعرض %3 الحد الأدنى للارتفاع %4 %5",
+    "tooltip": "حدد حجم ظروف التصفية والألوان المستهدفة لاكتشاف كتل الألوان",
     "args0": [
+      null,
+      null,
       null,
       null,
       {
         "options": [
           [
             "أسود",
-            "Sentry1::kColorBlack"
+            "1"
           ],
           [
             "أبيض",
-            "Sentry1::kColorWhite"
+            "2"
           ],
           [
             "أحمر",
-            "Sentry1::kColorRed"
+            "3"
           ],
           [
             "أخضر",
-            "Sentry1::kColorGreen"
+            "4"
           ],
           [
             "أزرق",
-            "Sentry1::kColorBlue"
+            "5"
           ],
           [
             "أصفر",
-            "Sentry1::kColorYellow"
+            "6"
           ]
         ]
       }
     ]
   },
-  "sentry1_detected_count": {
-    "message0": "Sentry1 الخوارزمية %1 إرجاع عدد النتائج",
-    "tooltip": "Sentry1 إرجاع عدد النتائج",
+  "sentry1_camera_awb": {
+    "message0": "Sentry1 %1 ضبط توازن البياض %2",
+    "tooltip": "ضبط وضع توازن اللون الأبيض في الكاميرا",
     "args0": [
+      null,
       {
         "options": [
           [
-            "تمييز الألوان",
-            "Sentry1::kVisionColor"
+            "تلقائي",
+            "kAutoWhiteBalance"
           ],
           [
-            "كشف كتلة اللون",
-            "Sentry1::kVisionBlob"
+            "قفل القيمة الحالية",
+            "kLockWhiteBalance"
           ],
           [
-            "تمييز الكرة",
-            "Sentry1::kVisionBall"
+            "الضوء الأبيض",
+            "kWhiteLight"
           ],
           [
-            "كشف الخط",
-            "Sentry1::kVisionLine"
+            "الضوء الأصفر",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_vision_default": {
+    "message0": "Sentry1 %1 استعادة وظيفة التعرف %2 إلى الإعدادات الافتراضية",
+    "tooltip": "استعادة المعلمات الافتراضية لدوال التعرف المحددة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
           ],
           [
-            "تمييز البطاقة",
-            "Sentry1::kVisionCard"
+            "الكتلة",
+            "2"
           ],
           [
-            "كشف الجسم",
-            "Sentry1::kVisionBody"
+            "الكرة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_restart": {
+    "message0": "Sentry1 %1 إعادة تشغيل الجهاز",
+    "tooltip": "طلب إعادة تشغيل المستشعر؛ بعد إعادة التشغيل، يحتاج الاتصال إلى إعادة تهيئة"
+  },
+  "sentry1_sensor_default": {
+    "message0": "Sentry1 %1 استعادة الإعدادات الافتراضية استعادة وظيفة التعرف فقط %2",
+    "tooltip": "استعادة الإعدادات الافتراضية؛ يتم الاحتفاظ بتكوين الاتصال فقط عند استعادة دالة التعرف"
+  },
+  "sentry1_detected_count": {
+    "message0": "وظيفة التعرف %1 Sentry1 %2 عدد الأهداف المكتشفة",
+    "tooltip": "تحديث وإعادة المبلغ المستهدف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الكرة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
           ]
         ]
       }
     ]
   },
   "sentry1_get_value": {
-    "message0": "Sentry1 الخوارزمية %1 إرجاع %2 الفهرس %3 القيمة",
-    "tooltip": "الحصول على نتيجة الخوارزمية المحددة",
+    "message0": "Sentry1 %1 قراءة الرؤية %2 الهدف %3 %4",
+    "tooltip": "Sentry1 قراءة الرؤية الهدف",
     "args0": [
+      null,
       {
         "options": [
           [
-            "كشف كتلة اللون",
-            "Sentry1::kVisionBlob"
+            "اللون",
+            "1"
           ],
           [
-            "تمييز الكرة",
-            "Sentry1::kVisionBall"
+            "الكتلة",
+            "2"
           ],
           [
-            "تمييز البطاقة",
-            "Sentry1::kVisionCard"
+            "الكرة",
+            "3"
           ],
           [
-            "كشف الجسم",
-            "Sentry1::kVisionBody"
+            "الخط",
+            "4"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
           ]
         ]
       },
+      null,
       {
         "options": [
           [
-            "إحداثي X",
+            "إحداثي x (إحداثي x).",
             "kXValue"
           ],
           [
-            "إحداثي Y",
+            "الإحداثيات الرأسية",
             "kYValue"
           ],
           [
-            "العرض",
+            "width",
             "kWidthValue"
           ],
           [
@@ -1085,186 +378,2376 @@
             "kHeightValue"
           ],
           [
-            "الوسم",
-            "kLabel"
-          ]
-        ]
-      },
-      null
-    ]
-  },
-  "sentry1_get_color_value": {
-    "message0": "Sentry1 تمييز الألوان إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry1 تمييز الألوان إرجاع القيمة",
-    "args0": [
-      {
-        "options": [
-          [
-            "الوسم",
+            "التسمية",
             "kLabel"
           ],
           [
-            "قناة الأحمر",
+            "القيمة الحمراء",
             "kRValue"
           ],
           [
-            "قناة الأخضر",
+            "القيمة الخضراء",
             "kGValue"
           ],
           [
-            "قناة الأزرق",
+            "القيمة الزرقاء",
             "kBValue"
           ]
         ]
-      },
-      null
+      }
     ]
   },
-  "sentry1_get_line_value": {
-    "message0": "Sentry1 كشف الخط إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry1 كشف الخط إرجاع القيمة",
+  "sentry1_detected_label": {
+    "message0": "Sentry1 %1 وظيفة التعرف %2 علامة الهدف %3 تساوي %4",
+    "tooltip": "تحقق مما إذا كان تسمية التصنيف للهدف المحدد تطابق القيمة المعطاة",
     "args0": [
+      null,
       {
         "options": [
           [
-            "إحداثي X للنهاية",
-            "kXValue"
+            "اللون",
+            "1"
           ],
           [
-            "إحداثي Y للنهاية",
-            "kYValue"
+            "الكتلة",
+            "2"
           ],
           [
-            "إحداثي X للبداية",
-            "kWidthValue"
+            "الكرة",
+            "3"
           ],
           [
-            "إحداثي Y للبداية",
-            "kHeightValue"
+            "الخط",
+            "4"
           ],
           [
-            "زاوية الميل",
-            "kLabel"
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry1_get_qrcode": {
+    "message0": "Sentry1 %1 اقرأ نص رمز QR",
+    "tooltip": "اقرأ أحدث رمز QR لتحديد النص"
+  },
+  "sentry1_vision_status": {
+    "message0": "ميزة التعرف %1 Sentry1 %2 مفعلة؟",
+    "tooltip": "تحقق مما إذا كانت دالة التعرف مفعلة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الكرة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry1_update_result": {
+    "message0": "Sentry1 %1 ضبط الرؤية %2 النتيجة",
+    "tooltip": "Sentry1 ضبط الرؤية النتيجة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الكرة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الجسم",
+            "7"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_init_i2c": {
+    "message0": "تهيئة متغير Sentry2 %1 الاتصال ذو السلكين address%2",
+    "tooltip": "استخدم ناقل التطوير الافتراضي ذو السلكين لتهيئة Sentry2 وإعادة المحاولة تلقائيا حتى ينجح الاتصال"
+  },
+  "sentry2_init_uart": {
+    "message0": "تهيئة منفذ تسلسلي %1 متغير Sentry2 %2 معدل البود%3",
+    "tooltip": "قم بتهيئة Sentry2 باستخدام المنفذ التسلسلي المادي المحدد وإعادة المحاولة تلقائيا حتى ينجح الاتصال"
+  },
+  "sentry2_set_led": {
+    "message0": "Sentry2 %1 ضوء مؤشر عند اكتشاف الهدف %2 %3 السطوع عندما لا يكون detected%4",
+    "tooltip": "اضبط لون ضوء المؤشر وسعوعه التوافقين مع حالة الكشف (من 0 إلى 15)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إيقاف",
+            "kLedClose"
+          ],
+          [
+            "أحمر",
+            "kLedRed"
+          ],
+          [
+            "أخضر",
+            "kLedGreen"
+          ],
+          [
+            "أصفر",
+            "kLedYellow"
+          ],
+          [
+            "أزرق",
+            "kLedBlue"
+          ],
+          [
+            "بنفسجي",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "أبيض",
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "إيقاف",
+            "kLedClose"
+          ],
+          [
+            "أحمر",
+            "kLedRed"
+          ],
+          [
+            "أخضر",
+            "kLedGreen"
+          ],
+          [
+            "أصفر",
+            "kLedYellow"
+          ],
+          [
+            "أزرق",
+            "kLedBlue"
+          ],
+          [
+            "بنفسجي",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "أبيض",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_get_qr_value": {
-    "message0": "Sentry1 رمز QR إرجاع سلسلة النتيجة",
-    "tooltip": "Sentry1 رمز QR إرجاع سلسلة النتيجة"
-  },
-  "sentry1_get_qr_position": {
-    "message0": "Sentry1 رمز QR إرجاع %1 الفهرس %2 القيمة",
-    "tooltip": "Sentry1 رمز QR إرجاع القيمة",
+  "sentry2_vision_control": {
+    "message0": "Sentry2 %1 تشغيل %2 الرؤية %3",
+    "tooltip": "Sentry2 تشغيل الرؤية",
     "args0": [
+      null,
       {
         "options": [
           [
-            "إحداثي X",
-            "kXValue"
+            "بدء",
+            "BEGIN"
           ],
           [
-            "إحداثي Y",
-            "kYValue"
+            "إيقاف",
+            "END"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
           ],
           [
-            "العرض",
-            "kWidthValue"
+            "الكتلة",
+            "2"
           ],
           [
-            "الارتفاع",
-            "kHeightValue"
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_param_num": {
+    "message0": "Sentry2 %1 دالة التعرف على المجموعة %2 الحد الأقصى لعدد targets%3",
+    "tooltip": "حدد الحد الأقصى لعدد الأهداف المستحقة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_blob_color": {
-    "message0": "Sentry1 تم كشف كتلة اللون %1 الفهرس %2",
-    "tooltip": "يرجع True عند الكشف، وإلا False",
+  "sentry2_set_region_param": {
+    "message0": "Sentry2 %1 تعيين منطقة التعرف على الألوان %2 المركز أفقي %3 المحور الرأسي المركزي %4 العرض %5 الارتفاع %6",
+    "tooltip": "حدد موقع وحجم منطقة التعرف على الألوان"
+  },
+  "sentry2_set_blob_param": {
+    "message0": "Sentry2 %1 تعيين معلمات كتلة الألوان %2 الحد الأدنى للعرض %3 الحد الأدنى للارتفاع %4 %5",
+    "tooltip": "حدد حجم ظروف التصفية والألوان المستهدفة لاكتشاف كتل الألوان",
     "args0": [
+      null,
+      null,
+      null,
+      null,
       {
         "options": [
           [
             "أسود",
-            "Sentry1::kColorBlack"
+            "1"
           ],
           [
             "أبيض",
-            "Sentry1::kColorWhite"
+            "2"
           ],
           [
             "أحمر",
-            "Sentry1::kColorRed"
+            "3"
           ],
           [
             "أخضر",
-            "Sentry1::kColorGreen"
+            "4"
           ],
           [
             "أزرق",
-            "Sentry1::kColorBlue"
+            "5"
           ],
           [
             "أصفر",
-            "Sentry1::kColorYellow"
+            "6"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_label_param": {
+    "message0": "Sentry2 %1 تعيين دالة التعرف %2 مجموعة المعلمات %3 قيمة الوسم %4",
+    "tooltip": "اكتب معلمات الوسم للتعلم العميق، البطاقات، أو خوارزميات أخرى تتطلب وضع علامات",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry2_set_mode": {
+    "message0": "Sentry2 %1 تعيين دالة التعرف %2 قيم الوضع %3",
+    "tooltip": "اضبط وضع الخوارزمية؛ معنى قيم الأنماط في الخوارزميات مثل التسميات، والرموز الشريطية، والنص يختلف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_card": {
-    "message0": "Sentry1 تم تمييز البطاقة %1 الفهرس %2",
-    "tooltip": "يرجع True عند الكشف، وإلا False",
+  "sentry2_set_apriltag_mode": {
+    "message0": "Sentry2 %1 تنسيق ترميز العلامة Set %2",
+    "tooltip": "تعيين تنسيق الترميز المستخدم لتحديد المسمية",
     "args0": [
+      null,
       {
         "options": [
           [
-            "تقدم",
-            "Sentry1::kCardForward"
+            "ترميز 16H5",
+            "0"
           ],
           [
-            "انعطاف يسار",
-            "Sentry1::kCardLeft"
+            "ترميز 25H9",
+            "1"
           ],
           [
-            "انعطاف يمين",
-            "Sentry1::kCardRight"
+            "رمز 36H11",
+            "2"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_level": {
+    "message0": "Sentry2 %1 تعيين وظيفة التعرف %2 أولوية الأداء %3",
+    "tooltip": "حدد تفضيلات سرعة ودقة الخوارزمية",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
           ],
           [
-            "استدارة",
-            "Sentry1::kCardTurnAround"
+            "الكتلة",
+            "2"
           ],
           [
-            "توقف",
-            "Sentry1::kCardPark"
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "تقصير",
+            "kLevelDefault"
+          ],
+          [
+            "السرعة أولا",
+            "kLevelSpeed"
+          ],
+          [
+            "التوازن",
+            "kLevelBalance"
+          ],
+          [
+            "الدقة تأتي أولا",
+            "kLevelAccuracy"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_camera_zoom": {
+    "message0": "Sentry2 %1 Set Camera Zoom %2",
+    "tooltip": "اضبط التكبير الرقمي للكاميرا",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تقصير",
+            "kZoomDefault"
+          ],
+          [
+            "مرة واحدة",
+            "kZoom1"
+          ],
+          [
+            "ضعف ذلك",
+            "kZoom2"
+          ],
+          [
+            "3 مرات",
+            "kZoom3"
+          ],
+          [
+            "4 مرات",
+            "kZoom4"
+          ],
+          [
+            "5 مرات",
+            "kZoom5"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_camera_awb": {
+    "message0": "Sentry2 %1 ضبط توازن البياض %2",
+    "tooltip": "ضبط وضع توازن اللون الأبيض في الكاميرا",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تلقائي",
+            "kAutoWhiteBalance"
+          ],
+          [
+            "قفل القيمة الحالية",
+            "kLockWhiteBalance"
+          ],
+          [
+            "الضوء الأبيض",
+            "kWhiteLight"
+          ],
+          [
+            "الضوء الأصفر",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_set_coordinate": {
+    "message0": "Sentry2 %1 Set نوع الإحداثيات %2",
+    "tooltip": "تستخدم نتائج الاختيار إحداثيات البكسل المطلق أو النسبة المئوية",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "البكسلات المطلقة",
+            "kAbsoluteCoordinate"
+          ],
+          [
+            "النسبة المئوية",
+            "kPercentageCoordinate"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_vision_default": {
+    "message0": "Sentry2 %1 استعادة وظيفة التعرف %2 إلى الإعدادات الافتراضية",
+    "tooltip": "استعادة المعلمات الافتراضية لدوال التعرف المحددة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_screen_config": {
+    "message0": "شاشة %1 Sentry2 On%2 تعرض فقط صورة المستخدم %3",
+    "tooltip": "تكوين حالة عرض شاشة المستشعر"
+  },
+  "sentry2_screen_fill": {
+    "message0": "سينتري 2 %1 ملء الصورة Number%2 الأحمر %3 الأخضر %4 الأزرق %5",
+    "tooltip": "ملء طبقة صورة الشاشة بألوان محددة"
+  },
+  "sentry2_snapshot": {
+    "message0": "%1 لقطة شاشة من Sentry2 إلى المصدر %2: %3 format%4",
+    "tooltip": "احفظ أو أرسل صور الكاميرا أو الشاشة إلى أهداف محددة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "بطاقة الذاكرة",
+            "kSnapshot2SD"
+          ],
+          [
+            "النسخة التسلسلية",
+            "kSnapshot2Uart"
+          ],
+          [
+            "واجهة تسلسلية عالمية",
+            "kSnapshot2Usb"
+          ],
+          [
+            "الشبكة اللاسلكية",
+            "kSnapshot2Wifi"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "كاميرا",
+            "kSnapshotFromCamera"
+          ],
+          [
+            "شاشة",
+            "kSnapshotFromScreen"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "تنسيق الألوان الأصلي",
+            "kSnapshotTypeRGB565"
+          ],
+          [
+            "ضغط الصورة",
+            "kSnapshotTypeJPEG"
+          ],
+          [
+            "الصور المشفرة بالنص",
+            "kSnapshotTypeJPEGBase64"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_restart": {
+    "message0": "Sentry2 %1 إعادة تشغيل الجهاز",
+    "tooltip": "طلب إعادة تشغيل المستشعر؛ بعد إعادة التشغيل، يحتاج الاتصال إلى إعادة تهيئة"
+  },
+  "sentry2_sensor_default": {
+    "message0": "Sentry2 %1 استعادة الإعدادات الافتراضية استعادة التعرف فقط %2",
+    "tooltip": "استعادة الإعدادات الافتراضية؛ يتم الاحتفاظ بتكوين الاتصال فقط عند استعادة دالة التعرف"
+  },
+  "sentry2_detected_count": {
+    "message0": "وظيفة التعرف %1 Sentry2 %2 عدد الأهداف المكتشفة",
+    "tooltip": "تحديث وإعادة المبلغ المستهدف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_get_value": {
+    "message0": "Sentry2 %1 قراءة الرؤية %2 الهدف %3 %4",
+    "tooltip": "Sentry2 قراءة الرؤية الهدف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "إحداثي x (إحداثي x).",
+            "kXValue"
+          ],
+          [
+            "الإحداثيات الرأسية",
+            "kYValue"
+          ],
+          [
+            "width",
+            "kWidthValue"
+          ],
+          [
+            "الارتفاع",
+            "kHeightValue"
+          ],
+          [
+            "التسمية",
+            "kLabel"
+          ],
+          [
+            "القيمة الحمراء",
+            "kRValue"
+          ],
+          [
+            "القيمة الخضراء",
+            "kGValue"
+          ],
+          [
+            "القيمة الزرقاء",
+            "kBValue"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_detected_label": {
+    "message0": "Sentry2 %1 دالة التعرف %2 علامة الهدف %3 تساوي %4",
+    "tooltip": "تحقق مما إذا كان تسمية التصنيف للهدف المحدد تطابق القيمة المعطاة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry2_get_qrcode": {
+    "message0": "Sentry2 %1 قراءة نص رمز QR",
+    "tooltip": "اقرأ أحدث رمز QR لتحديد النص"
+  },
+  "sentry2_vision_status": {
+    "message0": "ميزة التعرف %1 Sentry2 مفعلة %2؟",
+    "tooltip": "تحقق مما إذا كانت دالة التعرف مفعلة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_update_result": {
+    "message0": "Sentry2 %1 ضبط الرؤية %2 النتيجة",
+    "tooltip": "Sentry2 ضبط الرؤية النتيجة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "البطاقة",
+            "6"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "20 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الميزات المخصصة",
+            "10"
+          ],
+          [
+            "الحركة",
+            "11"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry2_image_rows": {
+    "message0": "Sentry2 %1 ارتفاع الصورة",
+    "tooltip": "اقرأ ارتفاع الصورة"
+  },
+  "sentry2_image_cols": {
+    "message0": "عرض الصورة %1 Sentry2",
+    "tooltip": "عرض الصورة اقرأ"
+  },
+  "sentry3_init_i2c": {
+    "message0": "تهيئة متغير Sentry3 %1 عنوان الاتصال ذو السلكين %2",
+    "tooltip": "استخدم ناقل التطوير الافتراضي ذو السلكين لتهيئة Sentry3 وإعادة المحاولة تلقائيا حتى ينجح الاتصال"
+  },
+  "sentry3_init_uart": {
+    "message0": "تهيئة منفذ تسلسلي %1 متغير  العتاد في Sentry3 %2 معدل بود%3",
+    "tooltip": "قم بتهيئة Sentry3 باستخدام المنفذ التسلسلي المادي المحدد وإعادة المحاولة تلقائيا حتى ينجح الاتصال"
+  },
+  "sentry3_set_led": {
+    "message0": "Sentry3 %1 ضوء مؤشر عند اكتشاف الهدف %2 %3 سطوعه عندما لا يكون detected%4",
+    "tooltip": "اضبط لون ضوء المؤشر وسعوعه التوافقين مع حالة الكشف (من 0 إلى 15)",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إيقاف",
+            "kLedClose"
+          ],
+          [
+            "أحمر",
+            "kLedRed"
+          ],
+          [
+            "أخضر",
+            "kLedGreen"
+          ],
+          [
+            "أصفر",
+            "kLedYellow"
+          ],
+          [
+            "أزرق",
+            "kLedBlue"
+          ],
+          [
+            "بنفسجي",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "أبيض",
+            "kLedWhite"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "إيقاف",
+            "kLedClose"
+          ],
+          [
+            "أحمر",
+            "kLedRed"
+          ],
+          [
+            "أخضر",
+            "kLedGreen"
+          ],
+          [
+            "أصفر",
+            "kLedYellow"
+          ],
+          [
+            "أزرق",
+            "kLedBlue"
+          ],
+          [
+            "بنفسجي",
+            "kLedPurple"
+          ],
+          [
+            "cyan",
+            "kLedCyan"
+          ],
+          [
+            "أبيض",
+            "kLedWhite"
           ]
         ]
       },
       null
     ]
   },
-  "sentry1_check_ball": {
-    "message0": "Sentry1 تم تمييز الكرة %1 الفهرس %2",
-    "tooltip": "يرجع True عند الكشف، وإلا False",
+  "sentry3_vision_control": {
+    "message0": "Sentry3 %1 تشغيل %2 الرؤية %3",
+    "tooltip": "Sentry3 تشغيل الرؤية",
     "args0": [
+      null,
       {
         "options": [
           [
-            "كرة تنس الطاولة",
-            "Sentry1::kBallTableTennis"
+            "بدء",
+            "BEGIN"
           ],
           [
-            "كرة تنس",
-            "Sentry1::kBallTennis"
+            "إيقاف",
+            "END"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_param_num": {
+    "message0": "Sentry3 %1 دالة التعرف على المجموعة %2 الحد الأقصى لعدد targets%3",
+    "tooltip": "حدد الحد الأقصى لعدد الأهداف المستحقة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
           ]
         ]
       },
       null
     ]
+  },
+  "sentry3_set_region_param": {
+    "message0": "Sentry3 %1 تعيين منطقة التعرف على الألوان %2 المركز أفقي %3 المحور الرأسي المركزي %4 العرض %5 الارتفاع %6",
+    "tooltip": "حدد موقع وحجم منطقة التعرف على الألوان"
+  },
+  "sentry3_set_blob_param": {
+    "message0": "%1 Sentry3 تعيين معلمات كتل الألوان %2 الحد الأدنى للعرض %3 الحد الأدنى للارتفاع %4 %5",
+    "tooltip": "حدد حجم ظروف التصفية والألوان المستهدفة لاكتشاف كتل الألوان",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "أسود",
+            "1"
+          ],
+          [
+            "أبيض",
+            "2"
+          ],
+          [
+            "أحمر",
+            "3"
+          ],
+          [
+            "أخضر",
+            "4"
+          ],
+          [
+            "أزرق",
+            "5"
+          ],
+          [
+            "أصفر",
+            "6"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_label_param": {
+    "message0": "Sentry3 %1 تعيين دالة التعرف %2 مجموعة المعلمات %3 قيمة العلامة %4",
+    "tooltip": "اكتب معلمات الوسم للتعلم العميق، البطاقات، أو خوارزميات أخرى تتطلب وضع علامات",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry3_set_mode": {
+    "message0": "Sentry3 %1 دالة التعرف على Set %2 قيم الوضع %3",
+    "tooltip": "اضبط وضع الخوارزمية؛ معنى قيم الأنماط في الخوارزميات مثل التسميات، والرموز الشريطية، والنص يختلف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "sentry3_set_apriltag_mode": {
+    "message0": "Sentry3 %1 Set Tag Encrypt Format %2",
+    "tooltip": "تعيين تنسيق الترميز المستخدم لتحديد المسمية",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ترميز 16H5",
+            "0"
+          ],
+          [
+            "ترميز 25H9",
+            "1"
+          ],
+          [
+            "رمز 36H11",
+            "2"
+          ],
+          [
+            "رمز 41H12",
+            "3"
+          ],
+          [
+            "رمز الدائرة 21H7",
+            "4"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_barcode_mode": {
+    "message0": "Sentry3 %1 تنسيق الباركود Set %2",
+    "tooltip": "تعيين صيغ الترميز المسموح بها للتعرف على الباركود",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ترميز EAN13",
+            "2"
+          ],
+          [
+            "كود 128",
+            "4"
+          ],
+          [
+            "ترميز كود39",
+            "8"
+          ],
+          [
+            "جميع الصيغ",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_ocr_mode": {
+    "message0": "Sentry3 %1 تعيين وضع التعرف على النص %2",
+    "tooltip": "قم بإعداد التعرف على النص باستخدام نماذج القاعدة السريعة أو نماذج الدقيقة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الوضع الأساسي",
+            "0"
+          ],
+          [
+            "وضع الدقة",
+            "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_face_mode": {
+    "message0": "Sentry3 %1 ضبط وضع تمديد الوجه %2",
+    "tooltip": "اضبط الخصائص الموسعة التي تعود بواسطة التعرف على الوجه",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تعابير الوجه وحالة العينين والفم",
+            "1"
+          ],
+          [
+            "وضعية الرأس",
+            "2"
+          ],
+          [
+            "التعرف على المشاعر",
+            "4"
+          ],
+          [
+            "وسع كل شيء",
+            "7"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_level": {
+    "message0": "Sentry3 %1 تعيين وظيفة التعرف %2 أولوية الأداء %3",
+    "tooltip": "حدد تفضيلات سرعة ودقة الخوارزمية",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "تقصير",
+            "kLevelDefault"
+          ],
+          [
+            "السرعة أولا",
+            "kLevelSpeed"
+          ],
+          [
+            "التوازن",
+            "kLevelBalance"
+          ],
+          [
+            "الدقة تأتي أولا",
+            "kLevelAccuracy"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_camera_zoom": {
+    "message0": "Sentry3 %1 Set Camera Zoom %2",
+    "tooltip": "اضبط التكبير الرقمي للكاميرا",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تقصير",
+            "kZoomDefault"
+          ],
+          [
+            "مرة واحدة",
+            "kZoom1"
+          ],
+          [
+            "ضعف ذلك",
+            "kZoom2"
+          ],
+          [
+            "3 مرات",
+            "kZoom3"
+          ],
+          [
+            "4 مرات",
+            "kZoom4"
+          ],
+          [
+            "5 مرات",
+            "kZoom5"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_camera_awb": {
+    "message0": "Sentry3 %1 تعيين توازن البياض %2",
+    "tooltip": "ضبط وضع توازن اللون الأبيض في الكاميرا",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تلقائي",
+            "kAutoWhiteBalance"
+          ],
+          [
+            "قفل القيمة الحالية",
+            "kLockWhiteBalance"
+          ],
+          [
+            "الضوء الأبيض",
+            "kWhiteLight"
+          ],
+          [
+            "الضوء الأصفر",
+            "kYellowLight"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_set_coordinate": {
+    "message0": "Sentry3 %1 مجموعة الإحداثيات %2",
+    "tooltip": "تستخدم نتائج الاختيار إحداثيات البكسل المطلق أو النسبة المئوية",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "البكسلات المطلقة",
+            "kAbsoluteCoordinate"
+          ],
+          [
+            "النسبة المئوية",
+            "kPercentageCoordinate"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_vision_default": {
+    "message0": "%1 Sentry3 يعيد دالة التعرف إلى الإعداد الافتراضي في %2",
+    "tooltip": "استعادة المعلمات الافتراضية لدوال التعرف المحددة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_screen_config": {
+    "message0": "شاشة %1 Sentry3 On%2 تعرض فقط صورة المستخدم %3",
+    "tooltip": "تكوين حالة عرض شاشة المستشعر"
+  },
+  "sentry3_screen_fill": {
+    "message0": "سينتري3 %1 ملء الصورة Number%2 الأحمر %3 الأخضر %4 الأزرق، %5",
+    "tooltip": "ملء طبقة صورة الشاشة بألوان محددة"
+  },
+  "sentry3_snapshot": {
+    "message0": "Sentry3 %1 لقطة شاشة إلى المصدر %2 %3 format%4",
+    "tooltip": "احفظ أو أرسل صور الكاميرا أو الشاشة إلى أهداف محددة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "بطاقة الذاكرة",
+            "kSnapshot2SD"
+          ],
+          [
+            "النسخة التسلسلية",
+            "kSnapshot2Uart"
+          ],
+          [
+            "واجهة تسلسلية عالمية",
+            "kSnapshot2Usb"
+          ],
+          [
+            "الشبكة اللاسلكية",
+            "kSnapshot2Wifi"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "كاميرا",
+            "kSnapshotFromCamera"
+          ],
+          [
+            "شاشة",
+            "kSnapshotFromScreen"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "تنسيق الألوان الأصلي",
+            "kSnapshotTypeRGB565"
+          ],
+          [
+            "ضغط الصورة",
+            "kSnapshotTypeJPEG"
+          ],
+          [
+            "الصور المشفرة بالنص",
+            "kSnapshotTypeJPEGBase64"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_restart": {
+    "message0": "Sentry3 %1 إعادة تشغيل الجهاز",
+    "tooltip": "طلب إعادة تشغيل المستشعر؛ بعد إعادة التشغيل، يحتاج الاتصال إلى إعادة تهيئة"
+  },
+  "sentry3_sensor_default": {
+    "message0": "Sentry3 %1 استعادة الإعدادات الافتراضية استعادة التعرف فقط %2",
+    "tooltip": "استعادة الإعدادات الافتراضية؛ يتم الاحتفاظ بتكوين الاتصال فقط عند استعادة دالة التعرف"
+  },
+  "sentry3_detected_count": {
+    "message0": "وظيفة التعرف %1 Sentry3 %2 عدد الأهداف المكتشفة",
+    "tooltip": "تحديث وإعادة المبلغ المستهدف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_get_value": {
+    "message0": "Sentry3 %1 قراءة الرؤية %2 الهدف %3 %4",
+    "tooltip": "Sentry3 قراءة الرؤية الهدف",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      },
+      null,
+      {
+        "options": [
+          [
+            "إحداثي x (إحداثي x).",
+            "kXValue"
+          ],
+          [
+            "الإحداثيات الرأسية",
+            "kYValue"
+          ],
+          [
+            "width",
+            "kWidthValue"
+          ],
+          [
+            "الارتفاع",
+            "kHeightValue"
+          ],
+          [
+            "التسمية",
+            "kLabel"
+          ],
+          [
+            "القيمة الحمراء",
+            "kRValue"
+          ],
+          [
+            "القيمة الخضراء",
+            "kGValue"
+          ],
+          [
+            "القيمة الزرقاء",
+            "kBValue"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_detected_label": {
+    "message0": "Sentry3 %1 وظيفة التعرف %2 علامة %3 الهدف تساوي %4",
+    "tooltip": "تحقق مما إذا كان تسمية التصنيف للهدف المحدد تطابق القيمة المعطاة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "sentry3_get_string": {
+    "message0": "%1 يقرأ Sentry3 نص %2 الهدف %3",
+    "tooltip": "اقرأ رموز QR، أو الباركود، أو النص، أو سمات الوجه، أو نص لوحة السيارة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ملامح الوجه",
+            "7"
+          ],
+          [
+            "نص رمز الاستجابة السريعة",
+            "9"
+          ],
+          [
+            "نص الباركود",
+            "10"
+          ],
+          [
+            "نص التعرف على النص",
+            "12"
+          ],
+          [
+            "نص لوحة السيارة",
+            "14"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "sentry3_vision_status": {
+    "message0": "ميزة التعرف %1 Sentry3 %2 مفعلة؟",
+    "tooltip": "تحقق مما إذا كانت دالة التعرف مفعلة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_update_result": {
+    "message0": "Sentry3 %1 ضبط الرؤية %2 النتيجة",
+    "tooltip": "Sentry3 ضبط الرؤية النتيجة",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "اللون",
+            "1"
+          ],
+          [
+            "الكتلة",
+            "2"
+          ],
+          [
+            "الاعتراف بالشركة",
+            "3"
+          ],
+          [
+            "الخط",
+            "4"
+          ],
+          [
+            "التعلم",
+            "5"
+          ],
+          [
+            "الوجه",
+            "7"
+          ],
+          [
+            "80 فئة",
+            "8"
+          ],
+          [
+            "رمز QR",
+            "9"
+          ],
+          [
+            "الرمز الشريطي",
+            "10"
+          ],
+          [
+            "النص",
+            "12"
+          ],
+          [
+            "إيماءة اليد",
+            "13"
+          ],
+          [
+            "لوحة المركبة",
+            "14"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_image_rows": {
+    "message0": "Sentry3 %1 ارتفاع الصورة",
+    "tooltip": "اقرأ ارتفاع الصورة"
+  },
+  "sentry3_image_cols": {
+    "message0": "عرض الصورة %1 Sentry3",
+    "tooltip": "عرض الصورة اقرأ"
+  },
+  "sentry3_wifi_connect": {
+    "message0": "Sentry3 %1 الاتصال بالشبكة اللاسلكية اسم %2 كلمة المرور %3",
+    "tooltip": "قم بتكوين الشبكة اللاسلكية وانتظر الاتصال الناجح؛ يتوفر فقط تهيئة المنافذ التسلسلية"
+  },
+  "sentry3_wifi_close": {
+    "message0": "Sentry3 %1 إيقاف الشبكة اللاسلكية",
+    "tooltip": "أوقف شبكة اللاسلكية للمستشعر"
+  },
+  "sentry3_llm_mode": {
+    "message0": "Sentry3 %1 إعداد وضع النموذج الكبير %2",
+    "tooltip": "اضبط وضع تشغيل النموذج الكبير؛ تعتمد المحادثة الصوتية والتعرف على الكلام على دعم البرنامج الثابت",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إيقاف",
+            "kModeClose"
+          ],
+          [
+            "التفكير النصي",
+            "kModeChat"
+          ],
+          [
+            "التفكير البصري",
+            "kModeImage"
+          ],
+          [
+            "محادثة صوتية",
+            "kModeTalk"
+          ],
+          [
+            "التعرف على الكلام",
+            "kModeASR"
+          ],
+          [
+            "تركيب الكلام",
+            "kModeTTS"
+          ]
+        ]
+      }
+    ]
+  },
+  "sentry3_llm_model": {
+    "message0": "Sentry3 %1 مجموعة النموذج الكبير اسم %2",
+    "tooltip": "حدد اسم نموذج السحابة الكبير"
+  },
+  "sentry3_llm_api_key": {
+    "message0": "Sentry3 %1 Set Large Model Key %2",
+    "tooltip": "قم بتعيين مفتاح الخدمة للنموذج الكبير"
+  },
+  "sentry3_llm_prompt": {
+    "message0": "Sentry3 %1 Set Systems Prompts %2",
+    "tooltip": "قم بتعيين التوجيه لنظام النموذج الكبير"
+  },
+  "sentry3_llm_voice": {
+    "message0": "سينتري3 %1 مجموعة غناء مركبة %2",
+    "tooltip": "تعيين اسم الصوت المستخدم في توليف الكلام"
+  },
+  "sentry3_llm_thinking": {
+    "message0": "Sentry3 %1 التفكير العميق %2",
+    "tooltip": "تمكين أو تعطيل التفكير العميق للنماذج الكبيرة"
+  },
+  "sentry3_llm_chat": {
+    "message0": "Sentry3 %1 نموذج كبير يدخل نصا %2 يعيد الإجابات",
+    "tooltip": "يتم إرسال النص إلى النموذج الكبير الحالي ويتم إرجاع الرد"
+  },
+  "sentry3_llm_tts": {
+    "message0": "سينتري3 %1 نص توليف الكلام %2",
+    "tooltip": "يتم تصنيع النص إلى كلام ويشغل عبر مكبرات الصوت المستشعرة"
   }
 }

@@ -1,0 +1,74 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "inicializar TMC2209 %1 serial %2 baud %3 endereço %4 resistor de sentido ohm %5",
+    "tooltip": "Inicialize um driver de passo TMC2209 UART."
+  },
+  "tmc2130_init": {
+    "message0": "inicializar TMC2130 %1 CS pino %2 resistor de sentido ohm %3",
+    "tooltip": "Inicialize um driver de passo SPI de hardware TMC2130."
+  },
+  "tmc_set_current": {
+    "message0": "Driver TMC %1 RMS atual %2 mA hold multiplicador %3",
+    "tooltip": "Defina a corrente do motor RMS e o multiplicador de corrente de retenção."
+  },
+  "tmc_set_motion": {
+    "message0": "Driver TMC %1 microsteps %2 tempo de desligamento do helicóptero %3",
+    "tooltip": "Defina a resolução de microstep e habilite o chopper."
+  },
+  "tmc2209_mode": {
+    "message0": "TMC2209 %1 modo %2 escala automática de corrente %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "StealthChop",
+            "stealth"
+          ],
+          [
+            "SpreadCycle",
+            "spread"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Selecione o modo chopper silencioso ou de alto torque para TMC2209."
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard limite %2 limite legal %3",
+    "tooltip": "Configure limites de retorno sem sensor em TMC2209."
+  },
+  "tmc_read": {
+    "message0": "O driver TMC %1 leu %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "registro de status do motorista",
+            "DRV_STATUS"
+          ],
+          [
+            "período de etapa",
+            "TSTEP"
+          ],
+          [
+            "micropassos",
+            "microsteps"
+          ],
+          [
+            "corrente real mA",
+            "current"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia os diagnósticos e a configuração atual comum aos drivers suportados."
+  },
+  "tmc_connection": {
+    "message0": "Resultado do teste de conexão do driver TMC %1",
+    "tooltip": "Retorne o código de teste de conexão TMCStepper."
+  }
+}

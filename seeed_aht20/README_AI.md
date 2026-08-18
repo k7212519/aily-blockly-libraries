@@ -8,11 +8,11 @@ Blockly library for Seeed Aht20.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `aht20_init` | Statement | (none) | `aht20_init()` | Wire.begin();\naht20_sensor.begin();\n |
-| `aht20_read_temperature` | Value | (none) | `aht20_read_temperature()` | aht20_getTemperature() |
-| `aht20_read_humidity` | Value | (none) | `aht20_read_humidity()` | aht20_getHumidity() |
+| `aht20_init` | Statement | (none) | `aht20_init()` | `Wire.begin(); ↵ aht20_sensor.begin();` |
+| `aht20_read_temperature` | Value | (none) | `aht20_read_temperature()` | `aht20_getTemperature()` |
+| `aht20_read_humidity` | Value | (none) | `aht20_read_humidity()` | `aht20_getHumidity()` |
 
 ## ABS Examples
 

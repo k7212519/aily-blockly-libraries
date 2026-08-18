@@ -11,14 +11,14 @@ DFRobot CT1780 1-Wire K-type high-temperature sensor blocks with bundled OneWire
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ct1780_init` | Statement | `VAR(field_input)`, `PIN(input_value)` | `ct1780_init("ct1780", math_number(2))` | Declares `DFRobot_CT1780 ct1780(pin);` and `uint8_t ct1780_addr[8]`. |
-| `ct1780_reset_search` | Statement | `VAR(field_variable)` | `ct1780_reset_search($ct1780)` | `ct1780.reset_search();` |
-| `ct1780_search_device` | Value Boolean | `VAR(field_variable)` | `ct1780_search_device($ct1780)` | `ct1780.searchDevice(ct1780_addr)` |
-| `ct1780_read_temperature` | Value Number | `VAR(field_variable)` | `ct1780_read_temperature($ct1780)` | `ct1780.getCelsius(ct1780_addr)` |
-| `ct1780_config_addr` | Value Number | `VAR(field_variable)` | `ct1780_config_addr($ct1780)` | `ct1780.getConfigAddr(ct1780_addr)` |
-| `ct1780_address_byte` | Value Number | `VAR(field_variable)`, `INDEX(input_value)` | `ct1780_address_byte($ct1780, math_number(0))` | `ct1780_addr[index]` |
+| `ct1780_init` | Statement | VAR(field_input), PIN(input_value) | `ct1780_init("ct1780", math_number(2))` | `uint8_t ct1780_addr[8] = {0}; ↵ DFRobot_CT1780 ct1780(1);` |
+| `ct1780_reset_search` | Statement | VAR(field_variable) | `ct1780_reset_search($ct1780)` | `ct1780.reset_search();` |
+| `ct1780_search_device` | Value Boolean | VAR(field_variable) | `ct1780_search_device($ct1780)` | `ct1780.searchDevice(ct1780_addr)` |
+| `ct1780_read_temperature` | Value Number | VAR(field_variable) | `ct1780_read_temperature($ct1780)` | `ct1780.getCelsius(ct1780_addr)` |
+| `ct1780_config_addr` | Value Number | VAR(field_variable) | `ct1780_config_addr($ct1780)` | `ct1780.getConfigAddr(ct1780_addr)` |
+| `ct1780_address_byte` | Value Number | VAR(field_variable), INDEX(input_value) | `ct1780_address_byte($ct1780, math_number(0))` | `ct1780_addr[1]` |
 
 ## Parameter Options
 

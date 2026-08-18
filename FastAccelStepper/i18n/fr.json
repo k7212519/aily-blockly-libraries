@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "initialiser le pas à pas rapide %1 broche de pas %2 broche de direction %3 activer la broche %4",
+    "tooltip": "Connectez une instance FastAccelStepper et activez l'alimentation automatique du moteur."
+  },
+  "fast_stepper_set_profile": {
+    "message0": "moteur pas à pas rapide %1 vitesse réglée %2 pas/s accélération %3 pas/s2",
+    "tooltip": "Réglez la vitesse et l'accélération maximales."
+  },
+  "fast_stepper_move": {
+    "message0": "Stepper rapide %1 déplacer les étapes %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "relatif par",
+            "move"
+          ],
+          [
+            "absolu à",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Mettez en file d'attente un mouvement relatif ou absolu."
+  },
+  "fast_stepper_run": {
+    "message0": "moteur pas à pas rapide %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "avancer continuellement",
+            "runForward"
+          ],
+          [
+            "courir en arrière continuellement",
+            "runBackward"
+          ],
+          [
+            "décélérer et s'arrêter",
+            "stopMove"
+          ],
+          [
+            "forcer l'arrêt en position 0",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Faites fonctionner en continu ou arrêtez le moteur."
+  },
+  "fast_stepper_position": {
+    "message0": "Stepper rapide %1 définir la position actuelle %2",
+    "tooltip": "Réinitialisez la position logique lorsque le moteur est arrêté."
+  },
+  "fast_stepper_state": {
+    "message0": "moteur pas à pas rapide %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "poste actuel",
+            "getCurrentPosition"
+          ],
+          [
+            "position cible",
+            "targetPos"
+          ],
+          [
+            "est en cours d'exécution",
+            "isRunning"
+          ],
+          [
+            "fonctionne en continu",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lire la position du moteur pas à pas ou l'état de mouvement."
+  }
+}

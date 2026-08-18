@@ -1,0 +1,775 @@
+{
+  "toolbox_name": "Xiaomi MiMo IA",
+  "toolbox_labels": {
+    "变量声明": "Variables",
+    "提示：请手动将变量类型改为字符串型": "Astuce : changez manuellement le type en chaîne",
+    "初始化": "Initialisation",
+    "loop": "loop"
+  },
+  "toolbox_categories": [
+    "Initialiser",
+    "Réglages",
+    "État",
+    "Exemple chat série",
+    "Exemple lecture série",
+    "Exemple dialogue vocal",
+    "Exemple vision photo"
+  ],
+  "mimo_init": {
+    "message0": "initialiser MiMo client %1 API Key %2 mode d'accès %3",
+    "tooltip": "Exécute initialiser MiMo client API Key mode d'accès. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "À l'usage",
+            "PAYG"
+          ],
+          [
+            "Token Plan",
+            "TOKEN_PLAN"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_set_ca_certificate": {
+    "message0": "MiMo %1 définir TLS root certificate %2",
+    "tooltip": "Exécute MiMo définir TLS root certificate. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_set_model": {
+    "message0": "MiMo %1 utiliser modèle %2",
+    "tooltip": "Exécute MiMo utiliser modèle. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "MiMo V2.5 multimodal",
+            "mimo-v2.5"
+          ],
+          [
+            "MiMo V2.5 Pro",
+            "mimo-v2.5-pro"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_set_system_prompt": {
+    "message0": "MiMo %1 définir invite système %2",
+    "tooltip": "Exécute MiMo définir invite système. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_set_generation": {
+    "message0": "MiMo %1 sortie maximale %2 réflexion approfondie %3 temperature %4 top_p %5",
+    "tooltip": "Exécute MiMo sortie maximale réflexion approfondie temperature top_p. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Activé",
+            "enabled"
+          ],
+          [
+            "Désactivé",
+            "disabled"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "mimo_set_json_mode": {
+    "message0": "MiMo %1 JSON mode de sortie %2",
+    "tooltip": "Exécute MiMo JSON mode de sortie. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_clear_messages": {
+    "message0": "MiMo %1 effacer l'historique",
+    "tooltip": "Exécute MiMo effacer l'historique. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_add_user_message": {
+    "message0": "MiMo %1 ajouter un message utilisateur %2",
+    "tooltip": "Exécute MiMo ajouter un message utilisateur. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_add_assistant_message": {
+    "message0": "MiMo %1 ajouter un message assistant %2",
+    "tooltip": "Exécute MiMo ajouter un message assistant. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_chat": {
+    "message0": "MiMo %1 demander %2",
+    "tooltip": "Exécute MiMo demander. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_chat_with_tools": {
+    "message0": "MiMo %1 demander %3 avec définitions d'outils %2",
+    "tooltip": "Exécute MiMo demander avec définitions d'outils. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_continue_tool": {
+    "message0": "MiMo %1 renvoyer le résultat d'outil %2 et continuer",
+    "tooltip": "Exécute MiMo renvoyer le résultat d'outil et continuer. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_when_tool_called": {
+    "message0": "quand MiMo %1 appelle l'outil %2",
+    "tooltip": "Exécute quand MiMo appelle l'outil. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "message1": "执行 %1"
+  },
+  "mimo_tool_arguments": {
+    "message0": "MiMo %1 arguments d'outil actuels JSON",
+    "tooltip": "Exécute MiMo arguments d'outil actuels JSON. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_web_search": {
+    "message0": "MiMo %1 question web %2 forcer la recherche %3 mots-clés max. %4 résultats par mot %5 pays %6 région %7 ville %8",
+    "tooltip": "Exécute MiMo question web forcer la recherche mots-clés max. résultats par mot pays région ville. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_image_url": {
+    "message0": "MiMo %1 comprendre image URL %2 question %3",
+    "tooltip": "Exécute MiMo comprendre image URL question. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_image_base64": {
+    "message0": "MiMo %1 comprendre Base64 image %2 MIME %3 question %4",
+    "tooltip": "Exécute MiMo comprendre Base64 image MIME question. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_audio_url": {
+    "message0": "MiMo %1 comprendre audio URL %2 question %3",
+    "tooltip": "Exécute MiMo comprendre audio URL question. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_audio_base64": {
+    "message0": "MiMo %1 comprendre Base64 audio %2 MIME %3 question %4",
+    "tooltip": "Exécute MiMo comprendre Base64 audio MIME question. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_video_url": {
+    "message0": "MiMo %1 comprendre video URL %2 question %3 FPS %4 detail %5",
+    "tooltip": "Exécute MiMo comprendre video URL question FPS detail. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Par défaut",
+            "default"
+          ],
+          [
+            "Maximum",
+            "max"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_video_base64": {
+    "message0": "MiMo %1 comprendre Base64 video %2 MIME %3 question %4 FPS %5 detail %6",
+    "tooltip": "Exécute MiMo comprendre Base64 video MIME question FPS detail. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Par défaut",
+            "default"
+          ],
+          [
+            "Maximum",
+            "max"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_asr_base64": {
+    "message0": "MiMo %1 reconnaître Base64 audio %2 MIME %3 langue %4",
+    "tooltip": "Exécute MiMo reconnaître Base64 audio MIME langue. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Auto",
+            "auto"
+          ],
+          [
+            "Chinois",
+            "zh"
+          ],
+          [
+            "Anglais",
+            "en"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_tts_preset": {
+    "message0": "MiMo %1 preset voix synthétiser texte %2 style %3 voix %4 format %5",
+    "tooltip": "Exécute MiMo preset voix synthétiser texte style voix format. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Par défaut",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_speaker_init_i2s": {
+    "message0": "initialiser MiMo I2S speaker %1 BCLK %2 LRC %3 DIN %4",
+    "tooltip": "Exécute initialiser MiMo I2S speaker BCLK LRC DIN. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_speaker_tone": {
+    "message0": "MiMo speaker %1 play tone frequency %2 Hz duration %3 ms",
+    "tooltip": "Exécute MiMo speaker play tone frequency Hz duration ms. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_tts_speak_i2s": {
+    "message0": "MiMo %1 stream speech pour speaker %2 texte %3 style %4 voix %5",
+    "tooltip": "Exécute MiMo stream speech pour speaker texte style voix. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Par défaut",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_es8311_init": {
+    "message0": "initialiser MiMo ES8311 audio %1 SDA %2 SCL %3 address %4 MCK %5 BCK %6 WS %7 DOUT %8 DIN %9 max enregistrer secondes %10 PA_EN %11",
+    "tooltip": "Exécute initialiser MiMo ES8311 audio SDA SCL address MCK BCK WS DOUT DIN max enregistrer secondes PA_EN. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "自动扫描",
+            "0"
+          ],
+          [
+            "0x18",
+            "0x18"
+          ],
+          [
+            "0x30",
+            "0x30"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "mimo_es8311_set_volume": {
+    "message0": "MiMo ES8311 %1 définir speaker volume %2 percent",
+    "tooltip": "Exécute MiMo ES8311 définir speaker volume percent. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_set_mic_gain": {
+    "message0": "MiMo ES8311 %1 définir microphone gain %2",
+    "tooltip": "Exécute MiMo ES8311 définir microphone gain. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_tone": {
+    "message0": "MiMo ES8311 %1 play tone frequency %2 Hz duration %3 ms",
+    "tooltip": "Exécute MiMo ES8311 play tone frequency Hz duration ms. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_record": {
+    "message0": "MiMo ES8311 %1 enregistrer %2 secondes en WAV Base64",
+    "tooltip": "Exécute MiMo ES8311 enregistrer secondes en WAV Base64. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_transcribe": {
+    "message0": "MiMo %1 utiliser ES8311 %2 enregistrer %3 secondes et reconnaître langue %4",
+    "tooltip": "Exécute MiMo utiliser ES8311 enregistrer secondes et reconnaître langue. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Auto",
+            "auto"
+          ],
+          [
+            "Chinois",
+            "zh"
+          ],
+          [
+            "Anglais",
+            "en"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_tts_speak_es8311": {
+    "message0": "MiMo %1 stream speech pour ES8311 %2 texte %3 style %4 voix %5",
+    "tooltip": "Exécute MiMo stream speech pour ES8311 texte style voix. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Par défaut",
+            "mimo_default"
+          ],
+          [
+            "冰糖",
+            "冰糖"
+          ],
+          [
+            "茉莉",
+            "茉莉"
+          ],
+          [
+            "苏打",
+            "苏打"
+          ],
+          [
+            "白桦",
+            "白桦"
+          ],
+          [
+            "Mia",
+            "Mia"
+          ],
+          [
+            "Chloe",
+            "Chloe"
+          ],
+          [
+            "Milo",
+            "Milo"
+          ],
+          [
+            "Dean",
+            "Dean"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_es8311_end": {
+    "message0": "stop MiMo ES8311 %1 audio",
+    "tooltip": "Exécute stop MiMo ES8311 audio. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_tts_voice_design": {
+    "message0": "MiMo %1 concevoir voix description %2 texte %3 optimiser %4 format %5",
+    "tooltip": "Exécute MiMo concevoir voix description texte optimiser format. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_tts_voice_clone": {
+    "message0": "MiMo %1 cloner voix échantillon %2 MIME %3 texte %4 style %5 format %6",
+    "tooltip": "Exécute MiMo cloner voix échantillon MIME texte style format. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "WAV",
+            "wav"
+          ],
+          [
+            "PCM16",
+            "pcm16"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_camera_init_profile": {
+    "message0": "initialiser MiMo caméra %1 carte %2 résolution %3 JPEG qualité %4",
+    "tooltip": "Exécute initialiser MiMo caméra carte résolution JPEG qualité. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ESP32S3 RGB565 摄像头",
+            "ESP32S3_RGB565"
+          ],
+          [
+            "AI Thinker ESP32-CAM",
+            "AI_THINKER"
+          ],
+          [
+            "XIAO ESP32S3 Sense",
+            "XIAO_ESP32S3"
+          ],
+          [
+            "ESP32-S3-EYE",
+            "ESP32S3_EYE"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "QVGA 320x240",
+            "FRAMESIZE_QVGA"
+          ],
+          [
+            "VGA 640x480",
+            "FRAMESIZE_VGA"
+          ],
+          [
+            "SVGA 800x600",
+            "FRAMESIZE_SVGA"
+          ],
+          [
+            "XGA 1024x768",
+            "FRAMESIZE_XGA"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "mimo_camera_init_custom": {
+    "message0": "initialiser personnalisé MiMo caméra %1 résolution %2 JPEG qualité %3",
+    "tooltip": "Exécute initialiser personnalisé MiMo caméra résolution JPEG qualité. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "message1": "PWDN %1 RESET %2 XCLK %3 SIOD %4 SIOC %5",
+    "message2": "Y2 %1 Y3 %2 Y4 %3 Y5 %4 Y6 %5 Y7 %6 Y8 %7 Y9 %8",
+    "message3": "VSYNC %1 HREF %2 PCLK %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "QVGA 320x240",
+            "FRAMESIZE_QVGA"
+          ],
+          [
+            "VGA 640x480",
+            "FRAMESIZE_VGA"
+          ],
+          [
+            "SVGA 800x600",
+            "FRAMESIZE_SVGA"
+          ],
+          [
+            "XGA 1024x768",
+            "FRAMESIZE_XGA"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "mimo_camera_capture": {
+    "message0": "MiMo caméra %1 capturer Base64 photo",
+    "tooltip": "Exécute MiMo caméra capturer Base64 photo. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_camera_ask": {
+    "message0": "MiMo %1 utiliser caméra %2 pour capturer et demander %3",
+    "tooltip": "Exécute MiMo utiliser caméra pour capturer et demander. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_camera_end": {
+    "message0": "fermer MiMo caméra %1",
+    "tooltip": "Exécute fermer MiMo caméra. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_mic_init_i2s_preset": {
+    "message0": "initialiser common I2S microphone %1 modèle %2 BCLK %3 WS %4 DATA %5 fréquence %6",
+    "tooltip": "Exécute initialiser common I2S microphone modèle BCLK WS DATA fréquence. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "I2S générique",
+            "COMMON_I2S"
+          ],
+          [
+            "MSM261S4030H0R",
+            "MSM261S4030H0R"
+          ],
+          [
+            "INMP441",
+            "INMP441"
+          ],
+          [
+            "ICS-43434",
+            "ICS43434"
+          ],
+          [
+            "SPH0645LM4H",
+            "SPH0645LM4H"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "mimo_mic_init_i2s": {
+    "message0": "initialiser MiMo I2S microphone %1 BCLK %2 WS %3 DATA %4 fréquence %5 channel %6 gain %7",
+    "tooltip": "Exécute initialiser MiMo I2S microphone BCLK WS DATA fréquence channel gain. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Canal gauche",
+            "LEFT"
+          ],
+          [
+            "Canal droit",
+            "RIGHT"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "mimo_mic_init_pdm": {
+    "message0": "initialiser MiMo PDM microphone %1 CLK %2 DATA %3 fréquence %4",
+    "tooltip": "Exécute initialiser MiMo PDM microphone CLK DATA fréquence. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_mic_record": {
+    "message0": "MiMo microphone %1 enregistrer %2 secondes en WAV Base64",
+    "tooltip": "Exécute MiMo microphone enregistrer secondes en WAV Base64. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_mic_transcribe": {
+    "message0": "MiMo %1 utiliser microphone %2 enregistrer %3 secondes et reconnaître langue %4",
+    "tooltip": "Exécute MiMo utiliser microphone enregistrer secondes et reconnaître langue. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Auto",
+            "auto"
+          ],
+          [
+            "Chinois",
+            "zh"
+          ],
+          [
+            "Anglais",
+            "en"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_mic_analyze": {
+    "message0": "MiMo %1 utiliser microphone %2 enregistrer %3 secondes et analyser %4",
+    "tooltip": "Exécute MiMo utiliser microphone enregistrer secondes et analyser. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_mic_end": {
+    "message0": "fermer MiMo microphone %1",
+    "tooltip": "Exécute fermer MiMo microphone. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_ok": {
+    "message0": "MiMo %1 dernière requête réussie",
+    "tooltip": "Exécute MiMo dernière requête réussie. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_last_reasoning": {
+    "message0": "MiMo %1 dernier raisonnement",
+    "tooltip": "Exécute MiMo dernier raisonnement. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_last_error": {
+    "message0": "MiMo %1 dernière erreur",
+    "tooltip": "Exécute MiMo dernière erreur. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_http_status": {
+    "message0": "MiMo %1 HTTP code d'état",
+    "tooltip": "Exécute MiMo HTTP code d'état. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_token_usage": {
+    "message0": "MiMo %1 last %2 nombre de jetons",
+    "tooltip": "Exécute MiMo last nombre de jetons. En cas d'échec, lire les blocs d'état et d'erreur correspondants.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Entrée",
+            "PROMPT"
+          ],
+          [
+            "Sortie",
+            "COMPLETION"
+          ],
+          [
+            "Total",
+            "TOTAL"
+          ]
+        ]
+      }
+    ]
+  },
+  "mimo_raw_response": {
+    "message0": "MiMo %1 dernière réponse brute",
+    "tooltip": "Exécute MiMo dernière réponse brute. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_camera_ready": {
+    "message0": "MiMo caméra %1 est prêt",
+    "tooltip": "Exécute MiMo caméra est prêt. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_camera_error": {
+    "message0": "MiMo caméra %1 dernière erreur",
+    "tooltip": "Exécute MiMo caméra dernière erreur. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_mic_ready": {
+    "message0": "MiMo microphone %1 est prêt",
+    "tooltip": "Exécute MiMo microphone est prêt. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_mic_error": {
+    "message0": "MiMo microphone %1 dernière erreur",
+    "tooltip": "Exécute MiMo microphone dernière erreur. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_speaker_ready": {
+    "message0": "MiMo speaker %1 est prêt",
+    "tooltip": "Exécute MiMo speaker est prêt. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_speaker_error": {
+    "message0": "MiMo speaker %1 dernière erreur",
+    "tooltip": "Exécute MiMo speaker dernière erreur. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_ready": {
+    "message0": "MiMo ES8311 %1 est prêt",
+    "tooltip": "Exécute MiMo ES8311 est prêt. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_error": {
+    "message0": "MiMo ES8311 %1 dernière erreur",
+    "tooltip": "Exécute MiMo ES8311 dernière erreur. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  },
+  "mimo_es8311_sound_level": {
+    "message0": "MiMo ES8311 %1 current sound level",
+    "tooltip": "Exécute MiMo ES8311 current sound level. En cas d'échec, lire les blocs d'état et d'erreur correspondants."
+  }
+}

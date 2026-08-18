@@ -1,0 +1,14 @@
+{
+  "toolbox_name": "NES模擬器",
+  "toolbox_labels": {
+    "NES模拟器": "NES模擬器"
+  },
+  "nofrendo_start": {
+    "message0": "NES模擬器 載入遊戲ROM %1",
+    "tooltip": "啟動NES模擬器並載入指定ROM路徑（如 /sdcard/game.nes）。需先初始化SD卡和TFT螢幕。"
+  },
+  "nofrendo_find_rom": {
+    "message0": "在SD卡上查找.nes遊戲文件",
+    "tooltip": "搜尋SD卡根目錄下的第一個.nes檔並傳回完整路徑。未找到則傳回空字串。"
+  }
+}

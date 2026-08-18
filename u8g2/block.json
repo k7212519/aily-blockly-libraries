@@ -402,51 +402,6 @@
     "icon": "iconfont icon-oled12864"
   },
   {
-    "type": "u8g2_step_animation_frame",
-    "message0": "让帧变量 %1 向目标帧 %2 移动一步 总帧数 %3 方向 %4",
-    "args0": [
-      {
-        "type": "field_variable",
-        "name": "FRAME_VAR",
-        "variable": "animationFrame"
-      },
-      {
-        "type": "input_value",
-        "name": "TARGET",
-        "check": "Number"
-      },
-      {
-        "type": "input_value",
-        "name": "FRAME_COUNT",
-        "check": "Number"
-      },
-      {
-        "type": "field_dropdown",
-        "name": "DIRECTION",
-        "options": [
-          [
-            "自动",
-            "AUTO"
-          ],
-          [
-            "正向",
-            "FORWARD"
-          ],
-          [
-            "反向",
-            "BACKWARD"
-          ]
-        ]
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#4DB6AC",
-    "tooltip": "每执行一次，让帧变量向目标帧推进一帧；正向和反向会在首尾循环，自动方向会根据当前帧和目标帧决定方向",
-    "inputsInline": true,
-    "icon": "iconfont icon-oled12864"
-  },
-  {
     "inputsInline": true,
     "message0": "小图标16×16 %1",
     "type": "u8g2_icon_16x16",

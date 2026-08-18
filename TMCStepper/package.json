@@ -1,0 +1,58 @@
+{
+  "name": "@aily-project/lib-tmcstepper",
+  "nickname": "TMCStepper",
+  "nickname_en": "TMCStepper",
+  "author": "teemuatlut",
+  "description": "Configure TMC2209 UART and TMC2130 SPI stepper drivers with diagnostics.",
+  "description_en": "Configure TMC2209 UART and TMC2130 SPI stepper drivers with diagnostics.",
+  "version": "0.1.0",
+  "url": "https://github.com/teemuatlut/TMCStepper",
+  "license": "MIT",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "tmc2209",
+    "tmc2130",
+    "stepper",
+    "trinamic"
+  ],
+  "bundledDependencies": {
+    "TMCStepper": "0.7.3"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "motor",
+    "motion"
+  ],
+  "nickname_zh_cn": "TMCStepper",
+  "description_zh_cn": "配置带有诊断功能的 TMC2209 UART 和 TMC2130 SPI 步进驱动器。",
+  "nickname_zh_hk": "TMCStepper",
+  "description_zh_hk": "配置具有診斷功能的 TMC2209 UART 和 TMC2130 SPI 步進驅動器。",
+  "nickname_ja": "TMCStepper",
+  "description_ja": "診断機能を備えた TMC2209 UART および TMC2130 SPI ステッパー ドライバーを構成します。",
+  "nickname_ko": "TMCStepper",
+  "description_ko": "진단 기능을 사용하여 TMC2209 UART 및 TMC2130 SPI 스테퍼 드라이버를 구성합니다.",
+  "nickname_de": "TMCStepper",
+  "description_de": "Konfigurieren Sie die Schrittmotortreiber TMC2209 UART und TMC2130 SPI mit Diagnose.",
+  "nickname_fr": "TMCStepper",
+  "description_fr": "Configurez les pilotes pas à pas TMC2209 UART et TMC2130 SPI avec diagnostics.",
+  "nickname_es": "TMCStepper",
+  "description_es": "Configure los controladores paso a paso TMC2209 UART y TMC2130 SPI con diagnóstico.",
+  "nickname_pt": "TMCStepper",
+  "description_pt": "Configure os drivers de passo TMC2209 UART e TMC2130 SPI com diagnóstico.",
+  "nickname_ru": "TMCStepper",
+  "description_ru": "Настройте драйверы шаговых двигателей TMC2209 UART и TMC2130 SPI с диагностикой.",
+  "nickname_ar": "TMCStepper",
+  "description_ar": "قم بتكوين برامج تشغيل السائر TMC2209 UART وTMC2130 SPI باستخدام التشخيصات."
+}

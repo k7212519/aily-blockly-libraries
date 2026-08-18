@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "ESP32-Spracherkennung",
+  "esp32_esp_sr_begin": {
+    "message0": "Spracherkennung I2S starten %1 Befehl 1 %2 Befehl 2 %3 Befehl 3 %4 Befehl 4 %5 Kanal %6 Eingabeformat %7",
+    "tooltip": "Startet die Offline-Spracherkennung und weist vier Phrasen die Befehls-IDs 1-4 zu.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Mono",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "Stereo",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "Spracherkennung %1",
+    "tooltip": "Spracherkennung beenden, anhalten oder fortsetzen.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Ende",
+            "end"
+          ],
+          [
+            "Pause",
+            "pause"
+          ],
+          [
+            "Wiederherstellen",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "Spracherkennungsmodus %1",
+    "tooltip": "Aktivierungswort- oder Befehlserkennungsmodus umschalten.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Weckwort",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "Befehlswort",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "Spracherkennung aktuelle Ereignisse",
+    "tooltip": "Gibt den neuesten sr_event_t-Wert zurück."
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "ID des letzten Befehls der Spracherkennung",
+    "tooltip": "Gibt die zuletzt erkannte Befehls-ID zurück."
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "ID der letzten Phrase der Spracherkennung",
+    "tooltip": "Gibt die zuletzt erkannte Phrasen-ID zurück."
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "Sprachereignis %1",
+    "tooltip": "Gibt die Sprachereigniskonstante zurück.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Weckwort",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "Weckkanal",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "-Befehl",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "Zeitüberschreitung",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

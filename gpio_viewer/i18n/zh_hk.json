@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "GPIO Viewer",
+  "gpio_viewer_init": {
+    "message0": "初始化 GPIO 檢視器 %1 連接埠 %2 取樣 ms %3 跳過外設接腳 %4",
+    "tooltip": "設定並啟動 ESP32 GPIO 檢視器 Web 應用程式。"
+  },
+  "gpio_viewer_wifi": {
+    "message0": "GPIO 檢視器 %1 連線 Wi-Fi SSID %2 密碼 %3",
+    "tooltip": "讓 GPIO Viewer 建立站模式 Wi-Fi 連線。"
+  },
+  "gpio_viewer_set": {
+    "message0": "GPIO 檢視器 %1 將 %2 設定為 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "HTTP端口",
+            "setPort"
+          ],
+          [
+            "採樣間隔毫秒",
+            "setSamplingInterval"
+          ],
+          [
+            "跳過外圍引腳",
+            "setSkipPeripheralPins"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "在開始之前調整 GPIO 檢視器配置。"
+  },
+  "gpio_viewer_begin": {
+    "message0": "啟動GPIO檢視器%1",
+    "tooltip": "網路和應用程式設定後啟動 GPIO 檢視器。"
+  }
+}

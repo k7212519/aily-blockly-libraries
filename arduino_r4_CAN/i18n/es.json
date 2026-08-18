@@ -1,7 +1,7 @@
 {
-  "toolbox_name": "CAN总线",
+  "toolbox_name": "Autobús CAN",
   "can_begin": {
-    "message0": "初始化CAN总线 速率 %1",
+    "message0": "Inicializar la tasa del bus CAN %1",
     "args0": [
       {
         "options": [
@@ -23,60 +23,69 @@
           ]
         ]
       }
-    ]
+    ],
+    "tooltip": "Inicializa el bus CAN y establece la velocidad de comunicación."
   },
   "can_available": {
-    "message0": "CAN总线有新消息可读"
+    "message0": "El bus CAN tiene nuevos mensajes para leer",
+    "tooltip": "Comprueba si hay mensajes nuevos en el buffer de recepción CAN."
   },
   "can_read": {
-    "message0": "读取CAN消息到变量 %1"
+    "message0": "Lee mensajes CAN a variables %1",
+    "tooltip": "Lee un mensaje desde el bus CAN y guárdalo en la variable seleccionada."
   },
   "can_create_message": {
-    "message0": "创建CAN消息 ID %1 数据 %2"
+    "message0": "Crear ID de mensaje CAN %1 datos %2",
+    "tooltip": "Crea un mensaje CAN usando identificadores y arrays de bytes especificados."
   },
   "can_write": {
-    "message0": "发送CAN消息 %1"
+    "message0": "Envía mensajes CAN %1",
+    "tooltip": "Envía el mensaje CAN especificado al bus."
   },
   "can_get_message_id": {
-    "message0": "获取CAN消息 %1 的ID"
+    "message0": "Obtén el ID del mensaje CAN %1",
+    "tooltip": "Devuelve el identificador del mensaje CAN seleccionado."
   },
   "can_get_message_data": {
-    "message0": "获取CAN消息 %1 的数据字节 %2"
+    "message0": "Obtener el mensaje CAN %1 bytes de datos %2",
+    "tooltip": "Devuelve el byte de datos del índice especificado en el mensaje CAN seleccionado."
   },
   "can_set_filter_mask": {
-    "message0": "设置CAN过滤器掩码 %1 值 %2",
+    "message0": "Configurar máscara de filtro CAN %1 valor %2",
     "args0": [
       {
         "options": [
           [
-            "标准",
+            "Estándar",
             "Standard"
           ],
           [
-            "扩展",
+            "Ampliar",
             "Extended"
           ]
         ]
       },
       null
-    ]
+    ],
+    "tooltip": "Configura la máscara para el filtro de fotograma estándar o de fotograma extendido."
   },
   "can_set_filter_id": {
-    "message0": "设置CAN过滤器ID %1 值 %2",
+    "message0": "Establece el ID del filtro CAN %1 valor %2",
     "args0": [
       {
         "options": [
           [
-            "标准",
+            "Estándar",
             "Standard"
           ],
           [
-            "扩展",
+            "Ampliar",
             "Extended"
           ]
         ]
       },
       null
-    ]
+    ],
+    "tooltip": "Establece el identificador correspondiente para el filtro estándar de trama o trama extendida."
   }
 }

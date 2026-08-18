@@ -1,0 +1,151 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "inicializar SdFat %1 CS pino %2 máximo SPI MHz %3",
+    "tooltip": "Monte uma placa FAT ou exFAT SD sobre SPI."
+  },
+  "sdfat_file_open": {
+    "message0": "abra o arquivo SdFat %1 no caminho %2 modo %3 %4",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "leia",
+            "O_RDONLY"
+          ],
+          [
+            "escrever/anexar",
+            "O_WRONLY | O_CREAT | O_APPEND"
+          ],
+          [
+            "escrever/truncar",
+            "O_WRONLY | O_CREAT | O_TRUNC"
+          ],
+          [
+            "ler/escrever",
+            "O_RDWR | O_CREAT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Crie um objeto FsFile e abra um caminho."
+  },
+  "sdfat_file_write": {
+    "message0": "SdFat arquivo %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "imprimir sem nova linha",
+            "print"
+          ],
+          [
+            "imprimir com uma nova linha",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Escreva um valor em um arquivo aberto."
+  },
+  "sdfat_file_control": {
+    "message0": "SdFat arquivo %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "buscar posição de arquivo para",
+            "seek"
+          ],
+          [
+            "truncar arquivo em",
+            "truncate"
+          ],
+          [
+            "liberar buffer de arquivo",
+            "flush"
+          ],
+          [
+            "fechar",
+            "close"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Procure, trunque, libere ou feche um arquivo aberto."
+  },
+  "sdfat_file_read": {
+    "message0": "Arquivo SdFat %1 lido %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "próximo byte",
+            "read"
+          ],
+          [
+            "linha de texto",
+            "line"
+          ],
+          [
+            "todo o texto do arquivo",
+            "string"
+          ],
+          [
+            "bytes disponíveis",
+            "available"
+          ],
+          [
+            "tamanho",
+            "size"
+          ],
+          [
+            "posição",
+            "position"
+          ],
+          [
+            "arquivo está aberto",
+            "open"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia dados ou estado de um arquivo aberto."
+  },
+  "sdfat_fs_operation": {
+    "message0": "SdFat %1 %2 caminho %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "criar diretório",
+            "mkdir"
+          ],
+          [
+            "remover diretório",
+            "rmdir"
+          ],
+          [
+            "remover arquivo",
+            "remove"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Modifique o sistema de arquivos do cartão SD."
+  },
+  "sdfat_exists": {
+    "message0": "SdFat %1 caminho %2 existe",
+    "tooltip": "Verifique se existe um caminho."
+  }
+}

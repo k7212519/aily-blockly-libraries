@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 OpenThread",
+  "esp32_openthread_begin": {
+    "message0": "Inicializa OpenThread para iniciar automáticamente %1",
+    "tooltip": "Inicializa la pila OpenThread."
+  },
+  "esp32_openthread_end": {
+    "message0": "Finalizar OpenThread",
+    "tooltip": "Cierra la pila OpenThread."
+  },
+  "esp32_openthread_control": {
+    "message0": "OpenThread %1",
+    "tooltip": "Controla la red o interfaz de Thread.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Iniciar red",
+            "start"
+          ],
+          [
+            "Detener la red",
+            "stop"
+          ],
+          [
+            "Interfaz en línea",
+            "networkInterfaceUp"
+          ],
+          [
+            "Interfaz fuera de línea",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread se está ejecutando",
+    "tooltip": "Verifique si la pila OpenThread se está ejecutando."
+  },
+  "esp32_openthread_role": {
+    "message0": "Rol actual de OpenThread",
+    "tooltip": "Regreso deshabilitado/separado/secundario/enrutador/líder."
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "OpenThread tiene un conjunto de datos activo",
+    "tooltip": "Compruebe si se ha enviado el conjunto de datos activo."
+  },
+  "esp32_openthread_dataset": {
+    "message0": "Crear y enviar el conjunto de datos del hilo %1 Nombre %2 Canal %3 PAN ID %4",
+    "tooltip": "Cree un nuevo conjunto de datos activo y envíelo."
+  },
+  "esp32_openthread_network_number": {
+    "message0": "Valor de red OpenThread %1",
+    "tooltip": "Lea el valor de la red Thread.",
+    "args0": [
+      {
+        "options": [
+          [
+            "canal",
+            "getChannel"
+          ],
+          [
+            "ID PAN",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "Número de direcciones de unidifusión",
+            "getUnicastAddressCount"
+          ],
+          [
+            "Número de direcciones de multidifusión",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "Texto de red OpenThread %1",
+    "tooltip": "Lea el nombre de la red o la dirección IPv6.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Nombre de red",
+            "getNetworkName"
+          ],
+          [
+            "EID local de malla",
+            "getMeshLocalEid"
+          ],
+          [
+            "Líder RLOC",
+            "getLeaderRloc"
+          ],
+          [
+            "RLOC nativo",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

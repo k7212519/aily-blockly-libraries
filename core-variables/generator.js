@@ -813,7 +813,6 @@ Arduino.forBlock["variable_define"] = function (block, generator) {
     }
   }
 
-  const gorp = block.getFieldValue("GORP");
   let type = block.getFieldValue("TYPE");
   const name = block.getFieldValue("VAR");
   let value = Arduino.valueToCode(block, "VALUE", Arduino.ORDER_ATOMIC);
@@ -885,7 +884,6 @@ Arduino.forBlock["variable_define_scoped"] = function (block, generator) {
     }
   }
 
-  const gorp = block.getFieldValue("GORP");
   let type = block.getFieldValue("TYPE");
   const name = block.getFieldValue("VAR");
   let value = Arduino.valueToCode(block, "VALUE", Arduino.ORDER_ATOMIC);

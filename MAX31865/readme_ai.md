@@ -8,13 +8,13 @@ MAX31865 temperature sensor library supports PT100/PT1000 temperature sensors an
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `max31865_init` | Statement | CS_PIN(dropdown), WIRE_MODE(dropdown), SENSOR_TYPE(dropdown) | `max31865_init(CS_PIN, MAX31865_2WIRE, MAX31865_PT100)` | maxTemp.begin( |
-| `max31865_read` | Statement | TEMP_VAR(field_variable), RESISTANCE_VAR(field_variable), STATUS_VAR(field_variable) | `max31865_read(variables_get($temperature), variables_get($resistance), variables_get($status))` | maxTemp.MAX31865_GetTemperatureAndStatus( |
-| `max31865_set_low_threshold` | Statement | THRESHOLD(input_value) | `max31865_set_low_threshold(math_number(0))` | maxTemp.MAX31865_SetLowFaultThreshold( |
-| `max31865_set_high_threshold` | Statement | THRESHOLD(input_value) | `max31865_set_high_threshold(math_number(0))` | maxTemp.MAX31865_SetHighFaultThreshold( |
-| `max31865_check_fault` | Value | FAULT_TYPE(dropdown) | `max31865_check_fault(MAX31865_FAULT_TEMP_HIGH)` | Dynamic code |
+| `max31865_init` | Statement | CS_PIN(dropdown), WIRE_MODE(dropdown), SENSOR_TYPE(dropdown) | `max31865_init(CS_PIN, MAX31865_2WIRE, MAX31865_PT100)` | `maxTemp.begin(CS_PIN, MAX31865_2WIRE, MAX31865_PT100);` |
+| `max31865_read` | Statement | TEMP_VAR(field_variable), RESISTANCE_VAR(field_variable), STATUS_VAR(field_variable) | `max31865_read($temperature, $resistance, $status)` | `maxTemp.MAX31865_GetTemperatureAndStatus(temperature, resistance, status);` |
+| `max31865_set_low_threshold` | Statement | THRESHOLD(input_value) | `max31865_set_low_threshold(math_number(0))` | `maxTemp.MAX31865_SetLowFaultThreshold(1);` |
+| `max31865_set_high_threshold` | Statement | THRESHOLD(input_value) | `max31865_set_high_threshold(math_number(0))` | `maxTemp.MAX31865_SetHighFaultThreshold(1);` |
+| `max31865_check_fault` | Value | FAULT_TYPE(dropdown), STATUS_VAR(field_variable) | `max31865_check_fault(MAX31865_FAULT_TEMP_HIGH, $status)` | `((status & MAX31865_FAULT_TEMP_HIGH) != 0)` |
 
 ## Parameter Options
 
@@ -33,7 +33,7 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, max31865_check_fault(MAX31865_FAULT_TEMP_HIGH))
+    serial_println(Serial, max31865_check_fault(MAX31865_FAULT_TEMP_HIGH, $status))
     time_delay(math_number(1000))
 ```
 

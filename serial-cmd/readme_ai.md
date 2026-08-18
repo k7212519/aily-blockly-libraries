@@ -8,15 +8,15 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `serial_cmd_init` | Statement | PORT(dropdown), SPEED(dropdown) | `serial_cmd_init(Serial, 115200)` | `Serial.begin(115200); SerialCmd.begin(Serial);` |
-| `serial_cmd_on_received` | Hat | (none) | `serial_cmd_on_received() @HANDLER: ...` | callback registration |
+| `serial_cmd_init` | Statement | PORT(dropdown), SPEED(dropdown) | `serial_cmd_init(Serial, 115200)` | `Serial.begin(SPEED); ↵ SerialCmd.begin(Serial);` |
+| `serial_cmd_on_received` | Hat | HANDLER(input_statement) | `serial_cmd_on_received()` | `void serialCmd_onReceived() { ↵ } ↵ SerialCmd.onReceived(serialCmd_onReceived);` |
 | `serial_cmd_get_cmd` | Value | (none) | `serial_cmd_get_cmd()` | `SerialCmd.getCmd()` |
-| `serial_cmd_get_param_int` | Value | INDEX(input_value) | `serial_cmd_get_param_int(math_number(0))` | `SerialCmd.getParamInt(n)` |
+| `serial_cmd_get_param_int` | Value | INDEX(input_value) | `serial_cmd_get_param_int(math_number(0))` | `SerialCmd.getParamInt(1)` |
 | `serial_cmd_get_cmd_type` | Value | (none) | `serial_cmd_get_cmd_type()` | `SerialCmd.getCmdType()` |
-| `serial_cmd_reply_ok` | Statement | MSG(input_value) | `serial_cmd_reply_ok(text("done"))` | `Serial.print("OK "); Serial.println(msg);` |
-| `serial_cmd_reply_err` | Statement | MSG(input_value) | `serial_cmd_reply_err(text("error"))` | `Serial.print("ERR "); Serial.println(msg);` |
+| `serial_cmd_reply_ok` | Statement | MSG(input_value) | `serial_cmd_reply_ok(text("done"))` | `SerialCmd.replyOk("value");` |
+| `serial_cmd_reply_err` | Statement | MSG(input_value) | `serial_cmd_reply_err(text("error"))` | `SerialCmd.replyErr("value");` |
 
 ## Parameter Options
 
@@ -41,14 +41,14 @@ serial_cmd_on_received()
                 variables_set($steps, serial_cmd_get_param_int(math_number(0)))
                 variables_set($speed, serial_cmd_get_param_int(math_number(1)))
                 variables_set($dir, serial_cmd_get_param_int(math_number(2)))
-                stepper_ctrl_set_speed($stepper1, $speed)
+                stepper_ctrl_set_speed($stepper1, variables_get($speed))
                 controls_if()
-                    @IF0: logic_compare($dir, EQ, math_number(1))
+                    @IF0: logic_compare(variables_get($dir), EQ, math_number(1))
                     @DO0:
-                        stepper_ctrl_start($stepper1, $steps, FORWARD)
-                    @IF1: logic_compare($dir, EQ, math_number(0))
+                        stepper_ctrl_start($stepper1, variables_get($steps), FORWARD)
+                    @IF1: logic_compare(variables_get($dir), EQ, math_number(0))
                     @DO1:
-                        stepper_ctrl_start($stepper1, $steps, REVERSE)
+                        stepper_ctrl_start($stepper1, variables_get($steps), REVERSE)
                 serial_cmd_reply_ok(text("OK"))
             @IF1: logic_compare(serial_cmd_get_cmd_type(), EQ, text("DWR"))
             @DO1:

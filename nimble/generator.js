@@ -486,7 +486,7 @@ Arduino.forBlock['nimble_client_connect_address'] = function(block, generator) {
   const clientVar = clientField ? clientField.getText() : 'pClient';
   const address = generator.valueToCode(block, 'ADDRESS', generator.ORDER_ATOMIC) || '""';
   
-  return [clientVar + '->connect(NimBLEAddress(' + address + '))', generator.ORDER_ATOMIC];
+  return [clientVar + '->connect(NimBLEAddress(' + address + ', BLE_ADDR_PUBLIC))', generator.ORDER_ATOMIC];
 };
 
 Arduino.forBlock['nimble_client_connect_device'] = function(block, generator) {

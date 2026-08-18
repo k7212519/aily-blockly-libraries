@@ -2,21 +2,21 @@
 
 DFRobot SEN0460空气质量传感器库，通过I2C接口使用Gravity接口，可测量PM2.5/PM1.0/PM10颗粒物浓度及数量。
 
-## 库信息
+## Library Info
 
 - **名称**: @aily-project/lib-dfrobot-airquality
 - **版本**: 0.1.0
 
-## 块定义
+## Block Definitions
 
-| 块类型 | 连接 | 参数（args0顺序） | ABS格式 | 生成代码 |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |--------|------|-----------------|---------|----------|
-| `dfrobot_airquality_begin` | 语句块 | 无参数 | `dfrobot_airquality_begin()` | `while(!particle.begin()){delay(500);}` |
+| `dfrobot_airquality_begin` | 语句块 | (none) | `dfrobot_airquality_begin()` | `DFRobot_AirQualitySensor_I2C particle(&Wire, 0x19); ↵ while(!particle.begin()) ↵ { ↵ delay(500); ↵ }` |
 | `dfrobot_airquality_read_concentration` | 值块 | ENVIRONMENT(dropdown), PARTICLE(dropdown) | `dfrobot_airquality_read_concentration(STANDARD, PM2_5)` | `particle.gainParticleConcentration_ugm3(PARTICLE_PM2_5_STANDARD)` |
-| `dfrobot_airquality_read_count` | 值块 | DIAMETER(dropdown) | `dfrobot_airquality_read_count(0_3_UM)` | `particle.gainParticleNum_Every0_1L(0_3_UM_EVERY0_1L_AIR)` |
-| `dfrobot_airquality_get_version` | 值块 | 无参数 | `dfrobot_airquality_get_version()` | `particle.gainVersion()` |
+| `dfrobot_airquality_read_count` | 值块 | DIAMETER(dropdown) | `dfrobot_airquality_read_count(PARTICLENUM_0_3_UM)` | `particle.gainParticleNum_Every0_1L(PARTICLENUM_0_3_UM_EVERY0_1L_AIR)` |
+| `dfrobot_airquality_get_version` | 值块 | (none) | `dfrobot_airquality_get_version()` | `particle.gainVersion()` |
 
-## 参数选项
+## Parameter Options
 
 | 参数 | 可选值 | 说明 |
 |------|--------|------|
@@ -24,7 +24,7 @@ DFRobot SEN0460空气质量传感器库，通过I2C接口使用Gravity接口，�
 | PARTICLE | PM2_5, PM1_0, PM10 | 颗粒物类型：PM2.5/PM1.0/PM10 |
 | DIAMETER | 0_3_UM, 0_5_UM, 1_0_UM, 2_5_UM, 5_0_UM, 10_UM | 颗粒物粒径：0.3um/0.5um/1.0um/2.5um/5.0um/10um |
 
-## ABS示例
+## ABS Examples
 
 ### 基本用法
 
@@ -37,7 +37,7 @@ arduino_loop()
     serial_println(Serial, text("PM2.5浓度:"))
     serial_println(Serial, dfrobot_airquality_read_concentration(STANDARD, PM2_5))
     serial_println(Serial, text("0.3um颗粒物数量:"))
-    serial_println(Serial, dfrobot_airquality_read_count(0_3_UM))
+    serial_println(Serial, dfrobot_airquality_read_count(PARTICLENUM_0_3_UM))
     time_delay(math_number(1000))
 ```
 

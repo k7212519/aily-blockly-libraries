@@ -1,0 +1,60 @@
+{
+  "toolbox_name": "ThingsBoard",
+  "thingsboard_init": {
+    "message0": "初期化 ThingsBoard %1 サーバー %2 トークン %3 ポート %4 メッセージ バイト %5",
+    "tooltip": "MQTT クライアントを作成し、ThingsBoard に接続します。"
+  },
+  "thingsboard_connect": {
+    "message0": "ThingsBoard %1 接続サーバー %2 トークン %3 ポート %4",
+    "tooltip": "ThingsBoard に接続または再接続します。"
+  },
+  "thingsboard_send": {
+    "message0": "ThingsBoard %1 送信 %2 キー %3 値 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "テレメトリ",
+            "sendTelemetryData"
+          ],
+          [
+            "クライアント属性",
+            "sendAttributeData"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "1 つのテレメトリまたはクライアント属性値を送信します。"
+  },
+  "thingsboard_send_json": {
+    "message0": "ThingsBoard %1 送信 %2 JSON %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "テレメトリ",
+            "sendTelemetryString"
+          ],
+          [
+            "クライアントの属性",
+            "sendAttributeString"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "事前に構築された JSON オブジェクト文字列を送信します。"
+  },
+  "thingsboard_connected": {
+    "message0": "ThingsBoard %1 が接続されています",
+    "tooltip": "MQTT 接続を確認してください。"
+  },
+  "thingsboard_disconnect": {
+    "message0": "切断 ThingsBoard %1",
+    "tooltip": "ThingsBoard MQTT クライアントを切断します。"
+  }
+}

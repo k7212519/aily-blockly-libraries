@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "inicializar ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 volume %5",
+    "tooltip": "Inicialize o decodificador de áudio ESP32 e a saída I2S."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 reproduzir áudio da rede URL %2",
+    "tooltip": "Reproduza um fluxo de áudio HTTP ou HTTPS."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 reproduz do caminho %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Reproduza um arquivo de áudio de um sistema de arquivos montado."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "pausar ou retomar",
+            "pauseResume"
+          ],
+          [
+            "pare",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Controle a reprodução atual."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 definiu %2 para %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "volume de áudio 0-21",
+            "setVolume"
+          ],
+          [
+            "equilíbrio de áudio -16 a 16",
+            "setBalance"
+          ],
+          [
+            "posição de reprodução em segundos",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Altere o volume de reprodução, equilíbrio ou posição do arquivo."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "está correndo",
+            "isRunning"
+          ],
+          [
+            "tempo de reprodução atual em segundos",
+            "getAudioCurrentTime"
+          ],
+          [
+            "duração do áudio em segundos",
+            "getAudioFileDuration"
+          ],
+          [
+            "volume atual",
+            "getVolume"
+          ],
+          [
+            "taxa de bits",
+            "getBitRate"
+          ],
+          [
+            "taxa de amostragem",
+            "getSampleRate"
+          ],
+          [
+            "canais de áudio",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia o estado de reprodução e transmita metadados."
+  }
+}

@@ -8,14 +8,14 @@ LIS3DHTR 三轴数字加速度传感器 Blockly 驱动库，支持加速度、�
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `lis3dhtr_init` | Statement | WIRE(dropdown), ADDRESS(dropdown) | `lis3dhtr_init(Wire1, LIS3DHTR_DEFAULT_ADDRESS)` | `accel_sensor.begin(Wire, 0x18);` |
-| `lis3dhtr_init_simplified` | Statement | WIRE(dropdown), ADDRESS(dropdown), DATARATE(dropdown), RANGE(dropdown), HIGHRES(dropdown) | `lis3dhtr_init_simplified(Wire1, LIS3DHTR_DEFAULT_ADDRESS, LIS3DHTR_DATARATE_25HZ, LIS3DHTR_RANGE_2G, true)` | begin + setOutputDataRate + setFullScaleRange + setHighSolution |
-| `lis3dhtr_set_datarate` | Statement | DATARATE(dropdown) | `lis3dhtr_set_datarate(LIS3DHTR_DATARATE_100HZ)` | `accel_sensor.setOutputDataRate(...);` |
-| `lis3dhtr_set_full_scale_range` | Statement | RANGE(dropdown) | `lis3dhtr_set_full_scale_range(LIS3DHTR_RANGE_2G)` | `accel_sensor.setFullScaleRange(...);` |
+| `lis3dhtr_init` | Statement | WIRE(dropdown), ADDRESS(dropdown) | `lis3dhtr_init(Wire1, LIS3DHTR_DEFAULT_ADDRESS)` | `accel_sensor.begin(WIRE, LIS3DHTR_DEFAULT_ADDRESS);` |
+| `lis3dhtr_init_simplified` | Statement | WIRE(dropdown), ADDRESS(dropdown), DATARATE(dropdown), RANGE(dropdown), HIGHRES(dropdown) | `lis3dhtr_init_simplified(Wire1, LIS3DHTR_DEFAULT_ADDRESS, LIS3DHTR_DATARATE_25HZ, LIS3DHTR_RANGE_2G, true)` | `accel_sensor.begin(WIRE, LIS3DHTR_DEFAULT_ADDRESS); ↵ if (!accel_sensor.isConnection()) { ↵ Serial.println("LIS3DHTR not detected!"); ↵ } else { ↵ Serial.println("LIS3DHTR OK!"); ↵ } ↵ accel_sensor.setOutputDataRate(LIS3DHTR_DATARATE_25HZ); ↵ accel_sensor.setFullScaleRange(LIS3DHTR_RANGE_2G); ↵ accel_sensor.setHighSolution(true);` |
+| `lis3dhtr_set_datarate` | Statement | DATARATE(dropdown) | `lis3dhtr_set_datarate(LIS3DHTR_DATARATE_100HZ)` | `accel_sensor.setOutputDataRate(LIS3DHTR_DATARATE_POWERDOWN);` |
+| `lis3dhtr_set_full_scale_range` | Statement | RANGE(dropdown) | `lis3dhtr_set_full_scale_range(LIS3DHTR_RANGE_2G)` | `accel_sensor.setFullScaleRange(LIS3DHTR_RANGE_2G);` |
 | `lis3dhtr_set_resolution` | Statement | ENABLE(dropdown) | `lis3dhtr_set_resolution(true)` | `accel_sensor.setHighSolution(true);` |
-| `lis3dhtr_set_power_mode` | Statement | MODE(dropdown) | `lis3dhtr_set_power_mode(POWER_MODE_NORMAL)` | `accel_sensor.setPowerMode(...);` |
+| `lis3dhtr_set_power_mode` | Statement | MODE(dropdown) | `lis3dhtr_set_power_mode(POWER_MODE_NORMAL)` | `accel_sensor.setPowerMode(POWER_MODE_NORMAL);` |
 | `lis3dhtr_get_acceleration` | Value | AXIS(dropdown) | `lis3dhtr_get_acceleration(X)` | `accel_sensor.getAccelerationX()` |
 | `lis3dhtr_get_acceleration_x` | Value | (none) | `lis3dhtr_get_acceleration_x()` | `accel_sensor.getAccelerationX()` |
 | `lis3dhtr_get_acceleration_y` | Value | (none) | `lis3dhtr_get_acceleration_y()` | `accel_sensor.getAccelerationY()` |
@@ -29,7 +29,7 @@ LIS3DHTR 三轴数字加速度传感器 Blockly 驱动库，支持加速度、�
 | `lis3dhtr_is_connection` | Value | (none) | `lis3dhtr_is_connection()` | `accel_sensor.isConnection()` |
 | `lis3dhtr_get_device_id` | Value | (none) | `lis3dhtr_get_device_id()` | `accel_sensor.getDeviceID()` |
 | `lis3dhtr_reset` | Statement | (none) | `lis3dhtr_reset()` | `accel_sensor.reset();` |
-| `lis3dhtr_on_tap` | Hat | CLICK_TYPE(dropdown), THRESHOLD(input_value), INT_PIN(dropdown), HANDLER(input_statement) | `lis3dhtr_on_tap("1", math_number(40), "2") @HANDLER: action()` | click() + attachInterrupt() |
+| `lis3dhtr_on_tap` | Hat | CLICK_TYPE(dropdown), THRESHOLD(input_value), INT_PIN(dropdown), HANDLER(input_statement) | `lis3dhtr_on_tap("1", math_number(40), "2")` | `LIS3DHTR<TwoWire> accel_sensor; ↵ void lis3dhtr_tap_isr_generator_coverage_lis3dhtr_on_tap() { ↵ } ↵ accel_sensor.click(1, 1); ↵ pinMode(INT_PIN, INPUT); ↵ attachInterrupt(digitalPinToInterrupt(INT_PIN), lis3dhtr_tap_isr_generator_coverage_lis3dhtr_on_tap, RISING);` |
 
 ## Parameter Options
 

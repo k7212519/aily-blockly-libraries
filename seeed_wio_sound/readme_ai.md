@@ -8,15 +8,15 @@ Library for Wio Terminal built-in microphone and passive buzzer, supporting soun
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wio_mic_read` | Value | (none) | `wio_mic_read()` | analogRead(WIO_MIC) |
-| `wio_mic_is_loud` | Value | THRESHOLD(input_value) | `wio_mic_is_loud(math_number(0))` | analogRead(WIO_MIC) > |
-| `wio_buzzer_on` | Statement | DUTY(input_value) | `wio_buzzer_on(math_number(0))` | analogWrite(WIO_BUZZER, |
-| `wio_buzzer_off` | Statement | (none) | `wio_buzzer_off()` | analogWrite(WIO_BUZZER, 0);\n |
-| `wio_buzzer_tone` | Statement | FREQUENCY(input_value) | `wio_buzzer_tone(math_number(0))` | tone(WIO_BUZZER, |
-| `wio_buzzer_tone_duration` | Statement | FREQUENCY(input_value), DURATION(input_value) | `wio_buzzer_tone_duration(math_number(0), math_number(1000))` | tone(WIO_BUZZER, |
-| `wio_buzzer_no_tone` | Statement | (none) | `wio_buzzer_no_tone()` | noTone(WIO_BUZZER);\n |
+| `wio_mic_read` | Value | (none) | `wio_mic_read()` | `analogRead(WIO_MIC)` |
+| `wio_mic_is_loud` | Value | THRESHOLD(input_value) | `wio_mic_is_loud(math_number(0))` | `analogRead(WIO_MIC) > 1` |
+| `wio_buzzer_on` | Statement | DUTY(input_value) | `wio_buzzer_on(math_number(0))` | `analogWrite(WIO_BUZZER, 1);` |
+| `wio_buzzer_off` | Statement | (none) | `wio_buzzer_off()` | `analogWrite(WIO_BUZZER, 0);` |
+| `wio_buzzer_tone` | Statement | FREQUENCY(input_value) | `wio_buzzer_tone(math_number(0))` | `tone(WIO_BUZZER, 1);` |
+| `wio_buzzer_tone_duration` | Statement | FREQUENCY(input_value), DURATION(input_value) | `wio_buzzer_tone_duration(math_number(0), math_number(1000))` | `tone(WIO_BUZZER, 1, 1); ↵ delay(1);` |
+| `wio_buzzer_no_tone` | Statement | (none) | `wio_buzzer_no_tone()` | `noTone(WIO_BUZZER);` |
 
 ## ABS Examples
 

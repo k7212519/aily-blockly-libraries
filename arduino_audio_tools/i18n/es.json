@@ -1,0 +1,57 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "inicializar Audio Tools I2S %1 modo %2 velocidad %3 canales %4 bits %5 BCLK %6 WS %7 datos TX %8 datos RX %9",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "salida",
+            "TX_MODE"
+          ],
+          [
+            "entrada",
+            "RX_MODE"
+          ],
+          [
+            "entrada y salida",
+            "RXTX_MODE"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Configure una transmisión de audio I2S."
+  },
+  "audio_tools_copy_init": {
+    "message0": "crear copiadora de audio Salida %1 Entrada %2 Copia automática %3 en bucle %4",
+    "tooltip": "Cree una canalización StreamCopy entre dos transmisiones I2S."
+  },
+  "audio_tools_copy": {
+    "message0": "copiadora de audio %1 copiar siguiente buffer",
+    "tooltip": "Copie el siguiente búfer de audio disponible."
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 escribe muestra de 16 bits %2",
+    "tooltip": "Escriba una muestra de 16 bits con signo."
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 leer muestra de 16 bits",
+    "tooltip": "Lea una muestra de audio firmada de 16 bits."
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 bytes disponibles",
+    "tooltip": "Devuelve el número de bytes de audio legibles."
+  },
+  "audio_tools_end": {
+    "message0": "final Audio Tools I2S %1",
+    "tooltip": "Detenga una transmisión I2S."
+  }
+}

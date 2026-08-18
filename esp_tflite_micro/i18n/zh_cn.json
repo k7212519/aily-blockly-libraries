@@ -1,0 +1,115 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "初始化 ESP TFLite Micro %1 模型头文件 %2 模型符号 %3 张量内存区字节数 %4",
+    "tooltip": "使用常用的内置运算符创建 TensorFlow Lite Micro 解释器。"
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 输入索引 %2 设置 %3 值 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 原始",
+            "int8"
+          ],
+          [
+            "uint8 原始",
+            "uint8"
+          ],
+          [
+            "将浮点数量化为 int8",
+            "quantized"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "写入一个模型输入张量元素。"
+  },
+  "esp_tflite_invoke": {
+    "message0": "TFLite %1 调用成功",
+    "tooltip": "运行一个推理并返回是否成功。"
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 输出索引 %2 读取 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 原始",
+            "int8"
+          ],
+          [
+            "uint8 原始",
+            "uint8"
+          ],
+          [
+            "反量化 int8",
+            "dequantized"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取一个模型输出张量元素。"
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "TFLite %1 %2 张量 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "输入",
+            "input"
+          ],
+          [
+            "输出",
+            "output"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "字节大小",
+            "bytes"
+          ],
+          [
+            "元素计数",
+            "count"
+          ],
+          [
+            "类型枚举",
+            "type"
+          ],
+          [
+            "量化尺度",
+            "scale"
+          ],
+          [
+            "零点",
+            "zero_point"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "检查模型输入或输出张量。"
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1 已准备好",
+    "tooltip": "检查模型解析和张量分配是否成功。"
+  }
+}

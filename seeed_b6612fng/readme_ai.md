@@ -8,17 +8,17 @@ Grove TB6612FNG motor driver module, supports driving two DC motors or one stepp
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tb6612fng_init` | Statement | VAR(field_input), ADDR(dropdown) | `tb6612fng_init("motor", "0x14")` | Dynamic code |
-| `tb6612fng_dc_run` | Statement | VAR(field_variable), CHANNEL(dropdown), SPEED(input_value) | `tb6612fng_dc_run(variables_get($motor), MOTOR_CHA, math_number(9600))` | Dynamic code |
-| `tb6612fng_dc_brake` | Statement | VAR(field_variable), CHANNEL(dropdown) | `tb6612fng_dc_brake(variables_get($motor), MOTOR_CHA)` | Dynamic code |
-| `tb6612fng_dc_stop` | Statement | VAR(field_variable), CHANNEL(dropdown) | `tb6612fng_dc_stop(variables_get($motor), MOTOR_CHA)` | Dynamic code |
-| `tb6612fng_stepper_run` | Statement | VAR(field_variable), MODE(dropdown), STEPS(input_value), RPM(input_value) | `tb6612fng_stepper_run(variables_get($motor), FULL_STEP, math_number(0), math_number(0))` | Dynamic code |
-| `tb6612fng_stepper_stop` | Statement | VAR(field_variable) | `tb6612fng_stepper_stop(variables_get($motor))` | Dynamic code |
-| `tb6612fng_stepper_keep_run` | Statement | VAR(field_variable), MODE(dropdown), RPM(input_value), DIR(dropdown) | `tb6612fng_stepper_keep_run(variables_get($motor), FULL_STEP, math_number(0), true)` | Dynamic code |
-| `tb6612fng_standby` | Statement | VAR(field_variable) | `tb6612fng_standby(variables_get($motor))` | Dynamic code |
-| `tb6612fng_not_standby` | Statement | VAR(field_variable) | `tb6612fng_not_standby(variables_get($motor))` | Dynamic code |
+| `tb6612fng_init` | Statement | VAR(field_input), ADDR(dropdown) | `tb6612fng_init("motor", "0x14")` | `MotorDriver motor; ↵ Wire.begin(); ↵ motor.init(0x14);` |
+| `tb6612fng_dc_run` | Statement | VAR(field_variable), CHANNEL(dropdown), SPEED(input_value) | `tb6612fng_dc_run($motor, MOTOR_CHA, math_number(9600))` | `motor.dcMotorRun(MOTOR_CHA, 1);` |
+| `tb6612fng_dc_brake` | Statement | VAR(field_variable), CHANNEL(dropdown) | `tb6612fng_dc_brake($motor, MOTOR_CHA)` | `motor.dcMotorBrake(MOTOR_CHA);` |
+| `tb6612fng_dc_stop` | Statement | VAR(field_variable), CHANNEL(dropdown) | `tb6612fng_dc_stop($motor, MOTOR_CHA)` | `motor.dcMotorStop(MOTOR_CHA);` |
+| `tb6612fng_stepper_run` | Statement | VAR(field_variable), MODE(dropdown), STEPS(input_value), RPM(input_value) | `tb6612fng_stepper_run($motor, FULL_STEP, math_number(0), math_number(0))` | `motor.stepperRun(FULL_STEP, 1, 1);` |
+| `tb6612fng_stepper_stop` | Statement | VAR(field_variable) | `tb6612fng_stepper_stop($motor)` | `motor.stepperStop();` |
+| `tb6612fng_stepper_keep_run` | Statement | VAR(field_variable), MODE(dropdown), RPM(input_value), DIR(dropdown) | `tb6612fng_stepper_keep_run($motor, FULL_STEP, math_number(0), true)` | `motor.stepperKeepRun(FULL_STEP, 1, true);` |
+| `tb6612fng_standby` | Statement | VAR(field_variable) | `tb6612fng_standby($motor)` | `motor.standby();` |
+| `tb6612fng_not_standby` | Statement | VAR(field_variable) | `tb6612fng_not_standby($motor)` | `motor.notStandby();` |
 
 ## Parameter Options
 
@@ -38,12 +38,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    tb6612fng_dc_run(variables_get($motor), MOTOR_CHA, math_number(9600))
+    tb6612fng_dc_run($motor, MOTOR_CHA, math_number(9600))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `tb6612fng_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `tb6612fng_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

@@ -6,6 +6,7 @@
   "author": "ailyProject",
   "description": "适用于学而思ESP32掌机的TFT倒计时器：启动/暂停/继续/取消，完成时播放致爱丽丝旋律，支持按键操作",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "esp32:esp32"

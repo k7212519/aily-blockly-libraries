@@ -8,14 +8,14 @@ The GD3800 audio playback module driver library supports serial communication, m
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `gd3800_init` | Statement | PIN_TX(input_value), PIN_RX(input_value) | `gd3800_init(math_number(2), math_number(2))` | Dynamic code |
-| `gd3800_set` | Statement | GD3800_SETSTATE(dropdown) | `gd3800_set(play)` | mp3....();\n |
-| `gd3800_play` | Statement | MUSICNUM(input_value) | `gd3800_play(math_number(0))` | mp3.playFileByIndexNumber(...);\n |
-| `gd3800_cyclemode` | Statement | GD3800_CYMODE(dropdown) | `gd3800_cyclemode(MP3_LOOP_ALL)` | mp3.setLoopMode(...);\n |
-| `gd3800_equalizer` | Statement | GD3800_EQMODE(dropdown) | `gd3800_equalizer(MP3_EQ_NORMAL)` | mp3.setEqualizer(...);\n |
-| `gd3800_setvolume` | Statement | SETVOLUME(input_value) | `gd3800_setvolume(math_number(0))` | mp3.setVolume(...);\n |
+| `gd3800_init` | Statement | PIN_TX(input_value), PIN_RX(input_value) | `gd3800_init(math_number(2), math_number(2))` | `#if defined(ESP32) ↵ // ESP32平台 ↵ #define USE_ESP32_HARDWARE_SERIAL ↵ #else ↵ // Arduino平台 ↵ #define USE_SOFTWARE_SERIAL ↵ #endif ↵ GD3800_Serial mp3(1, 1); // Arduino: TX, RX ↵ mp3.begin(9600); // Arduino串口初始化` |
+| `gd3800_set` | Statement | GD3800_SETSTATE(dropdown) | `gd3800_set(play)` | `mp3.play();` |
+| `gd3800_play` | Statement | MUSICNUM(input_value) | `gd3800_play(math_number(0))` | `mp3.playFileByIndexNumber(1);` |
+| `gd3800_cyclemode` | Statement | GD3800_CYMODE(dropdown) | `gd3800_cyclemode(MP3_LOOP_ALL)` | `mp3.setLoopMode(MP3_LOOP_ALL);` |
+| `gd3800_equalizer` | Statement | GD3800_EQMODE(dropdown) | `gd3800_equalizer(MP3_EQ_NORMAL)` | `mp3.setEqualizer(MP3_EQ_NORMAL);` |
+| `gd3800_setvolume` | Statement | SETVOLUME(input_value) | `gd3800_setvolume(math_number(0))` | `mp3.setVolume(1);` |
 
 ## Parameter Options
 

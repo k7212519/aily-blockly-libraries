@@ -8,33 +8,33 @@ Adafruit LED Backpack driver library based on HT16K33 chip, supports multiple di
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ledbp_init` | Statement | DISPLAY_TYPE(dropdown), ADDR(input_value) | `ledbp_init(Adafruit_7segment, math_number(0))` | Dynamic code |
-| `ledbp_write_display` | Statement | (none) | `ledbp_write_display()` | ledbp.writeDisplay();\n |
-| `ledbp_clear` | Statement | (none) | `ledbp_clear()` | ledbp.clear();\n |
-| `ledbp_set_brightness` | Statement | BRIGHTNESS(input_value) | `ledbp_set_brightness(math_number(0))` | ledbp.setBrightness( |
-| `ledbp_blink_rate` | Statement | RATE(dropdown) | `ledbp_blink_rate(HT16K33_BLINK_OFF)` | ledbp.blinkRate( |
-| `ledbp_set_display_state` | Statement | STATE(dropdown) | `ledbp_set_display_state(true)` | ledbp.setDisplayState( |
-| `ledbp_seven_print_number` | Statement | NUM(input_value) | `ledbp_seven_print_number(math_number(0))` | ledbp.print( |
-| `ledbp_seven_print_number_base` | Statement | NUM(input_value), BASE(dropdown) | `ledbp_seven_print_number_base(math_number(0), DEC)` | ledbp.print( |
-| `ledbp_seven_write_digit_num` | Statement | POS(input_value), NUM(input_value), DOT(dropdown) | `ledbp_seven_write_digit_num(math_number(0), math_number(0), false)` | ledbp.writeDigitNum( |
-| `ledbp_seven_draw_colon` | Statement | STATE(dropdown) | `ledbp_seven_draw_colon(true)` | ledbp.drawColon( |
-| `ledbp_alpha_write_digit_ascii` | Statement | POS(input_value), CHAR(input_value), DOT(dropdown) | `ledbp_alpha_write_digit_ascii(math_number(0), math_number(0), false)` | ledbp.writeDigitAscii( |
-| `ledbp_alpha_print_text` | Statement | TEXT(input_value) | `ledbp_alpha_print_text(text("value"))` | ledbp_alpha_print(ledbp, |
-| `ledbp_matrix_color` | Value | COLOR(dropdown) | `ledbp_matrix_color(LED_ON)` | Dynamic code |
-| `ledbp_matrix_draw_pixel` | Statement | X(input_value), Y(input_value), COLOR(input_value) | `ledbp_matrix_draw_pixel(math_number(0), math_number(0), math_number(0))` | ledbp.drawPixel( |
-| `ledbp_matrix_draw_line` | Statement | X0(input_value), Y0(input_value), X1(input_value), Y1(input_value), COLOR(input_value) | `ledbp_matrix_draw_line(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | ledbp.drawLine( |
-| `ledbp_matrix_draw_rect` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), COLOR(input_value) | `ledbp_matrix_draw_rect(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | ledbp.drawRect( |
-| `ledbp_matrix_fill_rect` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), COLOR(input_value) | `ledbp_matrix_fill_rect(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | ledbp.fillRect( |
-| `ledbp_matrix_draw_circle` | Statement | X(input_value), Y(input_value), R(input_value), COLOR(input_value) | `ledbp_matrix_draw_circle(math_number(0), math_number(0), math_number(0), math_number(0))` | ledbp.drawCircle( |
-| `ledbp_matrix_set_text_size` | Statement | SIZE(input_value) | `ledbp_matrix_set_text_size(math_number(0))` | ledbp.setTextSize( |
-| `ledbp_matrix_set_text_color` | Statement | COLOR(input_value) | `ledbp_matrix_set_text_color(math_number(0))` | ledbp.setTextColor( |
-| `ledbp_matrix_set_cursor` | Statement | X(input_value), Y(input_value) | `ledbp_matrix_set_cursor(math_number(0), math_number(0))` | ledbp.setCursor( |
-| `ledbp_matrix_print` | Statement | TEXT(input_value) | `ledbp_matrix_print(text("value"))` | ledbp.print( |
-| `ledbp_matrix_set_rotation` | Statement | ROTATION(dropdown) | `ledbp_matrix_set_rotation("0")` | ledbp.setRotation( |
-| `ledbp_matrix_set_text_wrap` | Statement | WRAP(dropdown) | `ledbp_matrix_set_text_wrap(true)` | ledbp.setTextWrap( |
-| `ledbp_bar_set_bar` | Statement | BAR(input_value), COLOR(input_value) | `ledbp_bar_set_bar(math_number(0), math_number(0))` | ledbp.setBar( |
+| `ledbp_init` | Statement | DISPLAY_TYPE(dropdown), ADDR(input_value) | `ledbp_init(Adafruit_7segment, math_number(0))` | `Adafruit_7segment ledbp = Adafruit_7segment(); ↵ ledbp.begin(1);` |
+| `ledbp_write_display` | Statement | (none) | `ledbp_write_display()` | `ledbp.writeDisplay();` |
+| `ledbp_clear` | Statement | (none) | `ledbp_clear()` | `ledbp.clear();` |
+| `ledbp_set_brightness` | Statement | BRIGHTNESS(input_value) | `ledbp_set_brightness(math_number(0))` | `ledbp.setBrightness(1);` |
+| `ledbp_blink_rate` | Statement | RATE(dropdown) | `ledbp_blink_rate(HT16K33_BLINK_OFF)` | `ledbp.blinkRate(HT16K33_BLINK_OFF);` |
+| `ledbp_set_display_state` | Statement | STATE(dropdown) | `ledbp_set_display_state(true)` | `ledbp.setDisplayState(true);` |
+| `ledbp_seven_print_number` | Statement | NUM(input_value) | `ledbp_seven_print_number(math_number(0))` | `ledbp.print(1); ↵ ledbp.writeDisplay();` |
+| `ledbp_seven_print_number_base` | Statement | NUM(input_value), BASE(dropdown) | `ledbp_seven_print_number_base(math_number(0), DEC)` | `ledbp.print(1, DEC); ↵ ledbp.writeDisplay();` |
+| `ledbp_seven_write_digit_num` | Statement | POS(input_value), NUM(input_value), DOT(dropdown) | `ledbp_seven_write_digit_num(math_number(0), math_number(0), false)` | `ledbp.writeDigitNum(1, 1, false);` |
+| `ledbp_seven_draw_colon` | Statement | STATE(dropdown) | `ledbp_seven_draw_colon(true)` | `ledbp.drawColon(true); ↵ ledbp.writeDisplay();` |
+| `ledbp_alpha_write_digit_ascii` | Statement | POS(input_value), CHAR(input_value), DOT(dropdown) | `ledbp_alpha_write_digit_ascii(math_number(0), math_number(0), false)` | `ledbp.writeDigitAscii(1, 1, false);` |
+| `ledbp_alpha_print_text` | Statement | TEXT(input_value) | `ledbp_alpha_print_text(text("value"))` | `ledbp_alpha_print(ledbp, 1);` |
+| `ledbp_matrix_color` | Value | COLOR(dropdown) | `ledbp_matrix_color(LED_ON)` | `LED_ON` |
+| `ledbp_matrix_draw_pixel` | Statement | X(input_value), Y(input_value), COLOR(input_value) | `ledbp_matrix_draw_pixel(math_number(0), math_number(0), math_number(0))` | `ledbp.drawPixel(1, 1, 1);` |
+| `ledbp_matrix_draw_line` | Statement | X0(input_value), Y0(input_value), X1(input_value), Y1(input_value), COLOR(input_value) | `ledbp_matrix_draw_line(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `ledbp.drawLine(1, 1, 1, 1, 1);` |
+| `ledbp_matrix_draw_rect` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), COLOR(input_value) | `ledbp_matrix_draw_rect(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `ledbp.drawRect(1, 1, 1, 1, 1);` |
+| `ledbp_matrix_fill_rect` | Statement | X(input_value), Y(input_value), W(input_value), H(input_value), COLOR(input_value) | `ledbp_matrix_fill_rect(math_number(0), math_number(0), math_number(0), math_number(0), math_number(0))` | `ledbp.fillRect(1, 1, 1, 1, 1);` |
+| `ledbp_matrix_draw_circle` | Statement | X(input_value), Y(input_value), R(input_value), COLOR(input_value) | `ledbp_matrix_draw_circle(math_number(0), math_number(0), math_number(0), math_number(0))` | `ledbp.drawCircle(1, 1, 1, 1);` |
+| `ledbp_matrix_set_text_size` | Statement | SIZE(input_value) | `ledbp_matrix_set_text_size(math_number(0))` | `ledbp.setTextSize(1);` |
+| `ledbp_matrix_set_text_color` | Statement | COLOR(input_value) | `ledbp_matrix_set_text_color(math_number(0))` | `ledbp.setTextColor(1);` |
+| `ledbp_matrix_set_cursor` | Statement | X(input_value), Y(input_value) | `ledbp_matrix_set_cursor(math_number(0), math_number(0))` | `ledbp.setCursor(1, 1);` |
+| `ledbp_matrix_print` | Statement | TEXT(input_value) | `ledbp_matrix_print(text("value"))` | `ledbp.print(1);` |
+| `ledbp_matrix_set_rotation` | Statement | ROTATION(dropdown) | `ledbp_matrix_set_rotation("0")` | `ledbp.setRotation(0);` |
+| `ledbp_matrix_set_text_wrap` | Statement | WRAP(dropdown) | `ledbp_matrix_set_text_wrap(true)` | `ledbp.setTextWrap(true);` |
+| `ledbp_bar_set_bar` | Statement | BAR(input_value), COLOR(input_value) | `ledbp_bar_set_bar(math_number(0), math_number(0))` | `ledbp.setBar(1, 1);` |
 
 ## Parameter Options
 

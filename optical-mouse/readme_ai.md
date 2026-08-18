@@ -8,14 +8,14 @@ Tracks accumulated X/Y position by reading optical mouse sensor displacement reg
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `optical_mouse_init` | Statement | VAR(field_input), SCLK(dropdown), DIO(dropdown), CS(dropdown), RESOLUTION(field_input) | `optical_mouse_init("mouse", 5, 6, 4, "0.0405")` | `OpticalMouse mouse(5, 6, 4, 0.0405f);` + `mouse.begin();` |
-| `optical_mouse_update` | Statement | VAR(field_variable) | `optical_mouse_update(variables_get($mouse))` | `mouse.update();` |
-| `optical_mouse_get_x` | Value | VAR(field_variable) | `optical_mouse_get_x(variables_get($mouse))` | `mouse.getX()` |
-| `optical_mouse_get_y` | Value | VAR(field_variable) | `optical_mouse_get_y(variables_get($mouse))` | `mouse.getY()` |
-| `optical_mouse_has_motion` | Value (Boolean) | VAR(field_variable) | `optical_mouse_has_motion(variables_get($mouse))` | `mouse.hasMotion()` |
-| `optical_mouse_reset` | Statement | VAR(field_variable) | `optical_mouse_reset(variables_get($mouse))` | `mouse.reset();` |
+| `optical_mouse_init` | Statement | VAR(field_input), SCLK(dropdown), DIO(dropdown), CS(dropdown), RESOLUTION(field_input) | `optical_mouse_init("mouse", 5, 6, 4, "0.0405")` | `mouse.begin();` |
+| `optical_mouse_update` | Statement | VAR(field_variable) | `optical_mouse_update($mouse)` | `mouse.update();` |
+| `optical_mouse_get_x` | Value | VAR(field_variable) | `optical_mouse_get_x($mouse)` | `mouse.getX()` |
+| `optical_mouse_get_y` | Value | VAR(field_variable) | `optical_mouse_get_y($mouse)` | `mouse.getY()` |
+| `optical_mouse_has_motion` | Value (Boolean) | VAR(field_variable) | `optical_mouse_has_motion($mouse)` | `mouse.hasMotion()` |
+| `optical_mouse_reset` | Statement | VAR(field_variable) | `optical_mouse_reset($mouse)` | `mouse.reset();` |
 
 ## Notes
 
@@ -24,6 +24,14 @@ Tracks accumulated X/Y position by reading optical mouse sensor displacement reg
 3. **Resolution**: Default `0.0405` mm/LSB. Adjust based on sensor CPI configuration.
 4. **Update cycle**: Call `optical_mouse_update` in loop; recommended interval ≥ 100ms.
 5. **Motion check**: Use `optical_mouse_has_motion` before reading position to avoid redundant output.
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| SCLK | ${board.digitalPins} | optical_mouse_init |
+| DIO | ${board.digitalPins} | optical_mouse_init |
+| CS | ${board.digitalPins} | optical_mouse_init |
 
 ## ABS Examples
 
@@ -37,13 +45,13 @@ arduino_setup()
     serial_begin(Serial1, 9600)
 
 arduino_loop()
-    optical_mouse_update(variables_get($mouse))
+    optical_mouse_update($mouse)
     controls_if()
-        @IF0: optical_mouse_has_motion(variables_get($mouse))
+        @IF0: optical_mouse_has_motion($mouse)
         @DO0:
             serial_print(Serial1, text("Pos X="))
-            serial_print(Serial1, optical_mouse_get_x(variables_get($mouse)))
+            serial_print(Serial1, optical_mouse_get_x($mouse))
             serial_print(Serial1, text("mm Y="))
-            serial_println(Serial1, optical_mouse_get_y(variables_get($mouse)))
+            serial_println(Serial1, optical_mouse_get_y($mouse))
     time_delay(math_number(100))
 ```

@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "Initialisieren Sie ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 Volume %5",
+    "tooltip": "Initialisieren Sie den ESP32-Audiodecoder und den I2S-Ausgang."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 spielt Audio vom Netzwerk ab URL %2",
+    "tooltip": "Spielen Sie einen HTTP- oder HTTPS-Audiostream ab."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 Wiedergabe vom %2-Pfad %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Spielen Sie eine Audiodatei von einem gemounteten Dateisystem ab."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "pausieren oder fortsetzen",
+            "pauseResume"
+          ],
+          [
+            "hör auf",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Steuern Sie die aktuelle Wiedergabe."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 setzt %2 auf %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Audiolautstärke 0-21",
+            "setVolume"
+          ],
+          [
+            "Audiobalance -16 bis 16",
+            "setBalance"
+          ],
+          [
+            "Wiedergabeposition in Sekunden",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Ändern Sie die Wiedergabelautstärke, Balance oder Dateiposition."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "läuft",
+            "isRunning"
+          ],
+          [
+            "aktuelle Wiedergabezeit in Sekunden",
+            "getAudioCurrentTime"
+          ],
+          [
+            "Audiodauer in Sekunden",
+            "getAudioFileDuration"
+          ],
+          [
+            "aktuelle Lautstärke",
+            "getVolume"
+          ],
+          [
+            "Bitrate",
+            "getBitRate"
+          ],
+          [
+            "Abtastrate",
+            "getSampleRate"
+          ],
+          [
+            "Audiokanäle",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Wiedergabestatus lesen und Metadaten streamen."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "toolbox_name": "ThingsBoard",
+  "thingsboard_init": {
+    "message0": "initialisieren ThingsBoard %1 Server %2 Token %3 Port %4 Nachrichtenbytes %5",
+    "tooltip": "Erstellen Sie einen MQTT-Client und stellen Sie eine Verbindung zu ThingsBoard her."
+  },
+  "thingsboard_connect": {
+    "message0": "ThingsBoard %1 Verbindungsserver %2 Token %3 Port %4",
+    "tooltip": "Verbinden Sie sich mit ThingsBoard oder verbinden Sie es erneut."
+  },
+  "thingsboard_send": {
+    "message0": "ThingsBoard %1 senden %2 Schlüssel %3 Wert %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Telemetrie",
+            "sendTelemetryData"
+          ],
+          [
+            "Client-Attribut",
+            "sendAttributeData"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Senden Sie einen Telemetrie- oder Client-Attributwert."
+  },
+  "thingsboard_send_json": {
+    "message0": "ThingsBoard %1 senden %2 JSON %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Telemetrie",
+            "sendTelemetryString"
+          ],
+          [
+            "Client-Attribute",
+            "sendAttributeString"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Senden Sie eine vorgefertigte JSON-Objektzeichenfolge."
+  },
+  "thingsboard_connected": {
+    "message0": "ThingsBoard %1 ist verbunden",
+    "tooltip": "Überprüfen Sie die MQTT-Verbindung."
+  },
+  "thingsboard_disconnect": {
+    "message0": "trennen ThingsBoard %1",
+    "tooltip": "Trennen Sie den ThingsBoard MQTT-Client."
+  }
+}

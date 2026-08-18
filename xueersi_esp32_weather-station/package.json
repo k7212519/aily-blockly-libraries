@@ -6,6 +6,7 @@
   "author": "ailyProject",
   "description": "适用于学而思ESP32掌机的WiFi自动连接/AP配置门户 + yytianqi天气API获取，支持NVS持久化存储配置",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "esp32:esp32"

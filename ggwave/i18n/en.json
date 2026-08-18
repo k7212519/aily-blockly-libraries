@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "initialize ggwave %1 mode %2 sample rate %3 samples/frame %4 payload length %5",
+    "tooltip": "Create a ggwave data-over-sound codec instance using signed 16-bit audio."
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 encode text %2 protocol %3 volume %4",
+    "tooltip": "Encode text into the managed waveform buffer."
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 encoded %2",
+    "tooltip": "Access the last encoded waveform and its byte length."
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 decode audio buffer %2 bytes %3",
+    "tooltip": "Feed captured signed 16-bit audio and return decoded byte count."
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 decoded %2",
+    "tooltip": "Read the most recently decoded payload."
+  },
+  "ggwave_free": {
+    "message0": "free ggwave %1",
+    "tooltip": "Release codec and waveform memory."
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "初始化 Arduino GFX %1 显示驱动 %2 DC %3 CS %4 复位 %5 旋转 %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "创建硬件SPI总线和通用Arduino_GFX显示驱动程序。"
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 填充屏幕颜色 %2",
+    "tooltip": "使用 RGB565 颜色填充整个显示屏。"
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 线 x0 %2 y0 %3 x1 %4 y1 %5 颜色 %6",
+    "tooltip": "画一条线段。"
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 矩形 x %3 y %4 宽度 %5 高度 %6 颜色 %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "轮廓",
+            "drawRect"
+          ],
+          [
+            "填充",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "绘制轮廓或填充矩形。"
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 圆 x %3 y %4 半径 %5 颜色 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "轮廓",
+            "drawCircle"
+          ],
+          [
+            "填充",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "绘制轮廓或填充圆形。"
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 文字颜色 %2 背景 %3 尺寸 %4 换行 %5",
+    "tooltip": "设置文本颜色、背景、比例和换行。"
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 在 x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "打印",
+            "print"
+          ],
+          [
+            "打印并换行",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "定位光标并绘制文本。"
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "设置旋转",
+            "setRotation"
+          ],
+          [
+            "反转显示",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "更改显示旋转或反转。"
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "宽度",
+            "width"
+          ],
+          [
+            "高度",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取当前逻辑显示尺寸。"
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 红色 %1 绿色 %2 蓝色 %3",
+    "tooltip": "将 8 位 RGB 分量转换为 RGB565 颜色。"
+  }
+}

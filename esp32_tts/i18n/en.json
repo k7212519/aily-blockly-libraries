@@ -1,0 +1,75 @@
+{
+  "toolbox_name": "ESP32 Offline TTS",
+  "toolbox_labels": {
+    "初始化": "Initialization",
+    "语音合成": "Speech synthesis",
+    "状态与控制": "Status and control"
+  },
+  "esp32_tts_init": {
+    "message0": "initialize offline TTS %1 model %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "tooltip": "Create ESP32-S3 offline Chinese TTS and I2S output; use -1 when MCLK is not connected",
+    "args0": [
+      null,
+      { "options": [["Small (default, about 2.78 MiB)", "0"], ["Standard (about 3.64 MiB)", "1"]] },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_tts_speak": {
+    "message0": "offline TTS %1 speak Chinese %2",
+    "tooltip": "Block while synthesizing UTF-8 Chinese to the configured I2S output"
+  },
+  "esp32_tts_speak_pinyin": {
+    "message0": "offline TTS %1 speak pinyin %2",
+    "tooltip": "Speak space-separated pinyin with tone digits 0 through 5, such as da4 jia1 hao3"
+  },
+  "esp32_tts_speak_money": {
+    "message0": "offline TTS %1 speak amount yuan %2 jiao %3 fen %4 mode %5",
+    "tooltip": "Synthesize a nonnegative amount; jiao and fen must be from 0 through 9",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      { "options": [["Amount only", "ESP32TTSPayMode::NumberOnly"], ["Alipay received", "ESP32TTSPayMode::Alipay"], ["WeChat Pay received", "ESP32TTSPayMode::WeChat"]] }
+    ]
+  },
+  "esp32_tts_set_speed": {
+    "message0": "offline TTS %1 set speed %2",
+    "tooltip": "Set speech speed from 0 (slowest) to 5 (fastest)",
+    "args0": [
+      null,
+      { "options": [["0 (slowest)", "0"], ["1", "1"], ["2", "2"], ["3 (default)", "3"], ["4", "4"], ["5 (fastest)", "5"]] }
+    ]
+  },
+  "esp32_tts_get_speed": {
+    "message0": "offline TTS %1 current speed",
+    "tooltip": "Return the current speech speed from 0 through 5"
+  },
+  "esp32_tts_is_ready": {
+    "message0": "offline TTS %1 is ready",
+    "tooltip": "Check whether the TTS engine initialized successfully"
+  },
+  "esp32_tts_is_speaking": {
+    "message0": "offline TTS %1 is speaking",
+    "tooltip": "Check whether TTS is synthesizing and outputting speech"
+  },
+  "esp32_tts_last_error": {
+    "message0": "offline TTS %1 last error code",
+    "tooltip": "Return the latest numeric error code; 0 means no error"
+  },
+  "esp32_tts_last_error_message": {
+    "message0": "offline TTS %1 last error message",
+    "tooltip": "Return the English description of the latest error"
+  },
+  "esp32_tts_stop": {
+    "message0": "offline TTS %1 request stop",
+    "tooltip": "Request that the current blocking speech stop from another FreeRTOS task"
+  },
+  "esp32_tts_end": {
+    "message0": "offline TTS %1 release resources",
+    "tooltip": "Release the TTS engine resources so it can be initialized again"
+  }
+}

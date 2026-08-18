@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 オープンスレッド",
+  "esp32_openthread_begin": {
+    "message0": "OpenThread を初期化して %1 を自動的に開始します",
+    "tooltip": "OpenThread スタックを初期化します。"
+  },
+  "esp32_openthread_end": {
+    "message0": "オープンスレッドの終了",
+    "tooltip": "OpenThread スタックを閉じます。"
+  },
+  "esp32_openthread_control": {
+    "message0": "オープンスレッド %1",
+    "tooltip": "スレッド ネットワークまたはインターフェイスを制御します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "ネットワークの開始",
+            "start"
+          ],
+          [
+            "ネットワークを停止します",
+            "stop"
+          ],
+          [
+            "オンラインインターフェイス",
+            "networkInterfaceUp"
+          ],
+          [
+            "インターフェースがオフラインです",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread が実行中です",
+    "tooltip": "OpenThread スタックが実行されているかどうかを確認します。"
+  },
+  "esp32_openthread_role": {
+    "message0": "OpenThread の現在の役割",
+    "tooltip": "無効/切断/子/ルーター/リーダーを返します。"
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "OpenThread にはアクティブなデータ セットがあります",
+    "tooltip": "アクティブなデータセットが送信されているかどうかを確認します。"
+  },
+  "esp32_openthread_dataset": {
+    "message0": "スレッド データ セットの作成と送信 %1 名前 %2 チャネル %3 PAN ID %4",
+    "tooltip": "新しいアクティブ データ セットを作成して送信します。"
+  },
+  "esp32_openthread_network_number": {
+    "message0": "OpenThread ネットワーク値 %1",
+    "tooltip": "スレッドネットワーク値を読み取ります。",
+    "args0": [
+      {
+        "options": [
+          [
+            "チャンネル",
+            "getChannel"
+          ],
+          [
+            "PAN ID",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "ユニキャストアドレスの数",
+            "getUnicastAddressCount"
+          ],
+          [
+            "マルチキャスト アドレスの数",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "OpenThread ネットワーク テキスト %1",
+    "tooltip": "ネットワーク名またはIPv6アドレスを読み取ります。",
+    "args0": [
+      {
+        "options": [
+          [
+            "ネットワーク名",
+            "getNetworkName"
+          ],
+          [
+            "メッシュローカル EID",
+            "getMeshLocalEid"
+          ],
+          [
+            "リーダー RLOC",
+            "getLeaderRloc"
+          ],
+          [
+            "ネイティブ RLOC",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

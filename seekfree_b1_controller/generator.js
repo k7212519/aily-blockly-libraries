@@ -9,7 +9,6 @@ Arduino.forBlock['four_driver_init'] = function (block, generator) {
 	
 	ensureSerialBegin("Serial", generator);
 	
-	const power_index = block.getFieldValue('power_index');
 	// 添加初始化代码到setup部分
     generator.addSetup('esp32c3_can.begin()', 'esp32c3_can.begin();');
     generator.addSetup('four_driver.begin()', 'four_driver.begin();');
@@ -199,7 +198,6 @@ Arduino.forBlock['photoelectricity_get_value_bin'] = function (block, generator)
 
 Arduino.forBlock['photoelectricity_get_black_num'] = function (block, generator) {
     var device_id = block.getFieldValue('DEVICE_ID');
-	var channel = block.getFieldValue('CHANNEL');
 
 	generator.addVariable('uint8_t black_num', 'uint8_t black_num;');
 	var code = '';
@@ -210,7 +208,6 @@ Arduino.forBlock['photoelectricity_get_black_num'] = function (block, generator)
 
 Arduino.forBlock['photoelectricity_get_white_num'] = function (block, generator) {
     var device_id = block.getFieldValue('DEVICE_ID');
-	var channel = block.getFieldValue('CHANNEL');
 
 	generator.addVariable('uint8_t white_num', 'uint8_t white_num;');
 	var code = '';
@@ -315,7 +312,6 @@ Arduino.forBlock['robotic_arm_init'] = function (block, generator) {
 	
 	ensureSerialBegin("Serial", generator);
 	
-	const power_index = block.getFieldValue('power_index');
 	// 添加初始化代码到setup部分
     generator.addSetup('esp32c3_can.begin()', 'esp32c3_can.begin();');
     generator.addSetup('robot_arm.begin()', 'robot_arm.begin();');

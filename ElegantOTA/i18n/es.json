@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "inicializar el servidor ElegantOTA modo %1 puerto %2 nombre de usuario %3 contraseña %4 reinicio automático %5 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "servidor web sincrónico",
+            "sync"
+          ],
+          [
+            "Servidor web asíncrono",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Cree un servidor web y exponga el portal de actualización ElegantOTA en /update."
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA establecer nombre de usuario %1 contraseña %2",
+    "tooltip": "Cambiar la autenticación del portal de actualización."
+  },
+  "elegant_ota_on_start": {
+    "message0": "cuando comienza la actualización ElegantOTA %1",
+    "tooltip": "Ejecute el código cuando comience una carga de OTA."
+  },
+  "elegant_ota_on_progress": {
+    "message0": "mientras avanza la actualización ElegantOTA %1",
+    "tooltip": "Ejecute el código cuando cambie el progreso de OTA."
+  },
+  "elegant_ota_on_end": {
+    "message0": "cuando finaliza la actualización de ElegantOTA %1",
+    "tooltip": "Ejecute el código cuando una actualización de OTA tenga éxito o falle."
+  },
+  "elegant_ota_callback_value": {
+    "message0": "Devolución de llamada ElegantOTA %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "bytes recibidos",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "bytes totales",
+            "_ailyOtaFinal"
+          ],
+          [
+            "porcentaje de progreso",
+            "percent"
+          ],
+          [
+            "éxito",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea los valores disponibles dentro de los bloques de devolución de llamada OTA."
+  }
+}

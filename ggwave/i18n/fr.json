@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "initialiser le mode ggwave %1 Taux d'échantillonnage %2 Échantillons %3/trame Longueur de charge utile %4 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "encoder et décoder",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "encoder seulement",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "décoder seulement",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Créez une instance de codec données sur son ggwave à l'aide d'un fichier audio 16 bits signé."
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 coder le texte Protocole %2 Volume %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "audible normal",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "audible rapidement",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "audible le plus rapidement",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "échographie normale",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "échographie rapide",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "échographie la plus rapide",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "bicolore rapide",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "multi-tons rapide",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Encodez le texte dans le tampon de forme d’onde géré."
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 codé %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "pointeur de tampon de forme d'onde",
+            "waveform"
+          ],
+          [
+            "octets de forme d'onde",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Accédez à la dernière forme d'onde codée et à sa longueur en octets."
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 décode le tampon audio %2 octets %3",
+    "tooltip": "Alimentez les échantillons audio 16 bits signés capturés et renvoyez le nombre d’octets décodés."
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 décodé %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "texte",
+            "text"
+          ],
+          [
+            "nombre d'octets",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez la charge utile la plus récemment décodée."
+  },
+  "ggwave_free": {
+    "message0": "version ggwave %1",
+    "tooltip": "Libérez le codec et la mémoire de forme d'onde."
+  }
+}

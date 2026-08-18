@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 Зигби",
+  "esp32_zigbee_begin": {
+    "message0": "Запустить роль Zigbee %1 Удалить конфигурацию %2",
+    "tooltip": "Запустите Zigbee с указанной ролью.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Терминальное оборудование",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "маршрутизатор",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "Координатор",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee подключен",
+    "tooltip": "Проверьте, подключился ли Zigbee к сети."
+  },
+  "esp32_zigbee_network": {
+    "message0": "Сеть Zigbee %1 тайм-аут %2 секунд",
+    "tooltip": "Управляйте устройством, чтобы оно подключилось к сети.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Открытый доступ к сети",
+            "openNetwork"
+          ],
+          [
+            "Закрыть доступ к сети",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Сброс настроек Zigbee",
+    "tooltip": "Очистите конфигурацию сети Zigbee и перезагрузитесь."
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "Создание источника света Zigbee %1 конечной точки %2",
+    "tooltip": "Создайте конечную точку переключателя света и присоединитесь к Zigbee."
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Настройки Zigbee Light %1 %2",
+    "tooltip": "Обновить статус индикатора Zigbee."
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "Состояние индикатора Zigbee %1",
+    "tooltip": "Прочтите текущий статус индикатора Zigbee."
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "Создание датчика температуры Zigbee %1 конечной точки %2",
+    "tooltip": "Создайте конечную точку датчика температуры и присоединитесь к Zigbee."
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "Датчик температуры Zigbee %1 обновляет %2 ℃ и сообщает",
+    "tooltip": "Установите и сообщите температуру."
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "Создание датчика присутствия Zigbee %1 конечной точки %2",
+    "tooltip": "Создайте конечную точку датчика присутствия и подключитесь к Zigbee."
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Датчик присутствия Zigbee %1 обновляет %2 и сообщает",
+    "tooltip": "Установите и сообщите статус занятости."
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "Создание контактного датчика Zigbee %1 конечной точки %2",
+    "tooltip": "Создайте конечную точку контактного датчика и присоединитесь к Zigbee."
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Контактный датчик Zigbee %1 Статус %2",
+    "tooltip": "Установите и сообщите статус контакта.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Закрыть",
+            "setClosed"
+          ],
+          [
+            "Открыть",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

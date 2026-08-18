@@ -1,0 +1,136 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "初期化 Firebase %1 API キー %2 電子メール %3 パスワード %4 データベース URL %5",
+    "tooltip": "ユーザーを認証し、Firebase Realtime Database をバインドします。"
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1 の準備が完了しました",
+    "tooltip": "認証の準備ができているかどうかを確認します。"
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1 パス %3 の %2 を %4 に設定します",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "テキスト",
+            "String"
+          ],
+          [
+            "整数",
+            "int"
+          ],
+          [
+            "浮動小数点数",
+            "double"
+          ],
+          [
+            "ブール値",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "値を Realtime Database に同期的に書き込みます。"
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 パス %3 から %2 を取得します",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "テキスト",
+            "String"
+          ],
+          [
+            "整数",
+            "int"
+          ],
+          [
+            "浮動小数点数",
+            "double"
+          ],
+          [
+            "ブール値",
+            "bool"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Realtime Database から型指定された値を同期的に読み取ります。"
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1 パス %3 で %2 をプッシュ 値 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "テキスト",
+            "String"
+          ],
+          [
+            "整数",
+            "int"
+          ],
+          [
+            "浮動小数点数",
+            "double"
+          ],
+          [
+            "ブール値",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "新しい子の値を Realtime Database にプッシュします。"
+  },
+  "firebase_client_path_action": {
+    "message0": "Firebase %1 %2 パス %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "削除する",
+            "remove"
+          ],
+          [
+            "チェックが存在します",
+            "exists"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "パスを削除するか、パスが存在するかどうかを確認してください。"
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 最後のエラー %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "コード",
+            "code"
+          ],
+          [
+            "エラーメッセージ",
+            "message"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "最後の同期クライアント エラーを読み取ります。"
+  }
+}

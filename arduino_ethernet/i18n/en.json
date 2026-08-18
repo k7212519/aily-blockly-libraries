@@ -1,0 +1,51 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "initialize Ethernet MAC %1 mode %2 IP %3",
+    "tooltip": "Initialize Ethernet with DHCP or a static address."
+  },
+  "ethernet_network_info": {
+    "message0": "Ethernet %1",
+    "tooltip": "Read Ethernet network or hardware state."
+  },
+  "ethernet_client_create": {
+    "message0": "create Ethernet client %1",
+    "tooltip": "Create an EthernetClient object."
+  },
+  "ethernet_client_connect": {
+    "message0": "Ethernet client %1 connect host %2 port %3",
+    "tooltip": "Connect a client to a host and port."
+  },
+  "ethernet_client_write": {
+    "message0": "Ethernet client %1 %2 %3",
+    "tooltip": "Send data through an Ethernet client."
+  },
+  "ethernet_client_data": {
+    "message0": "Ethernet client %1 %2",
+    "tooltip": "Read client data or connection state."
+  },
+  "ethernet_client_stop": {
+    "message0": "stop Ethernet client %1",
+    "tooltip": "Close an Ethernet client connection."
+  },
+  "ethernet_server_create": {
+    "message0": "create Ethernet server %1 port %2",
+    "tooltip": "Create and start an EthernetServer."
+  },
+  "ethernet_server_accept": {
+    "message0": "Ethernet server %1 accept client",
+    "tooltip": "Accept a newly connected client."
+  },
+  "ethernet_udp_create": {
+    "message0": "create Ethernet UDP %1 local port %2",
+    "tooltip": "Create an EthernetUDP socket and bind a port."
+  },
+  "ethernet_udp_send": {
+    "message0": "Ethernet UDP %1 send %2 to host %3 port %4",
+    "tooltip": "Send one UDP packet."
+  },
+  "ethernet_udp_data": {
+    "message0": "Ethernet UDP %1 %2",
+    "tooltip": "Read UDP packet data or sender information."
+  }
+}

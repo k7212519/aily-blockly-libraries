@@ -8,17 +8,26 @@ Arduino external interrupt support library
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `io_attach_interrupt` | Hat | PIN(dropdown), MODE(dropdown), HANDLER(input_statement) | `io_attach_interrupt(PIN, MODE) @HANDLER: child_block()` | Dynamic code |
-| `io_detach_interrupt` | Statement | PIN(dropdown) | `io_detach_interrupt(PIN)` | Dynamic code |
+| `io_attach_interrupt` | Hat | PIN(dropdown), MODE(dropdown), HANDLER(input_statement) | `io_attach_interrupt(PIN, MODE)` | `void interrupt_handler_PIN() { ↵ } ↵ attachInterrupt(digitalPinToInterrupt(PIN), interrupt_handler_PIN, MODE);` |
+| `io_detach_interrupt` | Statement | PIN(dropdown) | `io_detach_interrupt(PIN)` | `detachInterrupt(digitalPinToInterrupt(PIN));` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| PIN | ${board.interruptPins} | io_attach_interrupt |
+| MODE | ${board.interruptMode} | io_attach_interrupt |
 
 ## ABS Examples
 
 ### Basic Usage
 ```
 arduino_setup()
-    io_attach_interrupt(PIN, MODE) @HANDLER: child_block()
+    io_attach_interrupt(PIN, MODE)
+        @HANDLER:
+            serial_println(Serial, text("interrupt"))
     serial_begin(Serial, 9600)
 
 arduino_loop()

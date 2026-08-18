@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "고속 스테퍼 %1 스텝 핀 %2 방향 핀 %3 활성화 핀 %4 초기화",
+    "tooltip": "FastAccelStepper 인스턴스를 연결하고 자동 모터 전원을 활성화합니다."
+  },
+  "fast_stepper_set_profile": {
+    "message0": "빠른 스테퍼 %1 설정 속도 %2 단계/초 가속 %3 단계/s2",
+    "tooltip": "최대 속도와 가속도를 설정합니다."
+  },
+  "fast_stepper_move": {
+    "message0": "빠른 스테퍼 %1 이동 %2 %3 단계",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "상대적인",
+            "move"
+          ],
+          [
+            "절대적인",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "상대 또는 절대 이동을 대기열에 넣습니다."
+  },
+  "fast_stepper_run": {
+    "message0": "빠른 스테퍼 %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "끊임없이 앞으로 달려가다",
+            "runForward"
+          ],
+          [
+            "계속해서 뒤로 달려가다",
+            "runBackward"
+          ],
+          [
+            "감속하고 정지하다",
+            "stopMove"
+          ],
+          [
+            "위치 0에서 강제 정지",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "계속해서 운전하거나 모터를 정지시키십시오."
+  },
+  "fast_stepper_position": {
+    "message0": "빠른 스테퍼 %1 현재 위치 설정 %2",
+    "tooltip": "모터가 정지된 동안 논리 위치를 재설정합니다."
+  },
+  "fast_stepper_state": {
+    "message0": "빠른 스테퍼 %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "현재 위치",
+            "getCurrentPosition"
+          ],
+          [
+            "목표 위치",
+            "targetPos"
+          ],
+          [
+            "실행 중",
+            "isRunning"
+          ],
+          [
+            "지속적으로 운영되고 있습니다",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "스테퍼 위치 또는 동작 상태를 읽습니다."
+  }
+}

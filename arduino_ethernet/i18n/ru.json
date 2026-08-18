@@ -1,0 +1,163 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "инициализировать режим Ethernet MAC %1 %2 IP %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "DHCP",
+            "dhcp"
+          ],
+          [
+            "статический IP",
+            "static"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Инициализируйте Ethernet с помощью DHCP или статического адреса."
+  },
+  "ethernet_network_info": {
+    "message0": "Ethernet %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "местный IP",
+            "localIP"
+          ],
+          [
+            "шлюз IP",
+            "gatewayIP"
+          ],
+          [
+            "маска подсети",
+            "subnetMask"
+          ],
+          [
+            "Сервер DNS IP",
+            "dnsServerIP"
+          ],
+          [
+            "ссылка активна",
+            "link"
+          ],
+          [
+            "оборудование присутствует",
+            "hardware"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Чтение состояния сети Ethernet или оборудования."
+  },
+  "ethernet_client_create": {
+    "message0": "создать Ethernet-клиент %1",
+    "tooltip": "Создайте объект EthernetClient."
+  },
+  "ethernet_client_connect": {
+    "message0": "Клиент Ethernet %1 подключает хост %2 к порту %3",
+    "tooltip": "Подключите клиент к хосту и порту."
+  },
+  "ethernet_client_write": {
+    "message0": "Клиент Ethernet %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "печатать без новой строки",
+            "print"
+          ],
+          [
+            "печатать с новой строкой",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Отправьте данные через клиент Ethernet."
+  },
+  "ethernet_client_data": {
+    "message0": "Ethernet-клиент %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "доступные байты",
+            "available"
+          ],
+          [
+            "прочитать байт",
+            "read"
+          ],
+          [
+            "прочитать строку",
+            "line"
+          ],
+          [
+            "подключен",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Чтение данных клиента или состояния соединения."
+  },
+  "ethernet_client_stop": {
+    "message0": "остановить Ethernet-клиент %1",
+    "tooltip": "Закройте соединение клиента Ethernet."
+  },
+  "ethernet_server_create": {
+    "message0": "создать Ethernet-сервер %1, порт %2",
+    "tooltip": "Создайте и запустите EthernetServer."
+  },
+  "ethernet_server_accept": {
+    "message0": "Сервер Ethernet %1 принимает клиента",
+    "tooltip": "Примите нового подключенного клиента."
+  },
+  "ethernet_udp_create": {
+    "message0": "создать локальный порт Ethernet UDP %1 %2",
+    "tooltip": "Создайте сокет EthernetUDP и привяжите порт."
+  },
+  "ethernet_udp_send": {
+    "message0": "Ethernet UDP %1 отправляет %2 на хост-порт %3 %4",
+    "tooltip": "Отправьте один пакет UDP."
+  },
+  "ethernet_udp_data": {
+    "message0": "Ethernet UDP %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "анализировать пакет",
+            "parsePacket"
+          ],
+          [
+            "доступные байты",
+            "available"
+          ],
+          [
+            "прочитать байт",
+            "read"
+          ],
+          [
+            "удаленный IP",
+            "remoteIP"
+          ],
+          [
+            "удаленный порт",
+            "remotePort"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Чтение данных пакета UDP или информации об отправителе."
+  }
+}

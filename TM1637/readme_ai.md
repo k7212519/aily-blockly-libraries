@@ -8,16 +8,16 @@ TM1637 four-digit seven-segment display driver library supports functions such a
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `tm1637_init` | Statement | CLK_PIN(dropdown), DIO_PIN(dropdown) | `tm1637_init(CLK_PIN, DIO_PIN)` | Dynamic code |
-| `tm1637_print_number` | Statement | NUMBER(input_value) | `tm1637_print_number(math_number(0))` | display.print(...);\n |
-| `tm1637_print_text` | Statement | TEXT(input_value) | `tm1637_print_text(text("value"))` | display.print(...);\n |
-| `tm1637_clear` | Statement | (none) | `tm1637_clear()` | display.clear();\n |
-| `tm1637_set_brightness` | Statement | BRIGHTNESS(dropdown) | `tm1637_set_brightness("0")` | display.setBacklight(...);\n |
-| `tm1637_set_colon` | Statement | COLON_STATE(dropdown) | `tm1637_set_colon(true)` | display.setColonOn(...);\n |
-| `tm1637_print_time` | Statement | HOUR(input_value), MINUTE(input_value) | `tm1637_print_time(math_number(0), math_number(0))` | display.setColonOn(true);\n |
-| `tm1637_blink` | Statement | DELAY(field_number), REPEATS(field_number) | `tm1637_blink(500, 5)` | display.blink(..., ...);\n |
+| `tm1637_init` | Statement | CLK_PIN(dropdown), DIO_PIN(dropdown) | `tm1637_init(CLK_PIN, DIO_PIN)` | `SevenSegmentTM1637 display(CLK_PIN, DIO_PIN); ↵ display.begin(); ↵ display.setBacklight(100);` |
+| `tm1637_print_number` | Statement | NUMBER(input_value) | `tm1637_print_number(math_number(0))` | `display.print(1);` |
+| `tm1637_print_text` | Statement | TEXT(input_value) | `tm1637_print_text(text("value"))` | `display.print("value");` |
+| `tm1637_clear` | Statement | (none) | `tm1637_clear()` | `display.clear();` |
+| `tm1637_set_brightness` | Statement | BRIGHTNESS(dropdown) | `tm1637_set_brightness("0")` | `display.setBacklight(0);` |
+| `tm1637_set_colon` | Statement | COLON_STATE(dropdown) | `tm1637_set_colon(true)` | `display.setColonOn(true);` |
+| `tm1637_print_time` | Statement | HOUR(input_value), MINUTE(input_value) | `tm1637_print_time(math_number(0), math_number(0))` | `display.setColonOn(true); ↵ display.print(String(1 < 10 ? "0" : "") + String(1) + String(1 < 10 ? "0" : "") + String(1));` |
+| `tm1637_blink` | Statement | DELAY(field_number), REPEATS(field_number) | `tm1637_blink(500, 5)` | `display.blink(500, 5);` |
 
 ## Parameter Options
 

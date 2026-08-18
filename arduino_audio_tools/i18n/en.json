@@ -1,0 +1,31 @@
+{
+  "toolbox_name": "Arduino Audio Tools",
+  "audio_tools_i2s_init": {
+    "message0": "initialize Audio Tools I2S %1 mode %2 rate %3 channels %4 bits %5 BCLK %6 WS %7 data TX %8 data RX %9",
+    "tooltip": "Configure an I2S audio stream."
+  },
+  "audio_tools_copy_init": {
+    "message0": "create audio copier %1 output %2 input %3 auto copy in loop %4",
+    "tooltip": "Create a StreamCopy pipeline between two I2S streams."
+  },
+  "audio_tools_copy": {
+    "message0": "audio copier %1 copy next buffer",
+    "tooltip": "Copy the next available audio buffer."
+  },
+  "audio_tools_write_sample": {
+    "message0": "Audio Tools I2S %1 write 16-bit sample %2",
+    "tooltip": "Write one signed 16-bit sample."
+  },
+  "audio_tools_read_sample": {
+    "message0": "Audio Tools I2S %1 read 16-bit sample",
+    "tooltip": "Read one signed 16-bit sample."
+  },
+  "audio_tools_available": {
+    "message0": "Audio Tools I2S %1 available bytes",
+    "tooltip": "Return the number of readable audio bytes."
+  },
+  "audio_tools_end": {
+    "message0": "end Audio Tools I2S %1",
+    "tooltip": "Stop an I2S stream."
+  }
+}

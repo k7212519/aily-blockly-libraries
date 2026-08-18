@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "inicializar el nodo micro-ROS Nombre %1 Espacio de nombres %2 Identificadores de ejecutor %3 %4",
+    "tooltip": "Inicialice el transporte, el soporte, el nodo y el ejecutor predeterminados de micro-ROS."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "crear micro-ROS Int32 editor %1 nodo %2 tema %3",
+    "tooltip": "Cree un editor std_msgs/Int32."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "Editor micro-ROS %1 publicar Int32 %2",
+    "tooltip": "Publique un valor std_msgs/Int32."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "crear micro-ROS suscriptor Int32 nodo %1 tema %2 %3 cuando llegan los datos %4",
+    "tooltip": "Cree una suscripción std_msgs/Int32 y una devolución de llamada."
+  },
+  "micro_ros_received_int32": {
+    "message0": "El suscriptor micro-ROS %1 recibió Int32",
+    "tooltip": "Lea el último mensaje Int32 dentro o después de la devolución de llamada."
+  },
+  "micro_ros_spin": {
+    "message0": "Giro del nodo micro-ROS %1 para ms %2",
+    "tooltip": "Ejecute el ejecutor rclc una vez. La inicialización del nodo ya agrega un giro predeterminado al bucle."
+  }
+}

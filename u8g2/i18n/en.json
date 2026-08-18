@@ -122,31 +122,6 @@
     "message0": "Get total frame count of animation %1",
     "tooltip": "Get the total frame count of a u8g2 animation"
   },
-  "u8g2_step_animation_frame": {
-    "message0": "Move frame variable %1 one step toward target frame %2 frame count %3 direction %4",
-    "tooltip": "Each run moves the frame variable by one frame; forward and backward wrap around, and auto chooses direction from current and target frames",
-    "args0": [
-      null,
-      null,
-      null,
-      {
-        "options": [
-          [
-            "Auto",
-            "AUTO"
-          ],
-          [
-            "Forward",
-            "FORWARD"
-          ],
-          [
-            "Backward",
-            "BACKWARD"
-          ]
-        ]
-      }
-    ]
-  },
   "u8g2_icon_16x16": {
     "message0": "Small icon 16×16 %1",
     "tooltip": "16×16 pixel small icon, suitable for battery, signal, emoji, and similar symbols"

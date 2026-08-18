@@ -1,0 +1,274 @@
+[
+  {
+    "type": "esp32_tts_init",
+    "message0": "初始化离线 TTS %1 模型 %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "tts"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODEL",
+        "options": [
+          ["小模型（默认，约 2.78 MiB）", "0"],
+          ["标准模型（约 3.64 MiB）", "1"]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "BCLK",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "LRCLK",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "DOUT",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "MCLK",
+        "check": ["Number"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "创建 ESP32-S3 离线中文 TTS 和 I2S 输出，MCLK 不使用时设为 -1",
+    "inputsInline": false
+  },
+  {
+    "type": "esp32_tts_speak",
+    "message0": "离线 TTS %1 播报中文 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": ["String"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "阻塞合成 UTF-8 中文并通过初始化时配置的 I2S 输出"
+  },
+  {
+    "type": "esp32_tts_speak_pinyin",
+    "message0": "离线 TTS %1 播报拼音 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      },
+      {
+        "type": "input_value",
+        "name": "PINYIN",
+        "check": ["String"]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "播报以空格分隔且带 0～5 声调数字的拼音，例如 da4 jia1 hao3"
+  },
+  {
+    "type": "esp32_tts_speak_money",
+    "message0": "离线 TTS %1 播报金额 元 %2 角 %3 分 %4 模式 %5",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      },
+      {
+        "type": "input_value",
+        "name": "YUAN",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "JIAO",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "FEN",
+        "check": ["Number"]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          ["仅播报金额", "ESP32TTSPayMode::NumberOnly"],
+          ["支付宝到账", "ESP32TTSPayMode::Alipay"],
+          ["微信支付到账", "ESP32TTSPayMode::WeChat"]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "合成非负金额，角和分必须为 0～9"
+  },
+  {
+    "type": "esp32_tts_set_speed",
+    "message0": "离线 TTS %1 设置语速 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SPEED",
+        "options": [
+          ["0（最慢）", "0"],
+          ["1", "1"],
+          ["2", "2"],
+          ["3（默认）", "3"],
+          ["4", "4"],
+          ["5（最快）", "5"]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "设置语速，0 最慢，5 最快"
+  },
+  {
+    "type": "esp32_tts_get_speed",
+    "message0": "离线 TTS %1 当前语速",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "output": "Number",
+    "colour": "#6750A4",
+    "tooltip": "返回当前语速 0～5"
+  },
+  {
+    "type": "esp32_tts_is_ready",
+    "message0": "离线 TTS %1 已就绪",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#6750A4",
+    "tooltip": "检查 TTS 引擎是否初始化成功"
+  },
+  {
+    "type": "esp32_tts_is_speaking",
+    "message0": "离线 TTS %1 正在播报",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#6750A4",
+    "tooltip": "检查 TTS 是否正在合成并输出语音"
+  },
+  {
+    "type": "esp32_tts_last_error",
+    "message0": "离线 TTS %1 最后错误代码",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "output": "Number",
+    "colour": "#6750A4",
+    "tooltip": "返回最近一次错误的数字代码，0 表示无错误"
+  },
+  {
+    "type": "esp32_tts_last_error_message",
+    "message0": "离线 TTS %1 最后错误信息",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "output": "String",
+    "colour": "#6750A4",
+    "tooltip": "返回最近一次错误的英文说明"
+  },
+  {
+    "type": "esp32_tts_stop",
+    "message0": "离线 TTS %1 请求停止播报",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "从另一个 FreeRTOS 任务请求停止当前阻塞播报"
+  },
+  {
+    "type": "esp32_tts_end",
+    "message0": "离线 TTS %1 释放资源",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tts",
+        "variableTypes": ["ESP32TTS"],
+        "defaultType": "ESP32TTS"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6750A4",
+    "tooltip": "释放 TTS 引擎资源，之后可再次初始化"
+  }
+]

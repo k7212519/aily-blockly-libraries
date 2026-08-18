@@ -1,0 +1,75 @@
+{
+  "toolbox_name": "ESP32 離線 TTS",
+  "toolbox_labels": {
+    "初始化": "初始化",
+    "语音合成": "語音合成",
+    "状态与控制": "狀態與控制"
+  },
+  "esp32_tts_init": {
+    "message0": "初始化離線 TTS %1 模型 %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "tooltip": "建立 ESP32-S3 離線中文 TTS 和 I2S 輸出，未使用 MCLK 時設為 -1",
+    "args0": [
+      null,
+      { "options": [["小模型（預設，約 2.78 MiB）", "0"], ["標準模型（約 3.64 MiB）", "1"]] },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_tts_speak": {
+    "message0": "離線 TTS %1 播報中文 %2",
+    "tooltip": "阻塞合成 UTF-8 中文並透過初始化時設定的 I2S 輸出"
+  },
+  "esp32_tts_speak_pinyin": {
+    "message0": "離線 TTS %1 播報拼音 %2",
+    "tooltip": "播報以空格分隔並帶 0～5 聲調數字的拼音，例如 da4 jia1 hao3"
+  },
+  "esp32_tts_speak_money": {
+    "message0": "離線 TTS %1 播報金額 元 %2 角 %3 分 %4 模式 %5",
+    "tooltip": "合成非負金額，角和分必須為 0～9",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      { "options": [["只播報金額", "ESP32TTSPayMode::NumberOnly"], ["支付寶到賬", "ESP32TTSPayMode::Alipay"], ["微信支付到賬", "ESP32TTSPayMode::WeChat"]] }
+    ]
+  },
+  "esp32_tts_set_speed": {
+    "message0": "離線 TTS %1 設定語速 %2",
+    "tooltip": "設定語速，0 最慢，5 最快",
+    "args0": [
+      null,
+      { "options": [["0（最慢）", "0"], ["1", "1"], ["2", "2"], ["3（預設）", "3"], ["4", "4"], ["5（最快）", "5"]] }
+    ]
+  },
+  "esp32_tts_get_speed": {
+    "message0": "離線 TTS %1 當前語速",
+    "tooltip": "傳回目前語速 0～5"
+  },
+  "esp32_tts_is_ready": {
+    "message0": "離線 TTS %1 已就緒",
+    "tooltip": "檢查 TTS 引擎是否初始化成功"
+  },
+  "esp32_tts_is_speaking": {
+    "message0": "離線 TTS %1 正在播報",
+    "tooltip": "檢查 TTS 是否正在合成並輸出語音"
+  },
+  "esp32_tts_last_error": {
+    "message0": "離線 TTS %1 最後錯誤代碼",
+    "tooltip": "傳回最近一次錯誤的數字代碼，0 表示沒有錯誤"
+  },
+  "esp32_tts_last_error_message": {
+    "message0": "離線 TTS %1 最後錯誤資訊",
+    "tooltip": "傳回最近一次錯誤的英文說明"
+  },
+  "esp32_tts_stop": {
+    "message0": "離線 TTS %1 要求停止播報",
+    "tooltip": "從另一個 FreeRTOS 任務要求停止目前的阻塞播報"
+  },
+  "esp32_tts_end": {
+    "message0": "離線 TTS %1 釋放資源",
+    "tooltip": "釋放 TTS 引擎資源，之後可以再次初始化"
+  }
+}

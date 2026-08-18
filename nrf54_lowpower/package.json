@@ -25,7 +25,8 @@
   "description_pt": "Biblioteca de gerenciamento de baixo consumo para nRF54L15, suportando System OFF com despertar por temporizador/botão, sleep WFI, escalonamento de frequência de CPU, comparador de baixo consumo (LPCOMP) para despertar analógico, temporizador watchdog, detecção de fonte de reset/despertar e registros retidos GPREGRET.",
   "description_ru": "Библиотека управления энергопотреблением для nRF54L15, поддерживающая System OFF с пробуждением по таймеру/кнопке, WFI-сон в простое, масштабирование частоты CPU, аналоговое пробуждение через компаратор низкого потребления (LPCOMP), сторожевой таймер, определение источника сброса/пробуждения и регистры хранения GPREGRET.",
   "description_ar": "مكتبة إدارة الطاقة المنخفضة لـ nRF54L15، تدعم System OFF مع الاستيقاظ بالمؤقت/الزر، ونوم WFI الخامل، وتعديل تردد المعالج، ومقارن الطاقة المنخفضة (LPCOMP) للاستيقاظ التناظري، ومؤقت الحراسة، وكشف مصدر إعادة التشغيل/الاستيقاظ وسجلات GPREGRET المحتفظ بها.",
-  "version": "0.6.7",
+  "version": "0.6.81",
+  "spec": true,
   "compatibility": {
     "core": [
       "nrf54l15clean:nrf54l15clean"
@@ -65,5 +66,6 @@
   "source": {
     "name": "Nrf54L15-Clean-Implementation",
     "url": "https://github.com/xiao-nrf54l15/Nrf54L15-Clean-Implementation"
-  }
+  },
+  "url": "https://github.com/lolren/nrf54-arduino-core"
 }

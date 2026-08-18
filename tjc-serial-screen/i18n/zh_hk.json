@@ -1,0 +1,217 @@
+{
+  "toolbox_name": "淘晶馳串口屏",
+  "toolbox_labels": {
+    "Initialization": "初始化",
+    "Screen control": "螢幕控制",
+    "Communication and returns": "通訊與回傳"
+  },
+  "tjc_begin_hardware": {
+    "message0": "初始化淘晶馳硬件串口 %1 波特率 %2",
+    "tooltip": "啟動所選的板載硬體串列埠。螢幕TX接單晶片RX，螢幕RX接單晶片TX，波特率必須與螢幕一致，並放在所有指令或解析模組之前",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_begin_software": {
+    "message0": "初始化淘晶馳軟件串口 %1 波特率 %2 RX %3 TX %4",
+    "tooltip": "依指定名稱、RX/TX接腳和波特率建立SoftwareSerial。 RX/TX要與螢幕交叉連接，適合UNO/Nano等沒有多餘硬體串口的主機板",
+    "args0": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "tjc_clear_startup": {
+    "message0": "清空串列埠 %1 的淘晶馳啟動數據",
+    "tooltip": "讀取並丟棄串口中等待的字節，包括螢幕上電常回傳的88 FF FF FF。請在串列埠初始化後、回傳幀解析前使用",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_set_brightness": {
+    "message0": "設定串口屏 %1 背光亮度為 %2",
+    "tooltip": "使用dim設定目前背光，數值通常為0到100（不儲存至Flash）。頻繁調光時不要使用dims持久寫入",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_page": {
+    "message0": "讓串口屏 %1 切換到頁面 %2",
+    "tooltip": "按頁面名稱（如 main）或數字 ID 跳轉頁面。只需填寫名稱或 ID，模組會自動加入命令終止符。",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_variable": {
+    "message0": "設定淘晶馳變數 %1 為 %2",
+    "tooltip": "設定sys0、va0或頁面變數。數字不加引號，文字會自動加引號，不要手動加入指令終止符",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_property": {
+    "message0": "串口 %1 設定元件 %2 的屬性 %3 為 %4",
+    "tooltip": "在指定串列埠上設定控制項屬性，例如p0.pic=2、n0.val=100、t0.txt=\"Ready\"。串口放在最前方，屬性下拉框提供中文和英文名稱",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "文字 (txt)",
+            "txt"
+          ],
+          [
+            "數值 (val)",
+            "val"
+          ],
+          [
+            "圖片編號 (pic)",
+            "pic"
+          ],
+          [
+            "顯示 (vis)",
+            "vis"
+          ],
+          [
+            "啟用觸控 (tsw)",
+            "tsw"
+          ],
+          [
+            "背景色 (bco)",
+            "bco"
+          ],
+          [
+            "前景色 (pco)",
+            "pco"
+          ],
+          [
+            "字型 (font)",
+            "font"
+          ],
+          [
+            "座標 X (x)",
+            "x"
+          ],
+          [
+            "座標 Y (y)",
+            "y"
+          ],
+          [
+            "寬度 (w)",
+            "w"
+          ],
+          [
+            "高度 (h)",
+            "h"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "tjc_send_command": {
+    "message0": "向串列埠螢幕 %2 傳送指令 %1",
+    "tooltip": "發送任意淘晶馳 ASCII指令，例如page main、ref t0或get sys0。只輸入指令文本，模組會自動追加三個0xFF終止位元組",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_bkcmd": {
+    "message0": "設定串口屏 %1 的 bkcmd 為 %2",
+    "tooltip": "設定 bkcmd 回執模式：0 不回傳，1 回傳成功與錯誤，2 只回傳錯誤，3 回傳全部。需要讀取回執時，請另外啟用回傳幀解析。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "0 - 不回傳",
+            "0"
+          ],
+          [
+            "1 - 回傳成功與錯誤",
+            "1"
+          ],
+          [
+            "2 - 只回傳錯誤",
+            "2"
+          ],
+          [
+            "3 - 回傳全部",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "tjc_enable_frame_parser": {
+    "message0": "在串列埠 %1 啟用淘晶馳回傳幀解析",
+    "tooltip": "在loop中讀取串列埠，依FF FF FF分割回傳幀，並儲存幀類型。請在串口初始化後、幀事件或讀取區塊之前放置",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_event": {
+    "message0": "當串列埠 %2 收到淘晶馳幀 %1",
+    "message1": "執行 %1",
+    "tooltip": "當解析器收到指定訊框類型時執行HANDLER：65觸控、66頁、67座標、70字串、71數字、88啟動或任意。需要先初始化解析器",
+    "args0": [
+      {
+        "options": [
+          [
+            "觸控事件 (65)",
+            "65"
+          ],
+          [
+            "頁面 ID (66)",
+            "66"
+          ],
+          [
+            "觸控座標 (67)",
+            "67"
+          ],
+          [
+            "字串 (70)",
+            "70"
+          ],
+          [
+            "數字 (71)",
+            "71"
+          ],
+          [
+            "啟動 (88)",
+            "88"
+          ],
+          [
+            "任意幀",
+            "ANY"
+          ]
+        ]
+      },
+      null
+    ],
+    "args1": [
+      null
+    ]
+  },
+  "tjc_frame_type": {
+    "message0": "串列埠 %1 的最後淘晶馳幀類型",
+    "tooltip": "傳回最後完整幀的第一個字節，如65表示觸控、71表示數字。首幀到達前返回0",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_available": {
+    "message0": "串口 %1 有淘晶馳回傳幀",
+    "tooltip": "收到以 FF FF FF 結尾的完整幀時回傳 true，可在 if 中判斷；也可使用幀事件避免讀取不完整數據。",
+    "args0": [
+      null
+    ]
+  }
+}

@@ -8,12 +8,12 @@ The hardware uses the openjumper voice broadcast module (ojmoBph4010) based on a
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `nv170d_init` | Statement | NV_NAME(field_input), NV_PIN(dropdown) | `nv170d_init("nv170d", NV_PIN)` | Dynamic code |
-| `nv170d_play` | Statement | NV_NAME(field_input), NV_PLAYNUM(dropdown) | `nv170d_play("nv170d", "0X00")` | ....sendDWS(...);\n |
-| `nv170d_set` | Statement | NV_NAME(field_input), NV_SET(dropdown) | `nv170d_set("nv170d", "0XE0")` | ....sendDWS(...);\n |
-| `nv170d_playcon` | Statement | NV_NAME(field_input), NV_PLAYCONNUM(dropdown) | `nv170d_playcon("nv170d", "0XF1")` | See generator |
+| `nv170d_init` | Statement | NV_NAME(field_input), NV_PIN(dropdown) | `nv170d_init("nv170d", NV_PIN)` | `NV170D nv170d(NV_PIN);` |
+| `nv170d_play` | Statement | NV_NAME(field_input), NV_PLAYNUM(dropdown) | `nv170d_play("nv170d", "0X00")` | `nv170d.sendDWS(0X00);` |
+| `nv170d_set` | Statement | NV_NAME(field_input), NV_SET(dropdown) | `nv170d_set("nv170d", "0XE0")` | `nv170d.sendDWS(0XE0);` |
+| `nv170d_playcon` | Statement | NV_NAME(field_input), NV_PLAYCONNUM(dropdown) | `nv170d_playcon("nv170d", "0XF1")` | `nv170d.sendDWS(0xF1);` |
 
 ## Parameter Options
 

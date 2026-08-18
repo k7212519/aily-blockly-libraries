@@ -791,6 +791,41 @@
     },
     {
       "kind": "label",
+      "text": "图片"
+    },
+    {
+      "kind": "block",
+      "type": "seeed_gfx_draw_image",
+      "inputs": {
+        "X": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": "0"
+            }
+          }
+        },
+        "Y": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": "0"
+            }
+          }
+        },
+        "IMAGE": {
+          "shadow": {
+            "type": "seeed_gfx_image"
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "seeed_gfx_image"
+    },
+    {
+      "kind": "label",
       "text": "动画"
     },
     {
@@ -872,28 +907,6 @@
             "type": "math_number",
             "fields": {
               "NUM": "0"
-            }
-          }
-        }
-      }
-    },
-    {
-      "kind": "block",
-      "type": "seeed_gfx_step_animation_frame",
-      "inputs": {
-        "TARGET": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "0"
-            }
-          }
-        },
-        "FRAME_COUNT": {
-          "shadow": {
-            "type": "math_number",
-            "fields": {
-              "NUM": "1"
             }
           }
         }

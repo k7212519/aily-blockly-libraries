@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 RainMaker",
+  "esp32_rainmaker_init_node": {
+    "message0": "Initialiser le nœud RainMaker %1 nom %2",
+    "tooltip": "Créez un nœud RainMaker."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "Nœud RainMaker %1 Ajouter %2 Appareil %3 Nom %4 Valeur initiale %5",
+    "tooltip": "Créez des périphériques standards et ajoutez-les aux nœuds.\nCommutateur",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "开关",
+            "Switch"
+          ],
+          [
+            "Lumière",
+            "LightBulb"
+          ],
+          [
+            "Ventilateur",
+            "Fan"
+          ],
+          [
+            "Capteur de température",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker active le service %1",
+    "tooltip": "Activer le service standard RainMaker.",
+    "args0": [
+      {
+        "options": [
+          [
+            "OTA",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "Fuseau horaire",
+            "enableTZService()"
+          ],
+          [
+            "Régime\nScène",
+            "enableSchedule()"
+          ],
+          [
+            "场景",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "Démarrer RainMaker",
+    "tooltip": "Démarrez le service cloud RainMaker."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "Arrêter RainMaker",
+    "tooltip": "Arrêtez le service cloud RainMaker."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "Le dispositif RainMaker %1 signale la valeur du paramètre %2 %3",
+    "tooltip": "Mettre à jour et signaler les paramètres de l'appareil."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 délai %2 secondes",
+    "tooltip": "Retarder l'exécution de la restauration d'usine RainMaker ou de la réinitialisation Wi-Fi.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Rétablir les paramètres d'usine",
+            "RMakerFactoryReset"
+          ],
+          [
+            "Réinitialiser le Wi-Fi",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "Nœud RainMaker %1 ID",
+    "tooltip": "Lire l'ID du nœud RainMaker."
+  }
+}

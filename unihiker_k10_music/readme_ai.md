@@ -8,14 +8,14 @@ UNIHIKER K10 music and audio library, supports built-in music, tone playback, TF
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `k10_music_play_builtin` | Statement | MUSIC(dropdown) | `k10_music_play_builtin(BIRTHDAY)` | music.playMusic( |
-| `k10_music_stop_builtin` | Statement | (none) | `k10_music_stop_builtin()` | music.stopPlayTone();\n |
-| `k10_music_play_tone` | Statement | FREQ(input_value), DURATION(input_value) | `k10_music_play_tone(math_number(440), math_number(8000))` | music.playTone( |
-| `k10_music_record` | Statement | FILENAME(input_value), TIME(input_value) | `k10_music_record(text("S:/sound.wav"), math_number(3))` | music.recordSaveToTFCard( |
-| `k10_music_play_tf` | Statement | FILENAME(input_value) | `k10_music_play_tf(text("S:/sound.wav"))` | music.playTFCardAudio( |
-| `k10_music_stop_tf` | Statement | (none) | `k10_music_stop_tf()` | music.stopPlayAudio();\n |
+| `k10_music_play_builtin` | Statement | MUSIC(dropdown) | `k10_music_play_builtin(BIRTHDAY)` | `music.playMusic(BIRTHDAY);` |
+| `k10_music_stop_builtin` | Statement | (none) | `k10_music_stop_builtin()` | `music.stopPlayTone();` |
+| `k10_music_play_tone` | Statement | FREQ(input_value), DURATION(input_value) | `k10_music_play_tone(math_number(440), math_number(8000))` | `music.playTone(1, 1);` |
+| `k10_music_record` | Statement | FILENAME(input_value), TIME(input_value) | `k10_music_record(text("S:/sound.wav"), math_number(3))` | `music.recordSaveToTFCard("value", 1);` |
+| `k10_music_play_tf` | Statement | FILENAME(input_value) | `k10_music_play_tf(text("S:/sound.wav"))` | `music.playTFCardAudio("value");` |
+| `k10_music_stop_tf` | Statement | (none) | `k10_music_stop_tf()` | `music.stopPlayAudio();` |
 
 ## Parameter Options
 

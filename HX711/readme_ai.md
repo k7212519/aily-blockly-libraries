@@ -8,19 +8,19 @@ Used to control the HX711 load cell module. It supports calibration, tare and we
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `hx711_create` | Statement | VAR(field_variable) | `hx711_create(variables_get($scale))` | Dynamic code |
-| `hx711_begin` | Statement | VAR(field_variable), DATAPIN(dropdown), CLOCKPIN(dropdown) | `hx711_begin(variables_get($scale), DATAPIN, CLOCKPIN)` | Dynamic code |
-| `hx711_tare` | Statement | VAR(field_variable), TIMES(field_number) | `hx711_tare(variables_get($scale), 10)` | Dynamic code |
-| `hx711_set_scale` | Statement | VAR(field_variable), SCALE(input_value) | `hx711_set_scale(variables_get($scale), math_number(0))` | Dynamic code |
-| `hx711_get_units` | Value | VAR(field_variable), TIMES(field_number) | `hx711_get_units(variables_get($scale), 1)` | Dynamic code |
-| `hx711_read` | Value | VAR(field_variable) | `hx711_read(variables_get($scale))` | Dynamic code |
-| `hx711_read_average` | Value | VAR(field_variable), TIMES(field_number) | `hx711_read_average(variables_get($scale), 10)` | Dynamic code |
-| `hx711_power_down` | Statement | VAR(field_variable) | `hx711_power_down(variables_get($scale))` | Dynamic code |
-| `hx711_power_up` | Statement | VAR(field_variable) | `hx711_power_up(variables_get($scale))` | Dynamic code |
-| `hx711_set_gain` | Statement | VAR(field_variable), GAIN(dropdown) | `hx711_set_gain(variables_get($scale), HX711_CHANNEL_A_GAIN_128)` | Dynamic code |
-| `hx711_calibrate_scale` | Statement | VAR(field_variable), WEIGHT(input_value), TIMES(field_number) | `hx711_calibrate_scale(variables_get($scale), math_number(0), 10)` | Dynamic code |
+| `hx711_create` | Statement | VAR(field_variable) | `hx711_create($scale)` | `HX711 scale;` |
+| `hx711_begin` | Statement | VAR(field_variable), DATAPIN(dropdown), CLOCKPIN(dropdown) | `hx711_begin($scale, DATAPIN, CLOCKPIN)` | `scale.begin(DATAPIN, CLOCKPIN);` |
+| `hx711_tare` | Statement | VAR(field_variable), TIMES(field_number) | `hx711_tare($scale, 10)` | `scale.tare(10);` |
+| `hx711_set_scale` | Statement | VAR(field_variable), SCALE(input_value) | `hx711_set_scale($scale, math_number(0))` | `scale.set_scale(1);` |
+| `hx711_get_units` | Value | VAR(field_variable), TIMES(field_number) | `hx711_get_units($scale, 1)` | `scale.get_units(1)` |
+| `hx711_read` | Value | VAR(field_variable) | `hx711_read($scale)` | `scale.read()` |
+| `hx711_read_average` | Value | VAR(field_variable), TIMES(field_number) | `hx711_read_average($scale, 10)` | `scale.read_average(10)` |
+| `hx711_power_down` | Statement | VAR(field_variable) | `hx711_power_down($scale)` | `scale.power_down();` |
+| `hx711_power_up` | Statement | VAR(field_variable) | `hx711_power_up($scale)` | `scale.power_up();` |
+| `hx711_set_gain` | Statement | VAR(field_variable), GAIN(dropdown) | `hx711_set_gain($scale, HX711_CHANNEL_A_GAIN_128)` | `scale.set_gain(HX711_CHANNEL_A_GAIN_128);` |
+| `hx711_calibrate_scale` | Statement | VAR(field_variable), WEIGHT(input_value), TIMES(field_number) | `hx711_calibrate_scale($scale, math_number(0), 10)` | `scale.calibrate_scale(1, 10);` |
 
 ## Parameter Options
 
@@ -33,11 +33,11 @@ Used to control the HX711 load cell module. It supports calibration, tare and we
 ### Basic Usage
 ```
 arduino_setup()
-    hx711_create(variables_get($scale))
+    hx711_create($scale)
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, hx711_get_units(variables_get($scale), 1))
+    serial_println(Serial, hx711_get_units($scale, 1))
     time_delay(math_number(1000))
 ```
 

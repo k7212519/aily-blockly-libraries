@@ -8,7 +8,7 @@ TFT屏幕计算器模块，5×4按键矩阵，支持四则运算。全局单例`
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
 | `calc_begin` | Statement | (none) | `calc_begin()` | `Calc.begin();` |
 | `calc_show` | Statement | (none) | `calc_show()` | `Calc.show();` |

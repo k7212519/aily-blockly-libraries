@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "инициализировать ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 том %5",
+    "tooltip": "Инициализируйте аудиодекодер ESP32 и выход I2S."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 воспроизводить аудио из сети URL %2",
+    "tooltip": "Воспроизведите аудиопоток HTTP или HTTPS."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 воспроизведение по пути %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Воспроизведите аудиофайл из смонтированной файловой системы."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "приостановить или возобновить",
+            "pauseResume"
+          ],
+          [
+            "стоп",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Управление текущим воспроизведением."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 устанавливает для %2 значение %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "громкость звука 0-21",
+            "setVolume"
+          ],
+          [
+            "баланс звука от -16 до 16",
+            "setBalance"
+          ],
+          [
+            "позиция воспроизведения в секундах",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Измените громкость воспроизведения, баланс или положение файла."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "бежит",
+            "isRunning"
+          ],
+          [
+            "текущее время воспроизведения в секундах",
+            "getAudioCurrentTime"
+          ],
+          [
+            "продолжительность звука в секундах",
+            "getAudioFileDuration"
+          ],
+          [
+            "текущий объем",
+            "getVolume"
+          ],
+          [
+            "скорость передачи данных",
+            "getBitRate"
+          ],
+          [
+            "частота дискретизации",
+            "getSampleRate"
+          ],
+          [
+            "аудиоканалы",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Чтение состояния воспроизведения и метаданных потока."
+  }
+}

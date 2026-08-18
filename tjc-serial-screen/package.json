@@ -1,0 +1,32 @@
+{
+  "name": "@aily-project/lib-tjc-serial-screen",
+  "nickname": "淘晶驰串口屏",
+  "description": "淘晶驰串口屏控制模块",
+  "version": "1.0.1",
+  "author": "脆脆鲨",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "arduino:megaavr",
+      "esp32:esp32",
+      "esp8266:esp8266",
+      "renesas_uno:unor4wifi",
+      "rp2040:rp2040"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "tjc",
+    "serial",
+    "hmi",
+    "touchscreen"
+  ],
+  "tested": false,
+  "tester": "",
+  "url": "http://wiki.tjc1688.com/"
+}

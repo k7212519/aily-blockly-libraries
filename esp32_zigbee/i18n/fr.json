@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 Zigbee",
+  "esp32_zigbee_begin": {
+    "message0": "Démarrer le rôle Zigbee %1 Effacer la configuration %2",
+    "tooltip": "Démarrez Zigbee avec le rôle spécifié.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Équipements terminaux",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "routeur",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "Coordonnateur",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee est connecté",
+    "tooltip": "Vérifiez si Zigbee a rejoint le réseau."
+  },
+  "esp32_zigbee_network": {
+    "message0": "Réseau Zigbee %1 délai d'expiration %2 secondes",
+    "tooltip": "Contrôlez l'appareil pour qu'il rejoigne le réseau.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Ouvrir l'accès au réseau",
+            "openNetwork"
+          ],
+          [
+            "Fermer l'accès au réseau",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Réinitialisation d'usine Zigbee",
+    "tooltip": "Effacer la configuration du réseau Zigbee et redémarrer."
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "Créer le point de terminaison Zigbee Light %1 %2",
+    "tooltip": "Créez le point de terminaison de l'éclairage de l'interrupteur et rejoignez Zigbee."
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Paramètres de la lumière Zigbee %1 %2",
+    "tooltip": "Mettre à jour l'état de la lumière Zigbee."
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "État du voyant Zigbee %1",
+    "tooltip": "Lisez l'état actuel de la lumière Zigbee."
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "Créer un capteur de température Zigbee %1 point final %2",
+    "tooltip": "Créez un point de terminaison de capteur de température et rejoignez Zigbee."
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "Le capteur de température Zigbee %1 met à jour %2 ℃ et rapporte",
+    "tooltip": "Réglez et signalez la température."
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "Créer le capteur de présence Zigbee %1 point de terminaison %2",
+    "tooltip": "Créez un point de terminaison de capteur de présence et rejoignez Zigbee."
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Le capteur de présence Zigbee %1 met à jour %2 et génère des rapports",
+    "tooltip": "Définir et signaler l'état d'occupation."
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "Créer le capteur de contact Zigbee %1 point de terminaison %2",
+    "tooltip": "Créez un point de terminaison de capteur de contact et rejoignez Zigbee."
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Capteur de contact Zigbee %1 État %2",
+    "tooltip": "Définir et signaler l'état du contact.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Fermer",
+            "setClosed"
+          ],
+          [
+            "Ouvrir",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

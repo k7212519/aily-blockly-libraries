@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "GPIO Viewer",
+  "gpio_viewer_init": {
+    "message0": "تهيئة منفذ GPIO Viewer %1 %2 أخذ العينات ms %3 تخطي المسامير الطرفية %4",
+    "tooltip": "قم بتكوين وبدء تشغيل تطبيق الويب ESP32 GPIO Viewer."
+  },
+  "gpio_viewer_wifi": {
+    "message0": "عارض GPIO %1 توصيل Wi-Fi SSID %2 كلمة المرور %3",
+    "tooltip": "اسمح لـ GPIO Viewer بإنشاء اتصال Wi-Fi في وضع المحطة."
+  },
+  "gpio_viewer_set": {
+    "message0": "قام GPIO Viewer %1 بتعيين %2 على %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "منفذ HTTP",
+            "setPort"
+          ],
+          [
+            "الفاصل الزمني لأخذ العينات مللي ثانية",
+            "setSamplingInterval"
+          ],
+          [
+            "تخطي الدبابيس الطرفية",
+            "setSkipPeripheralPins"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "اضبط تكوين GPIO Viewer قبل أن يبدأ."
+  },
+  "gpio_viewer_begin": {
+    "message0": "بدء تشغيل GPIO Viewer %1",
+    "tooltip": "قم بتشغيل GPIO Viewer بعد إعداد الشبكة والتطبيق."
+  }
+}

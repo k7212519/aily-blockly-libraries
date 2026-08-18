@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "initialiser Arduino GFX %1 affichage %2 DC %3 CS %4 réinitialiser la rotation %5 %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Créez un bus matériel SPI et un pilote d'affichage Arduino_GFX commun."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 écran de remplissage couleur %2",
+    "tooltip": "Remplissez tout l'écran avec une couleur RGB565."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 ligne x0 %2 y0 %3 x1 %4 y1 %5 couleur %6",
+    "tooltip": "Dessinez un segment de ligne."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 rectangle x %3 y %4 largeur %5 hauteur %6 couleur %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "forme du contour",
+            "drawRect"
+          ],
+          [
+            "forme remplie",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Dessinez un rectangle délimité ou rempli."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 cercle x %3 et %4 rayon %5 couleur %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "forme du contour",
+            "drawCircle"
+          ],
+          [
+            "forme remplie",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Dessinez un cercle délimité ou rempli."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 couleur du texte %2 fond %3 taille %4 enveloppe %5",
+    "tooltip": "Définissez la couleur, l'arrière-plan, l'échelle et l'habillage du texte."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 à x %2 et %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "imprimer sans nouvelle ligne",
+            "print"
+          ],
+          [
+            "imprimer avec une nouvelle ligne",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Positionnez le curseur et dessinez le texte."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "définir la rotation",
+            "setRotation"
+          ],
+          [
+            "inverser l'affichage",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Modifier la rotation ou l'inversion de l'affichage."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "largeur",
+            "width"
+          ],
+          [
+            "hauteur",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez la dimension d'affichage logique actuelle."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 rouge %1 vert %2 bleu %3",
+    "tooltip": "Convertissez les composants RVB 8 bits en une couleur RGB565."
+  }
+}

@@ -161,31 +161,6 @@
     "message0": "获取K10动画 %1 总帧数",
     "tooltip": "获取 K10 动画的总帧数"
   },
-  "k10_step_animation_frame": {
-    "message0": "让帧变量 %1 向目标帧 %2 移动一步 总帧数 %3 方向 %4",
-    "tooltip": "让帧变量移动一帧；正向和反向会在首尾循环，自动模式会选择方向",
-    "args0": [
-      null,
-      null,
-      null,
-      {
-        "options": [
-          [
-            "自动",
-            "AUTO"
-          ],
-          [
-            "正向",
-            "FORWARD"
-          ],
-          [
-            "反向",
-            "BACKWARD"
-          ]
-        ]
-      }
-    ]
-  },
   "k10_screen_size": {
     "message0": "屏幕 %1",
     "tooltip": "K10 屏幕分辨率：240×320（正向/反向）",

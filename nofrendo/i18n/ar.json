@@ -1,0 +1,14 @@
+{
+  "toolbox_name": "محاكي NES",
+  "toolbox_labels": {
+    "NES模拟器": "محاكي NES"
+  },
+  "nofrendo_start": {
+    "message0": "محاكي NES لتحميل اللعبة ROM %1",
+    "tooltip": "قم بتشغيل محاكي NES وقم بتحميل مسار ROM المحدد (مثل /sdcard/game.nes). يجب تهيئة بطاقة SD وشاشة TFT أولاً."
+  },
+  "nofrendo_find_rom": {
+    "message0": "ابحث عن ملفات اللعبة .nes على بطاقة SD",
+    "tooltip": "ابحث عن أول ملف .nes في الدليل الجذر لبطاقة SD وأعد المسار الكامل. إذا لم يتم العثور عليه، يتم إرجاع سلسلة فارغة."
+  }
+}

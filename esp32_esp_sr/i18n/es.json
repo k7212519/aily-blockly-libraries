@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "Reconocimiento de voz ESP32",
+  "esp32_esp_sr_begin": {
+    "message0": "Iniciar reconocimiento de voz I2S %1 comando 1 %2 comando 2 %3 comando 3 %4 comando 4 %5 canal %6 formato de entrada %7",
+    "tooltip": "Inicia el reconocimiento de voz sin conexión y asigna los ID de comando 1 a 4 a cuatro frases.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Monocromático",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "Estéreo",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "Reconocimiento de voz %1",
+    "tooltip": "Finalizar, pausar o reanudar el reconocimiento de voz.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Fin",
+            "end"
+          ],
+          [
+            "Pausa",
+            "pause"
+          ],
+          [
+            "Restaurar",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "Modo de reconocimiento de voz %1",
+    "tooltip": "Cambia el modo de reconocimiento de comando o palabra de activación.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Palabra de despertar",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "Palabra de comando",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "Eventos recientes de reconocimiento de voz",
+    "tooltip": "Devuelve el último valor de sr_event_t."
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "ID de comando reciente de reconocimiento de voz",
+    "tooltip": "Devuelve el ID del comando reconocido más recientemente."
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "ID de frase reciente de reconocimiento de voz",
+    "tooltip": "Devuelve el ID de frase reconocido más recientemente."
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "Evento de voz %1",
+    "tooltip": "Devuelve la constante del evento de voz.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Palabra de despertar",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "Canal de despertador",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "comando",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "Tiempo de espera",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

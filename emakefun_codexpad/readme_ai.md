@@ -8,17 +8,17 @@ Emakefun CodexPad Bluetooth game controller library supports connecting the cont
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `codexpad_init` | Statement | VAR(field_input), MAC(input_value) | `codexpad_init("pad", text("value"))` | Dynamic code |
-| `codexpad_is_connected` | Value | VAR(field_variable) | `codexpad_is_connected(variables_get($pad))` | Dynamic code |
-| `codexpad_set_tx_power` | Statement | VAR(field_variable), POWER(dropdown) | `codexpad_set_tx_power(variables_get($pad), kMinus16dBm)` | Dynamic code |
-| `codexpad_button_pressed` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_pressed(variables_get($pad), kUp)` | Dynamic code |
-| `codexpad_button_released` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_released(variables_get($pad), kUp)` | Dynamic code |
-| `codexpad_button_holding` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_holding(variables_get($pad), kUp)` | Dynamic code |
-| `codexpad_button_state` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_state(variables_get($pad), kUp)` | Dynamic code |
-| `codexpad_axis_value` | Value | VAR(field_variable), AXIS(dropdown) | `codexpad_axis_value(variables_get($pad), kLeftStickX)` | Dynamic code |
-| `codexpad_axis_changed` | Value | VAR(field_variable), AXIS(dropdown), THRESHOLD(input_value) | `codexpad_axis_changed(variables_get($pad), kLeftStickX, math_number(0))` | Dynamic code |
+| `codexpad_init` | Statement | VAR(field_input), MAC(input_value) | `codexpad_init("pad", text("value"))` | `CodexPad pad; ↵ pad.Init(); ↵ pad.Connect(std::string("value")); ↵ pad.Update();` |
+| `codexpad_is_connected` | Value | VAR(field_variable) | `codexpad_is_connected($pad)` | `pad.is_connected()` |
+| `codexpad_set_tx_power` | Statement | VAR(field_variable), POWER(dropdown) | `codexpad_set_tx_power($pad, kMinus16dBm)` | `pad.set_tx_power(CodexPad::TxPower::kMinus16dBm);` |
+| `codexpad_button_pressed` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_pressed($pad, kUp)` | `pad.pressed(CodexPad::Button::kUp)` |
+| `codexpad_button_released` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_released($pad, kUp)` | `pad.released(CodexPad::Button::kUp)` |
+| `codexpad_button_holding` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_holding($pad, kUp)` | `pad.holding(CodexPad::Button::kUp)` |
+| `codexpad_button_state` | Value | VAR(field_variable), BUTTON(dropdown) | `codexpad_button_state($pad, kUp)` | `pad.button_state(CodexPad::Button::kUp)` |
+| `codexpad_axis_value` | Value | VAR(field_variable), AXIS(dropdown) | `codexpad_axis_value($pad, kLeftStickX)` | `pad.axis_value(CodexPad::Axis::kLeftStickX)` |
+| `codexpad_axis_changed` | Value | VAR(field_variable), AXIS(dropdown), THRESHOLD(input_value) | `codexpad_axis_changed($pad, kLeftStickX, math_number(0))` | `pad.HasAxisValueChanged(CodexPad::Axis::kLeftStickX, 1)` |
 
 ## Parameter Options
 
@@ -37,12 +37,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, codexpad_is_connected(variables_get($pad)))
+    serial_println(Serial, codexpad_is_connected($pad))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `codexpad_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `codexpad_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

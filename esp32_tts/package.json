@@ -1,0 +1,83 @@
+{
+  "name": "@aily-project/lib-esp32-tts",
+  "nickname": "ESP32 离线中文 TTS",
+  "nickname_zh_cn": "ESP32 离线中文 TTS",
+  "nickname_en": "ESP32 Offline Chinese TTS",
+  "nickname_zh_hk": "ESP32 離線中文 TTS",
+  "nickname_ja": "ESP32 オフライン中国語 TTS",
+  "nickname_ko": "ESP32 오프라인 중국어 TTS",
+  "nickname_de": "ESP32 Offline-Chinesisch-TTS",
+  "nickname_fr": "TTS chinois hors ligne ESP32",
+  "nickname_es": "TTS chino sin conexión ESP32",
+  "nickname_pt": "TTS chinês offline ESP32",
+  "nickname_ru": "Офлайн-синтез китайской речи ESP32",
+  "nickname_ar": "تحويل النص الصيني إلى كلام دون اتصال ESP32",
+  "author": "tts_esp32 contributors",
+  "description": "面向 ESP32-S3 的离线中文语音合成库，支持 I2S、拼音、金额播报和 0～5 档语速。",
+  "description_zh_cn": "面向 ESP32-S3 的离线中文语音合成库，支持 I2S、拼音、金额播报和 0～5 档语速。",
+  "description_en": "Offline Chinese speech synthesis for ESP32-S3 with I2S output, pinyin, payment announcements, and six speed levels.",
+  "description_zh_hk": "面向 ESP32-S3 的離線中文語音合成庫，支援 I2S、拼音、金額播報和 0～5 檔語速。",
+  "description_ja": "I2S 出力、ピンイン、金額読み上げ、6 段階の速度に対応する ESP32-S3 用オフライン中国語音声合成ライブラリ。",
+  "description_ko": "I2S 출력, 병음, 금액 안내 및 6단계 속도를 지원하는 ESP32-S3용 오프라인 중국어 음성 합성 라이브러리입니다.",
+  "description_de": "Offline-Chinesisch-Sprachsynthese für ESP32-S3 mit I2S-Ausgabe, Pinyin, Zahlungsansagen und sechs Geschwindigkeitsstufen.",
+  "description_fr": "Synthèse vocale chinoise hors ligne pour ESP32-S3 avec sortie I2S, pinyin, annonces de paiement et six vitesses.",
+  "description_es": "Síntesis de voz china sin conexión para ESP32-S3 con salida I2S, pinyin, anuncios de pago y seis velocidades.",
+  "description_pt": "Síntese de voz chinesa offline para ESP32-S3 com saída I2S, pinyin, anúncios de pagamento e seis velocidades.",
+  "description_ru": "Офлайн-синтез китайской речи для ESP32-S3 с I2S, пиньинем, озвучиванием платежей и шестью скоростями.",
+  "description_ar": "تحويل النص الصيني إلى كلام دون اتصال لـ ESP32-S3 مع إخراج I2S والبينيين وإعلانات الدفع وست سرعات.",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "compatibility": {
+    "core": [
+      "esp32:esp32:adafruit_metro_esp32s3",
+      "esp32:esp32:dfrobot_firebeetle2_esp32s3",
+      "esp32:esp32:esp32s3",
+      "esp32:esp32:wifiduino32s3",
+      "esp32:esp32:XIAO_ESP32S3",
+      "esp32:esp32:XIAO_ESP32S3_PLUS"
+    ],
+    "voltage": [3.3]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "esp32",
+    "esp32-s3",
+    "tts",
+    "offline",
+    "chinese",
+    "speech",
+    "audio",
+    "i2s",
+    "pinyin",
+    "text-to-speech"
+  ],
+  "scripts": {
+    "postinstall": "node setup-partition.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "url": "https://github.com/coloz/ESP32_TTS_arduino",
+  "tags": [
+    "audio",
+    "speech"
+  ],
+  "bundledSources": [
+    {
+      "name": "ESP32TTS",
+      "version": "0.3.0",
+      "author": "tts_esp32 contributors",
+      "url": "https://github.com/coloz/ESP32_TTS_arduino",
+      "license": "Apache-2.0",
+      "path": "src/ESP32TTS/src/ESP32TTS.h",
+      "reason": "Bundles the ESP32-S3 wrapper and selectable Xiaoxin voice models required for offline synthesis."
+    }
+  ],
+  "platformPrerequisites": [
+    "ESP32-S3 with at least 8 MB flash",
+    "Arduino-ESP32 3.3.8 or newer in the 3.x series",
+    "I2S DAC or amplifier accepting 16 kHz, 16-bit mono PCM"
+  ]
+}

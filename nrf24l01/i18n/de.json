@@ -1,0 +1,76 @@
+{
+  "toolbox_name": "nRF24L01-Funkkommunikation",
+  "toolbox_labels": {
+    "Setup": "Initialisierung und Konfiguration",
+    "Addresses": "Funkadressen",
+    "Send and receive": "Senden und Empfangen",
+    "Status and power": "Status und Energie"
+  },
+  "nrf24l01_init": {
+    "message0": "nRF24L01 %1 initialisieren CE-Pin %2 CSN-Pin %3",
+    "tooltip": "Erstellt das RF24-Objekt, initialisiert das SPI-Funkmodul und aktiviert dynamische Nutzdaten. Das Modul mit 3,3 V versorgen."
+  },
+  "nrf24l01_set_radio_parameters": {
+    "message0": "nRF24L01 %1 Kanal %2 Datenrate %3 Leistung %4 einstellen",
+    "tooltip": "Stellt Funkkanal (0-125), Datenrate und Sendeleistung ein. Beide Funkmodule müssen denselben Kanal und dieselbe Datenrate verwenden.",
+    "args0": [null, null, {"options": [["250 kbit/s", "RF24_250KBPS"], ["1 Mbit/s", "RF24_1MBPS"], ["2 Mbit/s", "RF24_2MBPS"]]}, {"options": [["Minimum (-18 dBm)", "RF24_PA_MIN"], ["Niedrig (-12 dBm)", "RF24_PA_LOW"], ["Hoch (-6 dBm)", "RF24_PA_HIGH"], ["Maximum (0 dBm)", "RF24_PA_MAX"]]}]
+  },
+  "nrf24l01_set_retries": {
+    "message0": "nRF24L01 %1 Wiederholungsverzögerung %2 Anzahl %3 einstellen",
+    "tooltip": "Stellt Verzögerung und Anzahl der automatischen Wiederholungen ein. Beide Werte liegen zwischen 0 und 15."
+  },
+  "nrf24l01_set_auto_ack": {
+    "message0": "nRF24L01 %1 automatische Bestätigung %2",
+    "tooltip": "Aktiviert oder deaktiviert die automatische Bestätigung für alle Empfangskanäle."
+  },
+  "nrf24l01_open_writing_pipe": {
+    "message0": "nRF24L01 %1 Sendeadresse %2 einstellen",
+    "tooltip": "Stellt die Zieladresse ein und wechselt in den Sendemodus. Die ersten 5 Bytes werden verwendet; kürzere Adressen werden aufgefüllt."
+  },
+  "nrf24l01_open_reading_pipe": {
+    "message0": "nRF24L01 %1 Empfangskanal %2 mit Adresse %3 öffnen",
+    "tooltip": "Öffnet Empfangskanal 0-5 mit einer 5-Byte-Adresse. Kanäle 2-5 sollten die letzten 4 Bytes mit Kanal 1 teilen."
+  },
+  "nrf24l01_set_listening": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "Wechselt zwischen Empfangs- und Sendemodus. Vor dem Empfang einen Empfangskanal öffnen.",
+    "args0": [null, {"options": [["Empfang starten", "START"], ["Empfang stoppen", "STOP"]]}]
+  },
+  "nrf24l01_send_text": {
+    "message0": "nRF24L01 %1 Text %2 senden",
+    "tooltip": "Sendet bis zu 31 Textbytes plus Abschlusszeichen und speichert, ob das Paket bestätigt wurde."
+  },
+  "nrf24l01_send_number": {
+    "message0": "nRF24L01 %1 Zahl %2 senden",
+    "tooltip": "Sendet eine Zahl als 32-Bit-Gleitkomma-Nutzdaten und speichert, ob sie bestätigt wurde."
+  },
+  "nrf24l01_available": {
+    "message0": "nRF24L01 %1 hat Empfangsdaten",
+    "tooltip": "Gibt wahr zurück, wenn Nutzdaten warten, und merkt sich die Empfangskanalnummer."
+  },
+  "nrf24l01_read_text": {
+    "message0": "nRF24L01 %1 Text lesen",
+    "tooltip": "Liest und verbraucht die nächsten Nutzdaten als Text. Zuerst auf Empfangsdaten prüfen."
+  },
+  "nrf24l01_read_number": {
+    "message0": "nRF24L01 %1 Zahl lesen",
+    "tooltip": "Liest und verbraucht die nächsten Nutzdaten als 32-Bit-Gleitkommazahl. Zuerst auf Empfangsdaten prüfen."
+  },
+  "nrf24l01_last_send_succeeded": {
+    "message0": "nRF24L01 %1 letzter Versand erfolgreich",
+    "tooltip": "Gibt das Bestätigungsergebnis des letzten Text- oder Zahlenversands zurück."
+  },
+  "nrf24l01_received_pipe": {
+    "message0": "nRF24L01 %1 letzter Empfangskanal",
+    "tooltip": "Gibt die bei der letzten Empfangsprüfung gespeicherte Kanalnummer zurück."
+  },
+  "nrf24l01_is_chip_connected": {
+    "message0": "nRF24L01 %1 Hardware verbunden",
+    "tooltip": "Prüft, ob der Mikrocontroller über SPI mit dem Funkmodul kommunizieren kann."
+  },
+  "nrf24l01_set_power_mode": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "Weckt das Funkmodul oder versetzt es in den Energiesparmodus. Die Konfiguration bleibt erhalten.",
+    "args0": [null, {"options": [["einschalten", "UP"], ["ausschalten", "DOWN"]]}]
+  }
+}

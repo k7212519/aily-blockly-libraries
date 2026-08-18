@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "初始化 EEPROM 大小 %1 位元組",
+    "tooltip": "分配 EEPROM 模擬儲存區。"
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM 讀取位元組 位址 %1",
+    "tooltip": "讀取指定位址的一個位元組。"
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM 寫入位元組 位址 %1 值 %2",
+    "tooltip": "寫入一個位元組，之後需要提交。"
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM 讀取 %1 位址 %2",
+    "tooltip": "以指定類型讀取數值。",
+    "args0": [
+      {
+        "options": [
+          [
+            "整數",
+            "readInt"
+          ],
+          [
+            "無符號整數",
+            "readUInt"
+          ],
+          [
+            "長整數",
+            "readLong64"
+          ],
+          [
+            "浮點數",
+            "readFloat"
+          ],
+          [
+            "雙精度",
+            "readDouble"
+          ],
+          [
+            "布林值",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM 寫入 %1 位址 %2 值 %3",
+    "tooltip": "依指定類型寫入數值。",
+    "args0": [
+      {
+        "options": [
+          [
+            "整數",
+            "writeInt"
+          ],
+          [
+            "無符號整數",
+            "writeUInt"
+          ],
+          [
+            "長整數",
+            "writeLong64"
+          ],
+          [
+            "浮點數",
+            "writeFloat"
+          ],
+          [
+            "雙精度",
+            "writeDouble"
+          ],
+          [
+            "布林值",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM 讀取字串 位址 %1",
+    "tooltip": "讀取以零結尾的字串。"
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM 寫入字串 位址 %1 文字 %2",
+    "tooltip": "寫入字串並傳回寫入長度。"
+  },
+  "esp32_eeprom_commit": {
+    "message0": "提交 EEPROM 更改",
+    "tooltip": "把快取中的變更寫入 Flash。"
+  },
+  "esp32_eeprom_end": {
+    "message0": "結束 EEPROM",
+    "tooltip": "提交並釋放 EEPROM 緩衝區。"
+  },
+  "esp32_eeprom_length": {
+    "message0": "EEPROM 容量",
+    "tooltip": "傳回目前 EEPROM 容量。"
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM 有未提交更改",
+    "tooltip": "檢查快取是否有未提交更改。"
+  }
+}

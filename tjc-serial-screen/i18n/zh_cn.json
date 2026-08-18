@@ -1,0 +1,217 @@
+{
+  "toolbox_name": "淘晶驰串口屏",
+  "toolbox_labels": {
+    "Initialization": "初始化",
+    "Screen control": "屏幕控制",
+    "Communication and returns": "通信与返回"
+  },
+  "tjc_begin_hardware": {
+    "message0": "初始化淘晶驰硬件串口 %1 波特率 %2",
+    "tooltip": "启动所选的板载硬件串口。屏幕TX接单片机RX，屏幕RX接单片机TX，波特率必须与屏幕一致，并放在所有命令或解析模块之前",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_begin_software": {
+    "message0": "初始化淘晶驰软件串口 %1 波特率 %2 RX %3 TX %4",
+    "tooltip": "按指定名称、RX/TX引脚和波特率创建SoftwareSerial。RX/TX要与屏幕交叉连接，适合UNO/Nano等没有多余硬件串口的主板",
+    "args0": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "tjc_clear_startup": {
+    "message0": "清空串口 %1 的淘晶驰启动数据",
+    "tooltip": "读取并丢弃串口中等待的字节，包括屏幕上电常返回的88 FF FF FF。请在串口初始化后、返回帧解析前使用",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_set_brightness": {
+    "message0": "设置串口屏 %1 背光亮度为 %2",
+    "tooltip": "使用dim设置当前背光，数值通常为0到100（不保存到Flash）。频繁调光时不要使用dims持久写入",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_page": {
+    "message0": "让串口屏 %1 切换到页面 %2",
+    "tooltip": "按页面名（如main）或数字ID跳转页面。只填写名称或ID，模块会自动添加命令终止符",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_variable": {
+    "message0": "设置淘晶驰变量 %1 为 %2",
+    "tooltip": "设置sys0、va0或页面变量。数字不加引号，文本会自动加引号，不要手动添加命令终止符",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_property": {
+    "message0": "串口 %1 设置控件 %2 的属性 %3 为 %4",
+    "tooltip": "在指定串口上设置控件属性，例如p0.pic=2、n0.val=100、t0.txt=\"Ready\"。串口放在最前方，属性下拉框提供中文和英文名称",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "文本 (txt)",
+            "txt"
+          ],
+          [
+            "数值 (val)",
+            "val"
+          ],
+          [
+            "图片编号 (pic)",
+            "pic"
+          ],
+          [
+            "显示 (vis)",
+            "vis"
+          ],
+          [
+            "触摸使能 (tsw)",
+            "tsw"
+          ],
+          [
+            "背景色 (bco)",
+            "bco"
+          ],
+          [
+            "前景色 (pco)",
+            "pco"
+          ],
+          [
+            "字体 (font)",
+            "font"
+          ],
+          [
+            "坐标X (x)",
+            "x"
+          ],
+          [
+            "坐标Y (y)",
+            "y"
+          ],
+          [
+            "宽度 (w)",
+            "w"
+          ],
+          [
+            "高度 (h)",
+            "h"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "tjc_send_command": {
+    "message0": "向串口屏 %2 发送命令 %1",
+    "tooltip": "发送任意淘晶驰 ASCII命令，例如page main、ref t0或get sys0。只输入命令文本，模块会自动追加三个0xFF终止字节",
+    "args0": [
+      null,
+      null
+    ]
+  },
+  "tjc_set_bkcmd": {
+    "message0": "设置串口屏 %1 的bkcmd为 %2",
+    "tooltip": "设置bkcmd回执模式：0不返回，1返回成功和错误，2仅返回错误，3返回全部。需要读取回执时请另外启用返回帧解析",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "0 - 不返回",
+            "0"
+          ],
+          [
+            "1 - 返回成功和错误",
+            "1"
+          ],
+          [
+            "2 - 仅返回错误",
+            "2"
+          ],
+          [
+            "3 - 返回全部",
+            "3"
+          ]
+        ]
+      }
+    ]
+  },
+  "tjc_enable_frame_parser": {
+    "message0": "在串口 %1 启用淘晶驰返回帧解析",
+    "tooltip": "在loop中读取串口，按FF FF FF分割返回帧，并保存帧类型。请在串口初始化后、帧事件或读取块之前放置",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_event": {
+    "message0": "当串口 %2 收到淘晶驰帧 %1",
+    "message1": "执行 %1",
+    "tooltip": "当解析器收到指定帧类型时执行HANDLER：65触摸、66页面、67坐标、70字符串、71数字、88启动或任意。需先初始化解析器",
+    "args0": [
+      {
+        "options": [
+          [
+            "触摸事件 (65)",
+            "65"
+          ],
+          [
+            "页面 ID (66)",
+            "66"
+          ],
+          [
+            "触摸坐标 (67)",
+            "67"
+          ],
+          [
+            "字符串 (70)",
+            "70"
+          ],
+          [
+            "数字 (71)",
+            "71"
+          ],
+          [
+            "启动 (88)",
+            "88"
+          ],
+          [
+            "任意帧",
+            "ANY"
+          ]
+        ]
+      },
+      null
+    ],
+    "args1": [
+      null
+    ]
+  },
+  "tjc_frame_type": {
+    "message0": "串口 %1 的最后淘晶驰帧类型",
+    "tooltip": "返回最后完整帧的第一个字节，如65表示触摸、71表示数字。首帧到达前返回0",
+    "args0": [
+      null
+    ]
+  },
+  "tjc_frame_available": {
+    "message0": "串口 %1 有淘晶驰返回帧",
+    "tooltip": "当收到以FF FF FF结尾的完整帧时返回true，可在if中判断。也可使用帧事件避免读取不完整数据",
+    "args0": [
+      null
+    ]
+  }
+}

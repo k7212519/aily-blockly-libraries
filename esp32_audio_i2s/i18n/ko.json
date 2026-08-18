@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 볼륨 %5 초기화",
+    "tooltip": "ESP32 오디오 디코더 및 I2S 출력을 초기화합니다."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 네트워크 URL %2에서 오디오 재생",
+    "tooltip": "HTTP 또는 HTTPS 오디오 스트림을 재생합니다."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 %2 경로 %3에서 재생",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "마운트된 파일 시스템에서 오디오 파일을 재생합니다."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "일시중지 또는 재개",
+            "pauseResume"
+          ],
+          [
+            "중지",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "현재 재생을 제어합니다."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1는 %2를 %3로 설정합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "오디오 볼륨 0-21",
+            "setVolume"
+          ],
+          [
+            "오디오 밸런스 -16 ~ 16",
+            "setBalance"
+          ],
+          [
+            "재생 위치(초)",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "재생 볼륨, 밸런스 또는 파일 위치를 변경합니다."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "실행 중",
+            "isRunning"
+          ],
+          [
+            "현재 재생 시간(초)",
+            "getAudioCurrentTime"
+          ],
+          [
+            "오디오 지속 시간(초)",
+            "getAudioFileDuration"
+          ],
+          [
+            "현재 볼륨",
+            "getVolume"
+          ],
+          [
+            "비트 전송률",
+            "getBitRate"
+          ],
+          [
+            "샘플링 속도",
+            "getSampleRate"
+          ],
+          [
+            "오디오 채널",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "재생 상태 및 스트림 메타데이터를 읽습니다."
+  }
+}

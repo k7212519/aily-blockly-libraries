@@ -8,20 +8,20 @@ ESP32 LittleFS file system supports operations such as reading, writing, and del
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_littlefs_begin` | Statement | FORMAT(dropdown) | `esp32_littlefs_begin(true)` | Dynamic code |
-| `esp32_littlefs_end` | Statement | (none) | `esp32_littlefs_end()` | LittleFS.end();\n |
-| `esp32_littlefs_format` | Statement | (none) | `esp32_littlefs_format()` | LittleFS.format();\n |
-| `esp32_littlefs_info` | Value | INFO(dropdown) | `esp32_littlefs_info(totalBytes)` | LittleFS. |
-| `esp32_littlefs_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_littlefs_write_file(text("value"), text("value"))` | littlefs_writeFile( |
-| `esp32_littlefs_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_littlefs_append_file(text("value"), text("value"))` | littlefs_appendFile( |
-| `esp32_littlefs_read_file` | Value | PATH(input_value) | `esp32_littlefs_read_file(text("value"))` | littlefs_readFile( |
-| `esp32_littlefs_delete_file` | Statement | PATH(input_value) | `esp32_littlefs_delete_file(text("value"))` | LittleFS.remove( |
-| `esp32_littlefs_exists` | Value | PATH(input_value) | `esp32_littlefs_exists(text("value"))` | LittleFS.exists( |
-| `esp32_littlefs_rename` | Statement | OLD_PATH(input_value), NEW_PATH(input_value) | `esp32_littlefs_rename(text("value"), text("value"))` | LittleFS.rename( |
-| `esp32_littlefs_mkdir` | Statement | PATH(input_value) | `esp32_littlefs_mkdir(text("value"))` | LittleFS.mkdir( |
-| `esp32_littlefs_rmdir` | Statement | PATH(input_value) | `esp32_littlefs_rmdir(text("value"))` | LittleFS.rmdir( |
+| `esp32_littlefs_begin` | Statement | FORMAT(dropdown) | `esp32_littlefs_begin(true)` | `if (!LittleFS.begin(true)) { ↵ Serial.println("LittleFS Mount Failed"); ↵ return; ↵ }` |
+| `esp32_littlefs_end` | Statement | (none) | `esp32_littlefs_end()` | `LittleFS.end();` |
+| `esp32_littlefs_format` | Statement | (none) | `esp32_littlefs_format()` | `LittleFS.format();` |
+| `esp32_littlefs_info` | Value | INFO(dropdown) | `esp32_littlefs_info(totalBytes)` | `LittleFS.totalBytes()` |
+| `esp32_littlefs_write_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_littlefs_write_file(text("value"), text("value"))` | `littlefs_writeFile("value", String("value").c_str());` |
+| `esp32_littlefs_append_file` | Statement | PATH(input_value), CONTENT(input_value) | `esp32_littlefs_append_file(text("value"), text("value"))` | `littlefs_appendFile("value", String("value").c_str());` |
+| `esp32_littlefs_read_file` | Value | PATH(input_value) | `esp32_littlefs_read_file(text("value"))` | `littlefs_readFile("value")` |
+| `esp32_littlefs_delete_file` | Statement | PATH(input_value) | `esp32_littlefs_delete_file(text("value"))` | `LittleFS.remove("value");` |
+| `esp32_littlefs_exists` | Value | PATH(input_value) | `esp32_littlefs_exists(text("value"))` | `LittleFS.exists("value")` |
+| `esp32_littlefs_rename` | Statement | OLD_PATH(input_value), NEW_PATH(input_value) | `esp32_littlefs_rename(text("value"), text("value"))` | `LittleFS.rename("value", "value");` |
+| `esp32_littlefs_mkdir` | Statement | PATH(input_value) | `esp32_littlefs_mkdir(text("value"))` | `LittleFS.mkdir("value");` |
+| `esp32_littlefs_rmdir` | Statement | PATH(input_value) | `esp32_littlefs_rmdir(text("value"))` | `LittleFS.rmdir("value");` |
 
 ## Parameter Options
 

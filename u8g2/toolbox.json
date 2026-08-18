@@ -367,28 +367,6 @@
         },
         {
           "kind": "block",
-          "type": "u8g2_step_animation_frame",
-          "inputs": {
-            "TARGET": {
-              "shadow": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "FRAME_COUNT": {
-              "shadow": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 30
-                }
-              }
-            }
-          }
-        },
-        {
-          "kind": "block",
           "type": "u8g2_animation"
         },
         {

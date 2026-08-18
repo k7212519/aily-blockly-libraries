@@ -1,0 +1,163 @@
+{
+  "toolbox_name": "Arduino Ethernet",
+  "ethernet_init": {
+    "message0": "이더넷 초기화 MAC %1 모드 %2 IP %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "DHCP",
+            "dhcp"
+          ],
+          [
+            "정적 IP",
+            "static"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "DHCP 또는 고정 주소를 사용하여 이더넷을 초기화합니다."
+  },
+  "ethernet_network_info": {
+    "message0": "이더넷 %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "로컬 IP",
+            "localIP"
+          ],
+          [
+            "게이트웨이 IP",
+            "gatewayIP"
+          ],
+          [
+            "서브넷 마스크",
+            "subnetMask"
+          ],
+          [
+            "DNS 서버 IP",
+            "dnsServerIP"
+          ],
+          [
+            "링크가 켜져 있습니다",
+            "link"
+          ],
+          [
+            "하드웨어가 존재합니다",
+            "hardware"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "이더넷 네트워크 또는 하드웨어 상태를 읽습니다."
+  },
+  "ethernet_client_create": {
+    "message0": "이더넷 클라이언트 %1 생성",
+    "tooltip": "EthernetClient 객체를 생성합니다."
+  },
+  "ethernet_client_connect": {
+    "message0": "이더넷 클라이언트 %1 연결 호스트 %2 포트 %3",
+    "tooltip": "클라이언트를 호스트와 포트에 연결합니다."
+  },
+  "ethernet_client_write": {
+    "message0": "이더넷 클라이언트 %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "개행 없이 인쇄",
+            "print"
+          ],
+          [
+            "줄 바꿈으로 인쇄",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "이더넷 클라이언트를 통해 데이터를 보냅니다."
+  },
+  "ethernet_client_data": {
+    "message0": "이더넷 클라이언트 %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "사용 가능한 바이트",
+            "available"
+          ],
+          [
+            "바이트 읽기",
+            "read"
+          ],
+          [
+            "줄을 읽어라",
+            "line"
+          ],
+          [
+            "연결되어 있다",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "클라이언트 데이터 또는 연결 상태를 읽습니다."
+  },
+  "ethernet_client_stop": {
+    "message0": "이더넷 클라이언트 %1 중지",
+    "tooltip": "이더넷 클라이언트 연결을 닫습니다."
+  },
+  "ethernet_server_create": {
+    "message0": "이더넷 서버 %1 포트 %2 생성",
+    "tooltip": "EthernetServer를 생성하고 시작합니다."
+  },
+  "ethernet_server_accept": {
+    "message0": "이더넷 서버 %1 클라이언트 수락",
+    "tooltip": "새로 연결된 클라이언트를 수락합니다."
+  },
+  "ethernet_udp_create": {
+    "message0": "이더넷 UDP %1 로컬 포트 %2 생성",
+    "tooltip": "EthernetUDP 소켓을 생성하고 포트를 바인딩합니다."
+  },
+  "ethernet_udp_send": {
+    "message0": "이더넷 UDP %1는 %2를 호스트 %3 포트 %4로 보냅니다.",
+    "tooltip": "하나의 UDP 패킷을 보냅니다."
+  },
+  "ethernet_udp_data": {
+    "message0": "이더넷 UDP %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "패킷 분석",
+            "parsePacket"
+          ],
+          [
+            "사용 가능한 바이트",
+            "available"
+          ],
+          [
+            "바이트 읽기",
+            "read"
+          ],
+          [
+            "원격 IP",
+            "remoteIP"
+          ],
+          [
+            "원격 포트",
+            "remotePort"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "UDP 패킷 데이터 또는 발신자 정보를 읽습니다."
+  }
+}

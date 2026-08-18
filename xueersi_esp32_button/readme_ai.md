@@ -8,19 +8,19 @@ OneButton-style Blockly blocks for the Xueersi XiaoMiao ESP32 onboard Up, Down, 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `xueersi_esp32_button_setup` | Statement | (none) | `xueersi_esp32_button_setup()` | initializes all fixed OneButton objects |
-| `xueersi_esp32_button_is_pressed` | Value | BUTTON(dropdown) | `xueersi_esp32_button_is_pressed(UP)` | `(digitalRead(pin) == LOW)` |
-| `xueersi_esp32_button_on_event` | Hat | BUTTON(dropdown), EVENT(dropdown), DO(input_statement) | `xueersi_esp32_button_on_event(UP, CLICK) @DO: child_block()` | registers OneButton callback |
-| `xueersi_esp32_button_set_debounce_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_debounce_ms(UP, math_number(50))` | `button.setDebounceMs(ms);` |
-| `xueersi_esp32_button_set_click_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_click_ms(UP, math_number(400))` | `button.setClickMs(ms);` |
-| `xueersi_esp32_button_set_press_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_press_ms(UP, math_number(800))` | `button.setPressMs(ms);` |
-| `xueersi_esp32_button_set_long_press_interval_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_long_press_interval_ms(UP, math_number(1000))` | `button.setLongPressIntervalMs(ms);` |
-| `xueersi_esp32_button_is_long_pressed` | Value | BUTTON(dropdown) | `xueersi_esp32_button_is_long_pressed(UP)` | `button.isLongPressed()` |
-| `xueersi_esp32_button_get_pressed_ms` | Value | BUTTON(dropdown) | `xueersi_esp32_button_get_pressed_ms(UP)` | `button.getPressedMs()` |
-| `xueersi_esp32_button_get_number_clicks` | Value | BUTTON(dropdown) | `xueersi_esp32_button_get_number_clicks(UP)` | `button.getNumberClicks()` |
-| `xueersi_esp32_button_reset` | Statement | BUTTON(dropdown) | `xueersi_esp32_button_reset(UP)` | `button.reset();` |
+| `xueersi_esp32_button_setup` | Statement | (none) | `xueersi_esp32_button_setup()` | `OneButton xueersiButtonUp; ↵ xueersiButtonUp.setup(2, INPUT_PULLUP, true); ↵ xueersiButtonUp.tick(); ↵ OneButton xueersiButtonDown; ↵ xueersiButtonDown.setup(13, INPUT_PULLUP, true); ↵ xueersiButtonDown.tick(); ↵ OneButton xueersiButtonLeft; ↵ xueersiButtonLeft.setup(27, INPUT_PULLUP, true); ↵ xueersiButtonLeft.tick(); ↵ OneButton xueersiButtonRight; ↵ xueersiButtonRight.setup(35, INPUT, true); ↵ xueersiButtonRight.tick(); ↵ OneButton xueersiButtonA; ↵ xueersiButtonA.setup(34, INPUT, true); ↵ xueersiButtonA.tick(); ↵ OneButton xueersiButtonB; ↵ xueersiButtonB.setup(12, INPUT_PULLUP, true); ↵ xueersiButtonB.tick();` |
+| `xueersi_esp32_button_is_pressed` | Value | BUTTON(dropdown) | `xueersi_esp32_button_is_pressed(UP)` | `(digitalRead(2) == LOW)` |
+| `xueersi_esp32_button_on_event` | Hat | BUTTON(dropdown), EVENT(dropdown), DO(input_statement) | `xueersi_esp32_button_on_event(UP, CLICK)` | `OneButton xueersiButtonUp; ↵ xueersiButtonUp.setup(2, INPUT_PULLUP, true); ↵ xueersiButtonUp.tick(); ↵ void onXueersiUpClick() { ↵ } ↵ xueersiButtonUp.attachClick(onXueersiUpClick);` |
+| `xueersi_esp32_button_set_debounce_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_debounce_ms(UP, math_number(50))` | `xueersiButtonUp.setDebounceMs(1);` |
+| `xueersi_esp32_button_set_click_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_click_ms(UP, math_number(400))` | `xueersiButtonUp.setClickMs(1);` |
+| `xueersi_esp32_button_set_press_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_press_ms(UP, math_number(800))` | `xueersiButtonUp.setPressMs(1);` |
+| `xueersi_esp32_button_set_long_press_interval_ms` | Statement | BUTTON(dropdown), MS(input_value) | `xueersi_esp32_button_set_long_press_interval_ms(UP, math_number(1000))` | `xueersiButtonUp.setLongPressIntervalMs(1);` |
+| `xueersi_esp32_button_is_long_pressed` | Value | BUTTON(dropdown) | `xueersi_esp32_button_is_long_pressed(UP)` | `xueersiButtonUp.isLongPressed()` |
+| `xueersi_esp32_button_get_pressed_ms` | Value | BUTTON(dropdown) | `xueersi_esp32_button_get_pressed_ms(UP)` | `xueersiButtonUp.getPressedMs()` |
+| `xueersi_esp32_button_get_number_clicks` | Value | BUTTON(dropdown) | `xueersi_esp32_button_get_number_clicks(UP)` | `xueersiButtonUp.getNumberClicks()` |
+| `xueersi_esp32_button_reset` | Statement | BUTTON(dropdown) | `xueersi_esp32_button_reset(UP)` | `xueersiButtonUp.reset();` |
 
 ## Parameter Options
 

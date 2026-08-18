@@ -1,0 +1,136 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "Initialisieren Sie Firebase %1 API Schlüssel %2 E-Mail %3 Passwort %4 Datenbank URL %5",
+    "tooltip": "Authentifizieren Sie einen Benutzer und binden Sie einen Firebase Realtime Database."
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1 ist fertig",
+    "tooltip": "Prüfen Sie, ob die Authentifizierung bereit ist."
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1 setzt %2 im Pfad %3 auf %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Text",
+            "String"
+          ],
+          [
+            "Ganzzahl",
+            "int"
+          ],
+          [
+            "Gleitkommazahl",
+            "double"
+          ],
+          [
+            "Boolescher Wert",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Schreiben Sie synchron einen Wert in Realtime Database."
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 erhält %2 vom Pfad %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Text",
+            "String"
+          ],
+          [
+            "Ganzzahl",
+            "int"
+          ],
+          [
+            "Gleitkommazahl",
+            "double"
+          ],
+          [
+            "Boolescher Wert",
+            "bool"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Lesen Sie synchron einen typisierten Wert aus Realtime Database."
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1 Push %2 am Pfad %3 Wert %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Text",
+            "String"
+          ],
+          [
+            "Ganzzahl",
+            "int"
+          ],
+          [
+            "Gleitkommazahl",
+            "double"
+          ],
+          [
+            "Boolescher Wert",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Schieben Sie einen neuen untergeordneten Wert an Realtime Database."
+  },
+  "firebase_client_path_action": {
+    "message0": "Firebase %1 %2 Pfad %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "entfernen",
+            "remove"
+          ],
+          [
+            "Scheck vorhanden",
+            "exists"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Entfernen Sie einen Pfad oder prüfen Sie, ob er existiert."
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 letzter Fehler %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Code",
+            "code"
+          ],
+          [
+            "Fehlermeldung",
+            "message"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie den letzten Fehler des synchronen Clients."
+  }
+}

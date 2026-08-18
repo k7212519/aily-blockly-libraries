@@ -8,16 +8,16 @@ A GIF animation player based on the AnimatedGIF library, which supports playing 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `gif_init` | Statement | VAR(field_input) | `gif_init("gif")` | Dynamic code |
-| `gif_open_memory` | Statement | VAR(field_variable), HEADER(field_input), ARRAY(field_input), X(input_value), Y(input_value) | `gif_open_memory(variables_get($gif), "image.h", "ucImage", math_number(0), math_number(0))` | _gif_xOffset = |
-| `gif_open_sd` | Statement | VAR(field_variable), FILENAME(input_value), X(input_value), Y(input_value) | `gif_open_sd(variables_get($gif), text("value"), math_number(0), math_number(0))` | _gif_xOffset = |
-| `gif_play_frame` | Value | VAR(field_variable), SYNC(dropdown) | `gif_play_frame(variables_get($gif), true)` | Dynamic code |
-| `gif_play_all` | Statement | VAR(field_variable) | `gif_play_all(variables_get($gif))` | while ( |
-| `gif_close` | Statement | VAR(field_variable) | `gif_close(variables_get($gif))` | Dynamic code |
-| `gif_get_width` | Value | VAR(field_variable) | `gif_get_width(variables_get($gif))` | Dynamic code |
-| `gif_get_height` | Value | VAR(field_variable) | `gif_get_height(variables_get($gif))` | Dynamic code |
+| `gif_init` | Statement | VAR(field_input) | `gif_init("gif")` | `gif.begin(GIF_PALETTE_RGB565_LE);` |
+| `gif_open_memory` | Statement | VAR(field_variable), HEADER(field_input), ARRAY(field_input), X(input_value), Y(input_value) | `gif_open_memory($gif, "image.h", "ucImage", math_number(0), math_number(0))` | `_gif_xOffset = 1; ↵ _gif_yOffset = 1; ↵ gif.open((uint8_t *)ucImage, sizeof(ucImage), _GIFDraw);` |
+| `gif_open_sd` | Statement | VAR(field_variable), FILENAME(input_value), X(input_value), Y(input_value) | `gif_open_sd($gif, text("value"), math_number(0), math_number(0))` | `_gif_xOffset = 1; ↵ _gif_yOffset = 1; ↵ gif.open("value", _GIFOpenFile, _GIFCloseFile, _GIFReadFile, _GIFSeekFile, _GIFDraw);` |
+| `gif_play_frame` | Value | VAR(field_variable), SYNC(dropdown) | `gif_play_frame($gif, true)` | `gif.playFrame(true, NULL)` |
+| `gif_play_all` | Statement | VAR(field_variable) | `gif_play_all($gif)` | `while (gif.playFrame(true, NULL)) {}` |
+| `gif_close` | Statement | VAR(field_variable) | `gif_close($gif)` | `gif.close();` |
+| `gif_get_width` | Value | VAR(field_variable) | `gif_get_width($gif)` | `gif.getCanvasWidth()` |
+| `gif_get_height` | Value | VAR(field_variable) | `gif_get_height($gif)` | `gif.getCanvasHeight()` |
 
 ## Parameter Options
 
@@ -34,12 +34,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, gif_play_frame(variables_get($gif), true))
+    serial_println(Serial, gif_play_frame($gif, true))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `gif_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `gif_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

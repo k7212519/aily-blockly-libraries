@@ -8,18 +8,18 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `lunar_to_lunar` | Value (String) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_to_lunar(math_number(2026), math_number(7), math_number(5))` | `getLunarDateString(2026, 7, 5)` |
-| `lunar_ganzhi_year` | Value (String) | YEAR(input_value) | `lunar_ganzhi_year(math_number(2026))` | `getGanzhiYear(2026)` |
-| `lunar_jieqi_name` | Value (String) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_jieqi_name(math_number(2026), math_number(6), math_number(5))` | `getJieqiName(2026, 6, 5)` |
-| `lunar_is_jieqi` | Value (Boolean) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_is_jieqi(math_number(2026), math_number(6), math_number(5))` | `isJieqiDay(2026, 6, 5)` |
-| `lunar_jieqi_day` | Value (Number) | YEAR(input_value), INDEX(input_value) | `lunar_jieqi_day(math_number(2026), math_number(10))` | `getJieqiDay(2026, 10)` |
-| `lunar_weekday` | Value (String) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_weekday(math_number(2026), math_number(7), math_number(5))` | `getWeekdayName(calcWeekday(2026, 7, 5))` |
-| `lunar_weekday_num` | Value (Number) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_weekday_num(math_number(2026), math_number(7), math_number(5))` | `calcWeekday(2026, 7, 5)` |
-| `lunar_days_in_month` | Value (Number) | YEAR(input_value), MONTH(input_value) | `lunar_days_in_month(math_number(2026), math_number(2))` | `getDaysInMonth(2026, 2)` |
-| `lunar_jieqi_name_by_index` | Value (String) | INDEX(input_value) | `lunar_jieqi_name_by_index(math_number(10))` | `getJieqiNameByIndex(10)` |
-| `lunar_zodiac_name` | Value (String) | YEAR(input_value) | `lunar_zodiac_name(math_number(2026))` | `getZodiacName(2026)` |
+| `lunar_to_lunar` | Value (String) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_to_lunar(math_number(2026), math_number(7), math_number(5))` | `getLunarDateString(1, 1, 1)` |
+| `lunar_ganzhi_year` | Value (String) | YEAR(input_value) | `lunar_ganzhi_year(math_number(2026))` | `getGanzhiYear(1)` |
+| `lunar_jieqi_name` | Value (String) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_jieqi_name(math_number(2026), math_number(6), math_number(5))` | `getJieqiName(1, 1, 1)` |
+| `lunar_is_jieqi` | Value (Boolean) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_is_jieqi(math_number(2026), math_number(6), math_number(5))` | `isJieqiDay(1, 1, 1)` |
+| `lunar_jieqi_day` | Value (Number) | YEAR(input_value), INDEX(input_value) | `lunar_jieqi_day(math_number(2026), math_number(10))` | `getJieqiDay(1, 1)` |
+| `lunar_weekday` | Value (String) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_weekday(math_number(2026), math_number(7), math_number(5))` | `getWeekdayName(calcWeekday(1, 1, 1))` |
+| `lunar_weekday_num` | Value (Number) | YEAR(input_value), MONTH(input_value), DAY(input_value) | `lunar_weekday_num(math_number(2026), math_number(7), math_number(5))` | `calcWeekday(1, 1, 1)` |
+| `lunar_days_in_month` | Value (Number) | YEAR(input_value), MONTH(input_value) | `lunar_days_in_month(math_number(2026), math_number(2))` | `getDaysInMonth(1, 1)` |
+| `lunar_jieqi_name_by_index` | Value (String) | INDEX(input_value) | `lunar_jieqi_name_by_index(math_number(10))` | `getJieqiNameByIndex(1)` |
+| `lunar_zodiac_name` | Value (String) | YEAR(input_value) | `lunar_zodiac_name(math_number(2026))` | `getZodiacName(1)` |
 
 ## Parameter Options
 
@@ -33,3 +33,11 @@
 2. **节气精度**: YearMonthBit位表覆盖2000-2050年，超出范围返回-1
 3. **农历范围**: 农历转换覆盖1900-2100年
 4. **返回值**: `lunar_jieqi_name` 在非节气日返回空字符串，`lunar_is_jieqi` 返回布尔值
+## ABS Examples
+
+### Minimal Executable Usage
+
+```abs
+arduino_loop()
+    serial_println(Serial, lunar_to_lunar(math_number(2026), math_number(7), math_number(5)))
+```

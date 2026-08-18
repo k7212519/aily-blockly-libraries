@@ -369,22 +369,6 @@ function k10GetVariableCodeName(block, fieldName, fallbackName) {
   return variable && variable.name ? variable.name : fallbackName;
 }
 
-function k10GetFrameVariableCodeName(block, generator) {
-  if (generator && typeof generator.getValue === 'function') {
-    const generatedName = generator.getValue(block, 'FRAME_VAR', 'field_variable');
-    if (generatedName && generatedName !== '?') {
-      return generatedName;
-    }
-  }
-
-  const variableId = block.getFieldValue('FRAME_VAR');
-  if (variableId && generator && generator.nameDB_ && typeof generator.nameDB_.getName === 'function') {
-    return generator.nameDB_.getName(variableId, 'VARIABLE');
-  }
-
-  return k10GetVariableCodeName(block, 'FRAME_VAR', 'k10AnimationFrame');
-}
-
 function k10GetAnimationPrefix(block, generator) {
   if (typeof block.getInputTargetBlock === 'function') {
     const animationBlock = block.getInputTargetBlock('ANIMATION');
@@ -543,47 +527,6 @@ Arduino.forBlock['k10_animation_frame_count'] = function(block, generator) {
     return ['0', generator.ORDER_ATOMIC];
   }
   return [`${animationPrefix}_frame_count`, generator.ORDER_ATOMIC];
-};
-
-Arduino.forBlock['k10_step_animation_frame'] = function(block, generator) {
-  const frameVariable = k10GetFrameVariableCodeName(block, generator);
-  const target = generator.valueToCode(block, 'TARGET', generator.ORDER_ATOMIC) || '0';
-  const frameCount = generator.valueToCode(block, 'FRAME_COUNT', generator.ORDER_ATOMIC) || '1';
-  const direction = block.getFieldValue('DIRECTION') || 'AUTO';
-  const symbolSuffix = k10GetBlockSymbolSuffix(block);
-  const targetVariable = `k10_animation_target_${symbolSuffix}`;
-  const countVariable = `k10_animation_frame_count_${symbolSuffix}`;
-
-  let code = `int32_t ${countVariable} = (int32_t)(${frameCount});\n`;
-  code += `if (${countVariable} > 0) {\n`;
-  code += `  int32_t ${targetVariable} = constrain((int32_t)(${target}), 0, ${countVariable} - 1);\n`;
-  code += `  ${frameVariable} = constrain((int32_t)${frameVariable}, 0, ${countVariable} - 1);\n`;
-
-  if (direction === 'FORWARD') {
-    code += `  if (${frameVariable} != ${targetVariable}) {\n`;
-    code += `    ${frameVariable}++;\n`;
-    code += `    if (${frameVariable} >= ${countVariable}) {\n`;
-    code += `      ${frameVariable} = 0;\n`;
-    code += '    }\n';
-    code += '  }\n';
-  } else if (direction === 'BACKWARD') {
-    code += `  if (${frameVariable} != ${targetVariable}) {\n`;
-    code += `    if (${frameVariable} <= 0) {\n`;
-    code += `      ${frameVariable} = ${countVariable} - 1;\n`;
-    code += '    } else {\n';
-    code += `      ${frameVariable}--;\n`;
-    code += '    }\n';
-    code += '  }\n';
-  } else {
-    code += `  if (${frameVariable} < ${targetVariable}) {\n`;
-    code += `    ${frameVariable}++;\n`;
-    code += `  } else if (${frameVariable} > ${targetVariable}) {\n`;
-    code += `    ${frameVariable}--;\n`;
-    code += '  }\n';
-  }
-
-  code += '}\n';
-  return code;
 };
 
 // ========== 屏幕宽度 / 高度（常量）==========

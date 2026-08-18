@@ -1,0 +1,448 @@
+[
+  {
+    "type": "nrf24l01_init",
+    "message0": "initialize nRF24L01 %1 CE pin %2 CSN pin %3",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "radio"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "CE",
+        "options": "${board.digitalPins}"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "CSN",
+        "options": "${board.digitalPins}"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Create the RF24 object, initialize the SPI radio, and enable dynamic payloads. Power the module from 3.3 V."
+  },
+  {
+    "type": "nrf24l01_set_radio_parameters",
+    "message0": "nRF24L01 %1 set channel %2 data rate %3 power %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "input_value",
+        "name": "CHANNEL",
+        "check": "Number"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "DATA_RATE",
+        "options": [
+          [
+            "250 kbps",
+            "RF24_250KBPS"
+          ],
+          [
+            "1 Mbps",
+            "RF24_1MBPS"
+          ],
+          [
+            "2 Mbps",
+            "RF24_2MBPS"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "PA_LEVEL",
+        "options": [
+          [
+            "minimum (-18 dBm)",
+            "RF24_PA_MIN"
+          ],
+          [
+            "low (-12 dBm)",
+            "RF24_PA_LOW"
+          ],
+          [
+            "high (-6 dBm)",
+            "RF24_PA_HIGH"
+          ],
+          [
+            "maximum (0 dBm)",
+            "RF24_PA_MAX"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Set the RF channel (0-125), air data rate, and transmit power. Both radios must use the same channel and data rate."
+  },
+  {
+    "type": "nrf24l01_set_retries",
+    "message0": "nRF24L01 %1 set retry delay %2 count %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "input_value",
+        "name": "DELAY",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "COUNT",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Set automatic retransmission delay and count. Each value is in the range 0-15."
+  },
+  {
+    "type": "nrf24l01_set_auto_ack",
+    "message0": "nRF24L01 %1 automatic acknowledgement %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "input_value",
+        "name": "ENABLED",
+        "check": "Boolean"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Enable or disable automatic acknowledgement on all pipes."
+  },
+  {
+    "type": "nrf24l01_open_writing_pipe",
+    "message0": "nRF24L01 %1 set transmit address %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "input_value",
+        "name": "ADDRESS",
+        "check": "String"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Set the destination address and enter transmit mode. The first 5 bytes are used; shorter addresses are padded."
+  },
+  {
+    "type": "nrf24l01_open_reading_pipe",
+    "message0": "nRF24L01 %1 open receive pipe %2 address %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "field_number",
+        "name": "PIPE",
+        "value": 1,
+        "min": 0,
+        "max": 5,
+        "precision": 1
+      },
+      {
+        "type": "input_value",
+        "name": "ADDRESS",
+        "check": "String"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Open receive pipe 0-5 with a 5-byte address. Pipes 2-5 should share their last 4 bytes with pipe 1."
+  },
+  {
+    "type": "nrf24l01_set_listening",
+    "message0": "nRF24L01 %1 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          [
+            "start listening",
+            "START"
+          ],
+          [
+            "stop listening",
+            "STOP"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Switch between receive and transmit mode. Open a receive pipe before starting to listen."
+  },
+  {
+    "type": "nrf24l01_send_text",
+    "message0": "nRF24L01 %1 send text %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "input_value",
+        "name": "TEXT",
+        "check": "String"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Send up to 31 text bytes plus a terminator and store whether the packet was acknowledged."
+  },
+  {
+    "type": "nrf24l01_send_number",
+    "message0": "nRF24L01 %1 send number %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "input_value",
+        "name": "NUMBER",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Send a number as a 32-bit floating-point payload and store whether it was acknowledged."
+  },
+  {
+    "type": "nrf24l01_available",
+    "message0": "nRF24L01 %1 has received data",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Return true when a payload is waiting and remember the receive pipe number."
+  },
+  {
+    "type": "nrf24l01_read_text",
+    "message0": "nRF24L01 %1 read text",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      }
+    ],
+    "output": "String",
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Read and consume the next payload as text. Check for received data first."
+  },
+  {
+    "type": "nrf24l01_read_number",
+    "message0": "nRF24L01 %1 read number",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      }
+    ],
+    "output": "Number",
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Read and consume the next 32-bit floating-point payload. Check for received data first."
+  },
+  {
+    "type": "nrf24l01_last_send_succeeded",
+    "message0": "nRF24L01 %1 last send succeeded",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Return the acknowledgement result of the most recent text or number send."
+  },
+  {
+    "type": "nrf24l01_received_pipe",
+    "message0": "nRF24L01 %1 last receive pipe",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      }
+    ],
+    "output": "Number",
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Return the pipe number recorded by the last received-data check."
+  },
+  {
+    "type": "nrf24l01_is_chip_connected",
+    "message0": "nRF24L01 %1 hardware connected",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Check whether the microcontroller can communicate with the radio over SPI."
+  },
+  {
+    "type": "nrf24l01_set_power_mode",
+    "message0": "nRF24L01 %1 %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "radio",
+        "variableTypes": [
+          "RF24"
+        ],
+        "defaultType": "RF24"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          [
+            "power up",
+            "UP"
+          ],
+          [
+            "power down",
+            "DOWN"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#1976D2",
+    "icon": "fa-light fa-tower-broadcast",
+    "tooltip": "Wake the radio or enter its low-power mode. Configuration is retained while powered down."
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "name": "@aily-project/lib-miaoui",
+  "nickname": "Miao UI",
+  "nickname_zh_cn": "Miao UI",
+  "nickname_en": "Miao UI",
+  "description": "基于 U8g2 的单色 OLED 动画菜单 UI，支持多级菜单、数值编辑、开关和自定义输入",
+  "description_zh_cn": "基于 U8g2 的单色 OLED 动画菜单 UI，支持多级菜单、数值编辑、开关和自定义输入",
+  "description_en": "U8g2-based animated monochrome OLED menu UI with nested menus, editable values, switches, and custom input.",
+  "version": "1.0.0",
+  "author": "JFeng-Z, MiaoUI contributors, coloz",
+  "license": "MIT",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "arduino",
+    "miaoui",
+    "u8g2",
+    "oled",
+    "menu",
+    "ui",
+    "display",
+    "animation"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@aily-project/lib-u8g2": "1.0.10"
+  },
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "url": "https://github.com/coloz/MiaoUI_Arduino",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coloz/MiaoUI_Arduino.git"
+  },
+  "tags": [
+    "display",
+    "ui"
+  ]
+}

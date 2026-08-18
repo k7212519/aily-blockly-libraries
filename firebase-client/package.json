@@ -1,0 +1,65 @@
+{
+  "name": "@aily-project/lib-firebase-client",
+  "nickname": "FirebaseClient",
+  "nickname_en": "FirebaseClient",
+  "author": "Mobizt",
+  "description": "Current asynchronous Firebase client with Realtime Database blocks.",
+  "description_en": "Current asynchronous Firebase client with Realtime Database blocks.",
+  "version": "0.1.0",
+  "url": "https://github.com/mobizt/FirebaseClient",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "esp32:esp32",
+      "esp8266:esp8266",
+      "arduino:samd",
+      "arduino:renesas_uno",
+      "rp2040:rp2040"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "firebase",
+    "database",
+    "cloud",
+    "iot"
+  ],
+  "bundledDependencies": {
+    "FirebaseClient": "2.2.13",
+    "ESP_SSLClient": "3.1.3"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "cloud",
+    "database"
+  ],
+  "nickname_zh_cn": "FirebaseClient",
+  "description_zh_cn": "当前异步 Firebase 客户端，带有 Realtime Database 块。",
+  "nickname_zh_hk": "FirebaseClient",
+  "description_zh_hk": "目前非同步 Firebase 用戶端，帶有 Realtime Database 區塊。",
+  "nickname_ja": "FirebaseClient",
+  "description_ja": "Realtime Database ブロックを含む現在の非同期 Firebase クライアント。",
+  "nickname_ko": "FirebaseClient",
+  "description_ko": "Realtime Database 블록이 있는 현재 비동기 Firebase 클라이언트입니다.",
+  "nickname_de": "FirebaseClient",
+  "description_de": "Aktueller asynchroner Firebase-Client mit Realtime Database-Blöcken.",
+  "nickname_fr": "FirebaseClient",
+  "description_fr": "Client Firebase asynchrone actuel avec des blocs Realtime Database.",
+  "nickname_es": "FirebaseClient",
+  "description_es": "Cliente asincrónico actual Firebase con bloques Realtime Database.",
+  "nickname_pt": "FirebaseClient",
+  "description_pt": "Cliente Firebase assíncrono atual com blocos Realtime Database.",
+  "nickname_ru": "FirebaseClient",
+  "description_ru": "Текущий асинхронный клиент Firebase с блоками Realtime Database.",
+  "nickname_ar": "FirebaseClient",
+  "description_ar": "عميل Firebase الحالي غير المتزامن مع كتل Realtime Database."
+}

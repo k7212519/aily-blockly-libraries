@@ -1,0 +1,151 @@
+{
+  "toolbox_name": "SdFat",
+  "sdfat_init": {
+    "message0": "Initialisieren Sie SdFat %1 CS Pin %2 max. SPI MHz %3",
+    "tooltip": "Montieren Sie eine FAT- oder exFAT SD-Karte über SPI."
+  },
+  "sdfat_file_open": {
+    "message0": "Öffnen Sie die SdFat-Datei %1 im %2-Pfad %3-Modus %4",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "lesen",
+            "O_RDONLY"
+          ],
+          [
+            "schreiben/anhängen",
+            "O_WRONLY | O_CREAT | O_APPEND"
+          ],
+          [
+            "schreiben/abschneiden",
+            "O_WRONLY | O_CREAT | O_TRUNC"
+          ],
+          [
+            "lesen/schreiben",
+            "O_RDWR | O_CREAT"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Erstellen Sie ein FsFile-Objekt und öffnen Sie einen Pfad."
+  },
+  "sdfat_file_write": {
+    "message0": "SdFat-Datei %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ohne Zeilenumbruch drucken",
+            "print"
+          ],
+          [
+            "mit einer neuen Zeile drucken",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Schreiben Sie einen Wert in eine geöffnete Datei."
+  },
+  "sdfat_file_control": {
+    "message0": "SdFat-Datei %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Dateiposition suchen",
+            "seek"
+          ],
+          [
+            "Datei abschneiden bei",
+            "truncate"
+          ],
+          [
+            "Dateipuffer leeren",
+            "flush"
+          ],
+          [
+            "schließen",
+            "close"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Suchen, kürzen, leeren oder schließen Sie eine geöffnete Datei."
+  },
+  "sdfat_file_read": {
+    "message0": "SdFat-Datei %1 liest %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "nächstes Byte",
+            "read"
+          ],
+          [
+            "Textzeile",
+            "line"
+          ],
+          [
+            "Alle Dateitexte",
+            "string"
+          ],
+          [
+            "verfügbare Bytes",
+            "available"
+          ],
+          [
+            "Größe",
+            "size"
+          ],
+          [
+            "Position",
+            "position"
+          ],
+          [
+            "Datei ist geöffnet",
+            "open"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Daten oder Status aus einer geöffneten Datei lesen."
+  },
+  "sdfat_fs_operation": {
+    "message0": "SdFat %1 %2 Pfad %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Verzeichnis erstellen",
+            "mkdir"
+          ],
+          [
+            "Verzeichnis entfernen",
+            "rmdir"
+          ],
+          [
+            "Datei entfernen",
+            "remove"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Ändern Sie das Kartendateisystem SD."
+  },
+  "sdfat_exists": {
+    "message0": "SdFat %1 Pfad %2 existiert",
+    "tooltip": "Prüfen Sie, ob ein Pfad vorhanden ist."
+  }
+}

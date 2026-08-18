@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "ESP32 語音識別",
+  "esp32_esp_sr_begin": {
+    "message0": "啟動語音辨識 I2S %1 指令1 %2 指令2 %3 指令3 %4 指令4 %5 頻道 %6 輸入格式 %7",
+    "tooltip": "啟動離線語音辨識並為四個短語指派指令 ID 1-4。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "單聲道",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "立體聲",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "語音辨識 %1",
+    "tooltip": "結束、暫停或恢復語音辨識。",
+    "args0": [
+      {
+        "options": [
+          [
+            "結束",
+            "end"
+          ],
+          [
+            "暫停",
+            "pause"
+          ],
+          [
+            "恢復",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "語音辨識模式 %1",
+    "tooltip": "切換喚醒詞或命令辨識模式。",
+    "args0": [
+      {
+        "options": [
+          [
+            "喚醒詞",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "命令詞",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "語音辨識最近事件",
+    "tooltip": "傳回最近的 sr_event_t 數值。"
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "語音辨識最近指令 ID",
+    "tooltip": "傳回最近辨識到的命令 ID。"
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "語音辨識最近短語 ID",
+    "tooltip": "傳回最近辨識到的短語 ID。"
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "語音事件 %1",
+    "tooltip": "返回語音事件常數。",
+    "args0": [
+      {
+        "options": [
+          [
+            "喚醒詞",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "喚醒通道",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "命令",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "超時",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

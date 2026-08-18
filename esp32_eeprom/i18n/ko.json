@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "EEPROM 크기 %1바이트 초기화",
+    "tooltip": "EEPROM 에뮬레이션 저장 영역을 할당하세요."
+  },
+  "esp32_eeprom_read": {
+    "message0": "EEPROM 읽기 바이트 주소 %1",
+    "tooltip": "지정된 주소에서 바이트를 읽습니다."
+  },
+  "esp32_eeprom_write": {
+    "message0": "EEPROM 쓰기 바이트 주소 %1 값 %2",
+    "tooltip": "나중에 제출해야 하는 바이트를 씁니다."
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM이 %1 주소 %2을(를) 읽습니다.",
+    "tooltip": "지정된 유형에 따라 값을 읽습니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "정수",
+            "readInt"
+          ],
+          [
+            "부호 없는 정수",
+            "readUInt"
+          ],
+          [
+            "긴 정수",
+            "readLong64"
+          ],
+          [
+            "부동소수점 수",
+            "readFloat"
+          ],
+          [
+            "배정밀도",
+            "readDouble"
+          ],
+          [
+            "부울 값",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM은 %1 주소 %2 값 %3을 씁니다.",
+    "tooltip": "지정된 유형에 따라 값을 씁니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "정수",
+            "writeInt"
+          ],
+          [
+            "부호 없는 정수",
+            "writeUInt"
+          ],
+          [
+            "긴 정수",
+            "writeLong64"
+          ],
+          [
+            "부동소수점 수",
+            "writeFloat"
+          ],
+          [
+            "배정밀도",
+            "writeDouble"
+          ],
+          [
+            "부울 값",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "EEPROM 읽기 문자열 주소 %1",
+    "tooltip": "0으로 끝나는 문자열을 읽습니다."
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "EEPROM 쓰기 문자열 주소 %1 텍스트 %2",
+    "tooltip": "문자열을 쓰고 쓴 길이를 반환합니다."
+  },
+  "esp32_eeprom_commit": {
+    "message0": "EEPROM 변경 사항 커밋",
+    "tooltip": "캐시된 변경 사항을 플래시에 씁니다."
+  },
+  "esp32_eeprom_end": {
+    "message0": "EEPROM 종료",
+    "tooltip": "EEPROM 버퍼를 커밋하고 해제합니다."
+  },
+  "esp32_eeprom_length": {
+    "message0": "EEPROM 용량",
+    "tooltip": "현재 EEPROM 용량을 반환합니다."
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM에 커밋되지 않은 변경 사항이 있습니다.",
+    "tooltip": "커밋되지 않은 변경 사항이 있는지 캐시를 확인하세요."
+  }
+}

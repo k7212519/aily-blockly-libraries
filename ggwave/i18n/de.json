@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "Initialisierung des ggwave %1-Modus %2 Abtastrate %3 Samples/Frame %4 Nutzlastlänge %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "kodieren und dekodieren",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "Nur kodieren",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "Nur dekodieren",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Erstellen Sie eine ggwave Data-over-Sound-Codec-Instanz mit signiertem 16-Bit-Audio."
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 Text kodieren %2 Protokoll %3 Volumen %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "hörbar normal",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "schnell hörbar",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "am schnellsten hörbar",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "Ultraschall normal",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "Ultraschall schnell",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "Ultraschall am schnellsten",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "zweifarbig schnell",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "Mehrton schnell",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Kodieren Sie Text in den verwalteten Wellenformpuffer."
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 kodiert %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Wellenformpufferzeiger",
+            "waveform"
+          ],
+          [
+            "Wellenformbytes",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Greifen Sie auf die zuletzt codierte Wellenform und ihre Bytelänge zu."
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 Audiopuffer dekodieren %2 Bytes %3",
+    "tooltip": "Füttert erfasste signierte 16-Bit-Audioproben und gibt die dekodierte Byteanzahl zurück."
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 dekodiert %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Text",
+            "text"
+          ],
+          [
+            "Byteanzahl",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie die zuletzt dekodierte Nutzlast."
+  },
+  "ggwave_free": {
+    "message0": "Release ggwave %1",
+    "tooltip": "Codec- und Wellenformspeicher freigeben."
+  }
+}

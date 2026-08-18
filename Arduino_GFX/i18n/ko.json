@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "Arduino GFX %1 디스플레이 %2 DC %3 CS %4 초기화 %5 회전 %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "하드웨어 SPI 버스와 공통 Arduino_GFX 디스플레이 드라이버를 만듭니다."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 채우기 화면 색상 %2",
+    "tooltip": "전체 디스플레이를 RGB565 색상으로 채웁니다."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 라인 x0 %2 y0 %3 x1 %4 y1 %5 색상 %6",
+    "tooltip": "선분을 그립니다."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 직사각형 x %3 y %4 너비 %5 높이 %6 색상 %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "윤곽선 모양",
+            "drawRect"
+          ],
+          [
+            "채워진 모양",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "윤곽선이 있거나 채워진 직사각형을 그립니다."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 원 x %3 y %4 반경 %5 색상 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "윤곽선 모양",
+            "drawCircle"
+          ],
+          [
+            "채워진 모양",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "윤곽선이 있거나 채워진 원을 그립니다."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 텍스트 색상 %2 배경 %3 크기 %4 포장 %5",
+    "tooltip": "텍스트 색상, 배경, 크기, 줄 바꿈을 설정합니다."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "개행 없이 인쇄",
+            "print"
+          ],
+          [
+            "줄 바꿈으로 인쇄",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "커서를 위치시키고 텍스트를 그립니다."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "회전 설정",
+            "setRotation"
+          ],
+          [
+            "디스플레이 반전",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "디스플레이 회전 또는 반전을 변경합니다."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "폭",
+            "width"
+          ],
+          [
+            "신장",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "현재 논리적 디스플레이 차원을 읽습니다."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 빨간색 %1 녹색 %2 파란색 %3",
+    "tooltip": "8비트 RGB 구성 요소를 RGB565 색상으로 변환합니다."
+  }
+}

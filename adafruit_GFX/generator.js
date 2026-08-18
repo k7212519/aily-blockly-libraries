@@ -801,6 +801,12 @@ function processImageToRGB565(imageData, targetWidth, targetHeight) {
   try {
     const width = parseInt(targetWidth);
     const height = parseInt(targetHeight);
+
+    // 预处理缓存均为带黑色留白的正方形。非正方形目标若继续使用该缓存，
+    // 留白会随缩放进入结果并形成黑边，因此直接从原图按目标尺寸转换。
+    if (width !== height && imageData.imageElement) {
+      return processImageRealTime(imageData.imageElement, width, height);
+    }
     
     // 检查是否有预处理的数据
     if (imageData.processedSizes) {

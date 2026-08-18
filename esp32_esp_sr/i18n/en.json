@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "ESP32 speech recognition",
+  "esp32_esp_sr_begin": {
+    "message0": "Start speech recognition I2S %1 command 1 %2 command 2 %3 command 3 %4 command 4 %5 channel %6 input format %7",
+    "tooltip": "Starts offline speech recognition and assigns command IDs 1-4 to four phrases.",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "Mono",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "Stereo",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "Speech recognition %1",
+    "tooltip": "End, pause or resume speech recognition.",
+    "args0": [
+      {
+        "options": [
+          [
+            "End",
+            "end"
+          ],
+          [
+            "Pause",
+            "pause"
+          ],
+          [
+            "Restore",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "Voice recognition mode %1",
+    "tooltip": "Switch wake word or command recognition mode.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Wake word",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "Command word",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "Speech recognition recent events",
+    "tooltip": "Returns the latest sr_event_t value."
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "Voice recognition recent command ID",
+    "tooltip": "Returns the most recently recognized command ID."
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "Speech recognition recent phrase ID",
+    "tooltip": "Returns the most recently recognized phrase ID."
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "Voice event %1",
+    "tooltip": "Returns the voice event constant.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Wake word",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "Wake up channel",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "command",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "Timeout",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

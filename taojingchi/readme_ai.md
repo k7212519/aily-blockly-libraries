@@ -8,15 +8,15 @@ Taojingchi serial screen control support library supports backlight adjustment, 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `taojingchi_init` | Statement | RXPIN(input_value), TXPIN(input_value), BAUD(dropdown) | `taojingchi_init(math_number(2), math_number(2), "4800")` | Dynamic code |
-| `taojingchi_backlight` | Statement | BRIGHTNESS(input_value) | `taojingchi_backlight(math_number(0))` | ....print("dim=" + String(...)); ....write(0xFF); ....write(0xFF); ....write(0xFF); delay( |
-| `taojingchi_display_page` | Statement | PAGE(input_value) | `taojingchi_display_page(math_number(0))` | ....print("page" + String(...)); ....write(0xFF); ....write(0xFF); ....write(0xFF); delay( |
-| `taojingchi_set_var` | Statement | VARNAME(dropdown), VALUE(input_value) | `taojingchi_set_var(data01, math_number(0))` | ....print("...=" + String((int)...)); ....write(0xFF); ....write(0xFF); ....write(0xFF); d |
-| `taojingchi_display_image` | Statement | PAGE(input_value), IMG(input_value), ID(input_value) | `taojingchi_display_image(math_number(0), math_number(0), math_number(0))` | ....print("page" + String(...) + ".p" + String(...) + ".pic=" + String(...)); ....write(0x |
-| `taojingchi_send_command` | Statement | COMMAND(input_value) | `taojingchi_send_command(text("value"))` | ....print(...); ....write(0xFF); ....write(0xFF); ....write(0xFF); delay(10); |
-| `taojingchi_send_data` | Statement | COMMAND(input_value), VALUE(input_value) | `taojingchi_send_data(text("value"), math_number(0))` | ....print(...); ....print("="); ....print(String((int)...)); ....write(0xFF); ....write(0x |
+| `taojingchi_init` | Statement | RXPIN(input_value), TXPIN(input_value), BAUD(dropdown) | `taojingchi_init(math_number(2), math_number(2), "4800")` | `SoftwareSerial taojingchiSerial(1, 1); ↵ taojingchiSerial.begin(4800);` |
+| `taojingchi_backlight` | Statement | BRIGHTNESS(input_value) | `taojingchi_backlight(math_number(0))` | `taojingchiSerial.print("dim=" + String(1)); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ delay(10);` |
+| `taojingchi_display_page` | Statement | PAGE(input_value) | `taojingchi_display_page(math_number(0))` | `taojingchiSerial.print("page" + String(1)); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ delay(10);` |
+| `taojingchi_set_var` | Statement | VARNAME(dropdown), VALUE(input_value) | `taojingchi_set_var(data01, math_number(0))` | `taojingchiSerial.print("data01=" + String((int)1)); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ delay(10);` |
+| `taojingchi_display_image` | Statement | PAGE(input_value), IMG(input_value), ID(input_value) | `taojingchi_display_image(math_number(0), math_number(0), math_number(0))` | `taojingchiSerial.print("page" + String(1) + ".p" + String(1) + ".pic=" + String(1)); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ delay(10);` |
+| `taojingchi_send_command` | Statement | COMMAND(input_value) | `taojingchi_send_command(text("value"))` | `taojingchiSerial.print("value"); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ delay(10);` |
+| `taojingchi_send_data` | Statement | COMMAND(input_value), VALUE(input_value) | `taojingchi_send_data(text("value"), math_number(0))` | `taojingchiSerial.print("value"); ↵ taojingchiSerial.print("="); ↵ taojingchiSerial.print(String((int)1)); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ taojingchiSerial.write(0xFF); ↵ delay(10);` |
 
 ## Parameter Options
 

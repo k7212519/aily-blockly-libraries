@@ -1,0 +1,115 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "ESP TFLite Micro %1 모델 헤더 %2 모델 기호 %3 텐서 메모리 아레나 바이트 %4 초기화",
+    "tooltip": "일반적으로 사용되는 내장 연산자를 사용하여 TensorFlow Lite Micro 인터프리터를 만듭니다."
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 입력 인덱스 %2 %3 값 %4 설정",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 원시",
+            "int8"
+          ],
+          [
+            "uint8 원시",
+            "uint8"
+          ],
+          [
+            "부동 소수점을 int8로 양자화",
+            "quantized"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "하나의 모델 입력 텐서 요소를 작성합니다."
+  },
+  "esp_tflite_invoke": {
+    "message0": "TFLite %1 호출 성공",
+    "tooltip": "하나의 추론을 실행하고 성공 여부를 반환합니다."
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 출력 인덱스 %2 읽기 %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 원시",
+            "int8"
+          ],
+          [
+            "uint8 원시",
+            "uint8"
+          ],
+          [
+            "역양자화된 int8",
+            "dequantized"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "하나의 모델 출력 텐서 요소를 읽습니다."
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "TFLite %1 %2 텐서 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "입력",
+            "input"
+          ],
+          [
+            "출력",
+            "output"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "바이트 크기",
+            "bytes"
+          ],
+          [
+            "요소 수",
+            "count"
+          ],
+          [
+            "유형 열거형",
+            "type"
+          ],
+          [
+            "양자화 스케일",
+            "scale"
+          ],
+          [
+            "영점",
+            "zero_point"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "모델 입력 또는 출력 텐서를 검사합니다."
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1가 준비되었습니다",
+    "tooltip": "모델 파싱 및 텐서 할당이 성공했는지 확인합니다."
+  }
+}

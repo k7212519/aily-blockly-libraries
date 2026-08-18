@@ -1,0 +1,11 @@
+{
+  "toolbox_name": "ESP32 نت بيوس",
+  "esp32_netbios_begin": {
+    "message0": "اسم بدء تشغيل NetBIOS %1",
+    "tooltip": "قم بتشغيل NBNS وقم بتسجيل اسم الشبكة المحلية (LAN)."
+  },
+  "esp32_netbios_end": {
+    "message0": "أوقف NetBIOS",
+    "tooltip": "إيقاف خدمة NBNS."
+  }
+}

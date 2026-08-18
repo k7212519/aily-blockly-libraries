@@ -8,11 +8,12 @@ eeprom
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `eeprom_read` | Value | ADDRESS(input_value) | `eeprom_read(math_number(0))` | EEPROM.read(...) |
-| `eeprom_length` | Value | (none) | `eeprom_length()` | EEPROM.length() |
-| `eeprom_write` | Statement | ADDRESS(input_value), VALUE(input_value) | `eeprom_write(math_number(0), math_number(0))` | EEPROM.put(..., ...);\n |
+| `eeprom_read` | Value | ADDRESS(input_value) | `eeprom_read(math_number(0))` | `EEPROM.read(1)` |
+| `eeprom_length` | Value | (none) | `eeprom_length()` | `EEPROM.length()` |
+| `eeprom_write` | Statement | ADDRESS(input_value), VALUE(input_value) | `eeprom_write(math_number(0), math_number(0))` | `EEPROM.put(1, 1);` |
+| `eeprom_get` | Statement | ADDRESS(input_value), VAR(field_variable) | `eeprom_get(math_number(0), $value)` | `EEPROM.get(1, value);` |
 
 ## ABS Examples
 

@@ -26,6 +26,7 @@
   "description_ru": "Библиотека WiFi для Arduino UNO R4 WiFi, обеспечивающая подключение Wi-Fi, функции запроса сети и работы сети.",
   "description_ar": "مكتبة WiFi لـ Arduino UNO R4 WiFi، توفر اتصال WiFi واستعلام الشبكة ووظائف تشغيل الشبكة",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "arduino:renesas_uno:unor4wifi"

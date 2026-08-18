@@ -7,7 +7,8 @@
   "description": "适用于nrf54l15的Bluefruit兼容BLE库，支持广播、BLE UART、GATT服务、扫描、中心端和HID",
   "description_zh_cn": "适用于nrf54l15的Bluefruit兼容BLE库，支持广播、BLE UART、GATT服务、扫描、中心端和HID",
   "description_en": "Bluefruit-compatible BLE library for nrf54l15 with advertising, BLE UART, GATT services, scanning, central role, and HID",
-  "version": "0.6.48",
+  "version": "0.6.81",
+  "spec": true,
   "compatibility": {
     "core": [
       "nrf54l15clean:nrf54l15clean"
@@ -49,5 +50,6 @@
     "wireless",
     "communication",
     "hid"
-  ]
+  ],
+  "url": "https://github.com/lolren/nrf54-arduino-core"
 }

@@ -1,0 +1,75 @@
+{
+  "toolbox_name": "ESP32 オフライン TTS",
+  "toolbox_labels": {
+    "初始化": "初期化",
+    "语音合成": "音声合成",
+    "状态与控制": "状態と制御"
+  },
+  "esp32_tts_init": {
+    "message0": "オフライン TTS %1 を初期化 モデル %2 I2S BCLK %3 LRCLK %4 DOUT %5 MCLK %6",
+    "tooltip": "ESP32-S3 のオフライン中国語 TTS と I2S 出力を作成します。MCLK を使わない場合は -1 にします",
+    "args0": [
+      null,
+      { "options": [["小モデル（既定、約 2.78 MiB）", "0"], ["標準モデル（約 3.64 MiB）", "1"]] },
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_tts_speak": {
+    "message0": "オフライン TTS %1 中国語を読み上げ %2",
+    "tooltip": "UTF-8 中国語をブロッキング合成し、設定済みの I2S 出力へ送ります"
+  },
+  "esp32_tts_speak_pinyin": {
+    "message0": "オフライン TTS %1 ピンインを読み上げ %2",
+    "tooltip": "da4 jia1 hao3 のように、空白区切りで声調数字 0～5 付きのピンインを読み上げます"
+  },
+  "esp32_tts_speak_money": {
+    "message0": "オフライン TTS %1 金額を読み上げ 元 %2 角 %3 分 %4 モード %5",
+    "tooltip": "0 以上の金額を合成します。角と分は 0～9 にしてください",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      { "options": [["金額のみ", "ESP32TTSPayMode::NumberOnly"], ["Alipay 入金", "ESP32TTSPayMode::Alipay"], ["WeChat Pay 入金", "ESP32TTSPayMode::WeChat"]] }
+    ]
+  },
+  "esp32_tts_set_speed": {
+    "message0": "オフライン TTS %1 速度を設定 %2",
+    "tooltip": "音声速度を 0（最遅）から 5（最速）で設定します",
+    "args0": [
+      null,
+      { "options": [["0（最遅）", "0"], ["1", "1"], ["2", "2"], ["3（既定）", "3"], ["4", "4"], ["5（最速）", "5"]] }
+    ]
+  },
+  "esp32_tts_get_speed": {
+    "message0": "オフライン TTS %1 現在の速度",
+    "tooltip": "現在の音声速度 0～5 を返します"
+  },
+  "esp32_tts_is_ready": {
+    "message0": "オフライン TTS %1 準備完了",
+    "tooltip": "TTS エンジンが正常に初期化されたか確認します"
+  },
+  "esp32_tts_is_speaking": {
+    "message0": "オフライン TTS %1 読み上げ中",
+    "tooltip": "TTS が音声を合成して出力しているか確認します"
+  },
+  "esp32_tts_last_error": {
+    "message0": "オフライン TTS %1 最後のエラーコード",
+    "tooltip": "最新の数値エラーコードを返します。0 はエラーなしです"
+  },
+  "esp32_tts_last_error_message": {
+    "message0": "オフライン TTS %1 最後のエラーメッセージ",
+    "tooltip": "最新のエラーの英語説明を返します"
+  },
+  "esp32_tts_stop": {
+    "message0": "オフライン TTS %1 停止を要求",
+    "tooltip": "別の FreeRTOS タスクから現在のブロッキング読み上げの停止を要求します"
+  },
+  "esp32_tts_end": {
+    "message0": "オフライン TTS %1 リソースを解放",
+    "tooltip": "TTS エンジンのリソースを解放し、再初期化可能にします"
+  }
+}

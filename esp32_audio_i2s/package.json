@@ -1,0 +1,61 @@
+{
+  "name": "@aily-project/lib-esp32-audio-i2s",
+  "nickname": "ESP32 Audio I2S",
+  "nickname_en": "ESP32 Audio I2S",
+  "author": "schreibfaul1",
+  "description": "Streaming audio decoder and I2S playback for PSRAM-equipped ESP32 boards.",
+  "description_en": "Streaming audio decoder and I2S playback for PSRAM-equipped ESP32 boards.",
+  "version": "0.1.0",
+  "url": "https://github.com/schreibfaul1/ESP32-audioI2S",
+  "license": "GPL-3.0",
+  "compatibility": {
+    "core": [
+      "esp32:esp32"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "audio",
+    "i2s",
+    "mp3",
+    "aac",
+    "flac",
+    "esp32"
+  ],
+  "bundledDependencies": {
+    "ESP32-audioI2S-master": "4.0.0"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "audio",
+    "media"
+  ],
+  "nickname_zh_cn": "ESP32 Audio I2S",
+  "description_zh_cn": "适用于配备 PSRAM 的 ESP32 板的流式音频解码器和 I2S 播放。",
+  "nickname_zh_hk": "ESP32 Audio I2S",
+  "description_zh_hk": "適用於配備 PSRAM 的 ESP32 板的串流音訊解碼器和 I2S 播放。",
+  "nickname_ja": "ESP32 Audio I2S",
+  "description_ja": "PSRAM 搭載の ESP32 ボード用のストリーミング オーディオ デコーダーと I2S 再生。",
+  "nickname_ko": "ESP32 Audio I2S",
+  "description_ko": "PSRAM 장착 ESP32 보드용 스트리밍 오디오 디코더 및 I2S 재생.",
+  "nickname_de": "ESP32 Audio I2S",
+  "description_de": "Streaming-Audio-Decoder und I2S-Wiedergabe für mit PSRAM ausgestattete ESP32-Karten.",
+  "nickname_fr": "ESP32 Audio I2S",
+  "description_fr": "Décodeur audio en streaming et lecture I2S pour les cartes ESP32 équipées de PSRAM.",
+  "nickname_es": "ESP32 Audio I2S",
+  "description_es": "Decodificador de streaming de audio y reproducción I2S para placas ESP32 equipadas con PSRAM.",
+  "nickname_pt": "ESP32 Audio I2S",
+  "description_pt": "Decodificador de streaming de áudio e reprodução I2S para placas ESP32 equipadas com PSRAM.",
+  "nickname_ru": "ESP32 Audio I2S",
+  "description_ru": "Декодер потокового аудио и воспроизведение I2S для плат ESP32, оснащенных PSRAM.",
+  "nickname_ar": "ESP32 Audio I2S",
+  "description_ar": "وحدة فك ترميز الصوت المتدفقة وتشغيل I2S للوحات PSRAM المجهزة بـ ESP32."
+}

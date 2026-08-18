@@ -1,0 +1,58 @@
+{
+  "name": "@aily-project/lib-influxdb-client",
+  "nickname": "InfluxDB Client",
+  "nickname_en": "InfluxDB Client",
+  "author": "Tobias Schuerg and Vlasta Hajek",
+  "description": "InfluxDB 2 measurements, tags, fields, writes, validation, and line protocol.",
+  "description_en": "InfluxDB 2 measurements, tags, fields, writes, validation, and line protocol.",
+  "version": "0.1.0",
+  "url": "https://github.com/tobiasschuerg/InfluxDB-Client-for-Arduino",
+  "license": "MIT",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "influxdb",
+    "time-series",
+    "database",
+    "iot"
+  ],
+  "bundledDependencies": {
+    "ESP8266 Influxdb": "3.13.2"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "cloud",
+    "database"
+  ],
+  "nickname_zh_cn": "InfluxDB Client",
+  "description_zh_cn": "InfluxDB 2 测量、标签、字段、写入、验证和线路协议。",
+  "nickname_zh_hk": "InfluxDB Client",
+  "description_zh_hk": "InfluxDB 2 測量、標籤、欄位、寫入、驗證和線路協定。",
+  "nickname_ja": "InfluxDB Client",
+  "description_ja": "InfluxDB 2 測定、タグ、フィールド、書き込み、検証、および回線プロトコル。",
+  "nickname_ko": "InfluxDB Client",
+  "description_ko": "InfluxDB 2개의 측정, 태그, 필드, 쓰기, 검증 및 라인 프로토콜.",
+  "nickname_de": "InfluxDB Client",
+  "description_de": "InfluxDB 2 Messungen, Tags, Felder, Schreibvorgänge, Validierung und Leitungsprotokoll.",
+  "nickname_fr": "InfluxDB Client",
+  "description_fr": "InfluxDB 2 mesures, balises, champs, écritures, validation et protocole de ligne.",
+  "nickname_es": "InfluxDB Client",
+  "description_es": "InfluxDB 2 medidas, etiquetas, campos, escrituras, validación y protocolo de línea.",
+  "nickname_pt": "InfluxDB Client",
+  "description_pt": "InfluxDB 2 medições, tags, campos, gravações, validação e protocolo de linha.",
+  "nickname_ru": "InfluxDB Client",
+  "description_ru": "InfluxDB 2 измерения, теги, поля, запись, проверка и линейный протокол.",
+  "nickname_ar": "InfluxDB Client",
+  "description_ar": "InfluxDB 2 القياسات والعلامات والحقول والكتابة والتحقق من الصحة وبروتوكول الخط."
+}

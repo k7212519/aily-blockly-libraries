@@ -8,15 +8,15 @@ ESP32 hash calculation library, supports SHA1/SHA2/SHA3 and PBKDF2 key derivatio
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_hash_compute` | Value | ALGO(dropdown), DATA(input_value) | `esp32_hash_compute(SHA1, text("value"))` | Dynamic code |
-| `esp32_hash_create` | Statement | VAR(field_input), ALGO(dropdown) | `esp32_hash_create("hashBuilder", SHA1)` | Dynamic code |
-| `esp32_hash_begin` | Statement | VAR(field_variable) | `esp32_hash_begin(variables_get($hashBuilder))` | Dynamic code |
-| `esp32_hash_add` | Statement | VAR(field_variable), DATA(input_value) | `esp32_hash_add(variables_get($hashBuilder), text("value"))` | {\n String _hashData = |
-| `esp32_hash_calculate` | Statement | VAR(field_variable) | `esp32_hash_calculate(variables_get($hashBuilder))` | Dynamic code |
-| `esp32_hash_result` | Value | VAR(field_variable) | `esp32_hash_result(variables_get($hashBuilder))` | Dynamic code |
-| `esp32_hash_pbkdf2` | Value | ALGO(dropdown), PASSWORD(input_value), SALT(input_value), ITERATIONS(input_value) | `esp32_hash_pbkdf2(SHA256, text("value"), text("value"), math_number(0))` | Dynamic code |
+| `esp32_hash_compute` | Value | ALGO(dropdown), DATA(input_value) | `esp32_hash_compute(SHA1, text("value"))` | `computeHash_SHA1("value")` |
+| `esp32_hash_create` | Statement | VAR(field_input), ALGO(dropdown) | `esp32_hash_create("hashBuilder", SHA1)` | `SHA1Builder hashBuilder;` |
+| `esp32_hash_begin` | Statement | VAR(field_variable) | `esp32_hash_begin($hashBuilder)` | `hashBuilder.begin();` |
+| `esp32_hash_add` | Statement | VAR(field_variable), DATA(input_value) | `esp32_hash_add($hashBuilder, text("value"))` | `{ ↵ String _hashData = "value"; ↵ hashBuilder.add((const uint8_t*)_hashData.c_str(), _hashData.length()); ↵ }` |
+| `esp32_hash_calculate` | Statement | VAR(field_variable) | `esp32_hash_calculate($hashBuilder)` | `hashBuilder.calculate();` |
+| `esp32_hash_result` | Value | VAR(field_variable) | `esp32_hash_result($hashBuilder)` | `hashBuilder.toString()` |
+| `esp32_hash_pbkdf2` | Value | ALGO(dropdown), PASSWORD(input_value), SALT(input_value), ITERATIONS(input_value) | `esp32_hash_pbkdf2(SHA256, text("value"), text("value"), math_number(0))` | `computePBKDF2_SHA256("value", "value", 1)` |
 
 ## Parameter Options
 
@@ -41,6 +41,6 @@ arduino_loop()
 
 ## Notes
 
-1. **Variable**: `esp32_hash_create("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `esp32_hash_create("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

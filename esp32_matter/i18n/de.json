@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32-Angelegenheit",
+  "esp32_matter_begin": {
+    "message0": "Materie starten",
+    "tooltip": "Starten Sie den Matter-Knoten. Der Endpunkt muss zuerst erstellt werden."
+  },
+  "esp32_matter_status": {
+    "message0": "Angelegenheitsstatus %1",
+    "tooltip": "Fragen Sie das Matter-Verteilungsnetzwerk oder den Verbindungsstatus ab.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Netzwerk konfiguriert",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi verbunden",
+            "isWiFiConnected"
+          ],
+          [
+            "Thread ist verbunden",
+            "isThreadConnected"
+          ],
+          [
+            "Gerät ist verbunden",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "Materie-Pairing-Informationen %1",
+    "tooltip": "Matter-Pairing-Code oder QR-Code-URL abrufen.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Manueller Kopplungscode",
+            "getManualPairingCode"
+          ],
+          [
+            "QR-Code-URL",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "Matter klares Vertriebsnetz",
+    "tooltip": "Löschen Sie die aktuellen Informationen zum Matter Fabric-Verteilungsnetzwerk."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "Matter-Schalterlicht erstellen %1 Anfangszustand %2",
+    "tooltip": "Erstellen Sie den Lichtschalter-Endpunkt."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "Create Matter Dimmlicht %1 Status %2 Helligkeit %3",
+    "tooltip": "Erstellen Sie einen Dimmerlicht-Endpunkt."
+  },
+  "esp32_matter_light_set": {
+    "message0": "Materielicht %1 setzt %2 auf %3",
+    "tooltip": "Stellen Sie den Lichtschalter oder die Helligkeit ein.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "-Schalter",
+            "setOnOff"
+          ],
+          [
+            "Helligkeit",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "Materielampe %1 lesen %2",
+    "tooltip": "Lesen Sie den Lichtschalter oder die Helligkeit ab.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "-Schalter",
+            "getOnOff"
+          ],
+          [
+            "Helligkeit",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "Erstellen Sie einen numerischen Materiesensor %1 Typ %2 Anfangswert %3",
+    "tooltip": "Erstellen Sie gemeinsame numerische Sensorendpunkte.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Temperatur",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "Luftfeuchtigkeit",
+            "MatterHumiditySensor"
+          ],
+          [
+            "Beleuchtung",
+            "MatterLightSensor"
+          ],
+          [
+            "Druck",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "Materie-Numerischer Sensor %1 Typ %2 Update %3",
+    "tooltip": "Numerische Sensorwerte aktualisieren und melden.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Temperatur",
+            "setTemperature"
+          ],
+          [
+            "Luftfeuchtigkeit",
+            "setHumidity"
+          ],
+          [
+            "Beleuchtung",
+            "setIlluminance"
+          ],
+          [
+            "Druck",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "Materie erstellen Boolescher Sensor %1 Typ %2 Anfangswert %3",
+    "tooltip": "Erstellen Sie gemeinsame boolesche Sensorendpunkte.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Kontakt",
+            "MatterContactSensor"
+          ],
+          [
+            "besetzt",
+            "MatterOccupancySensor"
+          ],
+          [
+            "Regen",
+            "MatterRainSensor"
+          ],
+          [
+            "Wasserleck",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Matter Boolean Sensor %1 Typ %2 Update %3",
+    "tooltip": "Boolesche Sensorwerte aktualisieren und melden.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Kontakt",
+            "setContact"
+          ],
+          [
+            "besetzt",
+            "setOccupancy"
+          ],
+          [
+            "Regen",
+            "setRain"
+          ],
+          [
+            "Wasserleck",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

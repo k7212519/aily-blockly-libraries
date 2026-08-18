@@ -8,17 +8,17 @@ Blockly wrapper for the SparkFun APDS9301 lux sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `apds9301_init` | Statement | VAR(field_input), ADDRESS(dropdown) | `apds9301_init("apds9301", "0x39")` | Wire.begin();\n |
-| `apds9301_is_ready` | Value | VAR(field_variable) | `apds9301_is_ready(variables_get($apds9301))` | Dynamic code |
-| `apds9301_read_lux` | Value | VAR(field_variable) | `apds9301_read_lux(variables_get($apds9301))` | Dynamic code |
-| `apds9301_read_channel` | Value | VAR(field_variable), CHANNEL(dropdown) | `apds9301_read_channel(variables_get($apds9301), readCH0Level)` | Dynamic code |
-| `apds9301_set_gain` | Statement | VAR(field_variable), GAIN(dropdown) | `apds9301_set_gain(variables_get($apds9301), APDS9301::LOW_GAIN)` | Dynamic code |
-| `apds9301_set_integration_time` | Statement | VAR(field_variable), TIME(dropdown) | `apds9301_set_integration_time(variables_get($apds9301), APDS9301::INT_TIME_13_7_MS)` | Dynamic code |
-| `apds9301_enable_interrupt` | Statement | VAR(field_variable), STATE(dropdown) | `apds9301_enable_interrupt(variables_get($apds9301), APDS9301::INT_ON)` | Dynamic code |
-| `apds9301_set_threshold` | Statement | VAR(field_variable), BOUND(dropdown), THRESHOLD(input_value) | `apds9301_set_threshold(variables_get($apds9301), LOW, math_number(0))` | Dynamic code |
-| `apds9301_power` | Statement | VAR(field_variable), STATE(dropdown) | `apds9301_power(variables_get($apds9301), APDS9301::POW_ON)` | Dynamic code |
+| `apds9301_init` | Statement | VAR(field_input), ADDRESS(dropdown) | `apds9301_init("apds9301", "0x39")` | `Wire.begin(); ↵ apds9301_ready = (apds9301.begin(0x39) == APDS9301::SUCCESS);` |
+| `apds9301_is_ready` | Value | VAR(field_variable) | `apds9301_is_ready($apds9301)` | `apds9301_ready` |
+| `apds9301_read_lux` | Value | VAR(field_variable) | `apds9301_read_lux($apds9301)` | `apds9301.readLuxLevel()` |
+| `apds9301_read_channel` | Value | VAR(field_variable), CHANNEL(dropdown) | `apds9301_read_channel($apds9301, readCH0Level)` | `apds9301.readCH0Level()` |
+| `apds9301_set_gain` | Statement | VAR(field_variable), GAIN(dropdown) | `apds9301_set_gain($apds9301, APDS9301::LOW_GAIN)` | `apds9301.setGain(APDS9301::LOW_GAIN);` |
+| `apds9301_set_integration_time` | Statement | VAR(field_variable), TIME(dropdown) | `apds9301_set_integration_time($apds9301, APDS9301::INT_TIME_13_7_MS)` | `apds9301.setIntegrationTime(APDS9301::INT_TIME_13_7_MS);` |
+| `apds9301_enable_interrupt` | Statement | VAR(field_variable), STATE(dropdown) | `apds9301_enable_interrupt($apds9301, APDS9301::INT_ON)` | `apds9301.enableInterrupt(APDS9301::INT_ON);` |
+| `apds9301_set_threshold` | Statement | VAR(field_variable), BOUND(dropdown), THRESHOLD(input_value) | `apds9301_set_threshold($apds9301, LOW, math_number(0))` | `apds9301.setLowThreshold(1);` |
+| `apds9301_power` | Statement | VAR(field_variable), STATE(dropdown) | `apds9301_power($apds9301, APDS9301::POW_ON)` | `apds9301.powerEnable(APDS9301::POW_ON);` |
 
 ## Parameter Options
 
@@ -41,12 +41,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, apds9301_is_ready(variables_get($apds9301)))
+    serial_println(Serial, apds9301_is_ready($apds9301))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `apds9301_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `apds9301_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

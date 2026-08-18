@@ -25,6 +25,7 @@
   "description_ru": "Библиотека Blockly для встроенных часов RTC Wio Terminal: установка и чтение времени, два будильника, обработчики прерываний и режим ожидания.",
   "description_ar": "مكتبة Blockly لساعة RTC المدمجة في Wio Terminal، تدعم ضبط الوقت وقراءة التاريخ والوقت ومنبهين واستدعاءات المقاطعة ووضع الاستعداد.",
   "version": "1.0.0",
+  "spec": true,
   "compatibility": {
     "core": [
       "Seeeduino:samd:seeed_wio_terminal"

@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "Initialisieren Sie den IR-Sender %1-Pin %2",
+    "tooltip": "Erstellen und starten Sie einen Infrarotsender."
+  },
+  "ir_esp_send_code": {
+    "message0": "IR Absender %1 sendet %2 Code %3 Bits %4 wiederholt %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Senden Sie einen numerischen Infrarotcode über ein gängiges Protokoll."
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR Absender %1 Roharray senden %2 Länge %3 Frequenz kHz %4",
+    "tooltip": "Senden Sie ein uint16_t-Timing-Array."
+  },
+  "ir_esp_recv_init": {
+    "message0": "Initialisieren Sie den IR-Empfänger. %1-Pin. %2-Puffer. %3-Timeout ms. %4",
+    "tooltip": "Erstellen und aktivieren Sie einen Infrarotempfänger."
+  },
+  "ir_esp_when_received": {
+    "message0": "Wenn der IR-Empfänger %1 %2 und %3 empfängt",
+    "tooltip": "Dekodieren Sie eine Nachricht, führen Sie den Text aus und setzen Sie dann den Empfang fort."
+  },
+  "ir_esp_received_data": {
+    "message0": "Der IR-Empfänger %1 empfing %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "numerischer Wert",
+            "value"
+          ],
+          [
+            "Bitanzahl",
+            "bits"
+          ],
+          [
+            "Protokollaufzählung",
+            "decode_type"
+          ],
+          [
+            "Flagge wiederholen",
+            "repeat"
+          ],
+          [
+            "Überlaufflag",
+            "overflow"
+          ],
+          [
+            "für Menschen lesbarer Text",
+            "text"
+          ],
+          [
+            "Quellcodetext",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie die zuletzt entschlüsselte Nachricht."
+  }
+}

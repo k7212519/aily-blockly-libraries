@@ -38,7 +38,8 @@
       "arduino:renesas_uno:XIAO_RA4M1",
       "esp32:esp32",
       "adafruit:nrf52",
-      "STMicroelectronics:stm32:GenF4"
+      "STMicroelectronics:stm32:GenF4",
+      "chipintelli:ci13xx"
     ],
     "voltage": [
       3.3,

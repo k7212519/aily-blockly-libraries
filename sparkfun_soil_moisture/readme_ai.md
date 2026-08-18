@@ -8,12 +8,12 @@ Blockly wrapper for the SparkFun I2C soil moisture sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `soil_moisture_init` | Statement | VAR(field_input) | `soil_moisture_init("soilSensor")` | Wire.begin();\n |
-| `soil_moisture_read_value` | Value | VAR(field_variable) | `soil_moisture_read_value(variables_get($soilSensor))` | Dynamic code |
-| `soil_moisture_read_percentage` | Value | VAR(field_variable) | `soil_moisture_read_percentage(variables_get($soilSensor))` | Dynamic code |
-| `soil_moisture_led` | Statement | VAR(field_variable), STATE(dropdown) | `soil_moisture_led(variables_get($soilSensor), ON)` | Dynamic code |
+| `soil_moisture_init` | Statement | VAR(field_input) | `soil_moisture_init("soilSensor")` | `Wire.begin(); ↵ soilSensor.begin();` |
+| `soil_moisture_read_value` | Value | VAR(field_variable) | `soil_moisture_read_value($soilSensor)` | `soilSensor.readMoistureValue()` |
+| `soil_moisture_read_percentage` | Value | VAR(field_variable) | `soil_moisture_read_percentage($soilSensor)` | `soilSensor.readMoisturePercentage()` |
+| `soil_moisture_led` | Statement | VAR(field_variable), STATE(dropdown) | `soil_moisture_led($soilSensor, ON)` | `soilSensor.LEDOn();` |
 
 ## Parameter Options
 
@@ -30,12 +30,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, soil_moisture_read_value(variables_get($soilSensor)))
+    serial_println(Serial, soil_moisture_read_value($soilSensor))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `soil_moisture_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `soil_moisture_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

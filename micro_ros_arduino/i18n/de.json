@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "Initialisieren Sie den micro-ROS-Knoten. %1-Name. %2-Namespace. %3-Executor-Handles. %4",
+    "tooltip": "Initialisieren Sie den standardmäßigen micro-ROS-Transport, die Unterstützung, den Knoten und den Executor."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "Erstellen Sie den micro-ROS Int32-Herausgeber %1 Knoten %2 Thema %3",
+    "tooltip": "Erstellen Sie einen std_msgs/Int32-Publisher."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "micro-ROS Herausgeber %1 veröffentlicht Int32 %2",
+    "tooltip": "Veröffentlichen Sie einen std_msgs/Int32-Wert."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "Erstellen Sie einen micro-ROS Int32-Abonnenten %1 Knoten %2 Thema %3, wenn Daten eintreffen %4",
+    "tooltip": "Erstellen Sie ein std_msgs/Int32-Abonnement und einen Rückruf."
+  },
+  "micro_ros_received_int32": {
+    "message0": "Der micro-ROS-Abonnent %1 hat Int32 empfangen",
+    "tooltip": "Lesen Sie die neueste Int32-Nachricht innerhalb oder nach dem Rückruf."
+  },
+  "micro_ros_spin": {
+    "message0": "micro-ROS-Knoten %1-Spin für %2 ms",
+    "tooltip": "Führen Sie den Executor rclc einmal aus. Durch die Knoteninitialisierung wird der Schleife bereits ein Standard-Spin hinzugefügt."
+  }
+}

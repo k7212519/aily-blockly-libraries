@@ -1,0 +1,115 @@
+{
+  "toolbox_name": "ESP TFLite Micro",
+  "esp_tflite_init": {
+    "message0": "inicializar ESP TFLite Micro %1 encabezado del modelo %2 símbolo del modelo %3 bytes de arena de memoria tensor %4",
+    "tooltip": "Cree un intérprete TensorFlow Lite Micro con operadores integrados de uso común."
+  },
+  "esp_tflite_input_set": {
+    "message0": "TFLite %1 índice de entrada %2 establecer valor %3 %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 crudo",
+            "int8"
+          ],
+          [
+            "uint8 crudo",
+            "uint8"
+          ],
+          [
+            "cuantizar flotador a int8",
+            "quantized"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Escribe un elemento tensor de entrada del modelo."
+  },
+  "esp_tflite_invoke": {
+    "message0": "La invocación de TFLite %1 fue exitosa",
+    "tooltip": "Ejecute una inferencia y determine si tuvo éxito."
+  },
+  "esp_tflite_output_get": {
+    "message0": "TFLite %1 índice de salida %2 lectura %3",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "float32",
+            "float"
+          ],
+          [
+            "int8 crudo",
+            "int8"
+          ],
+          [
+            "uint8 crudo",
+            "uint8"
+          ],
+          [
+            "int8 descuantificado",
+            "dequantized"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea un elemento tensor de salida del modelo."
+  },
+  "esp_tflite_tensor_info": {
+    "message0": "TFLite %1 %2 tensor %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "entrada",
+            "input"
+          ],
+          [
+            "salida",
+            "output"
+          ]
+        ]
+      },
+      {
+        "options": [
+          [
+            "tamaño de byte",
+            "bytes"
+          ],
+          [
+            "recuento de elementos",
+            "count"
+          ],
+          [
+            "escriba enumeración",
+            "type"
+          ],
+          [
+            "escala de cuantificación",
+            "scale"
+          ],
+          [
+            "punto cero",
+            "zero_point"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Inspeccionar un tensor de entrada o salida del modelo."
+  },
+  "esp_tflite_ready": {
+    "message0": "TFLite %1 está listo",
+    "tooltip": "Compruebe si el análisis del modelo y la asignación del tensor se realizaron correctamente."
+  }
+}

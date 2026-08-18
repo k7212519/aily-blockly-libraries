@@ -8,15 +8,15 @@ Adafruit motor driver board library supports controlling DC motors and stepper m
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `afmotor_dc_init` | Statement | MOTOR(dropdown), FREQ(dropdown) | `afmotor_dc_init("1", DC_MOTOR_PWM_RATE)` | Dynamic code |
-| `afmotor_dc_run` | Statement | MOTOR(dropdown), DIRECTION(dropdown), SPEED(input_value) | `afmotor_dc_run("1", FORWARD, math_number(9600))` | Dynamic code |
-| `afmotor_stepper_init` | Statement | STEPPER(dropdown), STEPS(input_value) | `afmotor_stepper_init("1", math_number(0))` | Dynamic code |
-| `afmotor_stepper_setspeed` | Statement | STEPPER(dropdown), RPM(input_value) | `afmotor_stepper_setspeed("1", math_number(0))` | Dynamic code |
-| `afmotor_stepper_step` | Statement | STEPPER(dropdown), STEPS(input_value), DIRECTION(dropdown), STYLE(dropdown) | `afmotor_stepper_step("1", math_number(0), FORWARD, SINGLE)` | Dynamic code |
-| `afmotor_stepper_onestep` | Statement | STEPPER(dropdown), DIRECTION(dropdown), STYLE(dropdown) | `afmotor_stepper_onestep("1", FORWARD, SINGLE)` | Dynamic code |
-| `afmotor_stepper_release` | Statement | STEPPER(dropdown) | `afmotor_stepper_release("1")` | Dynamic code |
+| `afmotor_dc_init` | Statement | MOTOR(dropdown), FREQ(dropdown) | `afmotor_dc_init("1", DC_MOTOR_PWM_RATE)` | `AF_DCMotor motor1(1, DC_MOTOR_PWM_RATE)` |
+| `afmotor_dc_run` | Statement | MOTOR(dropdown), DIRECTION(dropdown), SPEED(input_value) | `afmotor_dc_run("1", FORWARD, math_number(9600))` | `motor1.setSpeed(1); ↵ motor1.run(FORWARD);` |
+| `afmotor_stepper_init` | Statement | STEPPER(dropdown), STEPS(input_value) | `afmotor_stepper_init("1", math_number(0))` | `AF_Stepper stepper1(1, 1)` |
+| `afmotor_stepper_setspeed` | Statement | STEPPER(dropdown), RPM(input_value) | `afmotor_stepper_setspeed("1", math_number(0))` | `stepper1.setSpeed(1);` |
+| `afmotor_stepper_step` | Statement | STEPPER(dropdown), STEPS(input_value), DIRECTION(dropdown), STYLE(dropdown) | `afmotor_stepper_step("1", math_number(0), FORWARD, SINGLE)` | `stepper1.step(1, FORWARD, SINGLE);` |
+| `afmotor_stepper_onestep` | Statement | STEPPER(dropdown), DIRECTION(dropdown), STYLE(dropdown) | `afmotor_stepper_onestep("1", FORWARD, SINGLE)` | `stepper1.onestep(FORWARD, SINGLE);` |
+| `afmotor_stepper_release` | Statement | STEPPER(dropdown) | `afmotor_stepper_release("1")` | `stepper1.release();` |
 
 ## Parameter Options
 

@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32 문제",
+  "esp32_matter_begin": {
+    "message0": "시작 물질",
+    "tooltip": "Matter 노드를 시작하세요. 엔드포인트를 먼저 생성해야 합니다."
+  },
+  "esp32_matter_status": {
+    "message0": "문제 상태 %1",
+    "tooltip": "물질 유통 네트워크 또는 연결 상태를 쿼리합니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "네트워크 구성됨",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi 연결됨",
+            "isWiFiConnected"
+          ],
+          [
+            "실이 연결되었습니다",
+            "isThreadConnected"
+          ],
+          [
+            "기기가 연결되었습니다",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "물질 페어링 정보 %1",
+    "tooltip": "Matter 페어링 코드 또는 QR 코드 URL을 가져옵니다.",
+    "args0": [
+      {
+        "options": [
+          [
+            "수동 페어링 코드",
+            "getManualPairingCode"
+          ],
+          [
+            "QR 코드 URL",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "물질제거 유통망",
+    "tooltip": "현재 Matter Fabric 유통망 정보를 삭제합니다."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "물질 생성 스위치 조명 %1 초기 상태 %2",
+    "tooltip": "스위치 조명 끝점을 생성합니다."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "Create Matter 조광 조명 %1 상태 %2 밝기 %3",
+    "tooltip": "더 어두운 조명 끝점을 만듭니다."
+  },
+  "esp32_matter_light_set": {
+    "message0": "물질광 %1이 %2을(를) %3(으)로 설정합니다.",
+    "tooltip": "조명 스위치나 밝기를 설정하세요.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "스위치",
+            "setOnOff"
+          ],
+          [
+            "밝기",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "물질 램프 %1 읽기 %2",
+    "tooltip": "조명 스위치나 밝기를 읽어보세요.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "스위치",
+            "getOnOff"
+          ],
+          [
+            "밝기",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "물질 생성 수치 센서 %1 유형 %2 초기 값 %3",
+    "tooltip": "일반적인 숫자 센서 끝점을 생성합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "온도",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "습도",
+            "MatterHumiditySensor"
+          ],
+          [
+            "조명",
+            "MatterLightSensor"
+          ],
+          [
+            "압박",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "물질 수치 센서 %1 유형 %2 업데이트 %3",
+    "tooltip": "숫자 센서 값을 업데이트하고 보고합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "온도",
+            "setTemperature"
+          ],
+          [
+            "습도",
+            "setHumidity"
+          ],
+          [
+            "조명",
+            "setIlluminance"
+          ],
+          [
+            "압박",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "물질 생성 부울 센서 %1 유형 %2 초기 값 %3",
+    "tooltip": "공통 부울 센서 엔드포인트를 생성합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "연락처",
+            "MatterContactSensor"
+          ],
+          [
+            "점유 중",
+            "MatterOccupancySensor"
+          ],
+          [
+            "비",
+            "MatterRainSensor"
+          ],
+          [
+            "누수",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "물질 부울 센서 %1 유형 %2 업데이트 %3",
+    "tooltip": "부울 센서 값을 업데이트하고 보고합니다.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "연락처",
+            "setContact"
+          ],
+          [
+            "점유 중",
+            "setOccupancy"
+          ],
+          [
+            "비",
+            "setRain"
+          ],
+          [
+            "누수",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

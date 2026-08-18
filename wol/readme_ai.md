@@ -8,10 +8,10 @@ Wake-on-LAN library for sending magic packets to wake up devices on the local ne
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wol_send` | Statement | MAC(input_value), BROADCAST_IP(input_value), PORT(input_value) | `wol_send(text("value"), text("value"), math_number(0))` | wolSendMagicPacket( |
-| `wol_send_result` | Value | MAC(input_value), BROADCAST_IP(input_value), PORT(input_value) | `wol_send_result(text("value"), text("value"), math_number(0))` | wolSendMagicPacket( |
+| `wol_send` | Statement | MAC(input_value), BROADCAST_IP(input_value), PORT(input_value) | `wol_send(text("value"), text("value"), math_number(0))` | `wolSendMagicPacket("value", "value", 1);` |
+| `wol_send_result` | Value | MAC(input_value), BROADCAST_IP(input_value), PORT(input_value) | `wol_send_result(text("value"), text("value"), math_number(0))` | `wolSendMagicPacket("value", "value", 1)` |
 
 ## ABS Examples
 

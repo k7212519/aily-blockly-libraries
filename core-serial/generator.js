@@ -453,6 +453,12 @@ Arduino.forBlock["serial_begin"] = function (block, generator) {
   return ``;
 };
 
+Arduino.forBlock["serial_wait_for_connection"] = function (block, generator) {
+  const obj = block.getFieldValue("SERIAL");
+  ensureSerialBegin(obj, generator);
+  return `while (!${obj}) {\n  delay(10);\n}\n`;
+};
+
 Arduino.forBlock["serial_print"] = function (block, generator) {
   const obj = block.getFieldValue("SERIAL");
   const content = Arduino.valueToCode(block, "VAR", Arduino.ORDER_ATOMIC);
@@ -734,7 +740,8 @@ Arduino.forBlock["serial_begin_software"] = function (block, generator) {
 }
 
 Arduino.forBlock["serial_listen_software"] = function (block, generator) {
-  const varName = block.getFieldValue("VAR") || 'mySerial';
+  const varField = block.getField("SERIAL_VAR");
+  const varName = varField ? varField.getText() : 'mySerial';
   return `${varName}.listen();\n`;
 };
 

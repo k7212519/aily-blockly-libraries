@@ -8,18 +8,18 @@ Si7021 temperature and humidity sensor control library realizes high-precision m
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `si7021_begin` | Statement | OBJECT(field_variable), WIRE(dropdown) | `si7021_begin(variables_get($sensor), WIRE)` | if (! |
-| `si7021_read_temperature` | Value | OBJECT(field_variable) | `si7021_read_temperature(variables_get($sensor))` | Dynamic code |
-| `si7021_read_humidity` | Value | OBJECT(field_variable) | `si7021_read_humidity(variables_get($sensor))` | Dynamic code |
-| `si7021_heater_control` | Statement | OBJECT(field_variable), STATE(dropdown) | `si7021_heater_control(variables_get($sensor), true)` | Dynamic code |
-| `si7021_is_heater_enabled` | Value | OBJECT(field_variable) | `si7021_is_heater_enabled(variables_get($sensor))` | Dynamic code |
-| `si7021_set_heat_level` | Statement | OBJECT(field_variable), LEVEL(dropdown) | `si7021_set_heat_level(variables_get($sensor), SI_HEATLEVEL_LOWEST)` | Dynamic code |
-| `si7021_get_model` | Value | OBJECT(field_variable) | `si7021_get_model(variables_get($sensor))` | String( |
-| `si7021_get_revision` | Value | OBJECT(field_variable) | `si7021_get_revision(variables_get($sensor))` | Dynamic code |
-| `si7021_reset` | Statement | OBJECT(field_variable) | `si7021_reset(variables_get($sensor))` | Dynamic code |
-| `si7021_read_serial_number` | Statement | OBJECT(field_variable) | `si7021_read_serial_number(variables_get($sensor))` | Dynamic code |
+| `si7021_begin` | Statement | OBJECT(field_variable), WIRE(dropdown) | `si7021_begin($sensor, WIRE)` | `if (!sensor.begin()) { ↵ Serial.println("Did not find Si7021 sensor!"); ↵ while (true); ↵ }` |
+| `si7021_read_temperature` | Value | OBJECT(field_variable) | `si7021_read_temperature($sensor)` | `sensor.readTemperature()` |
+| `si7021_read_humidity` | Value | OBJECT(field_variable) | `si7021_read_humidity($sensor)` | `sensor.readHumidity()` |
+| `si7021_heater_control` | Statement | OBJECT(field_variable), STATE(dropdown) | `si7021_heater_control($sensor, true)` | `sensor.heater(true);` |
+| `si7021_is_heater_enabled` | Value | OBJECT(field_variable) | `si7021_is_heater_enabled($sensor)` | `sensor.isHeaterEnabled()` |
+| `si7021_set_heat_level` | Statement | OBJECT(field_variable), LEVEL(dropdown) | `si7021_set_heat_level($sensor, SI_HEATLEVEL_LOWEST)` | `sensor.setHeatLevel(SI_HEATLEVEL_LOWEST);` |
+| `si7021_get_model` | Value | OBJECT(field_variable) | `si7021_get_model($sensor)` | `String(sensor.getModel())` |
+| `si7021_get_revision` | Value | OBJECT(field_variable) | `si7021_get_revision($sensor)` | `sensor.getRevision()` |
+| `si7021_reset` | Statement | OBJECT(field_variable) | `si7021_reset($sensor)` | `sensor.reset();` |
+| `si7021_read_serial_number` | Statement | OBJECT(field_variable) | `si7021_read_serial_number($sensor)` | `sensor.readSerialNumber(); ↵ Serial.print("Si7021序列号: "); ↵ Serial.print(sensor.sernum_a, HEX); ↵ Serial.print("-"); ↵ Serial.println(sensor.sernum_b, HEX);` |
 
 ## Parameter Options
 
@@ -33,11 +33,11 @@ Si7021 temperature and humidity sensor control library realizes high-precision m
 ### Basic Usage
 ```
 arduino_setup()
-    si7021_begin(variables_get($sensor), WIRE)
+    si7021_begin($sensor, WIRE)
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, si7021_read_temperature(variables_get($sensor)))
+    serial_println(Serial, si7021_read_temperature($sensor))
     time_delay(math_number(1000))
 ```
 

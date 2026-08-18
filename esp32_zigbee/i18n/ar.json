@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 زيجبي",
+  "esp32_zigbee_begin": {
+    "message0": "ابدأ دور زيجبي %1 مسح التكوين %2",
+    "tooltip": "ابدأ Zigbee بالدور المحدد.",
+    "args0": [
+      {
+        "options": [
+          [
+            "المعدات الطرفية",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "جهاز التوجيه",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "المنسق",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "زيجبي متصل",
+    "tooltip": "تحقق مما إذا كان Zigbee قد انضم إلى الشبكة."
+  },
+  "esp32_zigbee_network": {
+    "message0": "مهلة شبكة Zigbee %1 %2 ثانية",
+    "tooltip": "التحكم في الجهاز للانضمام إلى الشبكة.",
+    "args0": [
+      {
+        "options": [
+          [
+            "فتح الوصول إلى الشبكة",
+            "openNetwork"
+          ],
+          [
+            "إغلاق الوصول إلى الشبكة",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "إعادة ضبط المصنع لزيجبي",
+    "tooltip": "قم بمسح تكوين شبكة Zigbee وإعادة التشغيل."
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "إنشاء ضوء زيجبي %1 نقطة النهاية %2",
+    "tooltip": "أنشئ نقطة نهاية ضوء التبديل وانضم إلى Zigbee."
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "إعدادات ضوء زيجبي %1 %2",
+    "tooltip": "تحديث حالة ضوء Zigbee."
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "حالة ضوء زيجبي %1",
+    "tooltip": "اقرأ الوضع الحالي لضوء زيجبي."
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "إنشاء مستشعر درجة حرارة زيجبي %1 نقطة النهاية %2",
+    "tooltip": "قم بإنشاء نقطة نهاية لمستشعر درجة الحرارة وانضم إلى Zigbee."
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "تحديثات مستشعر درجة حرارة زيجبي %1 %2 درجة الحرارة والتقارير",
+    "tooltip": "ضبط درجة الحرارة والإبلاغ عنها."
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "إنشاء مستشعر إشغال Zigbee %1 نقطة النهاية %2",
+    "tooltip": "قم بإنشاء نقطة نهاية مستشعر الإشغال وانضم إلى Zigbee."
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "تحديثات وتقارير مستشعر إشغال زيجبي %1 %2",
+    "tooltip": "ضبط حالة الإشغال والإبلاغ عنها."
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "إنشاء مستشعر اتصال Zigbee %1 نقطة النهاية %2",
+    "tooltip": "قم بإنشاء نقطة نهاية مستشعر الاتصال وانضم إلى Zigbee."
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "جهاز استشعار الاتصال زيجبي %1 الحالة %2",
+    "tooltip": "ضبط حالة جهة الاتصال والإبلاغ عنها.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "إغلاق",
+            "setClosed"
+          ],
+          [
+            "مفتوح",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

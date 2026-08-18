@@ -1,0 +1,104 @@
+{
+  "toolbox_name": "ESP32 ジグビー",
+  "esp32_zigbee_begin": {
+    "message0": "Zigbee ロールを開始します %1 構成を消去します %2",
+    "tooltip": "指定されたロールで Zigbee を起動します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "端末機器",
+            "ZIGBEE_END_DEVICE"
+          ],
+          [
+            "ルーター",
+            "ZIGBEE_ROUTER"
+          ],
+          [
+            "コーディネーター",
+            "ZIGBEE_COORDINATOR"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_connected": {
+    "message0": "Zigbee が接続されました",
+    "tooltip": "Zigbee がネットワークに参加しているかどうかを確認します。"
+  },
+  "esp32_zigbee_network": {
+    "message0": "Zigbee ネットワーク %1 タイムアウト %2 秒",
+    "tooltip": "デバイスを制御してネットワークに参加します。",
+    "args0": [
+      {
+        "options": [
+          [
+            "オープンネットワークアクセス",
+            "openNetwork"
+          ],
+          [
+            "ネットワークアクセスを閉じる",
+            "closeNetwork"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_zigbee_factory_reset": {
+    "message0": "Zigbee 出荷時設定へのリセット",
+    "tooltip": "Zigbee ネットワーク構成をクリアして再起動します。"
+  },
+  "esp32_zigbee_create_light": {
+    "message0": "Zigbee ライト %1 エンドポイント %2 を作成する",
+    "tooltip": "スイッチ ライト エンドポイントを作成し、Zigbee に参加します。"
+  },
+  "esp32_zigbee_set_light": {
+    "message0": "Zigbee ライト %1 設定 %2",
+    "tooltip": "Zigbee ライトのステータスを更新します。"
+  },
+  "esp32_zigbee_get_light": {
+    "message0": "Zigbee ライト %1 ステータス",
+    "tooltip": "Zigbee ライトの現在のステータスを読み取ります。"
+  },
+  "esp32_zigbee_create_temp": {
+    "message0": "Zigbee 温度センサー %1 エンドポイント %2 を作成する",
+    "tooltip": "温度センサーのエンドポイントを作成し、Zigbee に参加します。"
+  },
+  "esp32_zigbee_set_temp": {
+    "message0": "Zigbee 温度センサー %1 が %2 ℃ を更新してレポートします",
+    "tooltip": "温度を設定して報告します。"
+  },
+  "esp32_zigbee_create_occupancy": {
+    "message0": "Zigbee 占有センサー %1 エンドポイント %2 を作成する",
+    "tooltip": "占有センサーのエンドポイントを作成し、Zigbee に参加します。"
+  },
+  "esp32_zigbee_set_occupancy": {
+    "message0": "Zigbee 占有センサー %1 が %2 を更新してレポートします",
+    "tooltip": "占有状況を設定および報告します。"
+  },
+  "esp32_zigbee_create_contact": {
+    "message0": "Zigbee 接触センサー %1 エンドポイント %2 を作成する",
+    "tooltip": "接触センサーのエンドポイントを作成し、Zigbee に参加します。"
+  },
+  "esp32_zigbee_set_contact": {
+    "message0": "Zigbee 接触センサー %1 ステータス %2",
+    "tooltip": "接点ステータスを設定および報告します。",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "閉じる",
+            "setClosed"
+          ],
+          [
+            "開く",
+            "setOpen"
+          ]
+        ]
+      }
+    ]
+  }
+}

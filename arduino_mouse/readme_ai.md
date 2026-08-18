@@ -8,14 +8,14 @@ Simulate Arduino as a USB mouse, which can realize mouse clicks, movements and o
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `mouse_begin` | Statement | (none) | `mouse_begin()` | Dynamic code |
-| `mouse_click` | Statement | BUTTON(dropdown) | `mouse_click(MOUSE_LEFT)` | Mouse.click( |
-| `mouse_move` | Statement | X(input_value), Y(input_value), WHEEL(input_value) | `mouse_move(math_number(0), math_number(0), math_number(0))` | Mouse.move( |
-| `mouse_press` | Statement | BUTTON(dropdown) | `mouse_press(MOUSE_LEFT)` | Mouse.press( |
-| `mouse_release` | Statement | BUTTON(dropdown) | `mouse_release(MOUSE_LEFT)` | Mouse.release( |
-| `mouse_is_pressed` | Value | BUTTON(dropdown) | `mouse_is_pressed(MOUSE_LEFT)` | Mouse.isPressed( |
+| `mouse_begin` | Statement | (none) | `mouse_begin()` | `Mouse.begin();` |
+| `mouse_click` | Statement | BUTTON(dropdown) | `mouse_click(MOUSE_LEFT)` | `Mouse.click(MOUSE_LEFT);` |
+| `mouse_move` | Statement | X(input_value), Y(input_value), WHEEL(input_value) | `mouse_move(math_number(0), math_number(0), math_number(0))` | `Mouse.move(1, 1, 1);` |
+| `mouse_press` | Statement | BUTTON(dropdown) | `mouse_press(MOUSE_LEFT)` | `Mouse.press(MOUSE_LEFT);` |
+| `mouse_release` | Statement | BUTTON(dropdown) | `mouse_release(MOUSE_LEFT)` | `Mouse.release(MOUSE_LEFT);` |
+| `mouse_is_pressed` | Value | BUTTON(dropdown) | `mouse_is_pressed(MOUSE_LEFT)` | `Mouse.isPressed(MOUSE_LEFT)` |
 
 ## Parameter Options
 

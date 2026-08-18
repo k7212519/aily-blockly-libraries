@@ -8,11 +8,11 @@ Watchdog library for Arduino UNO R4
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wdt_begin` | Statement | TIMEOUT(field_number) | `wdt_begin(2000)` | WDT.begin( |
-| `wdt_refresh` | Statement | (none) | `wdt_refresh()` | WDT.refresh();\n |
-| `wdt_gettimeout` | Value | (none) | `wdt_gettimeout()` | WDT.getTimeout() |
+| `wdt_begin` | Statement | TIMEOUT(field_number) | `wdt_begin(2000)` | `WDT.begin(2000);` |
+| `wdt_refresh` | Statement | (none) | `wdt_refresh()` | `WDT.refresh();` |
+| `wdt_gettimeout` | Value | (none) | `wdt_gettimeout()` | `WDT.getTimeout()` |
 
 ## ABS Examples
 

@@ -1,0 +1,39 @@
+{
+  "toolbox_name": "GPIO Viewer",
+  "gpio_viewer_init": {
+    "message0": "GPIO-Viewer initialisieren %1-Port %2 Abtastung in ms %3 Peripherie-Pins überspringen %4",
+    "tooltip": "Konfigurieren und starten Sie die ESP32 GPIO Viewer-Webanwendung."
+  },
+  "gpio_viewer_wifi": {
+    "message0": "GPIO Viewer %1 Wi-Fi verbinden SSID %2 Passwort %3",
+    "tooltip": "Lassen Sie GPIO Viewer eine WLAN-Verbindung im Stationsmodus herstellen."
+  },
+  "gpio_viewer_set": {
+    "message0": "GPIO Viewer %1 setzt %2 auf %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "HTTP-Port",
+            "setPort"
+          ],
+          [
+            "Abtastintervall ms",
+            "setSamplingInterval"
+          ],
+          [
+            "Überspringen Sie periphere Pins",
+            "setSkipPeripheralPins"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Passen Sie die GPIO Viewer-Konfiguration an, bevor Sie beginnen."
+  },
+  "gpio_viewer_begin": {
+    "message0": "Starten Sie den GPIO-Viewer %1",
+    "tooltip": "Starten Sie GPIO Viewer nach der Netzwerk- und Anwendungseinrichtung."
+  }
+}

@@ -6,19 +6,28 @@ if (Blockly.Extensions.isRegistered('esp32_i2c_address_extension')) {
   Blockly.Extensions.unregister('esp32_i2c_address_extension');
 }
 
+function updateI2CCustomAddressInput(block, address) {
+  const hasInput = !!block.getInput('CUSTOM_ADDRESS');
+  if (address === 'CUSTOM' && !hasInput) {
+    block.appendValueInput('CUSTOM_ADDRESS')
+      .setCheck('Number')
+      .appendField('自定义地址');
+  } else if (address !== 'CUSTOM' && hasInput) {
+    block.removeInput('CUSTOM_ADDRESS');
+  }
+}
+
 // 注册地址选择扩展
 Blockly.Extensions.register('esp32_i2c_address_extension', function() {
-  this.getField('ADDRESS').setValidator(function(newValue) {
-    if (newValue === 'CUSTOM') {
-      // 如果选择自定义地址，则显示输入框
-      this.getSourceBlock().getInput('ADDRESS_INPUT').setVisible(true);
-    } else {
-      // 否则隐藏输入框
-      this.getSourceBlock().getInput('ADDRESS_INPUT').setVisible(false);
-    }
-    this.getSourceBlock().render();
+  const block = this;
+  const addressField = block.getField('ADDRESS');
+  if (!addressField) return;
+  addressField.setValidator(function(newValue) {
+    updateI2CCustomAddressInput(block, newValue);
+    if (block.rendered) block.render();
     return newValue;
   });
+  updateI2CCustomAddressInput(block, block.getFieldValue('ADDRESS'));
 });
 
 // I2C 初始化（指定引脚和频率）

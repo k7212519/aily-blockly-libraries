@@ -1,0 +1,109 @@
+{
+  "toolbox_name": "ESP32 OpenThread",
+  "esp32_openthread_begin": {
+    "message0": "初始化 OpenThread 自動啟動 %1",
+    "tooltip": "初始化 OpenThread 堆疊。"
+  },
+  "esp32_openthread_end": {
+    "message0": "結束 OpenThread",
+    "tooltip": "關閉 OpenThread 堆疊。"
+  },
+  "esp32_openthread_control": {
+    "message0": "OpenThread %1",
+    "tooltip": "控制 Thread 網路或介面。",
+    "args0": [
+      {
+        "options": [
+          [
+            "啟動網絡",
+            "start"
+          ],
+          [
+            "停止網絡",
+            "stop"
+          ],
+          [
+            "介面上線",
+            "networkInterfaceUp"
+          ],
+          [
+            "介面下線",
+            "networkInterfaceDown"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_running": {
+    "message0": "OpenThread 正在執行",
+    "tooltip": "檢查 OpenThread 堆疊是否正在運作。"
+  },
+  "esp32_openthread_role": {
+    "message0": "OpenThread 當前角色",
+    "tooltip": "返回 disabled/detached/child/router/leader。"
+  },
+  "esp32_openthread_has_dataset": {
+    "message0": "OpenThread 有活動資料集",
+    "tooltip": "檢查是否已提交活動資料集。"
+  },
+  "esp32_openthread_dataset": {
+    "message0": "建立並提交 Thread 資料集 %1 名稱 %2 頻道 %3 PAN ID %4",
+    "tooltip": "建立新的活動資料集並提交。"
+  },
+  "esp32_openthread_network_number": {
+    "message0": "OpenThread 網路數值 %1",
+    "tooltip": "讀取 Thread 網路數值。",
+    "args0": [
+      {
+        "options": [
+          [
+            "頻道",
+            "getChannel"
+          ],
+          [
+            "PAN ID",
+            "getPanId"
+          ],
+          [
+            "RLOC16",
+            "getRloc16"
+          ],
+          [
+            "單播位址數",
+            "getUnicastAddressCount"
+          ],
+          [
+            "組播位址數",
+            "getMulticastAddressCount"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_openthread_network_text": {
+    "message0": "OpenThread 網路文本 %1",
+    "tooltip": "讀取網路名稱或 IPv6 位址。",
+    "args0": [
+      {
+        "options": [
+          [
+            "網路名稱",
+            "getNetworkName"
+          ],
+          [
+            "Mesh Local EID",
+            "getMeshLocalEid"
+          ],
+          [
+            "Leader RLOC",
+            "getLeaderRloc"
+          ],
+          [
+            "本機 RLOC",
+            "getRloc"
+          ]
+        ]
+      }
+    ]
+  }
+}

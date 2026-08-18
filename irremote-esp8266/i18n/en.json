@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "initialize IR sender %1 pin %2",
+    "tooltip": "Create and start an infrared transmitter."
+  },
+  "ir_esp_send_code": {
+    "message0": "IR sender %1 send %2 code %3 bits %4 repeats %5",
+    "tooltip": "Send a numeric infrared code using a common protocol."
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR sender %1 send raw array %2 length %3 frequency kHz %4",
+    "tooltip": "Send a uint16_t timing array."
+  },
+  "ir_esp_recv_init": {
+    "message0": "initialize IR receiver %1 pin %2 buffer %3 timeout ms %4",
+    "tooltip": "Create and enable an infrared receiver."
+  },
+  "ir_esp_when_received": {
+    "message0": "when IR receiver %1 receives %2 do %3",
+    "tooltip": "Decode one message, run the body, then resume reception."
+  },
+  "ir_esp_received_data": {
+    "message0": "IR receiver %1 received %2",
+    "tooltip": "Read the most recently decoded message."
+  }
+}

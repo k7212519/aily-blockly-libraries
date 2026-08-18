@@ -1,0 +1,96 @@
+{
+  "toolbox_name": "Adafruit TinyUSB",
+  "tinyusb_device_init": {
+    "message0": "تهيئة جهاز TinyUSB VID %1 PID %2 الشركة المصنعة %3 المنتج %4",
+    "tooltip": "قم بتكوين وتهيئة واصف الجهاز TinyUSB."
+  },
+  "tinyusb_webusb_init": {
+    "message0": "تهيئة مضيف الهبوط WebUSB %1 %2",
+    "tooltip": "قم بإنشاء واجهة تسلسلية WebUSB باستخدام الصفحة المقصودة HTTPS."
+  },
+  "tinyusb_webusb_write": {
+    "message0": "WebUSB %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "الطباعة بدون سطر جديد",
+            "print"
+          ],
+          [
+            "الطباعة مع السطر الجديد",
+            "println"
+          ],
+          [
+            "كتابة بايت",
+            "write"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "كتابة البيانات إلى واجهة المتصفح WebUSB."
+  },
+  "tinyusb_webusb_data": {
+    "message0": "WebUSB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "البايتات المتاحة",
+            "available"
+          ],
+          [
+            "قراءة البايت",
+            "read"
+          ],
+          [
+            "متصل",
+            "connected"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "قراءة بيانات WebUSB أو حالة الاتصال."
+  },
+  "tinyusb_midi_init": {
+    "message0": "تهيئة TinyUSB MIDI %1",
+    "tooltip": "قم بإنشاء واجهة نقل USB MIDI وواجهة MIDI."
+  },
+  "tinyusb_midi_note": {
+    "message0": "TinyUSB MIDI %1 إرسال %2 ملاحظة %3 سرعة %4 قناة %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ملاحظة MIDI قيد التشغيل",
+            "sendNoteOn"
+          ],
+          [
+            "MIDI تم إيقاف الملاحظة",
+            "sendNoteOff"
+          ],
+          [
+            "MIDI ضغط المفتاح متعدد الألحان",
+            "sendPolyPressure"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "أرسل رسالة مذكرة USB MIDI."
+  },
+  "tinyusb_midi_control": {
+    "message0": "TinyUSB MIDI %1 إرسال تغيير التحكم قيمة %2 %3 قناة %4",
+    "tooltip": "أرسل رسالة تغيير التحكم USB MIDI."
+  },
+  "tinyusb_mounted": {
+    "message0": "تم تركيب جهاز TinyUSB بواسطة مضيف USB",
+    "tooltip": "تحقق مما إذا كان المضيف قد قام بتعداد جهاز USB."
+  }
+}

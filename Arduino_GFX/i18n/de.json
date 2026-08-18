@@ -1,0 +1,186 @@
+{
+  "toolbox_name": "Arduino GFX",
+  "arduino_gfx_init": {
+    "message0": "Initialisierung Arduino GFX %1 Anzeige %2 DC %3 CS %4 Zurücksetzen %5 Rotation %6 IPS %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "ILI9341",
+            "Arduino_ILI9341"
+          ],
+          [
+            "ST7789",
+            "Arduino_ST7789"
+          ],
+          [
+            "ST7796",
+            "Arduino_ST7796"
+          ],
+          [
+            "GC9A01",
+            "Arduino_GC9A01"
+          ],
+          [
+            "ILI9488",
+            "Arduino_ILI9488"
+          ],
+          [
+            "ST7735",
+            "Arduino_ST7735"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Erstellen Sie einen Hardware-SPI-Bus und einen gemeinsamen Arduino_GFX-Anzeigetreiber."
+  },
+  "arduino_gfx_fill": {
+    "message0": "Arduino GFX %1 Füllbildschirmfarbe %2",
+    "tooltip": "Füllen Sie die gesamte Anzeige mit einer RGB565-Farbe."
+  },
+  "arduino_gfx_draw_line": {
+    "message0": "Arduino GFX %1 Linie x0 %2 y0 %3 x1 %4 y1 %5 Farbe %6",
+    "tooltip": "Zeichnen Sie ein Liniensegment."
+  },
+  "arduino_gfx_draw_rect": {
+    "message0": "Arduino GFX %1 %2 Rechteck x %3 y %4 Breite %5 Höhe %6 Farbe %7",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Umrissform",
+            "drawRect"
+          ],
+          [
+            "gefüllte Form",
+            "fillRect"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Zeichnen Sie ein umrandetes oder gefülltes Rechteck."
+  },
+  "arduino_gfx_draw_circle": {
+    "message0": "Arduino GFX %1 %2 Kreis x %3 y %4 Radius %5 Farbe %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Umrissform",
+            "drawCircle"
+          ],
+          [
+            "gefüllte Form",
+            "fillCircle"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Zeichnen Sie einen umrandeten oder gefüllten Kreis."
+  },
+  "arduino_gfx_text_style": {
+    "message0": "Arduino GFX %1 Textfarbe %2 Hintergrund %3 Größe %4 Umbruch %5",
+    "tooltip": "Legen Sie Textfarbe, Hintergrund, Skalierung und Umbruch fest."
+  },
+  "arduino_gfx_text": {
+    "message0": "Arduino GFX %1 und x %2 y %3 %4 %5",
+    "args0": [
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "ohne Zeilenumbruch drucken",
+            "print"
+          ],
+          [
+            "mit einer neuen Zeile drucken",
+            "println"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Positionieren Sie den Cursor und zeichnen Sie Text."
+  },
+  "arduino_gfx_control": {
+    "message0": "Arduino GFX %1 %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Drehung einstellen",
+            "setRotation"
+          ],
+          [
+            "Anzeige umkehren",
+            "invertDisplay"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Ändern Sie die Drehung oder Umkehrung der Anzeige."
+  },
+  "arduino_gfx_dimension": {
+    "message0": "Arduino GFX %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Breite",
+            "width"
+          ],
+          [
+            "Höhe",
+            "height"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lesen Sie die aktuelle logische Anzeigedimension."
+  },
+  "arduino_gfx_rgb565": {
+    "message0": "RGB565 rot %1 grün %2 blau %3",
+    "tooltip": "Konvertieren Sie 8-Bit-RGB-Komponenten in eine RGB565-Farbe."
+  }
+}

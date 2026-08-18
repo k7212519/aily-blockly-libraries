@@ -8,18 +8,18 @@ Blockly wrapper for the SparkFun AS7331 spectral UV sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `as7331_init` | Statement | VAR(field_input), ADDRESS(dropdown), MODE(dropdown) | `as7331_init("as7331", "0x74", MEAS_MODE_CMD)` | Wire.begin();\n |
-| `as7331_is_ready` | Value | VAR(field_variable) | `as7331_is_ready(variables_get($as7331))` | Dynamic code |
-| `as7331_is_connected` | Value | VAR(field_variable) | `as7331_is_connected(variables_get($as7331))` | Dynamic code |
-| `as7331_take_measurement` | Statement | VAR(field_variable) | `as7331_take_measurement(variables_get($as7331))` | as7331TakeMeasurement( |
-| `as7331_read_uv` | Value | VAR(field_variable), CHANNEL(dropdown) | `as7331_read_uv(variables_get($as7331), getUVA)` | Dynamic code |
-| `as7331_read_temperature` | Value | VAR(field_variable) | `as7331_read_temperature(variables_get($as7331))` | as7331ReadTemperature( |
-| `as7331_data_ready` | Value | VAR(field_variable) | `as7331_data_ready(variables_get($as7331))` | as7331DataReady( |
-| `as7331_prepare_measurement` | Statement | VAR(field_variable), MODE(dropdown) | `as7331_prepare_measurement(variables_get($as7331), MEAS_MODE_CMD)` | Dynamic code |
-| `as7331_set_gain` | Statement | VAR(field_variable), GAIN(dropdown) | `as7331_set_gain(variables_get($as7331), GAIN_1)` | Dynamic code |
-| `as7331_set_conversion_time` | Statement | VAR(field_variable), TIME(dropdown) | `as7331_set_conversion_time(variables_get($as7331), TIME_1MS)` | Dynamic code |
+| `as7331_init` | Statement | VAR(field_input), ADDRESS(dropdown), MODE(dropdown) | `as7331_init("as7331", "0x74", MEAS_MODE_CMD)` | `Wire.begin(); ↵ as7331_ready = as7331.begin(0x74, Wire); ↵ if (as7331_ready) as7331.prepareMeasurement(MEAS_MODE_CMD);` |
+| `as7331_is_ready` | Value | VAR(field_variable) | `as7331_is_ready($as7331)` | `as7331_ready` |
+| `as7331_is_connected` | Value | VAR(field_variable) | `as7331_is_connected($as7331)` | `as7331.isConnected()` |
+| `as7331_take_measurement` | Statement | VAR(field_variable) | `as7331_take_measurement($as7331)` | `as7331TakeMeasurement(as7331);` |
+| `as7331_read_uv` | Value | VAR(field_variable), CHANNEL(dropdown) | `as7331_read_uv($as7331, getUVA)` | `as7331.getUVA()` |
+| `as7331_read_temperature` | Value | VAR(field_variable) | `as7331_read_temperature($as7331)` | `as7331ReadTemperature(as7331)` |
+| `as7331_data_ready` | Value | VAR(field_variable) | `as7331_data_ready($as7331)` | `as7331DataReady(as7331)` |
+| `as7331_prepare_measurement` | Statement | VAR(field_variable), MODE(dropdown) | `as7331_prepare_measurement($as7331, MEAS_MODE_CMD)` | `as7331.prepareMeasurement(MEAS_MODE_CMD);` |
+| `as7331_set_gain` | Statement | VAR(field_variable), GAIN(dropdown) | `as7331_set_gain($as7331, GAIN_1)` | `as7331.setGain(GAIN_1);` |
+| `as7331_set_conversion_time` | Statement | VAR(field_variable), TIME(dropdown) | `as7331_set_conversion_time($as7331, TIME_1MS)` | `as7331.setConversionTime(TIME_1MS);` |
 
 ## Parameter Options
 
@@ -40,12 +40,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, as7331_is_ready(variables_get($as7331)))
+    serial_println(Serial, as7331_is_ready($as7331))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `as7331_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `as7331_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

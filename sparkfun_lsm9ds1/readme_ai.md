@@ -8,15 +8,15 @@ Blockly wrapper for SparkFun LSM9DS1 9DOF IMU (accel, gyro, mag).
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `lsm9ds1_init` | Statement | VAR(field_input) | `lsm9ds1_init("imu")` | Dynamic code |
-| `lsm9ds1_read_gyro` | Statement | VAR(field_variable) | `lsm9ds1_read_gyro(variables_get($imu))` | Dynamic code |
-| `lsm9ds1_read_accel` | Statement | VAR(field_variable) | `lsm9ds1_read_accel(variables_get($imu))` | Dynamic code |
-| `lsm9ds1_read_mag` | Statement | VAR(field_variable) | `lsm9ds1_read_mag(variables_get($imu))` | Dynamic code |
-| `lsm9ds1_get_gyro_axis` | Value | VAR(field_variable), AXIS(dropdown) | `lsm9ds1_get_gyro_axis(variables_get($imu), X)` | Dynamic code |
-| `lsm9ds1_get_accel_axis` | Value | VAR(field_variable), AXIS(dropdown) | `lsm9ds1_get_accel_axis(variables_get($imu), X)` | Dynamic code |
-| `lsm9ds1_get_mag_axis` | Value | VAR(field_variable), AXIS(dropdown) | `lsm9ds1_get_mag_axis(variables_get($imu), X)` | Dynamic code |
+| `lsm9ds1_init` | Statement | VAR(field_input) | `lsm9ds1_init("imu")` | `imu.begin();` |
+| `lsm9ds1_read_gyro` | Statement | VAR(field_variable) | `lsm9ds1_read_gyro($imu)` | `imu.readGyro();` |
+| `lsm9ds1_read_accel` | Statement | VAR(field_variable) | `lsm9ds1_read_accel($imu)` | `imu.readAccel();` |
+| `lsm9ds1_read_mag` | Statement | VAR(field_variable) | `lsm9ds1_read_mag($imu)` | `imu.readMag();` |
+| `lsm9ds1_get_gyro_axis` | Value | VAR(field_variable), AXIS(dropdown) | `lsm9ds1_get_gyro_axis($imu, X)` | `imu.calcGyro(imu.gx)` |
+| `lsm9ds1_get_accel_axis` | Value | VAR(field_variable), AXIS(dropdown) | `lsm9ds1_get_accel_axis($imu, X)` | `imu.calcAccel(imu.ax)` |
+| `lsm9ds1_get_mag_axis` | Value | VAR(field_variable), AXIS(dropdown) | `lsm9ds1_get_mag_axis($imu, X)` | `imu.calcMag(imu.mx)` |
 
 ## Parameter Options
 
@@ -33,12 +33,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, lsm9ds1_get_gyro_axis(variables_get($imu), X))
+    serial_println(Serial, lsm9ds1_get_gyro_axis($imu, X))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `lsm9ds1_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `lsm9ds1_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

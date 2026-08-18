@@ -8,9 +8,15 @@ The LM35 temperature sensor library achieves accurate measurement of ambient tem
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `lm35_read` | Value | PIN(dropdown) | `lm35_read(PIN)` | analogRead(...) * 0.488 |
+| `lm35_read` | Value | PIN(dropdown) | `lm35_read(PIN)` | `analogRead(PIN) * 0.488` |
+
+## Parameter Options
+
+| Parameter | Values | Description |
+|-----------|--------|-------------|
+| PIN | ${board.analogPins} | lm35_read |
 
 ## ABS Examples
 

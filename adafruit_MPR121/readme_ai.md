@@ -8,15 +8,15 @@ Adafruit MPR121 12-channel capacitive touch sensor library with support for I2C 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `mpr121_init` | Statement | I2C_ADDR(dropdown) | `mpr121_init("0x5A")` | Dynamic code |
-| `mpr121_init_advanced` | Statement | I2C_ADDR(dropdown), TOUCH_THRESHOLD(field_number), RELEASE_THRESHOLD(field_number) | `mpr121_init_advanced("0x5A", 12, 6)` | Dynamic code |
-| `mpr121_is_touched` | Value | CHANNEL(dropdown) | `mpr121_is_touched("0")` | (cap.touched() & _BV( |
-| `mpr121_get_touched` | Value | (none) | `mpr121_get_touched()` | cap.touched() |
-| `mpr121_get_filtered_data` | Value | CHANNEL(dropdown) | `mpr121_get_filtered_data("0")` | cap.filteredData( |
-| `mpr121_get_baseline_data` | Value | CHANNEL(dropdown) | `mpr121_get_baseline_data("0")` | cap.baselineData( |
-| `mpr121_set_thresholds` | Statement | TOUCH_THRESHOLD(input_value), RELEASE_THRESHOLD(input_value) | `mpr121_set_thresholds(math_number(0), math_number(0))` | cap.setThresholds( |
+| `mpr121_init` | Statement | I2C_ADDR(dropdown) | `mpr121_init("0x5A")` | `// 初始化MPR121电容触摸传感器 ↵ if (!cap.begin(0x5A, &Wire)) { ↵ Serial.println("警告: MPR121传感器初始化失败，请检查接线!"); ↵ while (1); ↵ } ↵ Serial.println("MPR121传感器初始化成功!"); ↵ cap.setAutoconfig(true);` |
+| `mpr121_init_advanced` | Statement | I2C_ADDR(dropdown), TOUCH_THRESHOLD(field_number), RELEASE_THRESHOLD(field_number) | `mpr121_init_advanced("0x5A", 12, 6)` | `// 初始化MPR121电容触摸传感器(高级设置) ↵ if (!cap.begin(0x5A, &Wire)) { ↵ Serial.println("警告: MPR121传感器初始化失败，请检查接线!"); ↵ while (1); ↵ } ↵ Serial.println("MPR121传感器初始化成功!"); ↵ cap.setThresholds(12, 6);` |
+| `mpr121_is_touched` | Value | CHANNEL(dropdown) | `mpr121_is_touched("0")` | `(cap.touched() & _BV(0))` |
+| `mpr121_get_touched` | Value | (none) | `mpr121_get_touched()` | `cap.touched()` |
+| `mpr121_get_filtered_data` | Value | CHANNEL(dropdown) | `mpr121_get_filtered_data("0")` | `cap.filteredData(0)` |
+| `mpr121_get_baseline_data` | Value | CHANNEL(dropdown) | `mpr121_get_baseline_data("0")` | `cap.baselineData(0)` |
+| `mpr121_set_thresholds` | Statement | TOUCH_THRESHOLD(input_value), RELEASE_THRESHOLD(input_value) | `mpr121_set_thresholds(math_number(0), math_number(0))` | `cap.setThresholds(1, 1);` |
 
 ## Parameter Options
 

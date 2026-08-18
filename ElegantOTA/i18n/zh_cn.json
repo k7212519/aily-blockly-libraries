@@ -1,0 +1,68 @@
+{
+  "toolbox_name": "ElegantOTA",
+  "elegant_ota_init": {
+    "message0": "初始化 ElegantOTA 服务器 %1 模式 %2 端口 %3 用户名 %4 密码 %5 自动重启 %6",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "同步 WebServer",
+            "sync"
+          ],
+          [
+            "异步 AsyncWebServer",
+            "async"
+          ]
+        ]
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "tooltip": "创建一个 Web 服务器并在 /update 处公开 ElegantOTA 更新门户。"
+  },
+  "elegant_ota_auth": {
+    "message0": "ElegantOTA 设置用户名 %1 密码 %2",
+    "tooltip": "更改更新门户的身份验证信息。"
+  },
+  "elegant_ota_on_start": {
+    "message0": "当ElegantOTA更新开始时%1",
+    "tooltip": "当 OTA 上传开始时运行代码。"
+  },
+  "elegant_ota_on_progress": {
+    "message0": "当 ElegantOTA 更新进度变化时 %1",
+    "tooltip": "当 OTA 进度发生变化时运行代码。"
+  },
+  "elegant_ota_on_end": {
+    "message0": "当ElegantOTA更新结束时%1",
+    "tooltip": "当 OTA 更新成功或失败时运行代码。"
+  },
+  "elegant_ota_callback_value": {
+    "message0": "ElegantOTA 回调 %1",
+    "args0": [
+      {
+        "options": [
+          [
+            "收到的字节数",
+            "_ailyOtaCurrent"
+          ],
+          [
+            "总字节数",
+            "_ailyOtaFinal"
+          ],
+          [
+            "进度百分比",
+            "percent"
+          ],
+          [
+            "是否成功",
+            "_ailyOtaSuccess"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取 OTA 回调块内可用的值。"
+  }
+}

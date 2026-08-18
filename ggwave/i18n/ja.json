@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "初期化 ggwave %1 モード %2 サンプルレート %3 サンプル/フレーム %4 ペイロード長 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "エンコードとデコード",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "エンコードのみ",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "デコードのみ",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "署名付き 16 ビット オーディオを使用して、ggwave データ オーバー サウンド コーデック インスタンスを作成します。"
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 エンコードテキスト %2 プロトコル %3 ボリューム %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "普通に聞こえる",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "速く聞こえる",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "最速で聞こえる",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "超音波正常",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "超音波高速",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "超音波最速",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "デュアルトーン高速",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "マルチトーン高速",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "テキストを管理波形バッファにエンコードします。"
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 エンコードされた %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "波形バッファポインタ",
+            "waveform"
+          ],
+          [
+            "波形バイト",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "最後にエンコードされた波形とそのバイト長にアクセスします。"
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 デコードオーディオバッファ %2 バイト %3",
+    "tooltip": "キャプチャされた署名付き 16 ビット オーディオ サンプルをフィードし、デコードされたバイト カウントを返します。"
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 デコードされた %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "テキスト",
+            "text"
+          ],
+          [
+            "バイト数",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "最後にデコードされたペイロードを読み取ります。"
+  },
+  "ggwave_free": {
+    "message0": "リリース ggwave %1",
+    "tooltip": "コーデックと波形メモリを解放します。"
+  }
+}

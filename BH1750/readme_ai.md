@@ -8,10 +8,10 @@ BH1750 digital light intensity sensor control library, suitable for Arduino, ESP
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `bh1750_init_with_wire` | Statement | VAR(field_input), MODE(dropdown), ADDRESS(dropdown), WIRE(dropdown) | `bh1750_init_with_wire("lightMeter", CONTINUOUS_HIGH_RES_MODE, "0x23", WIRE)` | Dynamic code |
-| `bh1750_read_light_level` | Value | VAR(field_variable) | `bh1750_read_light_level(variables_get($lightMeter))` | Dynamic code |
+| `bh1750_init_with_wire` | Statement | VAR(field_input), MODE(dropdown), ADDRESS(dropdown), WIRE(dropdown) | `bh1750_init_with_wire("lightMeter", CONTINUOUS_HIGH_RES_MODE, "0x23", WIRE)` | `// 初始化BH1750光照传感器 lightMeter ↵ if (lightMeter.begin(BH1750::CONTINUOUS_HIGH_RES_MODE, 0x23, &WIRE)) { ↵ Serial.println("BH1750传感器 lightMeter 初始化成功!"); ↵ } else { ↵ Serial.println("警告: BH1750传感器 lightMeter 初始化失败，请检查接线!"); ↵ }` |
+| `bh1750_read_light_level` | Value | VAR(field_variable) | `bh1750_read_light_level($lightMeter)` | `lightMeter.readLightLevel()` |
 
 ## Parameter Options
 
@@ -29,13 +29,13 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, bh1750_read_light_level(variables_get($lightMeter)))
+    serial_println(Serial, bh1750_read_light_level($lightMeter))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `bh1750_init_with_wire("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `bh1750_init_with_wire("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.
-4. **Dynamic fields**: `bh1750_init_with_wire` may add fields at runtime through Blockly extensions.
+4. **UI-only extension**: `bh1750_init_with_wire` refreshes board/I2C presentation only; it does not add ABS arguments.

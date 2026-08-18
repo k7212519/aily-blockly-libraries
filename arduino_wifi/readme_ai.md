@@ -8,14 +8,14 @@ WiFi and Ciao data transfer support library specifically for Arduino UNO R3
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wifi_begin` | Statement | (none) | `wifi_begin()` | Wifi.begin();\n |
-| `wifi_connect` | Statement | SSID(input_value), PASSWORD(input_value) | `wifi_connect(text("value"), text("value"))` | Wifi.connect( |
-| `wifi_connected` | Value | (none) | `wifi_connected()` | Wifi.connected() |
-| `ciao_begin` | Statement | (none) | `ciao_begin()` | Ciao.begin();\n |
-| `ciao_read` | Value | CONNECTOR(dropdown), HOSTNAME(input_value), METHOD(dropdown) | `ciao_read(rest, text("value"), GET)` | Ciao.read( |
-| `ciao_write` | Statement | CONNECTOR(dropdown), HOSTNAME(input_value), DATA(input_value), METHOD(dropdown) | `ciao_write(rest, text("value"), math_number(0), GET)` | Ciao.write( |
+| `wifi_begin` | Statement | (none) | `wifi_begin()` | `Wifi.begin();` |
+| `wifi_connect` | Statement | SSID(input_value), PASSWORD(input_value) | `wifi_connect(text("value"), text("value"))` | `Wifi.connect(1, 1);` |
+| `wifi_connected` | Value | (none) | `wifi_connected()` | `Wifi.connected()` |
+| `ciao_begin` | Statement | (none) | `ciao_begin()` | `Ciao.begin();` |
+| `ciao_read` | Value | CONNECTOR(dropdown), HOSTNAME(input_value), METHOD(dropdown) | `ciao_read(rest, text("value"), GET)` | `Ciao.read("rest", 1, "", "GET")` |
+| `ciao_write` | Statement | CONNECTOR(dropdown), HOSTNAME(input_value), DATA(input_value), METHOD(dropdown) | `ciao_write(rest, text("value"), math_number(0), GET)` | `Ciao.write("rest", 1, 1, "GET");` |
 
 ## Parameter Options
 

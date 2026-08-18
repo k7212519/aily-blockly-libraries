@@ -1,0 +1,35 @@
+{
+  "toolbox_name": "TMCStepper",
+  "tmc2209_init": {
+    "message0": "initialize TMC2209 %1 serial %2 baud %3 address %4 sense resistor ohm %5",
+    "tooltip": "Initialize a TMC2209 UART stepper driver."
+  },
+  "tmc2130_init": {
+    "message0": "initialize TMC2130 %1 CS pin %2 sense resistor ohm %3",
+    "tooltip": "Initialize a TMC2130 hardware SPI stepper driver."
+  },
+  "tmc_set_current": {
+    "message0": "TMC driver %1 RMS current %2 mA hold multiplier %3",
+    "tooltip": "Set motor RMS current and hold-current multiplier."
+  },
+  "tmc_set_motion": {
+    "message0": "TMC driver %1 microsteps %2 chopper off time %3",
+    "tooltip": "Set microstep resolution and enable the chopper."
+  },
+  "tmc2209_mode": {
+    "message0": "TMC2209 %1 mode %2 automatic current scaling %3",
+    "tooltip": "Select quiet or high-torque chopper mode for TMC2209."
+  },
+  "tmc2209_stall": {
+    "message0": "TMC2209 %1 StallGuard threshold %2 cool threshold %3",
+    "tooltip": "Configure sensorless homing thresholds on TMC2209."
+  },
+  "tmc_read": {
+    "message0": "TMC driver %1 read %2",
+    "tooltip": "Read diagnostics and current configuration common to the supported drivers."
+  },
+  "tmc_connection": {
+    "message0": "TMC driver %1 connection test result",
+    "tooltip": "Return the TMCStepper connection test code."
+  }
+}

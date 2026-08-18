@@ -1,0 +1,534 @@
+[
+  {
+    "type": "esp_panel_board_init",
+    "message0": "initialize display panel %1\nbasic settings: driver %2 width %3 height %4\nSPI pins: MISO %5 MOSI %6 SCLK %7 CS %8 DC %9 RST %10 BL %11\nother settings: backlight %12 color order %13 SPI frequency %14",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "panel"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODEL",
+        "options": [
+          ["ST7789", "ST7789"],
+          ["AXS15231B", "AXS15231B"],
+          ["GC9A01", "GC9A01"],
+          ["GC9B71", "GC9B71"],
+          ["ILI9341", "ILI9341"],
+          ["NV3022B", "NV3022B"],
+          ["SH8601", "SH8601"],
+          ["SPD2010", "SPD2010"],
+          ["ST7796", "ST7796"],
+          ["ST77916", "ST77916"],
+          ["ST77922", "ST77922"]
+        ]
+      },
+      {
+        "type": "field_input",
+        "name": "WIDTH",
+        "text": "240"
+      },
+      {
+        "type": "field_input",
+        "name": "HEIGHT",
+        "text": "320"
+      },
+      {
+        "type": "field_input",
+        "name": "MISO",
+        "text": "-1"
+      },
+      {
+        "type": "field_input",
+        "name": "MOSI",
+        "text": "-1"
+      },
+      {
+        "type": "field_input",
+        "name": "SCLK",
+        "text": "-1"
+      },
+      {
+        "type": "field_input",
+        "name": "CS",
+        "text": "-1"
+      },
+      {
+        "type": "field_input",
+        "name": "DC",
+        "text": "-1"
+      },
+      {
+        "type": "field_input",
+        "name": "RST",
+        "text": "-1"
+      },
+      {
+        "type": "field_input",
+        "name": "BL",
+        "text": "-1"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "BL_LEVEL",
+        "options": [
+          ["HIGH turns on", "true"],
+          ["LOW turns on", "false"]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "COLOR_MODE",
+        "options": [
+          ["RGB", "false"],
+          ["BGR", "true"]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "FREQUENCY",
+        "options": [
+          ["10 MHz", "10000000"],
+          ["20 MHz", "20000000"],
+          ["27 MHz", "27000000"],
+          ["40 MHz", "40000000"],
+          ["55 MHz", "55000000"],
+          ["80 MHz", "80000000"]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E7352C",
+    "icon": "fa-regular fa-display",
+    "tooltip": "Create an SPI display by selecting its LCD driver chip and assigning the display pins."
+  },
+  {
+    "type": "esp_panel_board_delete",
+    "message0": "display panel %1 release devices",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E7352C",
+    "tooltip": "Stop all panel devices and release their resources."
+  },
+  {
+    "type": "esp_panel_board_ready",
+    "message0": "display panel %1 is ready",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#E7352C",
+    "tooltip": "Return true after the board has successfully started."
+  },
+  {
+    "type": "esp_panel_has_device",
+    "message0": "display panel %1 has %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "DEVICE",
+        "options": [
+          ["LCD", "LCD"],
+          ["touch", "TOUCH"],
+          ["backlight", "BACKLIGHT"],
+          ["IO expander", "EXPANDER"]
+        ]
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#E7352C",
+    "tooltip": "Check whether the selected device exists on this board."
+  },
+  {
+    "type": "esp_panel_lcd_color_bar",
+    "message0": "display panel %1 show LCD color bars",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Draw the built-in LCD color-bar test pattern."
+  },
+  {
+    "type": "esp_panel_lcd_display",
+    "message0": "display panel %1 turn LCD %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "STATE",
+        "options": [["on", "true"], ["off", "false"]]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Turn the LCD controller output on or off."
+  },
+  {
+    "type": "esp_panel_lcd_invert",
+    "message0": "display panel %1 LCD color inversion %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "STATE",
+        "options": [["enable", "true"], ["disable", "false"]]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Enable or disable LCD color inversion."
+  },
+  {
+    "type": "esp_panel_lcd_transform",
+    "message0": "display panel %1 LCD %2 %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [["mirror X", "mirrorX"], ["mirror Y", "mirrorY"], ["swap X/Y", "swapXY"]]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "STATE",
+        "options": [["enable", "true"], ["disable", "false"]]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Apply an LCD coordinate transformation. Apply the same transform to touch when needed."
+  },
+  {
+    "type": "esp_panel_lcd_set_gap",
+    "message0": "display panel %1 set LCD gap X %2 Y %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "X", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "Y", "check": ["Number", "int"]}
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Set the LCD X and Y coordinate offsets in pixels."
+  },
+  {
+    "type": "esp_panel_bitmap_data",
+    "message0": "bitmap buffer %1",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "DATA",
+        "text": "rgb565_data"
+      }
+    ],
+    "output": "Array",
+    "colour": "#EF6C00",
+    "tooltip": "Reference a C/C++ bitmap array or buffer declared elsewhere in the project."
+  },
+  {
+    "type": "esp_panel_lcd_draw_bitmap",
+    "message0": "display panel %1 draw bitmap X %2 Y %3 width %4 height %5 RGB data %6 timeout ms %7",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "X", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "Y", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "W", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "H", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "DATA"},
+      {"type": "input_value", "name": "TIMEOUT", "check": ["Number", "int"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Send a raw RGB bitmap buffer to the LCD. Use -1 timeout when the buffer may be reused immediately."
+  },
+  {
+    "type": "esp_panel_lcd_fill_screen",
+    "message0": "display panel %1 fill LCD RGB565 color %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "COLOR", "check": ["Number", "int"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Fill the whole 16-bit RGB565 LCD with one color."
+  },
+  {
+    "type": "esp_panel_lcd_fill_rect",
+    "message0": "display panel %1 fill LCD rectangle X %2 Y %3 width %4 height %5 RGB565 color %6",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "X", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "Y", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "W", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "H", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "COLOR", "check": ["Number", "int"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#EF6C00",
+    "tooltip": "Fill a rectangle on a 16-bit RGB565 LCD."
+  },
+  {
+    "type": "esp_panel_rgb565",
+    "message0": "RGB565 red %1 green %2 blue %3",
+    "args0": [
+      {"type": "input_value", "name": "R", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "G", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "B", "check": ["Number", "int"]}
+    ],
+    "inputsInline": true,
+    "output": ["Number", "int"],
+    "colour": "#EF6C00",
+    "tooltip": "Convert 8-bit red, green and blue values to a 16-bit RGB565 color."
+  },
+  {
+    "type": "esp_panel_lcd_info",
+    "message0": "display panel %1 LCD %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "INFO",
+        "options": [["width", "WIDTH"], ["height", "HEIGHT"], ["color bits", "COLOR_BITS"]]
+      }
+    ],
+    "output": ["Number", "int"],
+    "colour": "#EF6C00",
+    "tooltip": "Read the current LCD frame width, height or color depth."
+  },
+  {
+    "type": "esp_panel_touch_read",
+    "message0": "display panel %1 read first touch point timeout ms %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "TIMEOUT", "check": ["Number", "int"]}
+    ],
+    "output": "Boolean",
+    "colour": "#00897B",
+    "tooltip": "Read and cache the first touch point; return true when a point is available."
+  },
+  {
+    "type": "esp_panel_touch_value",
+    "message0": "last touch %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "VALUE",
+        "options": [["X", "x"], ["Y", "y"], ["strength", "strength"]]
+      }
+    ],
+    "output": ["Number", "int"],
+    "colour": "#00897B",
+    "tooltip": "Read a value cached by the last touch-read block."
+  },
+  {
+    "type": "esp_panel_touch_transform",
+    "message0": "display panel %1 touch %2 %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "OP",
+        "options": [["mirror X", "mirrorX"], ["mirror Y", "mirrorY"], ["swap X/Y", "swapXY"]]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "STATE",
+        "options": [["enable", "true"], ["disable", "false"]]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#00897B",
+    "tooltip": "Apply a coordinate transformation to touch points."
+  },
+  {
+    "type": "esp_panel_touch_interrupt",
+    "message0": "display panel %1 touch interrupt is enabled",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#00897B",
+    "tooltip": "Return true when the touch driver uses an interrupt pin."
+  },
+  {
+    "type": "esp_panel_touch_button",
+    "message0": "display panel %1 read touch button %2 timeout ms %3",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "INDEX", "check": ["Number", "int"]},
+      {"type": "input_value", "name": "TIMEOUT", "check": ["Number", "int"]}
+    ],
+    "output": ["Number", "int"],
+    "colour": "#00897B",
+    "tooltip": "Read a hardware touch-button state; returns -1 if unavailable."
+  },
+  {
+    "type": "esp_panel_backlight_set",
+    "message0": "display panel %1 set backlight brightness %2 percent",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {"type": "input_value", "name": "BRIGHTNESS", "check": ["Number", "int"]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5E35B1",
+    "tooltip": "Set backlight brightness from 0 to 100 percent."
+  },
+  {
+    "type": "esp_panel_backlight_switch",
+    "message0": "display panel %1 turn backlight %2",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "STATE",
+        "options": [["on", "on"], ["off", "off"]]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#5E35B1",
+    "tooltip": "Turn the panel backlight fully on or off."
+  },
+  {
+    "type": "esp_panel_backlight_get",
+    "message0": "display panel %1 backlight brightness",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "panel",
+        "variableTypes": ["ESPPanelBoard"],
+        "defaultType": "ESPPanelBoard"
+      }
+    ],
+    "output": ["Number", "int"],
+    "colour": "#5E35B1",
+    "tooltip": "Read the current backlight brightness percentage, or -1 if unavailable."
+  }
+]

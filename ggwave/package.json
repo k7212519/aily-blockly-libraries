@@ -1,0 +1,70 @@
+{
+  "name": "@aily-project/lib-ggwave",
+  "nickname": "ggwave",
+  "nickname_en": "ggwave",
+  "author": "Georgi Gerganov",
+  "description": "Encode and decode short data messages as audible or ultrasonic waveforms.",
+  "description_en": "Encode and decode short data messages as audible or ultrasonic waveforms.",
+  "version": "0.1.0",
+  "hide": true,
+  "url": "https://github.com/ggerganov/ggwave",
+  "license": "MIT",
+  "compatibility": {
+    "core": [
+      "esp32:esp32"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "ggwave",
+    "sound",
+    "modem",
+    "ultrasound",
+    "data"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "audio",
+    "communication"
+  ],
+  "bundledSources": [
+    {
+      "name": "ggwave",
+      "version": "0.4.3",
+      "path": "src/ggwave/ggwave/ggwave.h",
+      "license": "MIT"
+    }
+  ],
+  "requirements": [
+    "ggwave sources built with the firmware",
+    "Signed 16-bit audio capture and playback transport"
+  ],
+  "nickname_zh_cn": "ggwave",
+  "description_zh_cn": "将短数据消息编码和解码为可听波形或超声波波形。",
+  "nickname_zh_hk": "ggwave",
+  "description_zh_hk": "將短數據訊息編碼和解碼為可聽波形或超音波波形。",
+  "nickname_ja": "ggwave",
+  "description_ja": "短いデータ メッセージを可聴波形または超音波波形としてエンコードおよびデコードします。",
+  "nickname_ko": "ggwave",
+  "description_ko": "짧은 데이터 메시지를 가청 또는 초음파 파형으로 인코딩 및 디코딩합니다.",
+  "nickname_de": "ggwave",
+  "description_de": "Kodieren und dekodieren Sie kurze Datennachrichten als akustische oder Ultraschallwellenformen.",
+  "nickname_fr": "ggwave",
+  "description_fr": "Encodez et décodez de courts messages de données sous forme de formes d'onde audibles ou ultrasoniques.",
+  "nickname_es": "ggwave",
+  "description_es": "Codifique y decodifique mensajes de datos cortos como formas de onda audibles o ultrasónicas.",
+  "nickname_pt": "ggwave",
+  "description_pt": "Codifique e decodifique mensagens curtas de dados como formas de onda audíveis ou ultrassônicas.",
+  "nickname_ru": "ggwave",
+  "description_ru": "Кодируйте и декодируйте короткие сообщения с данными в виде звуковых или ультразвуковых сигналов.",
+  "nickname_ar": "ggwave",
+  "description_ar": "تشفير وفك تشفير رسائل البيانات القصيرة كأشكال موجية مسموعة أو فوق صوتية."
+}

@@ -8,15 +8,15 @@ SHTC3 digital temperature and humidity sensor library, supports I2C communicatio
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `shtc3_init` | Statement | (none) | `shtc3_init()` | Dynamic code |
-| `shtc3_read_temperature` | Value | (none) | `shtc3_read_temperature()` | Dynamic code |
-| `shtc3_read_humidity` | Value | (none) | `shtc3_read_humidity()` | Dynamic code |
-| `shtc3_read_both` | Statement | (none) | `shtc3_read_both()` | sensors_event_t humidity, temp;\n |
-| `shtc3_is_connected` | Value | (none) | `shtc3_is_connected()` | Dynamic code |
-| `shtc3_sleep` | Statement | MODE(dropdown) | `shtc3_sleep(sleep)` | shtc3.sleep( |
-| `shtc3_set_power_mode` | Statement | POWER_MODE(dropdown) | `shtc3_set_power_mode(normal)` | shtc3.lowPowerMode( |
+| `shtc3_init` | Statement | (none) | `shtc3_init()` | `Adafruit_SHTC3 shtc3 = Adafruit_SHTC3(); ↵ if (!shtc3.begin()) { ↵ Serial.println("无法找到SHTC3传感器"); ↵ }` |
+| `shtc3_read_temperature` | Value | (none) | `shtc3_read_temperature()` | `getSHTC3Temperature()` |
+| `shtc3_read_humidity` | Value | (none) | `shtc3_read_humidity()` | `getSHTC3Humidity()` |
+| `shtc3_read_both` | Statement | (none) | `shtc3_read_both()` | `sensors_event_t humidity, temp; ↵ shtc3.getEvent(&humidity, &temp); ↵ shtc3_temperature = temp.temperature; ↵ shtc3_humidity = humidity.relative_humidity;` |
+| `shtc3_is_connected` | Value | (none) | `shtc3_is_connected()` | `isSHTC3Connected()` |
+| `shtc3_sleep` | Statement | MODE(dropdown) | `shtc3_sleep(sleep)` | `shtc3.sleep(true);` |
+| `shtc3_set_power_mode` | Statement | POWER_MODE(dropdown) | `shtc3_set_power_mode(normal)` | `shtc3.lowPowerMode(false);` |
 
 ## Parameter Options
 

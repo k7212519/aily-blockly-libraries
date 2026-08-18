@@ -1,0 +1,136 @@
+{
+  "toolbox_name": "FirebaseClient",
+  "firebase_client_init": {
+    "message0": "初始化 Firebase %1 API 密钥 %2 电子邮件 %3 密码 %4 数据库 URL %5",
+    "tooltip": "认证用户并绑定Firebase Realtime Database。"
+  },
+  "firebase_client_ready": {
+    "message0": "Firebase %1 已准备好",
+    "tooltip": "检查认证是否准备就绪。"
+  },
+  "firebase_client_set": {
+    "message0": "Firebase %1 将路径 %3 处的 %2 设置为 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "文本",
+            "String"
+          ],
+          [
+            "整数",
+            "int"
+          ],
+          [
+            "浮点数",
+            "double"
+          ],
+          [
+            "布尔值",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "同步向Realtime Database写入一个值。"
+  },
+  "firebase_client_get": {
+    "message0": "Firebase %1 从路径 %3 获取 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "文本",
+            "String"
+          ],
+          [
+            "整数",
+            "int"
+          ],
+          [
+            "浮点数",
+            "double"
+          ],
+          [
+            "布尔值",
+            "bool"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "从 Realtime Database 同步读取键入的值。"
+  },
+  "firebase_client_push": {
+    "message0": "Firebase %1 在路径 %3 推送 %2 值 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "文本",
+            "String"
+          ],
+          [
+            "整数",
+            "int"
+          ],
+          [
+            "浮点数",
+            "double"
+          ],
+          [
+            "布尔值",
+            "bool"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "将新的子值推送到 Realtime Database。"
+  },
+  "firebase_client_path_action": {
+    "message0": "Firebase %1 %2 路径 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "删除",
+            "remove"
+          ],
+          [
+            "检查是否存在",
+            "exists"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "删除路径或检查它是否存在。"
+  },
+  "firebase_client_last_error": {
+    "message0": "Firebase %1 最后一个错误 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "代码",
+            "code"
+          ],
+          [
+            "错误消息",
+            "message"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取最后一个同步客户端错误。"
+  }
+}

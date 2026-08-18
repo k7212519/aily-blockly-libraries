@@ -1,0 +1,27 @@
+{
+  "toolbox_name": "micro-ROS",
+  "micro_ros_node_init": {
+    "message0": "initialize micro-ROS node %1 name %2 namespace %3 executor handles %4",
+    "tooltip": "Initialize the default micro-ROS transport, support, node, and executor."
+  },
+  "micro_ros_publisher_init": {
+    "message0": "create micro-ROS Int32 publisher %1 node %2 topic %3",
+    "tooltip": "Create a std_msgs/Int32 publisher."
+  },
+  "micro_ros_publish_int32": {
+    "message0": "micro-ROS publisher %1 publish Int32 %2",
+    "tooltip": "Publish one std_msgs/Int32 value."
+  },
+  "micro_ros_subscriber_init": {
+    "message0": "create micro-ROS Int32 subscriber %1 node %2 topic %3 when data arrives %4",
+    "tooltip": "Create a std_msgs/Int32 subscription and callback."
+  },
+  "micro_ros_received_int32": {
+    "message0": "micro-ROS subscriber %1 received Int32",
+    "tooltip": "Read the latest Int32 message inside or after the callback."
+  },
+  "micro_ros_spin": {
+    "message0": "micro-ROS node %1 spin for %2 ms",
+    "tooltip": "Run the rclc executor once. Node initialization already adds a default spin to loop."
+  }
+}

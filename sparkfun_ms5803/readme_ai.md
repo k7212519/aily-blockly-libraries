@@ -8,11 +8,11 @@ Blockly wrapper for the SparkFun MS5803-14BA I2C pressure and temperature sensor
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ms5803_init` | Statement | VAR(field_input), ADDRESS(dropdown) | `ms5803_init("ms5803", ADDRESS_HIGH)` | Wire.begin();\n |
-| `ms5803_get_temperature` | Value | VAR(field_variable), UNIT(dropdown), PREC(dropdown) | `ms5803_get_temperature(variables_get($ms5803), CELSIUS, ADC_256)` | Dynamic code |
-| `ms5803_get_pressure` | Value | VAR(field_variable), PREC(dropdown) | `ms5803_get_pressure(variables_get($ms5803), ADC_256)` | Dynamic code |
+| `ms5803_init` | Statement | VAR(field_input), ADDRESS(dropdown) | `ms5803_init("ms5803", ADDRESS_HIGH)` | `Wire.begin(); ↵ ms5803.reset(); ↵ ms5803.begin();` |
+| `ms5803_get_temperature` | Value | VAR(field_variable), UNIT(dropdown), PREC(dropdown) | `ms5803_get_temperature($ms5803, CELSIUS, ADC_256)` | `ms5803.getTemperature(CELSIUS, ADC_256)` |
+| `ms5803_get_pressure` | Value | VAR(field_variable), PREC(dropdown) | `ms5803_get_pressure($ms5803, ADC_256)` | `ms5803.getPressure(ADC_256)` |
 
 ## Parameter Options
 
@@ -31,12 +31,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, ms5803_get_temperature(variables_get($ms5803), CELSIUS, ADC_256))
+    serial_println(Serial, ms5803_get_temperature($ms5803, CELSIUS, ADC_256))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `ms5803_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `ms5803_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

@@ -1,0 +1,68 @@
+{
+  "name": "@aily-project/lib-nrf24l01",
+  "nickname": "nRF24L01 无线通信",
+  "nickname_zh_cn": "nRF24L01 无线通信",
+  "nickname_en": "nRF24L01 Radio",
+  "nickname_zh_hk": "nRF24L01 無線通訊",
+  "nickname_ja": "nRF24L01 無線通信",
+  "nickname_ko": "nRF24L01 무선 통신",
+  "nickname_de": "nRF24L01-Funkkommunikation",
+  "nickname_fr": "Communication radio nRF24L01",
+  "nickname_es": "Comunicación por radio nRF24L01",
+  "nickname_pt": "Comunicação por rádio nRF24L01",
+  "nickname_ru": "Радиосвязь nRF24L01",
+  "nickname_ar": "اتصال لاسلكي nRF24L01",
+  "author": "TMRh20 / Aily Project",
+  "description": "基于 RF24 的 nRF24L01(+) 2.4GHz 无线收发驱动，支持地址、信道、速率、功率、重试以及文本和数值收发。",
+  "description_zh_cn": "基于 RF24 的 nRF24L01(+) 2.4GHz 无线收发驱动，支持地址、信道、速率、功率、重试以及文本和数值收发。",
+  "description_en": "RF24-based nRF24L01(+) 2.4GHz radio driver with addressing, channel, data rate, power, retry, text, and number blocks.",
+  "description_zh_hk": "基於 RF24 的 nRF24L01(+) 2.4GHz 無線收發驅動，支援位址、頻道、速率、功率、重試以及文字和數值收發。",
+  "description_ja": "RF24 ベースの nRF24L01(+) 2.4GHz 無線ドライバー。アドレス、チャンネル、データレート、出力、再試行、文字・数値通信に対応します。",
+  "description_ko": "주소, 채널, 데이터 속도, 출력, 재시도, 텍스트 및 숫자 송수신을 지원하는 RF24 기반 nRF24L01(+) 2.4GHz 무선 드라이버입니다.",
+  "description_de": "RF24-basierter nRF24L01(+)-2,4-GHz-Funktreiber mit Adressierung, Kanal, Datenrate, Leistung, Wiederholungen sowie Text- und Zahlenübertragung.",
+  "description_fr": "Pilote radio 2,4 GHz nRF24L01(+) basé sur RF24, avec adressage, canal, débit, puissance, tentatives et échange de textes et nombres.",
+  "description_es": "Controlador de radio nRF24L01(+) de 2,4 GHz basado en RF24 con dirección, canal, velocidad, potencia, reintentos y envío de texto y números.",
+  "description_pt": "Driver de rádio nRF24L01(+) de 2,4 GHz baseado em RF24 com endereço, canal, taxa, potência, tentativas e envio de texto e números.",
+  "description_ru": "Драйвер радиомодуля nRF24L01(+) 2,4 ГГц на базе RF24 с адресами, каналом, скоростью, мощностью, повторами и передачей текста и чисел.",
+  "description_ar": "برنامج تشغيل لاسلكي nRF24L01(+) بتردد 2.4GHz مبني على RF24 ويدعم العناوين والقناة والسرعة والطاقة وإعادة المحاولة وإرسال النصوص والأرقام.",
+  "version": "0.1.0",
+  "url": "https://github.com/nRF24/RF24",
+  "license": "GPL-2.0",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "arduino:samd",
+      "arduino:mbed",
+      "esp32:esp32",
+      "esp8266:esp8266",
+      "renesas_uno:unor4",
+      "rp2040:rp2040",
+      "STMicroelectronics:stm32"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "nrf24l01",
+    "nrf24l01+",
+    "rf24",
+    "2.4ghz",
+    "radio",
+    "spi",
+    "wireless",
+    "transceiver"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "communication",
+    "wireless"
+  ]
+}

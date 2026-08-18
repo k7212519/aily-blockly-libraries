@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "初始化 InfluxDB %1 URL %2 组织 %3 存储桶 %4 令牌 %5",
+    "tooltip": "创建 InfluxDB 2 客户端。"
+  },
+  "influxdb_point_init": {
+    "message0": "创建 InfluxDB 数据点 %1 测量名称 %2",
+    "tooltip": "创建一个行协议测量数据点。"
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB 点 %1 添加 %2 密钥 %3 值 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "标签",
+            "addTag"
+          ],
+          [
+            "数据字段",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "向数据点添加标签或指定类型的字段。"
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB 点 %1 清除 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "数据字段",
+            "clearFields"
+          ],
+          [
+            "标签",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "清除累积点字段或标签。"
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 写入点 %2",
+    "tooltip": "向 InfluxDB 写入一个点。"
+  },
+  "influxdb_validate": {
+    "message0": "InfluxDB %1 连接有效",
+    "tooltip": "验证服务器连接和凭据。"
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "最后的错误消息",
+            "getLastErrorMessage"
+          ],
+          [
+            "服务器 URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取连接信息或最后一个错误。"
+  },
+  "influxdb_line_protocol": {
+    "message0": "InfluxDB %1 数据点 %2 的行协议",
+    "tooltip": "将点预览为线协议。"
+  }
+}

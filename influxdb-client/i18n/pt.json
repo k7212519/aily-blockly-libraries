@@ -1,0 +1,82 @@
+{
+  "toolbox_name": "InfluxDB Client",
+  "influxdb_init": {
+    "message0": "inicializar InfluxDB %1 URL %2 org %3 balde %4 token %5",
+    "tooltip": "Crie um cliente InfluxDB 2."
+  },
+  "influxdb_point_init": {
+    "message0": "criar ponto InfluxDB medição %1 %2",
+    "tooltip": "Crie um ponto de medição de protocolo de linha."
+  },
+  "influxdb_point_add": {
+    "message0": "InfluxDB ponto %1 adicionar chave %2 valor %3 %4",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "etiqueta",
+            "addTag"
+          ],
+          [
+            "campo de dados",
+            "addField"
+          ]
+        ]
+      },
+      null,
+      null
+    ],
+    "tooltip": "Adicione uma tag ou campo digitado a um ponto."
+  },
+  "influxdb_point_clear": {
+    "message0": "InfluxDB ponto %1 claro %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "campos de dados",
+            "clearFields"
+          ],
+          [
+            "etiquetas",
+            "clearTags"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Limpe campos ou tags de pontos acumulados."
+  },
+  "influxdb_write": {
+    "message0": "InfluxDB %1 ponto de gravação %2",
+    "tooltip": "Escreva um ponto para InfluxDB."
+  },
+  "influxdb_validate": {
+    "message0": "A conexão InfluxDB %1 é válida",
+    "tooltip": "Valide a conectividade e as credenciais do servidor."
+  },
+  "influxdb_info": {
+    "message0": "InfluxDB %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "última mensagem de erro",
+            "getLastErrorMessage"
+          ],
+          [
+            "servidor URL",
+            "getServerUrl"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Leia as informações de conexão ou o último erro."
+  },
+  "influxdb_line_protocol": {
+    "message0": "Protocolo de linha InfluxDB %1 para o ponto %2",
+    "tooltip": "Visualize um ponto como protocolo de linha."
+  }
+}

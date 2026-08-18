@@ -11,26 +11,26 @@ Connect Arduino-compatible boards to Blynk Cloud for IoT dashboards, virtual pin
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `blynk_setup_wifi` | Statement | TEMPLATE_ID(field_input), TEMPLATE_NAME(field_input), AUTH(field_input), SSID(input_value), PASS(input_value), TRANSPORT(dropdown), SERVER(input_value), PORT(input_value), DEBUG(field_checkbox) | `blynk_setup_wifi("TMPxxxxxx", "Device", "token", text("ssid"), text("pass"), AUTO, text("blynk.cloud"), math_number(80), TRUE)` | `Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass, server, port);` |
-| `blynk_setup_ethernet` | Statement | TEMPLATE_ID(field_input), TEMPLATE_NAME(field_input), AUTH(field_input), SERVER(input_value), PORT(input_value), DISABLE_SD(field_checkbox), DEBUG(field_checkbox) | `blynk_setup_ethernet("TMPxxxxxx", "Device", "token", text("blynk.cloud"), math_number(80), TRUE, TRUE)` | `Blynk.begin(BLYNK_AUTH_TOKEN, server, port);` |
+| `blynk_setup_wifi` | Statement | TEMPLATE_ID(field_input), TEMPLATE_NAME(field_input), AUTH(field_input), SSID(input_value), PASS(input_value), TRANSPORT(dropdown), SERVER(input_value), PORT(input_value), DEBUG(field_checkbox) | `blynk_setup_wifi("TMPxxxxxx", "Device", "token", text("ssid"), text("pass"), AUTO, text("blynk.cloud"), math_number(80), TRUE)` | `Blynk.begin(BLYNK_AUTH_TOKEN, "value", "value", "value", 1);` |
+| `blynk_setup_ethernet` | Statement | TEMPLATE_ID(field_input), TEMPLATE_NAME(field_input), AUTH(field_input), SERVER(input_value), PORT(input_value), DISABLE_SD(field_checkbox), DEBUG(field_checkbox) | `blynk_setup_ethernet("TMPxxxxxx", "Device", "token", text("blynk.cloud"), math_number(80), TRUE, TRUE)` | `pinMode(4, OUTPUT); ↵ digitalWrite(4, HIGH); ↵ Blynk.begin(BLYNK_AUTH_TOKEN, "value", 1);` |
 | `blynk_run` | Statement | (none) | `blynk_run()` | `Blynk.run();` |
 | `blynk_connected` | Value | (none) | `blynk_connected()` | `Blynk.connected()` |
-| `blynk_connect` | Value | TIMEOUT(input_value) | `blynk_connect(math_number(30000))` | `Blynk.connect(30000)` |
+| `blynk_connect` | Value | TIMEOUT(input_value) | `blynk_connect(math_number(30000))` | `Blynk.connect(1)` |
 | `blynk_disconnect` | Statement | (none) | `blynk_disconnect()` | `Blynk.disconnect();` |
-| `blynk_virtual_write` | Statement | VPIN(field_number), VALUE(input_value) | `blynk_virtual_write(5, math_number(42))` | `Blynk.virtualWrite(V5, 42);` |
-| `blynk_sync_virtual` | Statement | VPIN(field_number) | `blynk_sync_virtual(1)` | `Blynk.syncVirtual(V1);` |
+| `blynk_virtual_write` | Statement | VPIN(field_number), VALUE(input_value) | `blynk_virtual_write(5, math_number(42))` | `Blynk.virtualWrite(V0, 1);` |
+| `blynk_sync_virtual` | Statement | VPIN(field_number) | `blynk_sync_virtual(1)` | `Blynk.syncVirtual(V0);` |
 | `blynk_sync_all` | Statement | (none) | `blynk_sync_all()` | `Blynk.syncAll();` |
-| `blynk_set_property` | Statement | VPIN(field_number), PROPERTY(dropdown), VALUE(input_value) | `blynk_set_property(5, label, text("Temperature"))` | `Blynk.setProperty(V5, "label", "Temperature");` |
-| `blynk_log_event` | Statement | EVENT(input_value), DESCRIPTION(input_value) | `blynk_log_event(text("overheat"), text("Too hot"))` | `Blynk.logEvent("overheat", "Too hot");` |
-| `blynk_resolve_event` | Statement | EVENT(input_value), MODE(dropdown) | `blynk_resolve_event(text("overheat"), ONE)` | `Blynk.resolveEvent("overheat");` |
-| `blynk_on_virtual_write` | Hat | VPIN(field_number), VALUE_TYPE(dropdown), VAR(field_input), DO(input_statement) | `blynk_on_virtual_write(1, INT, "blynkValue") @DO: action()` | `BLYNK_WRITE(V1) { int blynkValue = param.asInt(); ... }` |
-| `blynk_on_connected` | Hat | DO(input_statement) | `blynk_on_connected() @DO: action()` | `BLYNK_CONNECTED() { ... }` |
+| `blynk_set_property` | Statement | VPIN(field_number), PROPERTY(dropdown), VALUE(input_value) | `blynk_set_property(5, label, text("Temperature"))` | `Blynk.setProperty(V0, "label", 1);` |
+| `blynk_log_event` | Statement | EVENT(input_value), DESCRIPTION(input_value) | `blynk_log_event(text("overheat"), text("Too hot"))` | `Blynk.logEvent("value", "value");` |
+| `blynk_resolve_event` | Statement | EVENT(input_value), MODE(dropdown) | `blynk_resolve_event(text("overheat"), ONE)` | `Blynk.resolveEvent("value");` |
+| `blynk_on_virtual_write` | Hat | VPIN(field_number), VALUE_TYPE(dropdown), VAR(field_input), DO(input_statement) | `blynk_on_virtual_write(1, INT, "blynkValue")` | `BLYNK_WRITE(V0) { ↵ int blynkValue = param.asInt(); ↵ }` |
+| `blynk_on_connected` | Hat | DO(input_statement) | `blynk_on_connected()` | `BLYNK_CONNECTED() { ↵ }` |
 | `blynk_param_int` | Value | (none) | `blynk_param_int()` | `param.asInt()` |
 | `blynk_param_float` | Value | (none) | `blynk_param_float()` | `param.asFloat()` |
 | `blynk_param_string` | Value | (none) | `blynk_param_string()` | `String(param.asStr())` |
-| `blynk_timer_every` | Hat | INTERVAL(input_value), DO(input_statement) | `blynk_timer_every(math_number(1000)) @DO: action()` | `BlynkTimer` callback plus `blynkTimer.run();` |
+| `blynk_timer_every` | Hat | INTERVAL(input_value), DO(input_statement) | `blynk_timer_every(math_number(1000))` | `BlynkTimer blynkTimer; ↵ blynkTimer.run(); ↵ void _blynk_timer_generator_coverage_blynk_timer_every() { ↵ } ↵ blynkTimer.setInterval(1, _blynk_timer_generator_coverage_blynk_timer_every);` |
 
 ## Parameter Options
 
@@ -48,3 +48,11 @@ Connect Arduino-compatible boards to Blynk Cloud for IoT dashboards, virtual pin
 2. Virtual pins are field numbers and generate `Vn` constants, for example `V5`.
 3. Use `blynk_timer_every` for repeated virtual writes instead of sending every loop iteration.
 4. `blynk_param_*` blocks are only valid inside `blynk_on_virtual_write`.
+## ABS Examples
+
+### Minimal Executable Usage
+
+```abs
+arduino_setup()
+    blynk_setup_wifi("TMPxxxxxx", "Device", "token", text("ssid"), text("pass"), AUTO, text("blynk.cloud"), math_number(80), TRUE)
+```

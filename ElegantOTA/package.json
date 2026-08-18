@@ -1,0 +1,66 @@
+{
+  "name": "@aily-project/lib-elegantota",
+  "nickname": "ElegantOTA",
+  "nickname_en": "ElegantOTA",
+  "author": "Ayush Sharma",
+  "description": "Authenticated OTA web portal for ESP8266, ESP32, RP2040W, and RP2350W.",
+  "description_en": "Authenticated OTA web portal for ESP8266, ESP32, RP2040W, and RP2350W.",
+  "version": "0.1.0",
+  "url": "https://github.com/ayushsharma82/ElegantOTA",
+  "license": "AGPL-3.0",
+  "compatibility": {
+    "core": [
+      "esp32:esp32",
+      "esp8266:esp8266",
+      "rp2040:rp2040"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "ota",
+    "update",
+    "webserver",
+    "esp32",
+    "esp8266"
+  ],
+  "bundledDependencies": {
+    "ElegantOTA": "3.1.7",
+    "ESP Async WebServer": "3.11.1",
+    "Async TCP": "3.4.10",
+    "ESP Async TCP": "2.0.0",
+    "RPAsyncTCP": "1.3.2"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "ota",
+    "network"
+  ],
+  "nickname_zh_cn": "ElegantOTA",
+  "description_zh_cn": "经过验证的 OTA Web 门户，适用于 ESP8266、ESP32、RP2040W 和 RP2350W。",
+  "nickname_zh_hk": "ElegantOTA",
+  "description_zh_hk": "經過驗證的 OTA Web 門戶，適用於 ESP8266、ESP32、RP2040W 和 RP2350W。",
+  "nickname_ja": "ElegantOTA",
+  "description_ja": "ESP8266、ESP32、RP2040W、および RP2350W の認証済み OTA Web ポータル。",
+  "nickname_ko": "ElegantOTA",
+  "description_ko": "ESP8266, ESP32, RP2040W 및 RP2350W에 대해 인증된 OTA 웹 포털입니다.",
+  "nickname_de": "ElegantOTA",
+  "description_de": "Authentifiziertes OTA-Webportal für ESP8266, ESP32, RP2040W und RP2350W.",
+  "nickname_fr": "ElegantOTA",
+  "description_fr": "Portail Web authentifié OTA pour ESP8266, ESP32, RP2040W et RP2350W.",
+  "nickname_es": "ElegantOTA",
+  "description_es": "Portal web OTA autenticado para ESP8266, ESP32, RP2040W y RP2350W.",
+  "nickname_pt": "ElegantOTA",
+  "description_pt": "Portal da web OTA autenticado para ESP8266, ESP32, RP2040W e RP2350W.",
+  "nickname_ru": "ElegantOTA",
+  "description_ru": "Аутентифицированный веб-портал OTA для ESP8266, ESP32, RP2040W и RP2350W.",
+  "nickname_ar": "ElegantOTA",
+  "description_ar": "بوابة الويب OTA المعتمدة لـ ESP8266، وESP32، وRP2040W، وRP2350W."
+}

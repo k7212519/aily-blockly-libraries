@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "初始化快速步進器 %1 步進腳 %2 方向腳 %3 啟用引腳 %4",
+    "tooltip": "連接 FastAccelStepper 實例並啟用自動馬達電源。"
+  },
+  "fast_stepper_set_profile": {
+    "message0": "快速步進器 %1 設定速度 %2 步/秒 加速度 %3 步/秒2",
+    "tooltip": "設定最大速度和加速度。"
+  },
+  "fast_stepper_move": {
+    "message0": "快速步進器%1移動%2 %3步",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "相對於",
+            "move"
+          ],
+          [
+            "絕對到",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "對相對或絕對移動進行排隊。"
+  },
+  "fast_stepper_run": {
+    "message0": "快速步進器%1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "持續正向運行",
+            "runForward"
+          ],
+          [
+            "持續反向運行",
+            "runBackward"
+          ],
+          [
+            "減速並停止",
+            "stopMove"
+          ],
+          [
+            "立即停止並將位置設為 0",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "連續運轉或停止馬達。"
+  },
+  "fast_stepper_position": {
+    "message0": "快速步進器 %1 設定目前位置 %2",
+    "tooltip": "馬達停止時重置邏輯位置。"
+  },
+  "fast_stepper_state": {
+    "message0": "快速步進器%1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "目前位置",
+            "getCurrentPosition"
+          ],
+          [
+            "目標位置",
+            "targetPos"
+          ],
+          [
+            "正在運行",
+            "isRunning"
+          ],
+          [
+            "正在連續運行",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "讀取步進器位置或運動狀態。"
+  }
+}

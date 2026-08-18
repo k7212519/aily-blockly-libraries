@@ -1,0 +1,166 @@
+{
+  "kind": "category",
+  "name": "U8g2 机器人眼睛",
+  "colour": "#5C6BC0",
+  "icon": "fa-light fa-eyes",
+  "contents": [
+    {
+      "kind": "label",
+      "text": "初始化与渲染"
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_init",
+      "inputs": {
+        "WIDTH": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 128}
+          }
+        },
+        "HEIGHT": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 64}
+          }
+        },
+        "FPS": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 40}
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_render"
+    },
+    {
+      "kind": "label",
+      "text": "表情与视线"
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_set_expression",
+      "inputs": {
+        "DURATION": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 280}
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_blink",
+      "inputs": {
+        "DURATION": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 180}
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_set_gaze",
+      "inputs": {
+        "X": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 0}
+          }
+        },
+        "Y": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 0}
+          }
+        },
+        "DURATION": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 180}
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_center_gaze",
+      "inputs": {
+        "DURATION": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 180}
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "自动动画"
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_set_auto_blink",
+      "inputs": {
+        "ENABLED": {
+          "shadow": {
+            "type": "logic_boolean",
+            "fields": {"BOOL": "TRUE"}
+          }
+        },
+        "INTERVAL": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 3200}
+          }
+        },
+        "VARIATION": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 1800}
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_set_idle",
+      "inputs": {
+        "ENABLED": {
+          "shadow": {
+            "type": "logic_boolean",
+            "fields": {"BOOL": "TRUE"}
+          }
+        },
+        "INTERVAL": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {"NUM": 1800}
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "状态查询"
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_expression"
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_is_animating"
+    },
+    {
+      "kind": "block",
+      "type": "u8g2_robot_eyes_style"
+    }
+  ]
+}

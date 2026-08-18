@@ -8,16 +8,16 @@ Allows Arduino UNO R3 to communicate with the MQTT server through the WiFi modul
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `mqtt_begin` | Statement | BROKER(input_value), PORT(input_value), USERNAME(input_value), PASSWORD(input_value) | `mqtt_begin(text("value"), math_number(0), text("value"), text("value"))` | Dynamic code |
-| `mqtt_connected` | Value | (none) | `mqtt_connected()` | mqttClient.connected() |
-| `mqtt_poll` | Statement | (none) | `mqtt_poll()` | mqttClient.poll();\n |
-| `mqtt_subscribe` | Statement | TOPIC(input_value) | `mqtt_subscribe(text("value"))` | mqttClient.subscribe( |
-| `mqtt_publish` | Statement | MESSAGE(input_value), TOPIC(input_value) | `mqtt_publish(text("value"), text("value"))` | mqttClient.beginMessage( |
-| `mqtt_message_available` | Value | (none) | `mqtt_message_available()` | mqttClient.parseMessage() |
-| `mqtt_read_topic` | Value | (none) | `mqtt_read_topic()` | mqttClient.messageTopic() |
-| `mqtt_read_message` | Value | (none) | `mqtt_read_message()` | readMqttMessage() |
+| `mqtt_begin` | Statement | BROKER(input_value), PORT(input_value), USERNAME(input_value), PASSWORD(input_value) | `mqtt_begin(text("value"), math_number(0), text("value"), text("value"))` | `if ("value" != "") mqttClient.setUsernamePassword("value", "value"); ↵ if (!mqttClient.connect("value", 1)) { ↵ Serial.print("MQTT连接失败! 错误码 = "); ↵ Serial.println(mqttClient.connectError()); ↵ }` |
+| `mqtt_connected` | Value | (none) | `mqtt_connected()` | `mqttClient.connected()` |
+| `mqtt_poll` | Statement | (none) | `mqtt_poll()` | `mqttClient.poll();` |
+| `mqtt_subscribe` | Statement | TOPIC(input_value) | `mqtt_subscribe(text("value"))` | `mqttClient.subscribe("value");` |
+| `mqtt_publish` | Statement | MESSAGE(input_value), TOPIC(input_value) | `mqtt_publish(text("value"), text("value"))` | `mqttClient.beginMessage("value"); ↵ mqttClient.print("value"); ↵ mqttClient.endMessage();` |
+| `mqtt_message_available` | Value | (none) | `mqtt_message_available()` | `mqttClient.parseMessage()` |
+| `mqtt_read_topic` | Value | (none) | `mqtt_read_topic()` | `mqttClient.messageTopic()` |
+| `mqtt_read_message` | Value | (none) | `mqtt_read_message()` | `readMqttMessage()` |
 
 ## ABS Examples
 

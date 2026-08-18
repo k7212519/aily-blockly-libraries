@@ -8,12 +8,12 @@ Adapted to the OpenJumper offline speech recognition module, it uses the serial 
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `openjumper_asr_init` | Statement | RX_PIN(dropdown), TX_PIN(dropdown) | `openjumper_asr_init(RX_PIN, TX_PIN)` | Dynamic code |
-| `openjumper_asr_data` | Statement | (none) | `openjumper_asr_data()` | asr.asrRun(); |
-| `openjumper_asr_rincmd` | Value | ASR_CMD(dropdown) | `openjumper_asr_rincmd("0")` | asr.asrDate == |
-| `openjumper_asr_state` | Value | (none) | `openjumper_asr_state()` | asr.WakeUpStatus |
+| `openjumper_asr_init` | Statement | RX_PIN(dropdown), TX_PIN(dropdown) | `openjumper_asr_init(RX_PIN, TX_PIN)` | `OJASR asr(RX_PIN, TX_PIN); ↵ asr.begin(115200);` |
+| `openjumper_asr_data` | Statement | (none) | `openjumper_asr_data()` | `asr.asrRun();` |
+| `openjumper_asr_rincmd` | Value | ASR_CMD(dropdown) | `openjumper_asr_rincmd("0")` | `asr.asrDate == 0` |
+| `openjumper_asr_state` | Value | (none) | `openjumper_asr_state()` | `asr.WakeUpStatus` |
 
 ## Parameter Options
 

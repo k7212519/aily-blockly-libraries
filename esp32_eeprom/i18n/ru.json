@@ -1,0 +1,110 @@
+{
+  "toolbox_name": "ESP32 EEPROM",
+  "esp32_eeprom_begin": {
+    "message0": "Инициализировать EEPROM размером %1 байт",
+    "tooltip": "Выделите область памяти эмуляции EEPROM."
+  },
+  "esp32_eeprom_read": {
+    "message0": "Адрес чтения байта EEPROM %1",
+    "tooltip": "Прочитать байт по указанному адресу."
+  },
+  "esp32_eeprom_write": {
+    "message0": "Байт записи EEPROM, адрес %1, значение %2",
+    "tooltip": "Запишите байт, который необходимо отправить позже."
+  },
+  "esp32_eeprom_read_typed": {
+    "message0": "EEPROM считывает %1 адрес %2",
+    "tooltip": "Считайте значение в соответствии с указанным типом.",
+    "args0": [
+      {
+        "options": [
+          [
+            "целое число",
+            "readInt"
+          ],
+          [
+            "Целое без знака",
+            "readUInt"
+          ],
+          [
+            "Длинное целое число",
+            "readLong64"
+          ],
+          [
+            "Число с плавающей запятой",
+            "readFloat"
+          ],
+          [
+            "Двойная точность",
+            "readDouble"
+          ],
+          [
+            "Логическое значение",
+            "readBool"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_eeprom_write_typed": {
+    "message0": "EEPROM записывает %1 адрес %2 значение %3",
+    "tooltip": "Запишите значение в соответствии с указанным типом.",
+    "args0": [
+      {
+        "options": [
+          [
+            "целое число",
+            "writeInt"
+          ],
+          [
+            "Целое без знака",
+            "writeUInt"
+          ],
+          [
+            "Длинное целое число",
+            "writeLong64"
+          ],
+          [
+            "Число с плавающей запятой",
+            "writeFloat"
+          ],
+          [
+            "Двойная точность",
+            "writeDouble"
+          ],
+          [
+            "Логическое значение",
+            "writeBool"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_eeprom_read_string": {
+    "message0": "Адрес строки чтения EEPROM %1",
+    "tooltip": "Чтение строки, заканчивающейся нулем."
+  },
+  "esp32_eeprom_write_string": {
+    "message0": "Адрес строки записи EEPROM %1 текст %2",
+    "tooltip": "Записывает строку и возвращает записанную длину."
+  },
+  "esp32_eeprom_commit": {
+    "message0": "Зафиксировать изменения EEPROM",
+    "tooltip": "Запись кэшированных изменений во Flash."
+  },
+  "esp32_eeprom_end": {
+    "message0": "Конец EEPROM",
+    "tooltip": "Зафиксируйте и освободите буфер EEPROM."
+  },
+  "esp32_eeprom_length": {
+    "message0": "Емкость EEPROM",
+    "tooltip": "Возвращает текущую емкость EEPROM."
+  },
+  "esp32_eeprom_dirty": {
+    "message0": "EEPROM содержит незафиксированные изменения",
+    "tooltip": "Проверьте кэш на наличие незафиксированных изменений."
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "toolbox_name": "ESP32 RainMaker",
+  "esp32_rainmaker_init_node": {
+    "message0": "Inicializar nó RainMaker %1 nome %2",
+    "tooltip": "Crie um nó RainMaker."
+  },
+  "esp32_rainmaker_add_device": {
+    "message0": "Nó RainMaker %1 Adicionar %2 Dispositivo %3 Nome %4 Valor inicial %5",
+    "tooltip": "Crie dispositivos padrão e adicione-os aos nós.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "interruptor",
+            "Switch"
+          ],
+          [
+            "Luz",
+            "LightBulb"
+          ],
+          [
+            "Ventilador",
+            "Fan"
+          ],
+          [
+            "Sensor de temperatura",
+            "TemperatureSensor"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ]
+  },
+  "esp32_rainmaker_enable_service": {
+    "message0": "RainMaker habilita serviço %1",
+    "tooltip": "Ative o serviço padrão do RainMaker.",
+    "args0": [
+      {
+        "options": [
+          [
+            "OTA",
+            "enableOTA(OTA_USING_TOPICS)"
+          ],
+          [
+            "Fuso horário",
+            "enableTZService()"
+          ],
+          [
+            "Plano",
+            "enableSchedule()"
+          ],
+          [
+            "cena",
+            "enableScenes()"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_rainmaker_start": {
+    "message0": "Iniciar o RainMaker",
+    "tooltip": "Inicie o serviço de nuvem RainMaker."
+  },
+  "esp32_rainmaker_stop": {
+    "message0": "Parar o RainMaker",
+    "tooltip": "Pare o serviço de nuvem RainMaker."
+  },
+  "esp32_rainmaker_report": {
+    "message0": "O dispositivo RainMaker %1 reporta o parâmetro %2 valor %3",
+    "tooltip": "Atualizar e reportar parâmetros do dispositivo."
+  },
+  "esp32_rainmaker_reset": {
+    "message0": "RainMaker %1 atraso de %2 segundos",
+    "tooltip": "Atrase a execução da restauração de fábrica do RainMaker ou da redefinição do Wi-Fi.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Restaurar configurações de fábrica",
+            "RMakerFactoryReset"
+          ],
+          [
+            "Redefinir Wi-Fi",
+            "RMakerWiFiReset"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_rainmaker_node_id": {
+    "message0": "Nó RainMaker %1 ID",
+    "tooltip": "Leia o ID do nó RainMaker."
+  }
+}

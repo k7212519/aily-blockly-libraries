@@ -55,7 +55,7 @@ Arduino.forBlock['ble_keyboard_print'] = function (block, generator) {
   code += '      keyboard->keyRelease(KEY_A + (c - \'A\'));\n';
   code += '      keyboard->modifierKeyRelease(KEY_MOD_LSHIFT);\n';
   code += '    } else if (c >= \'0\' && c <= \'9\') {\n';
-  code += '      keyboard->keyPress(KEY_0 + (c - \'0\'));\n';
+  code += '      keyboard->keyPress(c == \'0\' ? KEY_0 : KEY_1 + (c - \'1\'));\n';
   code += '      delay(10);\n';
   code += '      keyboard->keyRelease(KEY_0 + (c - \'0\'));\n';
   code += '    } else if (c == \' \') {\n';

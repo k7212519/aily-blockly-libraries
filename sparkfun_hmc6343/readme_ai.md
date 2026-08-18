@@ -8,15 +8,15 @@ Blockly wrapper for the SparkFun HMC6343 3-axis compass sensor.
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `hmc6343_init` | Statement | VAR(field_input) | `hmc6343_init("compass")` | Wire.begin();\n |
-| `hmc6343_read_heading` | Statement | VAR(field_variable) | `hmc6343_read_heading(variables_get($compass))` | Dynamic code |
-| `hmc6343_read_mag` | Statement | VAR(field_variable) | `hmc6343_read_mag(variables_get($compass))` | Dynamic code |
-| `hmc6343_read_accel` | Statement | VAR(field_variable) | `hmc6343_read_accel(variables_get($compass))` | Dynamic code |
-| `hmc6343_get_value` | Value | VAR(field_variable), FIELD(dropdown) | `hmc6343_get_value(variables_get($compass), heading)` | Dynamic code |
-| `hmc6343_set_orientation` | Statement | VAR(field_variable), ORIENT(dropdown) | `hmc6343_set_orientation(variables_get($compass), "0")` | Dynamic code |
-| `hmc6343_sleep_control` | Statement | VAR(field_variable), MODE(dropdown) | `hmc6343_sleep_control(variables_get($compass), sleep)` | Dynamic code |
+| `hmc6343_init` | Statement | VAR(field_input) | `hmc6343_init("compass")` | `Wire.begin(); ↵ compass.init();` |
+| `hmc6343_read_heading` | Statement | VAR(field_variable) | `hmc6343_read_heading($compass)` | `compass.readHeading();` |
+| `hmc6343_read_mag` | Statement | VAR(field_variable) | `hmc6343_read_mag($compass)` | `compass.readMag();` |
+| `hmc6343_read_accel` | Statement | VAR(field_variable) | `hmc6343_read_accel($compass)` | `compass.readAccel();` |
+| `hmc6343_get_value` | Value | VAR(field_variable), FIELD(dropdown) | `hmc6343_get_value($compass, heading)` | `compass.heading` |
+| `hmc6343_set_orientation` | Statement | VAR(field_variable), ORIENT(dropdown) | `hmc6343_set_orientation($compass, "0")` | `compass.setOrientation(0);` |
+| `hmc6343_sleep_control` | Statement | VAR(field_variable), MODE(dropdown) | `hmc6343_sleep_control($compass, sleep)` | `compass.enterSleep();` |
 
 ## Parameter Options
 
@@ -35,12 +35,12 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, hmc6343_get_value(variables_get($compass), heading))
+    serial_println(Serial, hmc6343_get_value($compass, heading))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `hmc6343_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `hmc6343_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

@@ -8,15 +8,15 @@ Adapted to the openjumperTTS speech synthesis module (No. ojmoBhp4035), the text
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `openjumper_tts_init` | Statement | RX_PIN(dropdown), TX_PIN(dropdown) | `openjumper_tts_init(RX_PIN, TX_PIN)` | Dynamic code |
-| `openjumper_tts_play_invoice` | Statement | VOICE_TYPE(dropdown), VOICE_NUM(input_value) | `openjumper_tts_play_invoice(VOICE_Ringtones, math_number(0))` | Dynamic code |
-| `openjumper_tts_play_control` | Statement | CONTROL_ACTION(dropdown) | `openjumper_tts_play_control(PLAY_STOP)` | TTS.playcontrol( |
-| `openjumper_tts_play_number` | Statement | NUMBER(input_value) | `openjumper_tts_play_number(math_number(0))` | TTS.PlayNumber( |
-| `openjumper_tts_play_text` | Statement | TEXT(input_value) | `openjumper_tts_play_text(text("value"))` | TTS.PlayText(...);\n |
-| `openjumper_tts_setcfg` | Statement | SP_TYPE(dropdown), CFGV(input_value) | `openjumper_tts_setcfg(setspeechSpeed, math_number(0))` | Dynamic code |
-| `openjumper_tts_restore_defaults` | Statement | (none) | `openjumper_tts_restore_defaults()` | TTS.RestoreDefaultValues();\n |
+| `openjumper_tts_init` | Statement | RX_PIN(dropdown), TX_PIN(dropdown) | `openjumper_tts_init(RX_PIN, TX_PIN)` | `OpenJumperTTS TTS(RX_PIN, TX_PIN); ↵ TTS.begin(115200);` |
+| `openjumper_tts_play_invoice` | Statement | VOICE_TYPE(dropdown), VOICE_NUM(input_value) | `openjumper_tts_play_invoice(VOICE_Ringtones, math_number(0))` | `TTS.PlayPromptSound(VOICE_Ringtones,1);` |
+| `openjumper_tts_play_control` | Statement | CONTROL_ACTION(dropdown) | `openjumper_tts_play_control(PLAY_STOP)` | `TTS.playcontrol(PLAY_STOP);` |
+| `openjumper_tts_play_number` | Statement | NUMBER(input_value) | `openjumper_tts_play_number(math_number(0))` | `TTS.PlayNumber(1);` |
+| `openjumper_tts_play_text` | Statement | TEXT(input_value) | `openjumper_tts_play_text(text("value"))` | `TTS.PlayText("value");` |
+| `openjumper_tts_setcfg` | Statement | SP_TYPE(dropdown), CFGV(input_value) | `openjumper_tts_setcfg(setspeechSpeed, math_number(0))` | `TTS.setspeechSpeed(1);` |
+| `openjumper_tts_restore_defaults` | Statement | (none) | `openjumper_tts_restore_defaults()` | `TTS.RestoreDefaultValues();` |
 
 ## Parameter Options
 

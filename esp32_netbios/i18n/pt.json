@@ -1,0 +1,11 @@
+{
+  "toolbox_name": "NetBIOS ESP32",
+  "esp32_netbios_begin": {
+    "message0": "Iniciar nome NetBIOS %1",
+    "tooltip": "Inicie o NBNS e registre o nome da LAN."
+  },
+  "esp32_netbios_end": {
+    "message0": "Parar NetBIOS",
+    "tooltip": "Interrompe o serviço NBNS."
+  }
+}

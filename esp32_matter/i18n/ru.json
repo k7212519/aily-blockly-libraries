@@ -1,0 +1,214 @@
+{
+  "toolbox_name": "ESP32 имеет значение",
+  "esp32_matter_begin": {
+    "message0": "Начальная материя",
+    "tooltip": "Запустите узел Материи; сначала необходимо создать конечную точку."
+  },
+  "esp32_matter_status": {
+    "message0": "Состояние дела %1",
+    "tooltip": "Запросите сеть распространения Matter или состояние подключения.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Сеть настроена",
+            "isDeviceCommissioned"
+          ],
+          [
+            "Wi-Fi подключен",
+            "isWiFiConnected"
+          ],
+          [
+            "Поток подключен",
+            "isThreadConnected"
+          ],
+          [
+            "Устройство подключено",
+            "isDeviceConnected"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_pairing_code": {
+    "message0": "Информация о сопряжении материй %1",
+    "tooltip": "Получите код сопряжения Matter или URL-адрес QR-кода.",
+    "args0": [
+      {
+        "options": [
+          [
+            "Код ручного сопряжения",
+            "getManualPairingCode"
+          ],
+          [
+            "URL QR-кода",
+            "getOnboardingQRCodeUrl"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_decommission": {
+    "message0": "Ведь чистая дистрибьюторская сеть",
+    "tooltip": "Очистите текущую информацию о сети распространения Matter Fabric."
+  },
+  "esp32_matter_create_onoff_light": {
+    "message0": "Свет переключателя создания материи %1 исходное состояние %2",
+    "tooltip": "Создайте конечную точку переключателя света."
+  },
+  "esp32_matter_create_dimmable_light": {
+    "message0": "Create Matter затемнение света %1 статус %2 яркость %3",
+    "tooltip": "Создайте конечную точку затемнения света."
+  },
+  "esp32_matter_light_set": {
+    "message0": "Материя света %1 устанавливает %2 в %3",
+    "tooltip": "Установите переключатель света или яркость.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "开关",
+            "setOnOff"
+          ],
+          [
+            "Яркость",
+            "setBrightness"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_light_get": {
+    "message0": "Лампа материи %1 читать %2",
+    "tooltip": "Прочтите переключатель света или яркость.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "开关",
+            "getOnOff"
+          ],
+          [
+            "Яркость",
+            "getBrightness"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_matter_create_numeric_sensor": {
+    "message0": "Числовой датчик создания материи %1 тип %2 начальное значение %3",
+    "tooltip": "Создайте общие конечные точки числовых датчиков.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Температура",
+            "MatterTemperatureSensor"
+          ],
+          [
+            "Влажность",
+            "MatterHumiditySensor"
+          ],
+          [
+            "Освещение",
+            "MatterLightSensor"
+          ],
+          [
+            "Давление",
+            "MatterPressureSensor"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_numeric_sensor_set": {
+    "message0": "Числовой датчик материи %1 тип %2 обновление %3",
+    "tooltip": "Обновление и отчетность числовых значений датчиков.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Температура",
+            "setTemperature"
+          ],
+          [
+            "Влажность",
+            "setHumidity"
+          ],
+          [
+            "Освещение",
+            "setIlluminance"
+          ],
+          [
+            "Давление",
+            "setPressure"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_create_boolean_sensor": {
+    "message0": "Create Matter Логический датчик %1 тип %2 начальное значение %3",
+    "tooltip": "Создайте общие конечные точки логических датчиков.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Контакт",
+            "MatterContactSensor"
+          ],
+          [
+            "занято",
+            "MatterOccupancySensor"
+          ],
+          [
+            "Дождь",
+            "MatterRainSensor"
+          ],
+          [
+            "Утечка воды",
+            "MatterWaterLeakDetector"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_matter_boolean_sensor_set": {
+    "message0": "Материя Логический датчик %1 тип %2 обновление %3",
+    "tooltip": "Обновить и сообщить логические значения датчика.",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Контакт",
+            "setContact"
+          ],
+          [
+            "занято",
+            "setOccupancy"
+          ],
+          [
+            "Дождь",
+            "setRain"
+          ],
+          [
+            "Утечка воды",
+            "setLeak"
+          ]
+        ]
+      },
+      null
+    ]
+  }
+}

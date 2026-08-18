@@ -1,0 +1,105 @@
+{
+  "toolbox_name": "ESP32 语音识别",
+  "esp32_esp_sr_begin": {
+    "message0": "启动语音识别 I2S %1 命令1 %2 命令2 %3 命令3 %4 命令4 %5 通道 %6 输入格式 %7",
+    "tooltip": "启动离线语音识别并为四个短语分配命令 ID 1-4。",
+    "args0": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "options": [
+          [
+            "单声道",
+            "SR_CHANNELS_MONO"
+          ],
+          [
+            "立体声",
+            "SR_CHANNELS_STEREO"
+          ]
+        ]
+      },
+      null
+    ]
+  },
+  "esp32_esp_sr_control": {
+    "message0": "语音识别 %1",
+    "tooltip": "结束、暂停或恢复语音识别。",
+    "args0": [
+      {
+        "options": [
+          [
+            "结束",
+            "end"
+          ],
+          [
+            "暂停",
+            "pause"
+          ],
+          [
+            "恢复",
+            "resume"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_set_mode": {
+    "message0": "语音识别模式 %1",
+    "tooltip": "切换唤醒词或命令识别模式。",
+    "args0": [
+      {
+        "options": [
+          [
+            "唤醒词",
+            "SR_MODE_WAKEWORD"
+          ],
+          [
+            "命令词",
+            "SR_MODE_COMMAND"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_esp_sr_last_event": {
+    "message0": "语音识别最近事件",
+    "tooltip": "返回最近的 sr_event_t 数值。"
+  },
+  "esp32_esp_sr_last_command": {
+    "message0": "语音识别最近命令 ID",
+    "tooltip": "返回最近识别到的命令 ID。"
+  },
+  "esp32_esp_sr_last_phrase": {
+    "message0": "语音识别最近短语 ID",
+    "tooltip": "返回最近识别到的短语 ID。"
+  },
+  "esp32_esp_sr_event_constant": {
+    "message0": "语音事件 %1",
+    "tooltip": "返回语音事件常量。",
+    "args0": [
+      {
+        "options": [
+          [
+            "唤醒词",
+            "SR_EVENT_WAKEWORD"
+          ],
+          [
+            "唤醒通道",
+            "SR_EVENT_WAKEWORD_CHANNEL"
+          ],
+          [
+            "命令",
+            "SR_EVENT_COMMAND"
+          ],
+          [
+            "超时",
+            "SR_EVENT_TIMEOUT"
+          ]
+        ]
+      }
+    ]
+  }
+}

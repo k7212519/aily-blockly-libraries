@@ -8,18 +8,18 @@
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `imu9dof_init` | Statement | VAR(field_input), WIRE(dropdown) | `imu9dof_init("imu", WIRE)` | Dynamic code |
-| `imu9dof_read_accel` | Value | VAR(field_variable), AXIS(dropdown) | `imu9dof_read_accel(variables_get($imu), X)` | Dynamic code |
-| `imu9dof_read_gyro` | Value | VAR(field_variable), AXIS(dropdown) | `imu9dof_read_gyro(variables_get($imu), X)` | Dynamic code |
-| `imu9dof_read_mag` | Value | VAR(field_variable), AXIS(dropdown) | `imu9dof_read_mag(variables_get($imu), X)` | Dynamic code |
-| `imu9dof_read_temperature` | Value | VAR(field_variable) | `imu9dof_read_temperature(variables_get($imu))` | Dynamic code |
-| `imu9dof_compute_angles` | Statement | VAR(field_variable) | `imu9dof_compute_angles(variables_get($imu))` | Dynamic code |
-| `imu9dof_read_angle` | Value | VAR(field_variable), ANGLE(dropdown) | `imu9dof_read_angle(variables_get($imu), ROLL)` | Dynamic code |
-| `imu9dof_calibrate_mag` | Statement | VAR(field_variable) | `imu9dof_calibrate_mag(variables_get($imu))` | Dynamic code |
-| `imu9dof_set_acc_range` | Statement | VAR(field_variable), RANGE(dropdown) | `imu9dof_set_acc_range(variables_get($imu), QMI8658A_ACC_RANGE_2G)` | Dynamic code |
-| `imu9dof_set_gyro_range` | Statement | VAR(field_variable), RANGE(dropdown) | `imu9dof_set_gyro_range(variables_get($imu), QMI8658A_GYRO_RANGE_16DPS)` | Dynamic code |
+| `imu9dof_init` | Statement | VAR(field_input), WIRE(dropdown) | `imu9dof_init("imu", WIRE)` | `// 初始化9轴IMU传感器 imu ↵ if (imu.begin(&WIRE)) { ↵ Serial.println("9轴IMU传感器 imu 初始化成功!"); ↵ } else { ↵ Serial.println("警告: 9轴IMU传感器 imu 初始化失败，请检查接线!"); ↵ }` |
+| `imu9dof_read_accel` | Value | VAR(field_variable), AXIS(dropdown) | `imu9dof_read_accel($imu, X)` | `({ float _ax, _ay, _az; imu.readAccel(&_ax, &_ay, &_az); _ax; })` |
+| `imu9dof_read_gyro` | Value | VAR(field_variable), AXIS(dropdown) | `imu9dof_read_gyro($imu, X)` | `({ float _gx, _gy, _gz; imu.readGyro(&_gx, &_gy, &_gz); _gx; })` |
+| `imu9dof_read_mag` | Value | VAR(field_variable), AXIS(dropdown) | `imu9dof_read_mag($imu, X)` | `({ float _mx, _my, _mz; imu.readMag(&_mx, &_my, &_mz); _mx; })` |
+| `imu9dof_read_temperature` | Value | VAR(field_variable) | `imu9dof_read_temperature($imu)` | `imu.readTemperature()` |
+| `imu9dof_compute_angles` | Statement | VAR(field_variable) | `imu9dof_compute_angles($imu)` | `imu.computeAngles();` |
+| `imu9dof_read_angle` | Value | VAR(field_variable), ANGLE(dropdown) | `imu9dof_read_angle($imu, ROLL)` | `imu.getRoll()` |
+| `imu9dof_calibrate_mag` | Statement | VAR(field_variable) | `imu9dof_calibrate_mag($imu)` | `imu.calibrateMag();` |
+| `imu9dof_set_acc_range` | Statement | VAR(field_variable), RANGE(dropdown) | `imu9dof_set_acc_range($imu, QMI8658A_ACC_RANGE_2G)` | `imu.setAccRange(QMI8658A_ACC_RANGE_2G);` |
+| `imu9dof_set_gyro_range` | Statement | VAR(field_variable), RANGE(dropdown) | `imu9dof_set_gyro_range($imu, QMI8658A_GYRO_RANGE_16DPS)` | `imu.setGyroRange(QMI8658A_GYRO_RANGE_16DPS);` |
 
 ## Parameter Options
 
@@ -39,13 +39,13 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, imu9dof_read_accel(variables_get($imu), X))
+    serial_println(Serial, imu9dof_read_accel($imu, X))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `imu9dof_init("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `imu9dof_init("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.
-4. **Dynamic fields**: `imu9dof_init` may add fields at runtime through Blockly extensions.
+4. **UI-only extension**: `imu9dof_init` refreshes board/I2C presentation only; it does not add ABS arguments.

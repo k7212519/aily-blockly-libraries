@@ -1,0 +1,121 @@
+{
+  "toolbox_name": "ESP32 Audio I2S",
+  "esp_audio_init": {
+    "message0": "initialiser ESP32 Audio %1 BCLK %2 LRCLK %3 DOUT %4 volume %5",
+    "tooltip": "Initialisez le décodeur audio ESP32 et la sortie I2S."
+  },
+  "esp_audio_stream": {
+    "message0": "ESP32 Audio %1 lire l'audio à partir du réseau URL %2",
+    "tooltip": "Lisez un flux audio HTTP ou HTTPS."
+  },
+  "esp_audio_file": {
+    "message0": "ESP32 Audio %1 lecture à partir du chemin %2 %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "SD",
+            "SD"
+          ],
+          [
+            "SD_MMC",
+            "SD_MMC"
+          ],
+          [
+            "SPIFFS",
+            "SPIFFS"
+          ],
+          [
+            "LittleFS",
+            "LittleFS"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Lire un fichier audio à partir d'un système de fichiers monté."
+  },
+  "esp_audio_control": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "mettre en pause ou reprendre",
+            "pauseResume"
+          ],
+          [
+            "arrêter",
+            "stopSong"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Contrôler la lecture en cours."
+  },
+  "esp_audio_set": {
+    "message0": "ESP32 Audio %1 définir %2 sur %3",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "volume audio 0-21",
+            "setVolume"
+          ],
+          [
+            "balance audio -16 à 16",
+            "setBalance"
+          ],
+          [
+            "position de lecture en secondes",
+            "setAudioPlayTime"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Modifiez le volume de lecture, la balance ou la position du fichier."
+  },
+  "esp_audio_state": {
+    "message0": "ESP32 Audio %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "est en cours d'exécution",
+            "isRunning"
+          ],
+          [
+            "durée de lecture actuelle en secondes",
+            "getAudioCurrentTime"
+          ],
+          [
+            "durée audio en secondes",
+            "getAudioFileDuration"
+          ],
+          [
+            "volume actuel",
+            "getVolume"
+          ],
+          [
+            "débit binaire",
+            "getBitRate"
+          ],
+          [
+            "taux d'échantillonnage",
+            "getSampleRate"
+          ],
+          [
+            "canaux audio",
+            "getChannels"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lisez l’état de lecture et diffusez les métadonnées."
+  }
+}

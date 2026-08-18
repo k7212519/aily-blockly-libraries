@@ -1,0 +1,89 @@
+{
+  "toolbox_name": "FastAccelStepper",
+  "fast_stepper_init": {
+    "message0": "Schnellschrittmotor initialisieren %1 Schrittstift %2 Richtungsstift %3 Aktivierungsstift %4",
+    "tooltip": "Schließen Sie eine FastAccelStepper-Instanz an und aktivieren Sie die automatische Motorleistung."
+  },
+  "fast_stepper_set_profile": {
+    "message0": "schneller Schrittmotor %1 eingestellte Geschwindigkeit %2 Schritte/s Beschleunigung %3 Schritte/s2",
+    "tooltip": "Maximale Geschwindigkeit und Beschleunigung einstellen."
+  },
+  "fast_stepper_move": {
+    "message0": "schneller Schrittmotor %1 Bewegung %2 %3 Schritte",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "relativ von",
+            "move"
+          ],
+          [
+            "absolut zu",
+            "moveTo"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Stellen Sie eine relative oder absolute Verschiebung in die Warteschlange."
+  },
+  "fast_stepper_run": {
+    "message0": "schneller Stepper %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "Laufen Sie kontinuierlich vorwärts",
+            "runForward"
+          ],
+          [
+            "kontinuierlich rückwärts laufen",
+            "runBackward"
+          ],
+          [
+            "abbremsen und anhalten",
+            "stopMove"
+          ],
+          [
+            "Zwangsstopp bei Position 0",
+            "forceStop"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Laufen Sie kontinuierlich oder stoppen Sie den Motor."
+  },
+  "fast_stepper_position": {
+    "message0": "Schnellschrittmotor %1 aktuelle Position einstellen %2",
+    "tooltip": "Setzen Sie die logische Position zurück, während der Motor gestoppt ist."
+  },
+  "fast_stepper_state": {
+    "message0": "schneller Stepper %1 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "aktuelle Position",
+            "getCurrentPosition"
+          ],
+          [
+            "Zielposition",
+            "targetPos"
+          ],
+          [
+            "läuft",
+            "isRunning"
+          ],
+          [
+            "läuft ununterbrochen",
+            "isRunningContinuously"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Stepperposition oder Bewegungszustand lesen."
+  }
+}

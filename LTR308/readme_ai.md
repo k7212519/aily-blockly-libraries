@@ -8,12 +8,12 @@ LTR308 digital light intensity sensor control library, suitable for ESP32 develo
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `ltr308_init_with_wire` | Statement | VAR(field_input), GAIN(dropdown), INTEGRATION_TIME(dropdown), MEASUREMENT_RATE(dropdown), WIRE(dropdown) | `ltr308_init_with_wire("ltr308", LTR308_GAIN_1, LTR308_INTEGRATION_25MS, LTR308_RATE_25MS, WIRE)` | Dynamic code |
-| `ltr308_read_light_level` | Value | VAR(field_variable) | `ltr308_read_light_level(variables_get($ltr308))` | Dynamic code |
-| `ltr308_read_raw_data` | Value | VAR(field_variable) | `ltr308_read_raw_data(variables_get($ltr308))` | Dynamic code |
-| `ltr308_is_data_ready` | Value | VAR(field_variable) | `ltr308_is_data_ready(variables_get($ltr308))` | Dynamic code |
+| `ltr308_init_with_wire` | Statement | VAR(field_input), GAIN(dropdown), INTEGRATION_TIME(dropdown), MEASUREMENT_RATE(dropdown), WIRE(dropdown) | `ltr308_init_with_wire("ltr308", LTR308_GAIN_1, LTR308_INTEGRATION_25MS, LTR308_RATE_25MS, WIRE)` | `// 初始化LTR308光照传感器 ltr308 ↵ if (ltr308.begin(&WIRE)) { ↵ Serial.println("LTR308传感器 ltr308 初始化成功!"); ↵ // 设置传感器参数 ↵ ltr308.setGain(LTR308_GAIN_1); ↵ ltr308.setIntegrationTime(LTR308_INTEGRATION_25MS); ↵ ltr308.setMeasurementRate(LTR308_RATE_25MS); ↵ } else { ↵ Serial.println("警告: LTR308传感器 ltr308 初始化失败，请检查接线!"); ↵ }` |
+| `ltr308_read_light_level` | Value | VAR(field_variable) | `ltr308_read_light_level($ltr308)` | `ltr308.getLux()` |
+| `ltr308_read_raw_data` | Value | VAR(field_variable) | `ltr308_read_raw_data($ltr308)` | `ltr308.getRawData()` |
+| `ltr308_is_data_ready` | Value | VAR(field_variable) | `ltr308_is_data_ready($ltr308)` | `ltr308.isDataReady()` |
 
 ## Parameter Options
 
@@ -32,13 +32,13 @@ arduino_setup()
     serial_begin(Serial, 9600)
 
 arduino_loop()
-    serial_println(Serial, ltr308_read_light_level(variables_get($ltr308)))
+    serial_println(Serial, ltr308_read_light_level($ltr308))
     time_delay(math_number(1000))
 ```
 
 ## Notes
 
-1. **Variable**: `ltr308_init_with_wire("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `ltr308_init_with_wire("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.
-4. **Dynamic fields**: `ltr308_init_with_wire` may add fields at runtime through Blockly extensions.
+4. **UI-only extension**: `ltr308_init_with_wire` refreshes board/I2C presentation only; it does not add ABS arguments.

@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "初始化IR发送器%1引脚%2",
+    "tooltip": "创建并启动红外发射器。"
+  },
+  "ir_esp_send_code": {
+    "message0": "IR 发送者 %1 发送 %2 代码 %3 位 %4 重复 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "使用通用协议发送数字红外代码。"
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR 发送方 %1 发送原始数组 %2 长度 %3 频率 kHz %4",
+    "tooltip": "发送 uint16_t 时序数组。"
+  },
+  "ir_esp_recv_init": {
+    "message0": "初始化 IR 接收器 %1 引脚 %2 缓冲区 %3 超时 ms %4",
+    "tooltip": "创建并启用红外接收器。"
+  },
+  "ir_esp_when_received": {
+    "message0": "当IR接收器%1接收到%2时做%3",
+    "tooltip": "解码一条消息，运行正文，然后恢复接收。"
+  },
+  "ir_esp_received_data": {
+    "message0": "IR 接收器 %1 最近接收的 %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "数值",
+            "value"
+          ],
+          [
+            "位数",
+            "bits"
+          ],
+          [
+            "协议枚举",
+            "decode_type"
+          ],
+          [
+            "重复标志",
+            "repeat"
+          ],
+          [
+            "溢出标志",
+            "overflow"
+          ],
+          [
+            "人类可读的文本",
+            "text"
+          ],
+          [
+            "源代码文本",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "读取最近解码的消息。"
+  }
+}

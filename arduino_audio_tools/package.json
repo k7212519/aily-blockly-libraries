@@ -1,0 +1,58 @@
+{
+  "name": "@aily-project/lib-arduino-audio-tools",
+  "nickname": "Arduino Audio Tools",
+  "nickname_en": "Arduino Audio Tools",
+  "author": "Phil Schatzmann",
+  "description": "Composable I2S audio streams, sample IO, and stream copy pipelines.",
+  "description_en": "Composable I2S audio streams, sample IO, and stream copy pipelines.",
+  "version": "0.1.0",
+  "url": "https://github.com/pschatzmann/arduino-audio-tools",
+  "license": "GPL-3.0",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "audio",
+    "i2s",
+    "stream",
+    "dsp"
+  ],
+  "bundledDependencies": {
+    "audio-tools": "1.2.5"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "audio",
+    "signal-processing"
+  ],
+  "nickname_zh_cn": "Arduino Audio Tools",
+  "description_zh_cn": "可组合的 I2S 音频流、示例 IO 和流复制管道。",
+  "nickname_zh_hk": "Arduino Audio Tools",
+  "description_zh_hk": "可組合的 I2S 音訊串流、範例 IO 和流複製管道。",
+  "nickname_ja": "Arduino Audio Tools",
+  "description_ja": "コンポーザブル I2S オーディオ ストリーム、サンプル IO、およびストリーム コピー パイプライン。",
+  "nickname_ko": "Arduino Audio Tools",
+  "description_ko": "구성 가능한 I2S 오디오 스트림, 샘플 IO 및 스트림 복사 파이프라인.",
+  "nickname_de": "Arduino Audio Tools",
+  "description_de": "Zusammensetzbare I2S-Audiostreams, Beispiel-E/A und Stream-Kopierpipelines.",
+  "nickname_fr": "Arduino Audio Tools",
+  "description_fr": "Flux audio composables I2S, échantillons d'E/S et pipelines de copie de flux.",
+  "nickname_es": "Arduino Audio Tools",
+  "description_es": "Secuencias de audio I2S componibles, E/S de muestra y canalizaciones de copia de secuencias.",
+  "nickname_pt": "Arduino Audio Tools",
+  "description_pt": "Fluxos de áudio I2S combináveis, IO de amostra e pipelines de cópia de fluxo.",
+  "nickname_ru": "Arduino Audio Tools",
+  "description_ru": "Компонуемые аудиопотоки I2S, конвейеры ввода-вывода и копирования потоков.",
+  "nickname_ar": "Arduino Audio Tools",
+  "description_ar": "تدفقات الصوت I2S القابلة للتركيب، وعينات الإدخال/الإخراج، وخطوط أنابيب نسخ البث."
+}

@@ -1,0 +1,100 @@
+{
+  "toolbox_name": "IRremoteESP8266",
+  "ir_esp_send_init": {
+    "message0": "IR 送信側 %1 ピン %2 を初期化します",
+    "tooltip": "赤外線送信機を作成して起動します。"
+  },
+  "ir_esp_send_code": {
+    "message0": "IR 送信者 %1 %2 コードを送信 %3 ビット %4 繰り返し %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "NEC",
+            "sendNEC"
+          ],
+          [
+            "Sony",
+            "sendSony"
+          ],
+          [
+            "RC5",
+            "sendRC5"
+          ],
+          [
+            "RC6",
+            "sendRC6"
+          ],
+          [
+            "Samsung",
+            "sendSamsung"
+          ],
+          [
+            "LG",
+            "sendLG"
+          ],
+          [
+            "Panasonic",
+            "sendPanasonic64"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "一般的なプロトコルを使用して数値の赤外線コードを送信します。"
+  },
+  "ir_esp_send_raw": {
+    "message0": "IR 送信者 %1 生の配列を送信 %2 長さ %3 周波数 kHz %4",
+    "tooltip": "uint16_t タイミング配列を送信します。"
+  },
+  "ir_esp_recv_init": {
+    "message0": "IR レシーバーの初期化 %1 ピン %2 バッファー %3 タイムアウト ms %4",
+    "tooltip": "赤外線受信機を作成して有効にします。"
+  },
+  "ir_esp_when_received": {
+    "message0": "IR 受信機 %1 が %2 を受信した場合、%3 を実行します",
+    "tooltip": "1 つのメッセージをデコードし、本文を実行してから受信を再開します。"
+  },
+  "ir_esp_received_data": {
+    "message0": "IR 受信機 %1 受信した %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "数値",
+            "value"
+          ],
+          [
+            "ビット数",
+            "bits"
+          ],
+          [
+            "プロトコル列挙型",
+            "decode_type"
+          ],
+          [
+            "リピートフラグ",
+            "repeat"
+          ],
+          [
+            "オーバーフローフラグ",
+            "overflow"
+          ],
+          [
+            "人間が読めるテキスト",
+            "text"
+          ],
+          [
+            "ソースコードテキスト",
+            "source"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "最近デコードされたメッセージを読み取ります。"
+  }
+}

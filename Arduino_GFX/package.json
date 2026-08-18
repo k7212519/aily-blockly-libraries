@@ -1,0 +1,60 @@
+{
+  "name": "@aily-project/lib-arduino-gfx",
+  "nickname": "Arduino GFX",
+  "nickname_en": "Arduino GFX",
+  "author": "Moon On Our Nation",
+  "description": "Hardware SPI color display setup, shapes, text, rotation, and RGB565 colors.",
+  "description_en": "Hardware SPI color display setup, shapes, text, rotation, and RGB565 colors.",
+  "version": "0.1.0",
+  "url": "https://github.com/moononournation/Arduino_GFX",
+  "license": "BSD-3-Clause",
+  "compatibility": {
+    "core": [],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "gfx",
+    "display",
+    "tft",
+    "spi",
+    "ili9341",
+    "st7789"
+  ],
+  "bundledDependencies": {
+    "GFX Library for Arduino": "1.6.7"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "display",
+    "graphics"
+  ],
+  "nickname_zh_cn": "Arduino GFX",
+  "description_zh_cn": "硬件 SPI 彩色显示设置、形状、文本、旋转和 RGB565 颜色。",
+  "nickname_zh_hk": "Arduino GFX",
+  "description_zh_hk": "硬體 SPI 彩色顯示設定、形狀、文字、旋轉和 RGB565 顏色。",
+  "nickname_ja": "Arduino GFX",
+  "description_ja": "ハードウェア SPI カラー表示設定、形状、テキスト、回転、および RGB565 カラー。",
+  "nickname_ko": "Arduino GFX",
+  "description_ko": "하드웨어 SPI 컬러 디스플레이 설정, 모양, 텍스트, 회전 및 RGB565 색상.",
+  "nickname_de": "Arduino GFX",
+  "description_de": "Hardware-Einrichtung der SPI-Farbanzeige, Formen, Text, Drehung und RGB565-Farben.",
+  "nickname_fr": "Arduino GFX",
+  "description_fr": "Matériel Configuration de l'affichage couleur SPI, formes, texte, rotation et couleurs RGB565.",
+  "nickname_es": "Arduino GFX",
+  "description_es": "Hardware Configuración de pantalla en color SPI, formas, texto, rotación y colores RGB565.",
+  "nickname_pt": "Arduino GFX",
+  "description_pt": "Hardware Configuração do display colorido SPI, formas, texto, rotação e cores RGB565.",
+  "nickname_ru": "Arduino GFX",
+  "description_ru": "Аппаратная настройка цветного дисплея SPI, формы, текст, вращение и цвета RGB565.",
+  "nickname_ar": "Arduino GFX",
+  "description_ar": "إعداد شاشة العرض الملونة للأجهزة SPI والأشكال والنص والتدوير وألوان RGB565."
+}

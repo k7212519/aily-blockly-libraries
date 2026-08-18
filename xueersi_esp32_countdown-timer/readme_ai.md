@@ -8,29 +8,29 @@ TFT倒计时器：启动/暂停/继续/取消，完成时播放致爱丽丝旋�
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `cd_begin` | Statement | TFT(field_variable), PIN(field_input) | `cd_begin(variables_get($tft), "14")` | `Countdown.begin(&tft, &u8f); Countdown.setBuzzerPin(14);` |
+| `cd_begin` | Statement | TFT(field_variable), PIN(field_input) | `cd_begin($tft, "14")` | `Countdown.begin(&tft, &u8f); ↵ Countdown.setBuzzerPin(14);` |
 | `cd_set_font` | Statement | FONT(field_input) | `cd_set_font("chinese_city_gb2312")` | `Countdown.setFont(chinese_city_gb2312);` |
-| `cd_update` | Statement | (无) | `cd_update()` | `Countdown.update();` |
-| `cd_show` | Statement | (无) | `cd_show()` | `Countdown.show();` |
-| `cd_force_redraw` | Statement | (无) | `cd_force_redraw()` | `Countdown.forceRedraw();` |
-| `cd_start` | Statement | MIN(input_value) | `cd_start(math_number(5))` | `Countdown.start(5);` |
-| `cd_pause` | Statement | (无) | `cd_pause()` | `Countdown.pause();` |
-| `cd_resume` | Statement | (无) | `cd_resume()` | `Countdown.resume();` |
-| `cd_cancel` | Statement | (无) | `cd_cancel()` | `Countdown.cancel();` |
-| `cd_reset` | Statement | (无) | `cd_reset()` | `Countdown.reset();` |
+| `cd_update` | Statement | (none) | `cd_update()` | `Countdown.update();` |
+| `cd_show` | Statement | (none) | `cd_show()` | `Countdown.show();` |
+| `cd_force_redraw` | Statement | (none) | `cd_force_redraw()` | `Countdown.forceRedraw();` |
+| `cd_start` | Statement | MIN(input_value) | `cd_start(math_number(5))` | `Countdown.start(1);` |
+| `cd_pause` | Statement | (none) | `cd_pause()` | `Countdown.pause();` |
+| `cd_resume` | Statement | (none) | `cd_resume()` | `Countdown.resume();` |
+| `cd_cancel` | Statement | (none) | `cd_cancel()` | `Countdown.cancel();` |
+| `cd_reset` | Statement | (none) | `cd_reset()` | `Countdown.reset();` |
 | `cd_add_minutes` | Statement | DELTA(input_value) | `cd_add_minutes(math_number(1))` | `Countdown.addMinutes(1);` |
-| `cd_get_state` | Value (Number) | (无) | `cd_get_state()` | `Countdown.getState()` |
-| `cd_get_state_str` | Value (String) | (无) | `cd_get_state_str()` | `Countdown.getStateString()` |
-| `cd_get_remain_min` | Value (Number) | (无) | `cd_get_remain_min()` | `Countdown.getRemainMin()` |
-| `cd_get_remain_sec` | Value (Number) | (无) | `cd_get_remain_sec()` | `Countdown.getRemainSec()` |
-| `cd_get_time_str` | Value (String) | (无) | `cd_get_time_str()` | `Countdown.getTimeString()` |
-| `cd_get_set_min` | Value (Number) | (无) | `cd_get_set_min()` | `Countdown.getSetMinutes()` |
-| `cd_btn_up` | Statement | (无) | `cd_btn_up()` | `Countdown.onBtnUp();` |
-| `cd_btn_down` | Statement | (无) | `cd_btn_down()` | `Countdown.onBtnDown();` |
-| `cd_btn_a` | Statement | (无) | `cd_btn_a()` | `Countdown.onBtnA();` |
-| `cd_btn_b` | Statement | (无) | `cd_btn_b()` | `Countdown.onBtnB();` |
+| `cd_get_state` | Value (Number) | (none) | `cd_get_state()` | `Countdown.getState()` |
+| `cd_get_state_str` | Value (String) | (none) | `cd_get_state_str()` | `Countdown.getStateString()` |
+| `cd_get_remain_min` | Value (Number) | (none) | `cd_get_remain_min()` | `Countdown.getRemainMin()` |
+| `cd_get_remain_sec` | Value (Number) | (none) | `cd_get_remain_sec()` | `Countdown.getRemainSec()` |
+| `cd_get_time_str` | Value (String) | (none) | `cd_get_time_str()` | `Countdown.getTimeString()` |
+| `cd_get_set_min` | Value (Number) | (none) | `cd_get_set_min()` | `Countdown.getSetMinutes()` |
+| `cd_btn_up` | Statement | (none) | `cd_btn_up()` | `Countdown.onBtnUp();` |
+| `cd_btn_down` | Statement | (none) | `cd_btn_down()` | `Countdown.onBtnDown();` |
+| `cd_btn_a` | Statement | (none) | `cd_btn_a()` | `Countdown.onBtnA();` |
+| `cd_btn_b` | Statement | (none) | `cd_btn_b()` | `Countdown.onBtnB();` |
 
 ## Parameter Options
 
@@ -47,3 +47,11 @@ TFT倒计时器：启动/暂停/继续/取消，完成时播放致爱丽丝旋�
 5. **增量刷新**: `cd_update` 仅在时间或状态变化时重绘TFT
 6. **依赖**: TFT_eSPI + U8g2_for_TFT_eSPI 已初始化
 7. **ESP32专用**: 使用ledcWriteTone驱动蜂鸣器
+## ABS Examples
+
+### Minimal Executable Usage
+
+```abs
+arduino_setup()
+    cd_begin($tft, "14")
+```

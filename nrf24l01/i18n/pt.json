@@ -1,0 +1,76 @@
+{
+  "toolbox_name": "Comunicação por rádio nRF24L01",
+  "toolbox_labels": {
+    "Setup": "Inicialização e configuração",
+    "Addresses": "Endereços de rádio",
+    "Send and receive": "Envio e receção",
+    "Status and power": "Estado e energia"
+  },
+  "nrf24l01_init": {
+    "message0": "inicializar nRF24L01 %1 pino CE %2 pino CSN %3",
+    "tooltip": "Cria o objeto RF24, inicializa o rádio SPI e ativa cargas dinâmicas. Alimente o módulo com 3,3 V."
+  },
+  "nrf24l01_set_radio_parameters": {
+    "message0": "nRF24L01 %1 definir canal %2 taxa %3 potência %4",
+    "tooltip": "Configura o canal RF (0-125), a taxa no ar e a potência de transmissão. Os dois rádios devem usar o mesmo canal e taxa.",
+    "args0": [null, null, {"options": [["250 kbps", "RF24_250KBPS"], ["1 Mbps", "RF24_1MBPS"], ["2 Mbps", "RF24_2MBPS"]]}, {"options": [["mínima (-18 dBm)", "RF24_PA_MIN"], ["baixa (-12 dBm)", "RF24_PA_LOW"], ["alta (-6 dBm)", "RF24_PA_HIGH"], ["máxima (0 dBm)", "RF24_PA_MAX"]]}]
+  },
+  "nrf24l01_set_retries": {
+    "message0": "nRF24L01 %1 definir atraso de repetição %2 quantidade %3",
+    "tooltip": "Configura o atraso e a quantidade de retransmissões automáticas. Cada valor varia de 0 a 15."
+  },
+  "nrf24l01_set_auto_ack": {
+    "message0": "nRF24L01 %1 confirmação automática %2",
+    "tooltip": "Ativa ou desativa a confirmação automática em todos os canais de receção."
+  },
+  "nrf24l01_open_writing_pipe": {
+    "message0": "nRF24L01 %1 definir endereço de envio %2",
+    "tooltip": "Configura o endereço de destino e entra no modo de transmissão. Usa os primeiros 5 bytes e completa endereços mais curtos."
+  },
+  "nrf24l01_open_reading_pipe": {
+    "message0": "nRF24L01 %1 abrir canal de receção %2 endereço %3",
+    "tooltip": "Abre o canal de receção 0-5 com um endereço de 5 bytes. Os canais 2-5 devem partilhar os últimos 4 bytes com o canal 1."
+  },
+  "nrf24l01_set_listening": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "Alterna entre receção e transmissão. Abra um canal de receção antes de começar a escutar.",
+    "args0": [null, {"options": [["iniciar receção", "START"], ["parar receção", "STOP"]]}]
+  },
+  "nrf24l01_send_text": {
+    "message0": "nRF24L01 %1 enviar texto %2",
+    "tooltip": "Envia até 31 bytes de texto e um terminador e guarda se o pacote foi confirmado."
+  },
+  "nrf24l01_send_number": {
+    "message0": "nRF24L01 %1 enviar número %2",
+    "tooltip": "Envia um número como carga de ponto flutuante de 32 bits e guarda se foi confirmado."
+  },
+  "nrf24l01_available": {
+    "message0": "nRF24L01 %1 tem dados recebidos",
+    "tooltip": "Retorna verdadeiro quando há uma carga à espera e guarda o número do canal de receção."
+  },
+  "nrf24l01_read_text": {
+    "message0": "nRF24L01 %1 ler texto",
+    "tooltip": "Lê e consome a próxima carga como texto. Verifique primeiro se há dados recebidos."
+  },
+  "nrf24l01_read_number": {
+    "message0": "nRF24L01 %1 ler número",
+    "tooltip": "Lê e consome a próxima carga de ponto flutuante de 32 bits. Verifique primeiro se há dados recebidos."
+  },
+  "nrf24l01_last_send_succeeded": {
+    "message0": "nRF24L01 %1 último envio bem-sucedido",
+    "tooltip": "Retorna o resultado da confirmação do envio de texto ou número mais recente."
+  },
+  "nrf24l01_received_pipe": {
+    "message0": "nRF24L01 %1 último canal de receção",
+    "tooltip": "Retorna o número de canal guardado pela última verificação de dados recebidos."
+  },
+  "nrf24l01_is_chip_connected": {
+    "message0": "nRF24L01 %1 hardware ligado",
+    "tooltip": "Verifica se o microcontrolador consegue comunicar com o rádio por SPI."
+  },
+  "nrf24l01_set_power_mode": {
+    "message0": "nRF24L01 %1 %2",
+    "tooltip": "Ativa o rádio ou entra no modo de baixo consumo. A configuração é mantida enquanto está desligado.",
+    "args0": [null, {"options": [["ligar", "UP"], ["desligar", "DOWN"]]}]
+  }
+}

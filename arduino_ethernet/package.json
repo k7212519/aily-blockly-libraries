@@ -1,0 +1,64 @@
+{
+  "name": "@aily-project/lib-arduino-ethernet",
+  "nickname": "Arduino Ethernet",
+  "nickname_en": "Arduino Ethernet",
+  "author": "Arduino",
+  "description": "Wired Ethernet client, server, UDP, DHCP, and static IP blocks.",
+  "description_en": "Wired Ethernet client, server, UDP, DHCP, and static IP blocks.",
+  "version": "0.1.0",
+  "url": "https://github.com/arduino-libraries/Ethernet",
+  "license": "LGPL-2.1",
+  "compatibility": {
+    "core": [
+      "arduino:avr",
+      "arduino:samd",
+      "arduino:megaavr",
+      "arduino:renesas_uno"
+    ],
+    "voltage": [
+      3.3,
+      5
+    ]
+  },
+  "keywords": [
+    "aily",
+    "blockly",
+    "ethernet",
+    "w5100",
+    "w5500",
+    "tcp",
+    "udp"
+  ],
+  "bundledDependencies": {
+    "Ethernet": "2.0.2"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "tags": [
+    "network",
+    "communication"
+  ],
+  "nickname_zh_cn": "Arduino Ethernet",
+  "description_zh_cn": "有线以太网客户端、服务器、UDP、DHCP 和静态 IP 块。",
+  "nickname_zh_hk": "Arduino Ethernet",
+  "description_zh_hk": "有線乙太網路用戶端、伺服器、UDP、DHCP 和靜態 IP 區塊。",
+  "nickname_ja": "Arduino Ethernet",
+  "description_ja": "有線イーサネット クライアント、サーバー、UDP、DHCP、および静的 IP ブロック。",
+  "nickname_ko": "Arduino Ethernet",
+  "description_ko": "유선 이더넷 클라이언트, 서버, UDP, DHCP 및 정적 IP 블록.",
+  "nickname_de": "Arduino Ethernet",
+  "description_de": "Kabelgebundener Ethernet-Client, Server, UDP-, DHCP- und statische IP-Blöcke.",
+  "nickname_fr": "Arduino Ethernet",
+  "description_fr": "Client Ethernet filaire, serveur, blocs UDP, DHCP et IP statiques.",
+  "nickname_es": "Arduino Ethernet",
+  "description_es": "Cliente Ethernet cableado, servidor, bloques UDP, DHCP y estáticos IP.",
+  "nickname_pt": "Arduino Ethernet",
+  "description_pt": "Cliente Ethernet com fio, servidor, UDP, DHCP e blocos IP estáticos.",
+  "nickname_ru": "Arduino Ethernet",
+  "description_ru": "Клиент проводного Ethernet, сервер, UDP, DHCP и статические блоки IP.",
+  "nickname_ar": "Arduino Ethernet",
+  "description_ar": "عميل Ethernet السلكي، والخادم، وكتل UDP، وDHCP، وكتل IP الثابتة."
+}

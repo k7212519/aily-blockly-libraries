@@ -107,7 +107,7 @@
   },
   {
     "type": "max31865_check_fault",
-    "message0": "检查温度传感器故障 %1",
+    "message0": "检查温度传感器故障 %1 状态变量 %2",
     "args0": [
       {
         "type": "field_dropdown",
@@ -138,6 +138,11 @@
             "MAX31865_FAULT_VOLTAGE_OOR"
           ]
         ]
+      },
+      {
+        "type": "field_variable",
+        "name": "STATUS_VAR",
+        "variable": "status"
       }
     ],
     "output": "Boolean",

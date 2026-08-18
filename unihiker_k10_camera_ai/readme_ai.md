@@ -8,22 +8,22 @@ UNIHIKER K10 camera and AI recognition library, supports photo, face detection/r
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `k10_camera_init` | Statement | (none) | `k10_camera_init()` | `camPlayState = 0; k10.initBgCamerImage(); k10.setBgCamerImage(false);` (setup) |
-| `k10_camera_show` | Statement | (none) | `k10_camera_show()` | k10.setBgCamerImage(true);\n |
-| `k10_camera_hide` | Statement | (none) | `k10_camera_hide()` | k10.setBgCamerImage(false);\n |
-| `k10_photo_save` | Statement | FILENAME(input_value) | `k10_photo_save(text("value"))` | k10.photoSaveToTFCard( |
-| `k10_photo_base64` | Value | (none) | `k10_photo_base64()` | k10CameraPhotoBase64() |
-| `k10_ai_init` | Statement | MODE(dropdown) | `k10_ai_init(Face)` | `ai.initAi(); ... k10.initBgCamerImage(); k10.setBgCamerImage(false); k10StartAiModeHidden(...);` (setup) |
+| `k10_camera_init` | Statement | (none) | `k10_camera_init()` | `UNIHIKER_K10 k10; ↵ k10.begin(); ↵ uint8_t screen_dir = 2; ↵ k10.initScreen(screen_dir); ↵ extern uint8_t camPlayState; ↵ extern QueueHandle_t xQueueCamer; ↵ camPlayState = 0; ↵ k10.initBgCamerImage(); ↵ k10.setBgCamerImage(false); ↵ k10.creatCanvas();` |
+| `k10_camera_show` | Statement | (none) | `k10_camera_show()` | `k10.setBgCamerImage(true);` |
+| `k10_camera_hide` | Statement | (none) | `k10_camera_hide()` | `k10.setBgCamerImage(false);` |
+| `k10_photo_save` | Statement | FILENAME(input_value) | `k10_photo_save(text("value"))` | `k10.photoSaveToTFCard("value");` |
+| `k10_photo_base64` | Value | (none) | `k10_photo_base64()` | `k10CameraPhotoBase64()` |
+| `k10_ai_init` | Statement | MODE(dropdown) | `k10_ai_init(Face)` | `UNIHIKER_K10 k10; ↵ k10.begin(); ↵ AIRecognition ai; ↵ AIRecognition::eAiType_t k10_ai_current_mode = AIRecognition::NoMode; ↵ bool k10_ai_has_mode = false; ↵ void k10SwitchAiMode(AIRecognition::eAiType_t mode) { ↵ if (k10_ai_has_mode && k10_ai_current_mode == mode) { ↵ return; ↵ } ↵ ai.switchAiMode(mode); ↵ k10_ai_current_mode = mode; ↵ k10_ai_has_mode = true; ↵ } ↵ uint8_t screen_dir = 2; ↵ k10.initScreen(screen_dir); ↵ extern uint8_t camPlayState; ↵ extern QueueHandle_t xQueueCamer; ↵ camPlayState = 0; ↵ k10.initBgCamerImage(); ↵ k10.setBgCamerImage(false); ↵ k10.creatCanvas(); ↵ void k10StartAiModeHidden(AIRecognition::eAiType_t mode) { ↵ k10.setBgCamerImage(false); ↵ uint32_t waitStart = millis(); ↵ while ((xQueueCamer == NULL &#124;&#124; uxQueueMessagesWaiting(xQueueCamer) == 0) && ↵ (uint32_t)(millis() - waitStart) < 2000) { ↵ delay(20); ↵ } ↵ k10SwitchAiMode(mode); ↵ delay(100); ↵ } ↵ ai.initAi(); ↵ k10StartAiModeHidden(AIRecognition::Face);` |
 | `k10_ai_switch_mode` | Statement | MODE(dropdown) | `k10_ai_switch_mode(Face)` | `k10SwitchAiMode(AIRecognition::Face);` |
-| `k10_ai_is_detected` | Value | TYPE(dropdown) | `k10_ai_is_detected(Face)` | ai.isDetectContent(AIRecognition:: |
-| `k10_ai_get_face_data` | Value | DATA(dropdown) | `k10_ai_get_face_data(CenterX)` | ai.getFaceData(AIRecognition:: |
-| `k10_ai_get_cat_data` | Value | DATA(dropdown) | `k10_ai_get_cat_data(CenterX)` | ai.getCatData(AIRecognition:: |
-| `k10_ai_get_qrcode` | Value | (none) | `k10_ai_get_qrcode()` | ai.getQrCodeContent() |
-| `k10_ai_set_motion_threshold` | Statement | THRESHOLD(input_value) | `k10_ai_set_motion_threshold(math_number(0))` | ai.setMotinoThreshold( |
+| `k10_ai_is_detected` | Value | TYPE(dropdown) | `k10_ai_is_detected(Face)` | `ai.isDetectContent(AIRecognition::Face)` |
+| `k10_ai_get_face_data` | Value | DATA(dropdown) | `k10_ai_get_face_data(CenterX)` | `ai.getFaceData(AIRecognition::CenterX)` |
+| `k10_ai_get_cat_data` | Value | DATA(dropdown) | `k10_ai_get_cat_data(CenterX)` | `ai.getCatData(AIRecognition::CenterX)` |
+| `k10_ai_get_qrcode` | Value | (none) | `k10_ai_get_qrcode()` | `ai.getQrCodeContent()` |
+| `k10_ai_set_motion_threshold` | Statement | THRESHOLD(input_value) | `k10_ai_set_motion_threshold(math_number(0))` | `ai.setMotinoThreshold(1);` |
 | `k10_ai_face_recognized` | Value | (none) | `k10_ai_face_recognized()` | `ai.isRecognized()` |
-| `k10_ai_get_face_id` | Value | (none) | `k10_ai_get_face_id()` | ai.getRecognitionID() |
+| `k10_ai_get_face_id` | Value | (none) | `k10_ai_get_face_id()` | `ai.getRecognitionID()` |
 | `k10_ai_face_cmd` | Statement | CMD(dropdown) | `k10_ai_face_cmd(ENROLL)` | `ai.sendFaceCmd(ENROLL);` |
 
 ## Parameter Options
@@ -55,7 +55,7 @@ arduino_setup()
     k10_camera_init()
 
 arduino_loop()
-    variables_set(photo_base64, k10_photo_base64())
+    variables_set($photo_base64, k10_photo_base64())
 ```
 
 ### Face Recognition Usage

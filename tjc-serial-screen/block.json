@@ -1,0 +1,373 @@
+[
+  {
+    "type": "tjc_begin_hardware",
+    "message0": "Initialize 淘晶驰 hardware serial %1 at %2 baud",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SPEED",
+        "options": "${board.serialSpeed}"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Start the selected board hardware UART for the 淘晶驰 screen. Connect screen TX to board RX and screen RX to board TX, select the same baud rate as the screen, and place this before every command or parser block."
+  },
+  {
+    "type": "tjc_begin_software",
+    "message0": "Initialize 淘晶驰 software serial %1 at %2 baud RX %3 TX %4",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "淘晶驰Serial"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SPEED",
+        "options": "${board.serialSpeed}"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "RX",
+        "options": "${board.digitalPins}"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "TX",
+        "options": "${board.digitalPins}"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Create a SoftwareSerial port with the chosen object name and pins, then start it at the selected baud rate. Cross-connect screen TX to RX and screen RX to TX; use this on boards without a spare hardware UART and keep the baud rate modest."
+  },
+  {
+    "type": "tjc_clear_startup",
+    "message0": "Clear 淘晶驰 startup data on %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Read and discard bytes waiting in the selected UART, including the usual 0x88 FF FF FF power-on frame. Run it after serial initialization and before enabling return-frame events so startup data is not mistaken for an application response."
+  },
+  {
+    "type": "tjc_set_brightness",
+    "message0": "Set 淘晶驰 backlight brightness on %1 to %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": [
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Set the screen's current backlight with dim. VALUE is normally 0 to 100 (0 off, 100 brightest); this changes runtime brightness and does not persist it to flash, so use it for occasional adjustments."
+  },
+  {
+    "type": "tjc_page",
+    "message0": "Switch 淘晶驰 page on %1 to %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      },
+      {
+        "type": "input_value",
+        "name": "PAGE",
+        "check": [
+          "String",
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Navigate to a 淘晶驰 page by its page name, such as main, or numeric page ID. Supply only a text or number value; the library emits the page command and FF FF FF terminator automatically."
+  },
+  {
+    "type": "tjc_set_variable",
+    "message0": "Set 淘晶驰 variable %1 to %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "TARGET",
+        "text": "sys0"
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": [
+          "String",
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Assign a global, system, or page variable such as sys0 or va0. Numeric values are sent without quotes and text values are automatically wrapped in quotes, so do not add command syntax or FF FF FF yourself."
+  },
+  {
+    "type": "tjc_set_property",
+    "message0": "On serial %1 set component %2 property %3 to %4",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      },
+      {
+        "type": "field_input",
+        "name": "COMPONENT",
+        "text": "p0"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "PROPERTY",
+        "options": [
+          [
+            "文本 (txt)",
+            "txt"
+          ],
+          [
+            "数值 (val)",
+            "val"
+          ],
+          [
+            "图片编号 (pic)",
+            "pic"
+          ],
+          [
+            "显示 (vis)",
+            "vis"
+          ],
+          [
+            "触摸使能 (tsw)",
+            "tsw"
+          ],
+          [
+            "背景色 (bco)",
+            "bco"
+          ],
+          [
+            "前景色 (pco)",
+            "pco"
+          ],
+          [
+            "字体 (font)",
+            "font"
+          ],
+          [
+            "坐标X (x)",
+            "x"
+          ],
+          [
+            "坐标Y (y)",
+            "y"
+          ],
+          [
+            "宽度 (w)",
+            "w"
+          ],
+          [
+            "高度 (h)",
+            "h"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": [
+          "String",
+          "Number"
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Write one property of a named 淘晶驰 component, for example p0.pic=2, n0.val=100, or t0.txt=\"Ready\". Choose the property with its Chinese and English label; text properties need text input and numeric properties need numbers."
+  },
+  {
+    "type": "tjc_send_command",
+    "message0": "Send 淘晶驰 command %1 on %2",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "COMMAND",
+        "check": [
+          "String"
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Send a raw 淘晶驰 ASCII command such as page main, ref t0, or get sys0. Enter only the command text; this block appends exactly three 0xFF terminator bytes and starts the selected UART if needed."
+  },
+  {
+    "type": "tjc_set_bkcmd",
+    "message0": "Set 淘晶驰 bkcmd on %1 to %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "MODE",
+        "options": [
+          [
+            "0 - no return",
+            "0"
+          ],
+          [
+            "1 - success and error",
+            "1"
+          ],
+          [
+            "2 - errors only",
+            "2"
+          ],
+          [
+            "3 - all",
+            "3"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Set the screen bkcmd feedback mode: 0 disables replies, 1 returns success and errors, 2 returns errors only, and 3 returns all feedback. Enable the parser separately if your program must inspect these frames."
+  },
+  {
+    "type": "tjc_enable_frame_parser",
+    "message0": "Enable 淘晶驰 return frame parser on %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#159A9C",
+    "tooltip": "Install a loop service that reads the selected UART, splits return data at FF FF FF, and stores the first byte as the frame type. Place it after serial initialization and before frame-event, frame-type, or frame-available blocks."
+  },
+  {
+    "type": "tjc_frame_event",
+    "message0": "When 淘晶驰 frame %1 is received on %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "TYPE",
+        "options": [
+          [
+            "touch event (65)",
+            "65"
+          ],
+          [
+            "page ID (66)",
+            "66"
+          ],
+          [
+            "touch coordinates (67)",
+            "67"
+          ],
+          [
+            "string (70)",
+            "70"
+          ],
+          [
+            "number (71)",
+            "71"
+          ],
+          [
+            "startup (88)",
+            "88"
+          ],
+          [
+            "any frame",
+            "ANY"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      }
+    ],
+    "message1": "do %1",
+    "args1": [
+      {
+        "type": "input_statement",
+        "name": "HANDLER"
+      }
+    ],
+    "colour": "#5CB85C",
+    "tooltip": "Run HANDLER when the parser receives the selected 淘晶驰 return-frame type (65 touch, 66 page, 67 coordinates, 70 string, 71 number, 88 startup, or any). Initialize the parser first; the handler executes from the main loop."
+  },
+  {
+    "type": "tjc_frame_type",
+    "message0": "淘晶驰 last frame type on %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      }
+    ],
+    "output": "Number",
+    "colour": "#159A9C",
+    "tooltip": "Return the first byte of the most recently completed 淘晶驰 frame, such as 65 for touch or 71 for a numeric response. Use after enabling the frame parser; before the first frame the value is 0."
+  },
+  {
+    "type": "tjc_frame_available",
+    "message0": "淘晶驰 frame available on %1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SERIAL",
+        "options": "${board.serialPort}"
+      }
+    ],
+    "output": "Boolean",
+    "colour": "#159A9C",
+    "tooltip": "Return true after the parser has received a complete frame ending in FF FF FF. Use it in an if block together with frame-type, or use a frame event, to avoid reading incomplete serial data."
+  }
+]

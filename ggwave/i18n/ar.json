@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "تهيئة وضع ggwave %1 معدل العينة %2 عينات/إطار %3 طول الحمولة النافعة %4 %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "تشفير وفك التشفير",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "ترميز فقط",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "فك التشفير فقط",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "قم بإنشاء مثيل برنامج ترميز البيانات عبر الصوت ggwave باستخدام صوت 16 بت موقّع."
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 تشفير النص بروتوكول %2 %3 حجم %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "عادي مسموع",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "سريع مسموع",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "مسموع أسرع",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "الموجات فوق الصوتية عادية",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "الموجات فوق الصوتية بسرعة",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "الموجات فوق الصوتية الأسرع",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "نغمة مزدوجة بسرعة",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "متعدد النغمات بسرعة",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "تشفير النص في المخزن المؤقت الموجي المُدار."
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 المشفرة %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "مؤشر المخزن المؤقت الموجي",
+            "waveform"
+          ],
+          [
+            "بايت الموجي",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "الوصول إلى الشكل الموجي الأخير المشفر وطول البايت الخاص به."
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 فك تشفير المخزن المؤقت للصوت %2 بايت %3",
+    "tooltip": "قم بتغذية عينات صوتية موقعة ذات 16 بت تم التقاطها وإرجاع عدد البايتات التي تم فك تشفيرها."
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 تم فك تشفيرها %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "نص",
+            "text"
+          ],
+          [
+            "عدد البايتات",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "اقرأ أحدث الحمولة التي تم فك تشفيرها."
+  },
+  "ggwave_free": {
+    "message0": "الافراج عن ggwave %1",
+    "tooltip": "حرر برنامج الترميز وذاكرة الشكل الموجي."
+  }
+}

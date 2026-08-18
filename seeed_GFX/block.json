@@ -966,6 +966,61 @@
     "icon": "fa-regular fa-font"
   },
   {
+    "type": "seeed_gfx_image",
+    "message0": "Seeed GFX 图片 %1",
+    "args0": [
+      {
+        "type": "field_tftespi_image",
+        "name": "CUSTOM_IMAGE",
+        "width": 160,
+        "height": 120,
+        "format": "rgb565",
+        "fieldHeight": 50
+      }
+    ],
+    "output": "SeeedGfxImage",
+    "colour": "#2196F3",
+    "icon": "fa-regular fa-image",
+    "tooltip": "上传 PNG、JPEG、WebP 或 BMP 图片并转换为 Seeed GFX RGB565/RGB332 像素数据"
+  },
+  {
+    "type": "seeed_gfx_draw_image",
+    "message0": "在屏幕 %1 坐标 X:%2 Y:%3 显示图片 %4",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "tft",
+        "variableTypes": [
+          "TFT",
+          "TFT_eSPI"
+        ],
+        "defaultType": "TFT"
+      },
+      {
+        "type": "input_value",
+        "name": "X",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "Y",
+        "check": ["Number"]
+      },
+      {
+        "type": "input_value",
+        "name": "IMAGE",
+        "check": "SeeedGfxImage"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#2196F3",
+    "tooltip": "在指定坐标显示已取模的 RGB565/RGB332 图片",
+    "icon": "fa-regular fa-image"
+  },
+  {
     "type": "seeed_gfx_animation",
     "message0": "Seeed GFX 动画 %1",
     "args0": [
@@ -1129,42 +1184,6 @@
     "colour": "#2196F3",
     "icon": "fa-solid fa-film",
     "tooltip": "获取 Seeed GFX 动画的总帧数",
-    "inputsInline": true
-  },
-  {
-    "type": "seeed_gfx_step_animation_frame",
-    "message0": "让帧变量 %1 向目标帧 %2 移动一步 总帧数 %3 方向 %4",
-    "args0": [
-      {
-        "type": "field_variable",
-        "name": "FRAME_VAR",
-        "variable": "seeedGfxAnimationFrame"
-      },
-      {
-        "type": "input_value",
-        "name": "TARGET",
-        "check": "Number"
-      },
-      {
-        "type": "input_value",
-        "name": "FRAME_COUNT",
-        "check": "Number"
-      },
-      {
-        "type": "field_dropdown",
-        "name": "DIRECTION",
-        "options": [
-          ["自动", "AUTO"],
-          ["正向", "FORWARD"],
-          ["反向", "BACKWARD"]
-        ]
-      }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "#2196F3",
-    "icon": "fa-solid fa-film",
-    "tooltip": "让帧变量向目标帧移动一步，可自动选择方向或强制正向、反向循环",
     "inputsInline": true
   },
   {

@@ -8,11 +8,11 @@ Controls the Wio Terminal built-in infrared emitter with IRLib2 protocol and raw
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `wio_ir_send_nec` | Statement | DATA(input_value), KHZ(input_value) | `wio_ir_send_nec(math_number(0), math_number(0))` | ailyWioIrSender.send(NEC, |
-| `wio_ir_send` | Statement | PROTOCOL(dropdown), DATA(input_value), DATA2(input_value), KHZ(input_value) | `wio_ir_send(NEC, math_number(0), math_number(0), math_number(0))` | ailyWioIrSender.send( |
-| `wio_ir_send_raw` | Statement | DATA(input_value), KHZ(input_value) | `wio_ir_send_raw(text("9000,4500,560,560"), math_number(38))` | `ailyWioIrRawSender.send(...)` |
+| `wio_ir_send_nec` | Statement | DATA(input_value), KHZ(input_value) | `wio_ir_send_nec(math_number(0), math_number(0))` | `ailyWioIrSender.send(NEC, 1, 0, 1);` |
+| `wio_ir_send` | Statement | PROTOCOL(dropdown), DATA(input_value), DATA2(input_value), KHZ(input_value) | `wio_ir_send(NEC, math_number(0), math_number(0), math_number(0))` | `ailyWioIrSender.send(NEC, 1, 1, 1);` |
+| `wio_ir_send_raw` | Statement | DATA(input_value), KHZ(input_value) | `wio_ir_send_raw(text("9000,4500,560,560"), math_number(38))` | `// Wio IR: invalid raw timing data` |
 
 ## Parameter Options
 

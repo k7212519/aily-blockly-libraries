@@ -8,36 +8,36 @@ FreeRTOS multitasking support for ESP32 Arduino
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `esp32_freertos_task_create` | Statement | VAR(field_input), STACK_SIZE(field_number), PRIORITY(field_number), CORE(dropdown) | `esp32_freertos_task_create("TaskBlink", 4096, 1, AUTO)` | xTaskCreate(\n |
-| `esp32_freertos_task_function` | Hat | VAR(field_variable), TASK_CODE(input_statement) | `esp32_freertos_task_function(variables_get($TaskBlink)) @TASK_CODE: child_block()` | Dynamic code |
-| `esp32_freertos_task_delay_ms` | Statement | MS(input_value) | `esp32_freertos_task_delay_ms(math_number(1000))` | vTaskDelay(pdMS_TO_TICKS( |
-| `esp32_freertos_task_delay_ticks` | Statement | TICKS(input_value) | `esp32_freertos_task_delay_ticks(math_number(0))` | vTaskDelay( |
-| `esp32_freertos_task_suspend` | Statement | VAR(field_variable) | `esp32_freertos_task_suspend(variables_get($TaskBlink))` | vTaskSuspend( |
-| `esp32_freertos_task_resume` | Statement | VAR(field_variable) | `esp32_freertos_task_resume(variables_get($TaskBlink))` | vTaskResume( |
-| `esp32_freertos_task_delete` | Statement | VAR(field_variable) | `esp32_freertos_task_delete(variables_get($TaskBlink))` | vTaskDelete( |
-| `esp32_freertos_task_delete_current` | Statement | (none) | `esp32_freertos_task_delete_current()` | vTaskDelete(NULL);\n |
-| `esp32_freertos_task_notify` | Statement | VAR(field_variable) | `esp32_freertos_task_notify(variables_get($TaskBlink))` | xTaskNotifyGive( |
-| `esp32_freertos_task_notify_from_isr` | Statement | VAR(field_variable) | `esp32_freertos_task_notify_from_isr(variables_get($TaskBlink))` | Dynamic code |
-| `esp32_freertos_task_wait_notification` | Value | WAIT_MODE(dropdown), WAIT_MS(input_value) | `esp32_freertos_task_wait_notification(MS, math_number(1000))` | (ulTaskNotifyTake(pdTRUE, |
-| `esp32_freertos_queue_create` | Statement | VAR(field_input), QUEUE_LENGTH(field_number), DATA_TYPE(dropdown) | `esp32_freertos_queue_create("sensorQueue", 10, int)` | Dynamic code |
-| `esp32_freertos_queue_send` | Statement | VAR(field_variable), DATA(input_value), DATA_TYPE(dropdown), WAIT_MODE(dropdown), WAIT_MS(input_value) | `esp32_freertos_queue_send(variables_get($sensorQueue), math_number(0), int, MS, math_number(1000))` | Dynamic code |
-| `esp32_freertos_queue_receive_do` | Statement | VAR(field_variable), DATA_TYPE(dropdown), ITEM_VAR(field_input), WAIT_MODE(dropdown), WAIT_MS(input_value), HANDLER(input_statement) | `esp32_freertos_queue_receive_do(variables_get($sensorQueue), int, "queueValue", MS, math_number(1000)) @HANDLER: child_block()` | Dynamic code |
-| `esp32_freertos_queue_messages_waiting` | Value | VAR(field_variable) | `esp32_freertos_queue_messages_waiting(variables_get($sensorQueue))` | uxQueueMessagesWaiting( |
-| `esp32_freertos_semaphore_create` | Statement | VAR(field_input), SEMAPHORE_TYPE(dropdown), MAX_COUNT(field_number), INITIAL_COUNT(field_number) | `esp32_freertos_semaphore_create("syncSem", BINARY, 10, 0)` | Dynamic code |
-| `esp32_freertos_semaphore_take` | Value | VAR(field_variable), WAIT_MODE(dropdown), WAIT_MS(input_value) | `esp32_freertos_semaphore_take(variables_get($syncSem), MS, math_number(1000))` | (xSemaphoreTake( |
-| `esp32_freertos_semaphore_give` | Statement | VAR(field_variable) | `esp32_freertos_semaphore_give(variables_get($syncSem))` | xSemaphoreGive( |
-| `esp32_freertos_semaphore_give_from_isr` | Statement | VAR(field_variable) | `esp32_freertos_semaphore_give_from_isr(variables_get($syncSem))` | Dynamic code |
-| `esp32_freertos_attach_interrupt` | Hat | PIN(field_number), MODE(dropdown), ISR_CODE(input_statement) | `esp32_freertos_attach_interrupt(2, LOW) @ISR_CODE: child_block()` | Dynamic code |
-| `esp32_freertos_get_tick_count` | Value | (none) | `esp32_freertos_get_tick_count()` | xTaskGetTickCount() |
-| `esp32_freertos_get_task_count` | Value | (none) | `esp32_freertos_get_task_count()` | uxTaskGetNumberOfTasks() |
-| `esp32_freertos_get_task_name` | Value | VAR(field_variable) | `esp32_freertos_get_task_name(variables_get($TaskBlink))` | pcTaskGetName( |
-| `esp32_freertos_get_current_task_name` | Value | (none) | `esp32_freertos_get_current_task_name()` | pcTaskGetName(NULL) |
-| `esp32_freertos_get_stack_high_water_mark` | Value | VAR(field_variable) | `esp32_freertos_get_stack_high_water_mark(variables_get($TaskBlink))` | uxTaskGetStackHighWaterMark( |
-| `esp32_freertos_get_current_stack_high_water_mark` | Value | (none) | `esp32_freertos_get_current_stack_high_water_mark()` | uxTaskGetStackHighWaterMark(NULL) |
-| `esp32_freertos_get_free_heap_size` | Value | (none) | `esp32_freertos_get_free_heap_size()` | xPortGetFreeHeapSize() |
-| `esp32_freertos_get_current_core` | Value | (none) | `esp32_freertos_get_current_core()` | xPortGetCoreID() |
+| `esp32_freertos_task_create` | Statement | VAR(field_input), STACK_SIZE(field_number), PRIORITY(field_number), CORE(dropdown) | `esp32_freertos_task_create("TaskBlink", 4096, 1, AUTO)` | `xTaskCreate( ↵ TaskBlink, ↵ "TaskBlink", ↵ 4096, ↵ NULL, ↵ 1, ↵ &TaskBlinkHandle ↵ );` |
+| `esp32_freertos_task_function` | Hat | VAR(field_variable), TASK_CODE(input_statement) | `esp32_freertos_task_function($TaskBlink)` | `void TaskBlink(void *pvParameters) { ↵ (void) pvParameters; ↵ for (;;) { ↵ } ↵ }` |
+| `esp32_freertos_task_delay_ms` | Statement | MS(input_value) | `esp32_freertos_task_delay_ms(math_number(1000))` | `vTaskDelay(pdMS_TO_TICKS(1));` |
+| `esp32_freertos_task_delay_ticks` | Statement | TICKS(input_value) | `esp32_freertos_task_delay_ticks(math_number(0))` | `vTaskDelay(1);` |
+| `esp32_freertos_task_suspend` | Statement | VAR(field_variable) | `esp32_freertos_task_suspend($TaskBlink)` | `vTaskSuspend(TaskBlinkHandle);` |
+| `esp32_freertos_task_resume` | Statement | VAR(field_variable) | `esp32_freertos_task_resume($TaskBlink)` | `vTaskResume(TaskBlinkHandle);` |
+| `esp32_freertos_task_delete` | Statement | VAR(field_variable) | `esp32_freertos_task_delete($TaskBlink)` | `vTaskDelete(TaskBlinkHandle); ↵ TaskBlinkHandle = NULL;` |
+| `esp32_freertos_task_delete_current` | Statement | (none) | `esp32_freertos_task_delete_current()` | `vTaskDelete(NULL);` |
+| `esp32_freertos_task_notify` | Statement | VAR(field_variable) | `esp32_freertos_task_notify($TaskBlink)` | `xTaskNotifyGive(TaskBlinkHandle);` |
+| `esp32_freertos_task_notify_from_isr` | Statement | VAR(field_variable) | `esp32_freertos_task_notify_from_isr($TaskBlink)` | `{ ↵ BaseType_t xHigherPriorityTaskWoken = pdFALSE; ↵ vTaskNotifyGiveFromISR(TaskBlinkHandle, &xHigherPriorityTaskWoken); ↵ if (xHigherPriorityTaskWoken == pdTRUE) { ↵ portYIELD_FROM_ISR(); ↵ } ↵ }` |
+| `esp32_freertos_task_wait_notification` | Value | WAIT_MODE(dropdown), WAIT_MS(input_value) | `esp32_freertos_task_wait_notification(MS, math_number(1000))` | `(ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(1)) > 0)` |
+| `esp32_freertos_queue_create` | Statement | VAR(field_input), QUEUE_LENGTH(field_number), DATA_TYPE(dropdown) | `esp32_freertos_queue_create("sensorQueue", 10, int)` | `sensorQueue = xQueueCreate(10, sizeof(int));` |
+| `esp32_freertos_queue_send` | Statement | VAR(field_variable), DATA(input_value), DATA_TYPE(dropdown), WAIT_MODE(dropdown), WAIT_MS(input_value) | `esp32_freertos_queue_send($sensorQueue, math_number(0), int, MS, math_number(1000))` | `{ ↵ int esp32FreeRTOSQueueItem_sensorQueue = 1; ↵ xQueueSend(sensorQueue, &esp32FreeRTOSQueueItem_sensorQueue, pdMS_TO_TICKS(1)); ↵ }` |
+| `esp32_freertos_queue_receive_do` | Statement | VAR(field_variable), DATA_TYPE(dropdown), ITEM_VAR(field_input), WAIT_MODE(dropdown), WAIT_MS(input_value), HANDLER(input_statement) | `esp32_freertos_queue_receive_do($sensorQueue, int, "queueValue", MS, math_number(1000))` | `{ ↵ int queueValue; ↵ if (xQueueReceive(sensorQueue, &queueValue, pdMS_TO_TICKS(1)) == pdPASS) { ↵ } ↵ }` |
+| `esp32_freertos_queue_messages_waiting` | Value | VAR(field_variable) | `esp32_freertos_queue_messages_waiting($sensorQueue)` | `uxQueueMessagesWaiting(sensorQueue)` |
+| `esp32_freertos_semaphore_create` | Statement | VAR(field_input), SEMAPHORE_TYPE(dropdown), MAX_COUNT(field_number), INITIAL_COUNT(field_number) | `esp32_freertos_semaphore_create("syncSem", BINARY, 10, 0)` | `syncSem = xSemaphoreCreateBinary();` |
+| `esp32_freertos_semaphore_take` | Value | VAR(field_variable), WAIT_MODE(dropdown), WAIT_MS(input_value) | `esp32_freertos_semaphore_take($syncSem, MS, math_number(1000))` | `(xSemaphoreTake(syncSem, pdMS_TO_TICKS(1)) == pdTRUE)` |
+| `esp32_freertos_semaphore_give` | Statement | VAR(field_variable) | `esp32_freertos_semaphore_give($syncSem)` | `xSemaphoreGive(syncSem);` |
+| `esp32_freertos_semaphore_give_from_isr` | Statement | VAR(field_variable) | `esp32_freertos_semaphore_give_from_isr($syncSem)` | `{ ↵ BaseType_t xHigherPriorityTaskWoken = pdFALSE; ↵ xSemaphoreGiveFromISR(syncSem, &xHigherPriorityTaskWoken); ↵ if (xHigherPriorityTaskWoken == pdTRUE) { ↵ portYIELD_FROM_ISR(); ↵ } ↵ }` |
+| `esp32_freertos_attach_interrupt` | Hat | PIN(field_number), MODE(dropdown), ISR_CODE(input_statement) | `esp32_freertos_attach_interrupt(2, LOW)` | `void esp32FreeRTOSInterruptPin_2() { ↵ } ↵ pinMode(2, INPUT_PULLUP); ↵ attachInterrupt(digitalPinToInterrupt(2), esp32FreeRTOSInterruptPin_2, LOW);` |
+| `esp32_freertos_get_tick_count` | Value | (none) | `esp32_freertos_get_tick_count()` | `xTaskGetTickCount()` |
+| `esp32_freertos_get_task_count` | Value | (none) | `esp32_freertos_get_task_count()` | `uxTaskGetNumberOfTasks()` |
+| `esp32_freertos_get_task_name` | Value | VAR(field_variable) | `esp32_freertos_get_task_name($TaskBlink)` | `pcTaskGetName(TaskBlinkHandle)` |
+| `esp32_freertos_get_current_task_name` | Value | (none) | `esp32_freertos_get_current_task_name()` | `pcTaskGetName(NULL)` |
+| `esp32_freertos_get_stack_high_water_mark` | Value | VAR(field_variable) | `esp32_freertos_get_stack_high_water_mark($TaskBlink)` | `uxTaskGetStackHighWaterMark(TaskBlinkHandle)` |
+| `esp32_freertos_get_current_stack_high_water_mark` | Value | (none) | `esp32_freertos_get_current_stack_high_water_mark()` | `uxTaskGetStackHighWaterMark(NULL)` |
+| `esp32_freertos_get_free_heap_size` | Value | (none) | `esp32_freertos_get_free_heap_size()` | `xPortGetFreeHeapSize()` |
+| `esp32_freertos_get_current_core` | Value | (none) | `esp32_freertos_get_current_core()` | `xPortGetCoreID()` |
 
 ## Parameter Options
 
@@ -64,6 +64,6 @@ arduino_loop()
 
 ## Notes
 
-1. **Variable**: `esp32_freertos_task_create("varName", ...)` creates variable `$varName`; reference it later with `variables_get($varName)`.
+1. **Variable**: `esp32_freertos_task_create("varName", ...)` creates variable `$varName`; pass `$varName` directly to `field_variable` slots; use `variables_get($varName)` only for `input_value` slots.
 2. **Parameter order**: ABS parameters follow `block.json` args order.
 3. **Input values**: use `math_number(n)`, `text("s")`, `logic_boolean(TRUE/FALSE)`, variables, or nested value blocks.

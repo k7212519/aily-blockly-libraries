@@ -1,0 +1,127 @@
+{
+  "toolbox_name": "شبكة ESP32 PPP الخلوية",
+  "esp32_ppp_set_apn": {
+    "message0": "إعدادات PPP APN %1 رمز PIN لبطاقة SIM %2",
+    "tooltip": "قم بتعيين APN الخلوي ورمز PIN الاختياري لبطاقة SIM."
+  },
+  "esp32_ppp_set_pins": {
+    "message0": "دبوس المنفذ التسلسلي PPP TX %1 RX %2 RTS %3 CTS %4",
+    "tooltip": "قم بتعيين UART للمودم ودبابيس التحكم في التدفق."
+  },
+  "esp32_ppp_set_reset": {
+    "message0": "دبوس إعادة تعيين PPP %1 نشط منخفض %2",
+    "tooltip": "يضبط دبوس إعادة ضبط جهاز المودم."
+  },
+  "esp32_ppp_begin": {
+    "message0": "بدء نموذج PPP %1 UART %2 معدل الباود %3",
+    "tooltip": "بدء تشغيل مودم PPP.",
+    "args0": [
+      {
+        "options": [
+          [
+            "عام",
+            "PPP_MODEM_GENERIC"
+          ],
+          [
+            "SIM7600",
+            "PPP_MODEM_SIM7600"
+          ],
+          [
+            "SIM7070",
+            "PPP_MODEM_SIM7070"
+          ],
+          [
+            "SIM7000",
+            "PPP_MODEM_SIM7000"
+          ],
+          [
+            "BG96",
+            "PPP_MODEM_BG96"
+          ],
+          [
+            "SIM800",
+            "PPP_MODEM_SIM800"
+          ]
+        ]
+      },
+      null,
+      null
+    ]
+  },
+  "esp32_ppp_end": {
+    "message0": "إيقاف الشراكة بين القطاعين العام والخاص",
+    "tooltip": "إيقاف اتصال بيانات PPP."
+  },
+  "esp32_ppp_attached": {
+    "message0": "تم توصيل شبكة خلوية PPP",
+    "tooltip": "تحقق مما إذا كان المودم متصلاً بالشبكة."
+  },
+  "esp32_ppp_sync": {
+    "message0": "اتصال PPP AT أمر طبيعي",
+    "tooltip": "تحقق مما إذا كان المودم يستجيب لـ AT."
+  },
+  "esp32_ppp_info_number": {
+    "message0": "معلومات قيمة تعادل القوة الشرائية %1",
+    "tooltip": "قراءة الحالة الرقمية للمودم.",
+    "args0": [
+      {
+        "options": [
+          [
+            "إشارة آر إس إس آي",
+            "RSSI"
+          ],
+          [
+            "معدل خطأ البت BER",
+            "BER"
+          ],
+          [
+            "وضع الشبكة",
+            "networkMode"
+          ],
+          [
+            "جهد البطارية",
+            "batteryVoltage"
+          ],
+          [
+            "طاقة البطارية",
+            "batteryLevel"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_info_text": {
+    "message0": "رسالة نصية PPP %1",
+    "tooltip": "قراءة هوية المودم أو نص الناقل.",
+    "args0": [
+      {
+        "options": [
+          [
+            "IMEI",
+            "IMEI"
+          ],
+          [
+            "IMSI",
+            "IMSI"
+          ],
+          [
+            "اسم الوحدة",
+            "moduleName"
+          ],
+          [
+            "المشغل",
+            "operatorName"
+          ]
+        ]
+      }
+    ]
+  },
+  "esp32_ppp_sms": {
+    "message0": "يرسل PPP رسالة نصية قصيرة إلى محتوى %1 %2",
+    "tooltip": "إرسال رسالة نصية قصيرة."
+  },
+  "esp32_ppp_at": {
+    "message0": "PPP عند الأمر %1 المهلة %2 مللي ثانية",
+    "tooltip": "إرسال أمر AT وإرجاع الرد النصي."
+  }
+}

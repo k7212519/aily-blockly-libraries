@@ -6,7 +6,8 @@
   "author": "lolren",
   "description": "nRF54L15 BLE低功耗蓝牙库，支持广播、连接、GATT服务、Nordic UART(NUS)和被动/主动扫描",
   "description_en": "nRF54L15 BLE library with advertising, connections, GATT services, Nordic UART Service (NUS), and passive/active scanning",
-  "version": "0.6.7",
+  "version": "0.6.81",
+  "spec": true,
   "compatibility": {
     "core": [
       "nrf54l15clean:nrf54l15clean"
@@ -33,5 +34,6 @@
     "Advertising",
     "Scanning",
     "XIAO"
-  ]
+  ],
+  "url": "https://github.com/lolren/nrf54-arduino-core"
 }

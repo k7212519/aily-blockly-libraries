@@ -7,9 +7,9 @@ Bluefruit-compatible BLE library for nrf54l15 with advertising, BLE UART, GATT s
 | Field | Value |
 |-------|-------|
 | Package | @aily-project/lib-bluefruit52lib |
-| Version | 0.6.48 |
+| Version | 0.6.81 |
 | Author | adafruit |
-| Source | N/A |
+| Source | https://github.com/lolren/nrf54-arduino-core |
 | License | Original license |
 
 ## Supported Boards

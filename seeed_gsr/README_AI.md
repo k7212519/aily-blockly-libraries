@@ -8,11 +8,11 @@ Grove Galvanic Skin Response Sensor Library for measuring emotional and physiolo
 
 ## Block Definitions
 
-| Block Type | Connection | Parameters (args0 order) | ABS Format | Generated Code |
+| Block Type | Connection | Parameters (block.json order) | ABS Format | Generated Code |
 |------------|------------|--------------------------|------------|----------------|
-| `grove_gsr_read_raw` | Value | PIN(dropdown) | `grove_gsr_read_raw(A0)` | analogRead( |
-| `grove_gsr_read_average` | Value | PIN(dropdown), SAMPLES(input_value) | `grove_gsr_read_average(A0, math_number(0))` | Dynamic code |
-| `grove_gsr_print_value` | Statement | PIN(dropdown) | `grove_gsr_print_value(A0)` | Serial.print( |
+| `grove_gsr_read_raw` | Value | PIN(dropdown) | `grove_gsr_read_raw(A0)` | `analogRead(A0)` |
+| `grove_gsr_read_average` | Value | PIN(dropdown), SAMPLES(input_value) | `grove_gsr_read_average(A0, math_number(0))` | `gsr_avg_0(1)` |
+| `grove_gsr_print_value` | Statement | PIN(dropdown) | `grove_gsr_print_value(A0)` | `Serial.print("GSR Value A0: "); ↵ Serial.println(analogRead(A0));` |
 
 ## Parameter Options
 

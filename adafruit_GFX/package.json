@@ -25,7 +25,7 @@
   "description_pt": "A biblioteca de drivers de exibição colorida baseada em Adafruit GFX oferece suporte a chips de driver comuns, como ST7735, ST7789 e ST7796S. Ele suporta uma variedade de monitores (como OLED, TFT, LCD, etc.), suporta desenho de texto, imagens e elementos gráficos (como linhas, círculos, retângulos, etc.), fontes e cores personalizadas e é compatível com várias bibliotecas de drivers de vídeo e possui interfaces ricas.",
   "description_ru": "Библиотека драйверов цветного дисплея, основанная на Adafruit GFX, поддерживает распространенные чипы драйверов, такие как ST7735, ST7789 и ST7796S. Он поддерживает различные дисплеи (например, OLED, TFT, LCD и т. д.), поддерживает рисование текста, изображений и графических элементов (таких как линии, круги, прямоугольники и т. д.), пользовательские шрифты и цвета, а также совместим с несколькими библиотеками драйверов дисплея и имеет богатые интерфейсы.",
   "description_ar": "تدعم مكتبة برامج تشغيل شاشة العرض الملونة المستندة إلى Adafruit GFX شرائح برامج التشغيل الشائعة مثل ST7735 وST7789 وST7796S. وهو يدعم مجموعة متنوعة من شاشات العرض (مثل OLED وTFT وLCD وما إلى ذلك)، ويدعم رسم النصوص والصور والعناصر الرسومية (مثل الخطوط والدوائر والمستطيلات وما إلى ذلك)، والخطوط والألوان المخصصة، وهو متوافق مع مكتبات برامج تشغيل العرض المتعددة ويحتوي على واجهات غنية.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": {
     "core": [],
     "voltage": [

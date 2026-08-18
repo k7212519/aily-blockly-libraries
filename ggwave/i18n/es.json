@@ -1,0 +1,120 @@
+{
+  "toolbox_name": "ggwave",
+  "ggwave_init": {
+    "message0": "inicializar ggwave %1 modo %2 frecuencia de muestreo %3 muestras/cuadro %4 longitud de carga útil %5",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "codificar y decodificar",
+            "GGWAVE_OPERATING_MODE_RX_AND_TX"
+          ],
+          [
+            "codificar solo",
+            "GGWAVE_OPERATING_MODE_TX"
+          ],
+          [
+            "solo decodificar",
+            "GGWAVE_OPERATING_MODE_RX"
+          ]
+        ]
+      },
+      null,
+      null,
+      null
+    ],
+    "tooltip": "Cree una instancia de códec de datos sobre sonido ggwave utilizando audio firmado de 16 bits."
+  },
+  "ggwave_encode": {
+    "message0": "ggwave %1 codificar texto %2 protocolo %3 volumen %4",
+    "args0": [
+      null,
+      null,
+      {
+        "options": [
+          [
+            "audible normal",
+            "GGWAVE_PROTOCOL_AUDIBLE_NORMAL"
+          ],
+          [
+            "audible rápido",
+            "GGWAVE_PROTOCOL_AUDIBLE_FAST"
+          ],
+          [
+            "audible más rápido",
+            "GGWAVE_PROTOCOL_AUDIBLE_FASTEST"
+          ],
+          [
+            "ultrasonido normal",
+            "GGWAVE_PROTOCOL_ULTRASOUND_NORMAL"
+          ],
+          [
+            "ultrasonido rápido",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FAST"
+          ],
+          [
+            "ultrasonido más rápido",
+            "GGWAVE_PROTOCOL_ULTRASOUND_FASTEST"
+          ],
+          [
+            "rápido de doble tono",
+            "GGWAVE_PROTOCOL_DT_FAST"
+          ],
+          [
+            "multitono rápido",
+            "GGWAVE_PROTOCOL_MT_FAST"
+          ]
+        ]
+      },
+      null
+    ],
+    "tooltip": "Codifique texto en el búfer de forma de onda administrado."
+  },
+  "ggwave_waveform": {
+    "message0": "ggwave %1 codificado %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "puntero del buffer de forma de onda",
+            "waveform"
+          ],
+          [
+            "bytes de forma de onda",
+            "bytes"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Acceda a la última forma de onda codificada y su longitud en bytes."
+  },
+  "ggwave_decode": {
+    "message0": "ggwave %1 decodifica el búfer de audio %2 bytes %3",
+    "tooltip": "Transmita muestras de audio de 16 bits firmadas capturadas y devuelva el recuento de bytes decodificados."
+  },
+  "ggwave_decoded": {
+    "message0": "ggwave %1 decodificado %2",
+    "args0": [
+      null,
+      {
+        "options": [
+          [
+            "texto",
+            "text"
+          ],
+          [
+            "recuento de bytes",
+            "length"
+          ]
+        ]
+      }
+    ],
+    "tooltip": "Lea la carga útil decodificada más recientemente."
+  },
+  "ggwave_free": {
+    "message0": "lanzamiento ggwave %1",
+    "tooltip": "Libera códec y memoria de forma de onda."
+  }
+}

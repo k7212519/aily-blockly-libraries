@@ -7,7 +7,7 @@ The color display driver library based on Adafruit GFX supports common driver ch
 | Field | Value |
 |-------|-------|
 | Package | @aily-project/lib-adafruit-gfx |
-| Version | 1.0.2 |
+| Version | 1.0.3 |
 | Author | Vonweller |
 | Source | N/A |
 | License | Original license |
