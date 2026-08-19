@@ -1,0 +1,10 @@
+{
+  "toolbox_name": "芯云NES模拟器",
+  "toolbox_labels": {
+    "初始化": "初始化",
+    "ROM导入": "ROM导入",
+    "游戏列表与启动": "游戏列表与启动"
+  },
+  "cycore_nes_embed_rom": {"message0": "预置NES游戏 %1"},
+  "cycore_nes_wifi_upload": {"message0": "开启WiFi ROM上传 热点 %1 密码 %2 等待 %3 秒"}
+}

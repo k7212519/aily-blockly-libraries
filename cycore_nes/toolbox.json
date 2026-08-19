@@ -1,0 +1,79 @@
+{
+  "kind": "category",
+  "name": "芯云NES模拟器",
+  "icon": "fa-solid fa-gamepad",
+  "colour": "#D6295E",
+  "contents": [
+    {"kind": "label", "text": "初始化", "colour": "#D6295E"},
+    {"kind": "block", "type": "cycore_nes_flash_begin"},
+    {
+      "kind": "block",
+      "type": "cycore_nes_display_begin",
+      "fields": {"SIZE": "240X240", "FREQUENCY": "32000000"},
+      "inputs": {
+        "SCK": {"shadow": {"type": "math_number", "fields": {"NUM": 12}}},
+        "MOSI": {"shadow": {"type": "math_number", "fields": {"NUM": 11}}},
+        "RST": {"shadow": {"type": "math_number", "fields": {"NUM": 17}}},
+        "DC": {"shadow": {"type": "math_number", "fields": {"NUM": 18}}},
+        "CS": {"shadow": {"type": "math_number", "fields": {"NUM": 10}}},
+        "BL": {"shadow": {"type": "math_number", "fields": {"NUM": 21}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_nes_buttons",
+      "inputs": {
+        "UP": {"shadow": {"type": "math_number", "fields": {"NUM": 1}}},
+        "DOWN": {"shadow": {"type": "math_number", "fields": {"NUM": 2}}},
+        "LEFT": {"shadow": {"type": "math_number", "fields": {"NUM": 4}}},
+        "RIGHT": {"shadow": {"type": "math_number", "fields": {"NUM": 5}}},
+        "A": {"shadow": {"type": "math_number", "fields": {"NUM": 6}}},
+        "B": {"shadow": {"type": "math_number", "fields": {"NUM": 7}}}
+      }
+    },
+    {
+      "kind": "block",
+      "type": "cycore_nes_audio",
+      "inputs": {
+        "BCK": {"shadow": {"type": "math_number", "fields": {"NUM": 38}}},
+        "WS": {"shadow": {"type": "math_number", "fields": {"NUM": 39}}},
+        "DOUT": {"shadow": {"type": "math_number", "fields": {"NUM": 40}}}
+      }
+    },
+    {"kind": "sep", "gap": 24},
+    {"kind": "label", "text": "ROM导入", "colour": "#E65A2F"},
+    {"kind": "block", "type": "cycore_nes_embed_rom"},
+    {
+      "kind": "block",
+      "type": "cycore_nes_wifi_upload",
+      "fields": {"SSID": "Cycore-NES", "PASSWORD": "12345678", "TIMEOUT": 0}
+    },
+    {"kind": "sep", "gap": 24},
+    {"kind": "label", "text": "游戏列表与启动", "colour": "#6F4CC3"},
+    {"kind": "block", "type": "cycore_nes_refresh"},
+    {"kind": "block", "type": "cycore_nes_game_count"},
+    {
+      "kind": "block",
+      "type": "cycore_nes_game_name",
+      "inputs": {"INDEX": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}}
+    },
+    {
+      "kind": "block",
+      "type": "cycore_nes_game_path",
+      "inputs": {"INDEX": {"shadow": {"type": "math_number", "fields": {"NUM": 0}}}}
+    },
+    {"kind": "block", "type": "cycore_nes_browser"},
+    {
+      "kind": "block",
+      "type": "cycore_nes_start",
+      "inputs": {"PATH": {"shadow": {"type": "text", "fields": {"TEXT": "/nes/game.nes"}}}}
+    },
+    {
+      "kind": "block",
+      "type": "cycore_nes_delete",
+      "inputs": {"PATH": {"shadow": {"type": "text", "fields": {"TEXT": "/nes/game.nes"}}}}
+    },
+    {"kind": "block", "type": "cycore_nes_flash_info"},
+    {"kind": "block", "type": "cycore_nes_last_error"}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "toolbox_name": "芯雲NES模擬器",
+  "toolbox_labels": {
+    "初始化": "初始化",
+    "ROM导入": "ROM匯入",
+    "游戏列表与启动": "遊戲列表與啟動"
+  },
+  "cycore_nes_flash_begin": {"message0": "初始化NES Flash儲存 掛載失敗時 %1"},
+  "cycore_nes_display_begin": {"message0": "初始化NES顯示屏 %1 SPI頻率 %2 MHz", "message1": "SCK %1 MOSI %2 RST %3 DC %4 CS %5 BL %6"},
+  "cycore_nes_buttons": {"message0": "設定NES按鍵 上 %1 下 %2 左 %3 右 %4 A %5 B %6"},
+  "cycore_nes_audio": {"message0": "設定NES I2S音訊 BCK %1 WS %2 DOUT %3"},
+  "cycore_nes_embed_rom": {"message0": "預置NES遊戲 %1"},
+  "cycore_nes_wifi_upload": {"message0": "開啟WiFi ROM上傳 熱點 %1 密碼 %2 等待 %3 秒"},
+  "cycore_nes_refresh": {"message0": "刷新Flash中的NES遊戲列表"},
+  "cycore_nes_game_count": {"message0": "Flash中的NES遊戲數量"},
+  "cycore_nes_game_name": {"message0": "第 %1 個NES遊戲名稱"},
+  "cycore_nes_game_path": {"message0": "第 %1 個NES遊戲路徑"},
+  "cycore_nes_browser": {"message0": "開啟Flash NES遊戲選擇列表"},
+  "cycore_nes_start": {"message0": "從Flash啟動NES遊戲 %1"},
+  "cycore_nes_delete": {"message0": "刪除Flash中的NES遊戲 %1"},
+  "cycore_nes_flash_info": {"message0": "NES Flash %1 位元組數"},
+  "cycore_nes_last_error": {"message0": "NES最後錯誤資訊"}
+}

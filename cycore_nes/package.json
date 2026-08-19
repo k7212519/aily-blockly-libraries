@@ -1,0 +1,63 @@
+{
+  "name": "@aily-project/lib-cycore-nes",
+  "nickname": "芯云NES模拟器",
+  "nickname_zh_cn": "芯云NES模拟器",
+  "nickname_en": "Cycore NES Emulator",
+  "nickname_zh_hk": "芯雲NES模擬器",
+  "author": "Cycore; Nofrendo contributors",
+  "description": "面向Wifiduino 32S3的NES模拟器，支持把.nes预置进APP并自动复制到FFat，也支持WiFi网页上传ROM。",
+  "description_zh_cn": "面向Wifiduino 32S3的NES模拟器，支持把.nes预置进APP并自动复制到FFat，也支持WiFi网页上传ROM。",
+  "description_en": "NES emulator for Wifiduino 32S3 with compile-time embedded ROM installation and WiFi web upload to FFat.",
+  "version": "0.3.0",
+  "license": "LGPL-2.0-or-later",
+  "compatibility": {
+    "core": [
+      "esp32:esp32:wifiduino32s3"
+    ],
+    "voltage": [
+      3.3
+    ]
+  },
+  "keywords": [
+    "cycore",
+    "esp32-s3",
+    "nes",
+    "nofrendo",
+    "emulator",
+    "ffat",
+    "fatfs",
+    "flash",
+    "embedded-rom",
+    "wifi-upload",
+    "st7789"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@aily-project/lib-adafruit-gfx": "1.0.3"
+  },
+  "devDependencies": {},
+  "tested": false,
+  "tester": "",
+  "url": "https://github.com/moononournation/arduino-nofrendo",
+  "tags": [
+    "game",
+    "display",
+    "storage"
+  ],
+  "bundledSources": [
+    {
+      "name": "Nofrendo",
+      "version": "Cycore ESP32-S3 port",
+      "author": "Matthew Conte and contributors",
+      "url": "https://github.com/moononournation/arduino-nofrendo",
+      "license": "LGPL-2.0-or-later",
+      "path": "src/nofrendo.h",
+      "reason": "Bundles the emulator core and Cycore-specific FFat, ST7789, controller, save-state, and audio adapters."
+    }
+  ],
+  "platformPrerequisites": [
+    "Wifiduino 32S3 with 16 MB Flash and PSRAM",
+    "Default app3M_fat9M_16MB partition scheme (3 MB APP + 9.9 MB FATFS)",
+    "ST7789 SPI display and six active-low buttons"
+  ]
+}

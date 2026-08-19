@@ -1,0 +1,173 @@
+[
+  {
+    "type": "cycore_nes_flash_begin",
+    "message0": "初始化NES Flash存储 挂载失败时 %1",
+    "args0": [
+      {"type": "field_dropdown", "name": "FORMAT", "options": [["自动格式化", "TRUE"], ["不格式化", "FALSE"]]}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D6295E",
+    "icon": "fa-solid fa-gamepad",
+    "tooltip": "挂载Cycore默认3MB APP + 9.9MB FATFS分区，并创建/nes和存档目录"
+  },
+  {
+    "type": "cycore_nes_display_begin",
+    "message0": "初始化NES显示屏 %1 SPI频率 %2 MHz",
+    "args0": [
+      {"type": "field_dropdown", "name": "SIZE", "options": [["240×240", "240X240"], ["240×320横屏", "240X320_LANDSCAPE"]]},
+      {"type": "field_dropdown", "name": "FREQUENCY", "options": [["20", "20000000"], ["32", "32000000"], ["40", "40000000"]]}
+    ],
+    "message1": "SCK %1 MOSI %2 RST %3 DC %4 CS %5 BL %6",
+    "args1": [
+      {"type": "input_value", "name": "SCK", "check": "Number"},
+      {"type": "input_value", "name": "MOSI", "check": "Number"},
+      {"type": "input_value", "name": "RST", "check": "Number"},
+      {"type": "input_value", "name": "DC", "check": "Number"},
+      {"type": "input_value", "name": "CS", "check": "Number"},
+      {"type": "input_value", "name": "BL", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D6295E",
+    "icon": "fa-solid fa-tv",
+    "tooltip": "初始化ST7789显示屏。默认接线与芯云显示屏库一致"
+  },
+  {
+    "type": "cycore_nes_buttons",
+    "message0": "设置NES按键 上 %1 下 %2 左 %3 右 %4 A %5 B %6",
+    "args0": [
+      {"type": "input_value", "name": "UP", "check": "Number"},
+      {"type": "input_value", "name": "DOWN", "check": "Number"},
+      {"type": "input_value", "name": "LEFT", "check": "Number"},
+      {"type": "input_value", "name": "RIGHT", "check": "Number"},
+      {"type": "input_value", "name": "A", "check": "Number"},
+      {"type": "input_value", "name": "B", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D6295E",
+    "icon": "fa-solid fa-gamepad",
+    "tooltip": "设置六个低电平有效、内部上拉的游戏按键。A+B打开游戏内菜单"
+  },
+  {
+    "type": "cycore_nes_audio",
+    "message0": "设置NES I2S音频 BCK %1 WS %2 DOUT %3",
+    "args0": [
+      {"type": "input_value", "name": "BCK", "check": "Number"},
+      {"type": "input_value", "name": "WS", "check": "Number"},
+      {"type": "input_value", "name": "DOUT", "check": "Number"}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D6295E",
+    "icon": "fa-solid fa-volume-high",
+    "tooltip": "设置MAX98357A等I2S功放的输出引脚"
+  },
+  {
+    "type": "cycore_nes_embed_rom",
+    "message0": "预置NES游戏 %1",
+    "args0": [
+      {"type": "field_nes_rom", "name": "ROM", "maxBytes": 1835008}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E65A2F",
+    "icon": "fa-solid fa-file-arrow-up",
+    "tooltip": "选择本地.nes并编译进APP；程序运行时自动校验并复制到FFat。相同文件不会重复写入"
+  },
+  {
+    "type": "cycore_nes_wifi_upload",
+    "message0": "开启WiFi ROM上传 热点 %1 密码 %2 等待 %3 秒",
+    "args0": [
+      {"type": "field_input", "name": "SSID", "text": "Cycore-NES"},
+      {"type": "field_input", "name": "PASSWORD", "text": "12345678"},
+      {"type": "field_number", "name": "TIMEOUT", "value": 0, "min": 0, "max": 3600, "precision": 1}
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#E65A2F",
+    "icon": "fa-solid fa-wifi",
+    "tooltip": "建立热点并打开ROM上传网页；等待0秒表示一直等待，网页点击完成后继续执行"
+  },
+  {
+    "type": "cycore_nes_refresh",
+    "message0": "刷新Flash中的NES游戏列表",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#6F4CC3",
+    "icon": "fa-solid fa-rotate",
+    "tooltip": "重新扫描/nes目录中的.nes游戏"
+  },
+  {
+    "type": "cycore_nes_game_count",
+    "message0": "Flash中的NES游戏数量",
+    "output": "Number",
+    "colour": "#6F4CC3",
+    "icon": "fa-solid fa-list",
+    "tooltip": "返回当前游戏列表数量"
+  },
+  {
+    "type": "cycore_nes_game_name",
+    "message0": "第 %1 个NES游戏名称",
+    "args0": [{"type": "input_value", "name": "INDEX", "check": "Number"}],
+    "output": "String",
+    "colour": "#6F4CC3",
+    "icon": "fa-solid fa-list",
+    "tooltip": "按从0开始的序号返回文件名，越界返回空文本"
+  },
+  {
+    "type": "cycore_nes_game_path",
+    "message0": "第 %1 个NES游戏路径",
+    "args0": [{"type": "input_value", "name": "INDEX", "check": "Number"}],
+    "output": "String",
+    "colour": "#6F4CC3",
+    "icon": "fa-solid fa-list",
+    "tooltip": "按从0开始的序号返回Flash完整路径，越界返回空文本"
+  },
+  {
+    "type": "cycore_nes_browser",
+    "message0": "打开Flash NES游戏选择列表",
+    "output": "String",
+    "colour": "#6F4CC3",
+    "icon": "fa-solid fa-gamepad",
+    "tooltip": "在ST7789上显示游戏列表；方向键选择，A确认，B返回，并输出选择的路径"
+  },
+  {
+    "type": "cycore_nes_start",
+    "message0": "从Flash启动NES游戏 %1",
+    "args0": [{"type": "input_value", "name": "PATH", "check": "String"}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D6295E",
+    "icon": "fa-solid fa-play",
+    "tooltip": "把FFat中的ROM加载到PSRAM并启动模拟器。游戏内按A+B打开保存、读取或退出菜单"
+  },
+  {
+    "type": "cycore_nes_delete",
+    "message0": "删除Flash中的NES游戏 %1",
+    "args0": [{"type": "input_value", "name": "PATH", "check": "String"}],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#A63D55",
+    "icon": "fa-solid fa-trash",
+    "tooltip": "删除/nes目录中的指定.nes文件并刷新列表"
+  },
+  {
+    "type": "cycore_nes_flash_info",
+    "message0": "NES Flash %1 字节数",
+    "args0": [{"type": "field_dropdown", "name": "INFO", "options": [["总容量", "TOTAL"], ["已使用", "USED"], ["剩余", "FREE"]]}],
+    "output": "Number",
+    "colour": "#6F4CC3",
+    "icon": "fa-solid fa-hard-drive",
+    "tooltip": "返回默认9.9MB FFat分区的总、已使用或剩余字节数"
+  },
+  {
+    "type": "cycore_nes_last_error",
+    "message0": "NES最后错误信息",
+    "output": "String",
+    "colour": "#A63D55",
+    "icon": "fa-solid fa-circle-exclamation",
+    "tooltip": "返回最近一次初始化、预置ROM、WiFi上传、文件或启动失败的原因"
+  }
+]

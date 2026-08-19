@@ -1,0 +1,23 @@
+{
+  "toolbox_name": "Cycore NES Emulator",
+  "toolbox_labels": {
+    "初始化": "Setup",
+    "ROM导入": "ROM import",
+    "游戏列表与启动": "Game list and launch"
+  },
+  "cycore_nes_flash_begin": {"message0": "initialize NES Flash storage; on mount failure %1"},
+  "cycore_nes_display_begin": {"message0": "initialize NES display %1 at %2 MHz", "message1": "SCK %1 MOSI %2 RST %3 DC %4 CS %5 BL %6"},
+  "cycore_nes_buttons": {"message0": "set NES buttons Up %1 Down %2 Left %3 Right %4 A %5 B %6"},
+  "cycore_nes_audio": {"message0": "set NES I2S audio BCK %1 WS %2 DOUT %3"},
+  "cycore_nes_embed_rom": {"message0": "install preset NES game %1"},
+  "cycore_nes_wifi_upload": {"message0": "start WiFi ROM upload; hotspot %1 password %2 wait %3 seconds"},
+  "cycore_nes_refresh": {"message0": "refresh NES games in Flash"},
+  "cycore_nes_game_count": {"message0": "NES game count in Flash"},
+  "cycore_nes_game_name": {"message0": "NES game %1 name"},
+  "cycore_nes_game_path": {"message0": "NES game %1 path"},
+  "cycore_nes_browser": {"message0": "open Flash NES game browser"},
+  "cycore_nes_start": {"message0": "start NES game from Flash %1"},
+  "cycore_nes_delete": {"message0": "delete NES game from Flash %1"},
+  "cycore_nes_flash_info": {"message0": "NES Flash %1 bytes"},
+  "cycore_nes_last_error": {"message0": "NES last error"}
+}
